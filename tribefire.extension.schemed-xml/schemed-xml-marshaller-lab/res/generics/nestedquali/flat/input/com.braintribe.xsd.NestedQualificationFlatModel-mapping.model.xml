@@ -1,0 +1,3104 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?gm-xml version="4"?>
+<gm-data>
+ <required-types>
+  <t alias='EntityTypeMappingMetaData^CcBfmM' num='9'>com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData</t>
+  <t alias='GmBaseType^DCPPPt' num='1'>com.braintribe.model.meta.GmBaseType</t>
+  <t alias='GmBooleanType^B3tG20' num='1'>com.braintribe.model.meta.GmBooleanType</t>
+  <t alias='GmDateType^CKnYLc' num='1'>com.braintribe.model.meta.GmDateType</t>
+  <t alias='GmDecimalType^DwwOgf' num='1'>com.braintribe.model.meta.GmDecimalType</t>
+  <t alias='GmDoubleType^BtiOZl' num='1'>com.braintribe.model.meta.GmDoubleType</t>
+  <t alias='GmEntityTypeOverride^C871v1' num='9'>com.braintribe.model.meta.override.GmEntityTypeOverride</t>
+  <t alias='GmEntityType^Tp8GD' num='75'>com.braintribe.model.meta.GmEntityType</t>
+  <t alias='GmEnumConstant^CtC3iN' num='14'>com.braintribe.model.meta.GmEnumConstant</t>
+  <t alias='GmEnumType^BDutb1' num='1'>com.braintribe.model.meta.GmEnumType</t>
+  <t alias='GmFloatType^DPTyK6' num='1'>com.braintribe.model.meta.GmFloatType</t>
+  <t alias='GmIntegerType^BXxJI6' num='1'>com.braintribe.model.meta.GmIntegerType</t>
+  <t alias='GmListType^hVk9A' num='9'>com.braintribe.model.meta.GmListType</t>
+  <t alias='GmLongType^C5Xpv$' num='1'>com.braintribe.model.meta.GmLongType</t>
+  <t alias='GmMapType^C3lFGm' num='4'>com.braintribe.model.meta.GmMapType</t>
+  <t alias='GmMetaModel^CrPBt6' num='8'>com.braintribe.model.meta.GmMetaModel</t>
+  <t alias='GmPropertyOverride^CbJKwb' num='41'>com.braintribe.model.meta.override.GmPropertyOverride</t>
+  <t alias='GmProperty^rFB0p' num='104'>com.braintribe.model.meta.GmProperty</t>
+  <t alias='GmSetType^DXjY14' num='3'>com.braintribe.model.meta.GmSetType</t>
+  <t alias='GmStringType^DB6ZEB' num='1'>com.braintribe.model.meta.GmStringType</t>
+  <t alias='GmTypeRestriction^BPn7b2' num='4'>com.braintribe.model.meta.restriction.GmTypeRestriction</t>
+  <t alias='LocalizedString^B17JqA' num='15'>com.braintribe.model.generic.i18n.LocalizedString</t>
+  <t alias='Mandatory^0O12o' num='5'>com.braintribe.model.meta.data.constraint.Mandatory</t>
+  <t alias='ModelMappingMetaData^BXbnR$' num='1'>com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData</t>
+  <t alias='Namespace^DaAqP5' num='2'>com.braintribe.model.schemedXml.metadata.mapping.Namespace</t>
+  <t alias='PropertyMappingMetaData^BrNjfm' num='10'>com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData</t>
+  <t alias='SelectiveInformation^7V@nu' num='15'>com.braintribe.model.meta.data.display.SelectiveInformation</t>
+  <t alias='Singleton^CESDyD' num='2'>com.braintribe.model.meta.data.prompt.Singleton</t>
+  <t alias='TypeSpecification^CNjHua' num='3'>com.braintribe.model.meta.data.constraint.TypeSpecification</t>
+  <t alias='Unique^r4oR2' num='3'>com.braintribe.model.meta.data.constraint.Unique</t>
+ </required-types>
+ <root-value>
+  <r>GmMetaModel^CrPBt6-0</r>
+ </root-value>
+ <pool>
+  <E id='GmMetaModel^CrPBt6-0'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+    <r>GmMetaModel^CrPBt6-2</r>
+    <r>GmMetaModel^CrPBt6-3</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.xsd:NestedQualificationFlatModel-mapping</s>
+   <S p='metaData'>
+    <r>ModelMappingMetaData^BXbnR$-0</r>
+   </S>
+   <s p='name'>com.braintribe.xsd:NestedQualificationFlatModel-mapping</s>
+   <S p='typeOverrides'>
+    <r>GmEntityTypeOverride^C871v1-0</r>
+    <r>GmEntityTypeOverride^C871v1-1</r>
+    <r>GmEntityTypeOverride^C871v1-2</r>
+    <r>GmEntityTypeOverride^C871v1-3</r>
+    <r>GmEntityTypeOverride^C871v1-4</r>
+    <r>GmEntityTypeOverride^C871v1-5</r>
+    <r>GmEntityTypeOverride^C871v1-6</r>
+    <r>GmEntityTypeOverride^C871v1-7</r>
+    <r>GmEntityTypeOverride^C871v1-8</r>
+   </S>
+   <s p='version'>1.0</s>
+  </E>
+  <E id='GmMetaModel^CrPBt6-1'>
+   <s p='globalId'>model:com.braintribe.gm:root-model</s>
+   <s p='name'>com.braintribe.gm:root-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-0</r>
+    <r>GmBooleanType^B3tG20-0</r>
+    <r>GmStringType^DB6ZEB-0</r>
+    <r>GmEntityType^Tp8GD-1</r>
+    <r>GmEntityType^Tp8GD-2</r>
+    <r>GmBaseType^DCPPPt-0</r>
+    <r>GmDoubleType^BtiOZl-0</r>
+    <r>GmEntityType^Tp8GD-3</r>
+    <r>GmIntegerType^BXxJI6-0</r>
+    <r>GmLongType^C5Xpv$-0</r>
+    <r>GmDateType^CKnYLc-0</r>
+    <r>GmDecimalType^DwwOgf-0</r>
+    <r>GmFloatType^DPTyK6-0</r>
+   </S>
+   <s p='version'>1.0.10</s>
+  </E>
+  <E id='GmMetaModel^CrPBt6-2'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.xsd:NestedQualificationFlatModel</s>
+   <s p='name'>com.braintribe.xsd:NestedQualificationFlatModel</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-4</r>
+    <r>GmEntityType^Tp8GD-5</r>
+    <r>GmEntityType^Tp8GD-6</r>
+    <r>GmEntityType^Tp8GD-7</r>
+    <r>GmEntityType^Tp8GD-8</r>
+    <r>GmEntityType^Tp8GD-9</r>
+    <r>GmEntityType^Tp8GD-a</r>
+    <r>GmEntityType^Tp8GD-b</r>
+    <r>GmListType^hVk9A-0</r>
+    <r>GmEntityType^Tp8GD-c</r>
+   </S>
+   <s p='version'>1.0</s>
+  </E>
+  <E id='GmMetaModel^CrPBt6-3'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+    <r>GmMetaModel^CrPBt6-4</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.gm.schemedxml:schemed-xml-xsd-mapping-model</s>
+   <s p='name'>com.braintribe.gm.schemedxml:schemed-xml-xsd-mapping-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-d</r>
+    <r>GmEntityType^Tp8GD-e</r>
+    <r>GmEntityType^Tp8GD-f</r>
+    <r>GmEntityType^Tp8GD-10</r>
+    <r>GmEntityType^Tp8GD-11</r>
+    <r>GmEntityType^Tp8GD-12</r>
+    <r>GmEntityType^Tp8GD-13</r>
+    <r>GmEntityType^Tp8GD-14</r>
+   </S>
+   <s p='version'>1.0.2-pc</s>
+  </E>
+  <E id='ModelMappingMetaData^BXbnR$-0'>
+   <b p='attributeFormIsQualified'>false</b>
+   <b p='elementFormIsQualified'>true</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <M p='mainTypeMap'>
+    <m><s>m:root</s><r>GmEntityType^Tp8GD-a</r></m>
+   </M>
+   <M p='mappingMetaDataMap'>
+    <m><s>com.braintribe.nested.quali.xml.NCName</s><r>EntityTypeMappingMetaData^CcBfmM-0</r></m>
+    <m><s>com.braintribe.nested.quali.xml.TOKEN</s><r>EntityTypeMappingMetaData^CcBfmM-1</r></m>
+    <m><s>com.braintribe.nested.quali.imported._Root</s><r>EntityTypeMappingMetaData^CcBfmM-2</r></m>
+    <m><s>com.braintribe.nested.quali.xml.normalizedString</s><r>EntityTypeMappingMetaData^CcBfmM-3</r></m>
+    <m><s>com.braintribe.nested.quali.xml.ID</s><r>EntityTypeMappingMetaData^CcBfmM-4</r></m>
+    <m><s>com.braintribe.nested.quali.Root</s><r>EntityTypeMappingMetaData^CcBfmM-5</r></m>
+    <m><s>com.braintribe.nested.quali.xml.language</s><r>EntityTypeMappingMetaData^CcBfmM-6</r></m>
+    <m><s>com.braintribe.nested.quali.xml.NMTOKEN</s><r>EntityTypeMappingMetaData^CcBfmM-7</r></m>
+    <m><s>com.braintribe.nested.quali.xml.IDREF</s><r>EntityTypeMappingMetaData^CcBfmM-8</r></m>
+   </M>
+   <r p='model'>GmMetaModel^CrPBt6-0</r>
+   <M p='namespaces'>
+    <m><s>import</s><r>Namespace^DaAqP5-0</r></m>
+    <m><s>main</s><r>Namespace^DaAqP5-1</r></m>
+   </M>
+   <s p='targetNamespace'>main</s>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-7</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.IDREF</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-8</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-0</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-1'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-6</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.ID</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-4</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-1</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-2'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-4</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.imported._Root</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-2</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-2</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-3'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-9</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.TOKEN</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-1</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-3</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-4'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-5</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.normalizedString</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-3</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-4</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-5'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-b</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.language</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-6</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-5</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-6'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-a</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.Root</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-5</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-6</r>
+    <r>GmPropertyOverride^CbJKwb-7</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-7'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-8</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.NCName</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-0</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-8</r>
+   </L>
+  </E>
+  <E id='GmEntityTypeOverride^C871v1-8'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-0</r>
+   <r p='entityType'>GmEntityType^Tp8GD-c</r>
+   <s p='globalId'>typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.NMTOKEN</s>
+   <S p='metaData'>
+    <r>EntityTypeMappingMetaData^CcBfmM-7</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-9</r>
+   </L>
+  </E>
+  <E id='GmEntityType^Tp8GD-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:com.braintribe.model.generic.StandardStringIdentifiable</s>
+   <b p='isAbstract'>true</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-a</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.generic.StandardStringIdentifiable</s>
+  </E>
+  <E id='GmBooleanType^B3tG20-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:boolean</s>
+   <s p='typeSignature'>boolean</s>
+  </E>
+  <E id='GmStringType^DB6ZEB-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:string</s>
+   <s p='typeSignature'>string</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:com.braintribe.model.generic.StandardIntegerIdentifiable</s>
+   <b p='isAbstract'>true</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-b</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.generic.StandardIntegerIdentifiable</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:com.braintribe.model.generic.GenericEntity</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-0</r>
+    <r>GmProperty^rFB0p-1</r>
+    <r>GmProperty^rFB0p-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.generic.GenericEntity</s>
+  </E>
+  <E id='GmBaseType^DCPPPt-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:object</s>
+   <s p='typeSignature'>object</s>
+  </E>
+  <E id='GmDoubleType^BtiOZl-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:double</s>
+   <s p='typeSignature'>double</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:com.braintribe.model.generic.StandardIdentifiable</s>
+   <b p='isAbstract'>true</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-c</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.generic.StandardIdentifiable</s>
+  </E>
+  <E id='GmIntegerType^BXxJI6-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:integer</s>
+   <s p='typeSignature'>integer</s>
+  </E>
+  <E id='GmLongType^C5Xpv$-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:long</s>
+   <s p='typeSignature'>long</s>
+  </E>
+  <E id='GmDateType^CKnYLc-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:date</s>
+   <s p='typeSignature'>date</s>
+  </E>
+  <E id='GmDecimalType^DwwOgf-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:decimal</s>
+   <s p='typeSignature'>decimal</s>
+  </E>
+  <E id='GmFloatType^DPTyK6-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-1</r>
+   <s p='globalId'>type:float</s>
+   <s p='typeSignature'>float</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-4'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.imported._Root</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-3</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.imported._Root</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-5'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.normalizedString</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-4</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.normalizedString</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-6'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.ID</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-5</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.ID</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-7'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.IDREF</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-6</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.IDREF</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-8'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.NCName</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-7</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.NCName</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-9'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.TOKEN</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-8</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.TOKEN</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-a'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.Root</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-9</r>
+    <r>GmProperty^rFB0p-a</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.Root</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-b'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.language</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-b</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.language</s>
+  </E>
+  <E id='GmListType^hVk9A-0'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <r p='elementType'>GmStringType^DB6ZEB-0</r>
+   <s p='globalId'>type:list&lt;string&gt;</s>
+   <s p='typeSignature'>list&lt;string&gt;</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-c'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-2</r>
+   <s p='globalId'>type:com.braintribe.nested.quali.xml.NMTOKEN</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-c</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.nested.quali.xml.NMTOKEN</s>
+  </E>
+  <E id='GmMetaModel^CrPBt6-4'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+    <r>GmMetaModel^CrPBt6-5</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.gm:meta-model</s>
+   <s p='name'>com.braintribe.gm:meta-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-15</r>
+    <r>GmEntityType^Tp8GD-16</r>
+    <r>GmEntityType^Tp8GD-17</r>
+    <r>GmEntityType^Tp8GD-18</r>
+    <r>GmEntityType^Tp8GD-19</r>
+    <r>GmEntityType^Tp8GD-1a</r>
+    <r>GmEntityType^Tp8GD-1b</r>
+    <r>GmEntityType^Tp8GD-1c</r>
+    <r>GmEntityType^Tp8GD-1d</r>
+    <r>GmEntityType^Tp8GD-1e</r>
+    <r>GmEntityType^Tp8GD-1f</r>
+    <r>GmEntityType^Tp8GD-20</r>
+    <r>GmEntityType^Tp8GD-21</r>
+    <r>GmEnumType^BDutb1-0</r>
+    <r>GmEntityType^Tp8GD-22</r>
+    <r>GmEntityType^Tp8GD-23</r>
+    <r>GmEntityType^Tp8GD-24</r>
+    <r>GmEntityType^Tp8GD-25</r>
+    <r>GmEntityType^Tp8GD-26</r>
+    <r>GmEntityType^Tp8GD-27</r>
+    <r>GmEntityType^Tp8GD-28</r>
+    <r>GmEntityType^Tp8GD-29</r>
+    <r>GmEntityType^Tp8GD-2a</r>
+    <r>GmEntityType^Tp8GD-2b</r>
+    <r>GmEntityType^Tp8GD-2c</r>
+    <r>GmEntityType^Tp8GD-2d</r>
+    <r>GmEntityType^Tp8GD-2e</r>
+    <r>GmEntityType^Tp8GD-2f</r>
+    <r>GmEntityType^Tp8GD-30</r>
+    <r>GmEntityType^Tp8GD-31</r>
+    <r>GmEntityType^Tp8GD-32</r>
+    <r>GmEntityType^Tp8GD-33</r>
+    <r>GmEntityType^Tp8GD-34</r>
+    <r>GmEntityType^Tp8GD-35</r>
+    <r>GmEntityType^Tp8GD-36</r>
+    <r>GmEntityType^Tp8GD-37</r>
+    <r>GmEntityType^Tp8GD-38</r>
+    <r>GmEntityType^Tp8GD-39</r>
+    <r>GmEntityType^Tp8GD-3a</r>
+    <r>GmEntityType^Tp8GD-3b</r>
+    <r>GmEntityType^Tp8GD-3c</r>
+    <r>GmEntityType^Tp8GD-3d</r>
+    <r>GmEntityType^Tp8GD-3e</r>
+    <r>GmEntityType^Tp8GD-3f</r>
+    <r>GmEntityType^Tp8GD-40</r>
+   </S>
+   <s p='version'>1.0.17</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-d'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.HasNamespace</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-d</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.HasNamespace</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-e'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.Namespace</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-e</r>
+    <r>GmProperty^rFB0p-f</r>
+    <r>GmProperty^rFB0p-10</r>
+    <r>GmProperty^rFB0p-11</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.Namespace</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-f'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-12</r>
+    <r>GmProperty^rFB0p-13</r>
+    <r>GmProperty^rFB0p-14</r>
+    <r>GmProperty^rFB0p-15</r>
+    <r>GmProperty^rFB0p-16</r>
+    <r>GmProperty^rFB0p-17</r>
+    <r>GmProperty^rFB0p-18</r>
+    <r>GmProperty^rFB0p-19</r>
+    <r>GmProperty^rFB0p-1a</r>
+    <r>GmProperty^rFB0p-1b</r>
+    <r>GmProperty^rFB0p-1c</r>
+    <r>GmProperty^rFB0p-1d</r>
+    <r>GmProperty^rFB0p-1e</r>
+    <r>GmProperty^rFB0p-1f</r>
+    <r>GmProperty^rFB0p-20</r>
+    <r>GmProperty^rFB0p-21</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-39</r>
+    <r>GmEntityType^Tp8GD-12</r>
+    <r>GmEntityType^Tp8GD-d</r>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-10'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-22</r>
+    <r>GmProperty^rFB0p-23</r>
+    <r>GmProperty^rFB0p-24</r>
+    <r>GmProperty^rFB0p-25</r>
+    <r>GmProperty^rFB0p-26</r>
+    <r>GmProperty^rFB0p-27</r>
+    <r>GmProperty^rFB0p-28</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-d</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-3e</r>
+    <r>GmEntityType^Tp8GD-12</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-11'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.EnumTypeMappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-29</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-e</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-26</r>
+    <r>GmEntityType^Tp8GD-12</r>
+    <r>GmEntityType^Tp8GD-d</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.EnumTypeMappingMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-12'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.MappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-2a</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.MappingMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-13'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.EnumConstantMappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-2b</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-37</r>
+    <r>GmEntityType^Tp8GD-12</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.EnumConstantMappingMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-14'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-3</r>
+   <s p='globalId'>type:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-2c</r>
+    <r>GmProperty^rFB0p-2d</r>
+    <r>GmProperty^rFB0p-2e</r>
+    <r>GmProperty^rFB0p-2f</r>
+    <r>GmProperty^rFB0p-30</r>
+    <r>GmProperty^rFB0p-31</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-f</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-35</r>
+    <r>GmEntityType^Tp8GD-12</r>
+    <r>GmEntityType^Tp8GD-d</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-0'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>NCName</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-1'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>TOKEN</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-2'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>false</b>
+   <b p='isVirtual'>false</b>
+   <s p='namespace'>import</s>
+   <r p='type'>GmEntityType^Tp8GD-4</r>
+   <s p='xsdName'>Root</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-3'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>normalizedString</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-4'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>ID</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-5'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>false</b>
+   <b p='isVirtual'>false</b>
+   <s p='namespace'>main</s>
+   <r p='type'>GmEntityType^Tp8GD-a</r>
+   <s p='xsdName'>Root</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-6'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>language</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-7'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>NMTOKEN</s>
+  </E>
+  <E id='EntityTypeMappingMetaData^CcBfmM-8'>
+   <b p='hasAnyType'>false</b>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isSimple'>true</b>
+   <b p='isVirtual'>false</b>
+   <s p='xsdName'>IDREF</s>
+  </E>
+  <E id='Namespace^DaAqP5-0'>
+   <b p='attributeQualification'>false</b>
+   <b p='elementQualification'>true</b>
+   <s p='prefix'>imported</s>
+   <s p='uri'>import</s>
+  </E>
+  <E id='Namespace^DaAqP5-1'>
+   <b p='attributeQualification'>false</b>
+   <b p='elementQualification'>true</b>
+   <s p='prefix'>m</s>
+   <s p='uri'>main</s>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-0'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-0</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.IDREF/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-0</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-6</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-1</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.ID/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-1</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-5</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-2'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-2</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.imported._Root/values</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-2</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-3</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-3'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-3</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.TOKEN/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-3</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-8</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-4'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-4</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.normalizedString/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-4</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-4</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-5'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-5</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.language/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-5</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-b</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-6'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-6</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.Root/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-6</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-9</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-7'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-6</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.Root/imported</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-7</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-a</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-8'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-7</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.NCName/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-8</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-7</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-9'>
+   <r p='declaringTypeInfo'>GmEntityTypeOverride^C871v1-8</r>
+   <s p='globalId'>propertyO:typeO:com.braintribe.xsd:NestedQualificationFlatModel-mapping/type:com.braintribe.nested.quali.xml.NMTOKEN/value</s>
+   <S p='metaData'>
+    <r>PropertyMappingMetaData^BrNjfm-9</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-c</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-a'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-0</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id</s>
+   <S p='metaData'>
+    <r>TypeSpecification^CNjHua-0</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-1</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-b'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id</s>
+   <S p='metaData'>
+    <r>TypeSpecification^CNjHua-1</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-0'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2</r>
+   <s p='globalId'>property:com.braintribe.model.generic.GenericEntity/globalId</s>
+   <S p='metaData'>
+    <r>Unique^r4oR2-0</r>
+   </S>
+   <s p='name'>globalId</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2</r>
+   <s p='globalId'>property:com.braintribe.model.generic.GenericEntity/id</s>
+   <s p='name'>id</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmBaseType^DCPPPt-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-2'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2</r>
+   <s p='globalId'>property:com.braintribe.model.generic.GenericEntity/partition</s>
+   <s p='name'>partition</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-c'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id</s>
+   <S p='metaData'>
+    <r>TypeSpecification^CNjHua-2</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-3'>
+   <r p='declaringType'>GmEntityType^Tp8GD-4</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.imported._Root/values</s>
+   <s p='name'>values</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-4'>
+   <r p='declaringType'>GmEntityType^Tp8GD-5</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.normalizedString/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-5'>
+   <r p='declaringType'>GmEntityType^Tp8GD-6</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.ID/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-6'>
+   <r p='declaringType'>GmEntityType^Tp8GD-7</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.IDREF/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-7'>
+   <r p='declaringType'>GmEntityType^Tp8GD-8</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.NCName/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-8'>
+   <r p='declaringType'>GmEntityType^Tp8GD-9</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.TOKEN/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-9'>
+   <r p='declaringType'>GmEntityType^Tp8GD-a</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.Root/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-a</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.Root/imported</s>
+   <s p='name'>imported</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-4</r>
+  </E>
+  <E id='GmProperty^rFB0p-b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-b</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.language/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-c</r>
+   <s p='globalId'>property:com.braintribe.nested.quali.xml.NMTOKEN/value</s>
+   <s p='name'>value</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmMetaModel^CrPBt6-5'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+    <r>GmMetaModel^CrPBt6-6</r>
+    <r>GmMetaModel^CrPBt6-7</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.gm:meta-data-model</s>
+   <s p='name'>com.braintribe.gm:meta-data-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-41</r>
+    <r>GmEntityType^Tp8GD-42</r>
+    <r>GmEntityType^Tp8GD-43</r>
+    <r>GmEntityType^Tp8GD-44</r>
+    <r>GmEntityType^Tp8GD-45</r>
+    <r>GmEntityType^Tp8GD-46</r>
+    <r>GmEntityType^Tp8GD-47</r>
+    <r>GmEntityType^Tp8GD-48</r>
+   </S>
+   <s p='version'>1.0.11</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-15'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmEnumType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-0</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-32</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-3c</r>
+    <r>GmEntityType^Tp8GD-1d</r>
+    <r>GmEntityType^Tp8GD-24</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmEnumType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-16'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmMetaModel</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-1</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-33</r>
+    <r>GmProperty^rFB0p-34</r>
+    <r>GmProperty^rFB0p-35</r>
+    <r>GmProperty^rFB0p-36</r>
+    <r>GmProperty^rFB0p-37</r>
+    <r>GmProperty^rFB0p-38</r>
+    <r>GmProperty^rFB0p-39</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-10</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-42</r>
+    <r>GmEntityType^Tp8GD-2e</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmMetaModel</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-17'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmSimpleType</s>
+   <b p='isAbstract'>true</b>
+   <S p='metaData'>
+    <r>Singleton^CESDyD-0</r>
+    <r>SelectiveInformation^7V@nu-2</r>
+   </S>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-24</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmSimpleType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-18'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmEntityType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-3</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-3a</r>
+    <r>GmProperty^rFB0p-3b</r>
+    <r>GmProperty^rFB0p-3c</r>
+    <r>GmProperty^rFB0p-3d</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-3c</r>
+    <r>GmEntityType^Tp8GD-38</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmEntityType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-19'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmProperty</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-4</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-3e</r>
+    <r>GmProperty^rFB0p-3f</r>
+    <r>GmProperty^rFB0p-40</r>
+    <r>GmProperty^rFB0p-41</r>
+    <r>GmProperty^rFB0p-42</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-3d</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmProperty</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1a'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.PropertyPath</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-43</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.PropertyPath</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1b'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmCustomModelElement</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2e</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmCustomModelElement</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1c'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmLinearCollectionType</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-44</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-27</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmLinearCollectionType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1d'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.info.GmEnumTypeInfo</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-45</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-11</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2f</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.info.GmEnumTypeInfo</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1e'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmDoubleType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-12</r>
+    <r>GmPropertyOverride^CbJKwb-13</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmDoubleType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-1f'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmDateType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-14</r>
+    <r>GmPropertyOverride^CbJKwb-15</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmDateType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-20'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.restriction.GmTypeRestriction</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-46</r>
+    <r>GmProperty^rFB0p-47</r>
+    <r>GmProperty^rFB0p-48</r>
+    <r>GmProperty^rFB0p-49</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2e</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.restriction.GmTypeRestriction</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-21'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmFloatType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-16</r>
+    <r>GmPropertyOverride^CbJKwb-17</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmFloatType</s>
+  </E>
+  <E id='GmEnumType^BDutb1-0'>
+   <L p='constants'>
+    <r>GmEnumConstant^CtC3iN-0</r>
+    <r>GmEnumConstant^CtC3iN-1</r>
+    <r>GmEnumConstant^CtC3iN-2</r>
+    <r>GmEnumConstant^CtC3iN-3</r>
+    <r>GmEnumConstant^CtC3iN-4</r>
+    <r>GmEnumConstant^CtC3iN-5</r>
+    <r>GmEnumConstant^CtC3iN-6</r>
+    <r>GmEnumConstant^CtC3iN-7</r>
+    <r>GmEnumConstant^CtC3iN-8</r>
+    <r>GmEnumConstant^CtC3iN-9</r>
+    <r>GmEnumConstant^CtC3iN-a</r>
+    <r>GmEnumConstant^CtC3iN-b</r>
+    <r>GmEnumConstant^CtC3iN-c</r>
+    <r>GmEnumConstant^CtC3iN-d</r>
+   </L>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmTypeKind</s>
+   <s p='typeSignature'>com.braintribe.model.meta.GmTypeKind</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-22'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmSetType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-5</r>
+   </S>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-1c</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmSetType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-23'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmMapType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-6</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-4a</r>
+    <r>GmProperty^rFB0p-4b</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-27</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmMapType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-24'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmScalarType</s>
+   <b p='isAbstract'>true</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-18</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmScalarType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-25'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmListType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-7</r>
+   </S>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-1c</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmListType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-26'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.EnumTypeMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.EnumTypeMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-27'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmCollectionType</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmCollectionType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-28'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.info.GmEnumConstantInfo</s>
+   <b p='isAbstract'>true</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-19</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-42</r>
+    <r>GmEntityType^Tp8GD-1b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.info.GmEnumConstantInfo</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-29'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.QualifiedProperty</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-4c</r>
+    <r>GmProperty^rFB0p-4d</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.QualifiedProperty</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2a'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmBaseType</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-8</r>
+    <r>Singleton^CESDyD-1</r>
+   </S>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-1a</r>
+    <r>GmPropertyOverride^CbJKwb-1b</r>
+    <r>GmPropertyOverride^CbJKwb-1c</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmBaseType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2b'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmType</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-4e</r>
+    <r>GmProperty^rFB0p-4f</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2e</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2c'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmLongType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-1d</r>
+    <r>GmPropertyOverride^CbJKwb-1e</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmLongType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2d'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.override.GmEnumTypeOverride</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-9</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-50</r>
+    <r>GmProperty^rFB0p-51</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-1d</r>
+    <r>GmEntityType^Tp8GD-30</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.override.GmEnumTypeOverride</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2e'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmModelElement</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmModelElement</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-2f'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.info.GmCustomTypeInfo</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-52</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-42</r>
+    <r>GmEntityType^Tp8GD-1b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.info.GmCustomTypeInfo</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-30'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.override.GmCustomTypeOverride</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2f</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.override.GmCustomTypeOverride</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-31'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.override.GmPropertyOverride</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-a</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-53</r>
+    <r>GmProperty^rFB0p-54</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-3d</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.override.GmPropertyOverride</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-32'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.Artifact</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-55</r>
+    <r>GmProperty^rFB0p-56</r>
+    <r>GmProperty^rFB0p-57</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.Artifact</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-33'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmEnumConstant</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-b</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-58</r>
+    <r>GmProperty^rFB0p-59</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-28</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmEnumConstant</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-34'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.override.GmEntityTypeOverride</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-c</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-5a</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-38</r>
+    <r>GmEntityType^Tp8GD-30</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.override.GmEntityTypeOverride</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-35'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.EntityTypeMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.EntityTypeMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-36'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmIntegerType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-1f</r>
+    <r>GmPropertyOverride^CbJKwb-20</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmIntegerType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-37'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.EnumConstantMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.EnumConstantMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-38'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.info.GmEntityTypeInfo</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-5b</r>
+    <r>GmProperty^rFB0p-5c</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-21</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2f</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.info.GmEntityTypeInfo</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-39'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.PropertyMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.PropertyMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3a'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmDecimalType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-22</r>
+    <r>GmPropertyOverride^CbJKwb-23</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmDecimalType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3b'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmBooleanType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-24</r>
+    <r>GmPropertyOverride^CbJKwb-25</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmBooleanType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3c'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmCustomType</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2f</r>
+    <r>GmEntityType^Tp8GD-2b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmCustomType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3d'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.info.GmPropertyInfo</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-5d</r>
+   </L>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-26</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-42</r>
+    <r>GmEntityType^Tp8GD-1b</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.info.GmPropertyInfo</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3e'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.ModelMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.ModelMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-3f'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.GmStringType</s>
+   <b p='isAbstract'>false</b>
+   <L p='propertyOverrides'>
+    <r>GmPropertyOverride^CbJKwb-27</r>
+    <r>GmPropertyOverride^CbJKwb-28</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-17</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.GmStringType</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-40'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-4</r>
+   <s p='globalId'>type:com.braintribe.model.meta.override.GmEnumConstantOverride</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-d</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-5e</r>
+    <r>GmProperty^rFB0p-5f</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-28</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.override.GmEnumConstantOverride</s>
+  </E>
+  <E id='GmProperty^rFB0p-d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-d</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.HasNamespace/namespace</s>
+   <s p='name'>namespace</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-e</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.Namespace/attributeQualification</s>
+   <s p='name'>attributeQualification</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-e</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.Namespace/elementQualification</s>
+   <s p='name'>elementQualification</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-10'>
+   <r p='declaringType'>GmEntityType^Tp8GD-e</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.Namespace/prefix</s>
+   <s p='name'>prefix</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-11'>
+   <r p='declaringType'>GmEntityType^Tp8GD-e</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.Namespace/uri</s>
+   <s p='name'>uri</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-12'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/actualXsdType</s>
+   <s p='name'>actualXsdType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-13'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/apparentXsdType</s>
+   <s p='name'>apparentXsdType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-14'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/backlinkTargetProperty</s>
+   <s p='name'>backlinkTargetProperty</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-19</r>
+  </E>
+  <E id='GmProperty^rFB0p-15'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/defaultValue</s>
+   <s p='name'>defaultValue</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-16'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/elementType</s>
+   <s p='name'>elementType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmProperty^rFB0p-17'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/fixedValue</s>
+   <s p='name'>fixedValue</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-18'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/index</s>
+   <s p='name'>index</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-19'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isAttribute</s>
+   <s p='name'>isAttribute</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isBacklinkProperty</s>
+   <s p='name'>isBacklinkProperty</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isIdProperty</s>
+   <s p='name'>isIdProperty</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isMultiple</s>
+   <s p='name'>isMultiple</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isUndefined</s>
+   <s p='name'>isUndefined</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isValue</s>
+   <s p='name'>isValue</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-1f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/isVirtual</s>
+   <s p='name'>isVirtual</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-20'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/namespaceOverrides</s>
+   <s p='name'>namespaceOverrides</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-21'>
+   <r p='declaringType'>GmEntityType^Tp8GD-f</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.PropertyMappingMetaData/property</s>
+   <s p='name'>property</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-19</r>
+  </E>
+  <E id='GmProperty^rFB0p-22'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/attributeFormIsQualified</s>
+   <s p='name'>attributeFormIsQualified</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-23'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/elementFormIsQualified</s>
+   <s p='name'>elementFormIsQualified</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-24'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/mainTypeMap</s>
+   <s p='name'>mainTypeMap</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmMapType^C3lFGm-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-25'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/mappingMetaDataMap</s>
+   <s p='name'>mappingMetaDataMap</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmMapType^C3lFGm-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-26'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/model</s>
+   <s p='name'>model</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-16</r>
+  </E>
+  <E id='GmProperty^rFB0p-27'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/namespaces</s>
+   <s p='name'>namespaces</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmMapType^C3lFGm-2</r>
+  </E>
+  <E id='GmProperty^rFB0p-28'>
+   <r p='declaringType'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/targetNamespace</s>
+   <s p='name'>targetNamespace</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-d'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-10</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.schemedXml.metadata.mapping.ModelMappingMetaData/xsdName</s>
+   <r p='property'>GmProperty^rFB0p-2a</r>
+  </E>
+  <E id='GmProperty^rFB0p-29'>
+   <r p='declaringType'>GmEntityType^Tp8GD-11</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EnumTypeMappingMetaData/type</s>
+   <s p='name'>type</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-15</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-e'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-11</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.schemedXml.metadata.mapping.EnumTypeMappingMetaData/namespace</s>
+   <r p='property'>GmProperty^rFB0p-d</r>
+  </E>
+  <E id='GmProperty^rFB0p-2a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-12</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.MappingMetaData/xsdName</s>
+   <s p='name'>xsdName</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-2b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-13</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EnumConstantMappingMetaData/constant</s>
+   <s p='name'>constant</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-33</r>
+  </E>
+  <E id='GmProperty^rFB0p-2c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/backlinkProperty</s>
+   <s p='name'>backlinkProperty</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-19</r>
+  </E>
+  <E id='GmProperty^rFB0p-2d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/hasAnyType</s>
+   <s p='name'>hasAnyType</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-2e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/isSimple</s>
+   <s p='name'>isSimple</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-2f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/isVirtual</s>
+   <s p='name'>isVirtual</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-30'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/parentTypeXsdName</s>
+   <s p='name'>parentTypeXsdName</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-31'>
+   <r p='declaringType'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>property:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/type</s>
+   <s p='name'>type</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-18</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-f'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-14</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.schemedXml.metadata.mapping.EntityTypeMappingMetaData/namespace</s>
+   <r p='property'>GmProperty^rFB0p-d</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-0'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-6</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-1'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-5</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-2'>
+   <s p='actualXsdType'>xs:string</s>
+   <s p='apparentXsdType'>string</s>
+   <b p='important'>false</b>
+   <L p='index'>
+    <i>0</i>
+   </L>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>true</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>false</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-3</r>
+   <s p='xsdName'>value</s>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-3'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-8</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-4'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-4</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-5'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-b</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-6'>
+   <s p='actualXsdType'>xs:string</s>
+   <s p='apparentXsdType'>string</s>
+   <b p='important'>false</b>
+   <L p='index'>
+    <i>0</i>
+   </L>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>false</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-9</r>
+   <s p='xsdName'>value</s>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-7'>
+   <s p='actualXsdType'>_root</s>
+   <s p='apparentXsdType'>_root</s>
+   <b p='important'>false</b>
+   <L p='index'>
+    <i>1</i>
+   </L>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>false</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-a</r>
+   <s p='xsdName'>imported</s>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-8'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-7</r>
+  </E>
+  <E id='PropertyMappingMetaData^BrNjfm-9'>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <b p='isAttribute'>false</b>
+   <b p='isBacklinkProperty'>false</b>
+   <b p='isIdProperty'>false</b>
+   <b p='isMultiple'>false</b>
+   <b p='isUndefined'>false</b>
+   <b p='isValue'>true</b>
+   <b p='isVirtual'>false</b>
+   <b p='namespaceOverrides'>false</b>
+   <r p='property'>GmProperty^rFB0p-c</r>
+  </E>
+  <E id='TypeSpecification^CNjHua-0'>
+   <s p='globalId'>TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='TypeSpecification^CNjHua-1'>
+   <s p='globalId'>TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='type'>GmIntegerType^BXxJI6-0</r>
+  </E>
+  <E id='Unique^r4oR2-0'>
+   <s p='globalId'>Unique:property:com.braintribe.model.generic.GenericEntity/globalId</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='TypeSpecification^CNjHua-2'>
+   <s p='globalId'>TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='type'>GmLongType^C5Xpv$-0</r>
+  </E>
+  <E id='GmMetaModel^CrPBt6-6'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.gm:selector-model</s>
+   <s p='name'>com.braintribe.gm:selector-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-49</r>
+   </S>
+   <s p='version'>1.0.11</s>
+  </E>
+  <E id='GmMetaModel^CrPBt6-7'>
+   <L p='dependencies'>
+    <r>GmMetaModel^CrPBt6-1</r>
+   </L>
+   <s p='globalId'>model:com.braintribe.gm:i18n-model</s>
+   <s p='name'>com.braintribe.gm:i18n-model</s>
+   <S p='types'>
+    <r>GmEntityType^Tp8GD-4a</r>
+   </S>
+   <s p='version'>1.0.12</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-41'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.UniversalMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.UniversalMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-42'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.HasMetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-60</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.HasMetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-43'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.ExplicitPredicate</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-47</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.ExplicitPredicate</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-44'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.MetaData</s>
+   <b p='isAbstract'>true</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-61</r>
+    <r>GmProperty^rFB0p-62</r>
+    <r>GmProperty^rFB0p-63</r>
+    <r>GmProperty^rFB0p-64</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.MetaData</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-45'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.Origin</s>
+   <b p='isAbstract'>false</b>
+   <S p='metaData'>
+    <r>SelectiveInformation^7V@nu-e</r>
+   </S>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-65</r>
+    <r>GmProperty^rFB0p-66</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.Origin</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-46'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.PredicateErasure</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-47</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.PredicateErasure</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-47'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.data.Predicate</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-44</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.data.Predicate</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-48'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-5</r>
+   <s p='globalId'>type:com.braintribe.model.meta.selector.MetaDataSelector</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-49</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.meta.selector.MetaDataSelector</s>
+  </E>
+  <E id='SelectiveInformation^7V@nu-0'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmEnumType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-32'>
+   <r p='declaringType'>GmEntityType^Tp8GD-15</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEnumType/constants</s>
+   <s p='name'>constants</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-2</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-1'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmMetaModel</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-33'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/dependencies</s>
+   <s p='name'>dependencies</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-3</r>
+  </E>
+  <E id='GmProperty^rFB0p-34'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/enumConstantMetaData</s>
+   <s p='name'>enumConstantMetaData</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-0</r>
+   <r p='typeRestriction'>GmTypeRestriction^BPn7b2-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-35'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/enumTypeMetaData</s>
+   <s p='name'>enumTypeMetaData</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-0</r>
+   <r p='typeRestriction'>GmTypeRestriction^BPn7b2-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-36'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/name</s>
+   <S p='metaData'>
+    <r>Mandatory^0O12o-0</r>
+    <r>Unique^r4oR2-1</r>
+   </S>
+   <s p='name'>name</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-37'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/typeOverrides</s>
+   <s p='name'>typeOverrides</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-1</r>
+  </E>
+  <E id='GmProperty^rFB0p-38'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/types</s>
+   <s p='name'>types</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-2</r>
+  </E>
+  <E id='GmProperty^rFB0p-39'>
+   <r p='declaringType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMetaModel/version</s>
+   <s p='name'>version</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-10'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmMetaModel/metaData</s>
+   <r p='property'>GmProperty^rFB0p-60</r>
+  </E>
+  <E id='Singleton^CESDyD-0'>
+   <s p='globalId'>Singleton:type:com.braintribe.model.meta.GmSimpleType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='SelectiveInformation^7V@nu-2'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmSimpleType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-2</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-3'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmEntityType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-3</r>
+  </E>
+  <E id='GmProperty^rFB0p-3a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-18</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEntityType/evaluatesTo</s>
+   <s p='name'>evaluatesTo</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmProperty^rFB0p-3b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-18</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEntityType/isAbstract</s>
+   <s p='name'>isAbstract</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-3c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-18</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEntityType/properties</s>
+   <s p='name'>properties</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-4</r>
+  </E>
+  <E id='GmProperty^rFB0p-3d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-18</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEntityType/superTypes</s>
+   <s p='name'>superTypes</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-5</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-4'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmProperty</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-4</r>
+  </E>
+  <E id='GmProperty^rFB0p-3e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmProperty/declaringType</s>
+   <s p='name'>declaringType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-18</r>
+  </E>
+  <E id='GmProperty^rFB0p-3f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmProperty/name</s>
+   <s p='name'>name</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-40'>
+   <r p='declaringType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmProperty/nullable</s>
+   <b p='initializer'>true</b>
+   <s p='name'>nullable</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-41'>
+   <r p='declaringType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmProperty/type</s>
+   <s p='name'>type</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmProperty^rFB0p-42'>
+   <r p='declaringType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmProperty/typeRestriction</s>
+   <s p='name'>typeRestriction</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-20</r>
+  </E>
+  <E id='GmProperty^rFB0p-43'>
+   <r p='declaringType'>GmEntityType^Tp8GD-1a</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.PropertyPath/properties</s>
+   <s p='name'>properties</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-4</r>
+  </E>
+  <E id='GmProperty^rFB0p-44'>
+   <r p='declaringType'>GmEntityType^Tp8GD-1c</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmLinearCollectionType/elementType</s>
+   <s p='name'>elementType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmProperty^rFB0p-45'>
+   <r p='declaringType'>GmEntityType^Tp8GD-1d</r>
+   <s p='globalId'>property:com.braintribe.model.meta.info.GmEnumTypeInfo/enumConstantMetaData</s>
+   <s p='name'>enumConstantMetaData</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-0</r>
+   <r p='typeRestriction'>GmTypeRestriction^BPn7b2-2</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-11'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1d</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.info.GmEnumTypeInfo/metaData</s>
+   <r p='property'>GmProperty^rFB0p-60</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-12'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1e</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDoubleType/globalId</s>
+   <s p='initializer'>type:double</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-13'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1e</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDoubleType/typeSignature</s>
+   <s p='initializer'>double</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-14'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1f</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDateType/globalId</s>
+   <s p='initializer'>type:date</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-15'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-1f</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDateType/typeSignature</s>
+   <s p='initializer'>date</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmProperty^rFB0p-46'>
+   <r p='declaringType'>GmEntityType^Tp8GD-20</r>
+   <s p='globalId'>property:com.braintribe.model.meta.restriction.GmTypeRestriction/allowKeyVd</s>
+   <s p='name'>allowKeyVd</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-47'>
+   <r p='declaringType'>GmEntityType^Tp8GD-20</r>
+   <s p='globalId'>property:com.braintribe.model.meta.restriction.GmTypeRestriction/allowVd</s>
+   <s p='name'>allowVd</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-48'>
+   <r p='declaringType'>GmEntityType^Tp8GD-20</r>
+   <s p='globalId'>property:com.braintribe.model.meta.restriction.GmTypeRestriction/keyTypes</s>
+   <s p='name'>keyTypes</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-6</r>
+  </E>
+  <E id='GmProperty^rFB0p-49'>
+   <r p='declaringType'>GmEntityType^Tp8GD-20</r>
+   <s p='globalId'>property:com.braintribe.model.meta.restriction.GmTypeRestriction/types</s>
+   <s p='name'>types</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-6</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-16'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-21</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmFloatType/globalId</s>
+   <s p='initializer'>type:float</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-17'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-21</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmFloatType/typeSignature</s>
+   <s p='initializer'>float</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-0'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/BASE</s>
+   <s p='name'>BASE</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-1'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/BOOLEAN</s>
+   <s p='name'>BOOLEAN</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-2'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/INTEGER</s>
+   <s p='name'>INTEGER</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-3'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/LONG</s>
+   <s p='name'>LONG</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-4'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/FLOAT</s>
+   <s p='name'>FLOAT</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-5'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/DOUBLE</s>
+   <s p='name'>DOUBLE</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-6'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/DECIMAL</s>
+   <s p='name'>DECIMAL</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-7'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/STRING</s>
+   <s p='name'>STRING</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-8'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/DATE</s>
+   <s p='name'>DATE</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-9'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/ENUM</s>
+   <s p='name'>ENUM</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-a'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/ENTITY</s>
+   <s p='name'>ENTITY</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-b'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/LIST</s>
+   <s p='name'>LIST</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-c'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/SET</s>
+   <s p='name'>SET</s>
+  </E>
+  <E id='GmEnumConstant^CtC3iN-d'>
+   <r p='declaringType'>GmEnumType^BDutb1-0</r>
+   <s p='globalId'>enum:com.braintribe.model.meta.GmTypeKind/MAP</s>
+   <s p='name'>MAP</s>
+  </E>
+  <E id='SelectiveInformation^7V@nu-5'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmSetType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-5</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-6'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmMapType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-6</r>
+  </E>
+  <E id='GmProperty^rFB0p-4a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-23</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMapType/keyType</s>
+   <s p='name'>keyType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmProperty^rFB0p-4b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-23</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmMapType/valueType</s>
+   <s p='name'>valueType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-18'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-24</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmScalarType/declaringModel</s>
+   <S p='metaData'>
+    <r>Mandatory^0O12o-1</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-4e</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-7'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmListType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-7</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-19'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-28</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.info.GmEnumConstantInfo/metaData</s>
+   <r p='property'>GmProperty^rFB0p-60</r>
+  </E>
+  <E id='GmProperty^rFB0p-4c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-29</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.QualifiedProperty/entityType</s>
+   <s p='name'>entityType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-18</r>
+  </E>
+  <E id='GmProperty^rFB0p-4d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-29</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.QualifiedProperty/property</s>
+   <s p='name'>property</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-19</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-8'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmBaseType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-8</r>
+  </E>
+  <E id='Singleton^CESDyD-1'>
+   <s p='globalId'>Singleton:type:com.braintribe.model.meta.GmBaseType</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1a'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-2a</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmBaseType/declaringModel</s>
+   <S p='metaData'>
+    <r>Mandatory^0O12o-2</r>
+   </S>
+   <r p='property'>GmProperty^rFB0p-4e</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1b'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-2a</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmBaseType/globalId</s>
+   <s p='initializer'>type:object</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1c'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-2a</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmBaseType/typeSignature</s>
+   <s p='initializer'>object</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmProperty^rFB0p-4e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2b</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmType/declaringModel</s>
+   <s p='name'>declaringModel</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-16</r>
+  </E>
+  <E id='GmProperty^rFB0p-4f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2b</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmType/typeSignature</s>
+   <S p='metaData'>
+    <r>Unique^r4oR2-2</r>
+    <r>Mandatory^0O12o-3</r>
+   </S>
+   <s p='name'>typeSignature</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1d'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-2c</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmLongType/globalId</s>
+   <s p='initializer'>type:long</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1e'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-2c</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmLongType/typeSignature</s>
+   <s p='initializer'>long</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-9'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.override.GmEnumTypeOverride</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-9</r>
+  </E>
+  <E id='GmProperty^rFB0p-50'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2d</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmEnumTypeOverride/constantOverrides</s>
+   <s p='name'>constantOverrides</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-7</r>
+  </E>
+  <E id='GmProperty^rFB0p-51'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2d</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmEnumTypeOverride/enumType</s>
+   <s p='name'>enumType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-15</r>
+  </E>
+  <E id='GmProperty^rFB0p-52'>
+   <r p='declaringType'>GmEntityType^Tp8GD-2f</r>
+   <s p='globalId'>property:com.braintribe.model.meta.info.GmCustomTypeInfo/declaringModel</s>
+   <S p='metaData'>
+    <r>Mandatory^0O12o-4</r>
+   </S>
+   <s p='name'>declaringModel</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-16</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-a'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.override.GmPropertyOverride</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-a</r>
+  </E>
+  <E id='GmProperty^rFB0p-53'>
+   <r p='declaringType'>GmEntityType^Tp8GD-31</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmPropertyOverride/declaringTypeInfo</s>
+   <s p='name'>declaringTypeInfo</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-38</r>
+  </E>
+  <E id='GmProperty^rFB0p-54'>
+   <r p='declaringType'>GmEntityType^Tp8GD-31</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmPropertyOverride/property</s>
+   <s p='name'>property</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-19</r>
+  </E>
+  <E id='GmProperty^rFB0p-55'>
+   <r p='declaringType'>GmEntityType^Tp8GD-32</r>
+   <s p='globalId'>property:com.braintribe.model.meta.Artifact/artifactId</s>
+   <s p='name'>artifactId</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-56'>
+   <r p='declaringType'>GmEntityType^Tp8GD-32</r>
+   <s p='globalId'>property:com.braintribe.model.meta.Artifact/groupId</s>
+   <s p='name'>groupId</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-57'>
+   <r p='declaringType'>GmEntityType^Tp8GD-32</r>
+   <s p='globalId'>property:com.braintribe.model.meta.Artifact/version</s>
+   <s p='name'>version</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-b'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.GmEnumConstant</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-b</r>
+  </E>
+  <E id='GmProperty^rFB0p-58'>
+   <r p='declaringType'>GmEntityType^Tp8GD-33</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEnumConstant/declaringType</s>
+   <s p='name'>declaringType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-15</r>
+  </E>
+  <E id='GmProperty^rFB0p-59'>
+   <r p='declaringType'>GmEntityType^Tp8GD-33</r>
+   <s p='globalId'>property:com.braintribe.model.meta.GmEnumConstant/name</s>
+   <s p='name'>name</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-c'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.override.GmEntityTypeOverride</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-c</r>
+  </E>
+  <E id='GmProperty^rFB0p-5a'>
+   <r p='declaringType'>GmEntityType^Tp8GD-34</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmEntityTypeOverride/entityType</s>
+   <s p='name'>entityType</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-18</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-1f'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-36</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmIntegerType/globalId</s>
+   <s p='initializer'>type:integer</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-20'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-36</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmIntegerType/typeSignature</s>
+   <s p='initializer'>integer</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmProperty^rFB0p-5b'>
+   <r p='declaringType'>GmEntityType^Tp8GD-38</r>
+   <s p='globalId'>property:com.braintribe.model.meta.info.GmEntityTypeInfo/propertyMetaData</s>
+   <s p='name'>propertyMetaData</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-0</r>
+   <r p='typeRestriction'>GmTypeRestriction^BPn7b2-3</r>
+  </E>
+  <E id='GmProperty^rFB0p-5c'>
+   <r p='declaringType'>GmEntityType^Tp8GD-38</r>
+   <s p='globalId'>property:com.braintribe.model.meta.info.GmEntityTypeInfo/propertyOverrides</s>
+   <s p='name'>propertyOverrides</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmListType^hVk9A-8</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-21'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-38</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.info.GmEntityTypeInfo/metaData</s>
+   <r p='property'>GmProperty^rFB0p-60</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-22'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3a</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDecimalType/globalId</s>
+   <s p='initializer'>type:decimal</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-23'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3a</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmDecimalType/typeSignature</s>
+   <s p='initializer'>decimal</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-24'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3b</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmBooleanType/globalId</s>
+   <s p='initializer'>type:boolean</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-25'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3b</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmBooleanType/typeSignature</s>
+   <s p='initializer'>boolean</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='GmProperty^rFB0p-5d'>
+   <r p='declaringType'>GmEntityType^Tp8GD-3d</r>
+   <s p='globalId'>property:com.braintribe.model.meta.info.GmPropertyInfo/initializer</s>
+   <s p='name'>initializer</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmBaseType^DCPPPt-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-26'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3d</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.info.GmPropertyInfo/metaData</s>
+   <r p='property'>GmProperty^rFB0p-60</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-27'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3f</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmStringType/globalId</s>
+   <s p='initializer'>type:string</s>
+   <r p='property'>GmProperty^rFB0p-0</r>
+  </E>
+  <E id='GmPropertyOverride^CbJKwb-28'>
+   <r p='declaringTypeInfo'>GmEntityType^Tp8GD-3f</r>
+   <s p='globalId'>propertyOverride:com.braintribe.model.meta.GmStringType/typeSignature</s>
+   <s p='initializer'>string</s>
+   <r p='property'>GmProperty^rFB0p-4f</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-d'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.override.GmEnumConstantOverride</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-d</r>
+  </E>
+  <E id='GmProperty^rFB0p-5e'>
+   <r p='declaringType'>GmEntityType^Tp8GD-40</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmEnumConstantOverride/declaringTypeOverride</s>
+   <s p='name'>declaringTypeOverride</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-2d</r>
+  </E>
+  <E id='GmProperty^rFB0p-5f'>
+   <r p='declaringType'>GmEntityType^Tp8GD-40</r>
+   <s p='globalId'>property:com.braintribe.model.meta.override.GmEnumConstantOverride/enumConstant</s>
+   <s p='name'>enumConstant</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-33</r>
+  </E>
+  <E id='GmListType^hVk9A-1'>
+   <r p='elementType'>GmIntegerType^BXxJI6-0</r>
+   <s p='globalId'>type:list&lt;integer&gt;</s>
+   <s p='typeSignature'>list&lt;integer&gt;</s>
+  </E>
+  <E id='GmMapType^C3lFGm-0'>
+   <s p='globalId'>type:map&lt;string,com.braintribe.model.meta.GmType&gt;</s>
+   <r p='keyType'>GmStringType^DB6ZEB-0</r>
+   <s p='typeSignature'>map&lt;string,com.braintribe.model.meta.GmType&gt;</s>
+   <r p='valueType'>GmEntityType^Tp8GD-2b</r>
+  </E>
+  <E id='GmMapType^C3lFGm-1'>
+   <s p='globalId'>type:map&lt;string,com.braintribe.model.schemedXml.metadata.mapping.MappingMetaData&gt;</s>
+   <r p='keyType'>GmStringType^DB6ZEB-0</r>
+   <s p='typeSignature'>map&lt;string,com.braintribe.model.schemedXml.metadata.mapping.MappingMetaData&gt;</s>
+   <r p='valueType'>GmEntityType^Tp8GD-12</r>
+  </E>
+  <E id='GmMapType^C3lFGm-2'>
+   <s p='globalId'>type:map&lt;string,com.braintribe.model.schemedXml.metadata.mapping.Namespace&gt;</s>
+   <r p='keyType'>GmStringType^DB6ZEB-0</r>
+   <s p='typeSignature'>map&lt;string,com.braintribe.model.schemedXml.metadata.mapping.Namespace&gt;</s>
+   <r p='valueType'>GmEntityType^Tp8GD-e</r>
+  </E>
+  <E id='GmEntityType^Tp8GD-49'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-6</r>
+   <s p='globalId'>type:com.braintribe.model.selector.Selector</s>
+   <b p='isAbstract'>true</b>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.selector.Selector</s>
+  </E>
+  <E id='GmEntityType^Tp8GD-4a'>
+   <r p='declaringModel'>GmMetaModel^CrPBt6-7</r>
+   <s p='globalId'>type:com.braintribe.model.generic.i18n.LocalizedString</s>
+   <b p='isAbstract'>false</b>
+   <L p='properties'>
+    <r>GmProperty^rFB0p-67</r>
+   </L>
+   <L p='superTypes'>
+    <r>GmEntityType^Tp8GD-2</r>
+   </L>
+   <s p='typeSignature'>com.braintribe.model.generic.i18n.LocalizedString</s>
+  </E>
+  <E id='GmProperty^rFB0p-60'>
+   <r p='declaringType'>GmEntityType^Tp8GD-42</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.HasMetaData/metaData</s>
+   <s p='name'>metaData</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmSetType^DXjY14-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-61'>
+   <r p='declaringType'>GmEntityType^Tp8GD-44</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.MetaData/conflictPriority</s>
+   <s p='name'>conflictPriority</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmDoubleType^BtiOZl-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-62'>
+   <r p='declaringType'>GmEntityType^Tp8GD-44</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.MetaData/important</s>
+   <s p='name'>important</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-63'>
+   <r p='declaringType'>GmEntityType^Tp8GD-44</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.MetaData/inherited</s>
+   <b p='initializer'>true</b>
+   <s p='name'>inherited</s>
+   <b p='nullable'>false</b>
+   <r p='type'>GmBooleanType^B3tG20-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-64'>
+   <r p='declaringType'>GmEntityType^Tp8GD-44</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.MetaData/selector</s>
+   <s p='name'>selector</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmEntityType^Tp8GD-48</r>
+  </E>
+  <E id='SelectiveInformation^7V@nu-e'>
+   <s p='globalId'>SelectiveInformation:type:com.braintribe.model.meta.data.Origin</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+   <r p='template'>LocalizedString^B17JqA-e</r>
+  </E>
+  <E id='GmProperty^rFB0p-65'>
+   <r p='declaringType'>GmEntityType^Tp8GD-45</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.Origin/created</s>
+   <s p='name'>created</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmDateType^CKnYLc-0</r>
+  </E>
+  <E id='GmProperty^rFB0p-66'>
+   <r p='declaringType'>GmEntityType^Tp8GD-45</r>
+   <s p='globalId'>property:com.braintribe.model.meta.data.Origin/name</s>
+   <s p='name'>name</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmStringType^DB6ZEB-0</r>
+  </E>
+  <E id='LocalizedString^B17JqA-0'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmEnumType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='GmListType^hVk9A-2'>
+   <r p='elementType'>GmEntityType^Tp8GD-33</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.GmEnumConstant&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.GmEnumConstant&gt;</s>
+  </E>
+  <E id='LocalizedString^B17JqA-1'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmMetaModel</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${name}</s></m>
+   </M>
+  </E>
+  <E id='GmListType^hVk9A-3'>
+   <r p='elementType'>GmEntityType^Tp8GD-16</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.GmMetaModel&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.GmMetaModel&gt;</s>
+  </E>
+  <E id='GmSetType^DXjY14-0'>
+   <r p='elementType'>GmEntityType^Tp8GD-44</r>
+   <s p='globalId'>type:set&lt;com.braintribe.model.meta.data.MetaData&gt;</s>
+   <s p='typeSignature'>set&lt;com.braintribe.model.meta.data.MetaData&gt;</s>
+  </E>
+  <E id='GmTypeRestriction^BPn7b2-0'>
+   <b p='allowKeyVd'>false</b>
+   <b p='allowVd'>false</b>
+   <s p='globalId'>typeRestriction:property:com.braintribe.model.meta.GmMetaModel/enumConstantMetaData</s>
+   <L p='types'>
+    <r>GmEntityType^Tp8GD-37</r>
+    <r>GmEntityType^Tp8GD-41</r>
+   </L>
+  </E>
+  <E id='GmTypeRestriction^BPn7b2-1'>
+   <b p='allowKeyVd'>false</b>
+   <b p='allowVd'>false</b>
+   <s p='globalId'>typeRestriction:property:com.braintribe.model.meta.GmMetaModel/enumTypeMetaData</s>
+   <L p='types'>
+    <r>GmEntityType^Tp8GD-26</r>
+    <r>GmEntityType^Tp8GD-41</r>
+   </L>
+  </E>
+  <E id='Mandatory^0O12o-0'>
+   <s p='globalId'>Mandatory:property:com.braintribe.model.meta.GmMetaModel/name</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='Unique^r4oR2-1'>
+   <s p='globalId'>Unique:property:com.braintribe.model.meta.GmMetaModel/name</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='GmSetType^DXjY14-1'>
+   <r p='elementType'>GmEntityType^Tp8GD-30</r>
+   <s p='globalId'>type:set&lt;com.braintribe.model.meta.override.GmCustomTypeOverride&gt;</s>
+   <s p='typeSignature'>set&lt;com.braintribe.model.meta.override.GmCustomTypeOverride&gt;</s>
+  </E>
+  <E id='GmSetType^DXjY14-2'>
+   <r p='elementType'>GmEntityType^Tp8GD-2b</r>
+   <s p='globalId'>type:set&lt;com.braintribe.model.meta.GmType&gt;</s>
+   <s p='typeSignature'>set&lt;com.braintribe.model.meta.GmType&gt;</s>
+  </E>
+  <E id='LocalizedString^B17JqA-2'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmSimpleType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='LocalizedString^B17JqA-3'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmEntityType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='GmListType^hVk9A-4'>
+   <r p='elementType'>GmEntityType^Tp8GD-19</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.GmProperty&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.GmProperty&gt;</s>
+  </E>
+  <E id='GmListType^hVk9A-5'>
+   <r p='elementType'>GmEntityType^Tp8GD-18</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.GmEntityType&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.GmEntityType&gt;</s>
+  </E>
+  <E id='LocalizedString^B17JqA-4'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmProperty</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${name}</s></m>
+   </M>
+  </E>
+  <E id='GmTypeRestriction^BPn7b2-2'>
+   <b p='allowKeyVd'>false</b>
+   <b p='allowVd'>false</b>
+   <s p='globalId'>typeRestriction:property:com.braintribe.model.meta.info.GmEnumTypeInfo/enumConstantMetaData</s>
+   <L p='types'>
+    <r>GmEntityType^Tp8GD-37</r>
+    <r>GmEntityType^Tp8GD-41</r>
+   </L>
+  </E>
+  <E id='GmListType^hVk9A-6'>
+   <r p='elementType'>GmEntityType^Tp8GD-2b</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.GmType&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.GmType&gt;</s>
+  </E>
+  <E id='LocalizedString^B17JqA-5'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmSetType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='LocalizedString^B17JqA-6'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmMapType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='Mandatory^0O12o-1'>
+   <s p='globalId'>Mandatory:propertyOverride:com.braintribe.model.meta.GmScalarType/declaringModel</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='LocalizedString^B17JqA-7'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmListType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${typeSignature}</s></m>
+   </M>
+  </E>
+  <E id='LocalizedString^B17JqA-8'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmBaseType</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>object</s></m>
+   </M>
+  </E>
+  <E id='Mandatory^0O12o-2'>
+   <s p='globalId'>Mandatory:propertyOverride:com.braintribe.model.meta.GmBaseType/declaringModel</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='Unique^r4oR2-2'>
+   <s p='globalId'>Unique:property:com.braintribe.model.meta.GmType/typeSignature</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='Mandatory^0O12o-3'>
+   <s p='globalId'>Mandatory:property:com.braintribe.model.meta.GmType/typeSignature</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='LocalizedString^B17JqA-9'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.override.GmEnumTypeOverride</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${enumType.typeSignature} (override)</s></m>
+   </M>
+  </E>
+  <E id='GmListType^hVk9A-7'>
+   <r p='elementType'>GmEntityType^Tp8GD-40</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.override.GmEnumConstantOverride&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.override.GmEnumConstantOverride&gt;</s>
+  </E>
+  <E id='Mandatory^0O12o-4'>
+   <s p='globalId'>Mandatory:property:com.braintribe.model.meta.info.GmCustomTypeInfo/declaringModel</s>
+   <b p='important'>false</b>
+   <b p='inherited'>true</b>
+  </E>
+  <E id='LocalizedString^B17JqA-a'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.override.GmPropertyOverride</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${property.name} (override)</s></m>
+   </M>
+  </E>
+  <E id='LocalizedString^B17JqA-b'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.GmEnumConstant</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${name}</s></m>
+   </M>
+  </E>
+  <E id='LocalizedString^B17JqA-c'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.override.GmEntityTypeOverride</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${entityType.typeSignature} (override)</s></m>
+   </M>
+  </E>
+  <E id='GmTypeRestriction^BPn7b2-3'>
+   <b p='allowKeyVd'>false</b>
+   <b p='allowVd'>false</b>
+   <s p='globalId'>typeRestriction:property:com.braintribe.model.meta.info.GmEntityTypeInfo/propertyMetaData</s>
+   <L p='types'>
+    <r>GmEntityType^Tp8GD-39</r>
+    <r>GmEntityType^Tp8GD-41</r>
+   </L>
+  </E>
+  <E id='GmListType^hVk9A-8'>
+   <r p='elementType'>GmEntityType^Tp8GD-31</r>
+   <s p='globalId'>type:list&lt;com.braintribe.model.meta.override.GmPropertyOverride&gt;</s>
+   <s p='typeSignature'>list&lt;com.braintribe.model.meta.override.GmPropertyOverride&gt;</s>
+  </E>
+  <E id='LocalizedString^B17JqA-d'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.override.GmEnumConstantOverride</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>${enumConstant.name} (override)</s></m>
+   </M>
+  </E>
+  <E id='GmProperty^rFB0p-67'>
+   <r p='declaringType'>GmEntityType^Tp8GD-4a</r>
+   <s p='globalId'>property:com.braintribe.model.generic.i18n.LocalizedString/localizedValues</s>
+   <s p='name'>localizedValues</s>
+   <b p='nullable'>true</b>
+   <r p='type'>GmMapType^C3lFGm-3</r>
+  </E>
+  <E id='LocalizedString^B17JqA-e'>
+   <s p='globalId'>ls:SelectiveInformation:type:com.braintribe.model.meta.data.Origin</s>
+   <M p='localizedValues'>
+    <m><s>default</s><s>Origin: ${name}</s></m>
+   </M>
+  </E>
+  <E id='GmMapType^C3lFGm-3'>
+   <s p='globalId'>type:map&lt;string,string&gt;</s>
+   <r p='keyType'>GmStringType^DB6ZEB-0</r>
+   <s p='typeSignature'>map&lt;string,string&gt;</s>
+   <r p='valueType'>GmStringType^DB6ZEB-0</r>
+  </E>
+ </pool>
+</gm-data>

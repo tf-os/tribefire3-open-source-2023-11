@@ -1,0 +1,15 @@
+!pooled
+
+value: 
+- *0
+- *1
+
+pool:
+
+- &0 !com.braintribe.codec.marshaller.yaml.model.PersonEntity
+ firstName: Tina
+ friend: *1
+
+- &1 !com.braintribe.codec.marshaller.yaml.model.PersonEntity
+ firstName: Dirk
+ friend: *0

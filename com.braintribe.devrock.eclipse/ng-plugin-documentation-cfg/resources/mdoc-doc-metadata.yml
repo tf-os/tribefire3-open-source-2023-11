@@ -1,0 +1,50 @@
+---
+!com.braintribe.doc.meta.CustomDocMetaData
+
+title: "Devrock plugins"
+
+assets: 
+  "com.braintribe.devrock.eclipse:ng-plugin-documentation": &1
+    displayTitle: Devrock plugin suite
+    startingPoint: ng-plugins.html
+  "com.braintribe.devrock.eclipse:devrock-documentation": &2
+    displayTitle: Devrock plugin
+    startingPoint: devrock.html
+  "com.braintribe.devrock.eclipse:artifact-container-ng-documentation": &3
+    displayTitle: Artifact container
+    startingPoint: artifact-container.html
+  "com.braintribe.devrock.eclipse:greyface-documentation": &4
+    displayTitle: Greyface
+    startingPoint: greyface.html
+  "com.braintribe.devrock.eclipse:artifact-reflection-builder-documentation": &5
+    displayTitle: artifact reflection builder
+    startingPoint: artifact-reflection-builder.html
+  "com.braintribe.devrock.eclipse:model-builder-ng-documentation": &6
+    displayTitle: model builder
+    startingPoint: model-builder.html
+  "com.braintribe.devrock.eclipse:debug-module-builder-ng-documentation": &7
+    displayTitle: debug module builder
+    startingPoint: debug-module-builder.html
+  "com.braintribe.devrock.zarathud:zarathud-documentation": &8
+    displayTitle: zed-integration
+    startingPoint: eclipse-runner.html
+
+entrypoints:
+  - assetId: com.braintribe.devrock.eclipse:ng-plugin-documentation
+    displayInfo: *1
+  - assetId: com.braintribe.devrock.eclipse:devrock-documentation
+    displayInfo: *2
+  - assetId: com.braintribe.devrock.eclipse:artifact-container-ng-documentation
+    displayInfo: *3
+  - assetId: com.braintribe.devrock.eclipse:greyface-documentation
+    displayInfo: *4
+  - assetId: com.braintribe.devrock.eclipse:artifact-reflection-builder-documentation
+    displayInfo: *5
+  - assetId: com.braintribe.devrock.eclipse:model-builder-ng-documentation
+    displayInfo: *6
+  - assetId: com.braintribe.devrock.eclipse:debug-module-builder-ng-documentation
+    displayInfo: *7
+  - assetId: com.braintribe.devrock.zarthud:zarathud-documentation
+    displayInfo: *8
+
+      

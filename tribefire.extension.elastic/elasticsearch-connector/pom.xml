@@ -1,0 +1,187 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>tribefire.extension.elastic</groupId>
+		<artifactId>parent</artifactId>
+		<version>[6.1,6.2)</version>
+	</parent>
+	<artifactId>elasticsearch-connector</artifactId>
+	<version>6.1.7</version>
+	<properties>
+		<archetype>library</archetype>
+	</properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+	<dependencies>
+		<dependency>
+			<groupId>com.braintribe.common</groupId>
+			<artifactId>platform-api</artifactId>
+			<version>${V.com.braintribe.common}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.common</groupId>
+			<artifactId>ioc-annotations</artifactId>
+			<version>${V.com.braintribe.common}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.common</groupId>
+			<artifactId>logging</artifactId>
+			<version>${V.com.braintribe.common}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.gm</groupId>
+			<artifactId>gm-session-api</artifactId>
+			<version>${V.com.braintribe.gm}</version>
+		</dependency>
+		<!-- Elasticsearch Client -->
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>transport</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-handler</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-common</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-buffer</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-codec-http</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-resolver</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>io.netty</groupId>
+					<artifactId>netty-transport</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.dataformat</groupId>
+					<artifactId>jackson-dataformat-smile</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.dataformat</groupId>
+					<artifactId>jackson-dataformat-cbor</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.dataformat</groupId>
+					<artifactId>jackson-dataformat-yaml</artifactId>
+				</exclusion>
+				<!-- AD-AD-2863: fix CVE-2021-44228 - replace log4j to 2.15.0 -->
+				<exclusion>
+					<groupId>org.apache.logging.log4j</groupId>
+					<artifactId>log4j-core</artifactId>
+				</exclusion>
+			</exclusions>
+			<version>${V.org.elasticsearch.client}</version>
+		</dependency>
+		<!-- Updated netty dependencies -->
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-handler</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-common</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-buffer</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-codec</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-codec-http</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-resolver</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-transport</artifactId>
+			<version>${V.io.netty}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${V.com.fasterxml.jackson.core}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${V.com.fasterxml.jackson.core}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-cbor</artifactId>
+			<version>${V.com.fasterxml.jackson.dataformat}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-smile</artifactId>
+			<version>${V.com.fasterxml.jackson.dataformat}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-yaml</artifactId>
+			<version>${V.com.fasterxml.jackson.dataformat}</version>
+		</dependency>
+		<!-- AD-AD-2863: fix CVE-2021-44228 - replace log4j to 2.15.0 -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${V.org.apache.logging.log4j}</version>
+		</dependency>
+		<dependency>
+			<groupId>d1.org.apache.logging.log4j</groupId>
+			<artifactId>copy-of-log4j-api</artifactId>
+			<version>${V.d1.org.apache.logging.log4j}</version>
+		</dependency>
+	</dependencies>
+</project>

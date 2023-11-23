@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.ModelPathModel"/>
+    <inherits name="com.braintribe.model.ModelPathModelCondition"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+    <inherits name="com.braintribe.model.processing.MpBuilder"/>
+	<inherits name="com.braintribe.model.processing.MpcApi"/>
+    <inherits name="com.braintribe.model.processing.vde.evaluator.VdeEvaluatorApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <!--Resource Module -->
+    <inherits name="com.braintribe.model.processing.ValueDescriptorEvaluator"/>
+    <source path="mpc"/>
+</module>

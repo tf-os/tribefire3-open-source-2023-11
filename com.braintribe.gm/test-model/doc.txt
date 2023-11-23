@@ -1,0 +1,16 @@
+The TestModel is a generic model that can be used to test and debug all kinds of GM features.
+For example, for a test cases that tests whether an access supports all simple types,
+instead of creating a new entity, one can just use
+com.braintribe.testing.model.test.technical.features.SimpleTypesEntity.
+
+The TestModel includes entities that show the usage of:
+.) all simple types
+.) all primitives
+.) enums
+.) collections
+.) (multiple) inheritance
+.) abstract (i.e uninstantiable) entities
+.) selective information
+.) initializers
+.) very long entity/property names, entities with many properties, many enum constants, etc.
+.) etc.

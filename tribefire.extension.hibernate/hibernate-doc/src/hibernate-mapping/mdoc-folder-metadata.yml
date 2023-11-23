@@ -1,0 +1,7 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  hibernate_mapping_metadata.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -200
+

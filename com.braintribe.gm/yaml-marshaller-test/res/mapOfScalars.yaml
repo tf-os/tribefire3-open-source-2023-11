@@ -1,0 +1,10 @@
+one: 1
+two: !long 23
+three: !float 2.718
+four: 3.14
+five: !decimal 0.000001
+six: true
+seven: false
+eight: Ein Text
+nine: !com.braintribe.codec.marshaller.yaml.model.pets.Status available
+

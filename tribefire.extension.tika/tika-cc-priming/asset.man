@@ -1,0 +1,4 @@
+ManipulationPriming = com.braintribe.model.asset.natures.ManipulationPriming
+
+$nature = ManipulationPriming()
+.accessId = 'cortex' 

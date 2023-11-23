@@ -1,0 +1,67 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tribefire.extension.elastic</groupId>
+    <artifactId>parent</artifactId>
+    <version>6.1.14</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <V.tribefire.extension.elastic>[6.1,6.2)</V.tribefire.extension.elastic>
+        <V.com.braintribe.common>[1.0,1.1)</V.com.braintribe.common>
+        <V.com.braintribe.gm>[1.0,1.1)</V.com.braintribe.gm>
+        <V.com.braintribe.execution>[1.0,1.1)</V.com.braintribe.execution>
+        <V.com.braintribe.gm.testing>[1.0,1.1)</V.com.braintribe.gm.testing>
+        <V.com.braintribe.networktools>[1.0,1.1)</V.com.braintribe.networktools>
+        <V.com.braintribe.wire>[1.0,1.1)</V.com.braintribe.wire>
+        <V.tribefire.cortex>[2.0,2.1)</V.tribefire.cortex>
+        <V.tribefire.cortex.testing>[2.0,2.1)</V.tribefire.cortex.testing>
+        <V.tribefire.cortex.assets>[2.0,2.1)</V.tribefire.cortex.assets>
+        <V.tribefire.cortex.assets.env>[2.0,2.1)</V.tribefire.cortex.assets.env>
+        <V.tribefire.cortex.services>[2.0,2.1)</V.tribefire.cortex.services>
+        <V.tribefire.setup.classic.env>[2.3,2.4)</V.tribefire.setup.classic.env>
+        <V.com.carrotsearch>0.7.1</V.com.carrotsearch>
+        <V.com.fasterxml.jackson.core>2.12.1</V.com.fasterxml.jackson.core>
+        <V.com.fasterxml.jackson.dataformat>2.12.1</V.com.fasterxml.jackson.dataformat>
+        <V.com.tdunning>3.0</V.com.tdunning>
+        <V.com.vividsolutions>1.13</V.com.vividsolutions>
+        <V.commons-io>2.5</V.commons-io>
+        <V.io.netty>4.1.22.Final</V.io.netty>
+        <V.javax.servlet>3.0.1</V.javax.servlet>
+        <V.joda-time>2.9.5</V.joda-time>
+        <V.net.java.dev.jna>4.4.0</V.net.java.dev.jna>
+        <V.net.sf.jopt-simple>5.0.2</V.net.sf.jopt-simple>
+        <V.org.apache.cxf>3.2.4</V.org.apache.cxf>
+        <V.org.apache.lucene>6.6.1</V.org.apache.lucene>
+        <V.org.apache.poi>4.0.1</V.org.apache.poi>
+        <V.org.apache.tika>1.24.1</V.org.apache.tika>
+        <V.org.apache.logging.log4j>2.17.2</V.org.apache.logging.log4j>
+        <V.d1.org.apache.logging.log4j>2.17.2</V.d1.org.apache.logging.log4j>
+        <V.org.codehaus.groovy>2.4.15</V.org.codehaus.groovy>
+        <V.org.elasticsearch.client>5.6.16</V.org.elasticsearch.client>
+        <V.org.elasticsearch_elasticsearch>5.6.16</V.org.elasticsearch_elasticsearch>
+        <V.org.elasticsearch_ingest-attachment>5.6.16</V.org.elasticsearch_ingest-attachment>
+        <V.org.elasticsearch_securesm>1.1</V.org.elasticsearch_securesm>
+        <V.org.hdrhistogram>2.1.9</V.org.hdrhistogram>
+        <V.org.locationtech.spatial4j>0.6</V.org.locationtech.spatial4j>
+        <V.org.yaml>1.15</V.org.yaml>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

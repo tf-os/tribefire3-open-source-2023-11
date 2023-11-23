@@ -1,0 +1,157 @@
+@external gmeButtonOver;
+
+.contentArea {
+	border: 1px solid transparent;
+}
+
+.gmeButtonOver {
+	border: 1px solid #dedede;
+}
+
+.disabledStyle .gmeButtonOver {
+	border: 1px solid transparent;
+}
+
+.content {
+	background-image: none;
+}
+
+.over .content {
+	background-image: none;
+}
+
+.focus .content {
+	background-image: none;
+}
+
+.pressed .content {
+	background-image: none;
+}
+
+.left {
+	background-image: none;
+}
+
+.over .left {
+	background-image: none;
+}
+
+.focus .left {
+	background-image: none;
+}
+
+.pressed .left {
+	background-image: none;
+}
+
+.right {
+	background-image: none;
+}
+
+.over .right {
+	background-image: none;
+}
+
+.focus .right {
+	background-image: none;
+}
+
+.pressed .right {
+	background-image: none;
+}
+
+.top {
+	background-image: none;
+}
+
+.over .top {
+	background-image: none;
+}
+
+.focus .top {
+	background-image: none;
+}
+
+.pressed .top {
+	background-image: none;
+}
+
+.topLeft {
+	background-image: none;
+}
+
+.over .topLeft {
+	background-image: none;
+}
+
+.focus .topLeft {
+	background-image: none;
+}
+
+.pressed .topLeft {
+	background-image: none;
+}
+
+.topRight {
+	background-image: none;
+}
+
+.over .topRight {
+	background-image: none;
+}
+
+.focus .topRight {
+	background-image: none;
+}
+
+.pressed .topRight {
+	background-image: none;
+}
+
+.bottom {
+	background-image: none;
+}
+
+.over .bottom {
+	background-image: none;
+}
+
+.focus .bottom {
+	background-image: none;
+}
+
+.pressed .bottom {
+	background-image: none;
+}
+
+.bottomLeft {
+	background-image: none;
+}
+
+.over .bottomLeft {
+	background-image: none;
+}
+
+.focus .bottomLeft {
+	background-image: none;
+}
+
+.pressed .bottomLeft {
+	background-image: none;
+}
+
+.bottomRight {
+	background-image: none;
+}
+
+.over .bottomRight {
+	background-image: none;
+}
+
+.focus .bottomRight {
+	background-image: none;
+}
+
+.pressed .bottomRight {
+	background-image: none;
+}

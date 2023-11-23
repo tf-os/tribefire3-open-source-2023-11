@@ -1,0 +1,11 @@
+$module=(Module=com.braintribe.model.deployment.Module)('module:tribefire.extension.vitals.dmb.dmb-messaging-module')
+
+$messaging=(DmbMessaging=tribefire.extension.dmb.messaging.model.deployment.DmbMessaging)()
+.globalId='default:tribefire.extension.vitals.dmb:dmb-messaging-module/dmbMessaging'
+.externalId='messaging.dmb.default'
+.name='Default DMB Messaging'
+.autoDeploy=true
+.module=$module
+
+$cortexConfig=(CortexConfiguration=com.braintribe.model.cortex.deployment.CortexConfiguration)('config:cortex')
+.messaging=$messaging

@@ -1,0 +1,2 @@
+<UML:Node xmi.id = "${id}" name = "${name}" isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+</UML:Node>

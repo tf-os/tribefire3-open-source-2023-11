@@ -1,0 +1,90 @@
+.entity-problems {
+    width:auto;
+    font-family: Arial;
+    font-size: 10px;
+    background-color: #fff0f0;
+    color: black;
+    border: 1px solid #fff0f0;
+    margin:4px;
+}
+
+.entity-selected {
+    border: 1px solid #ffaaaa;
+}
+
+.entity-hover {
+    border: 1px solid #ffaaaa;
+    cursor:pointer;
+}
+
+.entity-problems .entity-header {
+}
+
+.entity-problems .entity-header-group {
+    margin-bottom: 8px;
+    background-color: #ffe0e0;
+    padding: 8px;
+    color: black;
+	display: flex;
+    justify-content: space-between;
+}
+
+.entity-problems .entity-header .entity-id {
+    color: gray;
+}
+
+.entity-problems .entity-problem {
+    font-size:10 px;
+    margin:8px;
+    margin-left:16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.entity-problems .entity-problem-separator {
+    background-color: #ffe0e0;
+    border:none;
+    height:1px;
+    margin-left:16px;
+}
+
+.entity-problems .entity-problem .entity-property {
+    font-weight: bold;
+    color: red;
+}
+
+.entity-problems .entity-problem .entity-metadata {
+    font-weight: bold;
+    color: green;
+    margin-top: 4px;
+}
+
+.entity-problems .entity-type {
+    color: blue;
+}
+
+.solved-entity-problem {
+    width:auto;
+    font-family: Arial;
+    font-size: 10px;
+    background-color: #fff0f0;
+    color: black;
+    border: 1px solid #fff0f0;
+    margin:4px;
+}
+
+.solved-entity-problem .solved-entity-problem-header {
+    margin-bottom: 8px;
+    background-color: #ffe0e0;
+    padding: 8px;
+    color: black;
+}
+
+.entity-problems .entity-problem .property-undo-manipulation {
+	padding-left: 15px;
+}
+
+.validation-button-entity-undo {
+	border-radius: 5px;
+    border-width: 1px;
+}

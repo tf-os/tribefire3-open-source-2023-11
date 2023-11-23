@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="LocalInstrument2Choice">
+	</xs:element>
+	<xs:complexType name="LocalInstrument2Choice">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="Cd" type="ExternalLocalInstrument1Code"/>
+				<xs:element name="Prtry" type="Max35Text"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Max35Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExternalLocalInstrument1Code">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+			<xs:enumeration value="04"/>
+			<xs:enumeration value="05"/>
+			<xs:enumeration value="08"/>
+			<xs:enumeration value="19"/>
+			<xs:enumeration value="58"/>
+			<xs:enumeration value="60"/>
+			<xs:enumeration value="82"/>
+			<xs:enumeration value="83"/>
+			<xs:enumeration value="85"/>
+			<xs:enumeration value="89"/>
+			<xs:enumeration value="0000"/>
+			<xs:enumeration value="0001"/>
+			<xs:enumeration value="0002"/>
+			<xs:enumeration value="0090"/>
+			<xs:enumeration value="0091"/>
+			<xs:enumeration value="0092"/>
+			<xs:enumeration value="0220"/>
+			<xs:enumeration value="0221"/>
+			<xs:enumeration value="0222"/>
+			<xs:enumeration value="0223"/>
+			<xs:enumeration value="0224"/>
+			<xs:enumeration value="0225"/>
+			<xs:enumeration value="0226"/>
+			<xs:enumeration value="0227"/>
+			<xs:enumeration value="ACCEPT"/>
+			<xs:enumeration value="ARC"/>
+			<xs:enumeration value="B2B"/>
+			<xs:enumeration value="B2BAMIPM"/>
+			<xs:enumeration value="BTR"/>
+			<xs:enumeration value="CARD"/>
+			<xs:enumeration value="CCD"/>
+			<xs:enumeration value="CCI"/>
+			<xs:enumeration value="CHN"/>
+			<xs:enumeration value="CIE"/>
+			<xs:enumeration value="CKS"/>
+			<xs:enumeration value="COR1"/>
+			<xs:enumeration value="CORAMIPM"/>
+			<xs:enumeration value="CORE"/>
+			<xs:enumeration value="CPP"/>
+			<xs:enumeration value="CR1AMIPM"/>
+			<xs:enumeration value="CTP"/>
+			<xs:enumeration value="CTR"/>
+			<xs:enumeration value="CTX"/>
+			<xs:enumeration value="DDFA"/>
+			<xs:enumeration value="DDNR"/>
+			<xs:enumeration value="DDT"/>
+			<xs:enumeration value="DEP"/>
+			<xs:enumeration value="DRB"/>
+			<xs:enumeration value="DRC"/>
+			<xs:enumeration value="DRW"/>
+			<xs:enumeration value="FADAMIPM"/>
+			<xs:enumeration value="FFR"/>
+			<xs:enumeration value="FFS"/>
+			<xs:enumeration value="GST"/>
+			<xs:enumeration value="IAT"/>
+			<xs:enumeration value="IDEAL"/>
+			<xs:enumeration value="IN"/>
+			<xs:enumeration value="NLDO"/>
+			<xs:enumeration value="NLGOV"/>
+			<xs:enumeration value="NLUP"/>
+			<xs:enumeration value="ONCL"/>
+			<xs:enumeration value="POP"/>
+			<xs:enumeration value="POS"/>
+			<xs:enumeration value="PPD"/>
+			<xs:enumeration value="RCK"/>
+			<xs:enumeration value="RDD"/>
+			<xs:enumeration value="RIBA"/>
+			<xs:enumeration value="RIDO"/>
+			<xs:enumeration value="RIDV"/>
+			<xs:enumeration value="RTR"/>
+			<xs:enumeration value="SCN"/>
+			<xs:enumeration value="SDCL"/>
+			<xs:enumeration value="SDD"/>
+			<xs:enumeration value="SDN"/>
+			<xs:enumeration value="SGT"/>
+			<xs:enumeration value="SRD"/>
+			<xs:enumeration value="SRT"/>
+			<xs:enumeration value="STR"/>
+			<xs:enumeration value="SVC"/>
+			<xs:enumeration value="TEL"/>
+			<xs:enumeration value="TRF"/>
+			<xs:enumeration value="WEB"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

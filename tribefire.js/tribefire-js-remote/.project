@@ -1,0 +1,15 @@
+<projectDescription>
+	<name>tribefire-js-remote - tribefire.js</name>
+	<comment>TribefireJsRemote</comment>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.sysdeo.eclipse.tomcat.tomcatnature</nature>
+	</natures>
+</projectDescription>

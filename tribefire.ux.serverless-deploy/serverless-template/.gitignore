@@ -1,0 +1,14 @@
+
+.DS_Store
+.serverless
+
+node_modules/
+
+sls-certs/*.pem
+
+/dist
+/build
+\lib
+\dist
+\src
+\app

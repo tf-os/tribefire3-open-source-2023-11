@@ -1,0 +1,9 @@
+$nature = (TribefireModule=com.braintribe.model.asset.natures.TribefireModule)()
+
+// elasticsearch not only uses log4j-api (which is fine), but actually also uses classes from log4j-core.
+// this is not good (not at all!), because this prevents us from bridging to slf4j (via log4j-to-slf4j).
+// unfortunately elasticsearch uses a lot of log4j classes, thus there doesn't seem to be an easy fix.
+// however, by marking log4j dependencies as private here we can at least make sure that other modules
+// (which also use log4j) can be bridged as usual.
+.privateDeps=['org\\.elasticsearch(\\.|:).+','io\\.netty:.+','io.grpc:.*','org\\.codehaus\\.groovy:.+','commons-logging\\:commons-logging#.+','org\\.apache\\.logging\\.log4j:.+']
+.forbiddenDeps=['org\\.glassfish\\.main\\.javaee-api:.+','io\\.netty:.+','io.grpc:.*','d1\\.org\\.apache\\.logging\\.log4j:.+']

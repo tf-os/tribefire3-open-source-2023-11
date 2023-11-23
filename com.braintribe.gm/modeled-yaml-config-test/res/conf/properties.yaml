@@ -1,0 +1,3 @@
+one: first
+two: second
+res.root: ${config.dir}/../

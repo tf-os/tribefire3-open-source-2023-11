@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: devrock's file classpath launcher
+Bundle-SymbolicName: devrock.eclipse.file.classpath.launcher;singleton:=true
+Bundle-Version: 1.0.2.qualifier
+Bundle-Activator: com.braintribe.eclipse.launching.Activator
+Bundle-Vendor: modular mind labs
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.debug.ui,
+ org.eclipse.jdt.debug.ui;bundle-version="3.5.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.core.resources,
+ org.eclipse.debug.core,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.debug.core,
+ org.eclipse.jdt.internal.launching,
+ org.eclipse.jdt.junit.launcher,
+ org.eclipse.jdt.launching

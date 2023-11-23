@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<settings>
+    
+    <localRepository>${LOCAL_REPOSITORY}</localRepository>
+    
+    <servers>
+
+        <!-- core profile servers -->
+        <server>
+            <id>central.mirror</id>
+            <username>${REPOSITORY_USERNAME}</username>
+            <password>${REPOSITORY_PASSWORD}</password>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+        </server>
+
+        <server>
+            <id>central</id>
+            <username>${REPOSITORY_USERNAME}</username>
+            <password>${REPOSITORY_PASSWORD}</password>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+        </server>        
+
+#foreach ($rctx in $repositoryContexts)
+        <server>
+            <id>${rctx.name}</id>
+            <username>${rctx.username}</username>
+            <password>${rctx.password}</password>
+            <filePermissions>664</filePermissions>
+            <directoryPermissions>775</directoryPermissions>
+        </server>
+#end
+
+    </servers>
+
+    <mirrors>
+        <!-- core mirrors -->
+        <mirror>
+            <id>central.mirror</id>
+            <url>${REPOSITORY_URL}/third-party/</url>
+            <mirrorOf>*#foreach ($rctx in $repositoryContexts),!${rctx.name}#end</mirrorOf>
+        </mirror>
+        <mirror>
+            <id>central</id>
+            <url>${REPOSITORY_URL}/third-party/</url>
+            <mirrorOf>*#foreach ($rctx in $repositoryContexts),!${rctx.name}#end</mirrorOf>
+        </mirror>
+    </mirrors>
+
+    <profiles>
+        
+        <!-- core profile -->
+        <profile>
+            <id>core</id>
+            <repositories>
+#foreach ($rctx in $repositoryContexts)
+                <repository>
+                    <id>${rctx.name}</id>
+                    <layout>default</layout>
+                    <url>${REPOSITORY_URL}/${rctx.name}/</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>daily</updatePolicy>
+                    </releases>
+                </repository>
+#end
+            </repositories>
+            
+            <activation>
+                <property>
+                    <name>env.PROFILE_USECASE</name>
+                    <value>CORE</value>
+                </property>
+            </activation>
+    
+            <properties>
+                <!-- ravenhurst settings -->
+                <updateReflectingRepositories>#foreach ($rctx in $repositoryContexts)#if(!$foreach.first),#end${rctx.name}#end</updateReflectingRepositories>
+                <ravenhurst-context>/</ravenhurst-context>
+#foreach ($rctx in $repositoryContexts)
+                <ravenhurst-url-${rctx.name}>${RAVENHURST_URL}/rest/${rctx.name}</ravenhurst-url-${rctx.name}>
+#end
+
+                <!-- automatic deploy target -->
+                <target-repository>core-${PROFILE}</target-repository>
+            </properties>
+        </profile>
+       
+    </profiles>
+</settings>

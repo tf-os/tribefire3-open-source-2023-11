@@ -1,0 +1,168 @@
+.smartMapperMainPanel {
+	margin: 0 auto;
+	min-height: 500px;
+	min-width: 500px;
+    overflow: scroll;
+    font-size: 10pt
+}
+
+.smartMapper input {
+	background: none repeat scroll 0% 0% transparent;
+	border: medium none;
+	text-align: left;
+	height: 25px;
+	line-height: 25px;
+}
+
+.smartMapper input:hover{
+    cursor: pointer;
+}
+
+.smartMapperTopWrapperPanel{
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+    border-radius: 5px;
+    background: #fafafa;
+}
+
+.smartMapperTopPanel {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+    font-size: 14pt
+}
+
+.smartMapperTopPanel input{
+    font-size: 14pt
+}
+
+.propertyAssignmentEntry {
+	display: flex;
+	justify-content: center;
+	min-height: 35px;
+	align-items: center;
+	padding: 5px 0px;
+}
+
+.propertyAssignmentEntry input {
+	
+}
+
+.propertyMappingConversion {
+	/* border: 1px solid silver; */
+	border-radius: 5px;
+	height: 20px;
+	/* line-height: 25px; */
+	padding: 0px 10px;
+	text-align:center;
+	display: flex;
+	align-items: center;
+}
+
+.assignedPropertyName, .propertyAssignmentElement {
+	min-height: 35px;
+	line-height: 35px;
+}
+
+.assignedPropertyName {
+	
+}
+
+.assignedPropertyType {
+	font-size: 10px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0px 5px;
+	color: grey;
+}
+
+.propertyInfo, .propertyMappingConversion, .propertyAssignmentElement, .propertyMappingPlaceHolder{
+	background:#f5f5f5
+}
+
+.propertyInfo:hover, .propertyMappingConversion:hover, .propertyAssignmentElement:hover{
+	cursor:pointer;
+	background-color: #dfdfdf;
+}
+
+.propertyInfo.selected, .propertyMappingConversion.selected, .propertyAssignmentElement.selected{
+	cursor:pointer;
+	background-color: #efefef;
+}
+
+.propertyInfo {
+	border-right: 1px solid #fafafa;
+	text-align: center;
+	/* padding-right: 15px; */
+	border-radius: 7px;
+	flex-basis: 20%;
+}
+
+.propertyAssignmentEntryMiddleSectionWrapper{
+	flex-basis: 10%;
+}
+
+.propertyAssignmentElementWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-basis: 100%;
+}
+
+.propertyAssignmentElement {
+	border-left: 1px solid #fafafa;
+	text-align: center;
+	padding-left: 5px;
+	border-radius: 7px;
+	flex-basis: 50%;
+	/* display: flex; */
+	justify-content: center;
+}
+
+.propertyAssignmentElement input{
+	min-width: 50px;
+    font-size: 10pt;
+    text-indent: 5;
+    text-overflow: ellipsis;
+    height: 25px;
+    line-height: 25px;
+}
+
+.propertyInfo, .propertyAssignmentEntryMiddleSectionWrapper, .propertyAssignmentElement{
+	overflow: hidden;
+}
+
+.propertyAssignmentEntryMiddleSection {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	height: 35px;
+}
+
+.propertyMappingPlaceHolderWrapper {
+	vertical-align: middle;
+	/* display: table-cell; */
+	flex-grow: 1;
+	height: 1px;
+}
+
+.propertyMappingPlaceHolder {
+	height: 3px;
+}
+
+.separatorElement {
+	display: inline-block;
+	padding: 0px 5px;
+}
+
+.keyPropertyAssignment{
+	width: 90%;
+}
+
+.compositeElement{width: 100%;/* flex-basis: 100%; */}
+
+.flexColumn{flex-direction: column}

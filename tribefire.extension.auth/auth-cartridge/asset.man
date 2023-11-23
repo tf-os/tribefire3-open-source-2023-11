@@ -1,0 +1,2 @@
+$nature = (CustomCartridge=com.braintribe.model.asset.natures.CustomCartridge)()
+.externalId='tribefire.extension.auth.auth-cartridge'

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.common.AttributeApi"/>
+    <inherits name="com.braintribe.common.CommonAnnotations"/>
+    <inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.common.ScopingApi"/>
+    <source path="common"/>
+    <source path="utils"/>
+</module>

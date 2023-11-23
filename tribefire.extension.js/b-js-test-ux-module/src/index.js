@@ -1,0 +1,1 @@
+Console.log("This is index.js of b-js-test-ux-module")

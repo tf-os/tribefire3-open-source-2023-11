@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  REST-v2:
+    displayTitle: "REST API"
+    tags:
+      - rest
+
+  legacy_REST:
+    displayTitle: "Legacy REST API"
+
+  Resource-API:
+    displayTitle: "Resource API"

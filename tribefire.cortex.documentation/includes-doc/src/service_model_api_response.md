@@ -1,0 +1,14 @@
+Extendable Types                 | Description | Extends 
+-----                            | ------- | ------
+[`AsynchronousResponse`](javadoc:com.braintribe.model.service.api.result.AsynchronousResponse) | Signals that the asynchronous processing of the payload of an `AsynchronousRequest` was triggered. | GenericEntity  
+[`CompositeResponse`](javadoc:com.braintribe.model.service.api.result.CompositeResponse) | Type that defines a response to a `CompositeRequest` which consists of multiple service responses.  | `GenericEntity` 
+[`Failure`](javadoc:com.braintribe.model.service.api.result.Failure) | Type that overrides a `ServiceResult` with the `resultType` set to `failure`.  | `ServiceResult`
+[`InterceptorResponse`](javadoc:com.braintribe.model.service.api.result.InterceptorResponse) | Abstract. Type that defines the interceptor response. | `GenericEntity`  
+[`MulticastResponse`](javadoc:com.braintribe.model.service.api.result.MulticastResponse) | Type that defines a response to a `MulticastRequest` which was processed by multiple instances.  | `GenericEntity`  
+[`OverridingPostProcessResponse`](javadoc:com.braintribe.model.service.api.result.OverridingPostProcessResponse) | Type that defines a response which overrides a `PostPocessResponse`.  | `PostProcessResponse`
+[`PushResponse`](javadoc:com.braintribe.model.service.api.result.PushResponse) | Type that defines a response to a `PushRequest` and allows you to set, return, and check if any `PushResponseMessages` were sent | `GenericEntity`  
+[`PushResponseMessage`](javadoc:com.braintribe.model.service.api.result.PushResponseMessage) | Type that defines the details of a `PushResponse`. This type is not meant to be used as a response but to be used as a part of a `PushResponse`. | `GenericEntity`  
+[`ResponseEnvelope`](javadoc:com.braintribe.model.service.api.result.ResponseEnvelope) | Type that overrides a `ServiceResult` with the `resultType` set to `success` and returns the actual result.  | `ServiceResult`
+[`ServiceResult`](javadoc:com.braintribe.model.service.api.result.ServiceResult) | Abstract type that defines a generic result with the enumeration value of `ServiceResultType`. | `GenericEntity` 
+[`ServiceResultType`](javadoc:com.braintribe.model.service.api.result.ServiceResultType) | Enumeration used by `ServiceResult`. Available options include: `success`, `failure`, `stillProcessing` | n/a
+[`StillProcessing`](javadoc:com.braintribe.model.service.api.result.StillProcessing) | Type that overrides a `ServiceResult` with the `resultType` set to `stillProcessing`, which means that the request has not been successfully finished yet. | `ServiceResult`  

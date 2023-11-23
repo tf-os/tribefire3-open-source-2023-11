@@ -1,0 +1,9 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  jwt_authentication.md:
+    tags:
+      - jwt
+      - auth
+      - config

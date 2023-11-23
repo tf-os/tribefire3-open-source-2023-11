@@ -1,0 +1,11 @@
+$module=(Module=com.braintribe.model.deployment.Module)('module:tribefire.extension.etcd.etcd-vitals-module')
+
+$leadershipManager=(EtcdLeadershipManager=tribefire.extension.etcd.vitals.model.deployment.EtcdLeadershipManager)()
+.globalId='default:tribefire.extension.etcd:etcd-vitals-module/etcdLeadership'
+.externalId='leadership.etcd.default'
+.name='Default ETCD Leadership'
+.autoDeploy=true
+.module=$module
+
+$cortexConfig=(CortexConfiguration=com.braintribe.model.cortex.deployment.CortexConfiguration)('config:cortex')
+.leadershipManager=$leadershipManager

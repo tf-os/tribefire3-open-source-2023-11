@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.AccessApiModel"/>
+    <inherits name="com.braintribe.model.AccessRequestModel"/>
+    <inherits name="com.braintribe.model.BasicResourceModel"/>
+    <inherits name="com.braintribe.model.CollaborativeSmoodConfigurationModel"/>
+    <inherits name="com.braintribe.model.IconModel"/>
+    <inherits name="com.braintribe.model.ResourceModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <source path="collaboration"/>
+</module>

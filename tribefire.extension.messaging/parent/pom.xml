@@ -1,0 +1,49 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tribefire.extension.messaging</groupId>
+	<artifactId>parent</artifactId>
+	<version>2.0.2</version>
+	<packaging>pom</packaging>
+	<properties>
+		<java.version>17</java.version>
+
+		<V.tribefire.extension.messaging>[2.0,2.1)</V.tribefire.extension.messaging>
+		<V.tribefire.cortex.assets.env>[2.0,2.1)</V.tribefire.cortex.assets.env>
+		<V.tribefire.setup.classic.env>[2.2,2.3)</V.tribefire.setup.classic.env>
+		<V.com.braintribe.gm>[1.0,1.1)</V.com.braintribe.gm>
+		<V.com.braintribe.common>[1.0,1.1)</V.com.braintribe.common>
+		<V.tribefire.cortex>[2.0,2.1)</V.tribefire.cortex>
+		<V.com.braintribe.wire>[1.0,1.1)</V.com.braintribe.wire>
+		<V.com.braintribe.execution>[1.0,1.1)</V.com.braintribe.execution>
+		<V.com.braintribe.networktools>[1.0,1.1)</V.com.braintribe.networktools>
+		<V.tribefire.cortex.services>[2.0,2.1)</V.tribefire.cortex.services>
+		<V.com.googlecode.junit-toolbox>2.4</V.com.googlecode.junit-toolbox>
+		<V.javax.servlet>3.0.1</V.javax.servlet>
+		<V.org.apache.httpcomponents>4.5.12</V.org.apache.httpcomponents>
+		<V.org.apache.kafka.clients>3.1.0</V.org.apache.kafka.clients>
+		<V.org.slf4j.api>1.7.36</V.org.slf4j.api>
+		<V.org.apache.pulsar.client>2.9.1</V.org.apache.pulsar.client>
+		<V.org.awaitility>4.0.2</V.org.awaitility>
+		<V.com.github.ben-manes.caffeine>3.1.1</V.com.github.ben-manes.caffeine>
+		<V.org.apache.commons>3.12.0</V.org.apache.commons>
+	</properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

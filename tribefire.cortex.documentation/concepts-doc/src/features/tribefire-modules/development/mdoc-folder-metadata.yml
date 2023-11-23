@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  overview.md: 
+
+  module-classpath.md:
+
+  static-resources.md:
+
+  transient-resources.md:
+
+  dynamic-initializers:
+
+  dcsa-configuration.md:

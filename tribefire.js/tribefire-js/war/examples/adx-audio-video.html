@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<title>ADX Audio Video</title>
+
+<head>
+    <style>
+        audio:focus, video:focus{
+	        outline: none	
+        }
+    </style>
+    <script>
+        var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+        var baseUrl = "api/v1/";
+        var cacheAccessId = "access.adx.cache.spr-test-repo";
+        var accessId = "access.adx.content.spr-test-repo";
+        var remoteSession;
+        var gmSession;
+        var typeSignature = "tribefire.adx.model.content.Content";
+        var contentId = "68eb987e-cc10-4573-b243-f8447db2da5e";
+        var pixelPerCm = 37.7952755906;
+
+        window.addEventListener('startTribefireJs', function () {
+        	streaming();            
+        });       
+        
+        function streaming(){
+			openSession().then(r => {           	
+                //poster = getPreview(remoteSession.getUserSession().getSessionId(), typeSignature, contentId, $T.com.braintribe.model.resourceapi.request.PreviewType.STANDARD);
+                //hover_poster = getPreview(remoteSession.getUserSession().getSessionId(), typeSignature, contentId, $T.com.braintribe.model.resourceapi.request.PreviewType.ACTIVE);             
+                
+                //el.setAttribute("poster", poster);
+                //el.setAttribute("normal_poster", poster);
+                //el.setAttribute("hover_poster", hover_poster);
+                
+                getDocumentInfo().then(documentInfo => {                    
+                    url = gmSession.resources().url(documentInfo.sourceResource).asString();
+                    url = url + "&sessionId=" + gmSession.getSessionAuthorization().getSessionId()
+                    console.log(url);
+                    el = $id("video");
+                    el.setAttribute("src", url);
+                    el.setAttribute("width", (documentInfo.widthInCm * pixelPerCm));
+                    el.setAttribute("height", (documentInfo.heightInCm * pixelPerCm));
+                });
+            });
+        }
+
+        function getDocumentInfo(){
+            request = $T.com.braintribe.model.documents.service.v1.retrieval.GetDocumentInfo.create();
+            request.documentId = contentId;             
+            return gmSession.evaluate(request);
+        }
+        
+        function lazyLoad(propertyName, type, id){
+        	return gmSession.query().property("property " + propertyName + " of reference(" + type + ", '" + id + "')")
+        }
+
+        function getPreview(sessionId, typeSignature, id, type){
+            url = servicesUrl + "/" + baseUrl + cacheAccessId + "/com.braintribe.model.resourceapi.request.GetPreview?"
+            + addParam("sessionId", sessionId)
+			+ addParam("instanceTypeSignature", typeSignature)
+			+ addParam("instanceId", id)
+			+ addParam("downloadResource", "true")
+			+ addParam("timestamp", $tf.time.printJsDate(new Date()))
+            + addParam("previewType", type.name());
+            return url;
+        }       
+
+        function authenticate() {
+            console.log("start to authenticate");
+            console.time("authenticate");
+            if (remoteSession) {
+                console.log(remoteSession)
+                console.timeEnd("authenticate");
+                return Promise.resolve(remoteSession);
+            } else {
+                var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                config.servicesUrl = servicesUrl;
+                var promise = $tf.remote.sessionFactory.open(config);
+                promise.then(rs => {
+                    remoteSession = rs;
+                    console.log(remoteSession);
+                    console.timeEnd("authenticate");
+                });
+                return promise;
+            }
+        }
+
+        function openSession() {
+            console.log("start to open session");
+            console.time("openSession");
+            if (gmSession) {
+                console.log(gmSession)
+                console.timeEnd("openSession");
+                return Promise.resolve(gmSession);
+            } else {
+                var promise = authenticate().then(rs => {
+                    return rs.openPersistenceSession(accessId);
+                });
+                promise.then(session => {
+                    gmSession = session;
+                    console.log(gmSession);
+                    console.timeEnd("openSession");
+                });
+                return promise;
+            }
+        }
+        
+        function addParam(key, value) {
+		    return "&" + key + "=" + encodeURI(value);
+	    }
+
+        function changePoster(video, att){
+            video.setAttribute("poster", video.getAttribute(att));
+        }
+
+        function $id(id){
+            return document.getElementById(id);
+        }
+    </script>
+    <script src="../tribefire.js"></script>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <video autobuffer controls id="video" src="" width="" height="500" poster="" normal_poster="" hover_poster="" 
+        onmouseover="changePoster(this, 'hover_poster')" onmouseout="changePoster(this, 'normal_poster')"">
+        </video>
+    </div>
+    <!-- <audio preload="auto" autobuffer controls id="audio" src=""></audio> -->
+</body>
+
+</html>

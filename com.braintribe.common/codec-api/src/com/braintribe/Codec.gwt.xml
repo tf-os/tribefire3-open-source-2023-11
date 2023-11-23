@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+  <source path="codec">
+    <exclude name="**/dom/genericmodel/**" />
+    <exclude name="**/HashCodec.java" />
+    <exclude name="**/Md5Codec.java" />
+  </source>
+</module>

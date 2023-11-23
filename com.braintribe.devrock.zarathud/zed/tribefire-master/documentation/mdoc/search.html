@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Documentation</title>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href=".mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='.mdoc/res/custom.css'/>
+	<link rel="icon" href=".mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src=".mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src=".mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src=".mdoc/res/jquery.navgoco.min.js"></script>	<link rel='stylesheet' href='.mdoc/res/index.css'/>
+	<link rel='stylesheet' href='.mdoc/res/pagination.css'/>
+    
+    <script src=".mdoc/res/pagination.min.js"></script>
+    <script src=".mdoc/res/lunr.js"></script>
+    <script src=".mdoc/res/lunr-index.js"></script>
+    <script>
+    var markdownFiles = {
+			"com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Finger prints"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Forensics"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Running an analysis via ant target"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "running an analysis in Eclipse"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Running an analysis via java"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Running an analysis via Jinni"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "Rationale (mgmt redux)"
+			},
+			"com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html" : {
+				"asset" : "Zarathud Documentation",
+				"title" : "com.braintribe.devrock.zarathud:zarathud"
+			},
+    }
+    
+    </script>
+    <script>
+	        
+        idx = lunr.Index.load(serializedIndex);
+        
+        let maxResults = 10;
+        
+        function renderResults(results){
+            var searchText = document.getElementById("search-input").value;        
+        	var searchResults = document.getElementById('search-results');
+        	searchResults.innerHTML = "";
+            
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var ref = result.ref;
+                var divNode = document.createElement("li");
+                var anchorNode = document.createElement("a");
+                anchorNode.href = ref + "?searchText=" + searchText;
+                anchorNode.target = "content-frame";
+                
+                var mdFile = markdownFiles[ref];
+                
+                anchorNode.innerHTML = "<b>" + mdFile.asset + "</b> - " +  mdFile.title
+                
+                divNode.appendChild(anchorNode);
+                searchResults.appendChild(divNode);
+            }
+            
+            searchResults.style.height = searchResults.querySelector("li").offsetHeight * maxResults + "px"
+            
+        }
+
+        function search(event) {
+        	var searchResults = document.getElementById('search-results');   
+        	var groupingLinkHref = document.getElementById("grouping").href
+        	     
+            var originalSearchText = document.getElementById("search-input").value;
+            var searchText = originalSearchText;
+        	groupingLinkHref = groupingLinkHref.replace(/\.html(\?searchText=.*)?/, ".html?searchText=" + searchText);
+        	document.getElementById("grouping").href = groupingLinkHref
+        	
+        	var lunrJsSpecialChars = /(^[+-])|[\^:*~]/g;
+        	
+            if (!searchText.match(lunrJsSpecialChars))
+            	searchText = searchText.replace(/(\S{5,})(\s|$)/g, "boosted:$1^10 title:$1^10 headings:$1^5 $1$2");
+
+            console.log("searching: '" + searchText + "'");
+            var results;
+            
+            try {
+            	results = idx.search(searchText)
+    		} catch (e) {
+    			console.log("invalid lunrjs search term: '" + searchText + "'", e);
+    			searchText = originalSearchText.replace(lunrJsSpecialChars, " ");
+    			console.log("Searching for text without special characters: '" + searchText + "'");
+    			results = idx.search(searchText)
+    		}
+    		
+    		results = results.filter(r => markdownFiles[r.ref]);
+                       
+			if (results.length == 0){
+				searchResults.innerHTML = "<b>No results found.</b>";
+				$('#pagination-bar').html("")
+			} else {
+				$('#pagination-bar')
+					.pagination({
+					    dataSource: results,
+					    callback: renderResults,
+					    pageRange: 1,
+					    pageSize: maxResults,
+					    className: "paginationjs-big"
+					})
+					
+				$('.paginationjs')
+					.addClass("paginationjs-big");
+
+			}
+            
+            if (event) {
+            	event.preventDefault();
+        	}
+        	
+            return true;
+        }
+        
+        window.onload = function() {
+			$('.nav').navgoco({accordion: true});
+        
+	    	var urlParams = new URLSearchParams(window.location.search);
+			var searchText = urlParams.get('searchText')
+			
+	    	document.getElementById("search-input").value = searchText;
+	    	
+	    	search();
+		}
+    </script>
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=index.html><img src='.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class=''><a href="com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class=''><a href="com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src=".mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+	<main id='search'>
+		<a href=overview.html id=grouping>Group results by asset</a>
+		<div class=search-bar>
+			<form oninput="return search(event)" onsubmit="event.preventDefault();">
+	            <input class='search-input' id="search-input" placeholder="Search..." autocomplete="off" autofocus/>            
+	        </form>		
+	    </div>
+	    <ul id='search-results' class='nav'>
+	    	<h2>Search results</h2>
+	    </ul>
+	    <div id="pagination-bar">
+	    </div>
+	</main>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

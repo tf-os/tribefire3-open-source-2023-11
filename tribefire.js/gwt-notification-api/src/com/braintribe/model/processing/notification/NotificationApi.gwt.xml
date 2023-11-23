@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.BasicConfigAnnotations"/>
+	<inherits name="com.braintribe.common.AttributeApi"/>
+	<inherits name="com.braintribe.model.BasicResourceModel"/>
+	<inherits name="com.braintribe.model.CommandModel"/>
+	<inherits name="com.braintribe.model.generic.I18nModel"/>
+	<inherits name="com.braintribe.model.generic.ManipulationModel"/>
+	<inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+	<inherits name="com.braintribe.model.GenericModel"/>
+	<inherits name="com.braintribe.model.IconModel"/>
+	<inherits name="com.braintribe.model.ModelPathModel"/>
+	<inherits name="com.braintribe.model.NotificationClientModel"/>
+	<inherits name="com.braintribe.model.NotificationModel"/>
+	<inherits name="com.braintribe.model.processing.session.SessionApi"/>
+	<inherits name="com.braintribe.model.QueryModel"/>
+	<inherits name="com.braintribe.model.ServiceApiModel"/>
+	<inherits name="com.braintribe.model.TransientResourceModel"/>
+	<inherits name="com.braintribe.model.UiCommandModel"/>
+	<inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<super-source path="emul"/>
+	<source path="api"/>
+</module>

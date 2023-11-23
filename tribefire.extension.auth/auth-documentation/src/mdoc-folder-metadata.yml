@@ -1,0 +1,9 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  auth_cartridge.md:
+    priority: -200
+
+  auth_setup_google.md: 
+    priority: -180

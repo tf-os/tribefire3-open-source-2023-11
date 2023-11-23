@@ -1,0 +1,3091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentStores xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- ############################################################################## -->
+  <!-- IndexDefinition  -->
+  <!-- ############################################################################## -->
+  <IndexDefinition>
+    <Index id="3001" name="zuletzt bearbeitet am" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="field:type" value="lastEditTime" />
+      </Parameters>
+    </Index>
+    <Index id="3002" name="zuletzt bearbeitet von" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="field:type" value="lastEditUsername" />
+      </Parameters>
+    </Index>
+    <!--Indexwerte fuer Helvetia-->
+    <Index id="100000" name="VSNR" type="string" description="Versicherungsscheinnummer">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="100001" name="VERMITTLER" type="string" description="Vermittlernnummer">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="formatMask" value="###.####" />
+        <Parameter name="searchFormatMask" value="###.####" />
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="idxValCheckScript" value="checkVermittler" />
+      </Parameters>
+    </Index>
+    <Index id="100002" name="SCHADEN_NR" type="string" description="Schadennummer">
+      <Parameters>
+        <Parameter name="length" value="16" />
+        <Parameter name="formatMask" value="###-#-##-#####-#" />
+        <Parameter name="searchFormatMask" value="###-#-##-#####-#" />
+      </Parameters>
+    </Index>
+    <Index id="100003" name="PERS_NR" type="string" description="Personen-Nr. (Kunden-Nr.)">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="100004" name="BARERFDAT" type="string" description="Barcode-Erfassungsdatum">
+      <Parameters>
+        <Parameter name="guiType" value="date" />
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="100005" name="ERZEUG_DATUM" type="string" description="Datum der Erzeugung des Dokuments vom Drucksystem">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="isEditable" value="No" />
+      </Parameters>
+    </Index>
+    <!-- Removal requestet by HEL -->
+    <Index id="100006" name="GV" type="string" description="Geschäftsvorfall">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isEditable" value="No" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <!-- Removal requestet by HEL -->
+    <Index id="100007" name="DKZ" type="string" description="Diktatskennzeichen">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="isEditable" value="No" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!--  -->
+    <Index id="100008" name="USERID" type="string" description="UserID">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="runScriptEvent" value="onInit" />
+        <Parameter name="idxValCheckScript" value="fillUsername" />
+        <Parameter name="isSearchable" value="No" />
+        <Parameter name="isEditable" value="No" />
+      </Parameters>
+    </Index>
+    <Index id="100009" name="USERNAME" type="string" description="Username">
+      <Parameters>
+        <Parameter name="length" value="60" />
+        <Parameter name="isSearchable" value="No" />
+        <Parameter name="isEditable" value="No" />
+      </Parameters>
+    </Index>
+    <Index id="100010" name="VERTNR" type="string" description="Vertragsnummer im Bereich Leben">
+      <Parameters>
+        <Parameter name="length" value="7" />
+      </Parameters>
+    </Index>
+    <Index id="100011" name="BEARB_DATUM" type="string" description="Durchführungsdatum in der Anwendung">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="isEditable" value="No" />
+      </Parameters>
+    </Index>
+    <Index id="100012" name="EINGDAT" type="string" description="Eingangsdatum des Antrags">
+      <Parameters>
+        <Parameter name="length" value="10" />
+      </Parameters>
+    </Index>
+    <!-- Removal requestet by HEL -->
+    <Index id="100013" name="REFNR" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="17" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <Index id="100014" name="MA-VERTRAG" type="string" description="Mitarbeitervertrag/Kennzeichen">
+      <Parameters>
+        <Parameter name="length" value="1" />
+        <Parameter name="guiSelectList" value="N^J" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="N" />
+      </Parameters>
+    </Index>
+    <Index id="100015" name="FTEXT" type="string" description="Freitext">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="100016" name="Part-Ges" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="guiSelectList" value="^01^02^03^04^05^06^07^08^NA^WE" />
+        <!-- Added new values due to CHEL-470 -->
+        <Parameter name="defaultValue" value="" />
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="idxValCheckScript" value="setPartGes" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <!-- Removal requestet by HEL -->
+    <Index id="100017" name="AGENTUR" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="80" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <Index id="100018" name="BARCODE" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="10" />
+      </Parameters>
+    </Index>
+    <!-- Removal requestet by HEL -->
+    <Index id="100020" name="ZWEIG" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <Index id="100021" name="LAUF_NAME" type="string" description="Name des Importes aus COLD-Verarbeitung">
+      <Parameters>
+        <Parameter name="length" value="60" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="100022" name="DOC_ID" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="70" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <!-- Removal requestet by HEL -->
+    <Index id="100023" name="FD_AGENTUR" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <Index id="100024" name="SONDAKTNR" type="string" description="Sonderakten-Nr. in Industrie">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="100030" name="BEARBEITUNGSDATUM" type="string" description="Bearbeitungsdatum">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="idxValCheckScript" value="checkImport,setDate" />
+        <!--Parameter name="guiType" value="Date" />
+        <Parameter name="datetimeformat" value="yyyy-mm-dd hh:nn:ss" />
+        <Parameter name="savedatetimeformat" value="yyyy-mm-dd hh:nn:ss" /-->
+      </Parameters>
+    </Index>
+    <!-- Removal requestet by HEL -->
+    <Index id="100117" name="DOKUGR" type="string" description="Dokumentuntergruppe">
+      <Parameters>
+        <Parameter name="length" value="80" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <Index id="100123" name="SACHGEBIET" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="idxValCheckScript" value="fillDokart,fillSachbearbeiter" />
+        <Parameter name="runScriptEvent" value="onChange" />
+        <!--
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="idxValCheckScript" value="checkNodeID" />
+        -->
+      </Parameters>
+    </Index>
+    <!-- nur Notwendig wenn suche aus MQ -->
+    <!-- Removal requestet by HEL -->
+    <Index id="100124" name="SPARTE" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="guiSelectList" value="^Autohaus^Haft^Multirisk^Sach^Sach/Haft^Sach/Haft/TV^TV" />
+        <Parameter name="guiSelectListDefault" value="" />
+      </Parameters>
+    </Index>
+    <!-- -->
+    <!-- ******************************* -->
+    <Index id="100125" name="FD" type="string" description="Filialdirektion">
+      <Parameters>
+        <Parameter name="length" value="3" />
+        <Parameter name="guiSelectList" value="^010^020^040^050^070^080^090^110^120^180^PET" />
+        <Parameter name="getPossibleSearchValues" value="^010^020^040^050^070^080^090^110^120^180^PET" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="" />
+        <Parameter name="idxValCheckScript" value="changeFD,fillDokart,fillSachbearbeiter" />
+        <Parameter name="runScriptEvent" value="onChange" />
+      </Parameters>
+    </Index>
+    <Index id="100126" name="AN-Nummer" type="string" description="Antragsnummer PORTA">
+      <Parameters>
+        <Parameter name="length" value="50" />
+        <Parameter name="isVisible" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="100127" name="Importdaten" type="string" description="zusätzliche Daten vom Import">
+      <Parameters>
+        <Parameter name="length" value="20480" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="guiType" value="accounting" />
+      </Parameters>
+    </Index>
+    <Index id="100128" name="SessionID" type="string" description="ID der bearbeitenden IO-Queue">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="false" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="100129" name="Unterakte" type="string" description="Bildet innerhalb des Ordungsbegriffs VNR oder Schadennummer eine Untergruppierung von Dokumenten">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="100130" name="Kfz-Kennzeichen" type="string" description="Kfz-Kennzeichen">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="100131" name="Formular-Nr.HV" type="string" description="Formular-Nr.HV">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="100132" name="Abgeb-FD" type="string" description="Filialdirektion uebergreifend moeglich">
+      <Parameters>
+        <Parameter name="length" value="30" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="" />
+        <Parameter name="guiSelectList" value="^010^020^040^050^070^080^090^110^120^PET^WENSKE" />
+        <Parameter name="idxValCheckScript" value="fillAbgabeDokDatum" />
+        <Parameter name="runScriptEvent" value="onChange" />
+      </Parameters>
+    </Index>
+    <Index id="100133" name="Abgeb-Dok" type="string" description="Abgeb-Dok">
+      <Parameters>
+        <Parameter name="length" value="2" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="N" />
+        <Parameter name="guiSelectList" value="J^N" />
+        <Parameter name="idxValCheckScript" value="fillAbgabeDatum" />
+        <Parameter name="runScriptEvent" value="onChange" />
+      </Parameters>
+    </Index>
+    <Index id="100134" name="Abgabe-Datum" type="string" description="Abgabe-Datum">
+      <Parameters>
+        <Parameter name="length" value="30" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="100135" name="VB-ID" type="string" description="VB-ID">
+      <Parameters>
+        <Parameter name="length" value="15" />
+      </Parameters>
+    </Index>
+    <Index id="9010" name="Nachname" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="60" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectListWithEdit" />
+        <Parameter name="idxValCheckScript" value="fillNachname" />
+        <Parameter name="runScriptEvent" value="onKey" />
+        <Parameter name="runscriptkey" value="vk_return" />
+      </Parameters>
+    </Index>
+    <Index id="9011" name="Vorname" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="60" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectListWithEdit" />
+        <Parameter name="idxValCheckScript" value="fillVorname" />
+        <Parameter name="runScriptEvent" value="onEnter" />
+      </Parameters>
+    </Index>
+    <Index id="9012" name="GebDat" type="string" description="Geburtsdatum">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectListWithEdit" />
+        <Parameter name="idxValCheckScript" value="fillGebDat" />
+        <Parameter name="runScriptEvent" value="onEnter" />
+      </Parameters>
+    </Index>
+    <Index id="10" name="Dokumentart" type="string" description="Dokumentart">
+      <Parameters>
+        <Parameter name="length" value="80" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="idxValCheckScript" value="fillDokart,fillSachbearbeiter" />
+        <Parameter name="runScriptEvent" value="onInit" />
+      </Parameters>
+    </Index>
+    <Index id="13" name="SonderKZ" type="string" description="SonderKZ">
+      <Parameters>
+        <Parameter name="length" value="25" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="guiSelectList" value="^Standard^besondere VM^neuer VM^hoher Beitrag^abgelehnt^EILT" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <!--Parameter name="isEditable" value="false" ignoreForRoles="Admin_SU" /-->
+      </Parameters>
+    </Index>
+    <!-- CHEL-592: Extended values by KSKFZ and KSPrivat -->
+    <Index id="14" name="OrtBearb" type="string" description="OrtBearb">
+      <Parameters>
+        <Parameter name="length" value="15" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="guiSelectList" value="^Assistance^BVM^CARS^DFD^DFDTR^FD^Haftpflicht^HAUSVERW^HUKGroß^Kraftfahrt^KSCGE^KSCKA^KSCN^KSFAH^KSKFZ^KSPrivat^KSSL^Kunst^MOPED^MR^Property^Sach1^Sach2^Sach3^SachGroß^SELECT^SHTV^SSC^TVBetrieb^USC^UWFKG^VP-Services" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="idxValCheckScript" value="checkMandatoryFields" />
+        <Parameter name="runScriptEvent" value="onSave" />
+      </Parameters>
+    </Index>
+    <Index id="11" name="Sachbearbeiter" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="50" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="idxValCheckScript" value="fillSachbearbeiterFromID" />
+        <Parameter name="runScriptEvent" value="onInit" />
+        <Parameter name="isSortable" value="false" ignoreForRoles="i2z_sort_sb" />
+      </Parameters>
+    </Index>
+    <Index id="12" name="Sachbearb-ID" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="50" />
+        <!-- <Parameter name="isVisible" value="No" /> -->
+        <Parameter name="isEditable" value="No" />
+        <Parameter name="idxValCheckScript" value="saveValues" />
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="isSortable" value="false" ignoreForRoles="i2z_sort_sb" />
+      </Parameters>
+    </Index>
+    <Index id="20" name="Status" type="string" description="Status des Dokuments im Posteingang bzw. in der Verarbeitung">
+      <Parameters>
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="length" value="25" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="guiSelectList" value="offen^in Bearbeitung^Freigabe^Wiedervorlage^erledigt" />
+        <Parameter name="guiSelectListDefault" value="offen" />
+        <!-- NOTE: searchvalues are overwritten by script -->
+        <Parameter name="getPossibleSearchValues" value="offen^in Bearbeitung^Freigabe^Wiedervorlage^erledigt" />
+        <Parameter name="idxValCheckScript" value="check_erledigt" />
+        <Parameter name="runScriptEvent" value="onSave" />
+      </Parameters>
+    </Index>
+    <!-- Postkorb IndexDefinitions -->
+    <!-- Stapelname -->
+    <Index id="100201" name="Stapelname" type="string" description="Stapelname des Scandienstleisters">
+      <Parameters>
+        <Parameter name="length" value="32" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <!-- Paginiernummer -->
+    <Index id="100202" name="Paginiernummer" type="string" description="Durchlaufende Nummer des Scandienstleisters">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isSystemIndex" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <!-- Orga-Bezirk -->
+    <Index id="100203" name="Orga-Bezirk" type="string" description="Organisations-Bezirk">
+      <Parameters>
+        <Parameter name="length" value="8" />
+      </Parameters>
+    </Index>
+    <!-- VN-NN -->
+    <Index id="100204" name="VN-Nachname" type="string" description="Versicherungsnehmer Nachname">
+      <Parameters>
+        <Parameter name="length" value="32" />
+        <!-- CHEL-429 -->
+      </Parameters>
+    </Index>
+    <!-- CHEL-562 -->
+    <Index id="100205" name="VIP-Vertrag" type="string" description="VIP-Vertrag">
+      <Parameters>
+        <Parameter name="length" value="1" />
+        <Parameter name="guiSelectList" value="^A" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="" />
+      </Parameters>
+    </Index>
+    <!-- Ende Postkorb IndexDefinitions -->
+    <!-- ################################################################### -->
+    <!-- START: Process Monitor Indices -->
+    <!-- ################################################################### -->
+    <Index id="10000" name="jobId" type="integer" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="id" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10001" name="hostname" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="hostname" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10002" name="label" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="label" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10003" name="senderId" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="senderId" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10004" name="type" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="type" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10005" name="userId" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="userId" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10006" name="status" type="integer" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="status" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10007" name="statusText" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="statusText" />
+        <Parameter name="addtohitlist" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10008" name="creationTime" type="dts" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="creationTime" />
+        <Parameter name="isSearchable" value="false" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+        <Parameter name="guiType" value="Date" />
+      </Parameters>
+    </Index>
+    <Index id="10009" name="lastUpdateTime" type="dts" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="lastUpdateTime" />
+        <Parameter name="isSearchable" value="false" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+        <Parameter name="guiType" value="Date" />
+      </Parameters>
+    </Index>
+    <Index id="10010" name="errorMessage" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="errorMessage" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10011" name="barcode" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.attribute.field" value="Barcode" />
+        <Parameter name="pm.attribute.field.isPrefix" value="true" />
+        <Parameter name="isMultiValued" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10012" name="docCount" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.attribute.field" value="docCount" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="10013" name="objCount" type="string" description="">
+      <Parameters>
+        <Parameter name="pm.attribute.field" value="pageCount" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <!-- ################################################################### -->
+    <!-- END: Process Monitor Indices -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- START: Mailbox Indices -->
+    <!-- ################################################################### -->
+    <Index id="20000" name="Mailbox" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="20001" name="Username" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="20002" name="Password" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="20003" name="Zielknoten" type="integer" description="">
+      <Parameters />
+    </Index>
+    <Index id="20004" name="Aktiv" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="guiSelectList" value="Ja^Nein" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="Ja" />
+      </Parameters>
+    </Index>
+    <Index id="20005" name="autom. Klassifikation" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="guiSelectList" value="Ja^Nein" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="Ja" />
+      </Parameters>
+    </Index>
+    <Index id="20006" name="Folder" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="20007" name="Error-Mail" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="255" />
+      </Parameters>
+    </Index>
+    <Index id="20008" name="letzter Import" type="string" description="zuletzt erfolgreich abgeschlossener Import">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="guiType" value="Datetime" />
+        <Parameter name="datetimeformat" value="yyyy-mm-dd hh:nn:ss" />
+        <Parameter name="savedatetimeformat" value="yyyy-mm-dd hh:nn:ss" />
+      </Parameters>
+    </Index>
+    <Index id="20009" name="Inaktivität Zeitlimit (h)" type="string" description="Timeout in h nach dem Benachrichtigungen verschickt werden">
+      <Parameters>
+        <Parameter name="length" value="20" />
+      </Parameters>
+    </Index>
+    <Index id="20010" name="Inaktivität Empfänger (h)" type="string" description="Empfängerliste für Benachrichtigungen">
+      <Parameters>
+        <Parameter name="length" value="255" />
+        <Parameter name="isMultiValued" value="true" />
+      </Parameters>
+    </Index>
+    <!-- ################################################################### -->
+    <!-- END: Mailbox Indices -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- BEGIN: ORGA Doctype Indices -->
+    <!-- ################################################################### -->
+    <Index id="21000" name="Host Doc-ID" type="integer" description="Host Doc-ID">
+      <Parameters />
+    </Index>
+    <Index id="21001" name="Node ID" type="integer" description="Node ID">
+      <Parameters />
+    </Index>
+    <Index id="21002" name="Ablaufdatum (Tage)" type="integer" description="Ablaufdatum (Tage)">
+      <Parameters />
+    </Index>
+    <Index id="21003" name="ext. sichtbar" type="string" description="ext. sichtbar">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="guiSelectList" value="N^J" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="defaultValue" value="J" />
+      </Parameters>
+    </Index>
+    <!-- ################################################################### -->
+    <!-- END: ORGA Doctype Indices -->
+    <!-- ################################################################### -->
+    <!-- ################################################################### -->
+    <!-- BEGIN: ORGA Indices -->
+    <!-- ################################################################### -->
+    <Index id="30001" name="Dokumentart" type="string" description="Dokumentart">
+      <Parameters>
+        <Parameter name="length" value="80" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="isMandatory" value="true" />
+        <Parameter name="runScriptEvent" value="onSave" />
+        <Parameter name="idxValCheckScript" value="checkValuesOrga" />
+      </Parameters>
+    </Index>
+    <Index id="30002" name="Unter-Dokumentart" type="string" description="Unter-Dokumentart">
+      <Parameters>
+        <Parameter name="length" value="80" />
+        <Parameter name="guiSelectListDefault" value="" />
+        <Parameter name="guiSelectListType" value="selectList" />
+        <Parameter name="isMandatory" value="false" />
+        <Parameter name="idxValCheckScript" value="fillOrgaDoctypes" />
+        <Parameter name="runScriptEvent" value="onInit,onExit" />
+      </Parameters>
+    </Index>
+    <Index id="30003" name="Ablaufdatum" type="string" description="Ablaufdatum">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isVisible" value="false" />
+        <Parameter name="guiType" value="date" />
+        <Parameter name="datetimeformat" value="yyyy-mm-dd" />
+        <Parameter name="savedatetimeformat" value="yyyy-mm-dd" />
+      </Parameters>
+    </Index>
+    <Index id="30004" name="VERMITTLER Name" type="string" description="VERMITTLER Name">
+      <Parameters>
+        <Parameter name="length" value="100" />
+      </Parameters>
+    </Index>
+    <Index id="30005" name="Betreuer Name" type="string" description="Betreuer Name">
+      <Parameters>
+        <Parameter name="length" value="100" />
+      </Parameters>
+    </Index>
+    <Index id="30006" name="LV-BE" type="string" description="LV-BE">
+      <Parameters>
+        <Parameter name="length" value="100" />
+      </Parameters>
+    </Index>
+    <Index id="30007" name="LV-BeName" type="string" description="LV-BeName">
+      <Parameters>
+        <Parameter name="length" value="100" />
+      </Parameters>
+    </Index>
+    <!-- ################################################################### -->
+    <!-- END: ORGA Indices -->
+    <!-- ################################################################### -->
+    <!-- CHEL-265 -->
+    <Index id="100034" name="ext.sichtbar" type="string" description="Extern sichtbar">
+      <Parameters>
+        <Parameter name="length" value="2" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="idxValCheckScript" value="Sichtbarkeit" />
+        <Parameter name="runScriptEvent" value="onSave" />
+      </Parameters>
+    </Index>
+    <!-- CHEL-242 -->
+    <Index id="100025" name="TOP" type="string" description="VOB-TOP">
+      <Parameters>
+        <Parameter name="length" value="2" />
+      </Parameters>
+    </Index>
+    <Index id="100031" name="Zieldatum" type="string" description="Zieldatum">
+      <Parameters>
+        <Parameter name="length" value="20" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="guiType" value="Datetime" />
+        <Parameter name="datetimeformat" value="yyyy-mm-dd hh:nn:ss" />
+        <Parameter name="savedatetimeformat" value="yyyy-mm-dd hh:nn:ss" />
+      </Parameters>
+    </Index>
+    <!-- ./CHEL-242 -->
+    <!-- CHEL-261 -->
+    <Index id="100032" name="SH-TAG" type="string" description="Schaden-Tag">
+      <Parameters>
+        <Parameter name="length" value="22" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="100033" name="SH-UZW" type="string" description="Schaden-Unterzweig">
+      <Parameters>
+        <Parameter name="length" value="4" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <!-- ./CHEL-261 -->
+    <Index id="40001" name="ZENANR NAD" type="integer" description="ZENA Nummer NAD">
+      <Parameters>
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40002" name="VSNR NAD" type="string" description="Versicherungsscheinnummer NAD">
+      <Parameters>
+        <Parameter name="length" value="11" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40003" name="SHNR NAD" type="integer" description="Schadennummer NAD">
+      <Parameters>
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40004" name="AGNR NAD" type="integer" description="Agenturnummer NAD">
+      <Parameters>
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40005" name="Unterakte NAD" type="string" description="Unterakte NAD">
+      <Parameters>
+        <Parameter name="length" value="1" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40006" name="Nachname NAD" type="string" description="Versicherungsnehmer Nachname NAD">
+      <Parameters>
+        <Parameter name="length" value="70" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="40007" name="DokId NAD" type="string" description="Dokument ID NAD">
+      <Parameters>
+        <Parameter name="length" value="10" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="41001" name="ContentIdIntern" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41002" name="ContentIdExtern" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41003" name="StepName" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41004" name="Status" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41005" name="Message" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="500" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41006" name="TimeStamp" type="dts" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+        <Parameter name="guiType" value="Date" />
+        <Parameter name="savedatetimeformat" value="dd.MM.yyyy" />
+      </Parameters>
+    </Index>
+    <Index id="41007" name="Filename" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="41008" name="Filesize" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />
+        <Parameter name="isVisible" value="true" />
+        <Parameter name="isEditable" value="true" />
+      </Parameters>
+    </Index>
+    <!-- CHEL-484 -->
+    <Index id="100035" name="SL-VERTRAG" type="string" description="SL Verträge">
+      <Parameters>
+        <Parameter name="length" value="1" />
+        <Parameter name="isVisible" value="false" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <!-- ./CHEL-484 -->
+  </IndexDefinition>
+  <!-- ############################################################################## -->
+  <!-- ContentStore definition  -->
+  <!-- ############################################################################## -->
+  <ContentStore name="DMS" nextContentDefinitionId="10">
+    <!--Content Definition fuer Helvetia-->
+    <ContentDefinition name="CD_1021" id="CD_1021" description="Haupt-Content-Definition">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10" />
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- SonderKZ -->
+          <Index ref="13" />
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <!-- FTEXT -->
+          <Index ref="100015" />
+          <!-- VSNR -->
+          <Index ref="100000" />
+          <!-- SCHADEN_NR -->
+          <Index ref="100002" />
+          <!-- VERTNR -->
+          <Index ref="100010" />
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Zieldatum -->
+          <Index ref="100031" />
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- AGENTUR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100023" />
+          <!-- -->
+          <!-- SONDAKTNR Sonderaktennummer -->
+          <Index ref="100024" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132" />
+          <!-- Abgeb-Dok -->
+          <Index ref="100133" />
+          <!-- Abgabe-Datum -->
+          <Index ref="100134" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- AN-Nummer -->
+          <Index ref="100126">
+            <Parameters>
+              <Parameter name="isVisible" value="true" />
+            </Parameters>
+          </Index>
+          <!-- TOP -->
+          <Index ref="100025" />
+          <!-- SH-TAG -->
+          <Index ref="100032" />
+          <!-- SH-Unterzweig -->
+          <Index ref="100033" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- Lauf_Name -->
+          <Index ref="100021" />
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- Paginiernummer -->
+          <Index ref="100202" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123" />
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030" />
+          <!-- BARCODE -->
+          <Index ref="100018" />
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- Removal requestet by HEL -->
+          <Index ref="100017" />
+          <!-- -->
+          <!-- USERID -->
+          <Index ref="100008" />
+          <!-- USERNAME -->
+          <Index ref="100009" />
+          <!-- Personennummer -->
+          <Index ref="100003" />
+          <!-- Geschäftsvorfall -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100006" />
+          <!-- -->
+          <!-- DKZ -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100007" />
+          <!-- -->
+          <!-- EINGDAT -->
+          <Index ref="100012" />
+          <!-- ERZEUG_DATUM -->
+          <Index ref="100005" />
+          <!-- REFNR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100013" />
+          <!-- ZWEIG -->
+          <Index ref="100020" />
+          <!-- -->
+          <!-- Doc_Id -->
+          <Index ref="100022" />
+          <!-- DOKUGR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100117" />
+          <!-- -->
+          <!-- Nachname -->
+          <Index ref="9010" />
+          <!-- Vorname -->
+          <Index ref="9011" />
+          <!-- GebDat -->
+          <Index ref="9012" />
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <!--Content Definition fuer Helvetia-Admins-->
+    <ContentDefinition name="CD_1021_ADMIN" id="CD_1021_ADMIN" description="CD fuer Helvetia-Administratoren" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="guiSelectList" value="^eilig^normal^gering" />
+            </Parameters>
+          </Index>
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <!-- FTEXT -->
+          <Index ref="100015">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="formatMask" value="###.###.#######.#" />
+              <Parameter name="searchFormatMask" value="###.###.#######.#" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VERTNR -->
+          <Index ref="100010" />
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Zieldatum -->
+          <Index ref="100031" />
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FDATNR Filialdirektion und Agenturnummer -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100023" />
+          <!-- -->
+          <!-- SONDAKTNR Sonderaktennummer -->
+          <Index ref="100024" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132" />
+          <!-- Abgeb-Dok -->
+          <Index ref="100133" />
+          <!-- Abgabe-Datum -->
+          <Index ref="100134" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Antragsnummer -->
+          <Index ref="100126" />
+          <!-- TOP -->
+          <Index ref="100025" />
+          <!-- SH-TAG -->
+          <Index ref="100032" />
+          <!-- SH-Unterzweig -->
+          <Index ref="100033" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- Lauf_Name -->
+          <Index ref="100021" />
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- Paginiernummer -->
+          <Index ref="100202">
+            <Parameters>
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- USERID -->
+          <Index ref="100008">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- USERNAME -->
+          <Index ref="100009" />
+          <!-- AGENTUR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100017" />
+          <!-- -->
+          <!-- Personennummer -->
+          <Index ref="100003" />
+          <!-- Geschäftsvorfall -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100006" />
+          <!-- -->
+          <!-- DKZ -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100007" />
+          <!-- -->
+          <!-- EINGDAT -->
+          <Index ref="100012" />
+          <!-- ERZEUG_DATUM -->
+          <Index ref="100005" />
+          <!-- REFNR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100013" />
+          <!-- -->
+          <!-- ZWEIG -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100020" />
+          <!-- -->
+          <!-- Doc_Id -->
+          <Index ref="100022" />
+          <!-- DOKUGR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100117" />
+          <!-- -->
+          <!-- Nachname -->
+          <Index ref="9010" />
+          <!-- Vorname -->
+          <Index ref="9011" />
+          <!-- GebDat -->
+          <Index ref="9012" />
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131">
+            <Parameters>
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="true" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <!--Content Definition fuer Helvetia-Mitarbeiter-->
+    <ContentDefinition name="CD_1021_HEL" id="CD_1021_HEL" description="CD fuer Helvetia-Sachbearbeiter" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <!-- FTEXT -->
+          <Index ref="100015">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="formatMask" value="###.###.#######.#" />
+              <Parameter name="searchFormatMask" value="###.###.#######.#" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VERTNR -->
+          <Index ref="100010" />
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20">
+            <Parameters>
+              <!-- NOTE: searchvalues are overwritten by script -->
+              <Parameter name="guiSelectList" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+              <Parameter name="getPossibleSearchValues" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+            </Parameters>
+          </Index>
+          <!-- Zieldatum -->
+          <Index ref="100031" />
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="guiSelectList" value="^eilig^normal^gering" />
+              <!-- <Parameter name="isVisible" value="false" ignoreForRoles="regex:(?i)PO-HV-\d+-SH-MA.*PO-HV-DFD.*|PO-HV-PART-01-SH-MA|PO-HV-PET-SH-MA|PO-HV-SSC|PO-HV-SSC-EXT|PO-HV-TV-SH-MA|PO-HV-USC" />| -->
+              <Parameter name="isVisible" value="false" ignoreForRoles="regex:(?i)PO-HV-020-SH-MA.*" />
+            </Parameters>
+          </Index>
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FDATNR Filialdirektion und Agenturnummer -->
+          <Index ref="100023">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SONDAKTNR Sonderaktennummer -->
+          <Index ref="100024" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132" />
+          <!-- Abgeb-Dok -->
+          <Index ref="100133" />
+          <!-- Abgabe-Datum -->
+          <Index ref="100134" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Antragsnummer -->
+          <Index ref="100126">
+            <Parameters>
+              <Parameter name="isVisible" value="true" />
+            </Parameters>
+          </Index>
+          <!-- TOP -->
+          <Index ref="100025" />
+          <!-- SH-TAG -->
+          <Index ref="100032" />
+          <!-- SH-Unterzweig -->
+          <Index ref="100033" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- Doc_Id -->
+          <!-- CHEL-474 -->
+          <Index ref="100022" />
+          <!-- Nachname -->
+          <Index ref="9010">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Vorname -->
+          <Index ref="9011">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- GebDat -->
+          <Index ref="9012">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Lauf_Name -->
+          <Index ref="100021" />
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- Paginiernummer -->
+          <Index ref="100202" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="getPossibleSearchValues" value="^SH^GE^PV^KF^TR^IN" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- USERID -->
+          <Index ref="100008">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- USERNAME -->
+          <Index ref="100009" />
+          <!-- AGENTUR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100017" />
+          <!-- -->
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_LEBEN" id="CD_1021_LEBEN" description="CD fuer Helvetia-Leben-Sachbearbeiter" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- OrtBearb -->
+          <Index ref="14">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FTEXT -->
+          <Index ref="100015">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <!--Parameter name="formatMask" value="###.###.#######.#"/>
+              <Parameter name="searchFormatMask" value="###.###.#######.#"/-->
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VERTNR -->
+          <Index ref="100010" />
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20">
+            <Parameters>
+              <!-- NOTE: searchvalues are overwritten by script -->
+              <Parameter name="guiSelectList" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+              <Parameter name="getPossibleSearchValues" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+            </Parameters>
+          </Index>
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FDATNR Filialdirektion und Agenturnummer -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100023">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SONDAKTNR Sonderaktennummer -->
+          <Index ref="100024">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Unterakte -->
+          <Index ref="100129">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgeb-Dok -->
+          <Index ref="100133">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgabe-Datum -->
+          <Index ref="100134">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Part-Ges -->
+          <Index ref="100016">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- KU-Vertrag -->
+          <Index ref="100205">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Lauf_Name -->
+          <Index ref="100021" />
+          <!-- Sparte -->
+          <Index ref="100124">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VB-ID -->
+          <Index ref="100135">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Paginiernummer -->
+          <Index ref="100202" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123" />
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- USERID -->
+          <Index ref="100008">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- USERNAME -->
+          <Index ref="100009" />
+          <!-- AGENTUR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100017">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Antragsnummer -->
+          <Index ref="100126">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Queue SessionID -->
+          <Index ref="100128">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131" />
+          <!-- Doc_Id -->
+          <Index ref="100022" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000" />
+          <!-- Zieldatum -->
+          <Index ref="100031">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-261 -->
+          <!-- SCHADEN-TAG -->
+          <Index ref="100032">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN-UNTERZWEIG -->
+          <Index ref="100033">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- ./CHEL-261 -->
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_ARAG" id="CD_1021_ARAG" description="CD fuer Helvetia-Sachbearbeiter ARAG" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <!-- FTEXT -->
+          <Index ref="100015">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="formatMask" value="###.###.#######.#" />
+              <Parameter name="searchFormatMask" value="###.###.#######.#" />
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20">
+            <Parameters>
+              <!-- NOTE: searchvalues are overwritten by script -->
+              <Parameter name="guiSelectList" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+              <Parameter name="getPossibleSearchValues" value="offen^in Bearbeitung^Freigabe^erledigt^Wiedervorlage" />
+            </Parameters>
+          </Index>
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- Paginiernummer -->
+          <Index ref="100202" />
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Lauf_Name -->
+          <Index ref="100021" />
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearb-ID -->
+          <Index ref="12">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgeb-Dok -->
+          <Index ref="100133">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgabe-Datum -->
+          <Index ref="100134">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- SONDAKTNR Sonderaktennummer -->
+          <Index ref="100024">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VERTNR -->
+          <Index ref="100010">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- USERID -->
+          <Index ref="100008">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- USERNAME -->
+          <!-- <Index ref="100009" /> -->
+          <!-- AGENTUR -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100017">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FDATNR Filialdirektion und Agenturnummer -->
+          <!-- Removal requestet by HEL -->
+          <Index ref="100023">
+            <!-- -->
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Antragsnummer -->
+          <Index ref="100126">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Queue SessionID -->
+          <Index ref="100128">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Doc_Id -->
+          <Index ref="100022">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Zieldatum -->
+          <Index ref="100031">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- TOP -->
+          <Index ref="100025">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-261 -->
+          <!-- SCHADEN-TAG -->
+          <Index ref="100032">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN-UNTERZWEIG -->
+          <Index ref="100033">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- ./CHEL-261 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <!--Content Definition fuer Agenturen-->
+    <ContentDefinition name="CD_1021_AG" id="CD_1021_AG" description="CD fuer Agenturen" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Nachname -->
+          <Index ref="9010" />
+          <!-- Vorname -->
+          <Index ref="9011" />
+          <!-- GebDat -->
+          <Index ref="9012" />
+          <!-- FD -->
+          <Index ref="100125">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- LAUF_NAME -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Dokumentenart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+            </Parameters>
+          </Index>
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <!-- CHEL-528 -->
+            <Parameters>
+              <Parameter name="guiSelectList" value="^eilig^normal^gering" />
+            </Parameters>
+            <!-- ./CHEL-528 -->
+          </Index>
+          <!-- OrtBearb -->
+          <Index ref="14">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20">
+            <Parameters>
+              <Parameter name="guiSelectList" value="offen^in Bearbeitung^erledigt^gedruckt^Wiedervorlage" />
+              <Parameter name="getPossibleSearchValues" value="offen^in Bearbeitung^erledigt^gedruckt^Wiedervorlage" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030" />
+          <!-- VSNR -->
+          <Index ref="100000" />
+          <!-- SCHADEN_NR -->
+          <Index ref="100002" />
+          <!-- FTEXT -->
+          <Index ref="100015" />
+          <!-- USERID -->
+          <Index ref="100008" />
+          <!-- USERNAME -->
+          <Index ref="100009" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <!--Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters-->
+          </Index>
+          <!-- Doc_Id -->
+          <Index ref="100022">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- MA-Vertrag -->
+          <Index ref="100014">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- Abgeb-FD -->
+          <Index ref="100132" />
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <!--Content Definition fuer Papierkorb-->
+    <ContentDefinition name="CD_1021_PAPIERKORB" id="CD_1021_PAPIERKORB" description="CD fuer Papierkorb" physicalstore="CD_1021" parent="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isMandatory" value="false" />
+            </Parameters>
+          </Index>
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1022" id="CD_1022" description="">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- Barcode -->
+          <!-- Sachgebiet -->
+          <Index ref="100123" />
+          <Index ref="100018" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1023" id="CD_1023" description="">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- Barcode -->
+          <!-- Sachgebiet -->
+          <Index ref="100123" />
+          <Index ref="100018" />
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_POSTKORB" id="CD_1021_POSTKORB" description="CD für Postkorb" physicalstore="CD_1021">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10" />
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- FTEXT -->
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <Index ref="100015" />
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="formatMask" value="###.###.#######.#" />
+              <Parameter name="searchFormatMask" value="###.###.#######.#" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002" />
+          <!-- VERTNR -->
+          <Index ref="100010">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Zieldatum -->
+          <Index ref="100031" />
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="guiSelectList" value="^eilig^normal^gering" />
+              <Parameter name="isVisible" value="false" ignoreForRoles="regex:(?i)PO-HV-020-SH-MA.*" />
+            </Parameters>
+          </Index>
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132" />
+          <!-- Abgeb-Dok -->
+          <Index ref="100133" />
+          <!-- Abgabe-Datum -->
+          <Index ref="100134" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- AN-Nummer -->
+          <Index ref="100126">
+            <Parameters>
+              <Parameter name="isVisible" value="true" />
+            </Parameters>
+          </Index>
+          <!-- TOP -->
+          <Index ref="100025" />
+          <!-- SH-TAG -->
+          <Index ref="100032" />
+          <!-- SH-Unterzweig -->
+          <Index ref="100033" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- KU-Vertrag -->
+          <Index ref="100205" />
+          <!-- Lauf_Name -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isSystemIndex" value="false" />
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="guiSelectList" value="^FAX/EMAIL" />
+              <Parameter name="guiSelectListType" value="selectList" />
+              <Parameter name="defaultValue" value="" />
+            </Parameters>
+          </Index>
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- Paginiernummer -->
+          <Index ref="100202">
+            <Parameters>
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="getPossibleSearchValues" value="^SH^GE^PV^KF^TR^IN" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- Doc_Id -->
+          <!-- CHEL-474 -->
+          <Index ref="100022" />
+          <!-- Nachname -->
+          <Index ref="9010">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Vorname -->
+          <Index ref="9011">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- GebDat -->
+          <Index ref="9012">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- -->
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <!--Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters-->
+          </Index>
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <Index ref="100008">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_POSTKORB_TR" id="CD_1021_POSTKORB_TR" description="CD für Postkorb TR" physicalstore="CD_1021">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10" />
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="isVisible" value="false" ignoreForRoles="regex:(?i)PO-HV-020-SH-MA.*" />
+            </Parameters>
+          </Index>
+          <!-- OrtBearb -->
+          <Index ref="14" />
+          <!-- FTEXT -->
+          <Index ref="100015" />
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="formatMask" value="###.###.#######.#" />
+              <Parameter name="searchFormatMask" value="###.###.#######.#" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002" />
+          <!-- VERTNR -->
+          <Index ref="100010">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Zieldatum -->
+          <Index ref="100031" />
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132" />
+          <!-- Abgeb-Dok -->
+          <Index ref="100133" />
+          <!-- Abgabe-Datum -->
+          <Index ref="100134" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130" />
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- TOP -->
+          <Index ref="100025" />
+          <!-- SH-TAG -->
+          <Index ref="100032" />
+          <!-- SH-Unterzweig -->
+          <Index ref="100033" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- Lauf_Name -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isSystemIndex" value="false" />
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="guiSelectList" value="^FAX/EMAIL" />
+              <Parameter name="guiSelectListType" value="selectList" />
+              <Parameter name="defaultValue" value="" />
+            </Parameters>
+          </Index>
+          <!-- Sparte -->
+          <Index ref="100124" />
+          <!-- VB-ID -->
+          <Index ref="100135" />
+          <!-- Paginiernummer -->
+          <Index ref="100202">
+            <Parameters>
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD_Agentur -->
+          <Index ref="100023" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="getPossibleSearchValues" value="^SH^GE^PV^KF^TR^IN" />
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="addtohitlist" value="true" />
+              <Parameter name="addtohitlistfirst" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- Doc_Id -->
+          <!-- CHEL-474 -->
+          <Index ref="100022" />
+          <!-- Nachname -->
+          <Index ref="9010">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Vorname -->
+          <Index ref="9011">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- GebDat -->
+          <Index ref="9012">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- -->
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <!--Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters-->
+          </Index>
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_POSTKORB_LEBEN" id="CD_1021_POSTKORB_LEBEN" description="CD für Postkorb Leben" physicalstore="CD_1021">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="10" />
+          <!-- Ext.sichtbar -->
+          <Index ref="100034" />
+          <!-- SonderKZ -->
+          <Index ref="13" />
+          <!-- OrtBearb -->
+          <Index ref="14">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FTEXT -->
+          <Index ref="100015" />
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <!--Parameter name="formatMask" value="###.###.#######.#"/>
+               <Parameter name="searchFormatMask" value="###.###.#######.#"/-->
+            </Parameters>
+          </Index>
+          <!-- SCHADEN_NR -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VERTNR -->
+          <Index ref="100010">
+            <Parameters>
+              <Parameter name="isVisible" value="true" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearbeiter -->
+          <Index ref="11" />
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Importdaten -->
+          <Index ref="100127" />
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FD-übergreifend möglich -->
+          <Index ref="100132">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgeb-Dok -->
+          <Index ref="100133">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgabe-Datum -->
+          <Index ref="100134">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- VN-NN -->
+          <Index ref="100204" />
+          <!-- Kfz-Kennzeichen -->
+          <Index ref="100130">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VERMITTLER -->
+          <Index ref="100001" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- MITARBEITERVERTRAG -->
+          <Index ref="100014" />
+          <!-- VIP-Vertrag -->
+          <Index ref="100205">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Doc_Id -->
+          <!-- CHEL-474 -->
+          <Index ref="100022" />
+          <!-- Lauf_Name -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isSystemIndex" value="false" />
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="guiSelectList" value="^FAX/EMAIL" />
+              <Parameter name="guiSelectListType" value="selectList" />
+              <Parameter name="defaultValue" value="" />
+            </Parameters>
+          </Index>
+          <!-- Sparte -->
+          <Index ref="100124">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VB-ID -->
+          <Index ref="100135">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Paginiernummer -->
+          <Index ref="100202">
+            <Parameters>
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="guiSelectList" value="LE-SC^LE-VMO^LE-NG^LE-BAV^LE-BE^LE-VMO-R" />
+              <Parameter name="getPossibleSearchValues" value="^LE-SC^LE-VMO^LE-NG^LE-BAV^LE-BE^LE-VMO-R" />
+              <Parameter name="guiSelectListType" value="selectList" />
+              <Parameter name="runScriptEvent" value="onChange" />
+              <Parameter name="idxValCheckScript" value="changeLebenSachgebiet" />
+              <Parameter name="isMandatory" value="true" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030" />
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- Part-Ges -->
+          <Index ref="100016">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <!--Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters-->
+          </Index>
+          <!-- Queue SessionID -->
+          <Index ref="100128">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Unterakte -->
+          <Index ref="100129" />
+          <!-- Zieldatum -->
+          <Index ref="100031">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- TOP -->
+          <Index ref="100025">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-261 -->
+          <!-- SCHADEN-TAG -->
+          <Index ref="100032">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SCHADEN-UNTERZWEIG -->
+          <Index ref="100033">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- ./CHEL-261 -->
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_1021_PORTA" id="CD_1021_PORTA" description="CD fuer Porta" physicalstore="CD_1021">
+      <IndexStore>
+        <Indexes>
+          <!-- Dokumentart -->
+          <Index ref="10">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- OrtBearb -->
+          <Index ref="14">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Status -->
+          <Index ref="20">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FTEXT -->
+          <Index ref="100015">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VSNR -->
+          <Index ref="100000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Schadennummer -->
+          <Index ref="100002">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- Sachgebiet/Anwendungskürzel -->
+          <Index ref="100123" />
+          <!-- Vermittler -->
+          <Index ref="100001" />
+          <!-- Ereugungsdatum-->
+          <Index ref="100005" />
+          <!-- Antragsnummer -->
+          <Index ref="100126" />
+          <!-- Queue SessionID -->
+          <Index ref="100128" />
+          <!-- DOC_ID -->
+          <Index ref="100022">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Importdaten -->
+          <Index ref="100127">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- MA-VERTRAG -->
+          <Index ref="100014">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- LAUF_NAME -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- 3001 und 3002 (CHEL-403) wieder herausgenommen -->
+          <!-- CHEL-265 ext.sichtbar -->
+          <Index ref="100034">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+        </Indexes>
+      </IndexStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_ORGA" id="CD_ORGA" description="CD für ORGA Bereich">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentenart -->
+          <Index ref="30001" />
+          <!-- Unter-Dokumentenart -->
+          <Index ref="30002" />
+          <!-- OrtBearb -->
+          <!-- CHEL-471 -->
+          <Index ref="14">
+            <Parameters>
+              <Parameter name="guiSelectList" value="^RD^VTORG^VP-Services" />
+              <!--CHEL-471: OV to OVT -->
+            </Parameters>
+          </Index>
+          <!-- FTEXT -->
+          <Index ref="100015" />
+          <!-- VERMITTLER -->
+          <Index ref="100001">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="runScriptEvent" value="onExit" />
+              <Parameter name="idxValCheckScript" value="fillOrgaVermittler" />
+            </Parameters>
+          </Index>
+          <!-- VERMITTLER Name -->
+          <Index ref="30004" />
+          <!-- Sachbearbeiter -->
+          <Index ref="11">
+            <Parameters>
+              <Parameter name="runScriptEvent" value="onInit" />
+              <Parameter name="idxValCheckScript" value="fillSachbearbeiter" />
+            </Parameters>
+          </Index>
+          <!-- Status -->
+          <Index ref="20" />
+          <!-- Orga-Bezirk -->
+          <Index ref="100203" />
+          <!-- OBL-Name -->
+          <Index ref="30005" />
+          <!-- LV-BE -->
+          <Index ref="30006" />
+          <!-- LV-BeName -->
+          <Index ref="30007" />
+          <!-- Importdaten -->
+          <Index ref="100127">
+            <Parameters />
+          </Index>
+          <!-- lastEditTime -->
+          <Index ref="3001" />
+          <!-- lastEditUsername -->
+          <Index ref="3002" />
+          <!-- FD -->
+          <Index ref="100125">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="runScriptEvent" value="onChange" />
+              <Parameter name="idxValCheckScript" value="fillSachbearbeiter" />
+              <Parameter name="guiSelectList" value="^010^020^040^050^060^070^080^090^110^120^130^180^280^PET" />
+              <Parameter name="getPossibleSearchValues" value="^010^020^040^050^060^070^080^090^110^120^130^180^280^PET" />
+            </Parameters>
+          </Index>
+          <!-- Lauf_Name -->
+          <Index ref="100021">
+            <Parameters>
+              <Parameter name="isMandatory" value="true" />
+              <Parameter name="isSystemIndex" value="false" />
+              <Parameter name="isEditable" value="true" />
+              <Parameter name="guiSelectList" value="^FAX/EMAIL" />
+              <Parameter name="guiSelectListType" value="selectList" />
+              <Parameter name="defaultValue" value="" />
+            </Parameters>
+          </Index>
+          <!-- Paginiernummer -->
+          <Index ref="100202" />
+          <!-- Stapelname -->
+          <Index ref="100201" />
+          <!-- BEARBEITUNGSDATUM -->
+          <Index ref="100030">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+              <Parameter name="runScriptEvent" value="onSave" />
+              <Parameter name="idxValCheckScript" value="setDate" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="isEditable" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Sachbearb-ID -->
+          <Index ref="12" />
+          <!-- DOC_ID -->
+          <Index ref="100022" />
+          <!-- SACHGEBIET -->
+          <Index ref="100123">
+            <Parameters>
+              <Parameter name="runScriptEvent" value="onChange" />
+              <Parameter name="idxValCheckScript" value="fillSachbearbeiter" />
+            </Parameters>
+          </Index>
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Proc.Mon.-JobID -->
+          <Index ref="10000">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Unterakte -->
+          <Index ref="100129">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Ablaufdatum -->
+          <Index ref="30003" />
+          <!-- MA-Vertrag (added for ILS compatibility) -->
+          <Index ref="100014">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VIP-Vertrag -->
+          <Index ref="100205" />
+          <!-- CHEL-265 ext.sichtbar -->
+          <Index ref="100034">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_PM" id="CD_PM" description="">
+      <IndexStore container="IND_STORE_PM">
+        <Indexes>
+          <Index ref="10000" />
+          <Index ref="10001" />
+          <Index ref="10002" />
+          <Index ref="10003" />
+          <Index ref="10004" />
+          <Index ref="10005" />
+          <Index ref="10006" />
+          <Index ref="10007" />
+          <Index ref="10008" />
+          <Index ref="10009" />
+          <Index ref="10010" />
+          <Index ref="10011" />
+          <Index ref="10012" />
+          <Index ref="10013" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE_PM">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_MAILACCOUNTS" id="CD_MAILACCOUNTS" description="CD fuer Mailaccounts">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Mailbox -->
+          <Index ref="20000" />
+          <!-- Folder -->
+          <Index ref="20006" />
+          <!-- ErrorMail -->
+          <Index ref="20007" />
+          <!-- Username -->
+          <Index ref="20001" />
+          <!-- Password -->
+          <Index ref="20002" />
+          <!-- Zielknoten -->
+          <Index ref="20003" />
+          <!-- Aktiv -->
+          <Index ref="20004" />
+          <!-- autom. Klassifikation -->
+          <Index ref="20005" />
+          <!-- letzter Import -->
+          <Index ref="20008" />
+          <!-- Inaktivität Zeitlimit (h) -->
+          <Index ref="20009" />
+          <!-- Inaktivität Empfänger -->
+          <Index ref="20010" />
+          <!-- Sachgebiet/Anwendungskürzel -->
+          <Index ref="100123" />
+          <!-- FD -->
+          <Index ref="100125" />
+          <!-- Part-Ges -->
+          <Index ref="100016" />
+          <!-- OrtBearb -->
+          <Index ref="14" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_DOCTYPES_ORGA" id="CD_DOCTYPES_ORGA" description="CD fuer Dokumententypen ORGA">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Dokumentart -->
+          <Index ref="30001">
+            <Parameters>
+              <Parameter name="guiSelectListType" value="selectListWithEdit" />
+            </Parameters>
+          </Index>
+          <!-- Unter-Dokumentart -->
+          <Index ref="30002">
+            <Parameters>
+              <Parameter name="guiSelectListType" value="selectListWithEdit" />
+            </Parameters>
+          </Index>
+          <!-- Host Doc-ID -->
+          <Index ref="21000" />
+          <!-- Node ID -->
+          <Index ref="21001" />
+          <!-- Ablaufdatum (Tage) -->
+          <Index ref="21002" />
+          <!-- ext. sichtbar -->
+          <Index ref="21003" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_NAD" id="CD_NAD" description="CD fuer NAD Dokumente" parent="CD_1021">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- Parameter override (CHEL-448) -->
+          <!-- SonderKZ -->
+          <Index ref="13">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Zieldatum -->
+          <!--
+          <Index ref="100031">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          -->
+          <!-- Importdaten -->
+          <Index ref="100127">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- FD_AGENTUR -->
+          <Index ref="100023">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SONDAKTNR -->
+          <Index ref="100024">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgeb-FD -->
+          <Index ref="100132">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgeb-Dok -->
+          <Index ref="100133">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Abgabe-Datum -->
+          <Index ref="100134">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- VOB-TOP -->
+          <!--
+          <Index ref="100025">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          -->
+          <!-- PART-GES -->
+          <Index ref="100016">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- BARCODE -->
+          <Index ref="100018">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- SH-TAG -->
+          <!--
+          <Index ref="100032">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          -->
+          <!-- SH-UZW -->
+          <!--
+          <Index ref="100033">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          -->
+          <!-- PERS_NR -->
+          <Index ref="100003">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- EINGDAT -->
+          <Index ref="100012">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- ERZEUG-Datum -->
+          <Index ref="100005">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Nachname -->
+          <Index ref="9010">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Vorname -->
+          <Index ref="9011">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- GebDat -->
+          <Index ref="9012">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- Formular-Nr.HV -->
+          <Index ref="100131">
+            <Parameters>
+              <Parameter name="isVisible" value="false" />
+            </Parameters>
+          </Index>
+          <!-- /Parameter override -->
+          <!-- ZENANR -->
+          <Index ref="40001" />
+          <!-- VSNR_NAD -->
+          <Index ref="40002" />
+          <!-- SHNR_NAD -->
+          <Index ref="40003" />
+          <!-- AGNR_NAD -->
+          <Index ref="40004" />
+          <!-- Dokumentart_HV -->
+          <Index ref="10" />
+          <!-- Sparte_HV -->
+          <Index ref="100124" />
+          <!-- FTEXT_HV -->
+          <Index ref="100015" />
+          <!-- Unterakte_NAD -->
+          <Index ref="40005" />
+          <!-- KFZ-Kennzeichen_HV -->
+          <Index ref="100130" />
+          <!-- VN-Nachname_NAD -->
+          <Index ref="40006" />
+          <!-- ERZEUG_DATUM_HV -->
+          <Index ref="100005" />
+          <!-- DOKID_NAD -->
+          <Index ref="40007" />
+          <!-- CHEL-495 -->
+          <!-- Dokumentenart -->
+          <Index ref="30001" />
+          <!-- Unter-Dokumentenart -->
+          <Index ref="30002" />
+          <!-- end of CHEL-495 -->
+          <!-- CHEL-484 -->
+          <!-- SL-Vertrag -->
+          <Index ref="100035" />
+          <!-- ./CHEL-484 -->
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    <ContentDefinition name="CD_NAD_MON" id="CD_NAD_MON" description="CD fuer NAD Migrations Monitoring">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <!-- ContentIdIntern -->
+          <Index ref="41001" />
+          <!-- ContentIdExtern -->
+          <Index ref="41002" />
+          <!-- StepName -->
+          <Index ref="41003" />
+          <!-- Status -->
+          <Index ref="41004" />
+          <!-- ErrorMessage -->
+          <Index ref="41005" />
+          <!-- TimeStamp -->
+          <Index ref="41006" />
+          <!-- Filename -->
+          <Index ref="41007" />
+          <!-- Filesize -->
+          <Index ref="41008" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+  </ContentStore>
+</ContentStores>
+

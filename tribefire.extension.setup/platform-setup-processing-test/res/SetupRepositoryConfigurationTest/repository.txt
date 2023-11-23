@@ -1,0 +1,55 @@
+@local
+;  inital stage, all 1.0.1
+tribefire.adx.phoenix:parent#2.5.1
+	-x
+
+tribefire.adx.phoenix:adx-view#2.5.1
+	-r
+		tribefire.adx.phoenix:parent#[2.5,2.6)
+	-d
+		tribefire.extension.conversion:conversion-view#[2,3)
+		tribefire.cortex.assets:tribefire-standard-view#[2,3)
+	-c 
+		repositoryview:yaml;@res/SetupRepositoryConfigurationTest/adx-repositoryview.yaml
+	-x
+
+tribefire.extension.conversion:parent#2.3.1
+	-x
+
+tribefire.extension.conversion:conversion-view#2.3.1
+	-r
+		tribefire.extension.conversion:parent#[2.3,2.4)
+	-d
+		tribefire.cortex.assets:tribefire-standard-view#[2,3)
+	-c 
+		repositoryview:yaml;@res/SetupRepositoryConfigurationTest/conversion-repositoryview.yaml
+	-x
+
+tribefire.cortex.assets:parent#2.0.1
+	-x
+	
+tribefire.cortex.assets:tribefire-standard-view#2.0.1
+	-r
+		tribefire.cortex.assets:parent#[2.0,2.1)
+	-c 
+		repositoryview:yaml;@res/SetupRepositoryConfigurationTest/tribefire-standard-repositoryview-2.0.1.yaml
+	-x
+
+tribefire.cortex.assets:tribefire-standard-view#2.0.2
+	-r
+		tribefire.cortex.assets:parent#[2.0,2.1)
+	-c 
+		repositoryview:yaml;@res/SetupRepositoryConfigurationTest/tribefire-standard-repositoryview-2.0.2.yaml
+	-x
+		
+tribefire.cortex.assets:parent#3.0.1
+	-x
+
+tribefire.cortex.assets:tribefire-standard-view#3.0.2
+	-r
+		tribefire.cortex.assets:parent#[3.0,3.1)
+	-c 
+		repositoryview:yaml;@res/SetupRepositoryConfigurationTest/tribefire-standard-repositoryview-3.0.2.yaml
+	-x
+		
+		

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "es2020", // leave it at es2020!!!
+        "outDir": "src",
+        "declaration": true,
+        "moduleResolution": "classic",
+        "checkJs": true,
+        "noImplicitOverride": true,
+    },
+    "include": ["sources/ts-src/*"]
+}

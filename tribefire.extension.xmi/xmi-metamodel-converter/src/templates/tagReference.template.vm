@@ -1,0 +1,8 @@
+<UML:ModelElement.taggedValue xmlns:UML = 'org.omg.xmi.namespace.UML'>
+	<UML:TaggedValue xmi.id = '$id' isSpecification = 'false'>
+		<UML:TaggedValue.dataValue>$value</UML:TaggedValue.dataValue>
+		<UML:TaggedValue.type>
+			<UML:TagDefinition xmi.idref = '$refId'/>
+		</UML:TaggedValue.type>
+	</UML:TaggedValue>
+</UML:ModelElement.taggedValue>

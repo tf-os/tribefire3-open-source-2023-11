@@ -1,0 +1,102 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  metadata.md:
+    tags:
+      - metadata
+  
+  general_metadata_properties.md:
+    tags:
+      - metadata 
+
+  adding_metadata.md:
+    tags:
+      - metadata
+
+  fulltext_metadata.md:
+    tags:
+      - metadata 
+
+  resource_streamer_metadata.md:
+    tags:
+      - metadata 
+
+  administrable.md:
+    tags:
+      - metadata 
+  
+  on_action.md:
+    tags:
+      - metadata 
+
+  on_change.md:
+    tags:
+      - metadata 
+
+  predicate.md:
+    tags:
+      - metadata 
+
+  queryable.md:
+    tags:
+      - metadata
+
+  efficient_transitive_access_policies.md:
+    tags:
+      - metadata 
+
+  garbage_collection.md:
+    tags:
+      - metadata 
+
+  id_generator_assignment.md:
+    tags:
+      - metadata 
+ 
+  constraint: 
+    displayTitle: "Constraint"
+    tags:
+      - metadata
+
+
+  display: 
+    displayTitle: "Display"
+    tags:
+      - metadata
+
+  formatting: 
+    displayTitle: "Formatting"
+    tags:
+      - metadata
+
+  excel-mapping: 
+    displayTitle: "Excel Mapping"
+    tags:
+      - metadata
+
+  hibernate-mapping: 
+    displayTitle: "Hibernate Mapping"
+    tags:
+      - metadata
+
+  mapping: 
+    displayTitle: "Mapping"
+    tags:
+      - metadata
+
+  prompt: 
+    displayTitle: "Prompt"
+    tags:
+      - metadata
+
+  selectors: 
+    displayTitle: "Selectors"
+    tags:
+      - metadata
+      - selector
+
+  smart-model: 
+    displayTitle: "Smart Model"
+    tags:
+      - metadata

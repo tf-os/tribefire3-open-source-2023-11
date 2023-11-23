@@ -1,0 +1,20 @@
+RedirectStoragePriming = com.braintribe.model.asset.preprocessing.RedirectStoragePriming
+
+$nature = (TribefireModule=com.braintribe.model.asset.natures.TribefireModule)()
+.accessIds = ('access.modelling.management.wb')
+
+$redirectDefaultWorkbenchInitialization = RedirectStoragePriming()
+$redirectDefaultWorkbenchInitialization.sourceAccessId = 'access.placeholder.workbench'
+$redirectDefaultWorkbenchInitialization.targetAccessIds = ('access.modelling.management.wb')
+
+$redirectCommonInitialization = RedirectStoragePriming()
+$redirectCommonInitialization.sourceAccessId = 'access.modelling.common.initializer.placeholder'
+$redirectCommonInitialization.targetAccessIds = ('access.modelling.management.wb')
+
+$redirectCommonResourcesInitialization = RedirectStoragePriming()
+$redirectCommonResourcesInitialization.sourceAccessId = 'access.modelling.common.resources.placeholder'
+$redirectCommonResourcesInitialization.targetAccessIds = ('access.modelling.management.wb')
+
+$nature
+.assetPreprocessings = [$redirectDefaultWorkbenchInitialization, $redirectCommonInitialization, $redirectCommonResourcesInitialization]
+

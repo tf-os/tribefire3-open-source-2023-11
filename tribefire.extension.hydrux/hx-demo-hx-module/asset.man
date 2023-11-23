@@ -1,0 +1,1 @@
+$nature = !tribefire.extension.js.model.asset.natures.JsUxModule()

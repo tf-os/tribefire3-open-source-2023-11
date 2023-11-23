@@ -1,0 +1,25 @@
+FROM ${deprecatedTribefireBaseImage}
+
+ENTRYPOINT [ "bash", "/opt/tribefire/startupWrapper.sh" ]
+
+COPY startupWrapper.sh /opt/tribefire/startupWrapper.sh
+
+#if ( ${customInstructionsBeforeAddingAssets} )
+${customInstructionsBeforeAddingAssets}
+#end
+
+ADD webapps/${webappName}/ /opt/tribefire/host/webapps/ROOT/
+
+#if ( ${customInstructionsAfterAddingAssets} )
+${customInstructionsAfterAddingAssets}
+#end
+
+ARG FULLY_QUALIFIED_IMAGE='<unknown>'
+
+RUN echo "****************************************************" &&\
+    echo "*** Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    ls -la /opt/tribefire/host/webapps/ROOT/WEB-INF/lib/ &&\
+    ls -la /opt/tribefire/plugins/ &&\
+    find /opt/tribefire/plugins/ &&\
+    echo "*** End of Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    echo "****************************************************"

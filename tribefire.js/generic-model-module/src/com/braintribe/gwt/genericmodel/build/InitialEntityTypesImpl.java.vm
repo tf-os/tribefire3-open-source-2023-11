@@ -1,0 +1,14 @@
+package ${package};
+
+public class ${className} implements ${ifaceName} {
+
+	@Override
+	public java.util.stream.Stream<com.braintribe.model.generic.reflection.EntityType<?>> extraInitialTypes() {
+		return $entityTypeRefsStreamExpression;
+	}
+
+    private java.util.stream.Stream<com.braintribe.model.generic.reflection.EntityType<?>> nextTypes() {
+		return $nextTypesStreamExpression;
+    }
+
+}

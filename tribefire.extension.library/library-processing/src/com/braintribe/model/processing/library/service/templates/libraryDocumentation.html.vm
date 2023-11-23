@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+
+html {margin:0; padding:0; width:100%; height:100%;}
+
+body {
+	background: #ffffff; 
+	background-image: url('${background}');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	margin:0; 
+	padding:0; 
+	font-family: "Arial"; 
+	font-size: 16pt;
+	color: #000000;
+	position: relative;
+	min-height: 90%;
+	-fs-pdf-font-embed: embed;
+    -fs-pdf-font-encoding: Identity-H;
+    
+     }
+
+.header{
+	color: black;
+	font-size: 14pt;
+	}
+
+.key{
+	color: #ffa500;
+	padding: 10px;
+	padding-right: 50px;
+	text-align: right;
+	vertical-align: text-top;
+	}
+.value{
+	color: black;
+	padding: 10px;
+	vertical-align: text-top;
+	}
+.legal{
+	color: black;
+	vertical-align: text-top;
+	font-size: 6pt;
+	}
+.timestamp{
+	color: #111111;
+	vertical-align: text-top;
+	font-size: 12pt;
+	}
+
+
+</style>
+</head>
+<body>
+
+<br />
+<br />
+<div>Third Party Terms</div>
+
+<br />
+
+<br />
+<div>Third Party Libraries of<br/>
+<b>$tools.escapeHtml(${title})</b></div>
+<br />
+<div class="timestamp">$tools.escapeHtml(${timestamp})</div>
+
+<br />
+<br />
+<div class="legal">
+VERSIONS OF THE THIRD PARTY COMPONENTS MAY BE UTILIZED, EMBEDDED, BUNDLED OR OTHERWISE INCLUDED IN SOME OF THE PRODUCTS ("Product") YOU HAVE LICENSED PURSUANT TO A COMMERCIAL LICENSE AGREEMENT. THESE THIRD PARTY COMPONENTS MAY BE SUBJECT TO ADDITIONAL OR DIFFERENT LICENSE RIGHTS, TERMS AND CONDITIONS AND / OR REQUIRE CERTAIN NOTICES BY THEIR THIRD PARTY LICENSORS. BRAINTRIBE IS OBLIGED TO PASS ANY CURRENT AND FUTURE TERMS OF SUCH LICENSES THROUGH TO ITS LICENSEES.
+</div>
+
+
+</body>
+
+</html>

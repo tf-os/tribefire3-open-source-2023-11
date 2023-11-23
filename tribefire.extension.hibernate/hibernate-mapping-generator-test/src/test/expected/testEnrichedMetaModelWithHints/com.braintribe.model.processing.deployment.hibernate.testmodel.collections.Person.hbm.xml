@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Person" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Person" table="TEST_PERSON" abstract="false">
+		<id name="id" column="PERSON_IDENTIFIER" type="long">
+			<generator class="native" />
+		</id>
+		<list name="carList" table="TEST_XX_PERSON_CARS">
+	 		<key column="PERSON_IDENTIFIER" foreign-key="CAR_LIST_OWNER_FK" />
+	 		<list-index column="PERSON_CAR_INDEX" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Car" column="CAR_IDENTIFIER" foreign-key="CAR_LIST_ELEMENT_FK" />
+		</list>
+		<map name="carPlateCarMap" table="TEST_PERSONCARPLATECARMAP">
+	 		<key column="PERSONID" />
+			<map-key-many-to-many column="CAR_PLATE_IDENTIFIER" class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.CarPlate" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Car" column="CARID" />
+		</map>
+		<map name="carPlateCarMarkMap" table="TEST_PERSONCARPLATECARMARKMAP">
+	 		<key column="PERSONID" />
+			<map-key-many-to-many column="CARPLATEID" class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.CarPlate" foreign-key="FK_CAR_MARK" />
+			<element column="CAR_MARK" type="string" length="60" />
+		</map>
+		<map name="carPlateIdentifierCarMap" table="TEST_PERSONCARPLATEIDENTCARMAP">
+	 		<key column="PERSONID" />
+			<map-key column="CARPLATEIDENTIFIERCARMAPKEY" type="string" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Car" column="CARID" />
+		</map>
+		<map name="carPlateIdentifierCarMarkMap" table="TEST_PRSCRPLATEIDENTCARMARKMAP">
+	 		<key column="PERSONID" />
+			<map-key column="CARPLATEIDENTCARMARKMAPKEY" type="string" />
+			<element column="CARPLATEIDENTIFIERCARMARKMAP" type="string" />
+		</map>
+		<set name="carSet" table="TEST_PERSONCARSET">
+	 		<key column="PERSONID" foreign-key="FK_CAR_SET_OWNER" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Car" column="CARID" fetch="select" foreign-key="FK_CAR_SET_ELEMENT" />
+		</set>
+		<list name="dateList" table="TEST_PERSONDATELIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSON_DATE_INDEX" />
+			<element column="DATELIST" type="date" />
+		</list>
+		<list name="doubleList" table="TEST_PERSONDOUBLELIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONDOUBLELISTIDX" />
+			<element column="DOUBLELIST" type="double" />
+		</list>
+		<list name="floatList" table="TEST_PERSONFLOATLIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONFLOATLISTIDX" />
+			<element column="FLOATLIST" type="float" />
+		</list>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<list name="intList" table="TEST_PERSONINTLIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONINTLISTIDX" />
+			<element column="INTLIST" type="integer" />
+		</list>
+		<list name="longList" table="TEST_PERSONLONGLIST" lazy="false" fetch="subselect">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONLONGLISTIDX" />
+			<element column="LONGLIST" type="long" />
+		</list>
+		<property name="name" column="NAME_" type="string" lazy="true" />
+		<property name="partition" column="PARTITION_" type="string" />
+		<list name="personList" table="TEST_PERSONPERSONLIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONPERSONLISTIDX" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Person" column="OTHERPERSONID" />
+		</list>
+		<set name="personSet" table="TEST_PERSONPERSONSET">
+	 		<key column="PERSONID" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Person" column="OTHERPERSONID" />
+		</set>
+		<list name="strList" table="TEST_PERSONSTRLIST">
+	 		<key column="PERSONID" />
+	 		<list-index column="PERSONSTRLISTIDX" />
+			<element column="STRLIST" type="string" />
+		</list>
+		<set name="strSet" table="TEST_PERSONSTRSET">
+	 		<key column="PERSONID" />
+			<element column="STRSET" type="string" />
+		</set>
+	</class>
+</hibernate-mapping>

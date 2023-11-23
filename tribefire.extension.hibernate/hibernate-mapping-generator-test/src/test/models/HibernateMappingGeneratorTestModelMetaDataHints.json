@@ -1,0 +1,93 @@
+{
+  "_type": "map",
+  "value": [
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.EntityMapping",
+        "tableName": "XX_ENRICHED_ENTITY_HINTED_TB"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#clobHintString",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "type": "clob",
+		"lazy": "true"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#textHintString",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "type": "string",
+		"length": {"value":"1000", "_type":"long"},
+		"unique": true
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#textHintStringList",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "type": "string",
+		"length": {"value":"2000", "_type":"long"},
+		"collectionTableName": "XX_TEXT_HINT_LIST"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#textHintStringMapKeyAndValue",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "type": "string",
+		"length": {"value":"4000", "_type":"long"},
+		"mapKeySimpleType": "string",
+		"mapKeyLength": {"value":"2000", "_type":"long"}
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#sharedIndexA",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "index": "XX_MULTI_COL_IDX"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#sharedIndexB",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "index": "XX_MULTI_COL_IDX"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#sharedUniqueIndexA",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "uniqueKey": "XX_MULTI_COL_UNIQUE_IDX"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#sharedUniqueIndexB",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "uniqueKey": "XX_MULTI_COL_UNIQUE_IDX"
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#uniqueHintedNumber",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "unique": true, 
+		"precision": {"value":"20", "_type":"long"}, 
+		"scale": {"value":"0", "_type":"long"} 
+      }
+    },
+    {
+      "key": "com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity#doubleWithPrecisionScale",
+      "value": {
+        "_type": "com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping",
+        "precision": {"value":"21", "_type":"long"}, 
+		"scale": {"value":"20", "_type":"long"}
+      }
+    }
+  ]
+}

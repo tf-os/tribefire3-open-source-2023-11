@@ -1,0 +1,19 @@
+<container>
+	<string>This is a string</string>
+	<boolean>true</boolean>
+	<int>23</int>
+	<setEntries>
+		<entry>S1</entry>
+		<entry>S2</entry>
+		<entry>S3</entry>
+	</setEntries>
+	<listEntries>
+		<entry>L1</entry>
+		<entry>L2</entry>
+		<entry>L3</entry>
+	</listEntries>
+
+	<?instruction blabla?>	
+	<?bla not of interest?>
+	<?grouping model?>
+</container>

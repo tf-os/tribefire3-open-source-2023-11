@@ -1,0 +1,19 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  tfjs-overview.md:
+    displayTitle: "Overview"
+    priority: -200
+
+  core-tfjs:
+    displayTitle: "Core JS Library"
+    priority: -190
+
+  js-lib-asset:
+    displayTitle: "JS Platform Assets"
+    priority: -180
+
+  hydrux:
+    displayTitle: "Hydrux"
+    priority: -170

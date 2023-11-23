@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.SimpleEntity" entity-name="test.models.basic.SimpleEntity" table="SIMPLE_ENTITY" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<discriminator column="SimpleEntityType" type="string" />
+		<property name="booleanProperty" column="BOOLEAN_PROPERTY" type="boolean" />
+		<property name="dateProperty" column="DATE_PROPERTY" type="timestamp" />
+		<property name="enumProperty" column="ENUM_PROPERTY">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">test.models.basic.SimpleEnum</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="globalId" column="GLOBAL_ID" type="string" />
+		<property name="integerProperty" column="INTEGER_PROPERTY" type="integer" />
+		<property name="longProperty" column="LONG_PROPERTY" type="long" />
+		<property name="partition" column="PARTITION" type="string" />
+		<property name="stringProperty" column="STRING_PROPERTY" type="string" />
+	</class>
+</hibernate-mapping>

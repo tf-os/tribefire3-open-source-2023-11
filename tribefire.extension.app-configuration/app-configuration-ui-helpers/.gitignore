@@ -1,0 +1,7 @@
+/dist
+/build
+node_modules
+/_src
+/src
+/lib
+/example/public/build

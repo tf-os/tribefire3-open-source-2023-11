@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns:artifact="antlib:org.apache.maven.artifact.ant"
+	xmlns:bt="antlib:com.braintribe.build.ant.tasks"
+	name="gwt-tests" default="assemble" basedir=".">
+
+    <bt:import artifact="com.braintribe.devrock.ant:common-ant-script#1.0" useCase="DEVROCK"/>
+    <property location="src" name="src"/>
+    <property location="build" name="build"/>
+    <property location="dist" name="dist"/>
+    <property location="${dist}/gwt-deploy" name="gwt-deploy"/>
+    <property location="${dist}/gwt-work" name="gwt-work"/>
+    <property location="war" name="packagingInfoDir"/>
+    <target depends="common-init" name="init">
+        <property environment="env."/>
+        <property name="maven.repo.local" value="${env.M2_REPO}"/>
+        <bt:pom file="pom.xml" id="maven.project"/>
+        <bt:dependencies filesetId="compile.fileset" pathId="compile.classpath" sourcesFilesetId="compile.sources.fileset" useScope="compile" tagRule="${pom.project.properties.tagRule.classpath}">
+            <bt:pom refid="maven.project"/>
+        </bt:dependencies>
+        <property name="versionedName" value="${maven.project.artifactId}-${maven.project.version}"/>
+        <!-- Artifact distributed for deployment should have this name -->
+        <property name="distributableName" value="gwt-test"/>
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+    </target>
+
+    <target name="collectJars" depends="init">
+        <copy todir="jars">
+            <fileset refid="compile.fileset"/>
+            <fileset refid="compile.sources.fileset"/>
+        </copy>
+    </target>
+
+    <target name="showCompileCP" depends="init">
+        <copy todir="${dist}/compiledClasses">
+            <fileset refid="compile.sources.fileset"/>
+            <mapper from="*" to="*" type="package"/>
+        </copy>
+    </target>
+
+    <target depends="init" name="create-packaging-info">
+        <mkdir dir="${packagingInfoDir}"/>
+        <bt:dependencies packagingFile="${packagingInfoDir}/packaging.xml" pathId="dummyPath" pomFile="pom.xml"/>
+    </target>
+
+    <target name="compile" depends="create-packaging-info" description="compile the source ">
+        <property environment="env"/>
+        <path id="gwt.compile.path">
+            <fileset refid="compile.sources.fileset"/>
+            <fileset refid="compile.fileset"/>
+            <pathelement location="${src}"/>
+        </path>
+        <pathconvert property="rawCompilePath" refid="gwt.compile.path" pathsep="&#10;"/>
+        <bt:permutePath property="compilePath" path="${rawCompilePath}" selector="gwt-dev" />
+        <echo message="${compilePath}" file=".gwt-compile-classpath" />
+        <property name="java.executable" value="${env.JAVA_HOME}${file.separator}bin${file.separator}java"/>
+
+        <echo message="running gwt compiler with: ${java.executable}"/>
+        <bt:dependencies filesetId="classloader.classpath" useScope="runtime">
+            <dependency groupId="com.braintribe.devrock" artifactId="file-classpath-classloader" version="[1.0,1.1)" />
+        </bt:dependencies>
+        <pathconvert property="classloader.classpath.string" refid="classloader.classpath"/>
+        <echo message="FileClassPathLoader CP: ${classloader.classpath.string}"/>
+        <!-- We need to set the newenvironment attribute in order NOT to inherit other env vars when it's executed, especially in CI
+        where in alpine image we have java related env vars (e.g. LD_LIBRARY_PATH=/opt/java/jdk8/lib/server:/opt/java/jdk8/lib:/opt/java/jdk8/../lib).
+        This is important in CI because we compile with custom java version by setting the java.executable. -->
+        <exec executable="${java.executable}" failonerror="true" newenvironment="true">
+
+            <!-- Uncomment for remote debugging of the build -->
+            <!--
+            <arg value="-Xdebug"/>
+            <arg value="-Xrunjdwp:server=y,transport=dt_socket,address=8000,suspend=y"/>
+            -->
+
+            <arg value="-Xmx1024M"/>
+            <arg value="-cp"/>
+            <arg value="${classloader.classpath.string}"/>
+            <arg value="-Djava.system.class.loader=com.braintribe.utils.classloader.FileClassPathClassLoader"/>
+            <arg value="-Dcom.braintribe.classpath.file=.gwt-compile-classpath"/>
+
+            <!-- Uncomment to produce a smaller build (omitting pre-compilation of entities not used directly in the code) -->
+            <arg value="-Dminimize=true"/>
+
+            <arg value="com.google.gwt.dev.Compiler"/>
+            <arg value="-deploy"/>
+            <arg value="${gwt-deploy}"/>
+            <arg value="-workDir"/>
+            <arg value="${gwt-work}"/>
+        	<arg value="-generateJsInteropExports"/>
+        	<!-- <arg value="-strict"/> -->
+            <arg value="-logLevel"/>
+            <arg value="ERROR"/>
+            <!--Uncomment the lines bellow for better debugging-->
+            <arg value="-style"/>
+            <arg value="PRETTY"/>
+            <!--Uncomment the lines bellow for creating a folder with the generated java files-->
+            <!--
+            <arg value="-gen"/>
+            <arg value="GWT-GENERATED"/>
+            -->
+
+            <!--Uncomment the line bellow if your machine is dual core. It will make compilation faster-->
+            <arg value="-localWorkers"/>
+            <arg value="4"/>
+
+            <!--Uncomment the line bellow for faster compilation, used for faster debugging-->
+            <arg value="-draftCompile"/>
+            <!--Uncomment for enabling a compilation report to be generated-->
+            <!--arg value="-compileReport"/-->
+
+            <!--Uncomment for generating symbolMaps and other -->
+            <!--
+            <arg value="-extra"/>
+            <arg value="${gwt-deploy}"/>
+            -->
+
+            <arg value="com.braintribe.gwt.customization.Customization"/>
+            <!-- We need to specify at least one env variable to make newenvironment attribute work. -->
+            <!-- Luckily, we need the TEMP, otherwise the temp folder is the Windows folder (on Windows) -->
+            <env key="TEMP" value="${gwt-work}"/>
+        </exec>
+    </target>
+
+    <target name="dist" depends="compile">
+        <bt:pom file="pom.xml" id="serverSupport.project"/>
+        <bt:dependencies useScope="runtime" filesetId="serverSupport.fileset" tagRule="serverdeps">
+            <pom refid="serverSupport.project"/>
+        </bt:dependencies>
+        <!-- Delete lib folder to make sure we don't use any old libs. -->
+        <delete dir="war/WEB-INF/lib"/>
+        <mkdir dir="war/WEB-INF/lib"/>
+
+        <copy toDir="war/WEB-INF/lib" flatten="true">
+          <fileset refid="serverSupport.fileset"/>
+        </copy>
+
+        <fileset dir="war/WEB-INF/lib" id="serverSupport.build.fileset"/>
+        <pathconvert property="serverSupport.build.path" refid="serverSupport.build.fileset"/>
+        <exec executable="java" failonerror="true">
+            <arg value="-Xmx1024M"/>
+            <arg value="-cp"/>
+            <arg value="${serverSupport.build.path}"/>
+            <arg value="com.braintribe.build.gwt.symbol.SymbolTransformer"/>
+            <arg value="${gwt-deploy}/BtClientCustomization"/>
+        </exec>
+        <property name="symbolMapsDist" value="war/WEB-INF/symbolMaps"/>
+        <mkdir dir="${symbolMapsDist}"/>
+        <copy file="${gwt-deploy}/BtClientCustomization/symbolMaps/mergedSymbols" todir="${symbolMapsDist}"/>
+    </target>
+
+    <target name="assemble" depends="compile">
+        <mkdir dir="${dist}/assembled"/>
+        <echo level="info">Generating ${dist}/assembled/${versionedName}.war</echo>
+        <jar jarfile="${dist}/assembled/${versionedName}.war">
+            <fileset dir="war">
+                <exclude name="**/.gitignore"/>
+                <exclude name="**/gwt-user.jar"/>
+                <exclude name="**/gwt-dev.jar"/>
+            </fileset>
+        </jar>
+        <copy file="${dist}/assembled/${versionedName}.war" tofile="${dist}/assembled/${maven.project.artifactId}.war"/>
+        <copy file="${dist}/assembled/${versionedName}.war" tofile="${dist}/assembled/${distributableName}.war"/>
+    </target>
+
+    <target name="install" depends="assemble" description="install to local maven repository">
+        <bt:install file="dist/assembled/${versionedName}.war">
+            <pom refid="maven.project"/>
+            <attach file="asset.man" type="asset:man"/>
+        </bt:install>
+    </target>
+
+    <target name="release">
+        <bt:release buildDir="."/>
+    </target>
+
+    <target name="clean" description="clean up">
+        <!-- Delete the ${build} and ${dist} directory trees -->
+        <delete dir="${build}"/>
+        <delete dir="${dist}"/>
+    </target>
+
+</project>

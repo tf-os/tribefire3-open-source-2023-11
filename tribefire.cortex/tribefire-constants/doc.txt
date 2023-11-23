@@ -1,0 +1,1 @@
+Provides tribefire related constants and simple convenience methods, e.g. to get the (default) tribefire services URL. 

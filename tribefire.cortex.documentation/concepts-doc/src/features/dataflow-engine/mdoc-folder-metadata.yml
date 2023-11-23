@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  dataflow_engine.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -20
+
+  dataflow_engine_components.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -19
+
+  process_definition_components.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -18
+
+    

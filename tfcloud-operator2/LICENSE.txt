@@ -1,0 +1,6 @@
+============================================================================
+ Document.One GmbH - www.document.one
+ Copyright Ⓒ 2022 Document.One GmbH, Austria - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code
+ without written permission except as instructed by Document.One GmbH
+ ============================================================================

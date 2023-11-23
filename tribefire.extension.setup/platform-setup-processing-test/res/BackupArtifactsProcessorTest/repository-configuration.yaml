@@ -1,0 +1,7 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration
+localRepositoryPath: "${env.VIEW_ASSET_TESTS_M2_REPO}"
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    cachable: true
+    name: "backup-artifacts-processor-test-repo"
+    url: "http://localhost:${env.VIEW_ASSET_TESTS_PORT}/BackupArtifactsProcessorTest"

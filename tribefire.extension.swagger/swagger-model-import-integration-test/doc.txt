@@ -1,0 +1,3 @@
+This artifact provides swagger-model-import-module related integration tests. They require a running tribefire with proper swagger-model-import-module setup.
+This means the module has to be detected, models have to be synchronized and deployables have to be configured and deployed.
+Afterwards the tests can be run from the IDE just like any unit test.

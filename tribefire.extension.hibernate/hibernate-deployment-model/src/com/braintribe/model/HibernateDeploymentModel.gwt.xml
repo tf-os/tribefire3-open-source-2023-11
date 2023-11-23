@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.model.AccessDeploymentModel"/>
+	<inherits name="com.braintribe.model.BasicMetaModel"/>
+	<inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+	<inherits name="com.braintribe.model.LoggingModel"/>
+	<inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.RootModel"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<source path="accessdeployment"/>
+</module>

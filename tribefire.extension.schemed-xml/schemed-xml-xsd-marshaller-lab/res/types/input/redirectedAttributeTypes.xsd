@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Root" type="RootType"/>
+	<xs:complexType name="RootType">
+		<xs:attribute name="date" type="xs:date"/>
+		<xs:attribute name="dateTime" type="xs:dateTime"/>
+		<xs:attribute name="myDate" type="MyDate"/>
+		<xs:attribute name="myDateTime" type="MyDateTime"/>
+		<xs:attribute name="pervertedDate" type="PervertedDate"/>
+		<xs:attribute name="pervertedDateTime" type="PervertedDateTime"/>
+		<xs:attribute name="time" type="xs:time"/>
+		<xs:attribute name="MyTime" type="MyTime"/>
+		<xs:attribute name="pervertedTime" type="PervertedTime"/>
+	</xs:complexType>
+	<xs:simpleType name="MyDate">
+		<xs:restriction base="xs:date"/>
+	</xs:simpleType>
+	<xs:simpleType name="MyDateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="MyTime">
+		<xs:restriction base="xs:time"/>
+	</xs:simpleType>
+	<xs:simpleType name="PervertedDate">
+		<xs:restriction base="MyDate"/>
+	</xs:simpleType>
+	<xs:simpleType name="PervertedDateTime">
+		<xs:restriction base="MyDateTime"/>
+	</xs:simpleType>
+	<xs:simpleType name="PervertedTime">
+		<xs:restriction base="MyTime"/>
+	</xs:simpleType>
+</xs:schema>

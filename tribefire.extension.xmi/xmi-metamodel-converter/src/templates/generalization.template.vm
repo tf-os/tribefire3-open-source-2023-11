@@ -1,0 +1,8 @@
+<UML:Generalization xmlns:UML = 'org.omg.xmi.namespace.UML' name="$name" xmi.id = '$id' isSpecification = 'false'>
+	<UML:Generalization.child>
+		<UML:Class $subtypeIdRefType = '$subtype'/>
+	</UML:Generalization.child>
+	<UML:Generalization.parent>
+		<UML:Class $supertypeIdRefType = '$supertype'/>
+	</UML:Generalization.parent>
+</UML:Generalization>

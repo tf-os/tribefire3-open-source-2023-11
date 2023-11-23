@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ============================================================================
+ Braintribe IT-Technologies GmbH - www.braintribe.com
+ Copyright Braintribe IT-Technologies GmbH, Austria, 2002-2015 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+
+-->
+
+
+<project xmlns:artifact="antlib:org.apache.maven.artifact.ant" xmlns:bt="antlib:com.braintribe.build.ant.tasks" name="TestToolsTest" default="dist" basedir=".">
+	<property name="src" location="src" />
+	<property name="build" location="build" />
+	<property name="dist" location="dist" />
+
+	<target name="init">
+		<artifact:pom id="maven.project" file="pom.xml">
+		</artifact:pom>
+
+		<property name="versionedName" value="${maven.project.artifactId}-${maven.project.version}" />
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="download-deps" depends="init">
+		<artifact:dependencies pathId="compile.classpath" filesetId="compile.fileset" sourcesFilesetId="compile.sources.fileset" useScope="compile">
+			<artifact:pom refid="maven.project" />
+		</artifact:dependencies>
+	</target>
+
+	<target name="update-classpath" depends="download-deps">
+		<bt:update-classpath fileSetId="compile.fileset" sourceFileSetId="compile.sources.fileset" sourcesNeeded="true" />
+	</target>
+
+	<target name="compile" depends="init" description="compile the source ">
+		<artifact:dependencies pathId="compile.classpath" useScope="compile">
+			<artifact:pom refid="maven.project" />
+		</artifact:dependencies>
+
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac encoding="UTF-8" source="1.8" target="1.8" srcdir="${src}" destdir="${build}" debug="true" debuglevel="lines,source,vars">
+			<include name="**/*.java" />
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="dist" depends="clean, compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+		<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+		<jar jarfile="${dist}/lib/${versionedName}.jar" basedir="${build}" />
+		<jar jarfile="${dist}/${versionedName}-sources.jar" basedir="${src}" />
+	</target>
+
+	<target name="install" depends="dist" description="install to local maven repository">
+		<artifact:install file="dist/lib/${versionedName}.jar">
+			<pom refid="maven.project" />
+			<attach file="dist/${versionedName}-sources.jar" classifier="sources" />
+		</artifact:install>
+	</target>
+
+	<target name="deploy" depends="install" description="install to local maven repository">
+		<artifact:remoteRepository id="central.mirror" url="dav:http://archiva.braintribe.com/repository/standalone/">
+		</artifact:remoteRepository>
+
+		<artifact:deploy file="dist/lib/${versionedName}.jar">
+			<remoteRepository refId="central.mirror">
+			</remoteRepository>
+			<pom refid="maven.project" />
+			<attach file="dist/${versionedName}-sources.jar" classifier="sources" />
+		</artifact:deploy>
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>

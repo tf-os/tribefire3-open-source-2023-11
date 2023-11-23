@@ -1,0 +1,22 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.DisjunctionArtifactFilter
+      operands:
+        - !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+          artifactId: "platform-api"
+          groupId: "com.braintribe"
+          version: "2.0"
+        - !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+          artifactId: "platform-api"
+          groupId: "com.braintribe"
+          version: "2.1"
+        - !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+          artifactId: "tribefire-web-platform"
+          groupId: "tribefire.cortex"
+    cachable: true
+    changesIndexType: incremental
+    name: "repo"
+    password: "myPassword"
+    updateable: true
+    url: "myURL"
+    user: "myUser"

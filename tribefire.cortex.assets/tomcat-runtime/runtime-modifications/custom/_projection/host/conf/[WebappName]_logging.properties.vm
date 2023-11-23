@@ -1,0 +1,59 @@
+#set($dollar='$')
+#set($installationPath="${dollar}{catalina.base}/../..")
+# *****************************************************************************
+# *** Example logging configuration for web application [WebappName].
+# *** This file can be used as a template for custom logging configurations.
+# *****************************************************************************
+
+# *** Levels ***
+# set root level to INFO
+.level = INFO
+
+#if($request.logFilesLogLevel.ordinal() > $request.consoleLogLevel.ordinal())
+#set($minLogLevel=$request.logFilesLogLevel)
+#else
+#set($minLogLevel=$request.consoleLogLevel)
+#end
+com.braintribe.level = ${minLogLevel}
+tribefire.level = ${minLogLevel}
+
+# *** Formatters ***
+# compact log messages:       Level + Short LoggerName (=Simple Class Name) + Message + Exception (if available)
+com.braintribe.logging.juli.formatters.simple.SimpleFormatter1.format=%4$-7s %7$-33s '%5$s' %13$s [%9$s]%n
+# more detailed log messages: Timestamp + Level + LoggerName (=Class Name) + Message + Exception (if available)
+com.braintribe.logging.juli.formatters.simple.SimpleFormatter2.format=%14$s %4$-7s %11$-75s '%5$s'%13$s [%9$s]%n
+
+# *** Handlers ***
+handlers = com.braintribe.logging.juli.handlers.ConsoleHandler, 1file.com.braintribe.logging.juli.handlers.FileHandler, 2file.com.braintribe.logging.juli.handlers.FileHandler
+
+# ** Console Handler **
+com.braintribe.logging.juli.handlers.ConsoleHandler.level = ${request.consoleLogLevel}
+com.braintribe.logging.juli.handlers.ConsoleHandler.formatter = com.braintribe.logging.juli.formatters.simple.SimpleFormatter1
+com.braintribe.logging.juli.handlers.ConsoleHandler.filter = com.braintribe.logging.juli.filters.standard.StandardFilter1
+
+# ** File Handlers **
+# Common Properties
+com.braintribe.logging.juli.handlers.FileHandler.level = ${request.logFilesLogLevel}
+com.braintribe.logging.juli.handlers.FileHandler.formatter = com.braintribe.logging.juli.formatters.simple.SimpleFormatter2
+com.braintribe.logging.juli.handlers.FileHandler.filter = com.braintribe.logging.juli.filters.standard.StandardFilter1
+#if(${request.logFilesDir})
+com.braintribe.logging.juli.handlers.FileHandler.directory = $tools.resolveRelativePath($installationPath,$request.logFilesDir)
+#else
+com.braintribe.logging.juli.handlers.FileHandler.directory = ${dollar}{catalina.base}/logs
+#end
+com.braintribe.logging.juli.handlers.FileHandler.maxFileSize = ${request.logFilesMaxSize}
+com.braintribe.logging.juli.handlers.FileHandler.maxArchivedFileCount = ${request.logFilesMaxCount}
+#if($request.logFilesCronRotate)
+com.braintribe.logging.juli.handlers.FileHandler.cronRotate = ${request.logFilesCronRotate}
+#end
+
+# Default Log
+1file.com.braintribe.logging.juli.handlers.FileHandler.fileKey = [WebappName]
+
+# Warning Level Log (errors and warnings only)
+2file.com.braintribe.logging.juli.handlers.FileHandler.fileKey = [WebappName]_warn
+2file.com.braintribe.logging.juli.handlers.FileHandler.level = WARNING
+
+# *** Filters ***
+# Default Filter (just removes some misleading warnings)
+com.braintribe.logging.juli.filters.standard.StandardFilter1.conditionFile = ${catalina.base}/conf/logging_filter.xml

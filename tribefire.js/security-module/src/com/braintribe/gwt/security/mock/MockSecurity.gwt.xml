@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.gwt.security.Security"/>
+	<inherits name="com.braintribe.model.SecurityServiceApiModel"/>
+    <inherits name="com.braintribe.Provider"/>
+	<inherits name="com.braintribe.UtilsExclusion"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="com.google.gwt.user.Debug"/>
+	<inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <source path="client"/>
+</module>

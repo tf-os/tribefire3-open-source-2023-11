@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs ADX</title>
+	<head>        
+        <script>
+            var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+            var accessId = "access.adx.admin";
+            var remoteSession;
+            var persistenceSession;           
+
+            window.addEventListener('onStartTribefireJs', function(){
+                getGlobalRepresentationJobStatistics();  
+            });
+
+            function getEnum(){
+                openSession().then(ps => {
+                    var et = $T.get('tribefire.adx.model.deployment.service.repository.configuration.StorageDomain');
+                    et.valueOf("content")
+                });
+            }
+
+            function getGlobalRepresentationJobStatistics(){
+                openSession().then(ps => {
+                    request = $T.tribefire.adx.model.deployment.service.statistics.GetGlobalRepresentationJobStatistics.create();
+                    ps.evaluate(request).then(r => {
+                        debugger;
+                        r.individualStatistics.forEach(s => {
+                            console.log(s);
+                        })
+                        r.latestDoneJobs.forEach(s => {
+                            console.log(s);
+                        })
+                        r.jobCountPerAddress.forEach((k,v) => {
+                            console.log(k + "," + v);
+                        });
+                    }); 
+                });
+            }
+
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+	<body>
+	</body>	
+</html> 

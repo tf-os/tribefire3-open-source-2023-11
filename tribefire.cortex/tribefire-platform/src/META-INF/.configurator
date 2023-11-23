@@ -1,0 +1,4 @@
+tribefire.platform.config.TribefireUrlBasedConfigurator
+tribefire.platform.config.TribefireEnvironmentVariableBasedConfigurator
+tribefire.platform.config.ContainerRootConfigurator
+com.braintribe.cartridge.common.processing.bootstrapping.ExternalPropertiesConfigurator

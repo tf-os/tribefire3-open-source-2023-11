@@ -1,0 +1,11 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  activeMQ_cartridge.md:
+
+  setup.md:
+    displayTitle: "Setup"
+
+  usage.md:
+    displayTitle: "Usage"

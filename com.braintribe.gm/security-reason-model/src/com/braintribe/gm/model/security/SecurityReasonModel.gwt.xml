@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.gm.model.ReasonModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <source path="reason"/>
+</module>

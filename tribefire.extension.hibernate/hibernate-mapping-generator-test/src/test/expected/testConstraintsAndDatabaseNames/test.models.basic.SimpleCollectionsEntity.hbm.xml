@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.SimpleCollectionsEntity" entity-name="test.models.basic.SimpleCollectionsEntity" table="SimpleCollectionsEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<list name="dateList" table="SimpleCollEntityDateList">
+			<key column="SimpleCollectionsEntityId" />
+			<list-index column="SimpleCollEntityDateListIdx" />
+			<element column="DateList" type="date" />
+		</list>
+		<set name="dateSet" table="SimpleCollectionsEntityDateSet">
+			<key column="SimpleCollectionsEntityId" />
+			<element column="DateSet" type="date" />
+		</set>
+		<list name="enumList" table="SimpleCollEntityEnumList">
+			<key column="SimpleCollectionsEntityId" />
+			<list-index column="SimpleCollEntityEnumListIdx" />
+			<element column="EnumList" type="test.models.basic.SimpleEnum" />
+		</list>
+		<set name="enumSet" table="SimpleCollectionsEntityEnumSet">
+			<key column="SimpleCollectionsEntityId" />
+			<element column="EnumSet" type="test.models.basic.SimpleEnum" />
+		</set>
+		<property name="globalId" column="globalId" type="string" />
+		<list name="integerList" table="SimpleCollEntityIntegerList">
+			<key column="SimpleCollectionsEntityId" />
+			<list-index column="SimpleCollEntityIntegerListIdx" />
+			<element column="IntegerList" type="integer" />
+		</list>
+		<set name="integerSet" table="SimpleCollEntityIntegerSet">
+			<key column="SimpleCollectionsEntityId" />
+			<element column="IntegerSet" type="integer" />
+		</set>
+		<list name="longList" table="SimpleCollEntityLongList">
+			<key column="SimpleCollectionsEntityId" />
+			<list-index column="SimpleCollEntityLongListIdx" />
+			<element column="LongList" type="long" />
+		</list>
+		<set name="longSet" table="SimpleCollectionsEntityLongSet">
+			<key column="SimpleCollectionsEntityId" />
+			<element column="LongSet" type="long" />
+		</set>
+		<property name="partition" column="`myCustom partitionCol`" type="string" index="myCustom partitionIdx" />
+		<list name="stringList" table="myCustom_stringList_table" lazy="extra" fetch="join">
+			<key column="SimpleCollectionsEntityId" />
+			<list-index column="myCustom_stringListIndexCol" />
+			<element column="StringList" type="string" />
+		</list>
+		<set name="stringSet" table="SimpleCollEntityStringSet">
+			<key column="SimpleCollectionsEntityId" />
+			<element column="StringSet" type="string" />
+		</set>
+	</class>
+</hibernate-mapping>

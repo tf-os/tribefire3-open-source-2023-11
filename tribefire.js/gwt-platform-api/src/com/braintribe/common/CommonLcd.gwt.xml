@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.PlatformExceptions"/>
+    <inherits name="com.braintribe.CommonApi"/>
+    <inherits name="com.braintribe.utils.UtilsLcd"/>
+    <source path="lcd"/>
+    <super-source path="lcdemul"/>
+    <source>
+    	<exclude name="**/AbstractRegexCheck.java" />
+    	<exclude name="**/Constants.java" />
+    	<exclude name="**/DefaultComparatorBasedEqualsCheck.java" />
+    	<exclude name="**/DomDiff.java" />
+    	<exclude name="**/ExceptionBuilder.java" />
+    	<exclude name="**/FileAlreadyExistsException.java" />
+    	<exclude name="**/FilenameRegexCheck.java" />
+    	<exclude name="**/FileNotFoundException.java" />
+    	<exclude name="**/FilterBasedFileFilter.java" />
+    	<exclude name="**/HasSharedLogger.java" />
+    	<exclude name="**/MutuallyExclusiveReadWriteLock.java" />
+    	<exclude name="**/RegexCheck.java" />
+    	<exclude name="**/SimpleDirectoryCleaner.java" />
+    	<exclude name="**/SimpleUrlReader.java" />
+    	<exclude name="**/ThrowableContext.java" />
+    	<exclude name="**/UncheckedClassNotFoundException.java" />
+    	<exclude name="**/UncheckedIllegalAccessException.java" />
+    	<exclude name="**/UncheckedInvocationTargetException.java" />
+    	<exclude name="**/UncheckedMalformedURLException.java" />
+    	<exclude name="**/UncheckedSAXException.java" />
+    	<exclude name="**/UncheckedXMLStreamException.java" />
+    	<exclude name="**/UrlToUrlContentStringTransformer.java" />
+    </source>
+</module>

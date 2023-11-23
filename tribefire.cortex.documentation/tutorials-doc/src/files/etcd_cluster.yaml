@@ -1,0 +1,20 @@
+apiVersion: "etcd.database.coreos.com/v1beta2"
+kind: "EtcdCluster"
+metadata:
+  name: "tf-etcd-cluster"
+  namespace: yarademo
+  annotations:
+    etcd.database.coreos.com/scope: clusterwide
+  labels:
+    app: etcd
+spec:
+  pod:
+    etcdEnv:
+    - name: ETCD_AUTO_COMPACTION_RETENTION
+      value: "6"
+    - name: ETCD_DEBUG
+      value: "false"
+  size: 1
+  version: "3.3"
+
+

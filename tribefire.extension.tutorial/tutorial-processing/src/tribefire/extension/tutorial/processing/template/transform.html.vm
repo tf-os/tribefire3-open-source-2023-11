@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lettercase Transform App</title>
+	</head>
+	<body>
+		<div class="header">
+			<p>Lettercase Transform Application</p>
+		</div>
+	</body>
+
+</html>

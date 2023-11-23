@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+        
+   <!--
+   		COMMANDS  
+   -->
+   
+   <!-- command declaration-->
+   <extension point="org.eclipse.ui.commands">
+   	<!-- gwt analyzer -->
+    <category id="com.braintribe.devrock.mj.commands.category" name="Mungojerry's commands" />
+   
+    <command 
+        categoryId="com.braintribe.devrock.mj.commands.category" 
+        defaultHandler="com.braintribe.devrock.mj.commands.MungojerryCommand" 
+        id="com.braintribe.devrock.mj.commands.MungojerryCommand" 
+        name="Analyze GWT project"
+    />
+     
+    <command 
+            id="com.braintribe.devrock.mj.commands.natures.AssignGwtTerminalNature"
+            name="Assign Gwt Terminal Nature Command" 
+            categoryId="com.braintribe.devrock.mj.commands.category"
+            defaultHandler="com.braintribe.devrock.mj.commands.natures.AssignGwtTerminalNature" 
+    />
+    
+    <command 
+            id="com.braintribe.devrock.mj.commands.natures.AssignGwtLibraryNature"
+            name="Assign Gwt Library Nature Command" 
+            categoryId="com.braintribe.devrock.mj.commands.category"
+            defaultHandler="com.braintribe.devrock.mj.commands.natures.AssignGwtLibraryNature" 
+    />
+            
+    <command 
+            id="com.braintribe.devrock.mj.commands.natures.RemoveGwtNature"
+            name="Remove GWT Nature Command" 
+            categoryId="com.braintribe.devrock.mj.commands.category"
+            defaultHandler="com.braintribe.devrock.mj.commands.natures.RemoveGwtNature"
+    />
+           
+    </extension>
+
+    <!-- command icons -->
+   <extension point="org.eclipse.ui.commandImages">
+   	<image commandId="com.braintribe.devrock.mj.commands.MungojerryCommand" icon="icons/gwt-logo2.png"/>
+   	<image commandId="com.braintribe.devrock.mj.commands.natures.AssignGwtTerminalNature" icon="icons/gwt-logo2.png"/>
+   	<image commandId="com.braintribe.devrock.mj.commands.natures.AssignGwtLibraryNature" icon="icons/gwt-logo2.png"/>
+   	<image commandId="com.braintribe.devrock.mj.commands.natures.RemoveGwtNature" icon="icons/gwt-logo2.png"/>
+   	
+   </extension>
+
+   <!-- context menu -->
+   <extension point="org.eclipse.ui.menus">				
+   		
+		<menuContribution allPopups="true" locationURI="popup:com.braintribe.devrock.popup?after=popup.natures">
+    		<menu id="com.braintribe.devrock.mj" label="GWT support">
+    			<!--
+    			<separator name="mySeparator" visible="true"/>            	
+            	-->
+            	<!-- project analyzer -->
+            	<dynamic class="com.braintribe.devrock.mj.commands.DynamicProjectGwtAnalysisCommandItem" id="com.braintribe.devrock.mj.commands.DynamicProjectGwtAnalysisCommandItem">   	
+    				<visibleWhen>				
+    					<with
+    	                     variable="activeMenuSelection">
+    						<iterate>
+    							<or>
+    								<adapt type="org.eclipse.core.resources.IProject">
+    									<test property="org.eclipse.core.resources.open" value="open"/> 
+    								</adapt>
+    								<adapt type="org.eclipse.core.resources.IResource">
+    									<test property="org.eclipse.core.resources.open" value="open"/>
+    								</adapt>																							
+    								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+    								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+    							</or>
+    						</iterate>
+    					</with>				
+    				</visibleWhen>
+            	</dynamic>        
+            	  
+            		  
+            	<dynamic class="com.braintribe.devrock.mj.commands.natures.DynamicProjectAddGwtTerminalNatureCommandItem" id="com.braintribe.devrock.mj.commands.natures.DynamicProjectAddGwtTerminalNatureCommandItem">    
+                <visibleWhen>    
+                    <with variable="activeMenuSelection">
+                        <iterate>                                                       
+                            <adapt type="org.eclipse.core.resources.IProject">
+                                <and>                               
+                                    <test property="org.eclipse.core.resources.open" value="open"/>                                                                                                 
+                                    <not>
+                                        <test 
+                                          property="org.eclipse.core.resources.projectNature" 
+                                          value="com.braintribe.devrock.mj.natures.GwtTerminalNature" />
+                                    </not>
+                                </and>
+                            </adapt>                                
+                        </iterate>
+                    </with>    
+                </visibleWhen>
+            </dynamic>
+            
+            <dynamic class="com.braintribe.devrock.mj.commands.natures.DynamicProjectAddGwtLibraryNatureCommandItem" id="com.braintribe.devrock.mj.commands.natures.DynamicProjectAddGwtLibraryNatureCommandItem">    
+                <visibleWhen>    
+                    <with variable="activeMenuSelection">
+                        <iterate>                                                       
+                            <adapt type="org.eclipse.core.resources.IProject">
+                                <and>                               
+                                    <test property="org.eclipse.core.resources.open" value="open"/>                                                                                                 
+                                    <not>
+                                        <test 
+                                          property="org.eclipse.core.resources.projectNature" 
+                                          value="com.braintribe.devrock.mj.natures.GwtLibraryNature" />
+                                    </not>
+                                </and>
+                            </adapt>                                
+                        </iterate>
+                    </with>    
+                </visibleWhen>
+            </dynamic>
+            
+            <dynamic class="com.braintribe.devrock.mj.commands.natures.DynamicProjectRemoveGwtNaturesCommandItem" id="com.braintribe.devrock.mj.commands.natures.DynamicProjectRemoveGwtNaturesCommandItem">    
+                <visibleWhen>    
+                    <with variable="activeMenuSelection">
+                        <iterate>                           
+                            <adapt type="org.eclipse.core.resources.IProject">
+                                <and>                               
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                        <or> 
+                                            <test 
+                                                property="org.eclipse.core.resources.projectNature" 
+                                                value="com.braintribe.devrock.mj.natures.GwtTerminalNature" 
+                                             />
+                                             <test 
+                                                property="org.eclipse.core.resources.projectNature" 
+                                                value="com.braintribe.devrock.mj.natures.GwtLibraryNature" 
+                                             />
+                                        </or>
+                                </and>
+                            </adapt>                                                                                                                        
+                        </iterate>
+                    </with>    
+                </visibleWhen>
+            </dynamic>
+            
+            <separator name="additions" visible="false" />                	
+          </menu>
+		</menuContribution>
+	</extension>
+
+	<extension point="org.eclipse.ui.menus">
+     	<menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+        	<toolbar id="com.braintribe.devrock.mj.commands.toolbar1">
+           		<command commandId="com.braintribe.devrock.mj.commands.MungojerryCommand" id="com.braintribe.devrock.mj.commands.MungojerryCommand.tb" style="push" tooltip="Analyze current project for GWT compliance"/>
+            </toolbar>
+     	</menuContribution>
+  	</extension>
+  	
+  	<!-- toolbar entries -->
+  	<extension point="org.eclipse.ui.menus">
+   		<menuContribution locationURI="menu:com.braintribe.devrock.mj.commands.MungojerryCommand.tb">
+        	<command commandId="com.braintribe.devrock.mj.commands.MungojerryCommand" label="Analyze GWT project" style="push" tooltip="Analyze current project for GWT compliance"/>           		
+        	<separator name="additions" visible="false"/>
+        </menuContribution>    
+  	</extension>
+  	
+  	<!-- gwt terminal nature -->
+    <extension point="org.eclipse.core.resources.natures" id="com.braintribe.devrock.mj.natures.GwtTerminalNature"
+        name="GWT Terminal Nature">
+        <runtime>
+            <run class="com.braintribe.devrock.mj.natures.GwtTerminalNature">
+            </run>
+        </runtime>       
+    </extension>
+    
+    <!-- gwt library nature -->
+    <extension point="org.eclipse.core.resources.natures" id="com.braintribe.devrock.mj.natures.GwtLibraryNature"
+        name="GWT Library Nature">
+        <runtime>
+            <run class="com.braintribe.devrock.mj.natures.GwtLibraryNature">
+            </run>
+        </runtime>       
+    </extension>
+    
+    <!-- model nature decorator -->
+    <extension point="org.eclipse.ui.decorators">
+        <decorator
+            id="com.braintribe.devrock.mj.decorators.GwtNatureDecorator"
+            label="Model decorator" state="true" lightweight="true"
+            class="com.braintribe.devrock.mj.decorators.GwtNatureDecorator"
+            location="TOP_LEFT"
+            objectClass="org.eclipse.core.resources.IResource" 
+            adaptable="true">
+            
+            <description>
+                A decorator to show the GWT related nature of a project
+            </description>
+        </decorator>
+    </extension>
+        	
+</plugin>

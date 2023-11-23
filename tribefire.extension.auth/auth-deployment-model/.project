@@ -1,0 +1,33 @@
+<projectDescription>
+	<name>auth-deployment-model - tribefire.extension.auth</name>
+	<comment/>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.ManifestBuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.pde.SchemaBuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.gmt.modisco.common.core.builder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.braintribe.eclipse.model.nature.ModelBuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.gmt.modisco.common.ProjectNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.pde.PluginNature</nature>
+		<nature>com.braintribe.eclipse.model.nature.ModelNature</nature>
+	</natures>
+</projectDescription>

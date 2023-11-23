@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<model-declaration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="http://braintribe.com/schemata/model-declaration-1.0.xsd">
+
+  <name>com.braintribe.devrock:artifact-model</name>
+
+  <groupId>com.braintribe.model</groupId>
+  <artifactId>ArtifactModel</artifactId>
+  <version>2.2</version>
+  <hash>9a22d477f02a9346abdab67f6cfea9a9</hash>
+
+  <dependencies>
+    <dependency>com.braintribe.gm:root-model</dependency>
+    <dependency>com.braintribe.devrock:version-model</dependency>
+  </dependencies>
+
+  <types>
+    <type>com.braintribe.model.artifact.Artifact</type>
+    <type>com.braintribe.model.artifact.ArtifactDeclarationType</type>
+    <type>com.braintribe.model.artifact.ArtifactType</type>
+    <type>com.braintribe.model.artifact.Dependency</type>
+    <type>com.braintribe.model.artifact.Distribution</type>
+    <type>com.braintribe.model.artifact.Exclusion</type>
+    <type>com.braintribe.model.artifact.Identification</type>
+    <type>com.braintribe.model.artifact.License</type>
+    <type>com.braintribe.model.artifact.Part</type>
+    <type>com.braintribe.model.artifact.PartTuple</type>
+    <type>com.braintribe.model.artifact.PartType</type>
+    <type>com.braintribe.model.artifact.Property</type>
+    <type>com.braintribe.model.artifact.ReleaseStatus</type>
+    <type>com.braintribe.model.artifact.Solution</type>
+    <type>com.braintribe.model.artifact.weeder.Node</type>
+  </types>
+
+</model-declaration>

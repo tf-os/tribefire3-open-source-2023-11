@@ -1,0 +1,36 @@
+/******************************** AreaTable-Styles ********************************/
+.paginationControlTable {
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+    vertical-align: middle;
+}
+.paginationControlRowElement {
+    display: table-row;
+    vertical-align: middle;
+    line-height: 4px;
+}
+/******************************* Row-Element-Styles *******************************/
+.paginationPagingTable {
+    height: 100%;
+    display: inline-table;
+    vertical-align: middle;
+}
+.paginationPagingElement {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 4px;
+}
+/****************************** Native-Element-Styles *****************************/
+.paginationPagingIcon {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+.paginationPagingIndexLabel, .paginationPageSizeLabel {
+    font-size: 11px;
+    line-height: 4px;
+    white-space: nowrap;
+}

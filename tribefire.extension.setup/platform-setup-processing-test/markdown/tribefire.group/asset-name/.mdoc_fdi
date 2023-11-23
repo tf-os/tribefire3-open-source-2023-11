@@ -1,0 +1,8 @@
+---
+sub:
+  priority: -10
+  displayTitle: "Subfolder"
+quick_start_rest_v2.md:
+  displayTitle: "Some File"
+  priority: 0
+

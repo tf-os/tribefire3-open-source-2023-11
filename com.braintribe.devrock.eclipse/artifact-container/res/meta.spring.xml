@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ ============================================================================
+ Braintribe IT-Technologies GmbH - www.braintribe.com
+ Copyright Braintribe IT-Technologies GmbH, Austria, 2002-2015 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+
+-->
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+ <!-- This expert checks bean with @Required annotations for complete configuration -->
+  <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>
+
+	<bean class="com.braintribe.logging.LoggerInitializer" lazy-init="false">
+        <property name="loggerConfigUrl" value="res/logger.properties"/>
+    </bean>
+
+      
+ <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">    
+    <property name="converters">
+      <list>
+    	<bean class="com.braintribe.spring.support.converter.StringToFileConverter"/>
+      </list>
+    </property>
+  </bean>
+</beans>

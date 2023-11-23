@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<!-- This should NOT be used. Platform should be the one used instead, because Platform is emulated there.
+	<inherits name="com.braintribe.platform.PlatformApi"/> -->
+    <inherits name="com.braintribe.utils.format.FormatApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <!--Resource Module-->
+    <inherits name="com.braintribe.gwt.platform.Platform"/>
+    <!--Resource Module-->
+    <inherits name="com.braintribe.utils.format.GwtFormatTool"/>
+    <source path="lcd"/>
+</module>

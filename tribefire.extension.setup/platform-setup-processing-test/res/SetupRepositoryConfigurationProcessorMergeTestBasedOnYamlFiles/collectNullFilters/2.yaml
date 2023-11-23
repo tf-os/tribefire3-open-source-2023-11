@@ -1,0 +1,20 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-a"  # artifactFilter is null
+    password: "myPassword-a"
+    url: "myURL-a"
+    user: "myUser-a"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+      artifactId: "platform-api"
+      groupId: "com.braintribe"
+      version: "2.2"
+    name: "repo-b"
+    password: "myPassword-b"
+    url: "myURL-b"
+    user: "myUser-b"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-ab"  # artifactFilter is null
+    password: "myPassword-ab"
+    url: "myURL-ab"
+    user: "myUser-ab"

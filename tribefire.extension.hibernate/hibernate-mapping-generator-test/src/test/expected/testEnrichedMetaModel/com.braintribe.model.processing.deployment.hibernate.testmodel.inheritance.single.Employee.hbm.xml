@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true">
+  <class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Employee" table="TEST_EMPLOYEE" abstract="false">
+    <id name="employeeNumber" column="EMPLOYEE_REGISTRATION_NUMBER">
+      <generator class="native" />
+    </id>
+    <property name="fullName" column="EMPLOYEE_FULL_NAME" />
+  </class>
+</hibernate-mapping>

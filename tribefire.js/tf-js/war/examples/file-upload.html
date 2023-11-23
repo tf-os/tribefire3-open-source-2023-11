@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>tribefireJs file upload</title>
+
+<style type="text/css">
+#fileselect {
+	display: none;
+}
+
+#fileFieldSet[disabled="disabled"] {
+	background: grey;
+}
+
+#fileFieldSet {
+	border: none;
+}
+</style>
+</head>
+
+<body>
+
+	<fieldset id="fileFieldSet" disabled="disabled">
+		<input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE"
+			value="300000" />
+		<div class="inputWrapper">
+			<label for="fileselect">Choose files to upload</label> <input
+				type="file" id="fileselect" name="fileselect[]" multiple />
+			<div id="filedrag">or drop files here</div>
+		</div>
+	</fieldset>
+
+	<script type="text/javascript">
+    var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+    var accessId = "access.adx.content.spr-test-repo";
+    var persistenceSession;
+    var remoteSession;
+
+    function log(msg) {
+      document.write("<div>" + msg + "</div>");
+      console.log(msg);
+    }
+
+    window.addEventListener('startTribefireJs', function () {
+    	openSession().then(rs => {
+      		init();
+    	});
+    });
+
+    function $id(id) {
+      return document.getElementById(id);
+    }
+
+    function init() {
+      var fileselect = $id("fileselect"),
+      filedrag = $id("filedrag"),
+      submitbutton = $id("submitbutton");
+      // file select
+      fileselect.addEventListener("change", selectFile, false);
+      // is XHR2 available?
+      var xhr = new XMLHttpRequest();
+      if (xhr.upload) {
+        // file drop
+        filedrag.addEventListener("dragover", onDragHover, false);
+        filedrag.addEventListener("dragleave", onDragHover, false);
+        filedrag.addEventListener("drop", selectFile, false);
+        filedrag.style.display = "block";
+      }
+      run();
+    }
+
+    function onDragHover(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      e.target.className = (e.type == "dragover" ? "hover" : "");
+    }
+
+    function selectFile(e) {
+      // cancel event and hover styling
+      onDragHover(e);
+      // fetch FileList object
+      var files = e.target.files || e.dataTransfer.files;
+      persistenceSession.resources().create()
+      .storeFileList(files)
+      .then(resources => {
+        resources.forEach(r => {
+          console.log(persistenceSession.resources().url(r).asString());
+          //createContent(r);
+        })        
+      }).catch(e => {
+        console.log(e);
+      }
+      );
+    }
+
+    function run() {
+      openSession().then(s => {
+        $id("fileFieldSet").disabled = "";
+      });
+    }
+    
+    function createContent(r){
+    	sr = $T.tribefire.adx.model.content.service.v1.request.crud.content.CreateContents.create();
+    	sr.resources.add(r);
+    	persistenceSession.evaluate(sr).then(result => {
+    		debugger;	
+    	});
+    }
+
+    function authenticate() {
+      console.log("start to authenticate");
+      console.time("authenticate");
+      if (remoteSession) {
+        console.log(remoteSession)
+        console.timeEnd("authenticate");
+        return Promise.resolve(remoteSession);
+      } else {
+        var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+        config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+        config.servicesUrl = servicesUrl;
+        var promise = $tf.remote.sessionFactory.open(config);
+        promise.then(rs => {
+          remoteSession = rs;
+          console.log(remoteSession);
+          console.timeEnd("authenticate");
+        });
+        return promise;
+      }
+    }
+
+    function openSession() {
+      console.log("start to open session");
+      console.time("openSession");
+      if (persistenceSession) {
+        console.log(persistenceSession)
+        console.timeEnd("openSession");
+        return Promise.resolve(persistenceSession);
+      } else {
+        var promise = authenticate().then(rs => {
+          return rs.openPersistenceSession(accessId);
+        });
+        promise.then(session => {
+          persistenceSession = session;
+          console.log(persistenceSession);
+          console.timeEnd("openSession");
+        });
+        return promise;
+      }
+    }
+  </script>
+	<script type="text/javascript" src="../tribefire.js"></script>
+</body>
+
+</html>

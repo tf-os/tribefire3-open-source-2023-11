@@ -1,0 +1,10 @@
+﻿model;packageName;simpleTypeName;propertyName
+com.braintribe.gm:root-model;com.braintribe.model.generic;GenericEntity;globalId
+com.braintribe.gm:root-model;com.braintribe.model.generic;GenericEntity;partition
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Person;firstName
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Person;hash
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Person;hobby
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Person;lastName
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Person;socialContractNumber
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;PersonImport;name
+tribefire.extension.spreadsheet:spreadsheet-exchange-test-model;tribefire.extension.spreadsheet.model.test;Record;stringValue

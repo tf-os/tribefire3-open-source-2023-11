@@ -1,0 +1,288 @@
+!com.braintribe.zarathud.model.data.Artifact
+artifactId: "library-other"
+entries: !!set
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - &0 !com.braintribe.zarathud.model.data.Artifact
+        artifactId: "rt"
+    desc: "B"
+    isRuntime: true
+    name: "byte"
+    scannedFlag: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "C"
+    isRuntime: true
+    name: "char"
+    scannedFlag: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "D"
+    isRuntime: true
+    name: "double"
+    scannedFlag: true
+  ? &1 !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - &2 !com.braintribe.zarathud.model.data.Artifact
+        artifactId: "library-other"
+        groupId: "com.braintribe.devrock.zarathud.test"
+        version: "1.0.1-pc"
+    desc: "Lcom/braintribe/common/artifact/ArtifactReflection;"
+    isUnknown: true
+    name: "com.braintribe.common.artifact.ArtifactReflection"
+    scannedFlag: true
+  ? &3 !com.braintribe.zarathud.model.data.ClassEntity
+    artifacts:
+      - *0
+    desc: "Ljava/lang/Object;"
+    isRuntime: true
+    name: "java.lang.Object"
+    scannedFlag: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "F"
+    isRuntime: true
+    name: "float"
+    scannedFlag: true
+  ? &4 !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "I"
+    isRuntime: true
+    name: "int"
+    scannedFlag: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "J"
+    isRuntime: true
+    name: "long"
+    scannedFlag: true
+  ? &5 !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *2
+    desc: "Lcom/braintribe/common/artifact/StandardArtifactReflection;"
+    isUnknown: true
+    name: "com.braintribe.common.artifact.StandardArtifactReflection"
+    scannedFlag: true
+  ? &6 !com.braintribe.zarathud.model.data.ClassEntity
+    artifacts:
+      - *0
+    desc: "Ljava/lang/String;"
+    isRuntime: true
+    name: "java.lang.String"
+    scannedFlag: true
+  ? &7 !com.braintribe.zarathud.model.data.ClassEntity
+    accessModifier: PUBLIC
+    artifacts:
+      - *2
+    definedInTerminal: true
+    desc: "Lcom/braintribe/devrock/zarathud/test/_LibraryOther_;"
+    fields:
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Lcom/braintribe/common/artifact/ArtifactReflection;"
+        name: "reflection"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Lcom/braintribe/common/artifact/ArtifactReflection;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *1
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Ljava/lang/String;"
+        name: "groupId"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Ljava/lang/String;"
+        name: "artifactId"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Ljava/lang/String;"
+        name: "version"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Ljava/lang/String;"
+        name: "name"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PUBLIC
+        desc: "Ljava/lang/String;"
+        name: "versionedName"
+        owner: *7
+        scopeModifier: FINAL
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+    methods: !!set
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PUBLIC
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "groupId"
+            referencedType: *7
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "artifactId"
+            referencedType: *7
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "version"
+            referencedType: *7
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "name"
+            referencedType: *7
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "versionedName"
+            referencedType: *7
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "<init>"
+            referencedType: *5
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "reflection"
+            referencedType: *7
+        desc: "()V"
+        name: "<clinit>"
+        owner: *7
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: &8 !com.braintribe.zarathud.model.data.ZedEntity
+            artifacts:
+              - *0
+            desc: "V"
+            isRuntime: true
+            name: "void"
+            scannedFlag: true
+        staticNature: true
+    name: "com.braintribe.devrock.zarathud.test._LibraryOther_"
+    qualifiedFlag: true
+    scannedFlag: true
+    synchronizedNature: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "S"
+    isRuntime: true
+    name: "short"
+    scannedFlag: true
+  ? *8
+  ? &9 !com.braintribe.zarathud.model.data.ClassEntity
+    accessModifier: PUBLIC
+    artifacts:
+      - *2
+    definedInTerminal: true
+    desc: "Lcom/braintribe/devrock/zarathud/test/MyClass;"
+    fields:
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PRIVATE
+        desc: "Ljava/lang/String;"
+        name: "myValue"
+        owner: *9
+        scopeModifier: DEFAULT
+        signature: "Ljava/lang/String;"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      - !com.braintribe.zarathud.model.data.FieldEntity
+        accessModifier: PRIVATE
+        desc: "I"
+        name: "value"
+        owner: *9
+        scopeModifier: DEFAULT
+        signature: "I"
+        type: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *4
+    methods: !!set
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PUBLIC
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "<init>"
+            referencedType: *3
+        desc: "()V"
+        name: "<init>"
+        owner: *9
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *8
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PUBLIC
+        argumentTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            referencedType: *4
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "<init>"
+            referencedType: *3
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "value"
+            referencedType: *9
+        desc: "(I)V"
+        name: "<init>"
+        owner: *9
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *8
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PUBLIC
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "value"
+            referencedType: *9
+        desc: "()I"
+        name: "getValue"
+        owner: *9
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *4
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PUBLIC
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "myValue"
+            referencedType: *9
+        desc: "()Ljava/lang/String;"
+        name: "getMyValue"
+        owner: *9
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *6
+      ? !com.braintribe.zarathud.model.data.MethodEntity
+        accessModifier: PRIVATE
+        bodyTypes:
+          - !com.braintribe.zarathud.model.data.TypeReferenceEntity
+            bodyReferenceMethodName: "myValue"
+            referencedType: *9
+        desc: "()V"
+        name: "<clinit>"
+        owner: *9
+        returnType: !com.braintribe.zarathud.model.data.TypeReferenceEntity
+          referencedType: *8
+        staticNature: true
+    name: "com.braintribe.devrock.zarathud.test.MyClass"
+    qualifiedFlag: true
+    scannedFlag: true
+    synchronizedNature: true
+  ? !com.braintribe.zarathud.model.data.ZedEntity
+    artifacts:
+      - *0
+    desc: "Z"
+    isRuntime: true
+    name: "boolean"
+    scannedFlag: true
+groupId: "com.braintribe.devrock.zarathud.test"
+version: "1.0.1-pc"

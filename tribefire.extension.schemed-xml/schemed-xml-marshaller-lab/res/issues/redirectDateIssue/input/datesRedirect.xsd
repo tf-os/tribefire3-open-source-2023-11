@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+		<xs:element name="time" type="MyTime"/>
+		<xs:element name="date" type="MyDate"/>
+		<xs:element name="dateTime" type="MyDateTime"/>		
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="MyTime">
+		<xs:restriction base="RedirectTime">					
+		</xs:restriction>		
+	</xs:simpleType>
+	<xs:simpleType name="MyDate">
+		<xs:restriction base="RedirectDate">					
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="MyDateTime">
+		<xs:restriction base="RedirectDateTime">					
+		</xs:restriction>
+	</xs:simpleType>
+			
+	<xs:simpleType name="RedirectTime">
+		<xs:restriction base="xs:time">					
+		</xs:restriction>		
+	</xs:simpleType>
+	<xs:simpleType name="RedirectDate">
+		<xs:restriction base="xs:date">					
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="RedirectDateTime">
+		<xs:restriction base="xs:dateTime">					
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

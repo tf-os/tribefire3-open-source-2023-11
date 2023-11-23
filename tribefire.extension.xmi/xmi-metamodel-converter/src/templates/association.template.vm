@@ -1,0 +1,23 @@
+<UML:Association  xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+  <UML:Association.connection>
+    <UML:AssociationEnd xmi.id = '$end1Id' visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered' aggregation = 'aggregate' targetScope = 'instance' changeability = 'changeable'>
+      <UML:AssociationEnd.participant>
+	<UML:Class $class1IdRefType = '$class1IdRef'/>
+      </UML:AssociationEnd.participant>
+    </UML:AssociationEnd>
+    <UML:AssociationEnd xmi.id = '$end2Id' visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = '$order' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
+    #if ($multiplicityId)
+      <UML:AssociationEnd.multiplicity>
+	<UML:Multiplicity xmi.id = '$multiplicityId'>
+	  <UML:Multiplicity.range>
+	    <UML:MultiplicityRange xmi.id = '$multiplicityRangeId' lower = '1' upper = '$multiplicity'/>
+	  </UML:Multiplicity.range>
+	</UML:Multiplicity>
+      </UML:AssociationEnd.multiplicity>
+   #end
+      <UML:AssociationEnd.participant>
+	<UML:Class $class2IdRefType = '$class2IdRef'/>
+      </UML:AssociationEnd.participant>
+    </UML:AssociationEnd>
+  </UML:Association.connection>
+</UML:Association>

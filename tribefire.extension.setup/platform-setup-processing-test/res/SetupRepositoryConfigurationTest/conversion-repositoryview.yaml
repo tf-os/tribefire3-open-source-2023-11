@@ -1,0 +1,9 @@
+!com.braintribe.devrock.model.repositoryview.RepositoryView
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+      locks: !!set
+        ? "tribefire.extension.conversion:conversion-aspose-license#2.3.3-pc"
+        ? "tribefire.extension.conversion:conversion-commons#2.3.9-pc"
+        ? "tribefire.extension.conversion:conversion-deployment-model#2.3.3-pc"
+    name: "core-dev"

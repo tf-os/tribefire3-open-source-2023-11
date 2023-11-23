@@ -1,0 +1,6 @@
+/bin
+/build
+/dist
+/malaclypse.log*
+/velocity.log*
+/xmiToMetaModelConverter.log*

@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  devrock.md:
+    displayTitle: "Main plugin"
+  configuration.md:
+    displayTitle: "Configuration"    
+  menu.md:
+    displayTitle: "Menus and commands"
+  quickimport.md:  
+    displayTitle: "Quick import feature"
+  tbrunner.md:  
+    displayTitle: "Build runner feature"

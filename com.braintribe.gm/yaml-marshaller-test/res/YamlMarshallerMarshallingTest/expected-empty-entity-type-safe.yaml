@@ -1,0 +1,3 @@
+!com.braintribe.codec.marshaller.yaml.model.PersonEntity
+firstName: "Tina"
+friend: !com.braintribe.codec.marshaller.yaml.model.PersonEntity {}

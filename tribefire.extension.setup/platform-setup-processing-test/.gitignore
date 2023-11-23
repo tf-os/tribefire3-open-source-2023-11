@@ -1,0 +1,10 @@
+/bin
+/build
+/classes
+/dist
+/res/shared-maven/repository
+/res/IncrementRevisionsProcessorTest/**/actual
+/res/UpdateGroupVersionProcessorTest/**/actual
+/www
+/output
+/ignored

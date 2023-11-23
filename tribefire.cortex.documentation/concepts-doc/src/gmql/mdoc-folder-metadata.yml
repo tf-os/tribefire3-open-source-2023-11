@@ -1,0 +1,36 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  gmql_types.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -200
+
+  gmql_syntax.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -190
+
+  gmql_distinct.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -180
+
+  gmql_where.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -170
+
+  gmql_and_or.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -160
+
+  gmql_order_by.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -150
+
+  gmql_group_by.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -140
+
+  gmql_pagination.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -130
+
+  gmql_joins.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -120
+
+  gmql_functions.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -110
+  
+  gmql_examples.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -100

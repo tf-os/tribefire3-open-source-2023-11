@@ -1,0 +1,32 @@
+package ${package};
+
+import com.braintribe.gwt.genericmodel.client.itw.JsReflectionTools;
+
+public class ${className} implements com.braintribe.gwt.genericmodel.client.itw.RuntimeMethodNames {
+
+#foreach($methodDesc in $methodDescs)
+#if ($scriptMode)
+	private String ${methodDesc.methodName};
+	
+	@Override
+	public String ${methodDesc.methodName}() {
+		if (${methodDesc.methodName} == null) {
+			${methodDesc.methodName} = _${methodDesc.methodName}();
+		}
+		
+		return ${methodDesc.methodName};
+	}
+	
+	private static native String _${methodDesc.methodName}() /*-{
+	    var fun = function(){return this.@${methodDesc.declarationClassName}::${methodDesc.declaredMethodName}(${methodDesc.declaredMethodParamsJsniSignature});};
+    	return @JsReflectionTools::extractJsPropertyName(Lcom/google/gwt/core/client/JavaScriptObject;)(fun);
+	}-*/;
+#else
+	@Override
+	public String ${methodDesc.methodName}() {
+		return null;
+	}
+#end ## if-else
+
+#end ## foreach
+}

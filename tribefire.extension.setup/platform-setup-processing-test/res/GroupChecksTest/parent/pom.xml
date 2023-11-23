@@ -1,0 +1,23 @@
+<!--
+ ============================================================================
+ BRAINTRIBE TECHNOLOGY GMBH - www.braintribe.com
+ Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2018 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tribefire.extension.setup</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.1.4-pc</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <V.tribefire.extension.setup>[2.1,2.2)</V.tribefire.extension.setup>
+        <V.com.braintribe.activemq>[1.0,1.1)</V.com.braintribe.activemq>
+        <V.com.braintribe.archives>[1.0,1.1)</V.com.braintribe.archives>
+        <V.com.braintribe.common>[1.0,1.1)</V.com.braintribe.common>
+        <V.com.braintribe.security>[1.0,1.1)</V.com.braintribe.security>
+        <V.com.braintribe.devrock>[1.0,1.1)</V.com.braintribe.devrock>
+    </properties>
+</project>

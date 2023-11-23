@@ -1,0 +1,222 @@
+/******************************** MainTable-Styles ********************************/
+.queryModelEditorHolder {
+    width: 70%;
+}
+.queryModelEditorTable {
+    margin: 12px;
+    display: table;
+    width: 100%;
+}
+.queryModelEditorMainCell, .queryModelEditorSubCell {
+    padding: 0px 5px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.queryModelEditorMainCell {
+    width: 100%;
+    height: 100%;
+}
+/******************************** AreaTable-Styles ********************************/
+.queryModelEditorInputAreaTable, .queryModelEditorAreaTable {
+    width: 100%;
+    height: 100%;
+    display: table;
+    vertical-align: middle;
+}
+.queryModelEditorInputAreaTable {
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #C0C0C0;
+}
+.queryModelEditorAreaRowElement {
+    display: table-row;
+    vertical-align: middle;
+    line-height: 18px;
+}
+.queryModelEditorAreaMainElement, .queryModelEditorAreaElement {
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 18px;
+}
+.queryModelEditorAreaMainElement {
+    width: 100%;
+    height: 100%;
+}
+.queryModelEditorAreaPlaceholder {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+}
+/****************************** Input-Element-Styles ******************************/
+.queryModelEditorInputHolder {
+    position: fixed !important;
+    background-color: white;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 0px 0px 5px;
+}
+.queryModelEditorInputElement, .queryModelEditorOpenFormElement, .queryModelEditorFeedbackElement, .queryModelEditorSearchElement {
+    display: table-cell;
+    vertical-align: middle;
+}
+.queryModelEditorInputElement {
+    width: 100%;
+    height: 100%;
+    padding: 0px 5px;
+}
+.queryModelEditorOpenFormElement, .queryModelEditorFeedbackElement {
+    vertical-align: top;
+}
+
+.queryModelEditorOpenFormElement {
+	cursor: pointer;
+}
+
+.queryModelEditorSearchElement {
+    cursor: pointer;
+    background-color: #FFA500;
+    border-left: 1px solid #C0C0C0;
+    border-radius: 0px 4px 4px 0px;
+}
+/****************************** Event-Element-Styles ******************************/
+.queryModelEditorScrollTextBox {
+    overflow-y: auto !important;
+}
+.queryModelEditorExpandedTextBox {
+    border-bottom-right-radius: 5px !important;
+}
+.queryModelEditorClickedSearchElement {
+    background-color: #FFBC00 !important;
+}
+/****************************** Native-Element-Styles *****************************/
+.queryModelEditorInputTextBox, .measurementDiv {
+    max-height: 300px;
+    overflow: hidden;
+    font-size: 13px;
+    text-align: left;
+    outline: none;
+    border: none;
+}
+.queryModelEditorInputTextBox {
+    width: 100%;
+    padding: 0px;
+    resize: none;
+}
+.measurementDiv {
+    top: -3000px !important;
+    left: -3000px !important;
+    position: absolute !important;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+.queryModelEditorOrderingIcon, .queryModelEditorOrderingIconDisabled {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+
+.queryModelEditorOrderingIconDisabled {
+	cursor: default;
+}
+
+.queryModelEditorAddIcon, .queryModelEditorAddIconDisabled, .queryModelEditorRemoveIcon, .queryModelEditorRemoveIconDisabled{
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    vertical-align: text-bottom;
+}
+
+.queryModelEditorAddIconDisabled, .queryModelEditorRemoveIconDisabled {
+	cursor: default;
+	opacity: 0.5;
+}
+
+.queryModelEditorOpenFormIcon, .queryModelEditorFeedbackIcon {
+    width: 16px;
+    height: 16px;
+    margin: 10px 5px;
+    vertical-align: text-bottom;
+}
+.queryModelEditorSearchIcon {
+    width: 24px;
+    height: 24px;
+    margin: 0px 15px;
+    vertical-align: text-bottom;
+}
+.queryModelEditorOrderByLabel {
+    font-size: 11px;
+    line-height: 18px;
+    white-space: nowrap;
+}
+a.queryModelEditorAnchorAction {
+    margin: 0px;
+    padding: 0px;
+    color: silver;
+    font-size: 11px;
+    line-height: 18px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+a.queryModelEditorAnchorAction:hover {
+    text-decoration:underline;
+}
+
+.queryModelEditorSpacer {
+	padding-left: 15px !important;
+}
+
+.queryModelEntityClass {
+	background-color: #F0F0F0;
+	cursor: default;
+	border-bottom: 1px solid #E0E0E0;
+	border-top: 1px solid #E0E0E0;
+	border-radius: 6px;
+}
+
+/* Special Styles of the global search panel */
+.gmeGlobalSearchPanel .queryModelEditorHolder {
+    width: 100%;
+}
+
+.gmeGlobalSearchPanel .queryModelEditorTable {
+    margin: 0px;
+}
+
+.queryContextCell {
+	display: none;
+}
+
+.gmeGlobalSearchPanel .queryContextCell {
+	cursor: pointer;
+	background-color: #DEDEDE;
+	font-weight: bold;
+	border-right: 1px solid #C0C0C0;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	min-width: 70px;
+	max-width: 135px;
+	padding-right: 3px;
+	padding-left: 3px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Count Element */
+.queryModelEditorCountElement {
+	font-size: 11px;
+	line-height: 18px;
+	white-space: nowrap;
+	margin-left: 4px;
+}
+
+.queryModelEditorAreaButton {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.queryModelEditorRemoveElement {
+    padding-left: 3px;
+}

@@ -1,0 +1,34 @@
+1 entry:
+entry key: ComplexEntity[
+  anotherComplexEntityProperty = null
+  baseTypeProperty = null
+  booleanProperty = true
+  complexEntityList = [empty list]
+  complexEntityMap = [empty map]
+  complexEntityProperty = null
+  doubleProperty = null
+  globalId = null
+  id = 100
+  integerProperty = 123
+  localizedStringProperty = null
+  objectProperty = null
+  partition = null
+  simpleEntityProperty = SimpleEntity[
+    booleanProperty = false
+    globalId = null
+    id = 200
+    partition = null
+    stringProperty = 'simpleEntityTestString'
+  ]
+  simpleEnum = THREE
+  standardIdentifiableProperty = null
+  stringList = [empty list]
+  stringProperty = 'testString'
+]
+entry value: SimpleEntity[
+  booleanProperty = false
+  globalId = null
+  id = 400
+  partition = null
+  stringProperty = 'simpleEntity2TestString'
+]

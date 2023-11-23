@@ -1,0 +1,7 @@
+<not>
+	<and>
+		<!-- Filter out Hibernate warnings for tribefire's interface based entities. -->
+		<loggerNames>org.hibernate.tuple.entity.EntityMetamodel@WARNING</loggerNames>
+		<matches>HHH000084: Entity \[.+\] is abstract-class/interface explicitly mapped as non-abstract; be sure to supply entity-names</matches>
+	</and>
+</not>

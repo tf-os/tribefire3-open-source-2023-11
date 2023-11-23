@@ -1,0 +1,10 @@
+{
+	"_type": "com.braintribe.model.csa.CollaborativeSmoodConfiguration", 
+
+ 	"initializers": [
+		{"_type": "com.braintribe.model.csa.ManInitializer", "name": "trunk"} ,
+
+		{"_type": "com.braintribe.model.csa.ManInitializer", "name": "pre-trunk"}
+ 	]
+
+}

@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansLight.woff2) format('woff2'), url(./webpages/OpenSansLight.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSans.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSans.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansBold.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansCondensedBold.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansCondensedBold.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Open Sans Light Italic'), local('OpenSansLight-Italic'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansLightItalic.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansLightItalic.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansItalic.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansItalic.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansBoldItalic.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/OpenSansBoldItalic.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(BtClientCustomization/bt-resources/commons/fonts/LatoLight.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/LatoLight.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(BtClientCustomization/bt-resources/commons/fonts/LatoRegular.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/LatoRegular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lato Bold'), local('Lato-Bold'), url(BtClientCustomization/bt-resources/commons/fonts/LatoBold.woff2) format('woff2'), url(BtClientCustomization/bt-resources/commons/fonts/LatoBold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gotham'),
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.ttf')  format('truetype');  
+}
+
+@font-face {
+  font-family: 'GothamBold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Gotham Bold'), local('Gotham-Bold'),
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.woff') format('woff'), /* Modern Browsers */
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.ttf')  format('truetype'); /* Safari, Android, iOS */  
+}
+
+@font-face {
+  font-family: 'GothamLight';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Gotham Light'), local('Gotham-Light'),
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.woff') format('woff'), /* Modern Browsers */
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.ttf')  format('truetype'); /* Safari, Android, iOS */  
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  font-style: normal;
+  font-weight: 400;
+  src: local('GothamBook'),
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.ttf')  format('truetype');  
+}
+
+@font-face {
+  font-family: 'GothamBook2';
+  font-style: normal;
+  font-weight: 400;
+  src: local('GothamBook2'),
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book2.otf') format('otf'); 
+}
+
+@font-face {
+  font-family: 'GothamMedium';
+  font-style: normal;
+  font-weight: 400;
+  src: local('GothamMedium'),
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.ttf')  format('truetype');  
+}

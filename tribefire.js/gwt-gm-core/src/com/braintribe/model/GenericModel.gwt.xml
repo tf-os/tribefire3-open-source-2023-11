@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.cc.CodingCollections"/>
+	<inherits name="com.braintribe.common.AttributeApi"/>
+	<inherits name="com.braintribe.model.BasicValueDescriptorModel"/>
+	<inherits name="com.braintribe.common.CommonLcd"/>
+	<inherits name="com.braintribe.common.Lcd"/>
+	<inherits name="com.braintribe.gm.model.ReasonModel"/>
+	<inherits name="com.braintribe.model.AccessControlModel"/>
+	<inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+	<inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.MetaDataModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+	<inherits name="com.braintribe.model.ProtoMetaModel"/>
+	<inherits name="com.braintribe.model.RootModel"/>
+	<inherits name="com.braintribe.PlatformExceptions"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.braintribe.utils.Collection"/>
+	<inherits name="com.braintribe.utils.GmCoreUtilsStream"/>
+	<inherits name="com.braintribe.utils.I18nTools"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="jsinterop.annotations.Annotations"/>
+    <!--Resource Module-->
+    <inherits name="com.braintribe.utils.stream.StreamPipes"/>
+    <source path="generic">
+    	<exclude name="**/GenericEntityStringifier.java" />
+    	<exclude name="**/StreamProviders.java" />
+    </source>
+    <super-source path="emul"/>
+</module>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xi="http://www.w3.org/2001/XInclude" elementFormDefault="qualified">
+  <xs:element name="ContentHierarchy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="operations" type="operationsType" minOccurs="0" />
+        <xs:element name="ParameterDefinitions" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ContentHierarchyParameters" type="ParameterDefinitionsType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="node" type="nodeType" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="nextNodeId" type="xs:integer" use="optional" />
+      <xs:attribute name="version" type="xs:string" use="optional" />
+      <xs:attribute name="onConsistencyViolation" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="operation">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required" />
+      <xs:attribute name="description" type="xs:string" use="optional" />
+      <xs:attribute name="ref" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ContentDefinitionsType">
+    <xs:sequence>
+      <xs:element name="ContentDefinition">
+        <xs:complexType>
+          <xs:attribute name="ref" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParameterDefinitionsType">
+    <xs:sequence>
+      <xs:element name="Parameter" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="type" type="st_TypeParamDef" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParametersType">
+    <xs:sequence>
+      <xs:element name="Parameter" type="ParameterType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParameterType">
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="constraintType">
+    <xs:attribute name="role" type="xs:string" use="required" />
+    <xs:attribute name="grant" type="xs:string" use="optional" />
+    <xs:attribute name="deny" type="xs:string" use="optional" />
+    <xs:attribute name="grantLocal" type="xs:string" use="optional" />
+    <xs:attribute name="denyLocal" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="constraintsType">
+    <xs:sequence>
+      <xs:element name="constraint" type="constraintType" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nodeType">
+    <xs:sequence>
+      <xs:element name="Parameters" type="ParametersType" minOccurs="0" />
+      <xs:element name="constraints" type="constraintsType" minOccurs="0" />
+      <xs:element name="ContentDefinitions" type="ContentDefinitionsType" minOccurs="0" />
+      <xs:element name="node" type="nodeType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="description" type="xs:string" use="optional" />
+    <xs:attribute name="defaultPermittedOperations" type="xs:string" use="optional" />
+    <xs:attribute name="isLeafNode" type="xs:boolean" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="operationsType">
+    <xs:sequence>
+      <xs:element ref="operation" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rolesType">
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="st_TypeParamDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string" />
+      <xs:enumeration value="integer" />
+      <xs:enumeration value="boolean" />
+      <xs:enumeration value="scripts" />
+      <xs:enumeration value="color" />
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>

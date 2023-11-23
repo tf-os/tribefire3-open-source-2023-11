@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.extendedtrigger.ExtendedTrigger"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="com.google.gwt.event.dom.DomEvent"/>
+    <inherits name="com.google.gwt.event.logical.LogicalEvent"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+	<inherits name="com.sencha.gxt.cell.core.Core"/>
+    <inherits name="com.sencha.gxt.core.Core"/>
+    <inherits name="com.sencha.gxt.data.Data"/>
+    <inherits name="com.sencha.gxt.widget.core.Core"/>
+    <source path="client"/>
+</module>

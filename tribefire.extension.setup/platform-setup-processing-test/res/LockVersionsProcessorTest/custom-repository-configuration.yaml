@@ -1,0 +1,11 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.DisjunctionArtifactFilter
+      operands:
+        - !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+            groupId: "com.braintribe.gm"
+            version: "[1.1,1.2)"
+        - !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+            groupId: "tribefire.cortex"
+            version: "[2.1,2.2)"
+    name: "lock-versions-processor-test-repo"

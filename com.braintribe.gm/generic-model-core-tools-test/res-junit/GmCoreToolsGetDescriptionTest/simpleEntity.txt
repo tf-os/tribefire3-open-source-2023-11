@@ -1,0 +1,7 @@
+SimpleEntity[
+  booleanProperty = false
+  globalId = null
+  id = 200
+  partition = null
+  stringProperty = 'simpleEntityTestString'
+]

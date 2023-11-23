@@ -1,0 +1,19 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  configuring.md:
+
+  creating_a_config_asset.md:
+    hidden: true
+
+  configuring_asset_metadata.md:
+    hidden: true
+
+  configuring_folder_metadata.md:
+    hidden: true
+
+  configuring_page_structure.md:
+    hidden: true
+
+  styling.md:
+    hidden: true

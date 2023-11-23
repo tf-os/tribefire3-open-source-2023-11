@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Healthz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="${tfsPath}/webpages/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="${tfsPath}/webpages/style-new.css"> <!--TODO: fix when TFS -->
+<style> 
+      
+div.blueTable {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+  border: 0px solid #AAAAAA;
+  padding: 5px 30px;
+  
+}
+.divTable.blueTable .divTableHeading {
+    border-bottom: 1px solid #c8c9cc; 
+}
+.divTable.blueTable .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+	 text-align: right;
+}
+.blueTable .tableFootStyle .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px; 
+}
+/* DivTable.com */
+.divTable{ display: table; }
+.divTableRow { display: flex; align-items:center }
+.divTableHeading { display: table-header-group; }
+.divTableCell, .divTableHead { display: table-cell;}
+.divTableFoot { display: table-footer-group;}
+.divTableBody { display: table-row-group; margin-top: 20px;}
+.divTableHead {  color: #c8c9cc; }
+.divTableCellOverall {font-weight: 1000; font-size:1.5em}
+      
+.divTableRow{
+	min-height:50px;
+}
+
+.divTableRow:nth-child(even){
+	background-color:#e9e9e9;
+}
+
+.divTableCell:nth-child(1),.divTableHead:nth-child(1){
+	flex-basis:20%;
+}
+.divTableCell:nth-child(2),.divTableHead:nth-child(2){
+	flex-basis:70%;
+}
+.divTableCell:nth-child(3),.divTableHead:nth-child(3){
+	flex-basis:10%;
+}
+
+.node {
+    width: 80%;
+    min-height: 50px;
+    padding-left: 30px;
+    color: #9fa0a3;
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 14pt;
+    font-weight: bold;
+    justify-content: center;
+}      
+      
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;
+	padding-left: 25px;
+	padding-top: 25px;
+	padding-right: 25px;
+}
+
+button {
+	padding: 6px 12px;
+	border: 0px;
+	border-radius: 4px;
+	color: white;
+}
+button.green {
+	background-color: #3AB57B;
+}
+
+button.orange {
+	background-color: #EF911D;
+}
+button.red {
+	background-color: #D3000C;
+}
+
+
+
+ </style>
+ 
+</head>
+<body>
+    			#set ($status = ${checkStatus})
+    			#set ($color = "green")
+   				#if (${status.name()} == "warn")
+   					#set ($color = "orange")
+    			#end
+    			#if (${status.name()} == "fail")
+    				#set ($color = "red")
+    			#end
+	<div id="tf_caption" style="top:1%; font-weight:300; font-size:1.5em">
+			<span><b>Overall ${cartridgeType} Instance Status: </b></span><button style="top:-3px" class="${color}">${status}</button>
+	</div>
+	
+	
+	<div class="wrap">
+	
+	<div class="node" >Responding node: ${localInstanceId.nodeId}<br /></div>
+	
+	<div class="column" style="width:80%; height:1%;">
+	<div class="divTable blueTable">
+		
+		<div class="divTableHeading">
+			<div class="divTableRow">
+				<div class="divTableHead">CHECK NAME</div>
+				<div class="divTableHead">DETAILS</div>
+				<div class="divTableHead">STATUS</div>
+			</div>
+		</div>
+
+		
+		<div class="divTableBody">		
+			<!--<div class="divTableRow">
+				<div class="divTableCell"></div>
+				<div class="divTableCell"></div>
+				<div class="divTableCell"></div>
+			</div> -->
+			
+			
+		#foreach ($mapEntry in $results.entrySet())
+			#set ($checkRequest = $mapEntry.key)
+			#set ($requestType = $checkRequest.entityType().getTypeSignature())
+		    #set ($checkEntries = $mapEntry.value)
+		    
+	    	#foreach ($checkResultEntry in $checkEntries.entries)
+			<div class="divTableRow">	
+    			#set ($name = $checkResultEntry.name)
+    			#set ($status = $checkResultEntry.checkStatus)
+    			#set ($desc = $checkResultEntry.details)
+    			#set ($message = $checkResultEntry.message)
+    			#if (!${name})
+    				#set ($name = "Unnamed Check")
+    			#end
+	    		#if (!${desc})
+    				#set ($desc = "")
+    			#end
+    			
+    			#if (!${message}) 
+    				#set ($message = "")
+    			#end
+    			
+    			#set ($color = "green")
+    			#if (${status.name()} == "warn")
+    				#set ($color = "orange")
+    			#end
+    			#if (${status.name()} == "fail")
+    				#set ($color = "red")
+    			#end
+    			
+    			<div class="divTableCell">${name}</div>
+    			<div class="divTableCell" style="color: #666666;">${message} ${desc}#if(($requestType != "com.braintribe.model.check.service.CheckRequest") && $requestType != "com.braintribe.model.deploymentapi.cartridge.ExtensionBaseHealthCheck") ($requestType)#end</div>
+    			<div class="divTableCell"><button class="${color}">${status}</button></div>
+			</div>
+  			#end
+  			
+		#end
+		</div>
+		
+	</div>
+	</div>
+	</div>
+	
+	#if (!$resultsPerNodeMap.isEmpty())
+	
+	#foreach ($mapEntry in $resultsPerNodeMap.entrySet())
+		#set ($instanceId = $mapEntry.key)
+		#set ($checkResult = $mapEntry.value)
+	#foreach ($checkEntries in $checkResult)
+	
+	<div class="wrap">
+	
+	<div style="width:80%; height:1%; padding-left: 30px; color: #9fa0a3">Node: ${instanceId.nodeId}<br /></div>
+	
+	<div class="column" style="width:80%; height:1%;">
+	<div class="divTable blueTable">
+		
+		<div class="divTableHeading">
+			<div class="divTableRow">
+				<div class="divTableHead">CHECK NAME</div>
+				<div class="divTableHead">DETAILS</div>
+				<div class="divTableHead">STATUS</div>
+			</div>
+		</div>
+
+		
+		<div class="divTableBody">
+		
+			<div class="divTableRow>
+				<div class="divTableCell"></div>
+				<div class="divTableCell"></div>
+				<div class="divTableCell"></div>
+			</div>
+			
+			
+	    	#foreach ($checkResultEntry in $checkEntries.entries)
+			<div class="divTableRow">	
+    			#set ($name = $checkResultEntry.name)
+    			#set ($status = $checkResultEntry.checkStatus)
+    			#set ($desc = $checkResultEntry.details)
+    			#set ($message = $checkResultEntry.message)
+    			#if (!${name})
+    				#set ($name = "Unnamed Check")
+    			#end
+	    		#if (!${desc})
+    				#set ($desc = "")
+    			#end
+    			
+    			#if (!${message}) 
+    				#set ($message = "")
+    			#end
+    			
+    			#set ($color = "green")
+    			#if (${status.name()} == "warn")
+    				#set ($color = "orange")
+    			#end
+    			#if (${status.name()} == "fail")
+    				#set ($color = "red")
+    			#end
+    			
+    			<div class="divTableHead">${name}</div>
+    			<div class="divTableHead">${message} ${desc}</div>
+    			<div class="divTableHead"><button class="${color}">${status}</button></div>
+			</div>
+  			#end
+  			
+		</div>
+		
+	</div>
+	</div>
+	</div>	
+	
+	#end
+	#end
+	
+	#end <!-- if -->
+	
+</body>
+</html>

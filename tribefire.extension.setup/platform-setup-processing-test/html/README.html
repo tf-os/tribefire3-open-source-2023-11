@@ -1,0 +1,44 @@
+<h1>Jinni Setup Tool</h1>
+<p>Jinni is a standalone application based on Java that comes with a finite set of services which are represented by ServiceRequest denotation types. Requests to Jinni can only be made via passing them as command line options either directly or indirectly with a json file.</p>
+<p>The finite set of supported ServiceRequests are related to tribefire platform setup functionality.</p>
+<h2>How to install Jinni</h2>
+<h3>Manual Installation</h3>
+<h4>1. Download Application Archive</h4>
+<p>Go to URL https://artifactory.EXAMPLE.com/artifactory/core-dev/tribefire/extension/setup/jinni and navigate to the latest revision to download the zip archive from there.</p>
+<h4>2. Install Application Archive</h4>
+<p>Unzip the downloaded zip to a location of your choice. Extend the <strong>PATH</strong> variable of your operating system to point to the root folder of the application (jinni).</p>
+<h4>3. Configure Jinni (optional)</h4>
+<p>If you manage different profiles in your maven settings.xml for different project situations you can use
+the jinni environment configuration to activate those profiles. Open</p>
+<pre><code>jinni/conf/environment.default.properties
+</code></pre>
+<p>and add/change the variable that we normally use to switch maven profiles and target repositories (upload):</p>
+<pre><code>PROFILE_USECASE=....
+</code></pre>
+<p>Addtionally you can add other environment configurations which can be activated by endpoint parameters and that have to follow the name pattern:</p>
+<pre><code>environment.&lt;custom&gt;.properties
+</code></pre>
+<h3>Installation Executable</h3>
+<p>Currently there is no such installation available, but it is planned.</p>
+<h2>How to use Jinni</h2>
+<p>Jinni comes with a CLI (OS independent as .bat and .sh):</p>
+<h3>Option 1 - defining request and its properties directly in the command line:</h3>
+<p>You can name the request fully qualified by its original name or use a shortened version of it
+which takes only the last part of the dotted name (simple name) and transforms it by inserting dashes before each uppercase letter and lowers each uppercase letter.</p>
+<pre><code class="language-bash">&gt; jinni fully.qualified.MyRequest property1=value1 property2=value2
+
+&gt; jinni my-request property1=value1 property2=value2
+</code></pre>
+<h3>Option 2 - defining parameters in a file:</h3>
+<p>The content of input.json may look like this:</p>
+<pre><code class="language-json">{
+	&quot;_type&quot;: &quot;fully.qualified.MyRequest&quot;,
+	&quot;property1&quot;: &quot;value1&quot;,
+	&quot;propeprty2&quot;: &quot;value2&quot;
+}
+</code></pre>
+<p>jinni -requestFile path\to\jinnisetup\input.json</p>
+<h2>Request Description</h2>
+<h3>com.braintribe.model.platform.setup.api.PackagePlatformSetup</h3>
+<p><strong>Shortcut:</strong> package-platform-setup</p>
+<p>Resolves the transitive asset dependencies and applies packaging expert logic that is associated for each asset nature. Each associated expert will download nature specific asset artifact parts from the configured repos and use the data to create or extend files in the setup package directory structure. The resulting directory and files structure can then be used to project that information into a specific runtime environment (eg. single tomcat, single undertow)</p>

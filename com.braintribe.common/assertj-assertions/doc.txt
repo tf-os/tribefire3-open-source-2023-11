@@ -1,0 +1,2 @@
+Provides custom AssertJ assertions for non-GM types.
+For GM types see GmAssertJAssertions.

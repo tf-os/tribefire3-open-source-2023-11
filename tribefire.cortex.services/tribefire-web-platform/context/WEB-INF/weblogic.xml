@@ -1,0 +1,6 @@
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app">
+    <!-- Added to make ServletContext.getRealPath() effective when the web app is deployed as an archive (.war / .ear) -->
+	<container-descriptor>
+    	<show-archived-real-path-enabled>true</show-archived-real-path-enabled>
+	</container-descriptor>
+</weblogic-web-app>

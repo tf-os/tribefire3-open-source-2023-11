@@ -1,0 +1,31 @@
+The [highlight.pack.js] was generated with:
+
+https://highlightjs.org/download/
+
+
+We picked the following languages:
+
+[COMMON]
+bash
+css
+html,xml
+json
+java
+javascript
+markdown
+plaintext
+SQL
+typescript
+yaml
+
+[OTHER]
+.properties
+gradle
+groovy
+http
+
+
+########################################################################################################################
+		Should we need more languages, please make sure these are kept and add any new languages to this list!!! 
+########################################################################################################################
+		

@@ -1,0 +1,8 @@
+{
+	"_type": "com.braintribe.model.csa.CollaborativeSmoodConfiguration", 
+
+ 	"initializers": [
+		{"_type": "com.braintribe.model.csa.ManInitializer", "name": "trunk"}
+ 	]
+
+}

@@ -1,0 +1,31 @@
+<genericEntity xmlns:UML = 'org.omg.xmi.namespace.UML'>
+	<UML:Package xmi.id = '-64--88-1-5-464cb734:13b727286ea:-8000:0000000000000C97' name = 'com' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+          <UML:Namespace.ownedElement>
+            <UML:Package xmi.id = '-64--88-1-5-464cb734:13b727286ea:-8000:0000000000000C98' name = 'braintribe' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+              <UML:Namespace.ownedElement>
+                <UML:Package xmi.id = '-64--88-1-5-464cb734:13b727286ea:-8000:0000000000000C99' name = 'model' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+                  <UML:Namespace.ownedElement>
+                    <UML:Package xmi.id = '-64--88-1-5-464cb734:13b727286ea:-8000:0000000000000C9A' name = 'generic' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+                      <UML:Namespace.ownedElement>
+                        <UML:Class xmi.id = '-64--88-1-5-d3e99a8:13b72242587:-8000:0000000000000F68' name = 'GenericEntity' visibility = 'public' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'true' isActive = 'false'>
+                          <UML:GeneralizableElement.generalization>
+                            <UML:Generalization xmi.idref = '-64--88-1-5-d3e99a8:13b72242587:-8000:0000000000000F71'/>
+                          </UML:GeneralizableElement.generalization>
+                        </UML:Class>
+                      </UML:Namespace.ownedElement>
+                    </UML:Package>
+                  </UML:Namespace.ownedElement>
+                </UML:Package>
+              </UML:Namespace.ownedElement>
+            </UML:Package>
+          </UML:Namespace.ownedElement>
+        </UML:Package>
+	<UML:Generalization xmi.id="$documentId:0000000000000F71" isSpecification="false">
+		<UML:Generalization.child>
+			<UML:Class xmi.idref="$documentId:0000000000000F68"/>
+		</UML:Generalization.child>
+		<UML:Generalization.parent>
+			<UML:Class xmi.idref="$documentId:00000000000015A2"/>
+		</UML:Generalization.parent>
+	</UML:Generalization>
+</genericEntity>

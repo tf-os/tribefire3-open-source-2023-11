@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.LoggingModel"/>
+	<inherits name="com.braintribe.utils.UtilsLcd"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="logging"/>
+</module>

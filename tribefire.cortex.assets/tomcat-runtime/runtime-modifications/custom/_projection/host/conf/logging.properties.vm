@@ -1,0 +1,59 @@
+#set($dollar='$')
+#set($installationPath="${dollar}{catalina.base}/../..")
+# *****************************************************************************
+# *** Common logging configuration used by Tomcat itself as well as
+# *** web applications which don't have their own logging properties file.
+# *****************************************************************************
+
+# *** Levels ***
+# set root level to INFO
+.level = INFO
+
+# *** Formatters ***
+# compact log messages:       Level + Short LoggerName (=Simple Class Name) + Message + Exception (if available)
+com.braintribe.logging.juli.formatters.simple.SimpleFormatter1.format=%4$-7s %7$-33s '%5$s' %13$s [%9$s]%n
+# more detailed log messages: Timestamp + Level + LoggerName (=Class Name) + Message + Exception (if available)
+com.braintribe.logging.juli.formatters.simple.SimpleFormatter2.format=%14$s %4$-7s %11$-75s '%5$s'%13$s [%9$s]%n
+
+# *** Handlers ***
+handlers = com.braintribe.logging.juli.handlers.ConsoleHandler, 1catalina.com.braintribe.logging.juli.handlers.FileHandler, 2localhost.com.braintribe.logging.juli.handlers.FileHandler, 3manager.com.braintribe.logging.juli.handlers.FileHandler, 4host-manager.com.braintribe.logging.juli.handlers.FileHandler
+
+# ** Console Handler **
+com.braintribe.logging.juli.handlers.ConsoleHandler.level = ${request.consoleLogLevel}
+com.braintribe.logging.juli.handlers.ConsoleHandler.formatter = com.braintribe.logging.juli.formatters.simple.SimpleFormatter1
+
+# ** File Handlers **
+# Common Properties
+com.braintribe.logging.juli.handlers.FileHandler.level = ${request.logFilesLogLevel}
+com.braintribe.logging.juli.handlers.FileHandler.formatter = com.braintribe.logging.juli.formatters.simple.SimpleFormatter2
+#if(${request.logFilesDir})
+com.braintribe.logging.juli.handlers.FileHandler.directory = $tools.resolveRelativePath($installationPath,$request.logFilesDir)
+#else
+com.braintribe.logging.juli.handlers.FileHandler.directory = ${dollar}{catalina.base}/logs
+#end
+com.braintribe.logging.juli.handlers.FileHandler.maxFileSize = ${request.logFilesMaxSize}
+com.braintribe.logging.juli.handlers.FileHandler.maxArchivedFileCount = ${request.logFilesMaxCount}
+#if($request.logFilesCronRotate)com.braintribe.logging.juli.handlers.FileHandler.cronRotate = ${request.logFilesCronRotate}
+#end
+
+# Catalina Log
+1catalina.com.braintribe.logging.juli.handlers.FileHandler.fileKey = catalina
+
+# Localhost Log
+2localhost.com.braintribe.logging.juli.handlers.FileHandler.fileKey = localhost
+
+# Manager Log
+3manager.com.braintribe.logging.juli.handlers.FileHandler.fileKey = manager
+
+# Host Manager Log
+4host-manager.com.braintribe.logging.juli.handlers.FileHandler.fileKey = host-manager
+
+# *** Facility specific properties ***
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].level = INFO
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].handlers = 2localhost.com.braintribe.logging.juli.handlers.FileHandler
+
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].level = INFO
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/manager].handlers = 3manager.com.braintribe.logging.juli.handlers.FileHandler
+
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].level = INFO
+org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/host-manager].handlers = 4host-manager.com.braintribe.logging.juli.handlers.FileHandler

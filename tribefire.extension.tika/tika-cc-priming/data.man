@@ -1,0 +1,15 @@
+/* Sets TikaMimeTypeDetector on CortexConfiguration */
+
+TikaMimeTypeDetector = tribefire.extension.tika.model.deployment.TikaMimeTypeDetector
+CortexConfiguration  = com.braintribe.model.cortex.deployment.CortexConfiguration
+DeploymentStatus     = com.braintribe.model.deployment.DeploymentStatus
+
+$tikaMimeTypeDetector = TikaMimeTypeDetector()
+.globalId = 'mimeTypeDetector:tika'
+.autoDeploy = true
+.deploymentStatus = DeploymentStatus::undeployed
+.externalId = 'mimeTypeDetector:tika'
+.name = 'Tika MIME Type Detector'
+
+$cortexConfiguration = CortexConfiguration('config:cortex')
+.mimeTypeDetector = $tikaMimeTypeDetector

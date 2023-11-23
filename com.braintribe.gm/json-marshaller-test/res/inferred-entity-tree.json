@@ -1,0 +1,32 @@
+{ 
+    "id": "root",
+    "stringValue": "1",
+    "entityValue": {
+        "stringValue": "2",
+        "enumMap": [
+            "ONE", "one",
+            "TWO", "two"
+
+        ],
+        "stringMap": [
+            "foo", "1",
+            "bar", "2.0"
+        ],
+        "entityValue": {
+            "stringValue": "3",
+            "entityValue": {
+                "stringValue": "4",
+                "decimalValue": "3.4435243524352435234524352435",
+                "entityValue": { "_ref": "1" }
+            },
+            "stringObjectMap": {
+                "refkey": { "_ref": 1}
+            },
+            "stringMap": {
+                "foo": "1",
+                "bar": "2.0"
+            }
+        }
+    },
+    "_id": "1"
+}

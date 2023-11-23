@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.resources.Resources"/>
+   	<inherits name="com.google.gwt.safehtml.SafeHtml"/>
+	<inherits name="com.sencha.gxt.cell.core.Core"/>
+    <inherits name="com.sencha.gxt.theme.base.Base"/>
+    <source path="client"/>
+    <replace-with class="com.braintribe.gwt.gxt.gxtresources.flattextfield.client.FlatTextFieldAppearance">
+		<when-type-is class="com.sencha.gxt.cell.core.client.form.TextInputCell.TextFieldAppearance"/>
+	</replace-with>
+	<replace-with class="com.braintribe.gwt.gxt.gxtresources.flattextfield.client.FlatTextAreaAppearance">
+		<when-type-is class="com.sencha.gxt.cell.core.client.form.TextAreaInputCell.TextAreaAppearance"/>
+	</replace-with>
+	<replace-with class="com.braintribe.gwt.gxt.gxtresources.flattextfield.client.FlatTriggerFieldAppearance">
+		<when-type-is class="com.sencha.gxt.cell.core.client.form.TriggerFieldCell.TriggerFieldAppearance"/>
+	</replace-with>
+	<replace-with class="com.braintribe.gwt.gxt.gxtresources.flattextfield.client.FlatTwinTriggerFieldAppearance">
+		<when-type-is class="com.sencha.gxt.cell.core.client.form.TwinTriggerFieldCell.TwinTriggerFieldAppearance"/>
+	</replace-with>
+</module>

@@ -1,0 +1,87 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  tutorials.md:
+    priority: -200
+    tags: 
+      - tutorial
+    
+  configuration:
+    displayTitle: "Configuration"
+    priority: -190
+    tags: 
+      - tutorial
+      - config
+
+  control-center:
+    displayTitle: "Control Center"
+    priority: -185
+    tags: 
+      - tutorial
+
+  platform-assets:
+    displayTitle: "Platform Assets"
+    priority: -180
+    tags: 
+      - tutorial
+
+  cloud-deployment:
+    displayTitle: "Cloud Deployment"
+    priority: -175
+    tags: 
+      - tutorial
+    
+  cartridge:
+    displayTitle: "Cartridge"
+    priority: -170
+    tags: 
+      - tutorial
+
+  extension-points:
+    displayTitle: "Extension Points"
+    priority: -160
+    tags: 
+      - tutorial
+
+  database-connections:
+    displayTitle: "Database Connections"
+    priority: -150
+    tags: 
+      - tutorial
+
+  dataflow:
+    displayTitle: "Dataflow"
+    priority: -140
+    tags: 
+      - tutorial
+
+  entities:
+    displayTitle: "Entities"
+    priority: -130
+    tags: 
+      - tutorial
+
+  resources:
+    displayTitle: "Resources"
+    priority: -120
+    tags: 
+      - tutorial
+
+  workbench:
+    displayTitle: "Workbench"
+    priority: -110
+    tags: 
+      - tutorial
+
+  template:
+    displayTitle: "Template"
+    hidden: true
+    tags: 
+      - tutorial
+
+  development:
+    displayTitle: "Development"
+    tags:
+      - development
+      - modules

@@ -1,0 +1,18 @@
+package com.braintribe.gwt.platform.client;
+
+import java.util.function.Supplier;
+
+public class StandardPlatformImpl extends PlatformImpl {
+
+	public StandardPlatformImpl(){
+		#foreach($factory in $factories)
+		
+		factories.put(${factory.className}.class, new Supplier<Object>(){
+			public Object get(){
+				return new ${factory.implClassName}();
+			}
+		});
+		
+		#end
+	}
+}

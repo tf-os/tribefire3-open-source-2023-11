@@ -1,0 +1,121 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.demo</groupId>
+        <artifactId>parent</artifactId>
+        <version>[3.0,3.1)</version>
+    </parent>
+    <artifactId>demo-processing</artifactId>
+    <version>3.0.9</version>
+    <properties/>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${V.javax.servlet}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.demo</groupId>
+            <artifactId>demo-model</artifactId>
+            <version>${V.tribefire.extension.demo}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.demo</groupId>
+            <artifactId>demo-deployment-model</artifactId>
+            <version>${V.tribefire.extension.demo}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.demo</groupId>
+            <artifactId>demo-api-model</artifactId>
+            <version>${V.tribefire.extension.demo}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.demo</groupId>
+            <artifactId>demo-cortex-api-model</artifactId>
+            <version>${V.tribefire.extension.demo}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>basic-access-adapters</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>basic-servlet-adapters</artifactId>
+            <version>${V.tribefire.cortex}</version>
+            <exclusions>
+                <!-- slf4j is already provided by the tribefire runtime. We exclude it here to avoid version clashes -->
+                <!-- TODO: Remove this explicit exclusion as soon as jinni excludes it automatically -->
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>gm-client-support</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>generic-model-tools</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>check-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>state-processing-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>notification-api</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>web-app-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.job-scheduling</groupId>
+            <artifactId>job-scheduling-deployment-model</artifactId>
+            <version>${V.tribefire.extension.job-scheduling}</version>
+            <?tag asset ?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.job-scheduling</groupId>
+            <artifactId>job-api-model</artifactId>
+            <version>${V.tribefire.extension.job-scheduling}</version>
+        </dependency>
+    </dependencies>
+</project>

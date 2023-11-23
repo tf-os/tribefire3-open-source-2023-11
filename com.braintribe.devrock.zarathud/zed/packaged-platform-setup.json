@@ -1,0 +1,58 @@
+{"_type": "com.braintribe.model.setuppackage.PackagedPlatformSetup", "_id": "0",
+ "assets": {
+  "com.braintribe.model.asset.natures.PlatformAssetNature":{"_type": "com.braintribe.model.setuppackage.PackagedPlatformAssetsByNature", "_id": "1",
+    "assets": [
+     {"_type": "com.braintribe.model.setuppackage.PackagedPlatformAsset", "_id": "2",
+      "asset": {"_type": "com.braintribe.model.asset.PlatformAsset", "_id": "3",
+       "effective": true,
+       "globalId": "PlatformAsset:com.braintribe.devrock.zarathud:zarathud-documentation#2.0.5-pc",
+       "groupId": "com.braintribe.devrock.zarathud",
+       "hasUnsavedChanges": false,
+       "isContextualized": false,
+       "name": "zarathud-documentation",
+       "nature": {"_type": "com.braintribe.model.asset.natures.MarkdownDocumentation", "_id": "4",
+        "globalId": "MarkdownDocumentation:com.braintribe.devrock.zarathud:zarathud-documentation#2.0.5-pc",
+        "important": false,
+        "inherited": true
+       },
+       "natureDefinedAsPart": false,
+       "platformProvided": false,
+       "repositoryOrigins": [
+        {"_type": "com.braintribe.model.artifact.info.RepositoryOrigin", "_id": "5",
+         "name": "install",
+         "url": "file:/f:/sde/env/devrock/artifacts/inst/"
+        }
+       ],
+       "resolvedRevision": "5-pc",
+       "version": "2.0"
+      },
+      "name": "com.braintribe.devrock.zarathud.zarathud-documentation"
+     }
+    ],
+    "typeSignature": "com.braintribe.model.asset.natures.PlatformAssetNature"
+   },
+  "com.braintribe.model.asset.natures.Documentation":{"_type": "com.braintribe.model.setuppackage.PackagedPlatformAssetsByNature", "_id": "6",
+    "assets": [
+     {"_ref": "2"}
+    ],
+    "typeSignature": "com.braintribe.model.asset.natures.Documentation"
+   },
+  "com.braintribe.model.asset.natures.MarkdownDocumentation":{"_type": "com.braintribe.model.setuppackage.PackagedPlatformAssetsByNature", "_id": "7",
+    "assets": [
+     {"_ref": "2"}
+    ],
+    "typeSignature": "com.braintribe.model.asset.natures.MarkdownDocumentation"
+   }
+ },
+ "containers": [
+  {"_type": "com.braintribe.model.setuppackage.RuntimeContainer", "_id": "8",
+   "isMaster": true,
+   "name": "tribefire-master",
+   "pathInPackage": "tribefire-master",
+   "storage": {"_type": "com.braintribe.model.setuppackage.CsaStorage", "_id": "9",
+    "pathInPackage": "tribefire-master/storage"
+   }
+  }
+ ],
+ "masterContainer": {"_ref": "8"}
+}

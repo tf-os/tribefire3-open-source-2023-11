@@ -1,0 +1,54 @@
+# https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml
+service: ${env:PROJECT_SERVICE}
+provider:
+  name: aws
+  runtime: ${env:PROJECT_RUNTIME}
+  stage: ${env:PROJECT_STAGE}
+  region: ${env:PROJECT_REGION}
+  profile: default
+  apiName: ${env:PROJECT_SERVICE}-${env:PROJECT_STAGE}
+  layers:
+    # Google Chrome for AWS Lambda as a layer
+    # Make sure you use the latest version depending on the region
+    - arn:aws:lambda:${self:provider.region}:${env:PROJECT_LAYER_ACCOUNT_ID}:layer:${env:PROJECT_LAYER_NAME}:${env:PROJECT_LAYER_VERSION}
+
+plugins:
+  - serverless-offline
+  - serverless-domain-manager
+  - serverless-plugin-log-retention
+
+package:
+  individually: true
+  exclude:
+    - sls-certs/**
+    - serverless.yaml.tmp
+    - _dist/**
+    - replaceEndPoints.sh
+    - _app/**
+    - app-*/**
+
+custom:
+  serverless-offline:
+    httpsProtocol: "sls-certs"
+    noPrependStageInUrl: true
+  customDomain:
+    domainName: ${env:PROJECT_DOMAIN}
+    basePath: ""
+    certificateName: ${env:PROJECT_CERT}
+    stage: ${self:provider.stage}
+    createRoute53Record: ${env:PROJECT_CREATE_53_RECORD}
+    autoDomain: ${env:PROJECT_AUTO_DOMAIN}
+    enabled: ${env:PROJECT_DOMAIN_ENABLED}
+  logRetentionInDays: 7 # used to set a global value for all functions RetentionInDays value must be one of 1,3,5,7,14,30,60,90,120,150,180,365,400,545,731,1827,3653
+
+functions:
+  ssr:
+    name: ${env:PROJECT_FUNCTION_NAME}
+    handler: ${env:PROJECT_FUNCTION_HANDLER}
+    environment:
+      STAGE: ${self:provider.stage}
+    memorySize: ${env:PROJECT_FUNCTION_MEMORY_SIZE}
+    timeout: ${env:PROJECT_FUNCTION_TIMEOUT}
+    events:
+      - http: ANY /
+      - http: "ANY /{proxy+}"

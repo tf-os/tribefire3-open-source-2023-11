@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<px:PayOrder xmlns="urn:FIDES" xmlns:px="urn:iso:std:iso:20022:tech:xsd:pain.001.001.02">
+	<MessageIdentification>00042030</MessageIdentification>
+	<MessageNameIdentification>pain.001.001.02</MessageNameIdentification>
+	<CreationDateTime>2016-06-06T05:17:48</CreationDateTime>
+	<NumberOfTransactions>2</NumberOfTransactions>
+	<ControlSum>2321</ControlSum>
+	<InitiatingParty>
+		<Name>Kleiderfirma</Name>
+		<PostalAdrAddressType>ADDR</PostalAdrAddressType>
+		<PostalAdrPostCode>6850</PostalAdrPostCode>
+		<PostalAdrTownName>Mendrisio</PostalAdrTownName>
+		<PostalAdrCountryCode>CH</PostalAdrCountryCode>
+		<PostalAdrAddressLine>Gartenstrasse 12</PostalAdrAddressLine>
+	</InitiatingParty>
+	<PaymentType>CreditTransfer</PaymentType>
+	<PayContainer>
+		<CreditTransfer>
+			<PaymentMethod>TRF</PaymentMethod>
+			<BatchBooking>true</BatchBooking>
+			<PaymentInfoServiceLevelCode>SEPA</PaymentInfoServiceLevelCode>
+			<RequestedExecutionDate>2016-06-06</RequestedExecutionDate>
+			<DebtorPartyIdentification>
+				<Name>Kleiderfirma</Name>
+				<OrganisIdentOtherProprietary>Kleiderfirma</OrganisIdentOtherProprietary>
+			</DebtorPartyIdentification>
+			<DebtorAccountOtherIdentification>0504-8366342-82</DebtorAccountOtherIdentification>
+			<DebtorAccountCurrency>EUR</DebtorAccountCurrency>
+			<DebtorAgentFinancialInstitution>
+				<FinInstBIC>CRESCHZZ80A</FinInstBIC>
+			</DebtorAgentFinancialInstitution>
+			<Transaction>
+				<EndToEndIdentification>AP0000012345</EndToEndIdentification>
+				<PaymentServiceLevelCode>SEPA</PaymentServiceLevelCode>
+				<InstructedAmount>1276</InstructedAmount>
+				<InstructedAmountCurrency>EUR</InstructedAmountCurrency>
+				<ChargeBearer>SLEV</ChargeBearer>
+				<CreditorAgentFinancialInstitution>
+					<FinInstBIC>DEUTINBBPBC</FinInstBIC>
+					<FinInstName>DEUTSCHE BANK AG</FinInstName>
+					<FinInstPostalAdrAddressType>ADDR</FinInstPostalAdrAddressType>
+					<FinInstPostalAdrCountry>IN</FinInstPostalAdrCountry>
+				</CreditorAgentFinancialInstitution>
+				<CreditorPartyIdentification>
+					<Name>TestCreditor 1</Name>
+					<PostalAdrAddressType>ADDR</PostalAdrAddressType>
+					<PostalAdrCountryCode>IN</PostalAdrCountryCode>
+					<OrganisIdentOtherProprietary>29371</OrganisIdentOtherProprietary>
+					<CountryOfResidence>IN</CountryOfResidence>
+				</CreditorPartyIdentification>
+				<CreditorAccountOtherIdentification>51836523947919274</CreditorAccountOtherIdentification>
+				<CreditorAccountTypeCode>CASH</CreditorAccountTypeCode>
+				<UltimateCreditorPartyIdentification>
+					<Name>DEUTSCHE BANK AG</Name>
+					<PostalAdrAddressType>ADDR</PostalAdrAddressType>
+					<PostalAdrCountryCode>IN</PostalAdrCountryCode>
+					<OrganisIdentOtherProprietary>DEUTSCHE BANK AG</OrganisIdentOtherProprietary>
+					<CountryOfResidence>IN</CountryOfResidence>
+				</UltimateCreditorPartyIdentification>
+				<RemittanceInformation>
+					<Unstructured>tcpabercrombie122015</Unstructured>
+				</RemittanceInformation>
+			</Transaction>
+		</CreditTransfer>
+	</PayContainer>
+</px:PayOrder>

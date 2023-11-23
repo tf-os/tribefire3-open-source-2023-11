@@ -1,0 +1,5 @@
+{
+	"_type": "com.braintribe.model.platform.setup.api.PackagePlatformSetup",
+	"setupDependency": "tribefire.cortex.extension.setup:test-aggregator#2.0",
+	"packageBaseDir": "C:\\Development\\pfa-output"
+}

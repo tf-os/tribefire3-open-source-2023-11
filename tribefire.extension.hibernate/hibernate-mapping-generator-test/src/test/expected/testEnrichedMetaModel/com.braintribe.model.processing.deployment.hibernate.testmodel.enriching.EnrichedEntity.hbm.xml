@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity" table="TEST_ENRICHEDENTITY" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="clobHintString" column="CLOBHINTSTRING" type="string" />
+		<property name="doubleWithPrecisionScale" column="DOUBLEWITHPRECISIONSCALE" type="double" />
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="maxLengthAndClobHintString" column="MAXLENGTHANDCLOBHINTSTRING" type="string" length="3000" />
+		<property name="maxLengthAndTextHintString" column="MAXLENGTHANDTEXTHINTSTRING" type="string" length="2000" />
+		<list name="maxLengthList" table="TEST_ENRICENTITYMAXLENGTHLIST">
+	 		<key column="ENRICHEDENTITYID" />
+	 		<list-index column="ENRICHEDENTITYMAXLENGTHLISTIDX" />
+			<element column="MAXLENGTHLIST" type="string" length="3000" />
+		</list>
+		<map name="maxLengthMap" table="TEST_ENRICENTITYMAXLENGTHMAP">
+	 		<key column="ENRICHEDENTITYID" />
+			<map-key column="MAXLENGTHMAPKEY" type="string" />
+			<element column="MAXLENGTHMAP" type="string" length="2000" />
+		</map>
+		<set name="maxLengthSet" table="TEST_ENRICENTITYMAXLENGTHSET">
+	 		<key column="ENRICHEDENTITYID" />
+			<element column="MAXLENGTHSET" type="string" length="4000" />
+		</set>
+		<property name="maxLengthString" column="MAXLENGTHSTRING" type="string" length="1000" />
+		<property name="nonUniqueHintedNumber" column="NONUNIQUEHINTEDNUMBER" type="long" />
+		<property name="nonUniqueHintedString" column="NONUNIQUEHINTEDSTRING" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+		<property name="regularString" column="REGULARSTRING" type="string" />
+		<property name="sharedIndexA" column="SHAREDINDEXA" type="string" />
+		<property name="sharedIndexB" column="SHAREDINDEXB" type="string" />
+		<property name="sharedUniqueIndexA" column="SHAREDUNIQUEINDEXA" type="string" />
+		<property name="sharedUniqueIndexB" column="SHAREDUNIQUEINDEXB" type="string" />
+		<property name="textHintString" column="TEXTHINTSTRING" type="string" />
+		<list name="textHintStringList" table="TEST_ENRCENTTTEXTHINTSTRINLIST">
+	 		<key column="ENRICHEDENTITYID" />
+	 		<list-index column="ENRICENTITTEXTHINTSTRINLISTIDX" />
+			<element column="TEXTHINTSTRINGLIST" type="string" />
+		</list>
+		<map name="textHintStringMapKey" table="TEST_ENRCENTTTXTHNTSTRINMAPKEY">
+	 		<key column="ENRICHEDENTITYID" />
+			<map-key column="TEXTHINTSTRINGMAPKEYKEY" type="string" />
+			<element column="TEXTHINTSTRINGMAPKEY" type="integer" />
+		</map>
+		<map name="textHintStringMapKeyAndValue" table="TEST_ENRENTTXTHNTSTRNMPKYANDVL">
+	 		<key column="ENRICHEDENTITYID" />
+			<map-key column="TEXTHINTSTRINMAPKEYANDVALUEKEY" type="string" />
+			<element column="TEXTHINTSTRINGMAPKEYANDVALUE" type="string" />
+		</map>
+		<map name="textHintStringMapValue" table="TEST_ENRCENTTTXTHNTSTRNMPVALUE">
+	 		<key column="ENRICHEDENTITYID" />
+			<map-key column="TEXTHINTSTRINGMAPVALUEKEY" type="integer" />
+			<element column="TEXTHINTSTRINGMAPVALUE" type="string" />
+		</map>
+		<set name="textHintStringSet" table="TEST_ENRCENTITTEXTHINTSTRINSET">
+	 		<key column="ENRICHEDENTITYID" />
+			<element column="TEXTHINTSTRINGSET" type="string" />
+		</set>
+		<property name="uniqueHintedNumber" column="UNIQUEHINTEDNUMBER" type="long" />
+		<property name="uniqueHintedString" column="UNIQUEHINTEDSTRING" type="string" />
+	</class>
+</hibernate-mapping>

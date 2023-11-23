@@ -1,0 +1,179 @@
+package ${package};
+#if ($scriptMode)
+
+import com.braintribe.gwt.genericmodel.client.itw.EntityTypeBinding;
+import com.braintribe.gwt.genericmodel.client.itw.PropertyBinding;
+import com.braintribe.gwt.genericmodel.client.itw.GwtScriptEntityType;
+import com.braintribe.gwt.genericmodel.client.itw.GwtScriptProperty;
+import com.braintribe.gwt.genericmodel.client.itw.JsReflectionTools;
+#end
+
+@java.lang.SuppressWarnings({"deprecation", "unusable-by-js"})
+public class ${className} extends ##
+com.braintribe.gwt.genericmodel.client.itw.GwtScriptEntityType<${entityDesc.entityIfaceFullName}> {
+
+	public static final ${className} INSTANCE = new ${className}();
+
+    static {
+        INSTANCE.setJavaType(${entityDesc.entityIfaceFullName}.class);
+        INSTANCE.setProperties(new com.braintribe.model.generic.reflection.Property[]{
+#foreach($property in $properties)
+            ${property.singletonInstanceRef},
+#end
+        });
+        INSTANCE.setSuperTypes(
+        	${superTypeRefs}
+        );
+#if (${transientProperties})
+        INSTANCE.setDeclaredTransientProperties(new com.braintribe.model.generic.reflection.TransientProperty[]{
+#foreach($transientProperty in $transientProperties)
+#if (!${transientProperty.isInherited})
+            ${transientProperty.constructorSource},
+#end#end ## ends: !inheritedFromSuperClass and the for-cycle
+        });
+#else ## ends: transientProperties
+        INSTANCE.setNoTransientProperties();
+#end
+#if(${entityDesc.evaluatesToRef})
+		INSTANCE.setEvaluatesTo(${entityDesc.evaluatesToRef});
+#end        
+#if(!${entityDesc.isAbstract} && ${entityDesc.hasInitializedProperty})
+        INSTANCE.setInitializedProperties(new com.braintribe.model.generic.reflection.Property[]{
+#foreach($property in $properties)#if(${property.hasNonNullInitializer})
+			${property.singletonInstanceRef},
+#end#end
+        });
+#end ## if(!isAbstract)
+        
+#if ($scriptMode)
+        prepareDynamicSubclassing();
+#end
+    }
+
+#if (${entityDesc.isAbstract})
+	{
+		super.setIsAbstract(true);
+	}
+#else
+	@Override
+	public ${entityDesc.entityIfaceFullName} createRaw() {
+		return new ${entityDesc.enhancedClassFullName}();
+	}
+
+#end
+#if (${selectiveInformation})
+	{
+		this.setHasExplicitSelectiveInformation(true);
+	}
+
+	@Override
+	public String getSelectiveInformationFor(com.braintribe.model.generic.GenericEntity entity) {
+		return ${selectiveInformation};
+	}
+
+#end
+#if (${toStringInformation})
+	{
+		this.setHasExplicitToString(true);
+	}
+
+	@Override
+	public String toString(${entityDesc.entityIfaceFullName} entity) {
+		return ${toStringInformation};
+	}
+
+#end
+
+	@Override
+	public boolean isInstance(Object value) {
+		return value instanceof ${entityDesc.entityIfaceFullName};
+	}
+	
+#if ($scriptMode)
+    @com.google.gwt.core.client.UnsafeNativeLong
+    protected static native void prepareDynamicSubclassing() /*-{
+    	#if (${entityDesc.needsDecoy})
+    	var decoyConstructor  = @${entityDesc.decoyClassSimpleName}::new();
+    	var decoyConstructor2 = @${entityDesc.decoyClassSimpleName}2::new();
+    	#end
+    
+    	var newEnhancedInstanceFunction = @${enhancedName}::new();
+    	var enhancedConstructorFunction = @JsReflectionTools::extractConstructor(*)(newEnhancedInstanceFunction);
+    	
+    	var prototype = @JsReflectionTools::prototypeOf(*)(enhancedConstructorFunction);
+        var prototypeReflection = @com.braintribe.gwt.genericmodel.client.itw.JsPropertyNameReflector::create(Lcom/google/gwt/core/client/JavaScriptObject;)(prototype);
+        
+        // enrich and transfer castable typemap from java class to entitytype
+		var et = @${className}::INSTANCE;
+		var castableTypeMap = prototype.@java.lang.Object::castableTypeMap;
+       	et.@com.braintribe.gwt.genericmodel.client.reflect.GwtEntityType::castableTypeMap = castableTypeMap;
+       	et.@com.braintribe.gwt.genericmodel.client.reflect.GwtEntityType::protoInstance = prototype;
+        
+        var transit;
+        
+#foreach($property in $properties)
+#if(${property.primitive} && !${entityDesc.isInheritedFromSuperclass($property.name)})
+		transit = ${property.singletonInstanceJsniRef}.@com.braintribe.gwt.genericmodel.client.itw.GwtCompileTimeProperty::getFieldName()();
+		prototype[transit] = @com.braintribe.gwt.genericmodel.client.itw.DefaultLiterals::default_${property.originalType};
+#end
+
+#if (!${entityDesc.getIsInheritedFromSuperclass($property.name)} || !${property.isOverlay})
+		@JsReflectionTools::defineProperty(*)(prototype, "$property.virtualPropertyName()", {
+			${property.getGetterPrototype($property.declaringType.qualifiedSourceName, $property.getterName, $property.name)},
+         	${property.getSetterPrototype($property.declaringType.qualifiedSourceName, $property.setterName, $property.jType.getJNISignature(), $property.name)}
+        });
+#end
+
+#if(!${property.isOverlay})        
+        var pb = @PropertyBinding::new()();        
+        pb.@PropertyBinding::propertyName = "${property.name}";
+        pb.@PropertyBinding::getterFunction = transit = prototype.@$property.declaringType.qualifiedSourceName::${property.getterName}();
+        pb.@PropertyBinding::setterFunction = transit = prototype.@$property.declaringType.qualifiedSourceName::${property.setterName}(${property.jType.getJNISignature()});
+        pb.@PropertyBinding::getterName = transit = prototypeReflection.@$property.declaringType.qualifiedSourceName::${property.getterName}();
+        pb.@PropertyBinding::setterName = transit = prototypeReflection.@$property.declaringType.qualifiedSourceName::${property.setterName}(${property.jType.getJNISignature()});
+        pb.@PropertyBinding::property = ${property.singletonInstanceJsniRef};
+        pb.@PropertyBinding::runtime = false;
+        pb.@PropertyBinding::primitive = ${property.isPrimitive()};
+        
+        ${property.singletonInstanceJsniRef}
+        	.@GwtScriptProperty::setPropertyBinding(Lcom/braintribe/gwt/genericmodel/client/itw/PropertyBinding;)
+        	(pb);
+#end#end ## fooreach (property...) if (!isOverlay)
+        
+    	var defaultMethods = {};
+
+#if(!${entityDesc.isAbstract})
+#if($defaultMethods) #foreach($defaultMethod in $defaultMethods)
+    	var dmName = prototypeReflection.${defaultMethod.jsniMethodSignature};
+    	var dmFunction = prototype.${defaultMethod.jsniMethodSignature};
+        defaultMethods[dmName] = dmFunction;
+		
+#end#end
+#end ## if(!$isAbstract)
+        var eb = @EntityTypeBinding::new()();
+		eb.@EntityTypeBinding::enhancedConstructorFunction = enhancedConstructorFunction;
+		eb.@EntityTypeBinding::plainConstructorFunction = enhancedConstructorFunction;
+		eb.@EntityTypeBinding::enhancedClass = @${entityDesc.enhancedClassFullName}::class;
+		eb.@EntityTypeBinding::plainClass = @${entityDesc.enhancedClassFullName}::class;
+		eb.@EntityTypeBinding::entityType = ${entityDesc.entityTypeSingletonJsniRef};
+        eb.@EntityTypeBinding::defaultMethods = new @com.braintribe.gwt.browserfeatures.client.JsStringMap::new(Lcom/google/gwt/core/client/JavaScriptObject;)(defaultMethods);
+
+#if (${toStringInformation} || ${selectiveInformation})
+    	var newEntityTypeInstanceFunction = @${className}::new();
+    	var entityTypeConstructorFunction = @JsReflectionTools::extractConstructor(*)(newEntityTypeInstanceFunction);
+    	var etPrototype = @JsReflectionTools::prototypeOf(*)(entityTypeConstructorFunction);
+
+#if (${toStringInformation})
+        eb.@EntityTypeBinding::toStringMethod = transit = etPrototype.@${className}::toString(${entityDesc.entityIfaceJniSignature});
+#end
+#if (${selectiveInformation})
+        eb.@EntityTypeBinding::getSelectiveInformationForMethod = transit = etPrototype.@${className}::getSelectiveInformationFor(Lcom/braintribe/model/generic/GenericEntity;);
+#end
+
+#end
+        ${entityDesc.entityTypeSingletonJsniRef}
+        	.@GwtScriptEntityType::setEntityTypeBinding(Lcom/braintribe/gwt/genericmodel/client/itw/EntityTypeBinding;)(eb);  	
+    }-*/;
+#end ## if($scriptMode) 
+
+}

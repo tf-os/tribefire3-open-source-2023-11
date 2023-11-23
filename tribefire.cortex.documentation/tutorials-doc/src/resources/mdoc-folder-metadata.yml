@@ -1,0 +1,17 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  adding_static_resources.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  manipulating_resources.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  persisting_resources_sql.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  changing_resource_folder_location.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  resource_streamer.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  resource_enricher.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  importing_exporting_assemblies.md: !com.braintribe.doc.meta.FileDisplayInfo

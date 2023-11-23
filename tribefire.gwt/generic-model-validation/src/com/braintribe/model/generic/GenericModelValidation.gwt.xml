@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.model.BasicMetaModel"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.model.BasicValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.MetaDataModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+    <inherits name="com.braintribe.model.processing.session.impl.GmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.processing.ValueDescriptorEvaluator"/>
+    <inherits name="com.braintribe.model.QueryModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <source path="validation"/>
+</module>

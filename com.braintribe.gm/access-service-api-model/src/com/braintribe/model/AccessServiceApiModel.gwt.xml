@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.model.BasicMetaModel" />
+	<inherits name="com.braintribe.model.EssentialMetaDataModel" />
+	<inherits name="com.braintribe.model.FolderModel" />
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.WorkbenchModel"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="accessapi"/>
+</module>

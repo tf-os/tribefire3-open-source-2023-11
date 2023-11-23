@@ -1,0 +1,62 @@
+FROM ${tribefireBaseImage}
+
+#if ( ${enableGosu} )
+RUN apt-get update &&\
+    apt-get install -y gosu &&\
+    chmod +s $(which gosu) &&\
+    rm -rf /var/lib/apt/lists/*
+#end
+
+#if ( ${customInstructionsBeforeAddingAssets} )
+${customInstructionsBeforeAddingAssets}
+#end
+
+COPY webapps/${webappName}/ /opt/tribefire/runtime/host/webapps/ROOT/
+
+#if ( ${pluginsProvided} )
+#foreach( $pluginFolderName in ${pluginFolderNames} )
+COPY plugins/${pluginFolderName}/ /opt/tribefire/plugins/${pluginFolderName}/
+#end
+#end
+
+#if ( ${modulesProvided} )
+COPY modules/ /opt/tribefire/modules/
+#end
+
+#if ( ${tribefirePropertiesProvided} )
+COPY environment/tribefire.properties /opt/tribefire/conf/tribefire.properties
+#end
+
+#if ( ${rewriteConfigProvided} )
+COPY rewrite.config /opt/tribefire/runtime/host/conf/Catalina/localhost/rewrite.config
+#end
+
+#if ( ${setupInfoProvided} )
+COPY setup-info/ /opt/tribefire/setup-info/
+#end
+
+#if ( ${storageProvided} )
+COPY storage/ /opt/tribefire/storage/
+#end
+
+#if ( ${customInstructionsAfterAddingAssets} )
+${customInstructionsAfterAddingAssets}
+#end
+
+#if ( !${enableRootPermissions} )
+RUN chmod -R ug+rw /opt/tribefire/
+USER 1001
+#end
+
+ARG FULLY_QUALIFIED_IMAGE='<unknown>'
+
+RUN echo "****************************************************" &&\
+    echo "*** Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    ls -la /opt/tribefire/runtime/host/webapps/ROOT/WEB-INF/lib/ &&\
+    (! ${storageProvided} || (ls -la /opt/tribefire/storage/ && find /opt/tribefire/storage)) &&\
+    (! ${modulesProvided} || (ls -la /opt/tribefire/modules/ && find /opt/tribefire/modules)) &&\
+    (! ${pluginsProvided} || (ls -la /opt/tribefire/plugins/ && find /opt/tribefire/plugins)) &&\
+    (! ${tribefirePropertiesProvided} || (cat /opt/tribefire/conf/tribefire.properties)) &&\
+    (! ${rewriteConfigProvided} || (cat /opt/tribefire/runtime/host/conf/Catalina/localhost/rewrite.config)) &&\
+    echo "*** End of Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    echo "****************************************************"

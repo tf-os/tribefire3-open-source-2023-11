@@ -1,0 +1,22 @@
+.hx-full-window {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hx-full-window.hx-non-modal {
+    pointer-events: none;
+}
+
+.hx-full-window.hx-non-modal .hx-dialog {
+    pointer-events: all;
+}
+
+.hx-flex-column {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

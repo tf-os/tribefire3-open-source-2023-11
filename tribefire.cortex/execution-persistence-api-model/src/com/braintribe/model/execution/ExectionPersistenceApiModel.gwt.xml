@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.AccessDeploymentModel"/>
+    <inherits name="com.braintribe.model.CorePersistenceDeploymentModel"/>
+    <inherits name="com.braintribe.model.CortexApiModel"/>
+    <inherits name="com.braintribe.model.execution.ExecutionPersistenceModel"/>
+    <inherits name="com.braintribe.model.HibernateDeploymentModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <source path="persistence"/>
+</module>

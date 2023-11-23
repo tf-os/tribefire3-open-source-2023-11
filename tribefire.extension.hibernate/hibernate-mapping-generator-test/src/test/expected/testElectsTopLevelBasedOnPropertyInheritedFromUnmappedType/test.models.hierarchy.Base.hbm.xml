@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.hierarchy.Base" entity-name="test.models.hierarchy.Base" table="Base" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<discriminator column="BaseType" type="string" />
+		<property name="baseProperty" column="baseProperty" type="string" />
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" />
+	</class>
+</hibernate-mapping>

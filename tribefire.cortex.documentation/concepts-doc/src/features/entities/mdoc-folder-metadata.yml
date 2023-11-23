@@ -1,0 +1,9 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  entities_in_detail.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -20
+
+  entity_id_management.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -19

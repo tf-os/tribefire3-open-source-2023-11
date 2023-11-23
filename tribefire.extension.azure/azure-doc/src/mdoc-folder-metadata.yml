@@ -1,0 +1,6 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  azure.md: !com.braintribe.doc.meta.FileDisplayInfo
+    displayTitle: "Azure"
+    priority: -200

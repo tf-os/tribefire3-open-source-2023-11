@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentStores xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- ############################################################################## -->
+  <!-- IndexDefinition  -->
+  <!-- ############################################################################## -->
+  <IndexDefinition>
+
+    <!-- ################################################################### -->
+    <!-- START: Process Monitor Indices -->
+    <!-- ################################################################### -->
+
+    <Index id="1000004100" name="Job ID" type="integer" description="">
+      <Parameters>
+        <Parameter name="pm.job.field" value="id" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false"/>
+        <Parameter name="isImportant" value="true" />
+        <Parameter name="name/en" value="Job ID" />
+      </Parameters>
+    </Index>
+    <Index id="1000004101" name="Host Name" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Host Name" />
+        <Parameter name="pm.job.field" value="hostname" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="1000004102" name="Label" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Label" />
+        <Parameter name="pm.job.field" value="label" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />        
+      </Parameters>
+    </Index>
+    <Index id="1000004103" name="Sender ID" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Sender ID" />
+        <Parameter name="pm.job.field" value="senderId" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004104" name="Typ" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Type" />
+        <Parameter name="pm.job.field" value="type" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004105" name="Benutzer ID" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="User ID" />
+        <Parameter name="pm.job.field" value="userId" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004106" name="Status" type="integer" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Status" />
+        <Parameter name="pm.job.field" value="status" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004107" name="Status Text" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Status Text" />
+        <Parameter name="pm.job.field" value="statusText" />
+        <Parameter name="addtohitlist" value="Yes"/>
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004108" name="Erstelldatum" type="dts" description="">
+      <Parameters>
+        <Parameter name="name/en" value="Creation Time" />
+        <Parameter name="pm.job.field" value="creationTime" />
+        <Parameter name="isSearchable" value="false" />
+        <Parameter name="isEditable" value="false" />        
+        <Parameter name="isImportant" value="true" />
+        <Parameter name="guiType" value="date" />                
+      </Parameters>
+    </Index>
+    <Index id="1000004109" name="Letztes Aktualisierungsdatum" type="dts" description="">
+      <Parameters>
+        <Parameter name="name/en" value="Last Update Time" />
+        <Parameter name="pm.job.field" value="lastUpdateTime" />
+        <Parameter name="isSearchable" value="false" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />                        
+        <Parameter name="guiType" value="date" />       
+      </Parameters>
+    </Index>
+    <Index id="1000004110" name="Fehlermeldung" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Error Message" />
+        <Parameter name="pm.job.field" value="errorMessage" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />                        
+      </Parameters>
+    </Index>
+    <Index id="1000004111" name="Barcode" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Barcode" />
+        <Parameter name="pm.attribute.field" value="Barcode" />
+        <Parameter name="pm.attribute.field.isPrefix" value="true" />
+        <Parameter name="isMultiValued" value="true" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />                        
+      </Parameters>
+    </Index>
+    <Index id="1000004112" name="Dokumentenanzahl" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Document Count" />
+        <Parameter name="pm.attribute.field" value="docCount" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />                        
+      </Parameters>
+    </Index>
+    <Index id="1000004113" name="Objektanzahl" type="string" description="" >
+      <Parameters>
+        <Parameter name="name/en" value="Object Count" />
+        <Parameter name="pm.attribute.field" value="pageCount" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isImportant" value="true" />                        
+      </Parameters>
+    </Index>
+    
+    <!-- ################################################################### -->
+    <!-- END: Process Monitor Indices -->
+    <!-- ################################################################### -->
+
+  </IndexDefinition>
+
+  <!-- ############################################################################## -->
+  <!-- ContentStore definition  -->
+  <!-- ############################################################################## -->
+  <ContentStore name="DMS" nextContentDefinitionId="4">
+    <ContentDefinition name="ProcessMonitor" id="CD_PM" description="">
+      <IndexStore container="IND_STORE_PM">
+        <Indexes>
+          <Index ref="1000004100" />
+          <Index ref="1000004101" />
+          <Index ref="1000004102" />
+          <Index ref="1000004103" />
+          <Index ref="1000004104" />
+          <Index ref="1000004105" />
+          <Index ref="1000004106" />
+          <Index ref="1000004107" />
+          <Index ref="1000004108" />
+          <Index ref="1000004109" />
+          <Index ref="1000004110" />
+          <Index ref="1000004111" />
+          <Index ref="1000004112" />
+          <Index ref="1000004113" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE_PM">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+  </ContentStore>
+  
+</ContentStores>
+

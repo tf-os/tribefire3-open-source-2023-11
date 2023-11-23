@@ -1,0 +1,9 @@
+.border {
+  border: 1px solid #dedede !important;
+}
+
+.link:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #ffa500;
+  text-decoration: none;
+}

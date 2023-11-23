@@ -1,0 +1,17 @@
+code.language-plain {
+	line-height: normal;
+}
+
+
+.legalmatters a:hover {
+	text-decoration: underline;
+}
+
+.legalmatters a {
+	color: rgb(160, 144, 80);
+	text-decoration: none;
+}
+
+img.logo-small {
+	height: 2.2em;
+}

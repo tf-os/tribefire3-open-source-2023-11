@@ -1,0 +1,100 @@
+/*  ******************************************************************************************************************  */
+/* Define external css groups */
+
+/* @external gmDetailsPanel propertyGroupRuler gmePropertyPanel propertyMenuIcon gmePropertyPanelPanel x-window-header x-grid-group-hd x-grid3-row x-grid3-hd-inner x-grid3-cell x-grid3-cell-inner x-grid3-col-value x-grid-group-div x-panel-header x-tool 
+          settingsMenuAction userMenuAction headerBarTopActions headerBarTopActionSVG headerBarTopActionImage headerbar-folder-menu-image headerbar-folder-image headerbar_widget_quickAccess-slot headerBarQuickAccess headerbar_widget_globalState-slot headerbar-link headerbar-link-menu headerbar-text-menu 
+          thumbnailPanelSelectionContainer thumbnailPanelSelectionContainerOver thumbnailPanelSelectionContainerSelected thumbnailPanelIcon thumbnailPanelImageContainer thumbnailPanelImage thumbnailPanelImageCover thumbnailPanelImageFitContain thumbnailPanelInfoWithIcon thumbnailPanelInfo thumbnailPanelInfoTop 
+          thumbnailPanelInfoBottom thumbnailPanelInfoWrapper thumbnailWatermark thumbnailPanelContainer
+          tetherElement tetherSelectedElement tetherElementUnselectable tetherFirstElement tetherLastElement tetherMiddleElement verticalTabItem horizontalTabItem staticTabItem verticalTabSelected verticalTabMarked verticalTabItems browsingConstellationActionBar horizontalTabItem tabItemLabel tabItemText
+          tabItemLabelNoIcon tabItemLabelHorizontal closeIcon menuIcon menuHorizontalIcon closeHorizontalIcon closeMetaDataHorizontalIcon verticalTabElementIcon verticalTabElementIconSvg horizontalTabsContainer horizontalTabsRow horizontalTabsBlock
+          filterMetaDataClose filterCheckBox filterCheckBoxUseCase filterCheckBoxRole filterCheckBoxAccess filterCheckBoxCurrentSessionContext checkNoneSvg checkSvg gmeSelectionConstellationDialog
+          actionbar-folder-action actionbar-stack actionbar-image actionbar-empty splitAction actionbar-text actionbar-text-split actionbar-more actionbar-more-image actionbar-toolbar-wrapper actionbar-toolbar actionbar-tether actionbar-tether-wrapper actionbar-separator enabled split
+          workbench workbenchTree workbench-collapse-text workbench-text workbenchIconMenuPanelHtmlBody workbenchCollapseAction workbenchExpandAction customizationConstellation headerBarVerticalTab horizontalTabsRowDynamicBox horizontalTabsRowStaticBox globalActionsToolBar globalAction-slot globalActions
+          emptyStyle emptyLargeStyle dual-section-button dual-section-stack dual-section-image
+          generalPanel generalPanelCollapsed generalIconWrapper generalIcon generalMainSecion generalMainSecion-si generalMainSecion-typeName generalMainSecion-typeSignature generalExpandWrapper generalExpandButton generalExpandIcon generalExpandWrapperPosition
+          queryConstellationNorthPanel queryModelEditorHolder queryModelEditorTable queryModelEditorMainCell queryModelEditorSubCell queryModelEditorInputAreaTable queryModelEditorAreaTable queryModelEditorAreaRowElement queryModelEditorAreaMainElement queryModelEditorAreaElement
+          queryModelEditorAreaPlaceholder queryModelEditorInputHolder queryModelEditorInputElement queryModelEditorOpenFormElement queryModelEditorFeedbackElement queryModelEditorSearchElement queryModelEditorScrollTextBox queryModelEditorExpandedTextBox
+          queryModelEditorClickedSearchElement queryModelEditorInputTextBox measurementDiv queryModelEditorOrderingIcon queryModelEditorOpenFormIcon queryModelEditorFeedbackIcon queryModelEditorSearchIcon queryModelEditorOrderByLabel queryModelEditorAnchorAction 
+          queryModelEditorSpacer queryModelEntityClass dropDownControlTable dropDownControlTextCell dropDownControlIconCell dropDownControlIcon
+          paginationControlTable paginationControlRowElement paginationPagingTable paginationPagingElement paginationPagingIcon paginationPagingIndexLabel paginationPageSizeLabel
+		  autoCompletionDialogTable autoCompletionDialogTableHeader autoCompletionDialogTableBody autoCompletionDialogTableCell autoCompletionDialogItemArea autoCompletionDialogItem selectedItem autoCompletionEmptyItem
+          headerBarManipulationInfo headerBarFlexStart headerBarManipulationInfoBackground headerBarManipulationInfoText headerBarManipulationInfoTextDouble headerbarVerticalTabResize headerbarResizePanel
+          infoSVG; */  
+
+/*  ******************************************************************************************************************  */
+/* Define variables */
+
+/*
+@def COLOR_FONT_BLACK      #000000;
+@def COLOR_FONT_BLUE       #0c75c0;
+@def COLOR_FONT_GRAY       #A9A9A9;
+@def COLOR_FONT_DARK_GRAY  #696B70;
+@def COLOR_FONT_WHITE      #FFFFFF;
+
+@def COLOR_BACK_DARK       #3F4247;
+@def COLOR_BACK_MAIN       #FFFFFF;
+@def COLOR_BACK_THUMB      #f1f1f1;
+@def COLOR_BORDER_LIGHT    #eaeaea;
+@def COLOR_BORDER_DARK     #d4d4d4;
+
+@def COLOR_SELECTED_ORANGE #ffa300;
+@def COLOR_HOVER_ORANGE    #ffe6ba;
+@def COLOR_RED             #ff0000;
+*/
+
+/* Import images */
+/*
+@def ARROW_DOWN_IMAGE resourceUrl("arrowDropDownSilverSvg");
+@def ARROW_UP_IMAGE resourceUrl("arrowDropUpSilverSvg");
+@def TETHER_IMAGE resourceUrl("arrowTetherSvg");
+@def TAB_CLOSE_IMAGE resourceUrl("tabCloseImage");
+@def TAB_CLOSE_IMAGE_ORANGE resourceUrl("tabCloseImageOrange");
+@def HIDE_DETAILS_IMAGE resourceUrl("hideDetailsSvg");
+*/
+
+/* Define used fonts */
+
+/*
+@font-face {
+  font-family: 'Gotham';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBook.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'GothamBook2';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Book2.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'GothamMedium';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/Gotham-Medium.ttf')  format('truetype');  
+}
+
+@font-face {
+  font-family: 'GothamBold';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamBold.ttf')  format('truetype');   
+}
+
+@font-face {
+  font-family: 'GothamLight';
+  src: url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.eot?#iefix') format('embedded-opentype'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.woff') format('woff'), 
+     url('BtClientCustomization/bt-resources/commons/fonts/GothamLight.ttf')  format('truetype');  
+}
+*/
+
+/*  ******************************************************************************************************************  */
+/* Define @MIXIN Groups -> same parameter can NOT be in mixin group and in gss group!!! */

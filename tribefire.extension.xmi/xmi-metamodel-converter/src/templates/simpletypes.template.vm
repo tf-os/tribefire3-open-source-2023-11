@@ -1,0 +1,143 @@
+<!-- simple types known to a GmMetaModel -->
+<simpletypes xmlns:UML = 'org.omg.xmi.namespace.UML'>
+	<UML:Class xmi.id="$objectId" name="object" visibility="public" isSpecification="false" isRoot="true" isLeaf="false" isAbstract="true" isActive="false"/>
+	
+	<!-- integer -->
+	<UML:Class xmi.id="$integerId" name="integer" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$integerObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$integerObject" name="integer->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$integerId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+	
+	<!-- long -->
+	<UML:Class xmi.id="$longId" name="long" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$longObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$longObject" name="long->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$longId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+
+	<!-- float -->
+	<UML:Class xmi.id="$floatId" name="float" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$floatObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$floatObject" name="float->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$floatId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+	
+	<!-- double -->
+	<UML:Class xmi.id="$doubleId" name="double" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$doubleObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$doubleObject" name="double->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$doubleId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+
+	<!-- decimal -->
+	<UML:Class xmi.id="$decimalId" name="decimal" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$decimalObject"/>
+		</UML:GeneralizableElement.generalization>
+		
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$decimalObject" name="decimal->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$decimalId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>	
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+
+	<!-- string --> 
+	<UML:Class xmi.id="$stringId" name="string" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$stringObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$stringObject" name="string->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$stringId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+
+	<!-- date -->
+	<UML:Class xmi.id="$dateId" name="date" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$dateObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$dateObject" name="date->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$dateId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+
+	</UML:Class>
+
+	<!-- boolean -->
+	<UML:Class xmi.id="$booleanId" name="boolean" visibility="public" isSpecification="false" isRoot="false" isLeaf="true" isAbstract="false" isActive="false">
+		<UML:GeneralizableElement.generalization>
+			<UML:Generalization xmi.idref="$booleanObject"/>
+		</UML:GeneralizableElement.generalization>
+		<UML:Namespace.ownedElement>
+			<UML:Generalization xmi.id="$booleanObject" name="boolean->object" isSpecification="false">
+				<UML:Generalization.child>
+					<UML:Class xmi.idref="$booleanId"/>
+				</UML:Generalization.child>
+				<UML:Generalization.parent>
+					<UML:Class xmi.idref="$objectId"/>
+				</UML:Generalization.parent>
+			</UML:Generalization>
+		</UML:Namespace.ownedElement>
+	</UML:Class>
+
+</simpletypes>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.TimeModel"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="api"/>
+    <!-- <source path="jvm">
+    	<exclude name="**/JvmDateFormat.java" />
+    	<exclude name="**/JvmFormatExpert.java" />
+    	<exclude name="**/JvmNumberFormat.java" />
+    </source> -->
+</module>

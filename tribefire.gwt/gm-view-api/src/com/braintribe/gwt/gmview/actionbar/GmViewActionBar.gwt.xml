@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.gwt.action.Action"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+	<inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.gmview.action.GmViewAction"/>
+    <inherits name="com.braintribe.gwt.gmview.GmViewApi"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.gwt.utils.GxtResourcesUtils"/>
+    <inherits name="com.braintribe.model.FolderModel"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.WorkbenchModel"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="jsinterop.annotations.Annotations"/>
+</module>

@@ -1,0 +1,245 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.setup</groupId>
+        <artifactId>parent</artifactId>
+        <version>[2.1,2.2)</version>
+    </parent>
+    <artifactId>jinni</artifactId>
+    <version>2.1.628</version>
+    <packaging>zip</packaging>
+    <properties>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>platform-api</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>service-api-commons</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>http-transport</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>gm-core4-jvm</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>simple-service-wirings</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>marshaller-commons</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>transient-resource-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.wire</groupId>
+            <artifactId>wire</artifactId>
+            <version>${V.com.braintribe.wire}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>jinni-update-support</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>logging-jul-extensions</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>btansi</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <!-- =================== -->
+        <!-- Extensions of Jinni -->
+        <!-- =================== -->
+        <!-- Jinni itself -->
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>jinni-api-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>jinni-meta-data-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <!-- Platform Setup -->
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>platform-setup-api-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>platform-setup-processing</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <!-- Artifact Templates -->
+        <dependency>
+            <groupId>com.braintribe.devrock.templates</groupId>
+            <artifactId>artifact-template-service-model</artifactId>
+            <version>${V.com.braintribe.devrock.templates}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex.assets.templates</groupId>
+            <artifactId>platform-asset-template-service-model</artifactId>
+            <version>${V.tribefire.cortex.assets.templates}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.devrock.templates</groupId>
+            <artifactId>artifact-template-processing</artifactId>
+            <version>${V.com.braintribe.devrock.templates}</version>
+        </dependency>
+        <!-- Schemed XML -->
+        <dependency>
+            <groupId>tribefire.extension.schemed-xml</groupId>
+            <artifactId>schemed-xml-xsd-api-model</artifactId>
+            <version>${V.tribefire.extension.schemed-xml}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.schemed-xml</groupId>
+            <artifactId>schemed-xml-processing</artifactId>
+            <version>${V.tribefire.extension.schemed-xml}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.schemed-xml</groupId>
+            <artifactId>schemed-xml-service-model</artifactId>
+            <version>${V.tribefire.extension.schemed-xml}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>virtual-environment-api</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <!-- Argo Exchange -->
+        <dependency>
+            <groupId>tribefire.extension.xmi</groupId>
+            <artifactId>argo-exchange-processing</artifactId>
+            <version>${V.tribefire.extension.xmi}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.xmi</groupId>
+            <artifactId>argo-exchange-api-model</artifactId>
+            <version>${V.tribefire.extension.xmi}</version>
+        </dependency>
+        <!-- JS Ux Modules -->
+        <dependency>
+            <groupId>tribefire.extension.js</groupId>
+            <artifactId>js-setup-api-model</artifactId>
+            <version>${V.tribefire.extension.js}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.js</groupId>
+            <artifactId>js-setup-processing</artifactId>
+            <version>${V.tribefire.extension.js}</version>
+        </dependency>
+        <!-- Hydrux -->
+        <dependency>
+            <groupId>tribefire.extension.hydrux</groupId>
+            <artifactId>hydrux-setup-api-model</artifactId>
+            <version>${V.tribefire.extension.hydrux}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.hydrux</groupId>
+            <artifactId>hydrux-setup-processing</artifactId>
+            <version>${V.tribefire.extension.hydrux}</version>
+        </dependency>
+        <!-- Artifact Management -->
+        <dependency>
+            <groupId>tribefire.extension.artifact</groupId>
+            <artifactId>artifact-management-api-model</artifactId>
+            <version>${V.tribefire.extension.artifact}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.artifact</groupId>
+            <artifactId>artifact-management-processing</artifactId>
+            <version>${V.tribefire.extension.artifact}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>virtual-environment-api</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.devrock</groupId>
+            <artifactId>dev-env-interceptor</artifactId>
+            <version>${V.com.braintribe.devrock}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>collaborative-persistence-processing</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>itw-gm-own-cl</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.devrock</groupId>
+            <artifactId>dev-env-processing</artifactId>
+            <version>${V.com.braintribe.devrock}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>modeled-yaml-config</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>jinni-config-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>dev-env-generator-api-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>dev-env-generator-processing</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+        </dependency>
+    </dependencies>
+</project>

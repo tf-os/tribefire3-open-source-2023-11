@@ -1,0 +1,26 @@
+!HxApplication {
+	defaultScope: &Sc1 !HxScope {
+		defaultDomain: !HxFallbackDomainSupplier {
+			suppliers: [
+				!HxUrlDomainSupplier {},
+				!HxStaticDomainSupplier {
+					externalId: 'cortex'
+				 }
+			 ]
+		 }
+	},
+
+	view: !HxMasterDetailLayout {
+		scope: null,
+		master: !HxEntityPanel {
+		 	scope: null,
+			sessionSupplier: &1 HxAccessSessionSupplier {
+				# generally, the domain can be configured per session supplier, otherwise we take it from the supplier
+				domain: null 
+			}
+		},
+		detail: !HxPropertyPanel {
+			sessionSupplier: *1
+		}
+	}
+}

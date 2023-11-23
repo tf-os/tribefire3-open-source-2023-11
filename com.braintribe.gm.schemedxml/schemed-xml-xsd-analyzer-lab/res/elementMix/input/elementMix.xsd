@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="sequence" type="Sequence"/>
+			<xs:element name="all" type="All"/>
+			<xs:element name="group" type="Group"/>
+			<xs:element name="choice" type="Choice"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Sequence">
+		<xs:sequence>
+			<xs:element name="sequenceOne" type="xs:string"/>
+			<xs:element name="sequenceTwo" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Group">
+		<xs:group ref="Group"/>
+	</xs:complexType>
+	<xs:complexType name="All">
+		<xs:all>
+			<xs:element name="allOne" type="xs:string"/>
+			<xs:element name="allTwo" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:group name="Group">
+		<xs:all>
+			<xs:element name="groupOne" type="xs:string"/>
+			<xs:element name="groupTwo" type="xs:int"/>
+		</xs:all>
+	</xs:group>
+	<xs:complexType name="Choice">
+		<xs:choice>
+			<xs:element name="choiceOne" type="xs:int"/>
+			<xs:element name="choiceTwo" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

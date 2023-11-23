@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+	<class name="com.braintribe.model.smoodstorage.BufferedManipulation" entity-name="com.braintribe.model.smoodstorage.BufferedManipulation" table="TF_BUFFEREDMANIPULATION" abstract="false">
+			<id name="id" column="ID" type="java.lang.String">
+				<generator class="assigned" />
+			</id>
+			<property name="globalId" column="`$GLOBALID`" />
+			<property name="partition" column="`$PARTITION`" />
+			<property name="encodedManipulation" type="materialized_clob" lazy="true">
+				<column name="ENCODEDMANIPULATION" />
+			</property>
+			<property name="sequenceNumber" column="SEQUENCENUMBER" type="integer" />
+			<property name="size" column="SIZE_" type="integer" />
+	</class>
+</hibernate-mapping>

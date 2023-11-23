@@ -1,0 +1,44 @@
+.iconWrap {
+  opacity: 0.6;
+}
+
+.over .iconWrap {
+  opacity: 1;
+}
+
+.text {
+  white-space: normal;
+  font-size: 12px;
+}
+
+.arrow {
+  background-image: none;
+}
+
+.over .arrow {
+  gwt-sprite: "arrow";
+  width: auto;
+  height: auto;
+}
+
+.over .arrow {
+  padding-right: 10px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+
+.split {
+  background-image: none;
+}
+
+.over .split {
+  gwt-sprite: "split";
+  width: auto;
+  height: auto;
+}
+
+.over .split {
+  background-position: right center;
+  padding-right: 14px;
+  background-repeat: no-repeat;
+}

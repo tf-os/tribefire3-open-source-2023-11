@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.BasicValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+    <inherits name="com.braintribe.model.processing.core.expert.GmExpertRegistryApi"/>
+    <inherits name="com.braintribe.model.processing.core.expert.GmExpertRegistryImpl"/>
+	<inherits name="com.braintribe.model.processing.MetaModelApi"/>
+    <inherits name="com.braintribe.model.processing.ModelOracle"/>
+    <inherits name="com.braintribe.model.processing.query.QueryModelProcessing"/>
+    <inherits name="com.braintribe.model.processing.query.QueryParser"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.QueryModel"/>
+    <inherits name="com.braintribe.utils.format.FormatApi"/>
+    <inherits name="com.braintribe.utils.format.FormatTool"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="query"/>
+</module>

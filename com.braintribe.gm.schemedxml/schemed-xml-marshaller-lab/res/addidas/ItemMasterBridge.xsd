@@ -1,0 +1,473 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="StatusCode" type="xs:string"/>
+	<xs:element name="Error" type="xs:string"/>
+	<xs:element name="PickLocnAssignmentType" type="xs:string"/>
+	<xs:element name="SuggestedZone" type="xs:string"/>
+	<xs:element name="ShelfDays" type="xs:integer"/>
+	<xs:element name="CaseSizeType" type="xs:string"/>
+	<xs:element name="ActivePickSite" type="xs:string"/>
+	<xs:element name="PickRate" type="xs:decimal"/>
+	<xs:element name="PackRate" type="xs:decimal"/>
+	<xs:complexType name="OptimumLinearSpaceType">
+		<xs:simpleContent>
+			<xs:extension base="xs:integer">
+				<xs:attribute name="OptimumLinearSpaceUnit" type="xs:string"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="MiscNumericField1" type="xs:decimal"/>
+	<xs:element name="MiscNumericField2" type="xs:decimal"/>
+	<xs:element name="MiscNumericField3" type="xs:decimal"/>
+	<xs:element name="MiscAlphaField1" type="xs:string"/>
+	<xs:element name="MiscAlphaField2" type="xs:string"/>
+	<xs:element name="MiscAlphaField3" type="xs:string"/>
+	<xs:element name="MiscDate1" type="xs:dateTime"/>
+	<xs:element name="MiscDate2" type="xs:dateTime"/>
+	<xs:element name="SkuProfileID" type="xs:string"/>
+	<xs:element name="ItemMasterBridge">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ItemMaster" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Item">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="SKUDefinition">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Company" type="xs:string" minOccurs="0"/>
+													<xs:element name="Division" type="xs:string" minOccurs="0"/>
+													<xs:element name="Season" type="xs:string" minOccurs="0"/>
+													<xs:element name="SeasonYear" type="xs:string" minOccurs="0"/>
+													<xs:element name="Style" type="xs:string" minOccurs="0"/>
+													<xs:element name="StyleSuffix" type="xs:string" minOccurs="0"/>
+													<xs:element name="Color" type="xs:string" minOccurs="0"/>
+													<xs:element name="ColorSuffix" type="xs:string" minOccurs="0"/>
+													<xs:element name="SecDimension" type="xs:string" minOccurs="0"/>
+													<xs:element name="Quality" type="xs:string" minOccurs="0"/>
+													<xs:element name="SizeRangeCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="SizeRelPosninTable" type="xs:string" minOccurs="0"/>
+													<xs:element name="SizeDesc" type="xs:string" minOccurs="0"/>
+													<xs:element name="SkuID" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SequenceNbr" type="xs:integer" minOccurs="0"/>
+										<xs:element name="SubSKUFields" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="ProductStatus" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="BatchCtrlNbr" type="xs:string" minOccurs="0"/>
+										<xs:element ref="Error" minOccurs="0"/>
+										<xs:element name="ItemMasterFields" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="DateCreated" type="xs:dateTime" minOccurs="0"/>
+													<xs:element name="PickDeterminationType" type="xs:string" minOccurs="0"/>
+													<xs:element name="WaveProcessingType" type="xs:string" minOccurs="0"/>
+													<xs:element name="Coordinate1" type="xs:integer" minOccurs="0"/>
+													<xs:element name="Coordinate2" type="xs:integer" minOccurs="0"/>
+													<xs:element name="ReplenishmentZone" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReplenishmentLocn" type="xs:string" minOccurs="0"/>
+													<xs:element name="VolatilityCode" type="xs:string" minOccurs="0"/>
+													<xs:element ref="SuggestedZone" minOccurs="0"/>
+													<xs:element name="PackageType" type="xs:string" minOccurs="0"/>
+													<xs:element name="ActInvCountFrequency" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductGroup" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductSubgroup" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductType" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductLine" type="xs:string" minOccurs="0"/>
+													<xs:element name="SalesGroup" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProtectionFactor" type="xs:string" minOccurs="0"/>
+													<xs:element name="ShipAlone" type="xs:string" minOccurs="0"/>
+													<xs:element name="UnitofMeasure" type="xs:string" minOccurs="0"/>
+													<xs:element name="StockingUM" type="xs:string" minOccurs="0"/>
+													<xs:element name="PurchasingUM" type="xs:string" minOccurs="0"/>
+													<xs:element name="SellingUM" type="xs:string" minOccurs="0"/>
+													<xs:element name="StyleDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="ColorDescription" type="xs:string" minOccurs="0"/>
+													<xs:element name="UPCPreDigit" type="xs:string" minOccurs="0"/>
+													<xs:element name="UPCVendorCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="UPCSerialProductNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="UPCPostDigit" type="xs:string" minOccurs="0"/>
+													<xs:element name="PackageBarcode" type="xs:string" minOccurs="0"/>
+													<xs:element name="CartonType" type="xs:string" minOccurs="0"/>
+													<xs:element name="Price" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="RetailPrice" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="OperationCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="InnerPackQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="BoxQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MaximumCaseQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="TierQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PalletQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PackMultipleQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitWeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitVolume" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="InnerPackWeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="InnerPackVolume" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseWeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardCaseVolume" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="NestingVolume" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="NestingCount" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CartonsTiers" type="xs:integer" minOccurs="0"/>
+													<xs:element name="I2of5PackQtyReference" type="xs:string" minOccurs="0"/>
+													<xs:element name="I2of5CaseQtyReference" type="xs:string" minOccurs="0"/>
+													<xs:element name="I2of5TierQtyReference" type="xs:string" minOccurs="0"/>
+													<xs:element name="Conveyable" type="xs:string" minOccurs="0"/>
+													<xs:element name="QualityAuditPercentage" type="xs:decimal" minOccurs="0"/>
+													<xs:element ref="ActivePickSite" minOccurs="0"/>
+													<xs:element name="UnitPutawayType" type="xs:string" minOccurs="0"/>
+													<xs:element name="CasePutawayType" type="xs:string" minOccurs="0"/>
+													<xs:element name="PalletPutawayType" type="xs:string" minOccurs="0"/>
+													<xs:element name="MaxUnitsReserveLocn" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MaxInventoryforActive" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MinInventoryforActive" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MaxCasesforActive" type="xs:integer" minOccurs="0"/>
+													<xs:element name="MinCasesforActive" type="xs:integer" minOccurs="0"/>
+													<xs:element name="ProductLifeinDays" type="xs:integer" minOccurs="0"/>
+													<xs:element name="SKUType" type="xs:string" minOccurs="0"/>
+													<xs:element name="ShipmentType" type="xs:string" minOccurs="0"/>
+													<xs:element name="FreightClass" type="xs:string" minOccurs="0"/>
+													<xs:element name="TariffClass" type="xs:string" minOccurs="0"/>
+													<xs:element name="ActivationDate" type="xs:dateTime" minOccurs="0"/>
+													<xs:element name="ForeignTradeZone" type="xs:string" minOccurs="0"/>
+													<xs:element name="HarmonizedTariffSchedule" type="xs:string" minOccurs="0"/>
+													<xs:element name="DefaultCountryofOrigin" type="xs:string" minOccurs="0"/>
+													<xs:element name="MultipleCountryofOrigin" type="xs:string" minOccurs="0"/>
+													<xs:element name="DateSensitive" type="xs:string" minOccurs="0"/>
+													<xs:element name="DateType" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayDateFormat" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductTemperatureZone" type="xs:string" minOccurs="0"/>
+													<xs:element name="TrailerTemperatureZone" type="xs:string" minOccurs="0"/>
+													<xs:element name="LoadAttr" type="xs:string" minOccurs="0"/>
+													<xs:element name="HazardousMaterialCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="MerchType" type="xs:string" minOccurs="0"/>
+													<xs:element name="MerchGroup" type="xs:string" minOccurs="0"/>
+													<xs:element name="StoreDepartment" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductLifeWindow" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CriticalDimension1" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CriticalDimension2" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CriticalDimension3" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="OptimumLinearSpace" type="OptimumLinearSpaceType" minOccurs="0"/>
+													<xs:element name="TopShelfEligible" type="xs:string" minOccurs="0"/>
+													<xs:element name="DefaultConsumeDate" type="xs:string" minOccurs="0"/>
+													<xs:element name="SerialNbrReqYN" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExcessWaveNeedProcFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="PathNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="VendorNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="VendorProductNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="AcceptManufacDate" type="xs:string" minOccurs="0"/>
+													<xs:element name="AcceptExpirationDate" type="xs:string" minOccurs="0"/>
+													<xs:element name="AcceptCatchWeight" type="xs:string" minOccurs="0"/>
+													<xs:element name="CatchWtTolerancePercent" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CatchWeightTolerance" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="BuyerDispositionCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="InventoryAllocationType" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode1" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode2" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode3" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode4" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode5" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode6" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode7" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode8" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode9" type="xs:string" minOccurs="0"/>
+													<xs:element name="SpecialInstrCode10" type="xs:string" minOccurs="0"/>
+													<xs:element ref="MiscNumericField1" minOccurs="0"/>
+													<xs:element ref="MiscNumericField2" minOccurs="0"/>
+													<xs:element ref="MiscNumericField3" minOccurs="0"/>
+													<xs:element name="MiscNumericField4" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MiscNumericField5" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="RecordExpansionField" type="xs:string" minOccurs="0"/>
+													<xs:element name="CustomRecExpansionField" type="xs:string" minOccurs="0"/>
+													<xs:element ref="StatusCode" minOccurs="0"/>
+													<xs:element name="TrackSKUAttributes" type="xs:string" minOccurs="0"/>
+													<xs:element name="TrackCasesInActive" type="xs:string" minOccurs="0"/>
+													<xs:element name="TrackBatchNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="TrackProductStatus" type="xs:string" minOccurs="0"/>
+													<xs:element name="TrackCountryofOrigin" type="xs:string" minOccurs="0"/>
+													<xs:element name="UnitsperGrabReserve" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitsperGrabCasPk" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitsperPickActive" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="HandlingAttributeActive" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReserveHandlingAttribute" type="xs:string" minOccurs="0"/>
+													<xs:element name="CasePickHandlingAttribute" type="xs:string" minOccurs="0"/>
+													<xs:element name="TicketType" type="xs:string" minOccurs="0"/>
+													<xs:element name="SensorTagType" type="xs:string" minOccurs="0"/>
+													<xs:element name="Function" type="xs:string" minOccurs="0"/>
+													<xs:element name="NMFCCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="DisplayQtyUnitofMeasure" type="xs:string" minOccurs="0"/>
+													<xs:element name="AllowReceiptOlderSku" type="xs:string" minOccurs="0"/>
+													<xs:element name="MHEToleranceAmount" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MHEToleranceType" type="xs:string" minOccurs="0"/>
+													<xs:element name="PickWeightToleranceAmount" type="xs:integer" minOccurs="0"/>
+													<xs:element name="PickWeightToleranceType" type="xs:string" minOccurs="0"/>
+													<xs:element name="MaxReceivedToExpireDays" type="xs:integer" minOccurs="0"/>
+													<xs:element name="ShipByDateRequired" type="xs:string" minOccurs="0"/>
+													<xs:element name="StandardSubPackQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="ConsolPrtyDateWindowIncr" type="xs:integer" minOccurs="0"/>
+													<xs:element name="ConsolPriorityDateWindow" type="xs:string" minOccurs="0"/>
+													<xs:element name="AverageDailyDemand" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CrushabilityCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="StandardInnerPackWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardInnerPackLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StandardInnerPackHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="OrderConsolAttribute" type="xs:string" minOccurs="0"/>
+													<xs:element ref="MiscAlphaField1" minOccurs="0"/>
+													<xs:element ref="MiscAlphaField2" minOccurs="0"/>
+													<xs:element ref="MiscAlphaField3" minOccurs="0"/>
+													<xs:element ref="MiscDate1" minOccurs="0"/>
+													<xs:element ref="MiscDate2" minOccurs="0"/>
+													<xs:element name="PhysicalDimension1" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PhysicalDimension2" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PhysicalDimension3" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="NbrCasesPerPallet" type="xs:integer" minOccurs="0"/>
+													<xs:element name="I2of5PkgIndicator" type="xs:string" minOccurs="0"/>
+													<xs:element name="ConsumeCasePriority" type="xs:string" minOccurs="0"/>
+													<xs:element name="ItemExclusionClass" type="xs:string" minOccurs="0"/>
+													<xs:element name="Producer" type="xs:string" minOccurs="0"/>
+													<xs:element name="NetCostValidation" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExportLicenseNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExportLicenseExpireDate" type="xs:dateTime" minOccurs="0"/>
+													<xs:element name="ExportControlClassNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExportLicenseExceptSymbol" type="xs:string" minOccurs="0"/>
+													<xs:element name="FTSRExceptNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="EccnNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="OrgnCertCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="CommodityCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="CommodityLevelDesc" type="xs:string" minOccurs="0"/>
+													<xs:element ref="SkuProfileID" minOccurs="0"/>
+													<xs:element name="DfltBatchStat" type="xs:integer" minOccurs="0"/>
+													<xs:element name="DfltIncubLock" type="xs:string" minOccurs="0"/>
+													<xs:element name="BaseIncubFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="MaxRcptQty" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PromptPackQty" type="xs:string" minOccurs="0"/>
+													<xs:element name="MinInvDRP" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MaxInvDRP" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="UnitsPerGrab" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="HandlingAttrib" type="xs:string" minOccurs="0"/>
+													<xs:element name="ActiveVelRate" type="xs:string" minOccurs="0"/>
+													<xs:element name="CsPkVelRate" type="xs:string" minOccurs="0"/>
+													<xs:element name="GrpCode1" type="xs:string" minOccurs="0"/>
+													<xs:element name="GrpCode2" type="xs:string" minOccurs="0"/>
+													<xs:element name="GrpCode3" type="xs:string" minOccurs="0"/>
+													<xs:element name="GrpCode4" type="xs:string" minOccurs="0"/>
+													<xs:element name="GrpCode5" type="xs:string" minOccurs="0"/>
+													<xs:element name="CoMingleCat" type="xs:string" minOccurs="0"/>
+													<xs:element name="ItemVersSub" type="xs:string" minOccurs="0"/>
+													<xs:element name="LotCtrlUsed" type="xs:string" minOccurs="0"/>
+													<xs:element name="DefaultLotStat" type="xs:string" minOccurs="0"/>
+													<xs:element name="NbrLotsAssgn" type="xs:integer" minOccurs="0"/>
+													<xs:element name="IncubPeriodDays" type="xs:integer" minOccurs="0"/>
+													<xs:element name="IncubPeriodHrs" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="HandAttribUOMActive" type="xs:string" minOccurs="0"/>
+													<xs:element name="HandAttribUOMCasePick" type="xs:string" minOccurs="0"/>
+													<xs:element name="SerialNbrBarcodeType" type="xs:string" minOccurs="0"/>
+													<xs:element name="DupSerialNbrFlag" type="xs:integer" minOccurs="0"/>
+													<xs:element name="MinorSerialNbrReq" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CavityHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CavityLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CavityWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="InnerCtnType" type="xs:string" minOccurs="0"/>
+													<xs:element name="IncrementalHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="IncrementalLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="IncrementalWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="LenWidthSensitive" type="xs:string" minOccurs="0"/>
+													<xs:element name="MaxCasesStacked" type="xs:integer" minOccurs="0"/>
+													<xs:element name="MaxNest" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MaxPalletsStacked" type="xs:integer" minOccurs="0"/>
+													<xs:element name="StdPalletHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdPalletLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdPalletWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="NAFTAPrefCriteria" type="xs:string" minOccurs="0"/>
+													<xs:element name="RankCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReceivingCategory" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReturnsCategory" type="xs:string" minOccurs="0"/>
+													<xs:element name="RTRankCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="StabilizationCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="StdSubPackHeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdSubPackLength" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdSubPackWidth" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdSubPackVolume" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="StdSubPackWeight" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="PromptVendItemNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExportCommodityCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="IncubActivatedFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="IncubLockCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="MVCurrencyCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="MVSizeUOM" type="xs:string" minOccurs="0"/>
+													<xs:element name="TPECommodityCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductClassCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="PriceTicketType" type="xs:string" minOccurs="0"/>
+													<xs:element name="UNNumber" type="xs:string" minOccurs="0"/>
+													<xs:element name="CycleCountToleranceUOM" type="xs:string" minOccurs="0"/>
+													<xs:element name="SkuImageFilename" type="xs:string" minOccurs="0"/>
+													<xs:element name="VocollectBaseItem" type="xs:string" minOccurs="0"/>
+													<xs:element name="CatchWeightErrorTolPercent" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CatchWeightErrorTolerance" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MonetaryValue" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="VocollectBaseQty" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="VocollectBaseWt" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="ConsumePrtyWndwDays" type="xs:integer" minOccurs="0"/>
+													<xs:element name="SecIncubPeriodDays" type="xs:integer" minOccurs="0"/>
+													<xs:element name="SecIncubPeriodHours" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CycleCountVariableToleranceValue" type="xs:integer" minOccurs="0"/>
+													<xs:element name="PickWeightToleranceAmountError" type="xs:integer" minOccurs="0"/>
+													<xs:element name="CartonEPCType" type="xs:string" minOccurs="0"/>
+													<xs:element name="CodeDatePromptMethodFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="ExceedPercentageInSmartAllocation" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="ExceedPercentageInSmartPull" type="xs:string" minOccurs="0"/>
+													<xs:element name="GarmentsOnHangerFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="IDVersion" type="xs:string" minOccurs="0"/>
+													<xs:element name="LiquidQty" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MinCaseQtyForSplit" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="MinPercentForCaseSplit" type="xs:integer" minOccurs="0"/>
+													<xs:element name="MinReceivedDaysToExpiration" type="xs:integer" minOccurs="0"/>
+													<xs:element name="PalletEPCType" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProductCategory" type="xs:string" minOccurs="0"/>
+													<xs:element name="UNIDNbr" type="xs:string" minOccurs="0"/>
+													<xs:element name="PriceTixAvailableFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReturnCommodityCode" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReturnRouteType1" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReturnRouteType2" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReturnEligible" type="xs:string" minOccurs="0"/>
+													<xs:element name="InnerCartonBreakAttr" type="xs:string" minOccurs="0"/>
+													<xs:element name="NonInventorySKUInventoryReduction" type="xs:string" minOccurs="0"/>
+													<xs:element name="NonInventorySKU" type="xs:string" minOccurs="0"/>
+													<xs:element name="NonInventorySKUTrackingType" type="xs:string" minOccurs="0"/>
+													<xs:element name="PalletType" type="xs:string" minOccurs="0"/>
+													<xs:element name="SLOTtoAssignLocation" type="xs:string" minOccurs="0"/>
+													<xs:element name="StackabilityOfTheItem" type="xs:string" minOccurs="0"/>
+													<xs:element name="OrientationOfTheItem" type="xs:string" minOccurs="0"/>
+													<xs:element name="ReserveVelocityRate" type="xs:string" minOccurs="0"/>
+													<xs:element name="PreferenceCriteriaFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="ProducerFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="NetCostFlag" type="xs:string" minOccurs="0"/>
+													<xs:element name="MarksNbrs" type="xs:string" minOccurs="0"/>
+													<xs:element name="BundleQuantity" type="xs:decimal" minOccurs="0"/>
+													<xs:element name="CertificateOfOriginPrintFl" type="xs:string" minOccurs="0"/>
+													<xs:element name="InternationalSpecialCommodity" type="xs:string" minOccurs="0"/>
+													<xs:element name="ShippersExportDeclarationPr" type="xs:string" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ListOfItemWarehouses" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>For Open Systems customers ItemWarehouse is a recurring group.
+												For iSeries customers, it is future functionality and cannot appear more than once.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ItemWarehouse" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Warehouse" type="xs:string" minOccurs="0">
+														<xs:annotation>
+															<xs:documentation>warehouse is mandatory for OS clients.
+																			For iSeries clients, it will be empty</xs:documentation>
+														</xs:annotation>
+													</xs:element>
+													<xs:element ref="Error" minOccurs="0"/>
+													<xs:element name="ItemWarehouseFields" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="LPNPerTier" type="xs:integer" minOccurs="0"/>
+																<xs:element name="TierPerPallet" type="xs:integer" minOccurs="0"/>
+																<xs:element ref="CaseSizeType" minOccurs="0"/>
+																<xs:element ref="PickRate" minOccurs="0"/>
+																<xs:element name="WageValue" type="xs:integer" minOccurs="0"/>
+																<xs:element ref="PackRate" minOccurs="0"/>
+																<xs:element name="SpecialProcessRate" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="AutomaticSubCase" type="xs:string" minOccurs="0"/>
+																<xs:element name="AssignDynamicActive" type="xs:string" minOccurs="0"/>
+																<xs:element name="AssignDynamictoCase" type="xs:string" minOccurs="0"/>
+																<xs:element ref="PickLocnAssignmentType" minOccurs="0"/>
+																<xs:element name="PutawayType" type="xs:string" minOccurs="0"/>
+																<xs:element name="LetUpPriority" type="xs:integer" minOccurs="0"/>
+																<xs:element name="DefaultWaveProcessType" type="xs:integer" minOccurs="0"/>
+																<xs:element name="ExcessWaveNeedProcessType" type="xs:integer" minOccurs="0"/>
+																<xs:element name="AllocationType" type="xs:string" minOccurs="0"/>
+																<xs:element name="ViolateFIFOAllocQtyMatch" type="xs:string" minOccurs="0"/>
+																<xs:element name="QVItemGroup" type="xs:string" minOccurs="0"/>
+																<xs:element name="QualityInspectItemGroup" type="xs:string" minOccurs="0"/>
+																<xs:element name="MaxUnitsinDynamicActive" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="MaxCasesinDynamicActive" type="xs:integer" minOccurs="0"/>
+																<xs:element name="MaxUnitsinDynamicCasePick" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="MaxCasesinDynamicCasePick" type="xs:integer" minOccurs="0"/>
+																<xs:element ref="StatusCode" minOccurs="0"/>
+																<xs:element ref="ShelfDays" minOccurs="0"/>
+																<xs:element name="VendorCartonPerTier" type="xs:integer" minOccurs="0"/>
+																<xs:element name="VendorTierPerPallet" type="xs:integer" minOccurs="0"/>
+																<xs:element name="OrderCartonPerTier" type="xs:integer" minOccurs="0"/>
+																<xs:element name="OrderTierPerPallet" type="xs:integer" minOccurs="0"/>
+																<xs:element name="DefaultCatchWeightMethod" type="xs:string" minOccurs="0"/>
+																<xs:element name="DefaultDateMask" type="xs:string" minOccurs="0"/>
+																<xs:element name="CartonBreakAttribute" type="xs:string" minOccurs="0"/>
+																<xs:element name="MiscShortAlpha1" type="xs:string" minOccurs="0"/>
+																<xs:element name="MiscShortAlpha2" type="xs:string" minOccurs="0"/>
+																<xs:element ref="MiscNumericField1" minOccurs="0"/>
+																<xs:element ref="MiscNumericField2" minOccurs="0"/>
+																<xs:element ref="MiscNumericField3" minOccurs="0"/>
+																<xs:element ref="MiscAlphaField1" minOccurs="0"/>
+																<xs:element ref="MiscAlphaField2" minOccurs="0"/>
+																<xs:element ref="MiscAlphaField3" minOccurs="0"/>
+																<xs:element ref="MiscDate1" minOccurs="0"/>
+																<xs:element ref="MiscDate2" minOccurs="0"/>
+																<xs:element ref="SkuProfileID" minOccurs="0"/>
+																<xs:element name="ChuteAssignType" type="xs:string" minOccurs="0"/>
+																<xs:element name="FIFORange" type="xs:integer" minOccurs="0"/>
+																<xs:element name="ActiveReplOrigin" type="xs:string" minOccurs="0"/>
+																<xs:element name="VendorTaggedEPC" type="xs:string" minOccurs="0"/>
+																<xs:element name="PartialCaseAllocationThresholdInUnits" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="PartialCasePutawayThresholdInUnits" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="DefaultMinFromPreviousLocation" type="xs:string" minOccurs="0"/>
+																<xs:element name="Slot3DSlottingFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotIncrementHeight" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="SlotIncrementLength" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="SlotIncrementWidth" type="xs:decimal" minOccurs="0"/>
+																<xs:element name="SlotMisc1" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotMisc2" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotMisc3" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotMisc4" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotMisc5" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotMisc6" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotNetEachesFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotRotateBinsFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotRotateCasesFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotRotateEachesFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="SlotRotateInnersFlag" type="xs:string" minOccurs="0"/>
+																<xs:element name="NbrDynamicActivePickPerSku" type="xs:integer" minOccurs="0"/>
+																<xs:element name="NbrDynamicCasePickPerSku" type="xs:integer" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:string" use="optional"/>
+			<xs:attribute name="version" type="xs:string" default="2.4"/>
+			<xs:attribute name="timestamp" type="xs:dateTime" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

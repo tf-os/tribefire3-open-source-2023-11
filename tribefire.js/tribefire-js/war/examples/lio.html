@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs LIO</title>
+
+<head>
+    <script>
+        var servicesUrl = "https://dev-platform-lio.staging.tribefire.cloud/services";
+        var accessId = "access.lio.content";
+        var remoteSession;
+        var persistenceSession;
+        var contentId = "032ca421-9ac3-4bf7-971a-cfde7e14035d";
+
+        window.addEventListener('startTribefireJs', function () {
+        	getContentById();
+        });
+        
+        function lazyLoad(propertyName, type, id){
+        	session.query().property("property " + propertyName + " of reference(" + type + ", '" + id + "')").then(r => {
+        		debugger;	
+        	});
+        }
+
+        function queryContentById() {
+            openSession().then(session => {
+                session.query().select("select * from tribefire.lio.platform.model.Product p where p.id = '" + contentId + "'").then(r => {
+                    debugger;
+                	//commit(session, r.first());
+                });
+            });
+        }
+
+        function getContentById() {
+            openSession().then(session => {
+                var sr = $T.tribefire.lio.platform.model.service.content.GetContentById.create();
+                sr.contentId = contentId;
+                session.evaluate(sr).then(r => {
+                	debugger;
+                });
+            });
+        }
+
+        function resetUserPassword() {
+            $tf.util.loadModelFile("lio-platform-service-model.js").then(v => {
+                var serviceRequest = $T.tribefire.lio.platform.model.service.ResetUserPassword.create();
+                serviceRequest.email = "YOUR_EMAIL";
+                serviceRequest.token = "YOUR_TOKEN";
+                serviceRequest.domainId = accessId;
+                $tf.remote.evaluate(servicesUrl, serviceRequest)
+                .then((result) => {
+                    debugger;
+                });
+            });
+        }
+
+        function authenticateViaSessiondId() {
+            var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+            config.credentials = $tf.credentials.sessionId("YOUR_SESSION_ID_FROM_GOOGLE_AUTH");
+            config.servicesUrl = servicesUrl;
+            $tf.remote.sessionFactory.open(config).then(rs => {
+                //rs is the remote session containting userSession, etc                	
+                rs.openPersistenceSession(accessId).then(ps => {
+                    //ps is the persistenceSession, to use for query, etc                		
+                });
+            });
+        }
+
+        function authenticateViaToken() {
+            var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+            config.credentials = $T.com.braintribe.model.securityservice.credentials.TokenCredentials.create();
+            config.credentials.type = "YOUR_TYPE";
+            config.credentials.token = "YOUR_TOKEN";
+            config.servicesUrl = servicesUrl;
+            $tf.remote.sessionFactory.open(config).then(rs => {
+                //rs is the remote session containting userSession, etc                	
+                rs.openPersistenceSession(accessId).then(ps => {
+                    //ps is the persistenceSession, to use for query, etc                		
+                });
+            });
+        }
+
+        function authenticate() {
+            console.log("start to authenticate");
+            console.time("authenticate");
+            if (remoteSession) {
+                console.log(remoteSession)
+                console.timeEnd("authenticate");
+                return Promise.resolve(remoteSession);
+            } else {
+                var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                config.servicesUrl = servicesUrl;
+                var promise = $tf.remote.sessionFactory.open(config);
+                promise.then(rs => {
+                    remoteSession = rs;
+                    console.log(remoteSession);
+                    console.timeEnd("authenticate");
+                });
+                return promise;
+            }
+        }
+        
+        function logout(sessionId){
+			r = $T.com.braintribe.model.securityservice.Logout.create();
+			r.sessionId = sessionId;
+			persistenceSession.evaluate(r).then(b => {
+				if(b)
+					console.log(sessionId +" was logged out");
+				else
+					console.log("couldn't log out " + sessionId);	
+			});
+		}
+
+        function openSession() {
+            console.log("start to open session");
+            console.time("openSession");
+            if (persistenceSession) {
+                console.log(persistenceSession)
+                console.timeEnd("openSession");
+                return Promise.resolve(persistenceSession);
+            } else {
+                var promise = authenticate().then(rs => {
+                    return rs.openPersistenceSession(accessId);
+                });
+                promise.then(session => {
+                    persistenceSession = session;
+                    console.log(persistenceSession);
+                    console.timeEnd("openSession");
+                });
+                return promise;
+            }
+        }
+    </script>
+    <script src="../tribefire.js"></script>
+</head>
+
+<body>
+</body>
+
+</html>

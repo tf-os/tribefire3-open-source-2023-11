@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlaidproperty.Computer" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlaidproperty.Computer" table="TEST_COMPUTER" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="hardDiscCapacity" column="HARDDISCCAPACITY" type="string" />
+		<many-to-one name="manufacturer" class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlaidproperty.ComputerManufacturer" column="MANUFACTURER" />
+		<property name="model" column="MODEL" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+	</class>
+</hibernate-mapping>

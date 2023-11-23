@@ -1,0 +1,23 @@
+image:
+  name: traefik
+  pullPolicy: IfNotPresent
+service:
+  type: NodePort
+ports:
+  web:
+    nodePort: 30080
+  websecure:
+    nodePort: 30090
+    expose: false
+  traefik:
+    nodePort: 30880
+    exposedPort: 30880
+    expose: true
+logs:
+  general:
+    level: INFO
+  access:
+    enabled: true
+providers:
+  kubernetesCRD:
+    allowCrossNamespace: true

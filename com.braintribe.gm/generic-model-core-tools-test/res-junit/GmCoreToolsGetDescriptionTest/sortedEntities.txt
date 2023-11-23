@@ -1,0 +1,67 @@
+8 entries:
+entry key: '1Entity'
+entry value: ComplexEntity[
+  anotherComplexEntityProperty = null
+  baseTypeProperty = null
+  booleanProperty = true
+  complexEntityList = [empty list]
+  complexEntityMap = [empty map]
+  complexEntityProperty = null
+  doubleProperty = null
+  globalId = null
+  id = 300
+  integerProperty = 123
+  localizedStringProperty = null
+  objectProperty = null
+  partition = null
+  simpleEntityProperty = SimpleEntity[
+    booleanProperty = false
+    globalId = null
+    id = 200
+    partition = null
+    stringProperty = 'simpleEntityTestString'
+  ]
+  simpleEnum = THREE
+  standardIdentifiableProperty = null
+  stringList = [empty list]
+  stringProperty = 'testString'
+]
+entry key: '2aEntity'
+entry value: SimpleEntity[
+  booleanProperty = false
+  globalId = null
+  id = 400
+  partition = null
+  stringProperty = 'simpleEntity2TestString'
+]
+entry key: '2bEntity'
+entry value: ComplexEntity[ID=300] (already traversed)
+entry key: ComplexEntity[
+  anotherComplexEntityProperty = null
+  baseTypeProperty = null
+  booleanProperty = true
+  complexEntityList = [empty list]
+  complexEntityMap = [empty map]
+  complexEntityProperty = null
+  doubleProperty = null
+  globalId = null
+  id = 100
+  integerProperty = 123
+  localizedStringProperty = null
+  objectProperty = null
+  partition = null
+  simpleEntityProperty = SimpleEntity[ID=200] (already traversed)
+  simpleEnum = THREE
+  standardIdentifiableProperty = null
+  stringList = [empty list]
+  stringProperty = 'testString'
+]
+entry value: SimpleEntity[ID=400] (already traversed)
+entry key: ComplexEntity[ID=300] (already traversed)
+entry value: SimpleEntity[ID=200] (already traversed)
+entry key: 'Sally'
+entry value: ComplexEntity[ID=300] (already traversed)
+entry key: SimpleEntity[ID=200] (already traversed)
+entry value: SimpleEntity[ID=400] (already traversed)
+entry key: SimpleEntity[ID=400] (already traversed)
+entry value: SimpleEntity[ID=200] (already traversed)

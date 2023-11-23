@@ -1,0 +1,14 @@
+package ${package};
+
+public class ${className} extends ${superClassName} {
+    
+    @Override
+    public java.util.stream.Stream<com.braintribe.model.generic.reflection.EntityType<?>> initialTypes() {
+    	return $entityTypeRefsStreamExpression;
+    }
+    
+    private java.util.stream.Stream<com.braintribe.model.generic.reflection.EntityType<?>> nextTypes() {
+		return $nextTypesStreamExpression;
+    }
+    
+}

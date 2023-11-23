@@ -1,0 +1,27 @@
+# permissions for end users to view tribefireruntimes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: tribefireruntime-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: tribefire-cloud
+    app.kubernetes.io/part-of: tribefire-cloud
+    app.kubernetes.io/managed-by: kustomize
+  name: tribefireruntime-viewer-role
+rules:
+- apiGroups:
+  - tribefire.cloud
+  resources:
+  - tribefireruntimes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - tribefire.cloud
+  resources:
+  - tribefireruntimes/status
+  verbs:
+  - get

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Bank" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Bank" table="TEST_BANK" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="bankInternationalIdentificationCodeNumberAlsoKnownAsSWIFTAddress" column="BNINTRIDNTCDNMBALSKNWASSWIFADD" type="string" />
+		<property name="bankInternationalIdentificationCodeNumberAlsoKnownAsSWIFTAddress2" column="BNINTRIDNTCDNMBALSKNWASSWIFAD_" type="string" />
+		<list name="employeeList" table="TEST_BANKEMPLOYEELIST">
+	 		<key column="BANKID" />
+	 		<list-index column="BANKEMPLOYEELISTIDX" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Employee" column="EMPLOYEEID" />
+		</list>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<list name="issuedCards" table="TEST_BANKISSUEDCARDS">
+	 		<key column="BANKID" />
+	 		<list-index column="BANKISSUEDCARDSIDX" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Card" column="CARDID" />
+		</list>
+		<property name="name" column="NAME_" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+	</class>
+</hibernate-mapping>

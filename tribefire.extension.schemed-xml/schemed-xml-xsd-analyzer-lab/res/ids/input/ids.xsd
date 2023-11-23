@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root">	
+	</xs:element>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="idref" type="xs:IDREF"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID"/>
+	</xs:complexType>
+</xs:schema>

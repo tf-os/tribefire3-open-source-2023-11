@@ -1,0 +1,7 @@
+auth:
+  rbac:
+    create: false
+logLevel: "debug"
+replicaCount: 3
+persistence:
+  enabled: false

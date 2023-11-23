@@ -1,0 +1,44 @@
+/* Style of the checked, read only, value icon */
+.checkedReadOnlyValue {
+  gwt-sprite: "checked";
+}
+
+/* Style of the null check, read only, value icon */
+.checkNullReadOnlyValue {
+  gwt-sprite: "checkNull";
+}
+
+/* Style for inheriting the font styles from the parent */
+.inheritFont {
+  font: inherit;
+}
+
+/* Style of the property menu icon */
+.propertyMenu {
+  gwt-sprite: "dropdown";
+  margin-left: 6px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.propertyValue:hover td.propertyMenu {
+  visibility: visible;
+}
+
+/* This layout should be applied to tables that should keep the width defined manually, instead of computing new ones */
+.tableFixedLayout {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Style for the text in the grid columns, inside tables. Hidden overflow and no wrap */
+.textOverflowNoWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 2px;
+}
+
+/* Style of the unchecked, read only value icon */
+.uncheckedReadOnlyValue {
+  gwt-sprite: "unchecked";
+}

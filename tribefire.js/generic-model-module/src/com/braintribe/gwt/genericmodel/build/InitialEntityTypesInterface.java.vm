@@ -1,0 +1,5 @@
+package ${package};
+
+public interface ${ifaceName} extends com.braintribe.gwt.genericmodel.client.itw.InitialEntityTypes {
+
+}

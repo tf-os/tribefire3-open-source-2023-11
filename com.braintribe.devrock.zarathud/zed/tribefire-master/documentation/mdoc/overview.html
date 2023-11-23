@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <title>Documentation</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href=".mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='.mdoc/res/custom.css'/>
+	<link rel="icon" href=".mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src=".mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src=".mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src=".mdoc/res/jquery.navgoco.min.js"></script>	<link rel='stylesheet' href='.mdoc/res/index.css'/>
+
+    <script src=".mdoc/res/lunr.js"></script>
+    <script src=".mdoc/res/lunr-index.js"></script>
+    
+    <script>
+	        
+        idx = lunr.Index.load(serializedIndex);
+
+        function search(event) {
+        	
+            var groupingLinkHref = document.getElementById("grouping").href
+            var originalSearchText = document.getElementById("search-input").value;
+            var searchText = originalSearchText;
+        	groupingLinkHref = groupingLinkHref.replace(/\.html(\?searchText=.*)?/, ".html?searchText=" + searchText);
+        	document.getElementById("grouping").href = groupingLinkHref
+        	
+        	var lunrJsSpecialChars = /(^[+-])|[\^:*~]/g;
+        	
+            if (!searchText.match(lunrJsSpecialChars))
+            	searchText = searchText.replace(/(\S{5,})(\s|$)/g, "boosted:$1^10 title:$1^10 headings:$1^5 $1$2");
+
+            console.log("searching: '" + searchText + "'");
+            var results;
+            
+            try {
+            	results = idx.search(searchText)
+    		} catch (e) {
+    			console.log("invalid lunrjs search term: '" + searchText + "'", e);
+    			searchText = originalSearchText.replace(lunrJsSpecialChars, " ");
+    			console.log("Searching for text without special characters: '" + searchText + "'");
+    			results = idx.search(searchText)
+    		}
+                    	          
+           	var assetLists = document.querySelectorAll('*[id^="asset:"]');
+            var mdFiles = Array.from(assetLists)
+            	.map(li => li.getElementsByTagName("ul")[0])
+            	.flatMap(asset => Array.from(asset.children))
+            
+            // hide ALL asset- and mdfile elements
+            assetLists.forEach(asset => asset.style.display = "none")
+            mdFiles.forEach(mdfile => mdfile.style.display = "none")
+
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var ref = result.ref;
+                
+                var mdFileElementId = "mdfile:" + ref
+                console.log("mdfileid: ", mdFileElementId)
+                var mdFileElement = document.getElementById(mdFileElementId);
+                
+                if (mdFileElement){
+	                 
+	                // unhide found mdfile element and the asset list entry itself
+	                mdFileElement.style.display = ""
+	                mdFileElement.parentElement.parentElement.style.display = ""
+	                
+	                var linkElement = mdFileElement.children[0]
+	                linkElement.href = ref + "?searchText=" + searchText;
+                }
+            }
+            
+            if (event) {
+            	event.preventDefault();
+        	}
+        	
+
+            return true;
+        }
+        
+        window.onload = function() {
+			$('.nav').navgoco({accordion: true});
+        
+	    	var urlParams = new URLSearchParams(window.location.search);
+			var searchText = urlParams.get('searchText')
+			
+	    	document.getElementById("search-input").value = searchText;
+	    	
+	    	search();
+		}
+    </script>
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=index.html><img src='.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class=''><a href="com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class=''><a href="com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src=".mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+	<main id='search'>
+		<a href=search.html id=grouping>Order results by relevance</a>
+		<div id=search-bar>
+			<form oninput="return search(event)" onsubmit="event.preventDefault();">
+	            <input class='search-input' id="search-input" placeholder="Search..." autocomplete="off" autofocus/>            
+	        </form>		
+	    </div>
+		<div id=total-menu>
+	    	<ul class="asset-list">
+		  		<li id="asset:com.braintribe.devrock.zarathud:zarathud-documentation">
+		  			<span class='asset-name'>Zarathud Documentation</span>
+		 			<small class='asset-group'>(com.braintribe.devrock.zarathud:zarathud-documentation)</small>
+			  		<ul class="file-list nav" >
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html'>Finger prints</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html'>Forensics</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html'>Running an analysis via ant target</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html'>running an analysis in Eclipse</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html'>Running an analysis via java</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html'>Running an analysis via Jinni</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html'>Rationale (mgmt redux)</a></li>
+			  			<li id='mdfile:com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' ><a href='com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html'>com.braintribe.devrock.zarathud:zarathud</a></li>
+			  		</ul>
+		  		</li>
+		  	</ul>
+		</div>
+	</main>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

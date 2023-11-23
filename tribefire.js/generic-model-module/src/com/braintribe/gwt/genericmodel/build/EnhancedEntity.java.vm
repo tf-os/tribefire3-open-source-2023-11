@@ -1,0 +1,85 @@
+package ${package};
+
+@java.lang.SuppressWarnings({"deprecation", "unusable-by-js"})
+public #if(${entityDesc.isAbstract})abstract#end class ${enhancedName} extends ${entityDesc.enhancedSuperClassFullName}
+		implements ${entityDesc.entityIfaceFullName} {
+
+	public com.braintribe.model.generic.reflection.GenericModelType type() {
+		return ${entityDesc.entityTypeSingletonRef};
+	}
+
+	public static class _Properties {
+#foreach($property in $properties)
+#if(!${property.isOverlay})
+		public static final com.braintribe.gwt.genericmodel.client.itw.GwtCompileTimeProperty ${property.literalName} = 
+		new com.braintribe.gwt.genericmodel.client.itw.GwtCompileTimeProperty(
+			"${property.name}",
+			${property.nullableFlag},
+			${property.confidentialFlag}
+		);
+#end#end		
+
+		static {
+#foreach($property in $properties)
+#if(!${property.isOverlay})
+			${property.literalName}.configure(
+				${property.typeRef},
+				${entityDesc.entityTypeSingletonRef},
+				${property.initializerLiteralOrSupplier}
+			); 
+#end ## if !property.isOverlay
+#end ## foreach
+		}
+	}
+
+#foreach($property in $properties)
+#if (!${property.isInheritedFromSuperclass} || !${property.isOverlay})
+	@Override
+	public ${property.originalType} ${property.getterName}() {
+		return (${property.returnType}) pai.getProperty(${property.singletonInstanceRef}, this, false);
+	}
+
+	@Override
+	public void ${property.setterName}(${property.originalType} value) {
+		pai.setProperty(${property.singletonInstanceRef}, this, value, false);
+	}
+#end#end ## ends: !inheritedFromSuperClass and the for-cycle
+##
+#foreach($transientProperty in $transientProperties)
+#if (!${transientProperty.isInheritedFromSuperclass})
+	private ${transientProperty.originalType} _${transientProperty.name};
+
+	@Override
+	public ${transientProperty.originalType} ${transientProperty.getterName}() {
+		return _${transientProperty.name};
+	}
+
+	@Override
+	public void ${transientProperty.setterName}(${transientProperty.originalType} value) {
+		this._${transientProperty.name} = value;
+	}
+#end#end ## ends: !inheritedFromSuperClass and the for-cycle
+##
+#if(!${entityDesc.isAbstract})
+#if($defaultMethods)
+#foreach($defaultMethod in $defaultMethods)
+		${defaultMethod.source}
+
+#end#end#end ## ends: !${entityDesc.isAbstract}
+}
+
+## in case of abstract entities we need to create a decoy implementation in order to prevent the compiler to unify or drop typeIds
+
+#if(${entityDesc.needsDecoy})
+class ${entityDesc.decoyClassSimpleName} extends ${enhancedName} {
+#foreach($nonPropertyMethodSourceSupplier in ${entityDesc.nonPropertyMethodSourceSuppliers})
+${nonPropertyMethodSourceSupplier.get()}
+#end
+}
+
+class ${entityDesc.decoyClassSimpleName}2 extends ${enhancedName} {
+#foreach($nonPropertyMethodSourceSupplier in ${entityDesc.nonPropertyMethodSourceSuppliers})
+${nonPropertyMethodSourceSupplier.get()}
+#end
+}
+#end ## ends: ${entityDesc.needsDecoy}

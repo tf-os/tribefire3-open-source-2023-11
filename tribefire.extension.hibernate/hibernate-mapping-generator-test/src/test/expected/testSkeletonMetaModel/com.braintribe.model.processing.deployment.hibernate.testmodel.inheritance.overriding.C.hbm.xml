@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overriding.C" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overriding.C" table="TEST_C0" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+		<property name="propertyA" column="PROPERTYA" type="string" />
+		<property name="propertyAB" column="PROPERTYAB" type="string" />
+		<property name="propertyABC" column="PROPERTYABC" type="string" />
+		<property name="propertyB" column="PROPERTYB" type="string" />
+		<property name="propertyC" column="PROPERTYC" type="string" />
+	</class>
+</hibernate-mapping>

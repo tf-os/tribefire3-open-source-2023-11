@@ -1,0 +1,174 @@
+/* The border color was set to another color by other component. Setting to the desired color here */
+.autoSize {
+  height: auto !important;
+  width: auto !important;
+}
+
+.autoWidth {
+  width: auto !important;
+}
+
+.autoHeight {
+  height: auto !important;
+}
+
+.north {
+  border-bottom: 1px solid #dedede;
+}
+
+.cellMain {
+  vertical-align : top;
+}
+
+.cellBasic {
+  vertical-align : top;
+  padding-top: 4px;
+  height: 16px;
+}
+
+.cellIcon {
+}
+
+.entityInfo {
+  border-bottom: 1px solid #dedede;
+}
+
+.entityTypeLabelBlack {
+  font-size: 11px;
+  color: black;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+div.entityTypeLabel {
+  margin-top: -1px;
+  margin-left: 2px;
+}
+
+.entityTypeLabel {
+  font-size: 11px;
+  color: gray;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.entityTitleLabel {
+  font-size: 18px;
+  font-weight: bold;
+  word-break: break-all;
+}
+
+.filterCheckBoxUseCase {
+  background-color: #ffe6ba;
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filterCheckBoxRole {
+  background-color: #fdf9bd;
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filterCheckBoxAccess {
+  background-color: #bcfef5;
+  border-color: #c0c0c0;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.filterMetaDataBox {
+  width: auto !important;
+  height: auto !important;
+}
+
+.filterMetaDataContainer {
+  width: auto !important;
+}
+
+.infoBorder {
+  border-color: #ffb52f; 
+  border-style: solid;
+  border-width: 1px 1px 1px 1px !important;
+  border-radius: 6px;
+  float: right;
+}
+
+.infoNoBorder {
+  border-width: 0px 0px 0px 0px !important;
+}
+
+.resolutionValue {
+  line-height: 21px;
+}
+
+img.partlyChecked {
+    opacity: 0.5;
+}
+
+.rightContentBodyPanel {
+   width : auto !important;
+   height : auto;
+   background-color: transparent;
+}
+
+.rightContentPanel {
+    position: initial !important;
+    float: right;
+}
+
+.searchHorizontalIcon {
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 24px;
+    right: 0px;
+    opacity: 0.6;
+    position: absolute;
+    top: 0px;
+    width: 24px;
+    z-index: 2;
+}
+.searchHorizontalIcon:hover {
+    opacity: 1;
+}
+
+.searchClear {
+  color: gray;
+  font-weight: bold;
+    float: right;
+    right: 0px;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    top: 22px;
+    z-index: 2;
+    font-size: 11px;
+}
+.searchClear:hover {
+    color: black;
+}
+
+.editableBox {
+  border: 1px solid transparent !important;
+}
+
+.editableBox:hover {
+  border: 1px solid rgb(150, 150, 150) !important;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.emptyBox {
+  padding-top: 18px
+}
+

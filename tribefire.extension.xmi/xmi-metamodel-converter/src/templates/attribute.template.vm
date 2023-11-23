@@ -1,0 +1,22 @@
+<UML:Attribute  xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' visibility = 'public' isSpecification = 'false' ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+	<UML:StructuralFeature.multiplicity>
+		<UML:Multiplicity xmi.id = '$multiplicityId'>
+			<UML:Multiplicity.range>
+				<UML:MultiplicityRange xmi.id = '$multiplicityRangeId' lower = '$lowerMultiplicity' upper = '$upperMultiplicity'/>
+			</UML:Multiplicity.range>
+		</UML:Multiplicity>
+	</UML:StructuralFeature.multiplicity>
+	#if ($stereotypeId)
+	<UML:ModelElement.stereotype>
+		<UML:Stereotype $stereotypeRefIdKey = '$stereotypeId' />
+	</UML:ModelElement.stereotype>
+	#end
+	#if ($nullableId)
+	<UML:ModelElement.stereotype>
+		<UML:Stereotype $nullableRefIdKey = '$nullableId' />
+	</UML:ModelElement.stereotype>
+	#end
+	<UML:StructuralFeature.type>
+		<UML:Class $typeRefIdKey = '$typeRefId'/>
+	</UML:StructuralFeature.type>
+</UML:Attribute>

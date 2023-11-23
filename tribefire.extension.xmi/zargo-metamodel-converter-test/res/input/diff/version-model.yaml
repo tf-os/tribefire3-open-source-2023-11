@@ -1,0 +1,248 @@
+&0 !com.braintribe.model.meta.GmMetaModel
+dependencies:
+  - &1 !com.braintribe.model.meta.GmMetaModel
+    globalId: "model:com.braintribe.gm:root-model"
+    name: "com.braintribe.gm:root-model"
+    types: !!set
+      ? &2 !com.braintribe.model.meta.GmBaseType
+        declaringModel: *1
+        globalId: "type:object"
+        typeSignature: "object"
+      ? &3 !com.braintribe.model.meta.GmStringType
+        declaringModel: *1
+        globalId: "type:string"
+        typeSignature: "string"
+      ? !com.braintribe.model.meta.GmFloatType
+        declaringModel: *1
+        globalId: "type:float"
+        typeSignature: "float"
+      ? !com.braintribe.model.meta.GmDoubleType
+        declaringModel: *1
+        globalId: "type:double"
+        typeSignature: "double"
+      ? &4 !com.braintribe.model.meta.GmBooleanType
+        declaringModel: *1
+        globalId: "type:boolean"
+        typeSignature: "boolean"
+      ? &5 !com.braintribe.model.meta.GmIntegerType
+        declaringModel: *1
+        globalId: "type:integer"
+        typeSignature: "integer"
+      ? &6 !com.braintribe.model.meta.GmLongType
+        declaringModel: *1
+        globalId: "type:long"
+        typeSignature: "long"
+      ? !com.braintribe.model.meta.GmDateType
+        declaringModel: *1
+        globalId: "type:date"
+        typeSignature: "date"
+      ? !com.braintribe.model.meta.GmDecimalType
+        declaringModel: *1
+        globalId: "type:decimal"
+        typeSignature: "decimal"
+      ? &7 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardIntegerIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *7
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id"
+                inherited: true
+                type: *5
+            property: &8 !com.braintribe.model.meta.GmProperty
+              declaringType: &9 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *1
+                globalId: "type:com.braintribe.model.generic.GenericEntity"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *9
+                    globalId: "property:com.braintribe.model.generic.GenericEntity/globalId"
+                    metaData: !!set
+                      ? !com.braintribe.model.meta.data.constraint.Unique
+                        globalId: "Unique:property:com.braintribe.model.generic.GenericEntity/globalId"
+                        inherited: true
+                    name: "globalId"
+                    nullable: true
+                    type: *3
+                  - *8
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *9
+                    globalId: "property:com.braintribe.model.generic.GenericEntity/partition"
+                    name: "partition"
+                    nullable: true
+                    type: *3
+                typeSignature: "com.braintribe.model.generic.GenericEntity"
+              globalId: "property:com.braintribe.model.generic.GenericEntity/id"
+              name: "id"
+              nullable: true
+              type: *2
+        superTypes:
+          - *9
+        typeSignature: "com.braintribe.model.generic.StandardIntegerIdentifiable"
+      ? &10 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *10
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id"
+                inherited: true
+                type: *6
+            property: *8
+        superTypes:
+          - *9
+        typeSignature: "com.braintribe.model.generic.StandardIdentifiable"
+      ? &11 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardStringIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *11
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id"
+                inherited: true
+                type: *3
+            property: *8
+        superTypes:
+          - *9
+        typeSignature: "com.braintribe.model.generic.StandardStringIdentifiable"
+      ? *9
+    version: "1.0.14"
+globalId: "model:com.braintribe.gm:version-model"
+name: "com.braintribe.gm:version-model"
+types: !!set
+  ? &12 !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.version.VersionIntervals"
+    properties:
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *12
+        globalId: "property:com.braintribe.model.version.VersionIntervals/elements"
+        name: "elements"
+        nullable: true
+        type: !com.braintribe.model.meta.GmListType
+          elementType: &13 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *0
+            globalId: "type:com.braintribe.model.version.VersionInterval"
+            isAbstract: true
+            superTypes:
+              - &14 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *0
+                globalId: "type:com.braintribe.model.version.VersionExpression"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *14
+                    globalId: "property:com.braintribe.model.version.VersionExpression/expression"
+                    name: "expression"
+                    nullable: true
+                    type: *3
+                superTypes:
+                  - *9
+                typeSignature: "com.braintribe.model.version.VersionExpression"
+            typeSignature: "com.braintribe.model.version.VersionInterval"
+          globalId: "type:list<com.braintribe.model.version.VersionInterval>"
+          typeSignature: "list<com.braintribe.model.version.VersionInterval>"
+    superTypes:
+      - *14
+    typeSignature: "com.braintribe.model.version.VersionIntervals"
+  ? &15 !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.version.Version"
+    properties:
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *15
+        globalId: "property:com.braintribe.model.version.Version/buildNumber"
+        name: "buildNumber"
+        type: *5
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *15
+        globalId: "property:com.braintribe.model.version.Version/nonConform"
+        name: "nonConform"
+        nullable: true
+        type: *3
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *15
+        globalId: "property:com.braintribe.model.version.Version/qualifier"
+        name: "qualifier"
+        nullable: true
+        type: *3
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *15
+        globalId: "property:com.braintribe.model.version.Version/revision"
+        name: "revision"
+        nullable: true
+        type: *5
+    superTypes:
+      - &16 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *0
+        globalId: "type:com.braintribe.model.version.HasMajorMinor"
+        isAbstract: true
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *16
+            globalId: "property:com.braintribe.model.version.HasMajorMinor/major"
+            name: "major"
+            type: *5
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *16
+            globalId: "property:com.braintribe.model.version.HasMajorMinor/minor"
+            name: "minor"
+            type: *5
+        superTypes:
+          - *9
+        typeSignature: "com.braintribe.model.version.HasMajorMinor"
+      - *13
+    typeSignature: "com.braintribe.model.version.Version"
+  ? *14
+  ? !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.version.FuzzyVersion"
+    superTypes:
+      - *16
+      - *13
+    typeSignature: "com.braintribe.model.version.FuzzyVersion"
+  ? &17 !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.version.VersionRange"
+    properties:
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *17
+        globalId: "property:com.braintribe.model.version.VersionRange/lowerBound"
+        name: "lowerBound"
+        nullable: true
+        type: *15
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *17
+        globalId: "property:com.braintribe.model.version.VersionRange/lowerBoundExclusive"
+        name: "lowerBoundExclusive"
+        type: *4
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *17
+        globalId: "property:com.braintribe.model.version.VersionRange/upperBound"
+        name: "upperBound"
+        nullable: true
+        type: *15
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *17
+        globalId: "property:com.braintribe.model.version.VersionRange/upperBoundExclusive"
+        name: "upperBoundExclusive"
+        type: *4
+    superTypes:
+      - *13
+    typeSignature: "com.braintribe.model.version.VersionRange"
+  ? *16
+  ? *13
+version: "1.0.15"

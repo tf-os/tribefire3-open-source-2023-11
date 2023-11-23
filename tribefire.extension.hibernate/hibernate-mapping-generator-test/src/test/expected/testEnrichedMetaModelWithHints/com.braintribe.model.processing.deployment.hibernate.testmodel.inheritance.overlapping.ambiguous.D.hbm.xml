@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<subclass name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.D" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.D" abstract="false" extends="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.B">
+		<property name="d" column="D" type="string" />
+	</subclass>
+</hibernate-mapping>

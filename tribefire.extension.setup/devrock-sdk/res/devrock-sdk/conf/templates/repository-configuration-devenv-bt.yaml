@@ -1,0 +1,28 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration {
+
+  cachePath: "${config.dir}/../../../repo",
+
+  # the repo for local installation (e.g. via ant)
+  installRepository: &install-repo !com.braintribe.devrock.model.repository.MavenFileSystemRepository {
+    name: "install",
+    rootPath: "${config.dir}/inst",
+    dominanceFilter: !com.braintribe.devrock.model.repository.filters.AllMatchingArtifactFilter {},
+    cachable: false,
+  },
+
+  # the list of repos for resolving  
+  repositories: [
+    # the install-repo must be first to override other repos (combined with dominance filter)
+    *install-repo,
+    !com.braintribe.devrock.model.repository.MavenHttpRepository {
+      name: "third-party", 
+      url: "https://artifactory.braintribe.com/artifactory/third-party/", 
+      user: "${env.OPENTF_REPO_USER}", password: "${env.OPENTF_REPO_PASSWORD}",
+    },
+    !com.braintribe.devrock.model.repository.MavenHttpRepository {
+      name: "core-dev", 
+      url: "https://artifactory.braintribe.com/artifactory/core-dev/", 
+      user: "${env.OPENTF_REPO_USER}", password: "${env.OPENTF_REPO_PASSWORD}",
+    },
+  ]
+}

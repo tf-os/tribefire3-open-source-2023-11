@@ -1,0 +1,24 @@
+@def FLAT_GROUP_EXPAND eval('com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("bt-resources/flatgroupingview/group-expand-sprite.gif")');
+
+.quickAccessPanel .group .grid-cell .grid-cellInner {
+	background: transparent no-repeat 3px -47px;
+	padding: 0 4px 4px 17px;
+}
+
+.quickAccessPanel .groupCollapsed .grid-cell .grid-cellInner {
+  background-position: 3px 3px;
+}
+
+.bodyCollapsed {
+	display: none;
+}
+
+.quickAccessPanel .group .grid-cell .grid-cellInner {
+	background-image: FLAT_GROUP_EXPAND;
+	color: #3764a0;
+	font: bold 11px tahoma, arial, helvetica, sans-serif;
+}
+
+.group .grid-cell {
+  border-bottom-style: none;
+}

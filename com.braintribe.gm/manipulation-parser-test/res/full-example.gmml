@@ -1,0 +1,81 @@
+/*
+This is a block comment telling you this article serves as a quick reference for the GMML language.
+
+It uses the Joat entity, which has all kinds of properties, to demonstrate the full syntax.
+
+Joat stands for "Jack of all Trades" in case you are wondering.  
+*/
+
+{
+
+// #################################
+// Instantiation / Lookup / Acquire:
+// #################################
+
+// With variable, for optimization
+joat1 = (Joat = com.braintribe.model.manipulation.parser.impl.model.Joat)()
+joat2 = Joat()
+
+// Without a variable
+joat3 = !com.braintribe.model.manipulation.parser.impl.model.Joat()
+
+// Lookup - if not found, it is treated as an error (i.e. based on configured GmmlManipulatorErrorHandler)  
+joat4 = Joat('lookupId')
+
+// Acquire - if not found, new one is created.
+joat5 = Joat['acquireId']
+
+// ####################
+// Delete:
+// ####################
+
+-joat5
+
+// ####################
+// Simple
+// ####################
+
+$0 = Joat()
+.stringValue = 'Text'
+.booleanValue = true
+.integerValue = 23
+.longValue = 42L
+.floatValue = 3.14F
+.doubleValue = 2.71828D
+.decimalValue = 1.23456789B
+.dateValue = date(1976Y, 12M, 1D, +0100Z) /* Dec. 1st 1976, GMT+1 (Z=Zulu=GMT) */
+
+// ####################
+// Entities / Enums
+// ####################
+
+.entityValue = $0
+
+SomeEnum = com.braintribe.model.manipulation.parser.impl.model.SomeEnum
+.enumValue = SomeEnum::fix
+
+// ####################
+// Collections
+// ####################
+
+.stringSet = ( 'one', 'two', 'three' )
+.stringSet + ( 'four', 'five')
+.stringSet + 'six'
+
+.stringList = [ 'one', 'two', 'three' ]
+.stringList + 'four'
+.stringList + {0: 'zero'}
+
+.stringObjectMap = { 'one'/*KEY*/ : 1 /*VALUE*/, 'two': true, 'three': date(14D) }
+.stringObjectMap + { 'four' : 4L }
+
+// ####################
+// Manipulation Comment
+// ####################
+
+com.braintribe.model.generic.manipulation.ManipulationComment{
+ author: 'Edgar Allan Poe',
+ text:'Nevermore!'
+}
+
+}

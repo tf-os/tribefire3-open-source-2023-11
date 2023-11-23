@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.gwt.gmrpc.api.GmRpcClientApi"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <inherits name="com.braintribe.PlatformExceptions"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="client"/>
+</module>

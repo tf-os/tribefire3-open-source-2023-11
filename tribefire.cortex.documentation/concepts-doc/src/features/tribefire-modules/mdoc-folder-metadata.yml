@@ -1,0 +1,39 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  introduction.md: 
+    tags:
+      - modules    
+
+  application-structure.md:
+    tags:
+      - modules    
+
+  web-application-development-lifecycle.md: 
+    tags:
+      - modules    
+
+  module-development.md:
+    tags:
+      - modules    
+
+  module-compatibility.md:
+    tags:
+      - modules
+
+  module-structure.md:
+    tags:
+      - modules
+
+  migration-to-modules.md:
+
+  development:
+    displayTitle: Development
+    tags:
+      - modules
+      - development
+
+  troubleshooting:
+    displayTitle: Troubleshooting
+    tags:
+      - modules

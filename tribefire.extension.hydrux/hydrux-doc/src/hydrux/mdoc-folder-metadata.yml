@@ -1,0 +1,20 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  hx-intro.md:
+    displayTitle: "Introduction to Hydrux"
+    priority: -200
+
+  hx-name.md:
+    displayTitle: "The Name 'Hydrux'"
+    priority: -190
+
+  hx-components.md:
+    priority: -180
+
+  hx-component-types.md:
+    priority: -180
+
+  hx-app-config.md:
+    priority: -180

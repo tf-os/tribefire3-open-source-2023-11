@@ -1,0 +1,31 @@
+{
+  "name": "tribefire-ux-serverles-template",
+  "version": "3.0.2-rc",
+  "description": "TF UX APP. - template to deploy app with serverless",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "chmod +x *.sh && ./start.sh sls offline",
+    "package": "chmod +x *.sh && ./start.sh sls package",
+    "deploy": "chmod +x *.sh && ./start.sh sls deploy",
+    "build": "./build.sh",
+    "logs": "sls logs -f ssr -t",
+    "undeploy": "chmod +x *.sh && ./start.sh sls remove",
+    "createDomain": "chmod +x *.sh && ./start.sh sls create_domain"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "connect-history-api-fallback": "~2.0.0",
+    "express": "~4.18.2",
+    "serverless-http": "~3.2.0"
+  },
+  "devDependencies": {
+    "chrome-aws-lambda": "~10.1.0",
+    "puppeteer-core": "~10.1.0",
+    "serverless-domain-manager": "~7.1.2",
+    "serverless-offline": "~12.0.4",
+    "serverless-plugin-log-retention": "~2.0.0"
+  }
+}

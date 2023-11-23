@@ -1,0 +1,27 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  checks.md:
+    tags:
+        - checks
+
+  check-api.md:
+    tags:
+        - checks
+
+  implementing-checks.md:
+    tags:
+        - checks
+
+  executing-checks-landing-page.md:
+    tags:
+        - checks
+
+  executing-checks-rest.md:
+    tags:
+        - checks
+        
+  executing-health-checks.md:
+    tags:
+        - checks

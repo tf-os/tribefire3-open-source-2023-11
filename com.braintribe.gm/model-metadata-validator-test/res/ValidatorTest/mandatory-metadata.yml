@@ -1,0 +1,34 @@
+!com.braintribe.model.processing.test.Base
+title: My Title
+child: !com.braintribe.model.processing.test.SelfContainingDerived
+  &1
+  name: child1
+  child: *1
+  listOfChildren:
+    - *1
+    - name: child1.1
+    - name: child1.2
+      setOfChildren:
+        - name: child1.2.a
+        - name: child1.2.b
+          child: !com.braintribe.model.processing.test.SelfContainingDerived
+            name: child1.2.b.child
+    - name: child1.3
+      mapOfChildren:
+        ? !com.braintribe.model.processing.test.SelfContainingDerived 
+          name: child1.3_key1
+          child:
+            name: child1.3_key1.child
+            listOfChildren:
+              - child: !com.braintribe.model.processing.test.SelfContainingDerived
+                  name: child1.3_key1.child.1
+        : !com.braintribe.model.processing.test.SelfContainingDerived 
+          name: child1.3_value1
+          child:
+            name: child1.3_value1.child
+            listOfChildren:
+              - child: !com.braintribe.model.processing.test.SelfContainingDerived
+                  name: child1.3_value1.child.1
+        ? name: child1.3_key2
+        : !com.braintribe.model.processing.test.SelfContainingDerived 
+          name: child1.3_value2

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.idgen.StringIdEntity4" entity-name="test.models.idgen.StringIdEntity4" table="StringIdEntity4" abstract="false">
+		<id name="id" column="id" type="string">
+			<generator class="native" />
+		</id>
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" />
+		<property name="property" column="property" type="string" />
+	</class>
+</hibernate-mapping>

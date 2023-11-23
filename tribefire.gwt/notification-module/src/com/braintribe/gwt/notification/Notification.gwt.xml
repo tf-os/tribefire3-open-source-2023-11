@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.Codec"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.codec.string.String"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.gwt.logging.Logging"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.json.JSON"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="com.sencha.gxt.widget.core.Core"/>
+    <source path="client"/>
+</module>

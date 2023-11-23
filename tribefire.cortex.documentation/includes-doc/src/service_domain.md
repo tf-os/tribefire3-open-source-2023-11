@@ -1,0 +1,7 @@
+A service domain serves a similar purpose as a namespace, in the sense that it groups certain elements according to some arbitrary criteria. In our context, the elements are service requests and the criterion has to do with the where the service is evaluated.
+
+The idea is that you can have the same request handled in different ways in different domains. Another reason is that you want to keep unrelated things separated, so only requests that logically belong together can be found in the same service domain.
+
+An instance of the `ServiceDomain` type you create manually must have a service model assigned. After all, service domains group service requests and those come from service models. Depending on the implementation and logic of the service processors used in service requests of a service model, service requests grouped in one service domain can optionally have their results persisted. Moreover, a service model can depend on one or more other service models that represent specific business models for a wide range of concrete operational needs.
+
+A standard access is also a service domain, as it groups the entire functionality of what you can do with the entities of its assigned metamodel within the access. Note that your access does not have to have a service model to be considered a service domain. Out-of-the-box, you can use CRUD operations on the entities assigned to the metamodel of an access as CRUD operations are automatically exposed as REST API when deploy an access that has a metamodel assigned.

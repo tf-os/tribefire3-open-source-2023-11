@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation</title>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='markdown-style.css'/>
+	<link rel='stylesheet' href='customstyles.css'/>
+	<link rel="icon" href="favicon.png">
+  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="jquery.navgoco.min.js"></script>
+	<link rel="stylesheet" href="jquery.navgoco.css" type="text/css" media="screen" />
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.nav').navgoco();
+//			$('.nav > ul').navgoco('toggle', true);
+			
+			$(".selflink").parentsUntil('.nav').show();
+		});
+	</script>
+    <script src="lunr.js"></script>
+    <script src="lunr-index.js"></script>
+    <script>
+    var markdownFiles = {
+			"tribefire.cortex.documentation.external/tfcloud-operator-doc/readmeTest.html" : {
+				"asset" : "Tfcloud Operator",
+				"title" : "Readme"
+			},
+    }
+    
+    </script>
+    <script>
+	        
+        idx = lunr.Index.load(serializedIndex);
+
+        function search(event) {
+        	
+            var searchText = document.getElementById("search-input").value;
+            var results = idx.search(searchText);
+            
+           // Respect score
+            var searchResults = document.getElementById('search-results');
+            searchResults.innerHTML = "";
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var ref = result.ref;
+                var divNode = document.createElement("div");
+                var anchorNode = document.createElement("a");
+                anchorNode.href = ref + "?searchText=" + searchText;
+                anchorNode.target = "content-frame";
+                
+                var mdFile = markdownFiles[ref];
+                
+                anchorNode.innerHTML = "<b>" + mdFile.asset + "</b> - " +  mdFile.title
+                
+                divNode.appendChild(anchorNode);
+                searchResults.appendChild(divNode);
+            }
+            
+            // Old way: group by assets
+           /* var assetLists = document.querySelectorAll('*[id^="asset:"]');
+            var mdFiles = Array.from(assetLists)
+            	.map(li => li.getElementsByTagName("ul")[0])
+            	.flatMap(asset => Array.from(asset.children))
+            
+            // hide ALL asset- and mdfile elements
+            assetLists.forEach(asset => asset.style.display = "none")
+            mdFiles.forEach(mdfile => mdfile.style.display = "none")
+
+            for (var i = 0; i < results.length; i++) {
+                var result = results[i];
+                var ref = result.ref;
+                
+                var mdFileElementId = "mdfile:" + ref
+                console.log("mdfileid: ", mdFileElementId)
+                var mdFileElement = document.getElementById(mdFileElementId);
+                
+                if (mdFileElement){
+	                 
+	                // unhide found mdfile element and the asset list entry itself
+	                mdFileElement.style.display = ""
+	                mdFileElement.parentElement.parentElement.style.display = ""
+	                
+	                var linkElement = mdFileElement.children[0]
+	                linkElement.href = ref + "?searchText=" + searchText;
+                }
+            }
+            */
+            
+            if (event) {
+            	event.preventDefault();
+        	}
+
+            return true;
+        }
+        
+        window.onload = function() {
+	    	var urlParams = new URLSearchParams(window.location.search);
+			var searchText = urlParams.get('searchText')
+			
+	    	document.getElementById("search-input").value = searchText;
+	    	
+	    	search();
+		}
+    </script>
+</head>
+<body background="docbg_dark.jpg">
+<div class=container>
+  <div class='header'>
+    <span class='home-button'><a href=index.html><img src='tfacademy-white-64x235.svg' /></a></span>
+    <span class='backlink'><a href=overview.html>Overview</a></span>
+    <div id=search-bar>
+		<form action="search.html" method="get">
+            <input class='search-input' placeholder="Search in documentation..." name="searchText"/>            
+        </form>		
+    </div>
+  </div><!-- Load JQuery -->	<div class='below-header'>
+		<div id='search'>
+			<div class=search-bar>
+				<form oninput="return search(event)" onsubmit="event.preventDefault();">
+		            <input class='search-input' id="search-input" placeholder="Search..." autocomplete="off" autofocus/>            
+		        </form>		
+		    </div>
+		    <div id='search-results'>
+		    	<h2>Search results</h2>
+		    </div>
+		    <!--
+			<div id=total-menu>
+		    	<ul class="asset-list">
+			  		<li id="asset:tribefire.cortex.documentation.external:tfcloud-operator-doc">
+			  			<span class='asset-name'>Tfcloud Operator</span>
+			 			<small class='asset-group'>(tribefire.cortex.documentation.external:tfcloud-operator-doc)</small>
+				  		<ul class="file-list" >
+				  			<li id='mdfile:tribefire.cortex.documentation.external/tfcloud-operator-doc/readmeTest.html' ><a href='tribefire.cortex.documentation.external/tfcloud-operator-doc/readmeTest.html'>Readme</a></li>
+				  		</ul>
+			  		</li>
+			  	</ul>
+			</div>
+			-->
+		</div>
+	</div>
+</div>
+</body>
+</html>

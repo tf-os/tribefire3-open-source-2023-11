@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.mergeable.A" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.mergeable.A" table="TEST_A_" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<discriminator column="ATYPE" type="string" />
+		<property name="a" column="A_" type="string" />
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+	</class>
+</hibernate-mapping>

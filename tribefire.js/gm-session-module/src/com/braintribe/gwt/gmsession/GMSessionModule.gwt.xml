@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.model.AccessApi"/>
+	<inherits name="com.braintribe.model.AccessApiModel"/>
+	<inherits name="com.braintribe.model.AccessRequestModel"/>
+	<inherits name="com.braintribe.model.AccessServiceApi"/>
+	<inherits name="com.braintribe.model.AccessServiceApiModel"/>
+	<inherits name="com.braintribe.model.processing.session.SessionApi"/>
+	<inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="jsinterop.annotations.Annotations"/>
+	<source path="client"/>
+</module>

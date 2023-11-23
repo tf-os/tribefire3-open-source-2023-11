@@ -1,0 +1,13 @@
+!com.braintribe.devrock.model.repositoryview.RepositoryView
+enrichments:
+  - !com.braintribe.devrock.model.repositoryview.enrichments.ArtifactFilterEnrichment
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+      groupId: "tribefire.cortex.views-playground.simple-example-project"
+      # same version as in parent
+      # TODO: when changing the major/minor version (with tool support in the future), this version must be adapted automatically.
+      version: "[2.0,2.1)"
+    # TODO: move this to a common development view and then depend on it (or find a better solution)
+  - !com.braintribe.devrock.model.repositoryview.enrichments.ArtifactFilterEnrichment
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+      groupId: "com.braintribe.devrock.ant"
+      version: "[1.0,1.1)"

@@ -1,0 +1,42 @@
+@external gmeAssemblyPanel gmeQuickAccessPanel;
+
+.gridWithoutLines {
+	
+}
+
+.gridWithoutLines .cell {
+	border-color: transparent;
+}
+
+.grid-cellSelected,
+.grid-cellSelected .cell,
+.gridWithoutLines .grid-cellSelected {
+	background-color: #FFE6BA;
+}
+
+.grid-rowSelected .cell,
+.grid-rowSelected .rowWrap {
+  background-color: #FFE6BA;
+  /*border-color: #A3BAE9;*/
+}
+
+.gridWithoutLines .rowWrap {
+	border-color: transparent;
+}
+
+.gridWithoutLines .noPadding {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.gmeAssemblyPanel .dataTable {
+	border-collapse: collapse;
+}
+
+.gmeQuickAccessPanel .dataTable {
+	width: auto !important;
+}
+
+.rowHighlight {
+	border: none;
+}

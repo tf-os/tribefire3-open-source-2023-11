@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+  <inherits name="com.braintribe.model.QueryModel"/>
+  <inherits name="com.braintribe.model.ResourceModel"/>
+  <inherits name="com.braintribe.model.RootModel"/>
+  <inherits name="com.braintribe.model.SelectorModel"/>
+  <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+  <inherits name="com.braintribe.model.generic.I18nModel"/>
+  <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+  <source path="meta"/>
+</module>

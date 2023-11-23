@@ -1,0 +1,3 @@
+!com.braintribe.doc.meta.CustomAssetMetaData
+displayTitle: "artifact reflection builder"
+shortDescription: "This plugin is responsible to build the typesafe artifact reflection, i.e. to build a class that identifies the artifact itself"

@@ -1,0 +1,39 @@
+#!/bin/sh
+
+######################################################################
+# 
+# This script downloads a cortex-shared-storage inside a new folder called accoring to ${WORK_DIR} variable and extracts it. The shared storage files look something like this:
+# 00001-APPEND_DATA_MANIPULATION.json
+# 00001-APPEND_DATA_MANIPULATION-210101120000-88768a8da10015454eb0.json
+# 00002-STORE_RESOURCE.json
+# 00002-STORE_RESOURCE-logo.ico
+#
+#####################################################################
+
+WORK_DIR="dcsa-storage-from-script"
+
+ACCESS="cortex"
+NO_BINARIES="true"
+
+SERVER="http://localhost:8080/tribefire-services"
+
+URL="${SERVER}/api/v1/serviceDomain:platform/GetSharedStorage?accessId=${ACCESS}&excludeBinaries=${NO_BINARIES}&projection=sharedStorageAsZip&download-resource=true"
+
+WORK_DIR="dcsa-storage-${ACCESS}"
+
+__printBlock() {
+    printf "\n#\n"
+    printf "# $1\n"
+    printf "#\n\n"
+}
+
+__printBlock "Ensuring empty DCSA STORAGE folder"
+rm -rf ${WORK_DIR}
+mkdir -v ${WORK_DIR}
+
+__printBlock "Downloading ${ACCESS} shared storage from ${URL}";
+response=$(curl ${URL} --write-out '%{http_code}' --output ${WORK_DIR}/storage.zip)
+    
+__printBlock "Quietly unzipping shared storage"
+unzip -q "${WORK_DIR}/storage.zip" -d ${WORK_DIR} # -q for quiet; this can contain thousands of files, definitely recommended
+printf "Unzipping done!\n"

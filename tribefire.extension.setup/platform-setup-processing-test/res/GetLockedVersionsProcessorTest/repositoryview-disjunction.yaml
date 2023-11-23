@@ -1,0 +1,20 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.DisjunctionArtifactFilter
+      operands:
+        - !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+          locks: !!set
+            ? "com.braintribe.common:codec-api#1.0.13"
+            ? "com.braintribe.common:common-api#1.0.15"
+            ? "com.braintribe.common:logging#1.0.21"
+        - !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+          locks: !!set
+            ? "com.braintribe.common:codec-api#1.0.13"
+            ? "com.braintribe.common:logging#1.0.19"
+            ? "com.braintribe.common:parent#1.0.11"
+        - !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+          locks: !!set
+            ? "ant:ant#1.6.5"
+            ? "antlr:antlr#2.7.7"
+    name: "core-dev"

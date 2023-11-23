@@ -1,0 +1,17 @@
+[
+ {"_type": "com.braintribe.model.asset.PlatformAsset", "_id": "0",
+  "globalId": "PlatformAsset:tribefire.cortex.documentation.external:tfcloud-operator-doc#2.0",
+  "groupId": "tribefire.cortex.documentation.external",
+  "hasUnsavedChanges": false,
+  "isContextualized": false,
+  "name": "tfcloud-operator-doc",
+  "nature": {"_type": "com.braintribe.model.asset.natures.MarkdownDocumentation", "_id": "1",
+   "globalId": "MarkdownDocumentation:tribefire.cortex.documentation.external:tfcloud-operator-doc#2.0",
+   "important": false,
+   "inherited": true
+  },
+  "natureDefinedAsPart": false,
+  "resolvedRevision": "1-pc",
+  "version": "2.0"
+ }
+]

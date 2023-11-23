@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:annotation>
+		<xs:documentation>
+			Schema for data exchange Travic / ICC via an intermediary FTP server, siehe http://wiki.fidesintra.net/x/e4OD
+		</xs:documentation>
+	</xs:annotation>
+	<xs:element name="TravicIccExchange">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="exchangeType" type="ExchangeType">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Verarbeitungsart: Einreichung (inboudOrderData) oder Bereitstellung (outboundSupplyData)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="correlationId" type="CorrelationId">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Eindeutige ID des Vorgangs als Correlation-ID für Log- und Tracemeldungen</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataFileName" type="String255">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Name der Datei mit den Kundendaten bzw. mit dem Abholdaten, ohne Pfad</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="partnerIdentification" type="PartnerIdentification">
+					<xs:annotation>
+						<xs:documentation xml:lang="en"/>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="ebicsOrderType" type="EbicsOrderType">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">EBICS-Auftragsart für Einreichung oder Kunden-Abholdaten. identifiziert den Geschäftsvorfall (Kombination aus Format und erforderlicher Verarbeitung). Für FUL und FDL nur in Kombination mit fileFormat, countryCode und optionalen parameter-Elementen.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="fileFormat" type="FileFormatType" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">nur verwendet für französische EBICS-Variante mit Auftragsarten (ebicsOrderType) FUL und FDL: Kennung des Fileformats</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="parameter" minOccurs="0" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Aktuell nur verwendet für französische EBICS-Variante mit Auftragsart (ebicsOrderType) FUL: vom Kunden gesendete generische Parameter.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:choice>
+					<xs:element name="inboundOrderData" type="InboundOrderData">
+						<xs:annotation>
+							<xs:documentation xml:lang="de">Detail zu Auftrag vom Kunden</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="outboundSupplyData" type="OutboundSupplyData">
+						<xs:annotation>
+							<xs:documentation xml:lang="de"/>
+						</xs:annotation>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="createdAt" type="DateTime" use="required">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">DateTime mit Zeitpunkt der Erstellung der Parameterdatei</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="schemaVersion" use="required">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Versionskennung der XSD-Datei</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="ExchangeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="inboundOrderData"/>
+			<xs:enumeration value="outboundSupplyData"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CorrelationId">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PartnerIdentification">
+		<xs:sequence>
+			<xs:element name="travicOperatorId" type="TravicOperatorId">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Betreiber-ID von TRAVIC-Corporate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ebicsPartnerID" type="EbicsPartnerId">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">EBICS-Kunden-ID in TRAVIC-Corporate, identifiziert den kanalspezifischen EBICS-Vertrag mit einem Kunden</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="customerName" type="String80" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="en"/>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="TravicOperatorId">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EbicsPartnerId">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[a-zA-Z0-9,=]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EbicsOrderType">
+		<xs:restriction base="xs:token">
+			<xs:length value="3"/>
+			<xs:pattern value="[A-Z0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountryCodeType">
+		<xs:annotation>
+			<xs:documentation xml:lang="en">ISO-Code to identify the country.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:length value="2"/>
+			<xs:pattern value="[A-Z]{2,2}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FileFormatType">
+		<xs:annotation>
+			<xs:documentation xml:lang="de">Datentyp für das Dateiformat.</xs:documentation>
+		</xs:annotation>
+		<xs:simpleContent>
+			<xs:extension base="String30">
+				<xs:attribute name="countryCode" type="CountryCodeType">
+					<xs:annotation>
+						<xs:documentation xml:lang="en">ISO-Code to identify the country (EU for Europe)</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="parameter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:token">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Name des Parameters (Key). TEST und EBCDIC sind für Frankreich spezifiziert.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="value">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">Wert des Parameters.</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="type" type="xs:NCName" default="string" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation xml:lang="de">XML-Typ des Parameterwerts (Default ist string).</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="InboundOrderData">
+		<xs:sequence>
+			<xs:element name="sourceChannel" type="SourceChannel">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Herkunft des Kundeauftrags: EBICS oder FTP</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ebicsOrderID" type="EbicsOrderID">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Auftragsnummer des Kundenauftrags. Identifiziert in Kombination mit Betreiber-ID, EBICS-Kunden-ID und EBICS-Auftragsart einen Kundenauftrag. Nur kurzfristig eindeutig, mindestens aber für einen Tag.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="travicReceivedAt" type="DateTime">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Zeitstempel des Empfangs des Kundenauftrags durch TRAVIC-Corporate</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="travicCheckResult" type="TravicCheckResult">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Code für  Verarbeitungsergebnis des Kundenauftrags in TRAVIC-Corporate
+450 für erfolgreich geprüfte Aufträge</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="travicCheckResultCode">
+				<xs:simpleType>
+					<xs:restriction base="xs:int"/>
+					<!--
+					changed due to XSD Codec incompatibility 
+					<xs:restriction base="xs:short"/>
+				 -->
+				</xs:simpleType>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="ebicsChannel" type="EbicsChannel"/>
+				<xs:element name="ftpChannel" type="FtpChannel"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="SourceChannel">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="EBICS"/>
+			<xs:enumeration value="FTP">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">FTPS oder FTPS</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EbicsOrderID">
+		<xs:restriction base="xs:token">
+			<xs:length value="4"/>
+			<xs:pattern value="[A-Z][A-Z0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TravicCheckResult">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="ACCEPTED">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Auftrag und EU erfolgreich geprüft in TRAVIC-Corporate</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="REJECTED">
+				<xs:annotation>
+					<xs:documentation xml:lang="en">Auftrag abgelehnt in TRAVIC-Corporate wegen Fehler z.B. bei bei Prüfung der EU</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="EbicsChannel">
+		<xs:sequence>
+			<xs:element name="ebicsUserID" type="EbicsUserID">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">EBICS-Teilnehmer-ID des fachlichen Einreichers des Kundenauftrags. Kombination aus Betreiber-ID, EBICS-Kunden-ID und EBICS-Teilnehmer-ID ist eindeutig</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ebicsSubmissionType" type="EbicsSubmissionType">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Dateiart der Einreichung: mit elektronischer Unterschrift oder ohne</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ebicsHostID" type="EbicsHostID">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">für den Kunden konfigurierte EBICS-Host-ID</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EbicsUserID">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="35"/>
+			<xs:pattern value="[a-zA-Z0-9,=]{1,35}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EbicsSubmissionType">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="1"/>
+			<xs:enumeration value="D">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Einreichung ohne elektronischer Unterschrift bzw. mit Transportunterschrift</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="O">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Einreichung mit elektronischer Unterschrift</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EbicsHostID">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FtpChannel">
+		<xs:sequence>
+			<xs:element name="ftpLoginName" type="String60">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Username des Kunden für den FTP-Zugang</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ftpOriginalFileName" type="String80">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">vom Kunden bestimmter Dateiname beim FTP-Upload</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OutboundSupplyData">
+		<xs:sequence>
+			<xs:element name="travicDownloadEntryFileName" type="String255">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Dateiname zur Identifikation der Abholdaten in der TRAVIC-Corporate-Datenbank. Kombination aus Betreiber-ID, EBICS-Kunden-ID und EBICS-Auftragsart und DownloadEntryFileName muss eindeutig sein</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="travicDownloadEntryCreatedAt" type="DateTime" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Fachlicher Zeitstempel für Abholdaten in der TRAVIC-Corporate-Datenbank.
+wird verwendet beim Download zur Sortierung von der Abholdaten</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="handleUnfetched" type="HandleUnfetched" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Optionale Steuerung des Abholdatus von noch nicht abgeholten Daten: MARK_AS_FETCHED oder DELETE</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+	Simple Data Types
+ -->
+	<xs:simpleType name="HandleUnfetched">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="15"/>
+			<xs:enumeration value="MARK_AS_FETCHED">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Ändere den Abhlstatus aller noch nicht abgeholten Abholdaten für den Kunden und die Auftragsart auf abgeholt.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DELETE">
+				<xs:annotation>
+					<xs:documentation xml:lang="de">Lösche alle noch nicht abgeholten Abholdaten für den Kunden und die Auftragsart.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String30">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String60">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="60"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String80">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="String255">
+		<xs:restriction base="xs:token">
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DateTime">
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+</xs:schema>

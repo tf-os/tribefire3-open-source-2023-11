@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <source path="api">
+    	<exclude name="**/**"/>
+    </source>
+    <source path="blocks">
+    	<exclude name="**/**"/>
+    </source>
+    <source path="file">
+    	<exclude name="**/**"/>
+    </source>
+    <source path="pools">
+    	<exclude name="**/**"/>
+    </source>
+</module>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+         <page      		      	
+            class="com.braintribe.devrock.preferences.control.PreferencesControlPage"
+            id="com.braintribe.devrock.main"
+            name="DevRock">
+      	 </page>
+         <page            
+         	category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.virtualenvironment.plugin.preferences.page.environment.VirtualEnvironmentPage"
+            id="com.braintribe.devrock.virtualenvironment.plugin.preferences.page.environment.VirtualEnvironmentPage"
+            name="Virtual Environment">
+      </page>
+   </extension>
+   
+	<extension
+         point="org.eclipse.core.runtime.preferences">
+    	<initializer
+            class="com.braintribe.devrock.virtualenvironment.plugin.preferences.VirtualEnvironmentPreferencesInitializer">
+      	</initializer>
+   	</extension>
+    <extension point="org.eclipse.ui.startup">
+     	<startup class="com.braintribe.devrock.virtualenvironment.variable.VariableResolverRegisterer">
+      	</startup>
+   	</extension>
+   	<extension
+         point="org.eclipse.ui.editors.templates">
+      <resolver
+            class="com.braintribe.devrock.virtualenvironment.variable.resolver.UuidVariableResolver"
+            contextTypeId="java"
+            description="Inserts a generated random UUID"            
+            name="uuid"
+            type="uuid">
+      </resolver>
+   </extension>
+</plugin>

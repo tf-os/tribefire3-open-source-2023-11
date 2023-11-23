@@ -1,0 +1,10 @@
+<container>
+	<tagOne>
+		<value>This is a string</value>
+	</tagOne>
+	<tagTwo>
+		<tagOne>
+			<value></value>
+		</tagOne>
+	</tagTwo>
+</container>

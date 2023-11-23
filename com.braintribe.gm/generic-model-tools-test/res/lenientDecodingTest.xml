@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?gm-xml version="3"?><gm-data>
+<root-value>
+<set>
+<entity ref="0"/>
+<entity ref="1"/>
+<entity ref="2"/>
+<entity ref="3"/>
+<entity ref="4"/>
+<entity ref="5"/>
+<entity ref="6"/>
+<entity ref="7"/>
+</set>
+</root-value>
+<pool>
+<!-- Valid entity -->
+<entity id="0" type="com.braintribe.model.test.EnumEntity">
+<property name="simpleEnum">
+<enum type="com.braintribe.model.test.SimpleEnum">ONE</enum>
+</property>
+</entity>
+<!-- Entity with unknown enum constant -->
+<entity id="1" type="com.braintribe.model.test.EnumEntity">
+<property name="simpleEnum">
+<enum type="com.braintribe.model.test.SimpleEnum">UNKNOWN</enum>
+</property>
+</entity>
+<!-- Unknown type -->
+<entity id="2" type="com.braintribe.model.Unknown">
+<property name="ignored">
+<string>IGNORED</string>
+</property>
+</entity>
+<!-- Entity with unknown property -->
+<entity id="3" type="com.braintribe.model.test.SimpleEntity">
+<property name="stringProperty">
+<string>example string</string>
+</property>
+<property name="unknownProperty">
+<string>ignored</string>
+</property>
+</entity>
+<!-- Valid GmMetaModel entity -->
+<entity id="4" type="com.braintribe.model.meta.GmMetaModel">
+<property name="artifactBinding">
+<null/>
+</property>
+<property name="baseType">
+<null/>
+</property>
+<property name="entityTypes">
+<set>
+<entity ref="5"/>
+<entity ref="6"/>
+</set>
+</property>
+<property name="enumTypes">
+<set>
+</set>
+</property>
+<property name="id">
+<long>1</long>
+</property>
+<property name="metaData">
+<null/>
+</property>
+<property name="name">
+<string>com.braintribe.model.test:ExampleModel#1.0</string>
+</property>
+<property name="simpleTypes">
+<set>
+</set>
+</property>
+</entity>
+<!-- EntityType for com.braintribe.model.generic.GenericEntity -->
+<entity id="5" type="com.braintribe.model.meta.GmEntityType">
+<property name="artifactBinding">
+<null/>
+</property>
+<property name="id">
+<long>1</long>
+</property>
+<property name="isAbstract">
+<boolean>true</boolean>
+</property>
+<property name="isMarkedForDiscard">
+<null/>
+</property>
+<property name="isPlain">
+<boolean>false</boolean>
+</property>
+<property name="metaData">
+<set/>
+</property>
+<property name="properties">
+<list/>
+</property>
+<property name="propertyMetaData">
+<set/>
+</property>
+<property name="superTypes">
+<list/>
+</property>
+<property name="typeSignature">
+<string>com.braintribe.model.generic.GenericEntity</string>
+</property>
+</entity>
+<!-- EntityType for com.braintribe.model.test.LenientDecodingTestEntityType (otherwise unknown type) -->
+<entity id="6" type="com.braintribe.model.meta.GmEntityType">
+<property name="artifactBinding">
+<null/>
+</property>
+<property name="id">
+<long>2</long>
+</property>
+<property name="isAbstract">
+<boolean>false</boolean>
+</property>
+<property name="isMarkedForDiscard">
+<null/>
+</property>
+<property name="isPlain">
+<boolean>true</boolean>
+</property>
+<property name="metaData">
+<set/>
+</property>
+<property name="properties">
+<list>
+</list>
+</property>
+<property name="propertyMetaData">
+<null/>
+</property>
+<property name="superTypes">
+<list>
+<entity ref="5"/>
+</list>
+</property>
+<property name="typeSignature">
+<string>com.braintribe.model.test.LenientDecodingTestEntityType</string>
+</property>
+</entity>
+<!-- Entity of a type that is not available as JavaClass but is described as GmEntityType in this XML.
+     By first checking for all GmMetaModels and ensuring the model types, the XML can still be loaded. -->
+<entity id="7" type="com.braintribe.model.test.LenientDecodingTestEntityType">
+</entity>
+</pool>
+</gm-data>

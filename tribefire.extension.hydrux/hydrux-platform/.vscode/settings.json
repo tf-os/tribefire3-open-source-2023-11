@@ -1,0 +1,9 @@
+{
+    "files.exclude": {
+        "lib/src": true,
+        "lib/ts-src": true,
+        "sources/*.*": true,
+        "src": true,
+        "ts-src": true
+    }
+}

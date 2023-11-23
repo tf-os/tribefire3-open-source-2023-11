@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.Codec"/>
+	<inherits name="com.braintribe.common.Lcd"/>
+	<inherits name="com.braintribe.gwt.async.Async"/>
+	<inherits name="com.braintribe.gwt.fileapi.FileApi"/>
+	<inherits name="com.braintribe.gwt.genericmodel.GenericModel"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+	<inherits name="com.braintribe.model.processing.session.SessionApi"/>
+	<inherits name="com.braintribe.model.ResourceApiModel"/>
+	<inherits name="com.braintribe.model.TransientResourceModel"/>
+	<inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.http.HTTP"/>
+	<inherits name="com.google.gwt.xhr.XMLHttpRequest"/>
+    <source path="client"/>
+    <source path="session"/>
+</module>

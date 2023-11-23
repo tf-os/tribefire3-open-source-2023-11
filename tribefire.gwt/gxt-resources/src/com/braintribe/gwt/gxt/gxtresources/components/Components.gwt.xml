@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.dom.DOM"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="com.google.gwt.event.dom.DomEvent"/>
+	<inherits name="com.google.gwt.i18n.CldrLocales"/>
+	<inherits name="com.google.gwt.user.Debug"/>
+	<inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+	<inherits name="com.sencha.gxt.widget.core.Core"/>
+    <source path="client"/>
+    <replace-with class="com.braintribe.gwt.gxt.gxtresources.extendedcomponents.client.FixedBlueContentPanelAppearance">
+    	<when-type-is class="com.sencha.gxt.widget.core.client.ContentPanel.ContentPanelAppearance" />
+  	</replace-with>
+</module>

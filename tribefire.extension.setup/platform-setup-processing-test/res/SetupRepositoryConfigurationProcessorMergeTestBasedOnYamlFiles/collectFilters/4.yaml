@@ -1,0 +1,6 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.QualifiedArtifactFilter
+      artifactId: "tribefire-web-platform"
+      groupId: "tribefire.cortex"
+    name: "repo"

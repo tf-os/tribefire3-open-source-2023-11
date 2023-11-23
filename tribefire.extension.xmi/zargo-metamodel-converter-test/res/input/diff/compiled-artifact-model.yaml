@@ -1,0 +1,1056 @@
+&0 !com.braintribe.model.meta.GmMetaModel
+dependencies:
+  - &1 !com.braintribe.model.meta.GmMetaModel
+    globalId: "model:com.braintribe.gm:root-model"
+    name: "com.braintribe.gm:root-model"
+    types: !!set
+      ? &2 !com.braintribe.model.meta.GmBaseType
+        declaringModel: *1
+        globalId: "type:object"
+        typeSignature: "object"
+      ? &3 !com.braintribe.model.meta.GmStringType
+        declaringModel: *1
+        globalId: "type:string"
+        typeSignature: "string"
+      ? !com.braintribe.model.meta.GmFloatType
+        declaringModel: *1
+        globalId: "type:float"
+        typeSignature: "float"
+      ? &4 !com.braintribe.model.meta.GmDoubleType
+        declaringModel: *1
+        globalId: "type:double"
+        typeSignature: "double"
+      ? &5 !com.braintribe.model.meta.GmBooleanType
+        declaringModel: *1
+        globalId: "type:boolean"
+        typeSignature: "boolean"
+      ? &6 !com.braintribe.model.meta.GmIntegerType
+        declaringModel: *1
+        globalId: "type:integer"
+        typeSignature: "integer"
+      ? &7 !com.braintribe.model.meta.GmLongType
+        declaringModel: *1
+        globalId: "type:long"
+        typeSignature: "long"
+      ? &8 !com.braintribe.model.meta.GmDateType
+        declaringModel: *1
+        globalId: "type:date"
+        typeSignature: "date"
+      ? !com.braintribe.model.meta.GmDecimalType
+        declaringModel: *1
+        globalId: "type:decimal"
+        typeSignature: "decimal"
+      ? &9 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardIntegerIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *9
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIntegerIdentifiable/id"
+                inherited: true
+                type: *6
+            property: &10 !com.braintribe.model.meta.GmProperty
+              declaringType: &11 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *1
+                globalId: "type:com.braintribe.model.generic.GenericEntity"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *11
+                    globalId: "property:com.braintribe.model.generic.GenericEntity/globalId"
+                    metaData: !!set
+                      ? !com.braintribe.model.meta.data.constraint.Unique
+                        globalId: "Unique:property:com.braintribe.model.generic.GenericEntity/globalId"
+                        inherited: true
+                    name: "globalId"
+                    nullable: true
+                    type: *3
+                  - *10
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *11
+                    globalId: "property:com.braintribe.model.generic.GenericEntity/partition"
+                    name: "partition"
+                    nullable: true
+                    type: *3
+                typeSignature: "com.braintribe.model.generic.GenericEntity"
+              globalId: "property:com.braintribe.model.generic.GenericEntity/id"
+              name: "id"
+              nullable: true
+              type: *2
+        superTypes:
+          - *11
+        typeSignature: "com.braintribe.model.generic.StandardIntegerIdentifiable"
+      ? &12 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *12
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardIdentifiable/id"
+                inherited: true
+                type: *7
+            property: *10
+        superTypes:
+          - *11
+        typeSignature: "com.braintribe.model.generic.StandardIdentifiable"
+      ? &13 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *1
+        globalId: "type:com.braintribe.model.generic.StandardStringIdentifiable"
+        isAbstract: true
+        propertyOverrides:
+          - !com.braintribe.model.meta.override.GmPropertyOverride
+            declaringTypeInfo: *13
+            globalId: "propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.constraint.TypeSpecification
+                globalId: "TypeSpecification:propertyOverride:com.braintribe.model.generic.StandardStringIdentifiable/id"
+                inherited: true
+                type: *3
+            property: *10
+        superTypes:
+          - *11
+        typeSignature: "com.braintribe.model.generic.StandardStringIdentifiable"
+      ? *11
+    version: "1.0.14"
+  - &14 !com.braintribe.model.meta.GmMetaModel
+    dependencies:
+      - *1
+    globalId: "model:com.braintribe.gm:version-model"
+    name: "com.braintribe.gm:version-model"
+    types: !!set
+      ? &15 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *14
+        globalId: "type:com.braintribe.model.version.VersionIntervals"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *15
+            globalId: "property:com.braintribe.model.version.VersionIntervals/elements"
+            name: "elements"
+            nullable: true
+            type: !com.braintribe.model.meta.GmListType
+              elementType: &16 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *14
+                globalId: "type:com.braintribe.model.version.VersionInterval"
+                isAbstract: true
+                superTypes:
+                  - &17 !com.braintribe.model.meta.GmEntityType
+                    declaringModel: *14
+                    globalId: "type:com.braintribe.model.version.VersionExpression"
+                    isAbstract: true
+                    properties:
+                      - !com.braintribe.model.meta.GmProperty
+                        declaringType: *17
+                        globalId: "property:com.braintribe.model.version.VersionExpression/expression"
+                        name: "expression"
+                        nullable: true
+                        type: *3
+                    superTypes:
+                      - *11
+                    typeSignature: "com.braintribe.model.version.VersionExpression"
+                typeSignature: "com.braintribe.model.version.VersionInterval"
+              globalId: "type:list<com.braintribe.model.version.VersionInterval>"
+              typeSignature: "list<com.braintribe.model.version.VersionInterval>"
+        superTypes:
+          - *17
+        typeSignature: "com.braintribe.model.version.VersionIntervals"
+      ? &18 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *14
+        globalId: "type:com.braintribe.model.version.Version"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *18
+            globalId: "property:com.braintribe.model.version.Version/buildNumber"
+            name: "buildNumber"
+            type: *6
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *18
+            globalId: "property:com.braintribe.model.version.Version/nonConform"
+            name: "nonConform"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *18
+            globalId: "property:com.braintribe.model.version.Version/qualifier"
+            name: "qualifier"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *18
+            globalId: "property:com.braintribe.model.version.Version/revision"
+            name: "revision"
+            nullable: true
+            type: *6
+        superTypes:
+          - &19 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *14
+            globalId: "type:com.braintribe.model.version.HasMajorMinor"
+            isAbstract: true
+            properties:
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *19
+                globalId: "property:com.braintribe.model.version.HasMajorMinor/major"
+                name: "major"
+                type: *6
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *19
+                globalId: "property:com.braintribe.model.version.HasMajorMinor/minor"
+                name: "minor"
+                type: *6
+            superTypes:
+              - *11
+            typeSignature: "com.braintribe.model.version.HasMajorMinor"
+          - *16
+        typeSignature: "com.braintribe.model.version.Version"
+      ? *17
+      ? !com.braintribe.model.meta.GmEntityType
+        declaringModel: *14
+        globalId: "type:com.braintribe.model.version.FuzzyVersion"
+        superTypes:
+          - *19
+          - *16
+        typeSignature: "com.braintribe.model.version.FuzzyVersion"
+      ? &20 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *14
+        globalId: "type:com.braintribe.model.version.VersionRange"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *20
+            globalId: "property:com.braintribe.model.version.VersionRange/lowerBound"
+            name: "lowerBound"
+            nullable: true
+            type: *18
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *20
+            globalId: "property:com.braintribe.model.version.VersionRange/lowerBoundExclusive"
+            name: "lowerBoundExclusive"
+            type: *5
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *20
+            globalId: "property:com.braintribe.model.version.VersionRange/upperBound"
+            name: "upperBound"
+            nullable: true
+            type: *18
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *20
+            globalId: "property:com.braintribe.model.version.VersionRange/upperBoundExclusive"
+            name: "upperBoundExclusive"
+            type: *5
+        superTypes:
+          - *16
+        typeSignature: "com.braintribe.model.version.VersionRange"
+      ? *19
+      ? *16
+    version: "1.0.15"
+  - &21 !com.braintribe.model.meta.GmMetaModel
+    dependencies:
+      - *1
+      - &22 !com.braintribe.model.meta.GmMetaModel
+        dependencies:
+          - *1
+          - &23 !com.braintribe.model.meta.GmMetaModel
+            dependencies:
+              - *1
+              - &24 !com.braintribe.model.meta.GmMetaModel
+                dependencies:
+                  - *1
+                globalId: "model:com.braintribe.gm:selector-model"
+                name: "com.braintribe.gm:selector-model"
+                types: !!set
+                  ? &25 !com.braintribe.model.meta.GmEntityType
+                    declaringModel: *24
+                    globalId: "type:com.braintribe.model.selector.Selector"
+                    isAbstract: true
+                    superTypes:
+                      - *11
+                    typeSignature: "com.braintribe.model.selector.Selector"
+                version: "1.0.15"
+              - &26 !com.braintribe.model.meta.GmMetaModel
+                dependencies:
+                  - *1
+                globalId: "model:com.braintribe.gm:i18n-model"
+                name: "com.braintribe.gm:i18n-model"
+                types: !!set
+                  ? &27 !com.braintribe.model.meta.GmEntityType
+                    declaringModel: *26
+                    globalId: "type:com.braintribe.model.generic.i18n.I18nBundle"
+                    isAbstract: true
+                    metaData: !!set
+                      ? !com.braintribe.model.meta.data.prompt.Description
+                        description: !com.braintribe.model.generic.i18n.LocalizedString
+                          globalId: "localized-description:Description:type:com.braintribe.model.generic.i18n.I18nBundle"
+                          localizedValues:
+                            "default": "An abstract base type that defines an Internationalization (I18n) Bundle. Sub Types are supposed to introduce expressive properties for localizable data (mostly string messages)."
+                        globalId: "Description:type:com.braintribe.model.generic.i18n.I18nBundle"
+                        inherited: true
+                    properties:
+                      - !com.braintribe.model.meta.GmProperty
+                        declaringType: *27
+                        globalId: "property:com.braintribe.model.generic.i18n.I18nBundle/locale"
+                        metaData: !!set
+                          ? !com.braintribe.model.meta.data.constraint.Mandatory
+                            globalId: "Mandatory:property:com.braintribe.model.generic.i18n.I18nBundle/locale"
+                            inherited: true
+                        name: "locale"
+                        nullable: true
+                        type: *3
+                    superTypes:
+                      - *11
+                    typeSignature: "com.braintribe.model.generic.i18n.I18nBundle"
+                  ? &28 !com.braintribe.model.meta.GmEntityType
+                    declaringModel: *26
+                    globalId: "type:com.braintribe.model.generic.i18n.LocalizedString"
+                    properties:
+                      - !com.braintribe.model.meta.GmProperty
+                        declaringType: *28
+                        globalId: "property:com.braintribe.model.generic.i18n.LocalizedString/localizedValues"
+                        name: "localizedValues"
+                        nullable: true
+                        type: &29 !com.braintribe.model.meta.GmMapType
+                          globalId: "type:map<string,string>"
+                          keyType: *3
+                          typeSignature: "map<string,string>"
+                          valueType: *3
+                    superTypes:
+                      - *11
+                    typeSignature: "com.braintribe.model.generic.i18n.LocalizedString"
+                version: "1.0.23"
+            globalId: "model:com.braintribe.gm:security-policy-model"
+            name: "com.braintribe.gm:security-policy-model"
+            types: !!set
+              ? &30 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.HasSecurityPolicy"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *30
+                    globalId: "property:com.braintribe.model.securitypolicy.HasSecurityPolicy/securityPolicy"
+                    name: "securityPolicy"
+                    nullable: true
+                    type: &31 !com.braintribe.model.meta.GmEntityType
+                      declaringModel: *23
+                      globalId: "type:com.braintribe.model.securitypolicy.AbstractSecurityPolicy"
+                      isAbstract: true
+                      superTypes:
+                        - *11
+                      typeSignature: "com.braintribe.model.securitypolicy.AbstractSecurityPolicy"
+                superTypes:
+                  - *11
+                typeSignature: "com.braintribe.model.securitypolicy.HasSecurityPolicy"
+              ? &32 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.CompoundSecurityPolicy"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *32
+                    globalId: "property:com.braintribe.model.securitypolicy.CompoundSecurityPolicy/securityPolicies"
+                    name: "securityPolicies"
+                    nullable: true
+                    type: !com.braintribe.model.meta.GmListType
+                      elementType: *31
+                      globalId: "type:list<com.braintribe.model.securitypolicy.AbstractSecurityPolicy>"
+                      typeSignature: "list<com.braintribe.model.securitypolicy.AbstractSecurityPolicy>"
+                superTypes:
+                  - *31
+                typeSignature: "com.braintribe.model.securitypolicy.CompoundSecurityPolicy"
+              ? &33 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.AbstractOperation"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *33
+                    globalId: "property:com.braintribe.model.securitypolicy.AbstractOperation/description"
+                    name: "description"
+                    nullable: true
+                    type: *28
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *33
+                    globalId: "property:com.braintribe.model.securitypolicy.AbstractOperation/name"
+                    name: "name"
+                    nullable: true
+                    type: *28
+                superTypes:
+                  - *11
+                typeSignature: "com.braintribe.model.securitypolicy.AbstractOperation"
+              ? &34 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.CompoundOperation"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *34
+                    globalId: "property:com.braintribe.model.securitypolicy.CompoundOperation/operations"
+                    name: "operations"
+                    nullable: true
+                    type: !com.braintribe.model.meta.GmListType
+                      elementType: *33
+                      globalId: "type:list<com.braintribe.model.securitypolicy.AbstractOperation>"
+                      typeSignature: "list<com.braintribe.model.securitypolicy.AbstractOperation>"
+                superTypes:
+                  - *33
+                typeSignature: "com.braintribe.model.securitypolicy.CompoundOperation"
+              ? &35 !com.braintribe.model.meta.GmEnumType
+                constants:
+                  - !com.braintribe.model.meta.GmEnumConstant
+                    declaringType: *35
+                    globalId: "enum:com.braintribe.model.securitypolicy.SecurityPolicyType/DENY"
+                    name: "DENY"
+                  - !com.braintribe.model.meta.GmEnumConstant
+                    declaringType: *35
+                    globalId: "enum:com.braintribe.model.securitypolicy.SecurityPolicyType/GRANT"
+                    name: "GRANT"
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.SecurityPolicyType"
+                typeSignature: "com.braintribe.model.securitypolicy.SecurityPolicyType"
+              ? &36 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.HasEfficientAccessPolicies"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *36
+                    globalId: "property:com.braintribe.model.securitypolicy.HasEfficientAccessPolicies/deniedFor"
+                    name: "deniedFor"
+                    nullable: true
+                    type: &37 !com.braintribe.model.meta.GmSetType
+                      elementType: *3
+                      globalId: "type:set<string>"
+                      typeSignature: "set<string>"
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *36
+                    globalId: "property:com.braintribe.model.securitypolicy.HasEfficientAccessPolicies/grantedFor"
+                    name: "grantedFor"
+                    nullable: true
+                    type: *37
+                superTypes:
+                  - *11
+                typeSignature: "com.braintribe.model.securitypolicy.HasEfficientAccessPolicies"
+              ? &38 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.Operation"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *38
+                    globalId: "property:com.braintribe.model.securitypolicy.Operation/operationCode"
+                    name: "operationCode"
+                    nullable: true
+                    type: *3
+                superTypes:
+                  - *33
+                typeSignature: "com.braintribe.model.securitypolicy.Operation"
+              ? &39 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.HasEfficientTransitiveAccessPolicies"
+                isAbstract: true
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *39
+                    globalId: "property:com.braintribe.model.securitypolicy.HasEfficientTransitiveAccessPolicies/effectiveDeniedFor"
+                    name: "effectiveDeniedFor"
+                    nullable: true
+                    type: *37
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *39
+                    globalId: "property:com.braintribe.model.securitypolicy.HasEfficientTransitiveAccessPolicies/effectiveGrantedFor"
+                    name: "effectiveGrantedFor"
+                    nullable: true
+                    type: *37
+                superTypes:
+                  - *36
+                typeSignature: "com.braintribe.model.securitypolicy.HasEfficientTransitiveAccessPolicies"
+              ? &40 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *23
+                globalId: "type:com.braintribe.model.securitypolicy.SecurityPolicy"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *40
+                    globalId: "property:com.braintribe.model.securitypolicy.SecurityPolicy/conflictPriority"
+                    name: "conflictPriority"
+                    type: *4
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *40
+                    globalId: "property:com.braintribe.model.securitypolicy.SecurityPolicy/operation"
+                    name: "operation"
+                    nullable: true
+                    type: *33
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *40
+                    globalId: "property:com.braintribe.model.securitypolicy.SecurityPolicy/selector"
+                    name: "selector"
+                    nullable: true
+                    type: *25
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *40
+                    globalId: "property:com.braintribe.model.securitypolicy.SecurityPolicy/type"
+                    initializer: !com.braintribe.model.generic.value.EnumReference
+                      constant: "GRANT"
+                      globalId: "initializer:property:com.braintribe.model.securitypolicy.SecurityPolicy/type"
+                      typeSignature: "com.braintribe.model.securitypolicy.SecurityPolicyType"
+                    name: "type"
+                    nullable: true
+                    type: *35
+                superTypes:
+                  - *31
+                typeSignature: "com.braintribe.model.securitypolicy.SecurityPolicy"
+              ? *31
+            version: "1.0.16"
+        globalId: "model:com.braintribe.gm:resource-model"
+        name: "com.braintribe.gm:resource-model"
+        types: !!set
+          ? &41 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *22
+            globalId: "type:com.braintribe.model.resource.specification.ResourceSpecification"
+            isAbstract: true
+            superTypes:
+              - *11
+            typeSignature: "com.braintribe.model.resource.specification.ResourceSpecification"
+          ? &42 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *22
+            globalId: "type:com.braintribe.model.resource.Resource"
+            metaData: !!set
+              ? !com.braintribe.model.meta.data.display.SelectiveInformation
+                globalId: "SelectiveInformation:type:com.braintribe.model.resource.Resource"
+                inherited: true
+                template: !com.braintribe.model.generic.i18n.LocalizedString
+                  globalId: "ls:SelectiveInformation:type:com.braintribe.model.resource.Resource"
+                  localizedValues:
+                    "default": "${name}"
+            properties:
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/created"
+                name: "created"
+                nullable: true
+                type: *8
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/creator"
+                name: "creator"
+                nullable: true
+                type: *3
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/fileSize"
+                name: "fileSize"
+                nullable: true
+                type: *7
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/md5"
+                name: "md5"
+                nullable: true
+                type: *3
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/mimeType"
+                name: "mimeType"
+                nullable: true
+                type: *3
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/name"
+                name: "name"
+                nullable: true
+                type: *3
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/resourceSource"
+                name: "resourceSource"
+                nullable: true
+                type: &43 !com.braintribe.model.meta.GmEntityType
+                  declaringModel: *22
+                  globalId: "type:com.braintribe.model.resource.source.ResourceSource"
+                  isAbstract: true
+                  properties:
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *43
+                      globalId: "property:com.braintribe.model.resource.source.ResourceSource/useCase"
+                      name: "useCase"
+                      nullable: true
+                      type: *3
+                  superTypes:
+                    - *13
+                  typeSignature: "com.braintribe.model.resource.source.ResourceSource"
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/specification"
+                name: "specification"
+                nullable: true
+                type: *41
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *42
+                globalId: "property:com.braintribe.model.resource.Resource/tags"
+                name: "tags"
+                nullable: true
+                type: *37
+            superTypes:
+              - *30
+              - *13
+            typeSignature: "com.braintribe.model.resource.Resource"
+          ? *43
+        version: "1.0.14"
+      - &44 !com.braintribe.model.meta.GmMetaModel
+        dependencies:
+          - *1
+        globalId: "model:com.braintribe.devrock:essential-artifact-model"
+        name: "com.braintribe.devrock:essential-artifact-model"
+        types: !!set
+          ? &45 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *44
+            globalId: "type:com.braintribe.model.artifact.essential.PartIdentification"
+            properties:
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *45
+                globalId: "property:com.braintribe.model.artifact.essential.PartIdentification/classifier"
+                name: "classifier"
+                nullable: true
+                type: *3
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *45
+                globalId: "property:com.braintribe.model.artifact.essential.PartIdentification/type"
+                name: "type"
+                nullable: true
+                type: *3
+            superTypes:
+              - *11
+            typeSignature: "com.braintribe.model.artifact.essential.PartIdentification"
+          ? &46 !com.braintribe.model.meta.GmEntityType
+            declaringModel: *44
+            globalId: "type:com.braintribe.model.artifact.essential.VersionedArtifactIdentification"
+            properties:
+              - !com.braintribe.model.meta.GmProperty
+                declaringType: *46
+                globalId: "property:com.braintribe.model.artifact.essential.VersionedArtifactIdentification/version"
+                name: "version"
+                nullable: true
+                type: *3
+            superTypes:
+              - &47 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *44
+                globalId: "type:com.braintribe.model.artifact.essential.ArtifactIdentification"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *47
+                    globalId: "property:com.braintribe.model.artifact.essential.ArtifactIdentification/artifactId"
+                    name: "artifactId"
+                    nullable: true
+                    type: *3
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *47
+                    globalId: "property:com.braintribe.model.artifact.essential.ArtifactIdentification/groupId"
+                    name: "groupId"
+                    nullable: true
+                    type: *3
+                superTypes:
+                  - *11
+                typeSignature: "com.braintribe.model.artifact.essential.ArtifactIdentification"
+            typeSignature: "com.braintribe.model.artifact.essential.VersionedArtifactIdentification"
+          ? *47
+        version: "1.0.11-pc"
+    globalId: "model:com.braintribe.devrock:declared-artifact-model"
+    name: "com.braintribe.devrock:declared-artifact-model"
+    types: !!set
+      ? &48 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *21
+        globalId: "type:com.braintribe.model.artifact.declared.ProcessingInstruction"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *48
+            globalId: "property:com.braintribe.model.artifact.declared.ProcessingInstruction/data"
+            name: "data"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *48
+            globalId: "property:com.braintribe.model.artifact.declared.ProcessingInstruction/target"
+            name: "target"
+            nullable: true
+            type: *3
+        superTypes:
+          - *11
+        typeSignature: "com.braintribe.model.artifact.declared.ProcessingInstruction"
+      ? &49 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *21
+        globalId: "type:com.braintribe.model.artifact.declared.DeclaredArtifact"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/dependencies"
+            name: "dependencies"
+            nullable: true
+            type: &50 !com.braintribe.model.meta.GmListType
+              elementType: &51 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *21
+                globalId: "type:com.braintribe.model.artifact.declared.DeclaredDependency"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *51
+                    globalId: "property:com.braintribe.model.artifact.declared.DeclaredDependency/exclusions"
+                    name: "exclusions"
+                    nullable: true
+                    type: &52 !com.braintribe.model.meta.GmSetType
+                      elementType: *47
+                      globalId: "type:set<com.braintribe.model.artifact.essential.ArtifactIdentification>"
+                      typeSignature: "set<com.braintribe.model.artifact.essential.ArtifactIdentification>"
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *51
+                    globalId: "property:com.braintribe.model.artifact.declared.DeclaredDependency/optional"
+                    name: "optional"
+                    type: *5
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *51
+                    globalId: "property:com.braintribe.model.artifact.declared.DeclaredDependency/origin"
+                    name: "origin"
+                    nullable: true
+                    type: *49
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *51
+                    globalId: "property:com.braintribe.model.artifact.declared.DeclaredDependency/processingInstructions"
+                    name: "processingInstructions"
+                    nullable: true
+                    type: &53 !com.braintribe.model.meta.GmListType
+                      elementType: *48
+                      globalId: "type:list<com.braintribe.model.artifact.declared.ProcessingInstruction>"
+                      typeSignature: "list<com.braintribe.model.artifact.declared.ProcessingInstruction>"
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *51
+                    globalId: "property:com.braintribe.model.artifact.declared.DeclaredDependency/scope"
+                    name: "scope"
+                    nullable: true
+                    type: *3
+                superTypes:
+                  - *46
+                  - *45
+                typeSignature: "com.braintribe.model.artifact.declared.DeclaredDependency"
+              globalId: "type:list<com.braintribe.model.artifact.declared.DeclaredDependency>"
+              typeSignature: "list<com.braintribe.model.artifact.declared.DeclaredDependency>"
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/description"
+            name: "description"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/distributionManagement"
+            name: "distributionManagement"
+            nullable: true
+            type: &54 !com.braintribe.model.meta.GmEntityType
+              declaringModel: *21
+              globalId: "type:com.braintribe.model.artifact.declared.DistributionManagement"
+              properties:
+                - !com.braintribe.model.meta.GmProperty
+                  declaringType: *54
+                  globalId: "property:com.braintribe.model.artifact.declared.DistributionManagement/relocation"
+                  name: "relocation"
+                  nullable: true
+                  type: &55 !com.braintribe.model.meta.GmEntityType
+                    declaringModel: *21
+                    globalId: "type:com.braintribe.model.artifact.declared.Relocation"
+                    properties:
+                      - !com.braintribe.model.meta.GmProperty
+                        declaringType: *55
+                        globalId: "property:com.braintribe.model.artifact.declared.Relocation/message"
+                        name: "message"
+                        nullable: true
+                        type: *3
+                    superTypes:
+                      - *46
+                    typeSignature: "com.braintribe.model.artifact.declared.Relocation"
+              superTypes:
+                - *11
+              typeSignature: "com.braintribe.model.artifact.declared.DistributionManagement"
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/licenses"
+            name: "licenses"
+            nullable: true
+            type: !com.braintribe.model.meta.GmSetType
+              elementType: &56 !com.braintribe.model.meta.GmEntityType
+                declaringModel: *21
+                globalId: "type:com.braintribe.model.artifact.declared.License"
+                properties:
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *56
+                    globalId: "property:com.braintribe.model.artifact.declared.License/comments"
+                    name: "comments"
+                    nullable: true
+                    type: *3
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *56
+                    globalId: "property:com.braintribe.model.artifact.declared.License/distribution"
+                    name: "distribution"
+                    nullable: true
+                    type: *3
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *56
+                    globalId: "property:com.braintribe.model.artifact.declared.License/name"
+                    name: "name"
+                    nullable: true
+                    type: *3
+                  - !com.braintribe.model.meta.GmProperty
+                    declaringType: *56
+                    globalId: "property:com.braintribe.model.artifact.declared.License/url"
+                    name: "url"
+                    nullable: true
+                    type: *3
+                superTypes:
+                  - *11
+                typeSignature: "com.braintribe.model.artifact.declared.License"
+              globalId: "type:set<com.braintribe.model.artifact.declared.License>"
+              typeSignature: "set<com.braintribe.model.artifact.declared.License>"
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/managedDependencies"
+            name: "managedDependencies"
+            nullable: true
+            type: *50
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/name"
+            name: "name"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/packaging"
+            name: "packaging"
+            nullable: true
+            type: *3
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/parentReference"
+            name: "parentReference"
+            nullable: true
+            type: *46
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/properties"
+            name: "properties"
+            nullable: true
+            type: *29
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *49
+            globalId: "property:com.braintribe.model.artifact.declared.DeclaredArtifact/resource"
+            name: "resource"
+            nullable: true
+            type: *42
+        superTypes:
+          - *46
+        typeSignature: "com.braintribe.model.artifact.declared.DeclaredArtifact"
+      ? *56
+      ? *54
+      ? *51
+      ? *55
+    version: "1.0.6-pc"
+globalId: "model:com.braintribe.devrock:compiled-artifact-model"
+name: "com.braintribe.devrock:compiled-artifact-model"
+types: !!set
+  ? !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.artifact.compiled.CompiledPartIdentification"
+    superTypes:
+      - &57 !com.braintribe.model.meta.GmEntityType
+        declaringModel: *0
+        globalId: "type:com.braintribe.model.artifact.compiled.CompiledArtifactIdentification"
+        properties:
+          - !com.braintribe.model.meta.GmProperty
+            declaringType: *57
+            globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifactIdentification/version"
+            name: "version"
+            nullable: true
+            type: *18
+        superTypes:
+          - *47
+        typeSignature: "com.braintribe.model.artifact.compiled.CompiledArtifactIdentification"
+      - *45
+    typeSignature: "com.braintribe.model.artifact.compiled.CompiledPartIdentification"
+  ? *57
+  ? &58 !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.artifact.compiled.CompiledTerminal"
+    properties:
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *58
+        globalId: "property:com.braintribe.model.artifact.compiled.CompiledTerminal/artifact"
+        name: "artifact"
+        nullable: true
+        type: &59 !com.braintribe.model.meta.GmEntityType
+          declaringModel: *0
+          globalId: "type:com.braintribe.model.artifact.compiled.CompiledArtifact"
+          properties:
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/artifactRedirects"
+              name: "artifactRedirects"
+              nullable: true
+              type: !com.braintribe.model.meta.GmMapType
+                globalId: "type:map<com.braintribe.model.artifact.compiled.CompiledDependencyIdentification,com.braintribe.model.artifact.compiled.CompiledDependencyIdentification>"
+                keyType: &60 !com.braintribe.model.meta.GmEntityType
+                  declaringModel: *0
+                  globalId: "type:com.braintribe.model.artifact.compiled.CompiledDependencyIdentification"
+                  properties:
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *60
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependencyIdentification/version"
+                      name: "version"
+                      nullable: true
+                      type: *17
+                  superTypes:
+                    - *47
+                  typeSignature: "com.braintribe.model.artifact.compiled.CompiledDependencyIdentification"
+                typeSignature: "map<com.braintribe.model.artifact.compiled.CompiledDependencyIdentification,com.braintribe.model.artifact.compiled.CompiledDependencyIdentification>"
+                valueType: *60
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/dependencies"
+              name: "dependencies"
+              nullable: true
+              type: &61 !com.braintribe.model.meta.GmListType
+                elementType: &62 !com.braintribe.model.meta.GmEntityType
+                  declaringModel: *0
+                  globalId: "type:com.braintribe.model.artifact.compiled.CompiledDependency"
+                  properties:
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/exclusions"
+                      name: "exclusions"
+                      nullable: true
+                      type: *52
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/optional"
+                      name: "optional"
+                      type: *5
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/origin"
+                      name: "origin"
+                      nullable: true
+                      type: *59
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/parts"
+                      name: "parts"
+                      nullable: true
+                      type: !com.braintribe.model.meta.GmMapType
+                        globalId: "type:map<com.braintribe.model.artifact.essential.PartIdentification,string>"
+                        keyType: *45
+                        typeSignature: "map<com.braintribe.model.artifact.essential.PartIdentification,string>"
+                        valueType: *3
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/processingInstructions"
+                      name: "processingInstructions"
+                      nullable: true
+                      type: *53
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/scope"
+                      name: "scope"
+                      nullable: true
+                      type: *3
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/tags"
+                      name: "tags"
+                      nullable: true
+                      type: *37
+                    - !com.braintribe.model.meta.GmProperty
+                      declaringType: *62
+                      globalId: "property:com.braintribe.model.artifact.compiled.CompiledDependency/versionIsNegotiable"
+                      name: "versionIsNegotiable"
+                      type: *5
+                  superTypes:
+                    - *60
+                    - *45
+                  typeSignature: "com.braintribe.model.artifact.compiled.CompiledDependency"
+                globalId: "type:list<com.braintribe.model.artifact.compiled.CompiledDependency>"
+                typeSignature: "list<com.braintribe.model.artifact.compiled.CompiledDependency>"
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/dominants"
+              name: "dominants"
+              nullable: true
+              type: &63 !com.braintribe.model.meta.GmListType
+                elementType: *60
+                globalId: "type:list<com.braintribe.model.artifact.compiled.CompiledDependencyIdentification>"
+                typeSignature: "list<com.braintribe.model.artifact.compiled.CompiledDependencyIdentification>"
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/exclusions"
+              name: "exclusions"
+              nullable: true
+              type: *52
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/imports"
+              name: "imports"
+              nullable: true
+              type: *63
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/origin"
+              name: "origin"
+              nullable: true
+              type: *49
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/packaging"
+              name: "packaging"
+              nullable: true
+              type: *3
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/parent"
+              name: "parent"
+              nullable: true
+              type: *60
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/properties"
+              name: "properties"
+              nullable: true
+              type: *29
+            - !com.braintribe.model.meta.GmProperty
+              declaringType: *59
+              globalId: "property:com.braintribe.model.artifact.compiled.CompiledArtifact/relocation"
+              name: "relocation"
+              nullable: true
+              type: *55
+          superTypes:
+            - *57
+          typeSignature: "com.braintribe.model.artifact.compiled.CompiledArtifact"
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *58
+        globalId: "property:com.braintribe.model.artifact.compiled.CompiledTerminal/dependency"
+        name: "dependency"
+        nullable: true
+        type: *62
+    superTypes:
+      - *57
+    typeSignature: "com.braintribe.model.artifact.compiled.CompiledTerminal"
+  ? &64 !com.braintribe.model.meta.GmEntityType
+    declaringModel: *0
+    globalId: "type:com.braintribe.model.artifact.compiled.CompiledParent"
+    properties:
+      - !com.braintribe.model.meta.GmProperty
+        declaringType: *64
+        globalId: "property:com.braintribe.model.artifact.compiled.CompiledParent/managedDependencies"
+        name: "managedDependencies"
+        nullable: true
+        type: *61
+    superTypes:
+      - *59
+    typeSignature: "com.braintribe.model.artifact.compiled.CompiledParent"
+  ? *60
+  ? *62
+  ? *59
+version: "1.0.14-pc"

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs DHF</title>
+	<head>        
+        <script>
+        
+            var servicesUrl = "https://prod-dhf-jnj.tribefire.cloud/services";
+            var accessId = "extended.webreader.access";
+            var sessionId = "20200826235018946-8331e7d8-00bc-4859-a840-e35ad87e00db";
+            var remoteSession;
+            var persistenceSession;
+            var user = "cortex";
+            var pwd = "bt@JnJDHF2019";
+            var documentId = "00030a33-d1e1-44cd-85da-a50bfb0ccd8a";
+
+            window.addEventListener('onStartTribefireJs', function(){
+                //document.cookie = "tfsessionId=20200826235018946-8331e7d8-00bc-4859-a840-e35ad87e00db"
+                loadPdf();       
+            });
+            
+            function modelEnvironment(){
+                var r = $T.com.braintribe.gm.model.persistence.reflection.api.GetModelEnvironment.create();
+                r.accessId = accessId;
+                r.sessionId = sessionId;
+                r.domainId = "cortex";
+                $tf.remote.evaluate(servicesUrl, r)
+                .then((result) => {
+                    debugger;
+                });
+            }
+            
+            function getCookie(name) {
+                var value = `; ${document.cookie}`;
+                var parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            }
+            
+            function loadPdf(){
+                $tf.util.loadModelFile("dhf-model.js").then(v => {
+                    var request = $T.com.jnj.capri.model.service.streaming.AprDocumentStreamingRequest.create();
+                    request.documentId = documentId;
+                    request.sessionId = sessionId;
+                    request.domainId = accessId;
+                    $tf.remote.evaluate(servicesUrl, request)
+                    .then((result) => {
+                        debugger;
+                    });
+                });
+            }
+
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword(user, pwd);
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }
+            
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+	<body>
+	</body>	
+</html>

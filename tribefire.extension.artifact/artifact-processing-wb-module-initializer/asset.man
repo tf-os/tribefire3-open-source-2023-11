@@ -1,0 +1,11 @@
+RedirectStoragePriming = com.braintribe.model.asset.preprocessing.RedirectStoragePriming
+
+$nature = (PrimingModule=com.braintribe.model.asset.natures.PrimingModule)()
+.accessIds = ('access.repositoryConfiguration.wb')
+
+$redirectDefaultWorkbenchInitialization = RedirectStoragePriming()
+$redirectDefaultWorkbenchInitialization.sourceAccessId = 'access.placeholder.workbench'
+$redirectDefaultWorkbenchInitialization.targetAccessIds = ('access.repositoryConfiguration.wb')
+
+$nature
+.assetPreprocessings = [$redirectDefaultWorkbenchInitialization]

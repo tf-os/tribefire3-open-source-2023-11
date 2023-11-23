@@ -1,0 +1,39 @@
+#set($d='$')
+
+[main]
+# ###########################################################################
+# CONFIG:
+# ###########################################################################
+
+sessionManager = org.apache.shiro.web.session.mgt.DefaultWebSessionManager
+securityManager.sessionManager = ${d}sessionManager
+
+sessionDAO = com.braintribe.model.processing.shiro.bootstrapping.MulticastSessionDao
+securityManager.sessionManager.sessionDAO = ${d}sessionDAO
+
+sessionIdGenerator = com.braintribe.model.processing.shiro.bootstrapping.NodeSessionIdGenerator
+securityManager.sessionManager.sessionDAO.sessionIdGenerator = ${d}sessionIdGenerator
+
+pathUrlResolver = org.pac4j.core.http.callback.PathParameterCallbackUrlResolver
+
+#foreach ($authClient in $authClients)#foreach ($entry in $authClient.configuration.entrySet())$entry.key = $entry.value
+#end#end
+
+clients.callbackUrl = ${callbackUrl}
+clients.clients = #foreach ($authClient in $authClients)${d}${authClient.name}#if( $foreach.hasNext ),#end#end
+
+# ###########################################################################
+# REALM & FILTERS:
+# ###########################################################################
+
+#foreach ($authClient in $authClients)#foreach ($entry in $authClient.filters.entrySet())$entry.key = $entry.value
+#end#end
+
+
+[urls]
+/component/${loginServletPath}/auth/callback = callbackFilter
+#foreach ($addPostfix in ${additionalCallbackUrlPostfixes})/component/${loginServletPath}/auth/callback${addPostfix} = callbackFilter
+#end
+#foreach ($authClient in $authClients)${authClient.urlPart}/** = ${authClient.name}_Filter
+#end
+/** = anon

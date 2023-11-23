@@ -1,0 +1,21 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-c"
+    password: "password3-c"
+    url: "url3-c"
+    user: "user3-c"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-ac"
+    password: "password3-ac"
+    url: "url3-ac"
+    user: "user3-ac"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-bc"
+    password: "password3-bc"
+    url: "url3-bc"
+    user: "user3-bc"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-abc"
+    password: "password3-abc"
+    url: "url3-abc"
+    user: "user3-abc"

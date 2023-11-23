@@ -1,0 +1,15 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  setting_up_platform_assets.md:
+    displayTitle: "Setting Up Platform Assets"
+    priority: -200
+
+  working_with_platform_assets.md:
+    displayTitle: "Working with Platform Assets"
+    priority: -185
+  
+  expanding_doc_portal.md:
+    displayTitle: "Creating Documentation Portals"
+    priority: -180

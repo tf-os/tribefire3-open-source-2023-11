@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.TimeModel"/>
+    <inherits name="com.braintribe.utils.format.FormatApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <inherits name="com.google.gwt.user.datepicker.DatePicker"/>
+    <source path="gwt"/>
+</module>

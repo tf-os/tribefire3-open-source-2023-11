@@ -1,0 +1,28 @@
+{
+$0 = (Joat = com.braintribe.model.manipulation.parser.impl.model.Joat)()
+.stringValue = 'Hallo'
+.booleanValue = true
+.integerValue = 23
+.longValue = 47L
+.floatValue = 3.14F
+.doubleValue = 2.718D
+.decimalValue = 1.33333333333333333333333333333333333B
+.dateValue = date(1976Y, +0100Z)
+SomeEnum = com.braintribe.model.manipulation.parser.impl.model.SomeEnum
+.enumValue = SomeEnum::fix
+.entityValue = $0
+.stringSet = ( 'one', 'two', 'three' )
+.stringList = [ 'one', 'two', 'three' ]
+.objectList = [ 'one', SomeEnum::fix, true, 23, 12.3B, $0 ]
+.stringObjectMap = { 'one': 1L, 'two': true, 'three': date(14D) }
+
+SomeType = com.braintribe.model.example.SomeType
+$2 = SomeType('fixfoxy')
+
+$1 = Joat('foobar')
+
+$1.booleanValue = true
+.stringValue = 'mad'
+$0.objectList = [$2]
+$1.stringValue = 'mad'
+}

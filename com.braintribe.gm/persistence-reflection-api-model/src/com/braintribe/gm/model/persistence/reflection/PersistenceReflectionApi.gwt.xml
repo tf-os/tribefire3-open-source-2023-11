@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.AccessApiModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="api"/>
+</module>
+

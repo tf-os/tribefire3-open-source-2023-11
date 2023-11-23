@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<!-- 
+	This mapping will be used rather than a generated one 
+	-->
+	<class name="test.models.CUSTOM_PACKAGE.TestEntity" abstract="false" table="TABLE_NAME_FROM_URL_FILE">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+	</class>
+</hibernate-mapping>
+

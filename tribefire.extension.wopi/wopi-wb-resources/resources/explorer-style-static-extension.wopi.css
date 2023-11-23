@@ -1,0 +1,489 @@
+.headerbar-folder-image {
+	width: 230px;
+	padding-top: 0px;
+}
+
+/*div[class$="propertyValueCollectionAdd"] {*/
+div.propertyPanelPropertyValueCollectionAdd {
+	font-size: 13px !important;
+	color: #1179BA !important;
+}
+
+/*div[class$="propertyValueEntityAssign"] {*/
+	div.propertyPanelPropertyValueEntityAssign {
+		font-size: 13px !important;
+		color: #1179BA !important;
+	}
+	
+	/* already applied in GME */
+	/*div[class$="WorkbenchTreeAppearance-WorkbenchTreeAppearanceStyle-text"] {*/
+	div.gmeTreeText {
+		font-size: 13px !important;
+		margin-left: 10px;
+	}
+	
+	/* TODO:
+	This won't be possible to be exported, since it does not refer to a single class.
+	/*
+	td[class*="com-braintribe-gwt-gme-assemblypanel-client-resources-AssemblyPanelCss"] {
+		font-size: 13px !important;
+	}*/
+	
+	/*div[class$="com-braintribe-gwt-gme-constellation-client-resources-ConstellationCss-selected"] {*/
+	div.constellationToolBarSelected {	
+		border: 1px solid #75a6da !important;
+	}
+	
+	/* already applied in GME */
+	/*td[class*="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss-flowCollectionElement"] {*/
+	td.propertyPanelFlowCollectionElement {
+		font-size: 13px !important;
+		padding-top: 5px;
+	}
+	
+	/*div[class$="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss-propertyFlowDisplay"] {*/
+	div.propertyPanelPropertyFlowDisplay {	
+		font-size: 13px !important;
+	}
+	
+	/*td[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-WhiteButtonCellAppearance-WhiteButtonCellStyle-button"] {*/
+	td.constellationHighlightButton {	
+		background-color: #75a6da !important;
+		border: 0px !important;
+	}
+	
+	/*td[class*="com-braintribe-gwt-gxt-gxtresources-whitecolumnheader-client-WhiteColumnHeaderAppearance-WhiteColumnHeaderStyles-head"] {*/
+	td.gmExtendedColumnHead {
+		background-color: #f1f1f1 !important;
+	}
+	
+	/*td[class*="com-braintribe-gwt-gxt-gxtresources-flatgroupingview-client-GroupingViewFlatAppearance-FlatGroupingViewStyle-group"]*/
+	/*td.gxtGroup {
+		background-color: #f1f1f1 !important;
+	}*/
+				
+	/*div[class*="com-braintribe-gwt-gme-assemblypanel-client-resources-AssemblyPanelCss-propertyValue"] {*/
+	div.assemblyPanelPropertyValue {
+		padding-top: 10px !important;
+	}
+	
+	/* already applied in GME */
+	/*div[class$="com-braintribe-gwt-gxt-gxtresources-orangeflattab-client-WorkbenchTreeAppearance-WorkbenchTreeAppearanceStyle-node"] { */
+	div.gmeTreeNode {
+		margin-top: 5px;
+	}
+	
+	/*
+	TODO:
+	Unfortunatelly I haven't find the place where this could be exported.
+	Basically, this is a too generic place. I think the change must be applied somewhere else, rather than this.
+	The height should be applied in code, not via css. Perhaps also the top. Please let me know what you wanted to do with this in case you remember.
+	*/
+	div[class$=com-sencha-gxt-theme-blue-client-window-BlueWindowAppearance-BlueWindowStyle-body] {
+		height: 65px;
+		top: 9px !important;
+	}
+	
+	/*
+	TODO:
+	This won't be possible to be exported, since it does not refer to a single class.
+	
+	td[class*="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss"] {
+		height:20px !important;
+	}
+	*/
+	
+	/*div[class*="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss-propertyValueWithGridLines"] { */
+	div.propertyPanelPropertyValueWithGridLines {
+		border: none !important;
+		border-bottom: 2px solid #f1f1f1 !important;
+	}
+	
+	/*div[class$="com-sencha-gxt-theme-base-client-listview-ListViewDefaultAppearance-ListViewDefaultStyle-item"] {*/
+	div.gmeListViewItem {
+		font-size: 13px;
+	}
+	
+	/*div[class$="com-sencha-gxt-theme-base-client-listview-ListViewDefaultAppearance-ListViewDefaultStyle-sel"] {*/
+	div.gmeListViewSel {
+		border: 1px solid #f1f1f1!important;
+		background-color: #f1f1f1;
+		font-size: 13px;
+	}
+	
+	/*div[class*="com-sencha-gxt-theme-base-client-field-TriggerFieldDefaultAppearance-TriggerFieldStyle-trigger"] {*/
+	div.gmeExtendedTrigger {
+		background: url(../../static/tribefire.extension.wopi.wopi-cartridge/drop-down.png) 1px -0px no-repeat !important;
+		border-bottom-color: white !important;
+		background-size: contain !important;
+	}
+	
+	/*
+	TODO:
+	This is applied. No exported class.
+	
+	div[class$="com-sencha-gxt-theme-blue-client-BlueThemeAppearance-BlueStyles-border"] {
+		border: 1px solid #f1f1f1!important;
+	}
+	*/
+	
+	/*div[class*="com-braintribe-gwt-gxt-gxtresources-orangemenuitem-client-OrangeMenuItemAppearance-OrangeMenuItemStyle-menuListItem"] {*/
+	div.gmeMenuListItem {
+		font-size: 13px !important;
+	}
+	
+	/*div[class*="com-braintribe-gwt-gxt-gxtresources-whitemenu-client-WhiteMenuAppearance-WhiteMenuStyle-menu"] { */
+	div.gmeMenu {
+		padding-top: 7px !important;
+		padding-bottom: 3px !important;
+		padding-left: 7px !important;
+	}
+	
+	/*span[class*="com-braintribe-gwt-gxt-gxtresources-orangemenuitem-client-OrangeMenuItemAppearance-OrangeMenuItemStyle-menuItem"] {*/
+	span.gmeMenuItem {
+		padding: 5px 21px 10px 30px !important;
+	}
+	
+	/*td[class*="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss-propertyMenu"] {*/
+	td.propertyPanelPropertyMenu {	
+		background: url(../../static/tribefire.extension.wopi.wopi-cartridge/more.png) -0px -0px no-repeat !important;
+		 background-size: contain !important;
+	}
+	
+	/*td[class*="com-braintribe-gwt-gme-propertypanel-client-resources-PropertyPanelCss-propertyValueReadOnly"] {*/
+	td.propertyPanelPropertyValueReadOnly {
+		background-size: contain !important;
+		background-repeat: no-repeat !important;
+	}
+	
+	/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-SplitArrowUpWhiteButtonCellAppearance-WhiteButtonCellStyle-text"] {*/
+	.gmeSplitArrowUpButtonText {
+		font-size: 14px;
+		color: #3f4348;
+		text-transform: uppercase;
+	}
+	
+	/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-SplitArrowUpWhiteButtonCellAppearance-WhiteButtonCellStyle-split"] {*/
+	div.gmeSplitArrowUpButtonSplit {
+		padding-right: 15px !important;
+	}
+	
+	/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-SplitArrowUpWhiteButtonCellAppearance-WhiteButtonCellStyle-over"] {*/
+	div.gmeSplitArrowUpButtonOver {
+		padding-right: 0px !important;
+	}
+	
+	/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-WhiteButtonCellAppearance-WhiteButtonCellStyle-text"] {*/
+	div.gmeButtonText {
+		font-size: 12px !important;
+		text-transform: uppercase !important;
+	}
+	
+/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-WhiteButtonCellAppearance-WhiteButtonCellStyle-iconTop"] {
+    margin-left: 10px;
+    width: 80px;
+}*/
+
+/*table[class*="com-braintribe-gwt-gxt-gxtresources-whitebutton-client-WhiteButtonCellAppearance-WhiteButtonCellStyle-mainTable"] {
+    width: 100%;
+    background: #1179BA;
+    color: white;
+}*/
+
+/*div[class$="com-braintribe-gwt-gxt-gxtresources-whitemask-client-WhiteMaskAppearance-WhiteMaskStyle-mask"] {*/
+div.gmeWhiteMask {
+    opacity: 1 !important;
+    background-color: #f1f1f1 !important;
+}
+
+input[type=text],
+input[type=password] {
+    border: none;
+    border-bottom: 1px solid grey !important;
+    font-size: 13px !important;
+    text-align: left !important;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+	border-bottom: 2px solid #1179BA !important;
+}
+/*
+com-braintribe-gwt-gxt-gxtresources-extendedtrigger-client-ExtendedStringCellDefaultAppearance-ExtendedStringCellStyle-focus
+
+height: 20px !important;
+    border: 1px solid #7eadd9!important;
+    border-radius: 4px;
+    padding: 3px;
+	margin-right: 2px;
+	
+com-braintribe-gwt-gxt-gxtresources-extendedtrigger-client-ExtendedStringCellDefaultAppearance-ExtendedStringCellStyle-field
+font: 13px 'GothamBook2' !important;
+
+com-braintribe-gwt-gxt-gxtresources-extendedtrigger-client-ExtendedStringCellDefaultAppearance-ExtendedStringCellStyle-focus input
+padding: 0 !important;
+border: 1px solid #7eadd9!important;
+*/
+
+
+/*div[class$="com-braintribe-gwt-gxt-gxtresources-orangeflattab-client-WorkbenchTreeAppearance-WorkbenchTreeAppearanceStyle-tree"] {
+	top: 10px !important;
+}*/
+
+/*
+[id^=gmAssemblyPanel] {
+	top: 0px !important;
+	left: 40px !important;
+	width: 1000px !important;
+	border: 1px solid #f1f1f1 !important;
+}*/
+
+#gmEntryPointsPanel {
+	top: 45px !important;
+}
+
+#tf_nav {
+	margin: 4px 4px 4px 4px;
+}
+
+.gmeWorkbenchRow {
+   /*margin-left: 10px;*/
+    font-size: 13px;
+}
+
+.thumbnailPanelContainer {
+	background: #f1f1f1 !important;
+}
+
+.tetherElement {
+	font-size: 13px;
+}
+
+.gimaDialog {
+	top: 7px;
+}
+
+.gimaDialog .tetherElement {
+	height: 35px;
+	background-color: #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+}
+
+.tabItemLabel {
+	font-size: 13px;
+}
+
+.gmePropertyName {
+	font-size: 13px;
+}
+
+.gmePropertyValue {
+	font-size: 13px;
+}
+
+.gmeGridColumn  {
+	font-size: 13px;
+	/*background-color: #f1f1f1;*/
+	border-bottom: 1px solid #f1f1f1 !important;
+}
+
+.thumbnailPanelInfo {
+	font-size: 13px !important;
+}
+
+.thumbnailPanelInfoWithIcon {
+	font-size: 13px !important;
+}
+
+.thumbnailPanelMainInfo {
+	font-size: 13px !important;
+}
+
+.thumbnailPanelBeforeInfo {
+	font-size: 13px !important;
+}
+
+.actionbar-text {
+	font-size: 13px !important;
+	margin-top: 10px;
+}
+
+.x-grid-item-focused {
+    background-color: white !important;
+}
+
+.x-menu-item-active {
+    background: none repeat scroll 0 0 #f1f1f1 !important;
+    border: 1px solid #f1f1f1 !important;
+}
+div.autoCompletionDialogItem.selectedItem {
+	background-color: #f1f1f1 !important;
+	border-color: #f1f1f1 !important;
+}
+
+.emptyStyle {
+color: #3f4348 !important;
+background: #f1f1f1;
+}
+
+.propertyGroupRuler {
+color: #3f4348 !important;
+background-color: #f1f1f1 !important;
+height: 10px;
+border-radius: 10px;
+}
+
+.EP364EC-I-e {
+color: #3f4348 !important;
+}
+.x-grid3-row-selected {
+/*background-color: #fff1d9 !important;*/
+background-color:  rgb(255, 165, 0, 0.1) !important;
+}
+
+
+.x-grid3-row-selected .gmeGridColumn {
+/*background-color: #fff1d9 !important;*/
+background-color:  rgb(255, 165, 0, 0.1) !important;
+
+}
+
+.thumbnailPanelSelectionContainerSelected
+.thumbnailPanelImageContainer {
+	background: white;
+}
+
+.thumbnailPanelImageContainer {
+	background: white;
+	border: 1px solid grey !important;
+	cursor: pointer;
+}
+
+.thumbnailPanelSelectionContainer {
+	padding-top: 30px;
+}
+
+div.verticalTabItem {
+    background-color: #f1f1f1 !important;
+	border-color: #f1f1f1 !important;
+	border-bottom: 4px solid #f1f1f1 !important;
+	color: #3f4348;
+	text-transform: uppercase;
+}
+
+div.verticalTabItem.verticalTabSelected {
+	/*background-color: #FFA500 !important;*/
+	/*border-color: #FFA500 !important;*/
+	/*color: white !important;*/
+	border-bottom: 4px solid #FFA500 !important;
+}
+
+
+div.verticalTabItem.horizontalTabItem.staticTabItem.verticalTabSelected {
+	border-bottom: 4px solid #FFA500 !important;
+	border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+}
+
+div.verticalTabItem.horizontalTabItem.staticTabItem {
+	height: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 4px solid white !important;
+}
+
+.generalPanel {
+	background: #f1f1f1;
+	/*margin-left: 10px;*/
+}
+
+.generalMainSecion-si {
+	text-transform: uppercase;
+}
+
+.queryModelEditorSearchElement {
+	background-color: white !important;
+}
+
+.queryModelEditorSearchIcon{
+	content: url(../../static/tribefire.extension.wopi.wopi-cartridge/magnifier.png) !important;
+}
+
+.dragNDropArea {
+	height: 100px !important;
+	width: 80% !important;
+}
+
+.dragNDropAreaText {
+	color: #1179BA !important;
+	font-size: 14px !important;
+}
+
+.entered {
+    /*background-color: #fff1d9*/
+	background-color:  rgb(255, 165, 0, 0.1);
+    border: 1px solid #f1f1f1; /*FFE6BA*/
+}
+
+a.closeHorizontalIcon {
+    background-image: url(../../static/tribefire.extension.wopi.wopi-cartridge/close.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    height: 10px !important;
+    right: -1px !important;
+    opacity: 0.4 !important;
+    width: 10px !important;
+}
+
+.gmModellerPanel {
+    background-color: #f1f1f1 !important;
+}
+.globalActionToolBarBase>div {
+	background: #FFA500;
+    border-radius: 50px;
+    height: 65px !important;
+    justify-content: center !important;
+    top: 12px;
+}
+/*
+.actionbar-toolbar li div {
+	display: flex !important; 
+	
+	padding-left: 10px !important;
+	padding-right: 20px !important;
+	
+}
+actionbar-image {
+    margin-left: 5px !important;
+}
+*/
+
+.globalActionToolBarBase>div {
+	background: white;
+	/*background-image: linear-gradient(to right, rgb(117,166,218,0.3), rgb(117,166,218,0.1));*/
+
+    border-radius: 20px;
+    height: 65px !important;
+	top: 8px;
+	/*padding-right: 10px;*/
+	box-shadow: 5px 5px 5px grey;
+	width: 300px !important;
+	border: 1px solid rgb(255, 165, 0);
+	justify-content: center !important;
+}
+
+.actionbar-text {
+    font-size: 10px !important;
+    text-transform: uppercase;
+    margin-top: 10px !important;
+    
+}
+
+div.queryModelEditorOrderByLabel span {
+    color: gray !important;
+}
+
+div.queryModelEditorAreaRowElement a {
+	color: #1179BA !important;
+}

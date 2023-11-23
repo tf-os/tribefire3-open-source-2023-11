@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.gm.model.ServiceValueDescriptorModel"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.model.BasicValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.ModelPathModel"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.processing.vde.builder.VdeBuilderApi"/>
+    <inherits name="com.braintribe.model.processing.vde.builder.VdeBuilderImpl"/>
+    <inherits name="com.braintribe.model.processing.vde.evaluator.VdeEvaluatorApi"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <inherits name="com.braintribe.model.TimeModel"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.braintribe.utils.format.FormatApi"/>
+    <inherits name="com.braintribe.utils.format.FormatTool"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="vde"/>
+</module>

@@ -1,0 +1,12 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  creating_workbench.md: !com.braintribe.doc.meta.FileDisplayInfo
+  
+  configuring_workbench.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  persisting_service_requests.md: !com.braintribe.doc.meta.FileDisplayInfo
+
+  template_query.md: 
+    hidden: true

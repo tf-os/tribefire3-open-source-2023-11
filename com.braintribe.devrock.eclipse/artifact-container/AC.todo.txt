@@ -1,0 +1,88 @@
+Todo on AC#3.0
+
+
+
+Preferences	
+	- test profile activation on files
+	- test selection / override of local repository expression 
+	- define what happens if invalid settings are found/active
+		- no settings
+		- no profiles
+		- no repositories
+		- no local repository
+		- no working copy
+		- no svn url
+		
+	- implement container
+		- build proper registry : DONE
+			- project to container
+			- container to project
+		- build commands : DONE
+			- single sync 
+			- workspace / workingset sync 
+				- try to find out what dependencies exist in the workspace 
+					- prj.a requires prj.b requires prj.c
+		- build job executor  : DONE
+			- acts as a grouping tool for multiple syncs
+			- acts as deferred updater 
+			- acts as blocker
+		- build notification hook
+	- implement commands
+		- QI : DONE
+		- imports : DONE
+		- add dependency import feature : DONE 
+			- in QI, option : import to current project
+			- in context menu : copy to clipboard (single, multiple) 
+	- Upon opening, check if pom REALLY has been changed, and only then synchronize, otherwise refresh : DONE
+	
+	- CHECK  
+		undetermined  : DONE
+		abort in enriching : DONE
+	
+	
+	- PREFERENCES
+		- check box if repository directory exists .. DONE
+		
+		
+	- RAVENHURST
+		- do not store fails (404)
+		- concurrent file access, implement semaphore logic  : DONE
+		- redeploy feature / RH integration 
+		
+		
+	-RESOLVING : DONE
+		- fix chain of delegates : 
+			a) workspace expert (AC)
+			b) local expert 
+			c) remote expert
+			
+	-ENRICHING : DONE
+		- build chain of delegates: 
+			a) local expert
+			b) remote expert  
+			
+			
+	- Notification : DONE
+		use a UUID and walk-based listener instead of instance-based listener? DONE
+		make sure monitor data arrives at the correct place (pom reader) DONE
+		
+	- Dependency view : DONE
+		- preview: upon switch, all tab check their state 
+		- condensed, filter : each tab checks it's own state 
+		- switch container mode (compile/launch)
+		
+	- Ravenhurst view : DONE
+	
+	
+	- Artifact Wizard : DONE
+	
+	- Package explorer decorator : DONE
+		- move decision to "monitor" expert
+		- mark project
+			- any warnings 
+			- any errors
+			 
+	
+	- Preferences
+		- revamp tree (simple tree vs treeviewer or at least treeresizer)
+		- add connectivity test !!

@@ -1,0 +1,14 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-a"  # artifactFilter is null
+    password: "myPassword-a"
+    url: "myURL-a"
+    user: "myUser-a"
+  - !com.braintribe.devrock.model.repository.CodebaseRepository
+    name: "" # invalid repository since name is not set
+    rootPath: "somePath-b"
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-ab"  # artifactFilter is null
+    password: "myPassword-ab"
+    url: "myURL-ab"
+    user: "myUser-ab"

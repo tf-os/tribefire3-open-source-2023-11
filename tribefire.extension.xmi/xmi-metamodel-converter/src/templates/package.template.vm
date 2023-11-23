@@ -1,0 +1,4 @@
+<UML:Package xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+	<UML:Namespace.ownedElement>
+	</UML:Namespace.ownedElement>
+</UML:Package>

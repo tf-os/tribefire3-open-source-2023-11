@@ -1,0 +1,23 @@
+body {
+	font-family: arial, serif;
+	font-size: small;
+	margin: 0;
+	padding: 20px;
+}
+h1 {
+	font-size: 24px;
+}
+h2 {
+	font-size: medium;
+	margin: 15px 0 0px 0;
+}
+ol {
+	line-height: 1.4em;
+	text-align: justify;
+	margin: 10px 0 0 15px;
+	padding: 0;
+}
+p {
+	line-height: 1.4em;
+	text-align: justify;
+}

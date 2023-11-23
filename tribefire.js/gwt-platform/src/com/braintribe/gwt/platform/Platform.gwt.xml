@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="client"/>
+    <generate-with class="com.braintribe.gwt.platform.build.PlatformImplGenerator">
+    	<when-type-assignable class="com.braintribe.gwt.platform.client.PlatformImpl"/>
+  	</generate-with>
+    <super-source path="emul"/>
+</module>

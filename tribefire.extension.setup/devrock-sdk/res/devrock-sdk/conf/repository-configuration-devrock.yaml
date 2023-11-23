@@ -1,0 +1,24 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration {
+  cachePath: "${config.base}/../repo",
+
+  repositories: [
+    !com.braintribe.devrock.model.repository.MavenHttpRepository {
+      name: "devrock", 
+      url: "https://artifactory.braintribe.com/artifactory/devrock/", 
+      user: "${env.OPENTF_REPO_USER}",
+      password: "${env.OPENTF_REPO_PASSWORD}",
+    },
+    !com.braintribe.devrock.model.repository.MavenHttpRepository {
+      name: "third-party", 
+      url: "https://artifactory.braintribe.com/artifactory/third-party/", 
+      user: "${env.OPENTF_REPO_USER}",
+      password: "${env.OPENTF_REPO_PASSWORD}",
+    },
+    !com.braintribe.devrock.model.repository.MavenHttpRepository {
+      name: "core-dev", 
+      url: "https://artifactory.braintribe.com/artifactory/core-dev/", 
+      user: "${env.OPENTF_REPO_USER}",
+      password: "${env.OPENTF_REPO_PASSWORD}",
+    },
+  ]
+}

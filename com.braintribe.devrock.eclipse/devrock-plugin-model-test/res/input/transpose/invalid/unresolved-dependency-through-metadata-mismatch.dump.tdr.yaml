@@ -1,0 +1,89 @@
+!com.braintribe.model.artifact.analysis.AnalysisArtifactResolution
+failure: !com.braintribe.devrock.model.mc.reason.IncompleteResolution
+  reasons:
+    - &0 !com.braintribe.devrock.model.mc.reason.UnresolvedDependency
+      reasons:
+        - !com.braintribe.devrock.model.mc.reason.UnresolvedArtifact
+          reasons:
+            - !com.braintribe.devrock.model.mc.reason.UnresolvedPart
+              text: "could not load part data for com.braintribe.devrock.test:a#1.0.2/:pom"
+          text: "Could not resolve artifact: com.braintribe.devrock.test:a#1.0.2"
+      text: "Could not resolve dependency via: com.braintribe.devrock.test:t#1.0.1 => com.braintribe.devrock.test:t#1.0.1/jar -> com.braintribe.devrock.test:a#[1.0,1.1)/:jar"
+  text: "Artifact resolution for [com.braintribe.devrock.test:t#1.0.1] is incomplete"
+incompleteArtifacts: !!set
+  ? &1 !com.braintribe.model.artifact.analysis.AnalysisArtifact
+    artifactId: "t"
+    dependencies:
+      - &2 !com.braintribe.model.artifact.analysis.AnalysisDependency
+        artifactId: "a"
+        depender: *1
+        failure: *0
+        groupId: "com.braintribe.devrock.test"
+        origin: &3 !com.braintribe.model.artifact.compiled.CompiledDependency
+          artifactId: "a"
+          groupId: "com.braintribe.devrock.test"
+          origin: &4 !com.braintribe.model.artifact.compiled.CompiledArtifact
+            artifactId: "t"
+            dependencies:
+              - *3
+            groupId: "com.braintribe.devrock.test"
+            origin: &5 !com.braintribe.model.artifact.declared.DeclaredArtifact
+              artifactId: "t"
+              dependencies:
+                - !com.braintribe.model.artifact.declared.DeclaredDependency
+                  artifactId: "a"
+                  groupId: "com.braintribe.devrock.test"
+                  origin: *5
+                  version: "[1.0,1.1)"
+              groupId: "com.braintribe.devrock.test"
+              resource: &6 !com.braintribe.model.resource.FileResource
+                name: "t-1.0.1.pom"
+                path: "F:\\works\\dev-envs\\standard\\git\\com.braintribe.devrock\\mc-core-test\\res\\output\\wired\\transitive\\unresolved\\repo\\com\\braintribe\\devrock\\test\\t\\1.0.1\\t-1.0.1.pom"
+              version: "1.0.1"
+            packaging: "jar"
+            version: !com.braintribe.model.version.Version
+              major: 1
+              minor: 0
+              revision: 1
+          scope: "compile"
+          type: "jar"
+          version: !com.braintribe.model.version.FuzzyVersion
+            major: 1
+            minor: 0
+        scope: "compile"
+        type: "jar"
+        version: "[1.0,1.1)"
+    dependers: !!set
+      ? &7 !com.braintribe.model.artifact.analysis.AnalysisDependency
+        artifactId: "t"
+        groupId: "com.braintribe.devrock.test"
+        origin: !com.braintribe.model.artifact.compiled.CompiledDependency
+          artifactId: "t"
+          groupId: "com.braintribe.devrock.test"
+          scope: "compile"
+          version: !com.braintribe.model.version.Version
+            major: 1
+            minor: 0
+            revision: 1
+        scope: "compile"
+        solution: *1
+        version: "1.0.1"
+    failure: !com.braintribe.devrock.model.mc.reason.IncompleteArtifact
+      reasons:
+        - *0
+      text: "Artifact [com.braintribe.devrock.test:t#1.0.1] is incomplete"
+    groupId: "com.braintribe.devrock.test"
+    origin: *4
+    packaging: "jar"
+    parts:
+      ":pom": !com.braintribe.model.artifact.consumable.Part
+        repositoryOrigin: "local"
+        resource: *6
+        type: "pom"
+    version: "1.0.1"
+solutions:
+  - *1
+terminals:
+  - *7
+unresolvedDependencies: !!set
+  ? *2

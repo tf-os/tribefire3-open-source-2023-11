@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "./",
+    "declaration": true,
+    "declarationDir": "./src",
+    "importsNotUsedAsValues": "preserve",
+    "lib": ["DOM", "esnext"],
+    "moduleResolution": "node",
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ],
+  },
+  "include": [
+    "lib/**/*",
+    "src-ts"
+  ]
+}

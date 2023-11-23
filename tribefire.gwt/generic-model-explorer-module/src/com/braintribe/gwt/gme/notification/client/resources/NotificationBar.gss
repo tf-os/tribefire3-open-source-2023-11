@@ -1,0 +1,227 @@
+@external notificationBar-errorUp;
+@external notificationBar-errorText;
+@external notificationBar-errorTextBig;
+@external notificationBar-errorDown;
+@external notificationBar-errorAction;
+@external notificationBar-hintUp;
+@external notificationBar-hintText;
+@external notificationBar-hintTextBig;
+@external notificationBar-hintDown;
+@external notificationBar-hintAction;
+@external notificationBar-warningUp;
+@external notificationBar-warningText;
+@external notificationBar-warningTextBig;
+@external notificationBar-warningDown;
+@external notificationBar-warningAction;
+@external notificationBar-successUp;
+@external notificationBar-successText;
+@external notificationBar-successTextBig;
+@external notificationBar-successDown;
+@external notificationBar-successAction;
+@external notificationBar-detailText;
+@external notificationBar-messageBig;
+@external notificationBar-boldText;
+@external notificationBar-italicText;
+@external notificationBar-underlineText;
+@external notificationBar-strikeoutText;
+@external notificationConstellationTopPanel;
+@external notificationConstellationFilterPanel;
+@external notificationConstellationFlowPanel;
+@external notificationConstellationSimplePanel;
+@external notificationConstellationElement;
+
+
+@def TEXT_COLOR #222;
+@def ACTION_COLOR #2a5db0;
+@def ERROR_COLOR #ffe0e0;
+@def WARNING_COLOR #fff7d7;
+@def SUCCESS_COLOR #ebffd6;
+@def HINT_COLOR #fff7d7;
+
+@def URL_INFO resourceUrl("infosInfoBigCircle");
+@def URL_WARNING resourceUrl("infosAlertCircle");
+@def URL_SUCCESS resourceUrl("infosSuccessCircle");
+@def URL_ERROR resourceUrl("infosErrorCircle");
+
+.notificationBar-hintUp,
+.notificationBar-warningUp,
+.notificationBar-successUp,
+.notificationBar-errorUp {
+  border-bottom: 3px solid;
+}
+
+.notificationBar-hintText,
+.notificationBar-warningText,
+.notificationBar-successText,
+.notificationBar-errorText, 
+.notificationBar-hintTextBig,
+.notificationBar-warningTextBig,
+.notificationBar-successTextBig,
+.notificationBar-errorTextBig {
+  color: TEXT_COLOR;
+  font-weight: normal;
+  padding: 5px 5px 5px 30px;
+  line-height: 100%;
+  /*font-family: arial,sans-serif;*/
+  background-repeat: no-repeat;
+  background-position: 10px 45%;
+  background-size: 16px 16px;
+  display: flex;
+  justify-content: center;  
+  /*align-items: center;*/
+}
+
+.notificationBar-hintTextBig,
+.notificationBar-warningTextBig,
+.notificationBar-successTextBig,
+.notificationBar-errorTextBig {
+  font-size: 18px;
+  line-height: 25px;
+  padding: 5px 5px 5px 50px;
+  background-size: 32px 32px;
+}
+
+.notificationBar-hintText,
+.notificationBar-hintTextBig {
+  background-color: HINT_COLOR;
+  background-image: URL_INFO;
+}
+
+.notificationBar-warningText,
+.notificationBar-warningTextBig {
+  background-color: WARNING_COLOR;
+  background-image: URL_WARNING;
+}
+
+.notificationBar-successText,
+.notificationBar-successTextBig {
+  background-color: SUCCESS_COLOR;
+  background-image: URL_SUCCESS;
+}
+
+.notificationBar-errorText,
+.notificationBar-errorTextBig {
+  background-color: ERROR_COLOR;
+  background-image: URL_ERROR;
+}
+
+.notificationBar-hintUp,
+.notificationBar-hintDown,
+.notificationBar-warningUp,
+.notificationBar-warningDown,
+.notificationBar-successUp,
+.notificationBar-successDown,
+.notificationBar-errorUp,
+.notificationBar-errorDown {
+  border-left: 3px dotted transparent;
+  border-right: 3px dotted transparent;
+  line-height: 100%;
+}
+
+.notificationBar-hintDown,
+.notificationBar-warningDown,
+.notificationBar-successDown,
+.notificationBar-errorDown {
+  border-top: 3px solid;
+}
+
+.notificationBar-hintUp,
+.notificationBar-hintDown {
+  border-bottom-color: HINT_COLOR;
+  border-top-color: HINT_COLOR;
+}
+
+.notificationBar-warningUp,
+.notificationBar-warningDown {
+  border-bottom-color: WARNING_COLOR;
+  border-top-color: WARNING_COLOR;
+}
+
+.notificationBar-successUp,
+.notificationBar-successDown {
+  border-bottom-color: SUCCESS_COLOR;
+  border-top-color: SUCCESS_COLOR;
+}
+
+.notificationBar-errorUp,
+.notificationBar-errorDown {
+  border-bottom-color: ERROR_COLOR;
+  border-top-color: ERROR_COLOR;
+}
+
+.notificationBar-hintAction,
+.notificationBar-warningAction,
+.notificationBar-successAction,
+.notificationBar-errorAction {
+  color: ACTION_COLOR;
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 5px;
+  background-repeat: no-repeat;
+  background-position: 5px 0;
+}
+
+.notificationBar-detailText {
+  display: flex;
+  vertical-align: middle;
+  padding: 2px 5px;
+  word-break: normal;
+  text-align: left;
+  max-width: 260px;
+}
+
+.notificationBar-messageBig {
+	font-size: 13px;
+	height: 65px;
+	wdith: 360px;
+	display: flex;
+    align-items: center;
+}
+
+.notificationBar-boldText {
+	font-weight: bold;
+}
+
+.notificationBar-italicText {
+	font-style: italic;
+}
+
+.notificationBar-strikeoutText {
+	text-decoration: line-through;
+}
+
+.notificationBar-underlineText {
+	text-decoration: underline;
+}
+
+.notificationConstellationTopPanel {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;	
+}
+
+.notificationConstellationFilterPanel {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.notificationConstellationFlowPanel {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;	
+}
+
+.notificationConstellationSimplePanel {
+	width: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.notificationConstellationElement {
+    padding-left: 10px;	
+}

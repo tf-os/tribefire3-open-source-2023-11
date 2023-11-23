@@ -1,0 +1,2 @@
+# the ant-lib folder to be used for this developer-package
+antLibFolder: "${config.sdk.root}/tools/ant-libs"

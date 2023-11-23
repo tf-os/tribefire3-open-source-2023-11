@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.gwt.async.Async"/>
+	<inherits name="com.braintribe.gwt.ioc.Ioc"/>
+	<inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+	<inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.PathModel"/>
+	<inherits name="com.braintribe.model.processing.manipulator.expert.BasicManipulators"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.processing.ValueDescriptorEvaluator"/>
+	<inherits name="com.braintribe.model.processing.vde.evaluator.VdeEvaluatorApi"/>
+    <inherits name="com.braintribe.model.TemplateModel"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="template"/>
+</module>

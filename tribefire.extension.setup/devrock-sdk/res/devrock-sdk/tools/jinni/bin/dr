@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+
+TOOLS_DIR=${DIR}/../..
+DEVROCK_SDK_HOME=${TOOLS_DIR}/..
+export REPOSITORY_CONFIGURATION_DEVROCK_ANT_TASKS="${DEVROCK_SDK_HOME}/conf/repository-configuration-devrock.yaml"
+
+if [ -e build.gradle ]; then
+    export GRADLE_HOME="${TOOLS_DIR}/gradle"
+    "${GRADLE_HOME}/bin/gradle" "$@"
+elif [ -e build.xml ]; then
+    export ANT_HOME="${TOOLS_DIR}/ant"
+    ANT_LIB_DIR="${TOOLS_DIR}/ant-libs"
+    "${ANT_HOME}/bin/ant" -lib "${ANT_LIB_DIR}" "$@"
+else
+    echo "current working dir is neither containing a gradle nor an ant build script"
+    exit 1
+fi

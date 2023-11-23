@@ -1,0 +1,5 @@
+!com.braintribe.model.platform.setup.api.SetupLocalTomcatPlatform {
+    setupDependency: "tribefire.extension.audit:service-audit-integration-test-setup#1.2",
+    installationPath: "../../tf-setups/service-audit-integration-test",
+    debugProject: "service-audit-integration-test-debug"
+}

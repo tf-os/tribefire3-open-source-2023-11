@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="directTypeElement">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="value" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- derivation via restriction -->
+	<xs:complexType name="standard">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="restricted">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:restriction base="standard">
+					<xs:sequence>
+						<xs:element name="value" type="xs:string" fixed="bla"/>
+					</xs:sequence>
+				</xs:restriction>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="notReferencedByElement">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="choiceOne" type="xs:string"/>
+				<xs:element name="choiceTwo" type="xs:string"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="restricted_standard">
+		<xs:complexContent>
+			<xs:extension base="standard">
+				<xs:sequence>
+					<xs:element name="valueTwo" type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Error 404: $path not found</title>
+<style type="text/css">
+body { font-family:Arial; font-size:18px; }
+li { margin:4px }
+ul,ol { margin:0px; }
+a { text-decoration: none; }
+h3 { color: gray; font-weight: normal; }
+a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<h3>Http Error 404</h3>
+<p>Collection [ $path ] not found</p>
+#if ($printInspectedPaths)
+<p>Inspected paths:</p>
+<ol>
+#foreach ($inspectedPath in $inspectedPaths)
+<li>$inspectedPath</li>
+#end	
+</ol>
+#end
+</body>
+</html>

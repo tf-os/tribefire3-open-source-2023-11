@@ -1,0 +1,8 @@
+/bin
+/build
+/classes
+/dist
+/malaclypse.log*
+/velocity.log*
+/xmiToMetaModelConverter.log*
+/.container.cfg.xml

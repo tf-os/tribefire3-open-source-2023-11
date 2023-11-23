@@ -1,0 +1,32 @@
+<!--
+	============================================================================
+	BRAINTRIBE TECHNOLOGY GMBH - www.braintribe.com
+	Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2021 - All Rights Reserved
+	It is strictly forbidden to copy, modify, distribute or use this code without written permission
+	To this file the Braintribe License Agreement applies.
+	============================================================================
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.example</groupId>
+		<artifactId>parent</artifactId>
+		<version>[${major}.${minor},${major}.${nextMinor})</version>
+	</parent>
+	<artifactId>example-data-model</artifactId>
+	<version>${major}.${minor}.${revision}</version>
+	<properties>
+		<major>3</major>
+		<minor>2</minor>
+		<nextMinor>3</nextMinor>
+		<revision>1-pc</revision>
+		<archetype>asset</archetype>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.example</groupId>
+			<artifactId>example-model</artifactId>
+			<version>${V.org.example}</version>
+			<?tag asset?>
+		</dependency>
+	</dependencies>
+</project>

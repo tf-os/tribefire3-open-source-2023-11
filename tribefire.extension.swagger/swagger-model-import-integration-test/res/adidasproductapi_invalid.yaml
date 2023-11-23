@@ -1,0 +1,1441 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: "[Draft] Product Service"
+  description: |
+    Draft of a new Poduct API for outbound integration.
+
+    To propose a change, head over to [GitHub repository](https://github.com/adidas-group/product-service-api), create a new branch with proposed change and open a [pull request](https://help.github.com/articles/about-pull-requests/).
+
+    ## Article Information Levels
+    Article information are provided on the following levels:
+
+    1. Global
+    1. Market-specific
+
+    ## Catalogue Information Levels
+    Catalogue information are provided on the following levels:
+
+    1. Global (as in not market specific) Model-specific
+    1. Global Article-specific
+
+    ## Available Affordances
+    The API affords the following top-level actions:
+
+    - Retrieve all articles
+    - Retrieve all articles for a particular market
+    - Retrieve a particular article information
+    - Retrieve a particular article information on a specific market
+    - Retrieve the catalogue information for a particular article
+    - Retrieve the catalogue information for a particular model
+    - Retrieve all markets, their area and region codes
+
+    ## Marketing Channels
+    The Product Service API (this API) does not provide any marketing channel (eCommerce, retail, wholesale, etc.) -specific information. To retireve product information specific to a marketing channel refer to the respective marketing channel's API.
+
+    1. [eCommerce](https://draftproductserviceglass.docs.apiary.io/#) (GLASS)
+    1. Retail (HERO) (planned)
+    1. Wholesale (eCatalogue) (planned)
+
+    ## Season Information
+    Where applicable, seasonal information might be retrieved using the optional `season_name` parameter. When no `season_name` parameter is provided the current season is assumed.
+
+    ## Language Variants
+    Where applicable, product information support standard [HTTP Language Variants negotiation](https://adidas-group.gitbooks.io/api-guidelines/content/execution/localization.html) using the `Accept-Language` HTTP Header.
+
+    ## Embedding Related Resoruces
+    For the performance reasons over HTTP/1.1 the article-related resources will be embeded under `_embedded` field as specified in [HAL](http://stateless.co/hal_specification.html) representation format.
+
+    > NOTE: The embedded articles in the `_embedded` field might not represent
+    > the latest information, nor be complete. To retireve the full up-to-date
+    > representation of an article exercise its `self` relation.     
+
+produces:
+  - application/hal+json      # Representation message format
+  - application/problem+json  # Error message format
+
+schemes:
+  - https
+
+securityDefinitions:
+   "API Key":
+     type: apiKey
+     in: header
+     name: Adidas-API-Key
+
+security:
+  - "API Key": []
+
+paths: 
+  /:
+    x-summary: Product Service API
+
+    get:
+      x-opertain_spec: 
+      summary: Retrieve Product Service API Root
+      description: Retrieve available top-level actions of the Product Service API
+      responses:
+        200:
+          description: The root of the API
+          schema:
+            allOf:
+              - $ref: '#/definitions/adidasComApiHAL'
+            example:
+              _links:
+                self:
+                  href: /
+                articles:
+                  href: /articles
+                article:
+                  href: /articles/{article_id}
+                  templated: true
+                articleCatalogue:
+                  href: /articles/{article_id}/catalogue
+                  templated: true
+                modelCatalogue:
+                  href: /models/{model_id}/catalogue
+                  templated: true
+                markets:
+                  href: /markets
+                marketArticles:
+                  href: /markets/{area_code}{?season_name}
+                  templated: true
+                marketArticle:
+                  href: /markets/{area_code}/articles/{article_id}{?season_name}
+                  templated: true
+                  
+  /articles:
+    x-summary: Articles
+    x-description: Global articles information.
+
+    get:
+      summary: Retrieve List of Articles
+      description: |
+        Retrieve list of all articles.
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | season            | query              | `season_name`              |
+        | language          | header             | `Accept-Language`          |
+
+        The information about the articles are non-seasonal, however each non-seasonal article carries a link to related seasonal article information.
+        If the season filter is applied, only thos non-seasonal articles information that have seasonal article in the given season are returned.
+
+      parameters:
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/seasonNameOptional'
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: The list of articles
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticlesHAL'
+            
+  /articles/{article_id}:
+    x-summary: Article
+    x-description: |
+      Global article infromation. This resource carry non-seasonal article information, however its related resource `season` posess the season-specific article information.
+    parameters:
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Article
+      description: |
+        Retrieve a particular article by its id.
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | language          | header             | `Accept-Language`          |
+
+      parameters:
+        - $ref: '#/parameters/fields'
+        - $ref: '#/parameters/embedded'
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: Non-seasonal article information.
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticleHAL'
+
+        404:
+          description: The requested article wasn't found.
+          headers:
+            Content-Type:
+              type: string
+              default: application/problem+json
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticleNotFoundProblemDetail'
+            
+  /articles/{article_id}/assets:
+    x-summary: Article Assets
+    x-description: Global articles assets.
+    parameters:
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Article Assets
+      description: Retrieve all assets for a particular article.
+      responses:
+        200:
+          description: Assets for an Article
+          schema:
+            $ref: '#/definitions/adidasComProductApiAssetsHAL'
+
+  /articles/{article_id}/skus:
+    x-summary: Article SKUs
+    x-description: Global articles SKUs.
+    parameters:
+      - $ref: '#/parameters/articleId'
+    get:
+      summary: Retrieve Article SKUs
+      responses:
+        200:
+          description: SKUs for an Article.
+          schema:
+            $ref: '#/definitions/adidasComProductApiSKUsHAL'
+
+  /articles/{article_id}/seasons:
+    x-summary: Article Seasons
+    x-description: Article seasonal information.
+    parameters:
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Article Seasonal Information
+      description: |
+        Retrieve seasonal article information
+
+        | Available Filters | Parameter Location | Parameter Name(s) |
+        |-------------------|--------------------|-------------------|
+        | season            | query              | `season_name`     |
+        | language          | header             | `Accept-Language` |
+
+      parameters:
+        - $ref: '#/parameters/seasonName'
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: Seasons for an Article
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticleSeasonsHAL'
+
+        404:
+          description: The given article was not found.
+          headers:
+            Content-Type:
+              type: string
+              default: application/problem+json
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticleNotFoundProblemDetail'
+
+  #
+  # Catalogue Information
+  #
+  # TODO: Confirm to provide only global model and article catalog information
+  # TODO: Confirm to remove season filter model and article catalog information  
+  /models/{model_id}/catalogue:
+    x-summary: Model Catalogue
+    x-description: Global model catalogue information.
+    parameters:
+      - $ref: '#/parameters/modelId'
+
+    get:
+      summary: Retrieve Model Catalogue
+      description: |
+        Get a particular model's catalogue by model number.
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | language          | header             | `Accept-Language`          |
+
+      parameters:
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: Model Catalogue
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiModelCatalogHAL'
+
+  /articles/{article_id}/catalogue:
+    x-summary: Article Catalogue
+    x-description: Article-specific catalogue information.
+    parameters:
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Article Catalogue
+      description: |
+        Retrieve a particular article's catalogue.
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | language          | header             | `Accept-Language`          |
+
+      parameters:
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: Article Catalogue
+          schema:
+            $ref: '#/definitions/adidasComProductApiArticleCatalogHAL'
+
+  /markets:
+    x-summary: Markets
+    x-description: List of available markets and their area and region codes.
+
+    get:
+      summary: Retrieve Markets
+      description: Retrieve the list of available markets.
+      responses:
+        200:
+          description: |
+            List of area-code : region-code tuples toghether with their specific article listings.
+          schema:
+            $ref: '#/definitions/adidasComProductApiMarketsHAL'
+
+  /markets/{area_code}/articles:
+    x-summary: Market Articles
+    x-description: List of articles for the given market
+    parameters:
+      - $ref: '#/parameters/areaCodePath'
+
+    get:
+      summary: Retrieve List of Market Articles
+      description: |
+        Retrieve List of Articles for a given Market
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | season (required) | query              | `season_name`              |
+        | language          | header             | `Accept-Language`          |
+
+      parameters:
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/seasonName' # NOTE: Unlike on the global level, on a market level season is always required
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: List of market articles
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiMarketArticlesHAL'
+
+  /markets/{area_code}/articles/{article_id}:
+    x-summary: Market Article
+    x-description: Market article infromation. These information are always seasonal.
+    parameters:
+      - $ref: '#/parameters/areaCodePath'
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Market Article
+      description: |
+        Retrieve a particular article by its id for the given market.
+
+        | Available Filters | Parameter Location | Parameter Name(s)          |
+        |-------------------|--------------------|----------------------------|
+        | season (required) | query              | `season_name`              |
+        | language          | header             | `Accept-Language`          |
+
+      parameters:
+        - $ref: '#/parameters/seasonName'
+        - $ref: '#/parameters/fields'
+        - $ref: '#/parameters/embedded'
+        - $ref: '#/parameters/acceptLanguageHeader'
+      responses:
+        200:
+          description: Market specific, seasonal article information.
+          headers:
+            Content-Language:
+              type: string
+              default: en
+              x-example: en
+            Vary:
+              type: string
+              default: Accept-Language
+              x-example: Accept-Language
+          schema:
+            $ref: '#/definitions/adidasComProductApiMarketArticleHAL'
+
+  /markets/{area_code}/articles/{article_id}/prices:
+    x-summary: Market Article Prices
+    x-description: Prices for an article on a given market.
+    parameters:
+      - $ref: '#/parameters/areaCodePath'
+      - $ref: '#/parameters/articleId'
+
+    get:
+      summary: Retrieve Article Prices
+      description: |
+        Retrieve prices for the particular article on the given market
+
+        | Available Filters | Parameter Location | Parameter Name(s) |
+        |-------------------|--------------------|-------------------|
+        | season (required) | query              | `season_name`     |
+
+      parameters:
+        - $ref: '#/parameters/seasonName'
+      responses:
+        200:
+          description: Prices for an Article
+          schema:
+            $ref: '#/definitions/adidasComProductApiPricesHAL'
+
+  /markets/{area_code}/articles/{article_id}/skus:
+    x-summary: Market Article SKUs
+    x-description: Market-level article SKUs.
+    parameters:
+      - $ref: '#/parameters/areaCodePath'
+      - $ref: '#/parameters/articleId'
+    get:
+      summary: Retrieve Market Article SKUs
+      description: |
+        Retrieve SKUs for the particular article on the given market
+
+        | Available Filters | Parameter Location | Parameter Name(s) |
+        |-------------------|--------------------|-------------------|
+        | season (required) | query              | `season_name`     |
+      
+      responses:
+        200:
+          description: SKUs for an Market Article.
+          schema:
+            $ref: '#/definitions/adidasComProductApiMarketSKUsHAL'
+
+  # NOTE: The resource 'market article assets'
+  # /markets/{area_code}/articles/{article_id}/assets:
+  # Is not modeled as separate resource since the market and global assets are the same.
+  # Instead /articles/{article_id}/assets is referenced via assets relation.
+
+#
+# Parameters Definitions
+#
+parameters:
+  # Article Id
+  articleId:
+    name: article_id
+    in: path
+    description: Id of the Article
+    required: true
+    type: string
+    x-example: '015110'
+
+  # Model Id
+  modelId:
+    name: model_id
+    in: path
+    description: Id of the Model
+    required: true
+    type: string
+    x-example: '10034'
+
+  # Market Area Code
+  areaCodePath:
+    name: area_code
+    in: path
+    description: Code of an area
+    required: true
+    type: string
+    x-example: 'A1'
+
+  # Market Region Code
+  # TODO: Remove as this is no longer needed
+  # regionCodePath:
+  #  name: region_code
+  #  in: path
+  #  description: Code of a region.
+  #  required: true
+  #  type: string
+  #  x-example: '50'
+
+  # Season filters
+  # Season Name is the preffered way to filter for season
+  seasonName:
+    name: season_name
+    in: query
+    description: |
+      Filter resutls based on the season name.
+      Season name format is 2 letters for season and 2 numbers for year (e.g., FW17)
+    type: string
+    required: true
+    x-example: 'FW17'
+
+  seasonNameOptional:
+    name: season_name
+    in: query
+    description: |
+      Filter resutls based on the season name.
+      Season name format is 2 letters for season and 2 numbers for year (e.g., FW17)
+    type: string
+    required: false
+    x-example: 'FW17'
+
+  # Season Code
+  seasonCode:
+    name: seasonCode
+    in: query
+    description: |
+      Filter results based on the season code.
+      Season code format is "20171" – 4 digits for year and 1 digit for season type.
+    type: string
+    x-example: '20171'
+
+  # adidas API guidelines: Pagination
+  offset:
+    name: offset
+    in: query
+    description: Number of results to skip from the start of the list
+    required: false
+    type: string
+    default: '0'
+    x-example: '10'
+
+  # adidas API guidelines: Pagination
+  limit:
+    name: limit
+    in: query
+    description: The maximum number of reusults to return
+    required: false
+    type: string
+    default: '10'
+    x-example: '5'
+
+  # adidas API guidelines: Sparse fieldset
+  fields:
+    name: fields
+    in: query
+    description: Comma-separated list of fields to include in the response
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-example:
+      - articleNumber
+      - modelNumber
+
+  # adidas API guidelines: Sparse fieldset
+  embedded:
+    name: embedded
+    in: query
+    description: Comma-separated list of resource (relations) to embed in the response
+    required: false
+    type: array
+    items:
+      type: string
+    collectionFormat: csv
+    x-example:
+      - prices
+      - assets
+
+  # adidas API guidelines: Language negotiation
+  acceptLanguageHeader:
+    name: 'Accept-Language'
+    in: header
+    type: string
+    default: en
+    x-example: en,en-US,fr;q=0.6
+
+#
+# Data Model Definitions
+#   this section is generated from a supermodel data model
+#
+definitions:
+  adidasComApiHALDefinitionsHalLinkObject:
+    title: HAL Link Object
+    type: object
+    properties:
+      href:
+        type: string
+      templated:
+        type: boolean
+      type:
+        type: string
+      deprecation:
+        type: string
+      name:
+        type: string
+      profile:
+        type: string
+      title:
+        type: string
+      hreflang:
+        type: string
+    required:
+      - href
+  adidasComApiHALDefinitionsHalCuriesLink:
+    title: HAL Curies Link
+    allOf:
+      - type: object
+        properties:
+          templated:
+            enum:
+              - true
+        required:
+          - templated
+      - $ref: '#/definitions/adidasComApiHALDefinitionsHalLinkObject'
+  adidasComProductCatalogDefinitionsCatalogCopy:
+    title: Catalog Copy
+    type: object
+    properties:
+      acsModelName:
+        type: string
+      b2cCopy:
+        type: string
+      b2cCopyShort:
+        type: string
+      b2bCopy:
+        type: string
+      b2bCopyShort:
+        type: string
+      materialComposition:
+        type: string
+      materialConstruction:
+        type: string
+      bullets1:
+        type: string
+      bullets2:
+        type: string
+      bullets3:
+        type: string
+      bullets4:
+        type: string
+      bullets5:
+        type: string
+      bullets6:
+        type: string
+      bulletMaterial:
+        type: string
+    example:
+      acsModelName: COPA MUNDIAL
+      b2cCopy: >-
+        De populairste voetbalschoen ooit, en terecht. De adidas Copa Mundial
+        heeft een bovenwerk van rijk leer en een loopzool met dubbele dichtheid
+        die al decennia lang de toon zet voor comfort en prestaties op het veld.
+      b2cCopyShort: >-
+        Entraîne-toi comme les pros avec ce haut de l'équipe de Belgique de
+        football.
+      b2bCopy: >-
+        Hurricanes Training Jersey as worn by the players when training with
+        dynamic retro design inspired by the original Super Jersey.Captured with
+        shock blue and black colors on climalite fabric with moisture wicking
+        properties.
+      b2bCopyShort: >-
+        Hurricanes Training Jersey as worn by the players when training with
+        dynamic retro design inspired by the orginal Super jersey.
+      materialComposition: 100% Organic Cotton
+      materialConstruction: Single jersey
+      bullets1: materiál Climalite odvádí pot a udrží tě vsuchu za všech okolností
+      bullets2: Ribbet V-hals
+      bullets3: Nackenband
+      bullets4: >-
+        Επένδυση προστασίας από τον άνεμο στο μπροστινό μέρος. Μανσέτες με
+        ανοίγματα για τους αντίχειρες
+      bullets5: Woven Belgium crest on chest
+      bullets6: >-
+        3 bandas en las mangas; logotipo de adidas serigrafiado a la derecha del
+        pecho
+      bulletMaterial: Maille double 100 % polyester.
+  adidasComProductCatalogDefinitionsFeatureAndBenefit:
+    title: Feature and Benefit
+    type: object
+    properties:
+      featureAndBenefitCode:
+        type: string
+      businessCode:
+        type: string
+      shoePart:
+        type: string
+      featureName:
+        type: string
+      featureDescription:
+        type: string
+      logoName:
+        type: string
+      logoHref:
+        type: string
+        format: uri
+    example:
+      featureAndBenefitCode: '68465468'
+      businessCode: BU Young Athlete
+      shoePart: Upper
+      featureName: Costura à maquina
+      featureDescription: >-
+        construction nylon/TPU pour un bon toucher de balle et une bonne
+        résistance à l'usure.
+      logoName: ECO_OrthoLiteLogo
+      logoHref: 'http://domain.com/logo.jpeg'
+  adidasComApiHAL:
+    title: HAL
+    description: >-
+      JSON Hypertext Application Language. Definition of [HAL message
+      format](https://tools.ietf.org/html/draft-kelly-json-hal-08)
+    type: object
+    properties:
+      _links:
+        type: object
+        additionalProperties: {}
+        properties:
+          curies: {}
+      _embedded:
+        type: object
+        additionalProperties: {}
+  adidasComApiProblemDetail:
+    title: Problem Details for HTTP APIs
+    description: >-
+      Definition of [RFC7807](https://tools.ietf.org/html/rfc7807) problem
+      detail
+    type: object
+    properties:
+      type:
+        type: string
+      title:
+        type: string
+      status:
+        type: number
+      detail:
+        type: string
+      instance:
+        type: string
+    required:
+      - title
+      - detail
+  adidasComProductArticle:
+    title: Article
+    type: object
+    properties:
+      articleNumber:
+        type: string
+      modelNumber:
+        type: string
+      articleDescription:
+        type: string
+      gender:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      brand:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      productType:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      ageGroup:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      colorway:
+        type: object
+        properties:
+          name:
+            type: string
+          description:
+            type: string
+      colors:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductColor'
+      seasons:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductArticleSeason'
+      skus:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductSKU'
+      assets:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductAsset'
+      catalog:
+        $ref: '#/definitions/adidasComProductCatalog'
+      related:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductArticle'
+    example:
+      articleNumber: '015110'
+      modelNumber: '10034'
+      articleDescription: COPA MUNDIAL
+      gender:
+        code: M
+        description: MALE
+      brand:
+        code: '11'
+        description: ADIDAS
+      productType:
+        code: '104'
+        description: FOOTBALL SHOES (FIRM GROUND)
+      ageGroup:
+        code: A
+        description: ADULT
+      colorway:
+        name: FTWR WHITE/BLACK
+        description: BLABAS/GRAFIT/BLABAS
+      colors:
+        - {}
+      seasons:
+        - {}
+      skus:
+        - {}
+      assets:
+        - {}
+      catalog: {}
+  adidasComProductArticleSeason:
+    title: Article Season
+    description: Seasonal information about article
+    type: object
+    properties:
+      seasonName:
+        type: string
+      carryOver:
+        type: boolean
+      retailIntroDate:
+        type: string
+        format: date-time
+      retailExitDate:
+        type: string
+        format: date-time
+    example:
+      seasonName: FW17
+      carryOver: false
+      retailIntroDate: '2017-06-01'
+      retailExitDate: '2017-11-30'
+  adidasComProductAsset:
+    title: Asset
+    description: Digital Asset
+    type: object
+    properties:
+      assetType:
+        type: string
+        enum:
+          - image
+          - video
+          - other
+      viewGroup:
+        type: string
+      view:
+        type: string
+      assetCategory:
+        type: string
+      usageTerms:
+        type: array
+        items:
+          type: string
+      assetHref:
+        type: string
+        format: uri
+      image:
+        type: object
+        properties:
+          style:
+            type: string
+          width:
+            type: integer
+          height:
+            type: integer
+          bgColor:
+            type: string
+          representation:
+            type: string
+      video:
+        type: object
+        properties:
+          fileSize:
+            type: integer
+      model:
+        type: object
+        properties:
+          waist:
+            type: string
+          chest:
+            type: string
+          height:
+            type: string
+          productSize:
+            type: string
+    required:
+      - assetType
+      - viewGroup
+      - view
+      - assetCategory
+      - usageTerms
+      - assetHref
+    example:
+      assetType: image
+      viewGroup: 3d
+      assetCategory: Photography
+      usageTerms: B2B Cataloguge
+      assetHref: 'http://domain.com/image.jpeg'
+      image:
+        style: On Model
+        width: 2000
+        height: 2000
+        bgColor: transparent
+      model:
+        waist: 58
+        chest: 97
+        height: 197
+        productSize: 540
+  adidasComProductCatalog:
+    title: Catalog
+    type: object
+    properties:
+      catalogueCopy:
+        $ref: '#/definitions/adidasComProductCatalogDefinitionsCatalogCopy'
+      featureAndBenefits:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductCatalogDefinitionsFeatureAndBenefit'
+    example:
+      catalogueCopy: {}
+      featureAndBenefits:
+        - {}
+  adidasComProductColor:
+    title: Color
+    type: object
+    description: Color descriptions are language-dependent
+    properties:
+      color1:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      color2:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      color3:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+      color4:
+        $ref: '#/definitions/adidasComProductUtilsCodeDescription'
+    example:
+      color1:
+        code: A0QM
+        description: core black
+      color2:
+        code: A98B
+        description: utility black
+      color3:
+        code: A0QM
+        description: core black
+      color4:
+        code: 01F7
+        description: ftwr white
+  adidasComProductMarketArticle:
+    title: Market Article
+    description: Market-specific Article Information
+    type: object
+    properties:
+      articleNumber:
+        $ref: '#/definitions/adidasComProductArticle/properties/articleNumber'
+      modelNumber:
+        $ref: '#/definitions/adidasComProductArticle/properties/modelNumber'
+      articleDescription:
+        $ref: '#/definitions/adidasComProductArticle/properties/articleDescription'
+      gender:
+        $ref: '#/definitions/adidasComProductArticle/properties/gender'
+      brand:
+        $ref: '#/definitions/adidasComProductArticle/properties/brand'
+      productType:
+        $ref: '#/definitions/adidasComProductArticle/properties/productType'
+      ageGroup:
+        $ref: '#/definitions/adidasComProductArticle/properties/ageGroup'
+      colorway:
+        $ref: '#/definitions/adidasComProductArticle/properties/colorway'
+      colors:
+        $ref: '#/definitions/adidasComProductArticle/properties/colors'
+      skus:
+        $ref: '#/definitions/adidasComProductArticle/properties/skus'
+      assets:
+        $ref: '#/definitions/adidasComProductArticle/properties/assets'
+      catalog:
+        $ref: '#/definitions/adidasComProductArticle/properties/catalog'
+      related:
+        $ref: '#/definitions/adidasComProductArticle/properties/related'
+      seasonName:
+        $ref: '#/definitions/adidasComProductArticleSeason/properties/seasonName'
+      carryOver:
+        $ref: '#/definitions/adidasComProductArticleSeason/properties/carryOver'
+      retailIntroDate:
+        $ref: '#/definitions/adidasComProductArticleSeason/properties/retailIntroDate'
+      retailExitDate:
+        $ref: '#/definitions/adidasComProductArticleSeason/properties/retailExitDate'
+      prices:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductPrice'
+  adidasComProductPrice:
+    title: Price
+    type: object
+    properties:
+      timePeriodCode:
+        type: string
+      salesOrg:
+        type: string
+      distChannel:
+        type: string
+      priceType:
+        type: string
+      currency:
+        type: string
+      validFrom:
+        type: string
+        format: date-time
+      validTo:
+        type: string
+        format: date-time
+      priceValue:
+        type: string
+      priceUnit:
+        type: string
+      countryCode:
+        type: string
+    example:
+      timePeriodCode: '71'
+      salesOrg: 0681
+      distChannel: '01'
+      priceType: Act_SalesPrice
+      currency: EUR
+      validFrom: '2017-01-01'
+      validTo: '2017-12-31'
+      priceValue: '74,98'
+      countryCode: AT
+  adidasComProductSKU:
+    title: SKU
+    type: object
+    properties:
+      EAN:
+        type: string
+      UPC:
+        type: string
+      srcSizeCD3:
+        type: string
+      srcSizeScale:
+        type: string
+      srcSizeDescription:
+        type: string
+      conversionIDs:
+        type array
+        items:
+          type: object
+          properties:
+            localSize:
+              type: string
+            saleSizeConvID:
+              type: string
+            saleSizeScale:
+              type: string
+            saleSizeAbbr:
+              type: string
+            saleSizeDesc:
+              type: string
+    example:
+      EAN: '4058026055128'
+      UPC: '885591427616'
+      srcSizeCD3: '380'
+      srcSizeScale: T4
+      conversionIDs:
+        - saleSizeConvID: D
+          saleSizeScale: 8C
+          saleSizeAbbr: '27'
+  adidasComProductApiArticleCatalogHAL:
+    title: Article Catalog HAL Representation
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+      - $ref: '#/definitions/adidasComProductCatalog'
+    example:
+      _links:
+        self:
+          href: /articles/015110/catalogue
+  adidasComProductApiArticleHAL:
+    title: Article HAL Representation
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      articleNumber:
+        $ref: '#/definitions/adidasComProductArticle/properties/articleNumber'
+      modelNumber:
+        $ref: '#/definitions/adidasComProductArticle/properties/modelNumber'
+      articleDescription:
+        $ref: '#/definitions/adidasComProductArticle/properties/articleDescription'
+      gender:
+        $ref: '#/definitions/adidasComProductArticle/properties/gender'
+      brand:
+        $ref: '#/definitions/adidasComProductArticle/properties/brand'
+      productType:
+        $ref: '#/definitions/adidasComProductArticle/properties/productType'
+      ageGroup:
+        $ref: '#/definitions/adidasComProductArticle/properties/ageGroup'
+      colorway:
+        $ref: '#/definitions/adidasComProductArticle/properties/colorway'
+      colors:
+        $ref: '#/definitions/adidasComProductArticle/properties/colors'
+    example:
+      _links:
+        self:
+          href: /articles/015110
+        assets:
+          href: /articles/015110/assets
+        skus:
+          href: /articles/015110/skus
+        seasons:
+          href: /articles/015110/seasons
+        catalogue:
+          href: /articles/015110/catalogue
+        relatedArticles:
+          - href: /articles/015111
+          - href: /articles/015112
+        ecomArticle:
+          href: 'https://api.adidas.com/ecom/article/015110'
+        availability:
+          href: 'https://api.adidas.com/inventory/availability?articlesIds=015110'
+      articleNumber: '015110'
+      modelNumber: '10034'
+      articleDescription: COPA MUNDIAL
+      gender:
+        code: M
+        description: MALE
+      brand:
+        code: '11'
+        description: ADIDAS
+      productType:
+        code: '104'
+        description: FOOTBALL SHOES (FIRM GROUND)
+      ageGroup:
+        code: A
+        description: ADULT
+      colorway:
+        name: FTWR WHITE/BLACK
+        description: BLABAS/GRAFIT/BLABAS
+      colors:
+        - color1:
+            code: A0QM
+            description: core black
+          color2:
+            code: A98B
+            description: utility black
+          color3:
+            code: A0QM
+            description: core black
+          color4:
+            code: 01F7
+            description: ftwr white
+  adidasComProductApiArticleNotFoundProblemDetail:
+    title: Article Not Found Problem
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiProblemDetail'
+    example:
+      title: Not Found
+      detail: Cannot find the requested article
+      status: 404
+      instance: /articles/1234
+  adidasComProductApiArticleSeasonsHAL:
+    title: HAL Representation of Collection of Seasons
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      seasonsCount:
+        type: number
+      seasons:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductArticleSeason'
+    example:
+      _links:
+        self:
+          href: /articles/015110/seasons
+      seasonsCount: 1
+      seasons:
+        - {}
+  adidasComProductApiArticlesHAL:
+    title: HAL Representation of Collections of Articles
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      articleCount:
+        type: number
+    example:
+      _links:
+        self:
+          href: /articles
+        next:
+          href: /articles?offset=5&limit=5
+        first:
+          href: /articles?offset=0&limit=5
+        last:
+          href: /articles?offset=40&limit=5
+      articleCount: 1
+      _embedded:
+        article:
+          - {}
+  adidasComProductApiAssetsHAL:
+    title: HAL Representation of Collection of Assets
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      assetCount:
+        type: number
+      assets:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductAsset'
+    example:
+      _links:
+        self:
+          href: /articles/015110/assets
+      assetCount: 1
+      assets:
+        - {}
+  adidasComProductApiMarketArticleHAL:
+    title: Market Article
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      articleNumber:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/articleNumber'
+      modelNumber:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/modelNumber'
+      articleDescription:
+        $ref: >-
+          #/definitions/adidasComProductMarketArticle/properties/articleDescription
+      gender:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/gender'
+      brand:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/brand'
+      productType:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/productType'
+      ageGroup:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/ageGroup'
+      colorway:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/colorway'
+      colors:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/colors'
+      seasonName:
+        $ref: '#/definitions/adidasComProductMarketArticle/properties/seasonName'
+    example:
+      _links:
+        self:
+          href: /markets/A1/articles/015110?season_name=FW17
+        skus:
+          href: /markets/A1/articles/015110/skus?season_name=FW17
+        relatedArticles:
+          - href: /markets/A1/articles/015111?season_name=FW17
+          - href: /markets/A1/articles/015112?season_name=FW17
+        prices:
+          href: /markets/A1/articles/015111/prices?season_name=FW17
+        assets:
+          href: /articles/015110/assets
+        catalogue:
+          href: /articles/015110/catalogue
+      articleNumber: '015110'
+      modelNumber: '10034'
+      articleDescription: COPA MUNDIAL
+      gender:
+        code: M
+        description: MALE
+      brand:
+        code: '11'
+        description: ADIDAS
+      productType:
+        code: '104'
+        description: FOOTBALL SHOES (FIRM GROUND)
+      ageGroup:
+        code: A
+        description: ADULT
+      colorway:
+        name: FTWR WHITE/BLACK
+        description: BLABAS/GRAFIT/BLABAS
+      colors:
+        - color1:
+            code: A0QM
+            description: core black
+          color2:
+            code: A98B
+            description: utility black
+          color3:
+            code: A0QM
+            description: core black
+          color4:
+            code: 01F7
+            description: ftwr white
+      seasonName: FW17
+      carryOver: false
+      retailIntroDate: '2017-06-01'
+      retailExitDate: '2017-11-30'
+  adidasComProductApiMarketArticlesHAL:
+    title: HAL Representation of Collection of Market Articles
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      articleCount:
+        type: number
+    example:
+      _links:
+        self:
+          href: /markets/A1/articles?season_name=FW17
+        next:
+          href: /markets/A1/articles?season_name=FW17&offset=5&limit=5
+        first:
+          href: /markets/A1/articles?season_name=FW17&offset=0&limit=5
+        last:
+          href: /markets/A1/articles?season_name=FW17&offset=40&limit=5
+      _embedded:
+        article:
+          - {}
+      articleCount: 1
+  adidasComProductApiMarketHAL:
+    title: Market HAL Representation
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      areaCode:
+        type: string
+      regionCode:
+        type: string
+    example:
+      _links:
+        articles:
+          href: /markets/A1/articles?season_name=FW17
+      areaCode: A1
+      regionCode: '50'
+  adidasComProductApiMarketSKUsHAL:
+    title: HAL Representation of Collection of SKUs
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+      - $ref: '#/definitions/adidasComProductApiSKUsHAL'
+    example:
+      _links:
+        self:
+          href: /markets/A1/articles/015110/skus?season_name=FW17
+      skuCount: 1
+      skus:
+        - {}
+  adidasComProductApiMarketsHAL:
+    title: HAL Representation of Collection of Markets
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      marketsCount:
+        type: number
+    example:
+      _links:
+        self:
+          href: /markets
+      marketsCount: 1
+      _embedded:
+        market:
+          - {}
+  adidasComProductApiModelCatalogHAL:
+    title: Model Catalog HAL Representation
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+      - $ref: '#/definitions/adidasComProductCatalog'
+    example:
+      _links:
+        self:
+          href: /models/10034/catalog
+  adidasComProductApiPricesHAL:
+    title: HAL Representation of Collection of Prices
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      priceCount:
+        type: number
+      prices:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductPrice'
+    example:
+      _links:
+        self:
+          href: /markets/A1/articles/015110/prices?season_name=FW17
+      priceCount: 1
+      prices:
+        - {}
+  adidasComProductApiSKUsHAL:
+    title: HAL Representation of Collection of SKUs
+    type: object
+    allOf:
+      - $ref: '#/definitions/adidasComApiHAL'
+    properties:
+      skuCount:
+        type: number
+      skus:
+        type: array
+        items:
+          $ref: '#/definitions/adidasComProductSKU'
+    example:
+      _links:
+        self:
+          href: /articles/015110/skus
+      skuCount: 1
+      skus:
+        - {}
+  adidasComProductUtilsCodeDescription:
+    title: Code Description Tuple
+    description: Helper data structure to hold any code - description pair
+    type: object
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+  adidasComProductUtilsCodeDescription:
+    title: Code Description Tuple
+    description: Helper data structure to hold any code - description pair
+    type: object
+    properties:
+      code:
+        type: string
+      description:
+        type: string
+

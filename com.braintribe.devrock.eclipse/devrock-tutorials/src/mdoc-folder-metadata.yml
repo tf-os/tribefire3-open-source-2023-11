@@ -1,0 +1,31 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  plugin/features.md:
+    displayTitle: "Feature list"
+  configuration/configuration.md:
+    displayTitle: "Plugin configuration"    
+  repository-configuration/repository-configuration.md:
+    displayTitle: "Repository-configuration"    
+  install-repository/install-repository.md:
+    displayTitle: "Install repository"        
+  projects/projects.md:
+    displayTitle: "Working with projects"
+  dependencies/dependencies.md:
+    displayTitle: "Working with dependencies"
+  container/container.md:  
+    displayTitle: "Dynamic container"
+  analysis/analysis.md:
+    displayTitle: "Running classpath analyses"
+  analysis/analysis-viewer.md:
+    displayTitle: "Viewing classpath analyses"
+  analysis-example/analysis-example.md:
+    displayTitle: "Classpath analysis example"
+  dr-runner/dr-runner.md:  
+    displayTitle: "Build-system integration"
+  zed/zed.md:  
+    displayTitle: "Running Zed analyses"
+  zed/zed-viewer.md:  
+    displayTitle: "Viewing Zed analyses"    
+    

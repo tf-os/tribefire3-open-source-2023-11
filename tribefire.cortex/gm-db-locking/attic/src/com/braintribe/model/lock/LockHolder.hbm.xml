@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping package="com.braintribe.model.lock">
+  <class name="com.braintribe.model.lock.LockHolder" table="TF_LOCKHOLDER" abstract="false">
+  	<id name="id" column="id">
+  		<generator class="assigned" />
+  	</id>
+
+	<property name="codeSignature"/>
+	<property name="machineSignature"/>
+	<property name="creationDate"/>
+  </class>
+</hibernate-mapping>

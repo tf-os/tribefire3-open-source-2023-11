@@ -1,0 +1,26 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  using_control_center.md:
+
+  importing_exporting_control_center.md:
+  
+  using_modeler.md:
+  
+  generating_key_pairs.md:
+
+  exporting_custom_models.md:
+
+  using_garbage_collector.md:
+
+  using_localization.md:
+
+  creating_push_requests.md:
+
+  creating_smart_access.md:
+
+  using_access_control.md:
+
+  creating_users.md:
+

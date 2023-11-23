@@ -1,0 +1,31 @@
+# permissions for end users to edit tribefireruntimes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: tribefireruntime-editor-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: tribefire-cloud
+    app.kubernetes.io/part-of: tribefire-cloud
+    app.kubernetes.io/managed-by: kustomize
+  name: tribefireruntime-editor-role
+rules:
+- apiGroups:
+  - tribefire.cloud
+  resources:
+  - tribefireruntimes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - tribefire.cloud
+  resources:
+  - tribefireruntimes/status
+  verbs:
+  - get

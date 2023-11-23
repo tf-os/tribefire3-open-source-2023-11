@@ -1,0 +1,8 @@
+!com.braintribe.devrock.model.repositoryview.RepositoryView
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: 'core-dev'
+    url: 'https://artifactory.example.org/artifactory/core-dev'
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: 'third-party'
+    url: 'https://artifactory.example.org/artifactory/third-party'

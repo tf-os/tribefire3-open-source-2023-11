@@ -1,0 +1,17 @@
+<tpl if="message != null && style != null">
+	<div class="{style.up}"></div>
+	<div class="{style.text}" style="{confirmationIconStyle}">
+		<div class="{style.detailText}">
+			<div style="overflow: hidden; max-height: 2em; max-width: 248px;">{message}</div>
+		</div>
+		<tpl if="actions != null" for="actions">
+		    <tpl if="className != null">
+				<div id="{id}" class="{className}" style="{iconStyle}">{text}</div>
+			</tpl>	
+		    <tpl if="className == null">
+				<div id="{id}" class="{style.action}" style="{iconStyle}">{text}</div>
+			</tpl>	
+		</tpl>
+	</div>
+	<div class="{style.down}"></div>
+</tpl>

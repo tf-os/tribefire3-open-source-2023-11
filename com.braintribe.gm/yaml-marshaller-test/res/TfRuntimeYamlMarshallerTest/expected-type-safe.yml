@@ -1,0 +1,39 @@
+!com.braintribe.codec.marshaller.yaml.tfruntime.model.TribefireRuntime
+apiVersion: "tribefire.cloud/v1alpha1"
+kind: "TribefireRuntime"
+metadata: !com.braintribe.codec.marshaller.yaml.tfruntime.model.Metadata
+  labels:
+    "stage": "dev"
+  name: "demo-fire"
+  namespace: "tribefire"
+spec: !com.braintribe.codec.marshaller.yaml.tfruntime.model.Spec
+  backend: !com.braintribe.codec.marshaller.yaml.tfruntime.model.Backend
+    params:
+      "url": "http://tf-etcd-cluster-client.etcd:2379"
+    type: "etcd"
+  components:
+    - !com.braintribe.codec.marshaller.yaml.tfruntime.model.Component
+      env:
+        - !com.braintribe.codec.marshaller.yaml.tfruntime.model.EnvironmentVariable
+          name: "TRIBEFIRE_CUSTOM"
+          value: "true"
+      logJson: true
+      logLevel: DEBUG
+      name: "tribefire-master"
+      publicUrl: "http://demo.tribefire.local"
+      resources: !com.braintribe.codec.marshaller.yaml.tfruntime.model.Resources
+        limits:
+          "memory": "2048Mi"
+          "cpu": "2000m"
+        requests:
+          "memory": "512Mi"
+          "cpu": "500m"
+      type: "Services"
+    - !com.braintribe.codec.marshaller.yaml.tfruntime.model.Component
+      logJson: true
+      logLevel: INFO
+      name: "tribefire-control-center"
+      publicUrl: "http://demo.tribefire.local"
+      type: "ControlCenter"
+  databaseType: "local"
+  domain: "tribefire.local"

@@ -1,0 +1,13 @@
+import tribefire.extension.drools.model.test.TestProcess;
+
+dialect "java"
+
+global java.util.function.Consumer<Boolean> condition;
+global com.braintribe.model.processing.condition.api.ConditionProcessorContext context;
+
+rule "Foo"
+when
+	TestProcess(marked == true)
+then
+	condition.accept(true);
+end

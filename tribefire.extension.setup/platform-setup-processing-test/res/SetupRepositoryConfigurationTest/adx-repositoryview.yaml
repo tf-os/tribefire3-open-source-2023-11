@@ -1,0 +1,9 @@
+!com.braintribe.devrock.model.repositoryview.RepositoryView
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+      locks: !!set
+        ? "tribefire.adx.phoenix:adx-aws-deployment-model#2.5.1"
+        ? "tribefire.adx.phoenix:adx-aws-initializer-module#2.5.1"
+        ? "tribefire.adx.phoenix:adx-aws-module#2.5.1"
+    name: "core-dev"

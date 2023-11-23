@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module rename-to="BtClientCustomization">
+	<inherits name="com.braintribe.gwt.async.Async"/>
+	<inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+	<inherits name="com.braintribe.gwt.customizationui.CustomizationUi"/>
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitemask.WhiteMask"/>
+	<inherits name="com.braintribe.gwt.ioc.gme.BasicIocSetForPD"/>
+	<inherits name="com.braintribe.gwt.tribefirejs.TribefireJsBase"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.dom.DOM"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="com.sencha.gxt.widget.core.Core"/>
+	<!-- <inherits name="com.google.gwt.core.XSLinker"/> -->
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.GxtResources"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gme.cssresources.GenericModelExplorerCssResources"/>
+	<!-- Importing GXT css file -->
+	<stylesheet src="bt-resources/commons/customizing.css"/>
+	<!-- User Agent - Uncomment and use just the ones you want for speeding up compilation process -->
+	<!-- Available GXT os: mac,linux,windows,unknown -->
+	<!-- Available GXT user agents: ie8,ie9,ie10,ie11,edge,gecko1_8,gecko1_9,safari3,safari4,safari5,chrome,air -->
+	<collapse-property name="user.agent.os" values="*"/>
+	<set-property name="gxt.user.agent" value="gecko1_9,chrome,edge,safari5"/>
+	<collapse-property name="gxt.user.agent" values="*"/>
+	<collapse-property name="gxt.device" values="*"/>
+	<set-property name="user.agent" value="safari,gecko1_8"/>
+	<!-- Configuring I18N stuff -->
+	<extend-property name="locale" values="de"/>
+	<!-- Turn on CssResource pretty printing, helpful when debugging -->
+	<!-- <set-configuration-property name="CssResource.style" value="pretty"/> -->
+	<!-- Use Prefix for CssResource class names generator -->
+	<set-configuration-property name="CssResource.obfuscationPrefix" value="PD-T1-"/>
+	<!-- Experiment on this: should reduce size and improve performance -->
+	<!-- https://docs.google.com/document/d/1AegOijkqg9ix6wtMMPYU0JeDBZXIzSgopDifPV7gH9E/edit -->
+	<!-- <set-property name="jre.checks.checkLevel" value="MINIMAL" /> -->
+	<!-- Specify the app entry point class. -->
+	<entry-point class="com.braintribe.gwt.customization.client.StartupEntryPoint"/>
+	<add-linker name="direct_install"/>
+	<!-- add-linker name="xsiframe"/>  -->
+	<!-- Optional during debugging only, speed up compiles during debugging -->
+	<!-- collapse-all-properties /> -->
+</module>

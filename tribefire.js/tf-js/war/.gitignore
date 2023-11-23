@@ -1,0 +1,9 @@
+/.gradle
+/GWT-GENERATED
+/bin
+/build
+/classes
+/dist
+/tfjs
+/war
+tribefire.js

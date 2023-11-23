@@ -1,0 +1,2 @@
+com.braintribe.web.api.listener.ForcedLibs
+tribefire.app.web.TribefireWebApp

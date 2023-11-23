@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <groupId>tribefire.extension.test</groupId>
+    <artifactId>asset-test-aggregator</artifactId>
+    <version>1.0.1</version>
+    <dependencies>
+        <dependency>
+            <groupId>tribefire.extension.test</groupId>
+            <artifactId>asset-test-initializer</artifactId>
+            <version>[1.0,1.1)</version>            <type>man</type>
+            <classifier>asset</classifier>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex.assets</groupId>
+            <artifactId>tribefire-standard-aggregator</artifactId>
+            <version>[3.0,3.1)</version>            <type>man</type>
+            <classifier>asset</classifier>
+            <?tag asset?>
+        </dependency>
+    </dependencies>
+</project>

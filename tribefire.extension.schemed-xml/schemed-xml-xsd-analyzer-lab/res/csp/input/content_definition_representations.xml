@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentStores xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- ############################################################################## -->
+  <!-- IndexDefinition  -->
+  <!-- ############################################################################## -->
+  <IndexDefinition>
+  
+    <Index id="1000013100" name="Referenzierte Content ID" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />        
+        <Parameter name="name/en" value="Referenced Content ID" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="1000013101" name="Referenzierte Objekt ID" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="5" />        
+        <Parameter name="name/en" value="Referenced Object ID" />
+      </Parameters>
+    </Index>
+    <Index id="1000013102" name="Referenzierte Seiten ID" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="5" />        
+        <Parameter name="name/en" value="Referenced Page ID" />
+      </Parameters>
+    </Index>
+    <Index id="1000013103" name="Mimetype" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="100" />        
+        <Parameter name="name/en" value="Mimetype" />
+      </Parameters>
+    </Index>
+    <Index id="1000013104" name="Breite" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="10" />        
+        <Parameter name="name/en" value="Width" />
+      </Parameters>
+    </Index>
+    <Index id="1000013105" name="Höhe" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="10" />        
+        <Parameter name="name/en" value="Height" />
+      </Parameters>
+    </Index>
+    <Index id="1000013106" name="MD5" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="50" />        
+        <Parameter name="name/en" value="MD5" />
+      </Parameters>
+    </Index>
+    <Index id="1000013107" name="Dateigröße" type="string" description="">
+      <Parameters>
+        <Parameter name="length" value="15" />        
+        <Parameter name="name/en" value="File Size" />
+      </Parameters>
+    </Index>
+    <Index id="1000013108" name="Tags" type="string" description="">
+      <Parameters>
+        <Parameter name="isMultiValued" value="true" />
+        <Parameter name="length" value="255" />        
+        <Parameter name="name/en" value="Tags" />
+      </Parameters>
+    </Index>    
+
+  </IndexDefinition>
+
+  <!-- ############################################################################## -->
+  <!-- ContentStore definition  -->
+  <!-- ############################################################################## -->
+  <ContentStore name="DMS" nextContentDefinitionId="6">
+    <ContentDefinition name="Representations" id="CD_REPRESENTATIONS" description="Document Representations">
+      <IndexStore container="IND_STORE">
+        <Indexes>
+          <Index ref="1000013100" />
+          <Index ref="1000013101" />
+          <Index ref="1000013102" />
+          <Index ref="1000013103" />
+          <Index ref="1000013104" />
+          <Index ref="1000013105" />
+          <Index ref="1000013106" />
+          <Index ref="1000013107" />
+          <Index ref="1000013108" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+    
+  </ContentStore>
+</ContentStores>
+

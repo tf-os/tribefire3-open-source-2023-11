@@ -1,0 +1,40 @@
+.tabStripSpacer {
+  border: none !important;
+  height: 0 !important;
+}
+
+.tabRight,
+.tabLeft,
+.tabStripInner {
+  background: white !important;
+}
+
+.tabStripTop {
+  border: none;
+  background: white !important;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.tabStrip {
+	list-style: none;
+}
+
+.tabStripText {
+  color: #999 !important;
+  font-size: 12px !important;
+}
+
+.tabStripActive .tabStripText,
+.tabStripOver .tabStripText {
+  color: #3f4348 !important;
+}
+
+li.tabStripActive,
+li.tabStripActive:hover {
+  border-bottom: 2px solid #ffb52f;
+}
+
+li.tabStripOver {
+  border-bottom: 1px solid #ffe6ba;
+}

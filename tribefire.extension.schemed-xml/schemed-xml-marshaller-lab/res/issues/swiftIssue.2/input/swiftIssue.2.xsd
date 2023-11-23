@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>	
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="currencyAndAmount" type="CurrencyAndAmount"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyAndAmount_SimpleType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:fractionDigits value="5"/>
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CurrencyAndAmount">
+		<xs:simpleContent>
+			<xs:extension base="CurrencyAndAmount_SimpleType">
+				<xs:attribute name="Ccy" type="CurrencyCode" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="CurrencyCode">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[A-Z]{3,3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

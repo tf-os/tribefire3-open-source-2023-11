@@ -1,0 +1,4 @@
+/dist/
+/runtime-update/
+# Jenkins may create @tmp folders (probably when pipeline switches working directory to these folders)
+/**/*@tmp

@@ -1,0 +1,5 @@
+/build
+/classes
+/dist
+/malaclypse.log*
+/xmiToMetaModelConverter.log*

@@ -1,0 +1,1 @@
+return paramd.toLowerCase();

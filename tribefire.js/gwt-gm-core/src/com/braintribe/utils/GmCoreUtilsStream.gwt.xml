@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.common.CommonLcd"/>
+	<inherits name="com.braintribe.utils.UtilsLcd"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="stream">
+		<exclude name="**/FileStreamProviders.java"/> <!-- This comes from gm-core -->
+		<exclude name="**/ZippingInputStreamProvider.java"/> <!-- This comes from gm-core -->
+	</source>
+</module>

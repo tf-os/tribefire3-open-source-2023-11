@@ -1,0 +1,16 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  data_integration.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -20
+
+  access.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -19
+
+  smart_access.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -18
+
+  available_connection_pools.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -16
+    

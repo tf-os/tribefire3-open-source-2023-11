@@ -1,0 +1,23 @@
+<div class="{style.group}">
+	<div class="{style.head}">
+		<div class="{style.ruler} {model:expanded(style)}"></div>
+		<tpl if="expert != null">
+			<div class="{style.source}">{model:source(expert)}</div>
+		</tpl>
+		<div class="{style.caption} {model:unread(style)}">{model.entry.receivedAt}</div>
+	</div>
+	<div class="{style.body} {model:expanded(style)}" >
+		<tpl for="model.messages">
+			<tpl if=".:level != null">
+				<div class="{style.item} {.:level(style)}" id="{id}">
+					<tpl if=".:command != null">
+						<div class="{style.command}">{.:command}</div>
+					</tpl>
+					<tpl if=".:message != null">
+						<div class="{style.itemText}">{.:message}</div>
+					</tpl>
+				</div>
+			</tpl>
+		</tpl>
+	</div>
+</div>

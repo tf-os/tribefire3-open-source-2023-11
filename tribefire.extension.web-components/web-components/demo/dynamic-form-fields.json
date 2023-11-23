@@ -1,0 +1,121 @@
+[
+  {
+    "type": "group",
+    "props": {
+      "name": "userData",
+      "children": [
+        {
+          "type": "group",
+          "props": {
+            "name": "userDataPartA",
+            "children": [
+              {
+                "type": "input",
+                "props": {
+                  "name": "startDate",
+                  "type": "date",
+                  "label": "Start date"
+                }
+              },
+              {
+                "type": "input",
+                "props": {
+                  "name": "userNumber",
+                  "type": "number",
+                  "label": "Your number"
+                }
+              },
+              {
+                "type": "textarea",
+                "props": {
+                  "name": "userMessage",
+                  "label": "Your message",
+                  "rows": 10,
+                  "cols": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "group",
+          "props": {
+            "name": "userDataPartB",
+            "children": [
+              {
+                "type": "slot",
+                "props": {
+                  "name": "image-slot"
+                }
+              },
+              {
+                "type": "input",
+                "props": {
+                  "name": "month",
+                  "label": "Month"
+                }
+              },
+              {
+                "type": "input",
+                "props": {
+                  "name": "password",
+                  "type": "password",
+                  "label": "Password"
+                }
+              },
+              {
+                "type": "input",
+                "props": {
+                  "name": "repeatPassword",
+                  "type": "password",
+                  "label": "Repeat Password",
+                  "style": ""
+                }
+              },
+              {
+                "type": "input",
+                "props": {
+                  "name": "agreedToTerms",
+                  "type": "checkbox",
+                  "label": "Read the terms?"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "group",
+    "props": {
+      "name": "buttons",
+      "children": [
+        {
+          "type": "button",
+          "props": {
+            "name": "discardButton",
+            "action": "discard",
+            "label": "Discard"
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "name": "resetButton",
+            "action": "reset",
+            "label": "Reset"
+          }
+        },
+        {
+          "type": "button",
+          "props": {
+            "name": "submitButton",
+            "action": "submit",
+            "label": "Send"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,9 @@
+!com.braintribe.devrock.model.repositoryview.RepositoryView
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+      locks: !!set
+        ? "tribefire.cortex:cortex-api-model#3.0.170"
+        ? "tribefire.cortex:cortex-cors-handler#3.0.100"
+        ? "tribefire.cortex:cortex-deployment-model#3.0.260"
+    name: "core-dev"

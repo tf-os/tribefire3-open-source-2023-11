@@ -1,0 +1,9 @@
+Ljava/lang/Object;Ljava/util/function/Function<Ljava/util/Set<Lcom/braintribe/model/artifact/Exclusion;>;Lcom/braintribe/build/artifact/walk/multi/exclusion/ExclusionContainer;>;
+
+(Ljava/lang/Object;I[Ljava/lang/Object;I)V
+
+Lcom/braintribe/model/generic/reflection/EnumType;
+
+<E:Ljava/lang/Enum<TE;>;>(Ljava/lang/String;)TE;
+
+(Ljava/lang/String;)Ljava/lang/Enum;

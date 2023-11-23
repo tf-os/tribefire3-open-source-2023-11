@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<settings>
+	<localRepository>C:\Users\Dirk Scheffler\.m2\bug-repo</localRepository>
+
+	<servers>
+		<server>
+			<id>core-stable</id>
+			<username>platform-demo-write</username>
+			<password>secret</password>
+		</server>
+
+		<server>
+			<id>platform-demo-prod</id>
+			<username>platform-demo-write</username>
+			<password>secret</password>
+		</server>
+
+		<server>
+			<id>third-party</id>
+			<username>platform-demo-write</username>
+			<password>secret</password>
+		</server>
+
+		<server>
+			<id>xperience-dev</id>
+			<username>platform-demo-write</username>
+			<password>secret</password>
+		</server>
+
+		<server>
+			<id>tribecell-dev</id>
+			<username>platform-demo-write</username>
+			<password>secret</password>
+		</server>
+		
+		<server>
+			<id>tribefire-academy</id>
+			<username>tribefire.academy</username>
+			<password>secret</password>
+		</server>
+
+	</servers>
+	<profiles>
+		<profile>
+			<id>tribefire</id>
+			<repositories>
+<!-- 				<repository> -->
+<!-- 					<id>tribefire-academy</id> -->
+<!-- 					<layout>default</layout> -->
+<!-- 					<url>https://artifactory.server/artifactory/tribefire-training/</url> -->
+<!-- 					<snapshots> -->
+<!-- 						<enabled>false</enabled> -->
+<!-- 					</snapshots> -->
+<!-- 					<releases> -->
+<!-- 						<enabled>true</enabled> -->
+<!-- 						<updatePolicy>never</updatePolicy> -->
+<!-- 					</releases> -->
+<!-- 				</repository> -->
+				
+				<repository>
+					<id>core-stable</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/core-stable/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+
+				<repository>
+					<id>platform-demo-prod</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/platform-demo-prod/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+
+				<repository>
+					<id>third-party</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/third-party/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+
+				<repository>
+					<id>xperience-dev</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/xperience-dev/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+
+				<repository>
+					<id>tribecell-dev</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/tribecell-dev/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+					<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+
+			</repositories>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
+			<properties>
+				<updateReflectingRepositories>core-stable,platform-demo-prod,third-party,xperience-dev,tribecell-dev</updateReflectingRepositories>
+				<trustworthyRepositories>core-stable,platform-demo-prod,third-party,xperience-dev,tribecell-dev</trustworthyRepositories>
+				<ravenhurst-context>/</ravenhurst-context>
+				<ravenhurst-url-core-stable>https://artifactory.server/Ravenhurst/rest/core-stable/</ravenhurst-url-core-stable>
+				<ravenhurst-url-platform-demo-prod>https://artifactory.server/Ravenhurst/rest/platform-demo-prod/</ravenhurst-url-platform-demo-prod>
+				<target-repository>platform-demo-prod</target-repository>
+				<ravenhurst-url-third-party>https://artifactory.server/Ravenhurst/rest/third-party/</ravenhurst-url-third-party>
+				<ravenhurst-url-xperience-dev>https://artifactory.server/Ravenhurst/rest/xperience-dev/</ravenhurst-url-xperience-dev>
+				<ravenhurst-url-tribecell-dev>https://artifactory.server/Ravenhurst/rest/tribecell-dev/</ravenhurst-url-tribecell-dev>
+			</properties>
+		</profile>
+
+	</profiles>
+</settings>

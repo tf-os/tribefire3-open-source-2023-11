@@ -1,0 +1,25 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  rest_introduction.md: 
+
+  quick_start_rest.md:
+  
+  rest_action_operations.md: 
+
+  rest_crud_operations.md: 
+
+  rest_ddsa.md: 
+
+  rest_metadata_resolving.md: 
+
+  rest_query.md: 
+
+  rest_query_examples.md: 
+
+  rest_reflection.md: 
+
+  rest_resource_streaming.md: 
+
+  rest_security.md: 

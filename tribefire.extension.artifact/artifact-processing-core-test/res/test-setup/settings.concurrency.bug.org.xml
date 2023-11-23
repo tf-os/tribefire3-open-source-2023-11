@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<settings>
+	<localRepository>C:\Users\Dirk Scheffler\.m2\bug-repo</localRepository>
+
+	<servers>
+		<server>
+			<id>central.mirror</id>
+			<username>bt_developer</username>
+			<password>secret</password>
+		</server>
+		<server>
+			<id>central</id>
+			<username>bt_developer</username>
+			<password>secret</password>
+		</server>
+		<server>
+			<id>devrock</id>
+			<username>bt_developer</username>
+			<password>secret</password>
+		</server>
+
+		<server>
+			<id>core-stable-candidate</id>
+			<username>bt_developer</username>
+			<password>secret</password>
+		</server>
+		<server>
+			<id>tribefire-academy</id>
+			<username>tribefire.academy</username>
+			<password>secret</password>
+		</server>
+		<server>
+			<id>tribecell-dev</id>
+			<!-- 
+			<username>bt_developer-sdf-read</username>
+			<password>secret</password>
+			-->
+			<username>bt_developer</username>
+			<password>secret</password>
+		</server>
+	</servers>
+
+	<mirrors>
+		<mirror>
+			<id>central.mirror</id>
+			<url>https://artifactory.server/artifactory/third-party/</url>
+			<mirrorOf>*,!devrock,!core-stable-candidate,!tribefire-academy,!tribecell-dev</mirrorOf>
+		</mirror>
+		<mirror>
+			<id>central</id>
+			<url>https://artifactory.server/artifactory/third-party/</url>
+			<mirrorOf>*,!devrock,!core-stable-candidate,!tribefire-academy,!tribecell-dev</mirrorOf>
+		</mirror>
+	</mirrors>
+
+	<profiles>
+
+		<!-- core profile -->
+		<profile>
+			<id>core</id>
+			<repositories>
+				<repository>
+					<id>third-party</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/third-party/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+				<repository>
+					<id>core-stable-candidate</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/core-stable-candidate/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+				<repository>
+					<id>tribefire-academy</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/tribefire-training/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+				<repository>
+					<id>tribecell-dev</id>
+					<url>https://artifactory.server/artifactory/tribecell-dev/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+			</repositories>
+
+			<activation>
+				<property>
+					<name>env.PROFILE_USECASE</name>
+					<value>CORE</value>
+				</property>
+			</activation>
+
+			<properties>
+				<!-- ravenhurst settings -->
+				<updateReflectingRepositories>third-party,core-stable-candidate,tribefire-academy,tribecell-dev</updateReflectingRepositories>
+				<ravenhurst-context>/</ravenhurst-context>
+				<ravenhurst-url-third-party>https://artifactory.server/Ravenhurst/rest/third-party</ravenhurst-url-third-party>
+				<ravenhurst-url-core-stable-candidate>https://artifactory.server/Ravenhurst/rest/core-stable-candidate</ravenhurst-url-core-stable-candidate>
+				<ravenhurst-url-tribefire-academy>https://artifactory.server/Ravenhurst/rest/tribefire-training</ravenhurst-url-tribefire-academy>
+				<ravenhurst-url-tribecell-dev>https://artifactory.server/Ravenhurst/rest/tribecell-dev</ravenhurst-url-tribecell-dev>
+
+				<!-- automatic deploy target -->
+				<target-repository>core-stable-candidate</target-repository>
+			</properties>
+		</profile>
+
+		<!-- devrock profile -->
+		<profile>
+			<id>devrock</id>
+			<repositories>
+				<repository>
+					<id>devrock</id>
+					<layout>default</layout>
+					<url>https://artifactory.server/artifactory/devrock/</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+			</repositories>
+
+			<activation>
+				<property>
+					<name>env.PROFILE_USECASE</name>
+					<value>DEVROCK</value>
+				</property>
+			</activation>
+
+			<properties>
+				<!-- ravenhurst settings -->
+				<updateReflectingRepositories>devrock</updateReflectingRepositories>
+				<ravenhurst-context-devrock>/</ravenhurst-context-devrock>
+				<ravenhurst-url-devrock>https://artifactory.server/Ravenhurst/rest/devrock</ravenhurst-url-devrock>
+				<!-- trustworthy repositories of this profile -->
+				<trustworthyRepositories>devrock</trustworthyRepositories>
+				<!-- automatic deploy target -->
+				<target-repository>devrock</target-repository>
+			</properties>
+		</profile>
+
+	</profiles>
+</settings>

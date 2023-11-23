@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:imported="import" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:import namespace="import" schemaLocation="import.xsd"/>
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"/>
+			<xs:element name="imported" type="imported:Root"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

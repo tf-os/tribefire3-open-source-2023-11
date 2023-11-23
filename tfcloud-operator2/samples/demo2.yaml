@@ -1,0 +1,54 @@
+apiVersion: tribefire.cloud/v1
+kind: TribefireRuntime
+metadata:
+  labels:
+    stage: development
+  name: tribefire-demo-development
+  namespace: @@TF_NAMESPACE@@
+spec:
+  backend:
+    parameters:
+    - name: url
+      value: http://etcd-tribefire:2379
+    type: etcd
+  components:
+  - apiPath: /explorer
+    env:
+    - name: CI_RUN_URL
+      value: https://ci.example.com/job/tribefire/job/cloud-deployment/job/deploy-tribefire-demo-development/21023/display/redirect
+    image: dockerregistry.example.com/cortex/tribefire-demo/tribefire-demo-development/standard-cloud-deployment/no-backup/tribefire-explorer
+    imageTag: latest
+    logJson: "true"
+    logLevel: INFO
+    name: tribefire-explorer
+    replicas: 1
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 192Mi
+    type: explorer
+  - env:
+    - name: CI_RUN_URL
+      value: https://ci.example.com/job/tribefire/job/cloud-deployment/job/deploy-tribefire-demo-development/21023/display/redirect
+    image: dockerregistry.example.com/cortex/tribefire-demo/tribefire-demo-development/standard-cloud-deployment/no-backup/tribefire-master
+    imageTag: latest
+    logJson: "true"
+    logLevel: FINE
+    name: tribefire-master
+    replicas: 1
+    resources:
+      limits:
+        cpu: "3"
+        memory: 3Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    type: services
+  databaseType: local
+  dcsaConfig:
+    credentialsSecretRef: {}
+    instanceDescriptor: ""
+  domain: sub.domain.mine

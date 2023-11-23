@@ -1,0 +1,15 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  creating_a_dataflow_model_and_access.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -200
+
+  creating_a_process_definition.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -190
+  
+  creating_a_scripted_transition_processor.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -170
+  
+  creating_a_scripted_condition.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -160

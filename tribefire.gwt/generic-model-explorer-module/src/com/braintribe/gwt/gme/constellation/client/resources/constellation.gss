@@ -1,0 +1,133 @@
+@external gmeSelectionConstellationDialog x-window-header globalActionBarFixedSplitButton globalActionBarSplitButton globalActionBarTextButton globalActionBarDualButton constellationToolBarSelected;
+.bannerImage {
+  padding-top: 2px;
+  padding-left: 15px;
+  background-color: white;
+}
+
+.explorerConstellationCenterBackground {
+  background-color: white;
+}
+
+.graySmallText {
+	color: gray;
+	font-size: 12px;
+}
+
+/* Adding margin to the separator image in the toolBars */
+.separatorMargin {
+  margin-top: 9px;
+  margin-right: 10px !important;
+  margin-left: 3px !important;
+}
+
+.gmeSelectionConstellationDialog .x-window-header {
+  color: gray !important;
+}
+
+/* The border color was set to another color by other component. Setting to the desired color here */
+.queryConstellationNorth {
+  border-bottom: 1px solid #dedede !important;
+}
+
+/* Styles of the ExchangeContentView action window */
+.toolBarStyle li {
+  float: left;
+  list-style: none;
+}
+
+.toolBarStyle li div {
+  display: block;
+}
+
+.centeredText {
+  text-align: center;
+  padding-bottom: 2px;
+  padding-top: 1px;
+  border-bottom: 1px solid #dedede !important;
+}
+
+.greyBorder {
+  border: 1px solid #dedede !important;
+}
+
+.toolBarElement:HOVER .toolBarElementImage {
+  opacity: 1;
+}
+
+.toolBarElement:HOVER {
+  border: 1px solid #dedede;
+}
+
+.toolBarElement.constellationToolBarSelected {
+  border: 1px solid #ffb52f;
+}
+
+.toolBarElement.constellationToolBarSelected:HOVER {
+  border: 1px solid #ffb52f;
+}
+
+.toolBarElement {
+  border: 1px solid transparent;
+  width: 69px;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.toolBarElement {
+  cursor: pointer;
+}
+
+.toolBarElementImage {
+  display: block;
+  opacity: 1;
+  margin-left: 19px;
+  margin-top: 2px;
+  width: 32px;
+  height: 32px;
+}
+
+.toolBarElementText {
+  color: #3f4348;
+  font: 12px Open Sans;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.toolBarParentStyle {
+  border: 1px solid #dedede !important;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.toolTip {
+  width: 0 !important;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 5px solid #dedede;
+  position: absolute;
+  left: 25px;
+}
+/* End of the Styles of the ExchangeContentView action window */
+
+/* Style of all mandatory labels within the advances save dialog */
+.mandatoryLabel {
+  font-weight: bold !important;
+  color: #4b4b4b !important;
+}
+
+/* Style of all labels within the advanced save dialog */
+.propertyNameLabel {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  color: gray;
+}
+
+.globalActionBarFixedSplitButton, .globalActionBarSplitButton, .globalActionBarTextButton, .globalActionBarDualButton {
+   position: relative !important;
+   float: right !important;
+   left: auto !important;
+   top: auto !important;   
+}

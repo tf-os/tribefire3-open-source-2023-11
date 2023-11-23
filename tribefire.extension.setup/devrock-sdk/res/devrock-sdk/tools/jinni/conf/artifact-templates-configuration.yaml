@@ -1,0 +1,2 @@
+# the repository configuration linked here relates to the directory structure of the developer-kit
+repositoryConfigurationLocation: "${config.sdk.conf}/repository-configuration-devrock.yaml"

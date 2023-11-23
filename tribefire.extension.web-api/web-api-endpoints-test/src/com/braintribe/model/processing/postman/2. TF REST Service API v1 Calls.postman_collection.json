@@ -1,0 +1,1000 @@
+{
+	"info": {
+		"_postman_id": "a25b1310-4d00-46b8-90f8-3f22c22534fc",
+		"name": "2. TF REST Service API v1 Calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "063d4255-3408-47f0-b394-027729c79b64",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"sessionId\", res);",
+							"postman.setGlobalVariable(\"tfsessionId\", res);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": \"cortex\",\n\t\"password\": \"cortex\"\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/tribefire-services/api/v1/authenticate",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tribefire-services",
+						"api",
+						"v1",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Call Service GetCurentUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-session-id",
+						"value": "{{sessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/tribefire-services/api/v1/cortex/com.braintribe.model.securityservice.GetCurrentUser",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tribefire-services",
+						"api",
+						"v1",
+						"cortex",
+						"com.braintribe.model.securityservice.GetCurrentUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Call Service GetCurentUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}?",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"query": [
+						{
+							"key": "sessionId",
+							"value": "{{sessionId}}",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Model",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/access.demo/com.braintribe.model.accessapi.GetModel",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"access.demo",
+						"com.braintribe.model.accessapi.GetModel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Model Name",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-projection",
+						"value": "name"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/access.demo/com.braintribe.model.accessapi.GetModel",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"access.demo",
+						"com.braintribe.model.accessapi.GetModel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service Call - Find by Text",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/access.demo/tribefire.demo.model.api.FindByText?text=Doebauer&type=tribefire.demo.model.data.Person&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"access.demo",
+						"tribefire.demo.model.api.FindByText"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Doebauer"
+						},
+						{
+							"key": "type",
+							"value": "tribefire.demo.model.data.Person"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Call Service TestAccess",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"access\": {\n        \"_type\": \"tribefire.demo.model.deployment.DemoAccess\",\n        \"externalId\": \"access.demo\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/cortex/tribefire.demo.model.cortex.api.TestAccess?projection=notifications&depth=reachable",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"cortex",
+						"tribefire.demo.model.cortex.api.TestAccess"
+					],
+					"query": [
+						{
+							"key": "projection",
+							"value": "notifications"
+						},
+						{
+							"key": "depth",
+							"value": "reachable"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Call Service TestAccess 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-projection",
+						"value": "notifications"
+					},
+					{
+						"key": "gm-depth",
+						"value": "reachable"
+					},
+					{
+						"key": "gm-session-id",
+						"value": "{{sessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"tribefire.demo.model.cortex.api.TestAccess\",\n\t\"domainId\": \"cortex\",\n\t\"access\": {\n        \"_type\": \"tribefire.demo.model.deployment.DemoAccess\",\n        \"externalId\": \"access.demo\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}",
+					"host": [
+						"{{apiUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Connection Pool",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-depth",
+						"value": "reachable"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.cortexapi.connection.TestDatabaseConnection\",\n\t\"domainId\": \"cortex\",\n\t\"connectionPool\": {\n        \"_type\": \"com.braintribe.model.deployment.database.pool.HikariCpConnectionPool\",\n        \"externalId\": \"connection.carinsurancedb\",\n        \"name\": \"Transient Test Connectionpool\",\n        \"connectionDescriptor\": {\n        \t\"_type\": \"com.braintribe.model.deployment.database.connector.GenericDatabaseConnectionDescriptor\",\n\t\t\t\"driver\": \"com.mysql.jdbc.Driver\",\n        \t\"url\": \"jdbc:mysql://localhost:3306/carinsurancedb\",\n        \t\"user\": \"cortex\",\n        \t\"password\": \"cortex\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}",
+					"host": [
+						"{{apiUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 1 - Entity Query - Default Domain",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/serviceDomain:default/com.braintribe.model.accessapi.GmqlRequest?statement=from {{typeSignature}}.Company where name ilike 'braintribe*'&projection=entities&domainId=access.demo&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"serviceDomain:default",
+						"com.braintribe.model.accessapi.GmqlRequest"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "from {{typeSignature}}.Company where name ilike 'braintribe*'"
+						},
+						{
+							"key": "projection",
+							"value": "entities"
+						},
+						{
+							"key": "domainId",
+							"value": "access.demo"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 1 - Entity Query - Mapped Endpoint",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/gmql?statement=from {{typeSignature}}.Company where name ilike 'braintribe*'&projection=entities&domainId=access.demo&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "from {{typeSignature}}.Company where name ilike 'braintribe*'"
+						},
+						{
+							"key": "projection",
+							"value": "entities"
+						},
+						{
+							"key": "domainId",
+							"value": "access.demo"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 2 - Entity Query - Custom mapped Endpoint",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=from {{typeSignature}}.Company where averageRevenue < 800000000b&projection=entities&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "from {{typeSignature}}.Company where averageRevenue < 800000000b"
+						},
+						{
+							"key": "projection",
+							"value": "entities"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 3 - Entity Query with Enum - Simple Type Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=from Person where gender = enum(Gender, female)&projection=entities&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "from Person where gender = enum(Gender, female)"
+						},
+						{
+							"key": "projection",
+							"value": "entities"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 4 - Select Query with Join",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select distinct c.employees from Company c join c.employees where c.ceo.firstName = 'John' and c.ceo.lastName = 'Doe'&projection=results&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select distinct c.employees from Company c join c.employees where c.ceo.firstName = 'John' and c.ceo.lastName = 'Doe'"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 5 - Select Query with Count",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select count(c.employees, true) from Company c join c.employees where c.ceo.firstName = 'John' and c.ceo.lastName = 'Doe'&projection=results",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select count(c.employees, true) from Company c join c.employees where c.ceo.firstName = 'John' and c.ceo.lastName = 'Doe'"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 6 - Select Query with Average Value",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select avg(c.averageRevenue) from Company c&projection=results",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select avg(c.averageRevenue) from Company c"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 7 - Select Query with Max Value",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select max(p.averageRevenue) from Company p&projection=results",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select max(p.averageRevenue) from Company p"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 8 - Select Query with String Concatenation",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select * from Person p where concatenation(p.firstName,p.lastName) ilike '*johndoe*'&projection=results&depth=shallow",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select * from Person p where concatenation(p.firstName,p.lastName) ilike '*johndoe*'"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 9 - Select Query with Map Key",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/gmql?statement=select c from Company c join c.paperworkByCategory pw where mapKey(pw) = 'Business Whitepaper' and pw.name= 'Tribefire-at-a-Glance-Business.pdf'&domainId=access.demo&projection=results&depth=1",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select c from Company c join c.paperworkByCategory pw where mapKey(pw) = 'Business Whitepaper' and pw.name= 'Tribefire-at-a-Glance-Business.pdf'"
+						},
+						{
+							"key": "domainId",
+							"value": "access.demo"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						},
+						{
+							"key": "depth",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 10  - Select Query with List Index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select p, c from Person p join p.children c where listIndex(c)=0&projection=results&depth=1",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select p, c from Person p join p.children c where listIndex(c)=0"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						},
+						{
+							"key": "depth",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GMQL 11 - Select Query with Date Range",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{apiUrl}}/demo-gmql?statement=select * from Person p where p.birthday > date(1970Y,01M,01D) and p.birthday < date(1980Y,01M,01D)&projection=results",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"demo-gmql"
+					],
+					"query": [
+						{
+							"key": "statement",
+							"value": "select * from Person p where p.birthday > date(1970Y,01M,01D) and p.birthday < date(1980Y,01M,01D)"
+						},
+						{
+							"key": "projection",
+							"value": "results"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-session-id",
+						"value": "{{sessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/serviceDomain:platform/com.braintribe.model.securityservice.Logout",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"serviceDomain:platform",
+						"com.braintribe.model.securityservice.Logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

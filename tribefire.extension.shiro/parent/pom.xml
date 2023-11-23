@@ -1,0 +1,47 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tribefire.extension.shiro</groupId>
+    <artifactId>parent</artifactId>
+    <version>4.0.8</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>21</java.version>
+        <V.tribefire.extension.shiro>[4.0,4.1)</V.tribefire.extension.shiro>
+        <V.com.braintribe.common>[2.0,2.1)</V.com.braintribe.common>
+        <V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+        <V.com.braintribe.velocity>[2.0,2.1)</V.com.braintribe.velocity>
+        <V.com.braintribe.wire>[2.0,2.1)</V.com.braintribe.wire>
+        <V.tribefire.cortex>[3.0,3.1)</V.tribefire.cortex>
+        <V.tribefire.setup.classic.env>[3.0,3.1)</V.tribefire.setup.classic.env>
+        <V.com.fasterxml.jackson.core>2.13.3</V.com.fasterxml.jackson.core>
+        <V.io.buji>7.0.0</V.io.buji>
+        <V.io.jsonwebtoken>0.11.2</V.io.jsonwebtoken>
+        <V.javax.servlet>3.0.1</V.javax.servlet>
+        <V.net.sourceforge.nekohtml>1.9.22</V.net.sourceforge.nekohtml>
+        <V.org.apache.httpcomponents>4.5.13</V.org.apache.httpcomponents>
+        <V.org.pac4j_pac4j-oidc>5.4.3</V.org.pac4j_pac4j-oidc>
+        <V.org.pac4j_pac4j-oauth>5.4.3</V.org.pac4j_pac4j-oauth>
+        <V.org.pac4j_pac4j-openid>4.5.6</V.org.pac4j_pac4j-openid>
+        <V.org.apache.shiro>1.8.0</V.org.apache.shiro>
+        <V.xerces>2.12.1</V.xerces>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

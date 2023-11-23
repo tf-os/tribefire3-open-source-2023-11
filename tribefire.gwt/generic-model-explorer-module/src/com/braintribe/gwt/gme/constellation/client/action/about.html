@@ -1,0 +1,15 @@
+<div class="{style.about}">
+	<div class="{style.aboutMain}">
+		<img src="{context.faviconUrl}" width="64px" height="64px" />
+		<div class="{style.aboutName}">{context.artifactId}</div>
+	</div>
+	<div class="{style.aboutVersionWrapper}">
+		<div>Version:</div>
+		<div class="{style.aboutVersion}">{context.artifactVersion} ({context.version})</div>
+	</div>
+	<div class="{style.aboutDate}">{context.date}</div>	
+	<div class="{style.aboutUrlWrapper}">
+		<input class="{style.aboutUrl}" disabled value="{context.url}"></input>
+	</div>
+	<div class="{style.aboutUser}">Current user: {context.userName}</div>
+</div>

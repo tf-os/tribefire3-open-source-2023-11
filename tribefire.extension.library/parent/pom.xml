@@ -1,0 +1,69 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tribefire.extension.library</groupId>
+    <artifactId>parent</artifactId>
+    <version>3.0.11</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>21</java.version>
+        <V.tribefire.extension.library>[3.0,3.1)</V.tribefire.extension.library>
+        
+        <V.com.braintribe.devrock>[2.0,2.1)</V.com.braintribe.devrock>
+        <V.com.braintribe.execution>[2.0,2.1)</V.com.braintribe.execution>
+        <V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+        <V.com.braintribe.htmltools>[2.0,2.1)</V.com.braintribe.htmltools>
+        <V.com.braintribe.security>[2.0,2.1)</V.com.braintribe.security>
+        <V.com.braintribe.systemtools>[2.0,2.1)</V.com.braintribe.systemtools>
+        <V.com.braintribe.velocity>[2.0,2.1)</V.com.braintribe.velocity>
+        <V.com.braintribe.wire>[2.0,2.1)</V.com.braintribe.wire>
+        
+        <V.tribefire.cortex>[3.0,3.1)</V.tribefire.cortex>
+        <V.tribefire.cortex.assets>[3.0,3.1)</V.tribefire.cortex.assets>
+        <V.tribefire.cortex.services>[3.0,3.1)</V.tribefire.cortex.services>
+        <V.tribefire.cortex.testing>[3.0,3.1)</V.tribefire.cortex.testing>
+        
+        <V.tribefire.extension.hikari>[1.0,1.1)</V.tribefire.extension.hikari>
+        <V.tribefire.extension.web-api>[1.0,1.1)</V.tribefire.extension.web-api>
+        <V.tribefire.extension.hibernate>[2.0,2.1)</V.tribefire.extension.hibernate>
+        <V.tribefire.extension.artifact>[1.1,1.2)</V.tribefire.extension.artifact>
+        <V.tribefire.extension.jdbcdriver>[3.0,3.1)</V.tribefire.extension.jdbcdriver>
+        <V.tribefire.extension.jdbcplugins>[3.0,3.1)</V.tribefire.extension.jdbcplugins>
+        <V.tribefire.extension.job-scheduling>[1.0,1.1)</V.tribefire.extension.job-scheduling>
+        <V.tribefire.setup.classic.env>[3.0,3.1)</V.tribefire.setup.classic.env>
+        
+        <V.com.h2database>1.4.200</V.com.h2database>
+        <V.com.github.dhorions>1.4</V.com.github.dhorions>
+        <V.com.github.librepdf>1.2.20</V.com.github.librepdf>
+        <V.com.googlecode.json-simple>1.1.1</V.com.googlecode.json-simple>
+        <V.com.lowagie>4.2.1</V.com.lowagie>
+        <V.flyingsaucer>8</V.flyingsaucer>
+        <V.org.apache.commons>4.2</V.org.apache.commons>
+        <V.org.apache.pdfbox>2.0.25</V.org.apache.pdfbox>
+        <V.org.apache.poi>5.2.2</V.org.apache.poi>
+        <V.org.owasp>6.3.1</V.org.owasp>
+        <V.org.bouncycastle>1.70</V.org.bouncycastle>
+        <V.org.eclipse.packager>0.18.0</V.org.eclipse.packager>
+        <V.org.spdx_java-spdx-library>1.0.10</V.org.spdx_java-spdx-library>
+        <V.org.spdx_spdx-jackson-store>1.0.3</V.org.spdx_spdx-jackson-store>
+        <V.us.springett>1.5.1</V.us.springett>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

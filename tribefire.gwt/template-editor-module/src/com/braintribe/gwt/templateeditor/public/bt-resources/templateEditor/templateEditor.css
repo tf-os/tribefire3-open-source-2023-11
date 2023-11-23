@@ -1,0 +1,66 @@
+
+@charset "UTF-8";
+.manipulationEntry, .ownerElement, .propertyElement, .valueElement, .variableElement, .propertyElement, .delimiterElement {
+    display: inline-block;
+    padding: 2px 5px;
+}
+.ownerElement, .propertyElement, .valueElement, .variableElement, .propertyElement, .delimiterElement {
+    border-radius: 8px;
+}
+.manipulationEntry {
+   border-bottom: 1px dotted #F0F0F0;
+    display: table;
+    height: 35px;
+    line-height: 20px;
+    padding: 5px;
+    text-align: left;
+    width: 100%;
+}
+.manipulationEntry.selected{
+	background-color: #fff8eb;
+	cursor:pointer;	
+}
+.manipulationSubEntry {
+}
+.manipulationType {
+    font-size: 10px;
+    font-weight: bold;
+}
+.ownerElement {
+    background-color: #D4E5FF;
+    color: #000000;
+}
+.ownerElement.selected {
+    background-color: #3E8BFF;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.ownerPropertyDelimiterWrapper{
+	display:inline-block;
+}
+.ownerPropertyDelimiter{
+    opacity:0.5;
+	display:table-cell;
+	vertical-align:middle;
+}
+.propertyElement {
+    background-color: #F0F0F0;
+    color: #000000;
+}
+.valueElement {
+    background-color: #FFF1B9;
+    color: #000000;
+}
+.variableElement {
+    background-color: #F5E2FC;
+    border-radius: 8px;
+    color: #000000;
+}
+.variableElement.selected {
+    background-color: #BA4ED9;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.delimiterElement {
+    font-weight: bold;
+}

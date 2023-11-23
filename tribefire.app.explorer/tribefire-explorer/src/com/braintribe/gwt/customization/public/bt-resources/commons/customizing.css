@@ -1,0 +1,134 @@
+/*We need to override the z-index of the mask and mask-msg to avoid the msk to be in front of a new window*/
+/*
+@font-face
+{
+	font-family: Open Sans;
+	src: url('fonts/OpenSans-Regular.ttf'), url('fonts/OpenSans-Regular.eot')
+}
+*/
+
+@font-face
+{
+	font-family: 'Gotham';
+	src: url('fonts/GothamBook.ttf'), url('fonts/GothamBook.eot'), url('fonts/GothamBook.woff');
+}
+
+@font-face
+{
+	font-family: 'GothamMedium';
+	src: url('fonts/Gotham-Medium.ttf'), url('fonts/Gotham-Medium.eot'), url('fonts/Gotham-Medium.woff');
+}
+
+@font-face
+{
+	font-family: 'GothamBold';
+	src: url('fonts/GothamBold.ttf'), url('fonts/GothamBold.eot'), url('fonts/GothamBold.woff');
+}
+
+@font-face
+{
+	font-family: 'GothamBook';
+	src: url('fonts/Gotham-Book.ttf'), url('fonts/Gotham-Book.eot'), url('fonts/Gotham-Book.woff');
+}
+@font-face
+{
+	font-family: 'GothamBook2';
+	src: url('fonts/Gotham-Book2.otf'), url('fonts/Gotham-Book.ttf'), url('fonts/Gotham-Book.eot'), url('fonts/Gotham-Book.woff');
+}
+
+* {
+    /* font-family: Open Sans !important; */
+    font-family: 'GothamBook2' !important;
+}
+
+body {
+	background: white top center no-repeat;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	font-size:12px;
+	color: #3f4348;
+}
+
+.gwt-Anchor {
+    padding: 0px 5px;
+    text-decoration: underline;
+    cursor: pointer;
+    color: blue;
+}
+
+/*Banner Styles*/
+#tf_nav {
+	margin: 0 30px 0 0;
+	padding: 0;
+	/*line-height: 45px;*/
+	list-style: none;
+	float: right;
+}
+
+#tf_nav li {
+	float: left;
+	margin-right: 0px;
+}
+
+#tf_nav li:last-child {
+	margin-right: 0px;
+}
+
+#tf_nav li a {
+	text-decoration: none;
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	-ms-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+	position: relative;
+	font-family: Open Sans !important;
+	font-size: 12px !important;
+	color: #3f4348 !important;
+}
+
+#tf_nav li a:hover {
+	color: #666;
+}
+
+#tf_nav li a:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	width: 100%;
+	height: 5px;
+	border-bottom: 1px solid #ffa500;
+	opacity: 0;
+	-webkit-transition: all .1s ease-out;
+	-moz-transition: all .1s ease-out;
+	-ms-transition: all .1s ease-out;
+	-o-transition: all .1s ease-out;
+	transition: all .1s ease-out;
+}
+
+#tf_nav li a:hover:after {
+	bottom: -5px;
+	opacity: 1;
+}
+/*end banner styles*/
+
+.topBannerAnchors{
+      list-style: none outside none;
+    }
+    
+    .topBannerAnchors li {
+      color: #FFFFFF;
+      display: inline-block;
+      margin: 0 5px 0 0;
+    }
+   
+    a.topBannerAnchor{
+      color:black;
+      text-decoration:none;
+      padding:2px 8px;
+    }
+    
+    a.topBannerAnchor:hover{
+      color:#777777
+    } 

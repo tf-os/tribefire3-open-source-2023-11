@@ -1,0 +1,12 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  setting_up_ide.md:
+
+  quick_start_java.md:
+  
+  developing_cartridges.md:
+    hidden: true
+  
+  generating_key_pairs.md:

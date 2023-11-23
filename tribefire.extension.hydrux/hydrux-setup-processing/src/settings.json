@@ -1,0 +1,41 @@
+{
+    "files.exclude": {
+       // hide custom project
+       // <add custom patters here>
+
+        // hide not-often-used project files
+        "*/.gitignore": true,
+        "*/build.xml": true,
+        "*/asset.man": true,
+        "*/js-project.yml": true,
+
+        // hide not-often-used group files
+        ".gitignore": true,
+        "build.xml": true,
+        "Jenkinsfile": true,
+
+        // hide non-JS/TS projects
+        "parent": true,
+        "*-model": true,
+        "*-initializer": true,
+        "*-setup": true,
+
+        // hide project-specific VS code files
+        "*/.vscode": true,        
+
+        // hide unrelated files
+        "*/dist": true,        
+
+        // hide sources behind libs link
+        "*/lib/src": true,
+        "*/lib/ts-src": true,
+
+        // hide libs behind sources link
+        "*/sources/*.*": true,
+
+        // hide actual sources, so they are only accessible behind sources link
+        "*/src": true,
+        "*/ts-src": true
+
+    }
+}

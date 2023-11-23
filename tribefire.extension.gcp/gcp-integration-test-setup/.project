@@ -1,0 +1,11 @@
+<projectDescription>
+	<name>gcp-integration-test-setup - tribefire.extension.gcp</name>
+	<comment/>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+</projectDescription>

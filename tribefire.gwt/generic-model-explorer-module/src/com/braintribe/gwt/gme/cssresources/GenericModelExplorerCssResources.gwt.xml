@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.gmview.GmViewApi"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.xhr.XMLHttpRequest"/>
+    <!-- Adding css styles -->
+    <stylesheet src="bt-resources/gme/gme.css"/>
+</module>

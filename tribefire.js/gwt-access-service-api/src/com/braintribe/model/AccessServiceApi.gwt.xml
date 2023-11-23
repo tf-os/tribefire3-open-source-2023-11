@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.gm.model.persistence.reflection.PersistenceReflectionApi"/>
+    <inherits name="com.braintribe.model.AccessApiModel"/>
+    <inherits name="com.braintribe.model.AccessInterfaces"/>
+	<inherits name="com.braintribe.model.AccessRequestModel"/>
+	<inherits name="com.braintribe.model.AccessServiceApiModel"/>
+	<inherits name="com.braintribe.model.BasicMetaModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.QueryModel"/>
+	<inherits name="com.braintribe.model.ServiceApiModel"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="access"/>
+    <super-source path="emul"/>
+</module>

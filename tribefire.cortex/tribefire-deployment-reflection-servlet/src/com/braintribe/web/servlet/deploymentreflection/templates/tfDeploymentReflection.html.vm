@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+	<title>tribefire Deployment Summary</title>
+	<head>
+	  <link href="webpages/deplreflection.css" type="text/css" rel="stylesheet">
+	  <script>
+		/*
+			Shows and hides detailed information for each deployed unit. Detailed information is information of the DeployedUnit's components.
+			Per DeployedUnit multiple components can exist. For each DeployedUnit, a detail section  is created.
+		*/
+		function toggleDetails(deployedUnitId) {
+			var detailSection = "details-section-"+deployedUnitId;
+			var tdSection = "td-icons-"+deployedUnitId;
+			
+			if (document.getElementById(detailSection).classList=="details-section hidden-section") {
+					document.getElementById(detailSection).classList='details-section visible-section';
+					document.getElementById(tdSection).style.border = "1px solid #FFCA65";
+					
+					if(document.getElementById(tdSection).classList=="td-icons td-deployed") {
+						document.getElementById(tdSection).style.backgroundColor = "#EBF8EA";
+					} else {
+						document.getElementById(tdSection).style.backgroundColor = "#E7EFFA";
+					}
+					
+			} else {
+					document.getElementById(detailSection).classList='details-section hidden-section';
+					document.getElementById(tdSection).style.backgroundColor = "";
+					document.getElementById(tdSection).style.border = "";
+			}
+		}
+		
+		/*
+			By clicking on the info icon beside of a component detailed information is shown: full qualified beanspace name and the identity hint.
+			TODO beautify
+		*/
+		function toggleComponentDetails (componentId) {
+			var supppliedImpIdHint = "sup-id-hint-"+componentId;
+			var componentBinderIdHint = "com-id-hint-"+componentId;
+			var sBsId = "sbs-"+componentId;
+			var cBsId = "cbs-"+componentId;
+			
+			var supImpElement = document.getElementById(supppliedImpIdHint);
+			if(supImpElement != null) {
+				if (supImpElement.classList=="identity-hint hidden-section") {
+					supImpElement.classList='identity-hint visible-section';
+				} else {
+					supImpElement.classList='identity-hint hidden-section';
+				}
+			}
+			
+			var compBindElement = document.getElementById(componentBinderIdHint);
+			if(compBindElement != null) {
+				if (compBindElement.classList=="identity-hint hidden-section") {
+					compBindElement.classList='identity-hint visible-section';
+				} else {
+					compBindElement.classList='identity-hint hidden-section';
+				}
+			}
+			
+			var sbsElemtent = document.getElementById(sBsId);
+			if(sbsElemtent != null) {
+				if (sbsElemtent.classList=="span-packagename hidden-section") {
+				sbsElemtent.classList='span-packagename visible-section';
+				} else {
+					sbsElemtent.classList='span-packagename hidden-section';
+				}
+			}
+			
+			var cbsElement = document.getElementById(cBsId);
+			if(cbsElement != null) {
+				if (cbsElement.classList=="span-packagename hidden-section") {
+				cbsElement.classList='span-packagename visible-section';
+				} else {
+					cbsElement.classList='span-packagename hidden-section';
+				}
+			}
+		}
+		
+		/*
+			Resets all filters to the initial state.
+		*/
+		function resetFilters() {
+		
+			document.getElementById("externalId").value="";
+			document.getElementById("typeSignature").value="";
+			document.getElementById("isAssignableTo").checked=false;
+			
+			document.getElementById("nodeId").selectedIndex = 0;
+			document.getElementById("wireKind").selectedIndex = 0;
+			
+		}
+		
+		/*
+			Fires the DDSA  request to the DeploymentReflectionServlet.
+		*/
+		function getSummary(url, wireKind, typeSignature, isAssignableTo, externalId, nodeId) {
+			var params = [];
+			   
+			if (wireKind) {
+				params.push('wireKind='+wireKind);
+			}
+			
+			if (typeSignature) {
+				params.push('typeSignature='+typeSignature);
+				params.push('isAssignableTo='+isAssignableTo); /*check val*/
+			}
+			
+			if (externalId) {
+				params.push('externalId='+externalId);
+			}
+			
+			if (nodeId) {
+				params.push('nodeId='+nodeId);
+			}
+			
+			if(params.length>0){
+				url += '?' + params.join('&'); 
+			}
+			
+			window.location=encodeURI(url);
+		}
+	  </script>
+	</head>
+	
+	<body>
+		<table id="main-table">
+			<!-- The page layout consists of a table with one row and two colums to style the navigation and the section where all the data is displayed -->
+			<tr>
+				#set( $msgNoValue = "-" )
+				#set( $tfs = "tribefire-services" )
+				#set( $externalIdInfo = "To perform a like search use e.g. *access*. To search for multiple ids divide them by a semicolon." )
+				#set( $typeSigInfo = "If the expression contains a '.' it is interpreted as the fully qualified name, otherwise as a simple name." )
+				
+				<td id="nav" #if(${hideNav})class="hide-nav"#end>
+					<!--
+					<div id="header-title">
+						<a href="."><img src="webpages/logo-tf-orange-services.png" id="img-tfs-logo" alt="tf-services"></a>
+						<div id="title-label">Deployment Summary</div>
+					</div>
+					-->
+					
+					<div id="nav-filters" style="margin-top:0%;">
+						<p class="nav-header">Filters</p>
+						<ul>
+							<li class="li-filter">
+								<div class="filter-title">externalId
+									<img src="webpages/images/deplreflection/info.png" alt="externalid-info" class="img-icon" title="$externalIdInfo">
+								</div>
+							
+								<input type="text" id="externalId" class="filter filter-input" onclick="this.select()" #if(${externalIdFilter}) value="${externalIdFilter}" #end />
+							</li>
+							
+							<li class="li-filter">
+								<div class="filter-title">typeSignature
+								<img src="webpages/images/deplreflection/info.png" alt="typesig-info" class="img-icon" title="$typeSigInfo">
+								</div>
+								<input type="text" id="typeSignature" class="filter filter-input" onclick="this.select()" #if(${typeSignatureFilter}) value="${typeSignatureFilter}" #end />
+								<div>
+									<input type="checkbox" id="isAssignableTo" #if(${isAssignableToFilter}) checked="true" #end />
+									<span class="filter-title">include subtypes</span>
+								</div>
+							</li>
+										
+							<li class="li-filter">
+								<div class="filter-title">nodeId</div>
+								<select class="filter filter-select" id="nodeId">
+									<option selected="selected"></option>
+									#foreach( $nodeId in ${nodeIds} )
+										<option #if($nodeId.equals(${nodeIdFilter}))selected="selected"#end value="${nodeId}">
+											$nodeId
+										</option>
+									#end					
+								</select>
+							</li>
+							
+							<li class="li-filter">
+								<div class="filter-title">wireKind</div>
+								<select class="filter filter-select" id="wireKind">
+									<option></option>
+									#foreach( $wireKind in ${wireKinds} )
+										<option #if($wireKind.equals(${wireKindFilter}))selected="selected"#end> $wireKind </option>
+									#end
+								</select>
+							</li>
+						</ul>
+					
+						<button id="button-reset-filters" onclick="resetFilters()">Reset Filters</button>	
+						<button id="button-search" onclick=
+								"getSummary('$requestUrl'
+								, document.getElementById('wireKind').value
+								, document.getElementById('typeSignature').value
+								, document.getElementById('isAssignableTo').checked
+								, document.getElementById('externalId').value
+								, document.getElementById('nodeId').value
+								)">Search
+						</button>
+					</div>
+					<div id="nav-overview">
+						<p class="nav-header">Deployment Overview</p>
+						<ul>
+							<li class="li-overview">Qualified Units Complete<span class="value">${qualifiedUnitsComplete} / ${summary.sourceUnits.size()}</span></li>
+							<li class="li-overview">Qualified Units<span class="value">${summary.totalUnits.units.size()}</span></li>
+							<li class="li-overview">Deployables<span class="value">${summary.unitsByDeployable.size()}</span></li>
+							<li class="li-overview">Nodes<span class="value">${summary.unitsByNode.size()}</span></li>
+						</ul>
+					</div>
+				</td>
+				
+				<td id="main">
+					<div id="main-section" style="background-color:white;" >						
+						#if(${unitsByDeployable} && ${unitsByDeployable.size()} > 0)
+							#foreach( $unitsByDeployableMap in ${unitsByDeployable.entrySet()} )
+								#set( $deployable = ${unitsByDeployableMap.key} )
+								#set ($qualifiedUnits = ${unitsByDeployableMap.value} )
+								
+								#set ( $isHardwired = ${tools.isHardwired(${deployable})} )
+								
+								<div class="deployable-section #if(${isHardwired})hardwired-section#end">
+									<div class="deployable-base-info #if(${isHardwired})hardwired-base-section#end">
+										<span class="deployable-externalid">#if(${deployable.externalId})${deployable.externalId}#else${msgNoValue}#end &rarr;</span>
+										
+										<div class="deployable-type-signature">
+											#set( $typeSig = ${deployable.type().typeSignature} )
+											#if( ${typeSig} )
+												<span class="span-packagename">${tools.getPackageName(${typeSig})}.</span><b class="b-simplename">${tools.getSimpleName(${typeSig})}</b>
+											#else
+												${msgNoValue}
+											#end
+											
+											#if($isHardwired)
+												<span class="span-packagename">&rarr; hardwired</span>
+											#end
+										</div>
+									</div>
+									
+									<div class="deployable-common-info">
+									#if( ${qualifiedUnits} )
+										<table class="deployable-ow-table">
+										
+											#set( $cartridgeExternalId='master')
+											<thead> <th> <th>
+												#foreach( $nodeId in ${nodeIds} )
+												<th>$nodeId</th>
+												#end
+											</thead>
+										
+											<tbody>
+												#foreach( $cartridgeId in ${tools.getCartridgeIds()} )
+													<tr>
+														#if(${cartridgeExternalId} == ${cartridgeId})
+															<td>&#9872;</td>
+														#else
+															<td></td>
+														#end
+														
+														#if(${cartridgeId} == 'master')
+															#set( $cId='tribefire-services')
+														#else
+															#set( $cId=${cartridgeId})
+														#end
+															
+														<td class="deployable-ow-cartridge-td">${cId}</td>
+														#foreach( $nodeId in ${tools.getNodeIds()} )
+														
+															#set ($found=false)
+															#if(!${tools.cartridgeDeployedOnNode($nodeId, $cartridgeId)})
+																	<td class="td-icons-empty">n/a</td>
+															#else
+															
+																#foreach( $unit in ${qualifiedUnits.getUnits()} )	
+																	#set($aId = ${unit.instanceId.applicationId})
+																	#set($nId = ${unit.instanceId.nodeId})
+																	
+																	#if(${aId} == ${cartridgeId} && ${nId} == ${nodeId})
+																		#set ($found=true)
+																		#set( $deployedUnit = ${unit.deployedUnit})
+																		#set( $runtimeId = ${deployedUnit.runtimeId()})
+																		
+																		#if (!$deployedUnit.missingComponentTypes && $deployedUnit.missingComponentTypes.size() > 0)
+																			<td class="td-icons-empty td-undeployed">undeployed</td>
+																		#else
+																			<td id="td-icons-$runtimeId" class="td-icons td-deployed" onClick="toggleDetails(${runtimeId})">deployed</td>
+																		#end
+																	#end
+																	
+																#end
+																
+																#if (!${found})
+																	<td class="td-icons-empty">n/a</td>
+																#end
+															#end
+															
+														#end
+													</tr>
+												#end
+											</tbody>
+										</table>
+										
+										<!-- Details section -->
+										#foreach( $cartridgeId in ${tools.getCartridgeIds()} )
+											#foreach( $nodeId in ${tools.getNodeIds()} )
+											
+												#if(${tools.cartridgeDeployedOnNode($nodeId, $cartridgeId)})
+													#foreach( $unit in ${qualifiedUnits.getUnits()} )
+													
+														#if(${cartridgeId} == 'master')
+															#set( $cId='tribefire-services')
+														#else
+															#set( $cId=${cartridgeId})
+														#end
+														
+														#set( $deployedUnit = ${unit.deployedUnit})
+														#set( $instanceId = ${unit.instanceId})
+														#set( $runtimeId = ${deployedUnit.runtimeId()})
+														
+														#if( ${deployedUnit.components})
+															<div id="details-section-${runtimeId}" class="details-section hidden-section">
+																<p class="origin-title">Components of ${cId}<span class="component-details-header"> @ </span>${instanceId.nodeId}</p>
+																#foreach( $component in ${deployedUnit.components} )
+																
+																	#set( $compRuntimeId = ${component.runtimeId()})
+																	<div id="div-component-${compRuntimeId}" class="component-wrapper">
+																		<div class="component-section">
+																			<div class="component-title">
+																				#set( $componentType = ${component.componentType})
+																				#if($componentType)
+																					<span class="span-packagename span-title">- ${tools.getPackageName(${componentType})}</span>.<b class="b-simplename b-title">${tools.getSimpleName(${componentType})}</b>
+																				#else
+																					<span>-</span>
+																				#end
+																				#if(   (${component.suppliedImplementation} && ${component.suppliedImplementation.beanSpace}) 
+																					|| (${component.componentBinder} && ${component.componentBinder.beanSpace}))
+																					
+																					<img src="webpages/images/deplreflection/info.png" alt="show-details" class="img-icon" title="Click for details" onClick="toggleComponentDetails(${compRuntimeId})">
+																				#end
+																			</div>
+																		</div>
+																		
+																		<table class="details-table"> 
+																			<thead style='display:none;'></thead>
+																			<tbody>
+																				<!-- Supplied Implementation -->
+																				<tr>
+																				<td class="table-row-title">Supplied Implementation:</td>
+																				<td>
+																					#set ($sup = ${component.suppliedImplementation})
+																					#if(${sup} && ${sup.beanSpace})
+																							
+																						<span id="sbs-${compRuntimeId}" class="span-packagename hidden-section">${tools.getPackageName(${sup.beanSpace})}.</span><span 
+																						lass="b-simplename">${tools.getSimpleName(${sup.beanSpace})}</span><span class="b-simplename"><b>::</b>#if(${sup.beanName})${sup.beanName}#else<span>-</span>
+																						#end
+																						</span>
+																						
+																						#if(${sup.identityHint})
+																							<span id="sup-id-hint-${compRuntimeId}" class="identity-hint hidden-section">(identityHint ${sup.identityHint})</span>
+																						#end
+																						
+																					#else
+																						<span>-</span>
+																					#end
+																				</td>
+																				</tr>
+																				
+																				<!-- Component Binder -->
+																				<tr>
+																				<td class="table-row-title">Component Binder:</td>
+																				<td>
+																					#set ($com = ${component.componentBinder})
+																					#if(${com} && ${com.beanSpace})
+																							
+																						<span id="cbs-${compRuntimeId}" class="span-packagename hidden-section">${tools.getPackageName(${com.beanSpace})}.</span><span
+																							class="b-simplename">${tools.getSimpleName(${com.beanSpace})}</span><span class="b-simplename"><b>::</b>#if(${com.beanName})${com.beanName}#else<span>-</span>
+																						#end
+																						</span>
+																						
+																						#if(${com.identityHint})
+																							<span id="com-id-hint-${compRuntimeId}" class="identity-hint hidden-section">(identityHint ${com.identityHint})</span>
+																						#end
+																						
+																					#else
+																						<span>-</span>
+																					#end
+																				</td>
+																				</tr>
+																				
+																			</tbody>
+																		</table>
+																	</div>
+																#end
+															</div>
+														#end
+													#end
+												#end
+												
+											#end
+										#end
+										#end
+									</div>
+									
+								</div>
+							#end
+						#end
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

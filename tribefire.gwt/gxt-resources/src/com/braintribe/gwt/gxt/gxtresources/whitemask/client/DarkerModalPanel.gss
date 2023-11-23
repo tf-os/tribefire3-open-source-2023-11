@@ -1,0 +1,14 @@
+.panel {
+	background-color: darkgray;
+}
+
+@if (is("user.agent", "ie8")) {
+  .panel {
+    filter: alpha(opacity=50);
+  }
+}
+@else  {
+  .panel {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,30 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  quick_installation_devops.md:
+    displayTitle: "Quick Installation"
+    tags:
+      - installation
+    
+  local_installation.md:
+    tags:
+      - installation
+
+  handling_artifacts_with_pc_bias.md: 
+    displayTitle: "Handling Artifacts with .pc_bias"
+
+  template_engine:
+    displayTitle: "Template Engine"
+    tags:
+      - templateEngine
+
+  cloud_architecture.md: 
+
+  tribefire-runtime-docs.md:
+    hidden: true
+
+  devrock: 
+    displayTitle: "DevRock"
+    tags:
+     - devrock
+  

@@ -1,0 +1,24 @@
+resources:
+- manager.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: controller
+  newName: dockerregistry.example.com/tribefire-cloud/tribefire-operator
+  newTag: 2.1.2
+configMapGenerator:
+- envs:
+  - operator.properties
+  name: operator-config-map
+namespace: cortex
+
+
+secretGenerator:
+- files:
+  - .dockerconfigjson=secrets/.dockerconfigjson
+  name: bt-artifactory
+  type: kubernetes.io/dockerconfigjson
+- files:
+  - username=secrets/username.txt
+  - password=secrets/password.txt
+  name: bt-artifactory-bootstrap

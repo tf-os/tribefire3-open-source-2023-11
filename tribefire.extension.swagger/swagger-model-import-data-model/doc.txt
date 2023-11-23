@@ -1,0 +1,1 @@
+This model artifact provides the data model used by swagger-model-import-module.

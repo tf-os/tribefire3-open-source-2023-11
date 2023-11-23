@@ -1,0 +1,2 @@
+This artifact provides unit tests for artifact swagger-model-import-module.
+Tests can be run directly from the IDE.

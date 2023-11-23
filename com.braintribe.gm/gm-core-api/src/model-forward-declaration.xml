@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<model-forward-declaration>
+
+  <for-model name='com.braintribe.gm:absence-information-model'>
+    <type>com.braintribe.model.generic.pr.AbsenceInformation</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:manipulation-model'>
+    <type>com.braintribe.model.generic.manipulation.AtomicManipulation</type>
+    <type>com.braintribe.model.generic.manipulation.Manipulation</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:owner-model'>
+    <type>com.braintribe.model.generic.manipulation.EntityProperty</type>
+    <type>com.braintribe.model.generic.manipulation.Owner</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:resource-model'>
+    <type>com.braintribe.model.resource.Resource</type>
+    <type>com.braintribe.model.resource.source.ResourceSource</type>
+    <type>com.braintribe.model.resource.specification.ResourceSpecification</type>
+  </for-model>
+  
+  <for-model name='com.braintribe.gm:reason-model'>
+    <type>com.braintribe.gm.model.reason.Reason</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:root-model'>
+    <type>com.braintribe.model.generic.GenericEntity</type>
+    <type>com.braintribe.model.generic.StandardIdentifiable</type>
+    <type>com.braintribe.model.generic.StandardStringIdentifiable</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:traversing-criteria-model'>
+    <type>com.braintribe.model.generic.pr.criteria.BasicCriterion</type>
+    <type>com.braintribe.model.generic.pr.criteria.StackElementCriterion</type>
+    <type>com.braintribe.model.generic.pr.criteria.TraversingCriterion</type>
+    <type>com.braintribe.model.generic.pr.criteria.TypedCriterion</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:value-descriptor-model'>
+    <type>com.braintribe.model.generic.value.EntityReference</type>
+    <type>com.braintribe.model.generic.value.EnumReference</type>
+    <type>com.braintribe.model.generic.value.ValueDescriptor</type>
+    <type>com.braintribe.model.generic.value.type.DynamicallyTypedDescriptor</type>
+  </for-model>
+
+  <for-model name='com.braintribe.gm:transient-resource-model'>
+    <type>com.braintribe.model.resource.CallStreamCapture</type>
+    <type>com.braintribe.model.resource.source.TransientSource</type>
+  </for-model>
+
+</model-forward-declaration>

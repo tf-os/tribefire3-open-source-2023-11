@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" elementFormDefault="qualified" jaxb:version="1.0" jaxb:extensionBindingPrefixes="xjc">
+	<xs:annotation>
+		<xs:documentation xml:lang="en">
+    Schema definition for a Content Hierarchy
+    Written by roman.kurmanowytsch
+    Copyright 2008 Braintribe IT Technologies. All rights reserved.
+    </xs:documentation>
+		<xs:appinfo>
+			<jaxb:globalBindings>
+				<xjc:serializable uid="1"/>
+			</jaxb:globalBindings>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="ContentHierarchy">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="operations" minOccurs="0"/>
+				<xs:element ref="ParameterDefinitions" minOccurs="0"/>
+				<xs:element ref="node" maxOccurs="unbounded"/>
+				<xs:element ref="constraints" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="nextNodeId" type="xs:int" use="optional" default="0"/>
+			<xs:attribute name="version" type="xs:string" use="optional" default=""/>
+			<xs:attribute name="onConsistencyViolation" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="operations">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="operation" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="operation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="operation" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="description" type="xs:string" use="optional" default=""/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ParameterDefinitions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ContentHierarchyParameters" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentHierarchyParameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Parameter" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Parameter" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Parameter">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="type" type="xs:string" use="optional"/>
+			<xs:attribute name="value" type="xs:string" use="optional" default=""/>
+			<xs:attribute name="inherit" type="xs:string" use="optional" default="false"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="node">
+		<xs:complexType>
+			<xs:sequence >
+				<xs:element ref="ContentViews" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="ContentDefinitions" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="Parameters" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="node" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="constraints" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="isLeafNode" type="xs:boolean" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentViews">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ContentView" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentView">
+		<xs:complexType>
+			<xs:attribute name="roles" type="xs:string" use="required"/>
+			<xs:attribute name="ref" type="xs:string" use="required"/>
+			<xs:attribute name="inherit" type="xs:boolean" use="optional"/>
+			<xs:attribute name="replacecd" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentDefinitions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ContentDefinition" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContentDefinition">
+		<xs:complexType>
+			<xs:attribute name="ref" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="constraints">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="constraint" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="constraint">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="roles" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="expression" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="role" type="xs:string" use="optional"/>
+			<xs:attribute name="grant" type="xs:string" use="optional"/>
+			<xs:attribute name="deny" type="xs:string" use="optional"/>
+			<xs:attribute name="grantLocal" type="xs:string" use="optional"/>
+			<xs:attribute name="denyLocal" type="xs:string" use="optional"/>
+			<xs:attribute name="type" type="xs:string" use="optional"/>
+			<xs:attribute name="name" type="xs:string" use="optional"/>
+			<xs:attribute name="description" type="xs:string" use="optional"/>
+			<xs:attribute name="inherit" type="xs:boolean" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="roles">
+		<xs:complexType>
+			<xs:attribute name="value" type="xs:string" use="required"/>
+			<xs:attribute name="skipIlsForRoles" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="expression">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Index" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="OR" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="AND" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Index">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:int" use="required"/>
+			<xs:attribute name="op" type="xs:string" use="required"/>
+			<xs:attribute name="expr" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OR">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Index" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AND">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Index" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

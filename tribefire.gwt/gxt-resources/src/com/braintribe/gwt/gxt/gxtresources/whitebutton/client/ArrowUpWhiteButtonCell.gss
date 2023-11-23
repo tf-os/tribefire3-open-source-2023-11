@@ -1,0 +1,12 @@
+/* Style of the arrow Up button */
+.over .arrow {
+  gwt-sprite: "arrow";
+  width: auto;
+  height: auto;
+}
+
+.over .arrow {
+  padding-right: 10px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,57 @@
+/* Style of the tetherBar elements */
+.tetherElement {
+	/*border-bottom: 1px solid #dedede;*/
+	height: 39px;
+}
+
+.tetherElement li {
+	float: left;
+	line-height: 39px;
+	padding-left: .75em;
+	/*color: #dd2c0d;*/
+}
+
+.tetherElement li.tetherFirstElement {
+	padding-left: .75em !important;
+}
+
+.tetherElement li.tetherLastElement {
+	padding-left: 2px;
+}
+
+.tetherElement li.tetherMiddleElement {
+	padding-left: 2px;
+}
+
+.tetherElement li div {
+	display: block;
+	padding: 0 25px 0 0;
+	background: url(arrowTether.svg) no-repeat right center;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.tetherElement li div:hover {
+	text-decoration: underline;
+}
+
+.tetherSelectedElement {
+	font-weight: bold !important;
+}
+
+.tetherElementUnselectable li div {
+	cursor: auto !important;
+	text-decoration: none !important;
+}
+
+.tetherElement li div.tetherLastElement {
+    background: none;    
+}
+
+.gimaDialog .tetherElement {
+	background-color: #ddd;
+}
+
+.gimaDialog ul.tetherElement {
+	overflow: auto;
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+ ============================================================================
+ Braintribe IT-Technologies GmbH - www.braintribe.com
+ Copyright Braintribe IT-Technologies GmbH, Austria, 2002-2015 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+
+-->
+
+
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+    
+	<display-name>Braintribe J2EE Test</display-name>
+
+<!-- 	
+	<listener>
+      	<listener-class>com.braintribe.j2ee.test.J2EETestContextListener</listener-class>
+   	</listener>
+ -->   	
+   	<servlet>
+   		<servlet-name>J2EETestServlet</servlet-name>
+   		<servlet-class>com.braintribe.j2ee.test.J2EETestServlet</servlet-class>
+   	</servlet>
+
+    <servlet>
+        <servlet-name>DataSourceTestServlet</servlet-name>
+        <servlet-class>com.braintribe.j2ee.test.DataSourceTestServlet</servlet-class>
+    </servlet>
+   	
+    <servlet>
+        <servlet-name>SqlServlet</servlet-name>
+        <servlet-class>com.braintribe.j2ee.test.SqlServlet</servlet-class>
+        <init-param>
+            <param-name>authorizedUsers</param-name>
+            <param-value>F889796,F517058</param-value>
+        </init-param>
+    </servlet>
+   	
+   	<!-- 
+   	<servlet-mapping>
+   		<servlet-name>J2EETestServlet</servlet-name>
+   		<url-pattern>/resourceTest</url-pattern>
+   	</servlet-mapping>
+   	 -->
+   	
+   	<servlet-mapping>
+   		<servlet-name>SqlServlet</servlet-name>
+   		<url-pattern>/sql</url-pattern>
+   	</servlet-mapping>
+   	
+   	<!-- 
+   	<servlet-mapping>
+   		<servlet-name>DataSourceTestServlet</servlet-name>
+   		<url-pattern>/dbTest</url-pattern>
+   	</servlet-mapping>
+   	 -->
+</web-app>

@@ -1,0 +1,10 @@
+!com.braintribe.codec.marshaller.yaml.model.TestEntity {
+  intValue: $intValue,
+  longValue: "${longValue}",
+  stringValue: $$escape-test,
+  integerList: [
+    $listIntValue1,
+    2,
+    "${listIntValue2}",
+  ]
+}

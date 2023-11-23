@@ -1,0 +1,3 @@
+Where did the res/jsinterop-base.d.ts come from?
+
+See typescript-writer-test (probably in com.braintribe.devrock).

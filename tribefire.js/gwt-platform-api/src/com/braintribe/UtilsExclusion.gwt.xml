@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <source path="utils">
+		<exclude name="**/ArrayTools.java" />
+		<exclude name="**/Base64.java" />
+		<exclude name="**/ChildFirstClassLoader.java" />
+		<exclude name="**/CollectionTools.java" />
+		<exclude name="**/CompiledFormatter.java" />
+		<exclude name="**/CommonTools.java" />
+		<exclude name="**/CustomToStringBuilder.java" />
+		<exclude name="**/DateTools.java" />
+		<exclude name="**/DigestGenerator.java" />
+		<exclude name="**/DOMTools.java" />
+		<exclude name="**/FileAutoDeletion.java" />
+		<exclude name="**/FileTools.java" />
+		<exclude name="**/IOTools.java" />
+		<exclude name="**/LongIdGenerator.java" />
+		<exclude name="**/MapTools.java" />
+		<exclude name="**/MathTools.java" />
+		<exclude name="**/MemorySaveStringWriter.java" />
+		<exclude name="**/Not.java" />
+		<exclude name="**/OsTools.java" />
+		<exclude name="**/PairTools.java" />
+		<exclude name="**/PrimitivesTools.java" />
+		<exclude name="**/PropertyTools.java" />
+		<exclude name="**/RandomTools.java" />
+		<exclude name="**/ReflectionBasedArrayIterator.java" />
+		<exclude name="**/ReflectionTools.java" />
+		<exclude name="**/StringTools.java" />
+		<exclude name="**/ThrowableTools.java" />
+		<exclude name="**/TimeTracker.java" />
+		<exclude name="**/UnixTools.java" />
+		<exclude name="**/UrlTools.java" />
+		<exclude name="**/ZipTools.java" />
+		<exclude name="**/date/CurrentDateStringProvider.java" />
+		<exclude name="**/date/DateFormatToRegexUtil.java" />
+		<exclude name="**/date/ExtSimpleDateFormat.java" />
+		<exclude name="**/date/ImmutableExtSimpleDateFormat.java" />
+		<exclude name="**/date/NanoClock.java" />
+		<exclude name="**/encoding/UnicodeInputStream.java" />
+		<exclude name="**/encoding/UnicodeReader.java" />
+		<exclude name="**/encryption/Cryptor.java" />
+		<exclude name="**/io/**" />
+	</source>
+	<source path="provider">
+	   <exclude name="**/ThreadLocalStackedHolder.java" />
+	</source>
+</module>

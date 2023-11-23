@@ -1,0 +1,1 @@
+${static.ignore('src/index.js')}

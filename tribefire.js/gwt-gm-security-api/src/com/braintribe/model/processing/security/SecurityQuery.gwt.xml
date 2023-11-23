@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+    <inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+    <inherits name="com.braintribe.model.processing.MetaModelApi"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <source path="query"/>
+</module>

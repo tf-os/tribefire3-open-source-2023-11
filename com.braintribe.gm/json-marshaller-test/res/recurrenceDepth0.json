@@ -1,0 +1,34 @@
+[
+ {"_type": "com.braintribe.codec.marshaller.json.model.PersonEntity", "_id": "0",
+  "address": {"_id": "1",
+   "city": {"_id": "2",
+    "country": {"_id": "3",
+     "code": "SER",
+     "name": "Serbia"
+    },
+    "name": "Belgrade"
+   },
+   "houseNumber": 5,
+   "street": "Upper Street"
+  },
+  "firstName": "Vladimir",
+  "friend": {"_id": "4",
+   "address": {"_id": "5",
+    "city": {"_id": "6",
+     "country": {"_id": "7",
+      "code": "GER",
+      "name": "Germany"
+     },
+     "name": "Berlin"
+    },
+    "houseNumber": 15,
+    "street": "Upper Berlin Street"
+   },
+   "firstName": "Dirk",
+   "friend": {"_ref": "0"},
+   "lastName": "Scheffler"
+  },
+  "lastName": "Bankovic"
+ },
+ {"_ref": "4"}
+]

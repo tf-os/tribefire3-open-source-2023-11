@@ -1,0 +1,2 @@
+$nature = (PluginPriming=com.braintribe.model.asset.natures.PluginPriming)()
+.accessId='cortex'

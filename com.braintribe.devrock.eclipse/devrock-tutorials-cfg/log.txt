@@ -1,0 +1,10 @@
+Resolving setup dependencies for:  'com.braintribe.devrock.eclipse:ng-plugin-documentation#[1.0,1.1)
+
+Error: Could not resolve dependency version: 'com.braintribe.devrock.eclipse:ng-plugin-documentation#[1.0,1.1)
+
+Dependency paths to the errors
+
+───'com.braintribe.devrock.eclipse:ng-plugin-documentation#[1.0,1.1) compile : -> unresolved
+
+
+ERROR: Error while resolving. See problems in protocol output

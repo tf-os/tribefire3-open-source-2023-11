@@ -1,0 +1,27 @@
+!com.braintribe.devrock.model.repositoryview.resolution.RepositoryViewResolution
+solutions:
+  - &0
+    artifact: "tribefire.cortex.assets:tribefire-standard-view#2.0.1"
+    repositoryView:
+      repositories:
+        - !com.braintribe.devrock.model.repository.MavenHttpRepository
+          artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+            locks: !!set
+              ? "tribefire.cortex:cortex-api-model#2.0.1"
+              ? "tribefire.cortex:cortex-cors-handler#2.0.2"
+              ? "tribefire.cortex:cortex-deployment-model#2.0.3"
+          name: "core-dev"
+  - &1
+    artifact: "tribefire.cortex.assets:tribefire-standard-view#2.0.2"
+    repositoryView:
+      repositories:
+        - !com.braintribe.devrock.model.repository.MavenHttpRepository
+          artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+            locks: !!set
+              ? "tribefire.cortex:cortex-api-model#2.0.17-pc"
+              ? "tribefire.cortex:cortex-cors-handler#2.0.10-pc"
+              ? "tribefire.cortex:cortex-deployment-model#2.0.26-pc"
+          name: "core-dev"
+terminals:
+  - *0
+  - *1

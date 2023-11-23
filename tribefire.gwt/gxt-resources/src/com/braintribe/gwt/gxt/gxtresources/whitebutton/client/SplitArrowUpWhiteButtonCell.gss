@@ -1,0 +1,12 @@
+/* Style of the arrow Up split */
+.over .split {
+  gwt-sprite: "split";
+  width: auto;
+  height: auto;
+}
+
+.over .split {
+  background-position: right center;
+  padding-right: 14px;
+  background-repeat: no-repeat;
+}

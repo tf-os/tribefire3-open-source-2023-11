@@ -1,0 +1,5 @@
+Provides tools and convenience methods that can be used to implement JUnit tests.
+This e.g. includes custom rules.
+
+For general testing tools (that don't depend on the JUnit library) check com.braintribe.testing.TestTools.
+For custom assertions see artifacts in group com.braintribe.testing.junit.assertions, e.g. AssertJAsssertions.

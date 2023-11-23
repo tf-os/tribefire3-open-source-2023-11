@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.gwt.action.Action"/>
+	<inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.gmresourceapi.GmResourceApi"/>
+    <inherits name="com.braintribe.gwt.gmview.action.GmViewAction"/>
+    <inherits name="com.braintribe.gwt.gmview.GmViewApi"/>
+    <inherits name="com.braintribe.gwt.gmview.util.GmViewUtil"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.model.BasicResourceModel"/>
+    <inherits name="com.braintribe.model.FolderModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.IconModel"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.processing.vde.evaluator.VdeEvaluatorApi"/>
+    <inherits name="com.braintribe.model.processing.workbench.action.WorkbenchActionApi"/>
+    <inherits name="com.braintribe.model.TransientResourceModel"/>
+    <inherits name="com.braintribe.model.WorkbenchModel"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+</module>

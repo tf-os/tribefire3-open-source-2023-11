@@ -1,0 +1,44 @@
+@external gmeDialog;
+
+.gmeDialog .header {
+  height: 40px !important;
+}
+
+.header {
+  position: relative;
+}
+
+.headerIcon {
+  float: left;
+}
+
+.headerHasIcon .headerIcon {
+  width: 18px; 
+}
+
+.headerHasIcon .headerText {
+  left: 20px;
+}
+
+.gmeDialog .headerText {
+  color: black;	
+  font-size: 15px;
+  padding-top: 10px;
+  padding-left: 9px;
+  line-height: 15px;
+}
+
+.headerText {
+  /*font-family: Open Sans;*/
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 9px;
+  color: #f19b00;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerBar {
+  float: right;
+}

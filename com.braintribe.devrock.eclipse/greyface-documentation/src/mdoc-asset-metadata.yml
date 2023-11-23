@@ -1,0 +1,3 @@
+!com.braintribe.doc.meta.CustomAssetMetaData
+displayTitle: "Greyface plugin"
+shortDescription: "This a plugin that can scan external repositories (such as Maven Central) for specified artifacts and import the found and selected artifacts into another repository (ours for instance)."

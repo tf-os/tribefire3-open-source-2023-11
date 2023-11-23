@@ -1,0 +1,48 @@
+package ${package};
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.braintribe.gwt.gmrpc.base.client.AbstractServiceProxy;
+
+public class ${className} extends AbstractServiceProxy implements ${serviceInterfaceClassName} {
+	// service methods
+	#foreach($method in $methods)
+	${method.methodHead} {
+		try {
+#if ($method.hasVoidReturnType())
+			caller.call(null, "${method.methodName}", ${className}.${method.parameterTypesVarName}, new ArrayList<Object>(Arrays.<Object>asList(${method.argumentList})));
+#else
+			return caller.call(#if($method.returnType.isPrimitive()) "$method.returnType.gmSignature" #else null #end, "${method.methodName}", ${className}.${method.parameterTypesVarName}, new ArrayList<Object>(Arrays.<Object>asList(${method.argumentList})));
+#end
+		}
+		catch (RuntimeException e) {
+			throw e;
+		}
+		catch (Throwable e) {
+			throw new ${method.exception}("error while calling rpc service method", e);
+		}
+	}
+	
+	#end	
+	
+	// parameter types
+	#foreach($method in $methods)
+	#set($first=true)
+	private static List<String> ${method.parameterTypesVarName} = new ArrayList<String>(#if($method.parameters.isEmpty()));
+	#else
+		Arrays.<String>asList(
+		#foreach($parameter in $method.parameters)
+		#if($first)
+		#set($first=false)
+			"$parameter.gmSignature"
+		#else
+			, "$parameter.gmSignature"
+		#end 
+		#end
+		)
+	);
+	#end
+	#end
+}

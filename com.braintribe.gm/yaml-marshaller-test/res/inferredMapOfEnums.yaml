@@ -1,0 +1,5 @@
+!com.braintribe.codec.marshaller.yaml.model.pets.StatusMappings
+  mappings: 
+    available: available
+    pending: pending
+    sold: sold

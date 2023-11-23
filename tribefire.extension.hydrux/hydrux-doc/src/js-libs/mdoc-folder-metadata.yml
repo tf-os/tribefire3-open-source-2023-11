@@ -1,0 +1,19 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  js-lib-intro.md:
+    displayTitle: "Introduction to JS Libraries"
+    priority: -200
+
+  js-lib-how-to-create.md:
+    displayTitle: "How to create JS Library"
+    priority: -190
+
+  js-lib-file-structure:
+    displayTitle: "File Structure"
+    priority: -180
+
+  js-lib-live-deployment:
+    displayTitle: "Live Deployment"
+    priority: -170

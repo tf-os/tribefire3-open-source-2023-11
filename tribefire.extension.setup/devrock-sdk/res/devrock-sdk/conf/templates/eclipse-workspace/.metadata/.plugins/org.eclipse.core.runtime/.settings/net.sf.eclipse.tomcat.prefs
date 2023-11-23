@@ -1,0 +1,8 @@
+computeSourcePath=true
+contextsDir=@DEVENV@/tf-setups/main/runtime/host/conf/Catalina/localhost
+eclipse.preferences.version=1
+jvmParameters=-Djava.util.logging.config.file%3Dconf%2Flogging.properties;-Djava.util.logging.manager%3Dcom.braintribe.logging.juli.BtClassLoaderLogManager;
+managerUrl=http\://localhost\:8080/manager
+tomcatConfigFile=@DEVENV@/tf-setups/main/runtime/host/conf/server.xml
+tomcatDir=@DEVENV@/tf-setups/main/runtime/host
+tomcatVersion=tomcatV9

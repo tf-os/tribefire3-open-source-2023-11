@@ -1,0 +1,141 @@
+@external assemblyPanelPropertyValue assemblyPanelPropertyIcon;
+@external gmeTreeText;
+
+/* Style of the map icon, within maps */
+.mapKeyAndValueSeparator {
+  gwt-sprite: "smallarrow";
+  background-position: center center;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+/* Style for changing the mouse cursor to pointer */
+.pointerCursor {
+  cursor: pointer;
+}
+
+/* Style for inheriting the font styles from the parent */
+.inheritFont {
+  font: inherit;
+}
+
+/* Using a table in the tree node renderer was bringing problems. These entries should fix it */
+.tableForTreeWithFixedLayout {
+  width: 100%;
+  height: 28px;
+  table-layout: fixed;
+  font-size: 13px !important;
+}
+
+/* Style for the text in the grid columns, inside tables. Hidden overflow and no wrap */
+.textOverflowNoWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 2px;
+  vertical-align: top;
+  /*font-family: Open Sans !important;*/
+  font-size: 13px !important;
+}
+
+.gmeTreeText {
+	color: #3f4348;
+}
+
+/* This layout should be applied to tables that should keep the width defined manually, instead of computing new ones */
+.tableFixedLayout {
+  width: 100%;
+  table-layout: fixed;
+  font-size: 13px !important;
+}
+
+/* Style of the property values within the tree */
+.assemblyPanelPropertyValue {
+  padding-top: 8px;
+  font-size: 13px !important;
+  border: 1px solid transparent !important;
+}
+
+.propertyValueWithPadding {
+  padding-right: 14px;
+  padding-top: 1px;
+  font-size: 13px !important;
+}
+
+/* Style of the checked value icon */
+.checkedValue {
+  gwt-sprite: "checked";
+  cursor: pointer;
+}
+
+/* Style of the check null value icon */
+.checkNullValue {
+  gwt-sprite: "checkNull";
+  cursor: pointer;
+}
+
+/* Style of the unchecked value icon */
+.uncheckedValue {
+  gwt-sprite: "unchecked";
+  cursor: pointer;
+}
+
+/* Style of the checked, read only, value icon */
+.checkedReadOnlyValue {
+  gwt-sprite: "checked";
+}
+
+/* Style of the check null, read only, value icon */
+.checkNullReadOnlyValue {
+  gwt-sprite: "checkNull";
+}
+
+/* Style of the unchecked, read only value icon */
+.uncheckedReadOnlyValue {
+  gwt-sprite: "unchecked";
+}
+
+.emphasisStyle {
+  font-weight: bold;
+  font-size: 13px !important;
+}
+
+.collectionElementStyle {
+  color: gray;
+  padding-right: 4px;
+  font-size: 13px !important;
+}
+
+.propertyNameStyle {
+  color: gray;
+  vertical-align: top;
+  font-size: 13px !important;
+}
+
+/* Style of the text within the nodes when there are more items for a set collection */
+.moreItemsInSetStyle {
+  cursor: pointer;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-size: 13px !important;
+}
+
+/* Style for the links within the nodes */
+.linkStyle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 13px !important;
+}
+
+.editableBox {
+  border: 1px solid transparent !important;
+}
+
+.editableBox:hover {
+  border: 1px solid #dfdfdf !important;
+  border-radius: 4px;
+}
+
+.assemblyPanelPropertyIcon {
+	width: 16px;
+	height: 16px;
+}

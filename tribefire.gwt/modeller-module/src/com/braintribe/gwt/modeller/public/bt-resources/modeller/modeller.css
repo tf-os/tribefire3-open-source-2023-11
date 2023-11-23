@@ -1,0 +1,494 @@
+.relationshipChoices {
+	pointer-events: all
+}
+
+.relationshipChoice {
+	pointer-events: all
+}
+
+.gmModellerPanel {
+	background-color: #efefef;
+}
+
+.gmModellerMainPanel {
+	position: relative;
+	margin: 0 auto;
+}
+
+.gmModellerToolTip {
+	width: 100%;
+	text-align: center;
+	font-size: 14pt;
+}
+
+.gmModellerDecorationPanel {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	pointer-events: none;
+}
+
+.gmModellerNodeTypeName,.gmModellerNodeModelName{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	min-height:15px;
+	text-align: center;
+	width: 100%;
+}
+
+.gmModellerNodeTypeName {
+	/* display:flex; */
+	/* align-items:center; */
+	/* justify-content:center; */
+	background: none;
+	border: none;
+	
+	cursor: pointer;
+	color: #101010;
+	font-size: 10pt;
+	margin: 0px 5px;
+	
+	/* height: 35px; */
+	/* flex-grow: 1; */
+}
+
+.gmModellerNodeTypeName:hover {
+	text-decoration: underline;
+}
+
+.gmModellerNodeModelName{
+	font-size: 8pt;
+	opacity: 0.5;
+}
+
+.gmModellerSvg,.gmModellerTopSvg,.gmModellerDecorationPanel{
+	margin-top:15px;
+}
+
+.gmModellerSvg {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 2;
+}
+
+.gmModellerTopSvg {
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 4;
+	pointer-events: none;
+}
+
+.relationDecoration {
+	pointer-events: all;
+}
+
+.gmModellerNode, .gmModellerNode-entity, .gmModellerNode-enum, .gmModellerNode-abstract {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	pointer-events: all;
+	border-radius: 50% 50% 50% 50%;
+	
+	flex-direction: column;
+	justify-content: center;
+}
+
+.gmModellerNode-entity, .gmModellerNode{
+    border: 2px solid #7d7d7d;
+}
+
+.gmModellerNode-enum{
+    border: 2px solid #7d7d7d;
+}
+
+.gmModellerNode-abstract{
+    border: 2px solid #7d7d7d;
+}
+
+.gmModellerNode-top, .gmModellerNode-center, .gmModellerNode-bottom {
+	display: flex;
+	height: 33.3%;
+	width: 100%;
+}
+
+.gmModellerNode-top {
+	align-items: center;
+	justify-content: flex-start
+}
+
+.gmModellerNode-center {
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.gmModellerNode-bottom {
+	align-items: flex-start;
+	justify-content: center
+}
+
+.gmModellerNode-center>input {
+	text-align: center;
+	font-size: 12pt
+}
+
+.gmModellerNodePin {
+	align-self: center;
+	/* margin-left: 15px; */
+	background: none;
+	border: none;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.gmModellerNodePin img {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+}
+
+.gmModellerNodeMappingTypeName {
+	padding: 5px;
+	border: none;
+	background: none;
+	font-size: 8pt;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+	text-align: center;
+	color: rgb(175, 175, 175)
+}
+
+.gmModellerNodeMappingTypeName.readOnly:hover {
+	cursor: pointer;
+	text-decoration: underline
+}
+
+.gmModellerEdge {
+	display: flex;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	pointer-events: all;
+}
+
+.gmModellerEdge input {
+	text-align: center;
+	font-size: 14pt;
+}
+
+.gmModellerRelationshipChoice {
+	pointer-events: all;
+}
+
+.mappingWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 70%
+}
+
+.mappingWrapper button, .mappingWrapper img {
+	background: none;
+	border: none;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	opacity: 0.5
+}
+
+.typeOverviewPanel {
+	overflow: auto;
+/* 	display: flex; */
+/* 	flex-direction: column; */
+}
+
+.typeOverviewEntry {
+	overflow: auto;
+	padding-left: 35px;
+	overflow: hidden;
+}
+
+.typeOverviewEntry-dependency {
+	font-size: 12pt;
+	cursor: pointer;
+	color: silver;
+	display: flex;
+	align-items: center;
+	padding-bottom: 10px;
+}
+
+.typeOverviewEntry-dependency>*:nth-child(1),
+.typeOverviewEntry-dependency>*:nth-child(3),
+.typeOverviewEntry-dependency>*:nth-child(4) {
+	flex-basis: 10%
+}
+
+.typeOverviewEntry-dependency>*:nth-child(2) {
+	flex-basis: 70%
+}
+
+.modellerButton, .modellerButton img
+{
+	background: none;
+	border: none;
+	/* width: 16px; */
+	height: 16px;
+	cursor: pointer;
+}
+
+.typeOverviewEntry-types {
+	overflow-x: hidden;
+	padding-bottom: 10px;
+}
+
+.typeEntry {
+	margin-top: 5px;
+	display: flex;
+	align-items: center;
+	position: relative
+}
+
+.typeEntry>*:nth-child(1),.typeEntry>*:nth-child(3),.typeEntry>*:nth-child(4),.typeEntry>*:nth-child(5) {
+	flex-basis: 10%;
+	text-align: center;
+}
+
+.typeEntry-name {
+	font-size: 10pt;
+	/* PADDING-LEFT: 5px; */
+	cursor: pointer;
+	flex-basis: 60%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 60%;
+	overflow: hidden;
+}
+
+.typeEntry-name:hover {
+	text-decoration: underline;
+}
+
+.gmModellerViewPanel {
+	display: flex;
+	flex-direction: column;
+	padding-left: 45px;
+	padding-top: 15px;
+	padding-right: 15px;
+}
+
+.gmModellerViewMainPanel {
+	display: flex;
+	flex-direction: column;
+	padding-top: 15px;
+}
+
+.gmModellerViewNorthPanel {
+	display: flex;
+	justify-content: center;
+	padding-right: 15px;
+}
+
+.gmModellerViewSection {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	position: relative;
+	align-items: center;
+	padding: 15px;
+}
+
+.gmModellerDefaultCheckBox {
+	width: 16px;
+	height: 16px;
+	position: relative;
+	display: flex;
+	/* justify-content: space-between; */
+}
+
+.gmModellerDefaultCheckBox input, .gmModellerRadioButton input {
+	visibility: hidden;
+}
+
+.gmModellerDefaultCheckBox label:after, .gmModellerRadioButton label:after {
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-top: none;
+	border-right: none;
+}
+
+.gmModellerDefaultCheckBox label, .gmModellerRadioButton label {
+	cursor: pointer;
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	/* top: 8px; */
+	left: 0;
+	/* border: 1px solid #ddd; */
+	/* margin-right: 5px; */
+}
+
+.gmModellerDefaultCheckBox input[type=checkbox]:checked+label:after {
+	background: url("checked.png") 0px 0px no-repeat;
+	border: none;
+}
+
+.gmModellerDefaultCheckBox input[type=checkbox]:not(checked)+label:after {
+	background: url("unchecked.png") 0px 0px no-repeat;
+	border: none;
+}
+
+.gmModellerRadioButton input[type=radio]:checked+label:after {
+	background: url("checked.radio.png") 0px 0px no-repeat;
+	border: none;
+}
+
+.gmModellerRadioButton input[type=radio]:not(checked)+label:after {
+	background: url("unchecked.radio.png") 0px 0px no-repeat;
+	border: none;
+}
+
+.gmModellerDefaultCheckBox input[type=text] {
+	padding-left: 15px;
+}
+
+.gmModellerViewName {
+	background: none;
+	border: none;
+	flex-basis: 70%;
+	/* padding-left: 15px; */
+	font-size: 10pt;
+	font-weight: bold;
+}
+
+.gmModelerFilterPanel {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+}
+
+.gmModelerFilterPanel input {
+	border: none;
+	background: none;
+	text-align: left;
+	/* border-bottom: 1px solid #ddd; */
+}
+
+.gmModelerFilterPanelSection {
+	padding-top: 10px;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
+}
+
+.gmModelerFilterPanelEntryWrapper {
+	padding-left: 45px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	/* max-height: 150px;
+	overflow: auto; */
+}
+
+.gmModelerFilterPanelEntryTitel {
+	color: black;
+	font-size: 10pt;
+	cursor: pointer;
+	padding-left: 45px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.gmModelerFilterPanelEntry {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+	justify-content: flex-start;
+	max-width: 300px;
+	font-weight: bold;
+	font-size: 10pt
+}
+
+.gmModelerFilterPanelEntry>*:nth-child(2) {
+	padding-left: 15px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.gmModelerFilterPanelEntry>* {
+	/* padding-top:2px; */
+	/* height: 100%; */
+	/* line-height: 100%; */
+	
+}
+
+.gmModelerFilterPanelButton {
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+
+.gmModelerFilterViewName {
+	padding-top: 15px;
+	padding-left: 25px;
+	font-size: 10pt;
+	color: grey;
+	padding-bottom: 10px
+}
+
+.gmModelerFilterInput {
+	border-bottom: 1px solid silver;
+	padding-left: 45px;
+}
+
+.gmModelerFilterInput input {
+	color: #aaa
+}
+
+.gmModelerFilterPanelSeperator {
+	height: 1px;
+	min-width: 100px;
+	background-color: #ddd;
+	max-width: 300px;
+	margin-left: 45px;
+}
+
+.typeOverviewFilterSection{
+	display:flex;
+	flex-direction:column;
+	padding-left: 15px;
+	padding-right: 45px;
+	padding-bottom: 30px;
+}
+
+.typeOverviewFilterSection > *:nth-child(1), .typeOverviewAddSection > *:nth-child(1)
+{
+	display:flex;
+	flex-direction:row;
+	padding-bottom: 10px;
+	text-transform:uppercase;
+	font-size:10pt;
+}
+.typeOverviewAddSection{
+	display:flex;
+	flex-direction:column;
+	padding-left: 45px;
+	padding-top: 15px;
+	padding-bottom: 30px;
+	padding-right: 45px;
+}
+
+.typeOverviewAddSection input, .typeOverviewFilterSection input{
+	border:none;
+	border-bottom:1px solid silver;
+}

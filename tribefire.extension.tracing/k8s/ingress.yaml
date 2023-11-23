@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  labels:
+    app: jaeger
+    app.kubernetes.io/component: collector-ingress
+    app.kubernetes.io/instance: simplest
+    app.kubernetes.io/managed-by: jaeger-operator
+    app.kubernetes.io/name: collector-ingress
+    app.kubernetes.io/part-of: jaeger
+  name: collector-ingress
+  namespace: observability
+spec:
+  backend:
+    serviceName: simplest-collector
+    servicePort: 14268
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost

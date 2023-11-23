@@ -1,0 +1,1 @@
+$nature = (ModelPriming=com.braintribe.model.asset.natures.ModelPriming)()

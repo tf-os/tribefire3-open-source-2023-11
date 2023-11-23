@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="AttributeGroup2"/>
+	</xs:complexType>
+	<xs:attributeGroup name="AttributeGroup">
+		<xs:attribute name="attrOne" type="xs:string"/>
+		<xs:attribute name="attrTwo" type="xs:string"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="AttributeGroup2">
+		<xs:attribute name="attrXOne" type="xs:string"/>
+		<xs:attribute name="attrXTwo" type="xs:string"/>
+		<xs:attributeGroup ref="AttributeGroup"/>
+	</xs:attributeGroup>
+</xs:schema>

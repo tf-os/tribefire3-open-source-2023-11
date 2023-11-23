@@ -1,0 +1,29 @@
+@external gmeMenuItem gmeMenuItemShortcut;
+
+.active {
+  background-image: none;
+  background-color: #ffda97;
+  border: 1px solid #ffc151;
+}
+
+.menuListItem {
+  /*font-family: Open Sans !important;*/
+  font-size: 12px !important;
+  color: #3f4348 !important;
+}
+
+.menuItemIcon {
+	width: 16px !important;
+	height: 16px !important;
+	background-size: 100%!important;	
+}
+
+.gmeMenuItem {
+	display: flex;
+	justify-content: space-between;
+}
+
+.gmeMenuItemShortcut {
+	padding-left: 5px;    
+	color: darkgray;
+}

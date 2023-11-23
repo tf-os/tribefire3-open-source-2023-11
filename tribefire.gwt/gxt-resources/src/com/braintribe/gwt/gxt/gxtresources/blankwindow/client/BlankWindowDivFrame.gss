@@ -1,0 +1,11 @@
+.top, .topLeft, .topRight, .left, .right, .bottomLeft, .bottomRight, .bottom {
+	background: transparent;
+}
+
+.bottom, .bottomLeft, .bottomRight {
+	/*height: 0;*/
+}
+
+.content {
+	background: transparent !important;
+}

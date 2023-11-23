@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.hierarchy.BaseReferer" entity-name="test.models.hierarchy.BaseReferer" table="BaseReferer" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<many-to-one name="base" class="test.models.hierarchy.Base" column="base" />
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+2 entries:
+entry key: ComplexEntity[
+  $globalId = null
+  $partition = null
+  anotherComplexEntityProperty = null
+  booleanProperty = true
+  complexEntityList = [empty list]
+  complexEntityMap = [empty map]
+  complexEntityProperty = null
+  doubleProperty = null
+  id = 300
+  identifiableEntityProperty = null
+  integerProperty = 123
+  localizedStringProperty = null
+  objectProperty = null
+  simpleEntityProperty = SimpleEntity[
+    $globalId = null
+    $partition = null
+    booleanProperty = false
+    id = 200
+    stringProperty = 'simpleEntityTestString'
+  ]
+  simpleEnum = THREE
+  stringList = [empty list]
+  stringProperty = 'testString'
+]
+entry value: 'complexEntity'
+entry key: SimpleEntity[
+  $globalId = null
+  $partition = null
+  booleanProperty = false
+  id = 400
+  stringProperty = 'simpleEntity2TestString'
+]
+entry value: 'simpleEntity'

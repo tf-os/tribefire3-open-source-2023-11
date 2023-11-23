@@ -1,0 +1,9 @@
+<UML:Enumeration  xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false'>
+  <UML:Enumeration.literal>
+    #foreach ($value in $map.keySet())
+	<UML:EnumerationLiteral xmi.id = '$map.get($value)' name = '$value' isSpecification = 'false'>	
+	$!mdMap.get($value)
+	</UML:EnumerationLiteral>
+    #end
+  </UML:Enumeration.literal>
+</UML:Enumeration>

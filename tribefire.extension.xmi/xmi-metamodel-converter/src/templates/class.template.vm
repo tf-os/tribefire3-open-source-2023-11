@@ -1,0 +1,14 @@
+<UML:Class xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' visibility = 'public' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = '$abstract' isActive = 'false'>
+	<UML:Classifier.feature>		
+	</UML:Classifier.feature>
+	#if ($stereotypePlainId)
+	<UML:ModelElement.stereotype>
+		<UML:Stereotype $stereotypePlainRefIdKey = '$stereotypePlainId' />
+	</UML:ModelElement.stereotype>
+	#end
+	#if ($stereotypeDiscardId)
+	<UML:ModelElement.stereotype>
+		<UML:Stereotype $stereotypeDiscardRefIdKey = '$stereotypeDiscardId' />
+	</UML:ModelElement.stereotype>
+	#end
+</UML:Class>

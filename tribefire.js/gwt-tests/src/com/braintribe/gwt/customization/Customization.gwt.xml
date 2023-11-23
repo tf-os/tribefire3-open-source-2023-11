@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module rename-to="BtClientCustomization">
+    <inherits name="com.braintribe.Codec"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.gwt.genericmodel.GenericModel"/>
+    <inherits name="com.braintribe.gwt.logging.Logging"/>
+    <inherits name="com.braintribe.model.BasicMetaModel"/>
+    <inherits name="com.braintribe.model.BasicResourceModel"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.IconModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.processing.ModelOracle"/>
+    <inherits name="com.braintribe.model.processing.session.impl.GmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.session.impl.NotifyingGmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.session.impl.PersistenceGmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.ResourceModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.util.MetaModelUtil"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+    <inherits name="com.braintribe.utils.UtilsLcd"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="jsinterop.JsInteropBase"/>
+    <inherits name="com.braintribe.model.BasicValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.SecurityServiceApiModel"/>
+    <inherits name="com.braintribe.gwt.gmsession.GMSessionModule"/>
+    <inherits name="com.braintribe.gwt.gmsession.GwtPersistenceGmSession"/>
+    <!--  set-property name="user.agent" value="safari,ie6,ie8,ie9"/-->
+    <!-- <set-property name="user.agent" value="safari,ie10,gecko1_8"/> -->
+    <set-property name="user.agent" value="safari"/>
+    <entry-point class="com.braintribe.gwt.customization.client.StartupEntryPoint"/>
+    <!--
+  	<add-linker name="direct_install"/>
+  	-->
+    <source path="client"/>
+    <!-- 
+    <generate-with class="com.braintribe.gwt.i18n.build.I18nGenerator">
+   		<when-type-assignable class="com.google.gwt.i18n.client.Messages" />
+ 	</generate-with>
+    <extend-property name="locale" values="en,de"/>
+ 	 -->
+</module>

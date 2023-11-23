@@ -1,0 +1,52 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.jdbcdriver</groupId>
+        <artifactId>parent</artifactId>
+        <version>[3.0,3.1)</version>
+    </parent>
+    <artifactId>postgresql</artifactId>
+    <version>3.0.18</version>
+    <packaging>pom</packaging>
+    <properties>
+        <archetype>asset</archetype>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.0</version>
+            <exclusions>
+                <!-- PostgreSQL uses the checker-qual library for annotations such as Nullable.
+                This dependency was introduced with 42.2.15, which is briefly mentioned in the release notes
+                ('Verify nullness with CheckerFramework'). However, the download page still just provides
+                the postgres jar file and doesn't mention checker-qual at all. Also tests have shown that
+                it is not needed. Therefore it's excluded here, also to avoid clashes with other libraries
+                which depend on a different version of this artifact. -->
+                <exclusion>
+                    <groupId>org.checkerframework</groupId>
+                    <artifactId>checker-qual</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

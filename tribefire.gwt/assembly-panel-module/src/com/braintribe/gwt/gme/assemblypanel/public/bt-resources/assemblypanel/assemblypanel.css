@@ -1,0 +1,23 @@
+.assemblyPanel-radio {
+	background-position: 2px 2px;
+	background-image: url("com/braintribe/gwt/gxt/gxtresources/images/radio.png");
+	background-color: transparent;
+	background-repeat: no-repeat;
+	height: 18px;
+	width: 100%;
+}
+
+.x-grid3-row-selected .assemblyPanel-radio {
+	background-position: -23px 2px;
+}
+.emptyStyle {
+	/*font-family: Open Sans !important;*/
+	font-size: 20px;
+	color: #F19B00;
+	text-align: center;
+}
+
+.clearImage {
+	width: 0px !important;
+	height: 0px !important;
+}

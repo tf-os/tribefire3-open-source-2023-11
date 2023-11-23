@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.Codec"/>
+	<inherits name="com.braintribe.common.AttributeApi"/>
+    <inherits name="com.braintribe.common.CommonLcd"/>
+    	<inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.fileapi.FileApi"/>
+   	<inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+    <inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.processing.MetaModelApi"/>
+    <inherits name="com.braintribe.model.processing.ModelOracle"/>
+	<inherits name="com.braintribe.model.ProtoMetaModel"/>
+	<inherits name="com.braintribe.model.ResourceModel"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <inherits name="com.google.gwt.resources.Resources"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="com.google.gwt.xml.XML"/>
+    <inherits name="jsinterop.annotations.Annotations"/>
+    <!--Resource Module-->
+    <inherits name="jsinterop.JsInteropBase"/>
+    <source path="client"/>
+    <generate-with class="com.braintribe.gwt.genericmodel.build.GenericModelTypeReflectionGenerator">
+    	<when-type-assignable class="com.braintribe.model.generic.reflection.GenericModelTypeReflection"/>
+  	</generate-with>
+    <generate-with class="com.braintribe.gwt.genericmodel.build.InitialEntityTypesGenerator">
+    	<when-type-assignable class="com.braintribe.gwt.genericmodel.client.itw.InitialEntityTypes"/>
+  	</generate-with>
+    <generate-with class="com.braintribe.gwt.genericmodel.build.JavascriptMemberReflectionGenerator">
+    	<when-type-assignable class="com.braintribe.gwt.genericmodel.client.itw.JavascriptMemberReflection"/>
+  	</generate-with>
+    <generate-with class="com.braintribe.gwt.genericmodel.build.RuntimeMethodNamesGenerator">
+    	<when-type-assignable class="com.braintribe.gwt.genericmodel.client.itw.RuntimeMethodNames"/>
+  	</generate-with>
+    <super-source path="emul"/>
+</module>

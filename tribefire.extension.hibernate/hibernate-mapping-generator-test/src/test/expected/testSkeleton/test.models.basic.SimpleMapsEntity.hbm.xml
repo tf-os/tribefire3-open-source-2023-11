@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.SimpleMapsEntity" entity-name="test.models.basic.SimpleMapsEntity" table="SimpleMapsEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<map name="dateToDateMap" table="SimpleMapsEntityDateToDateMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="DateToDateMapKey" type="date" />
+			<element column="DateToDateMap" type="date" />
+		</map>
+		<map name="dateToEnumMap" table="SimpleMapsEntityDateToEnumMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="DateToEnumMapKey" type="date" />
+			<element column="DateToEnumMap" type="test.models.basic.SimpleEnum" />
+		</map>
+		<map name="dateToLongMap" table="SimpleMapsEntityDateToLongMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="DateToLongMapKey" type="date" />
+			<element column="DateToLongMap" type="long" />
+		</map>
+		<map name="dateToStringMap" table="SimplMapsEntityDateToStringMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="DateToStringMapKey" type="date" />
+			<element column="DateToStringMap" type="string" />
+		</map>
+		<map name="enumToDateMap" table="SimpleMapsEntityEnumToDateMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="EnumToDateMapKey" type="test.models.basic.SimpleEnum" />
+			<element column="EnumToDateMap" type="date" />
+		</map>
+		<map name="enumToEnumMap" table="SimpleMapsEntityEnumToEnumMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="EnumToEnumMapKey" type="test.models.basic.SimpleEnum" />
+			<element column="EnumToEnumMap" type="test.models.basic.SimpleEnum" />
+		</map>
+		<map name="enumToLongMap" table="SimpleMapsEntityEnumToLongMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="EnumToLongMapKey" type="test.models.basic.SimpleEnum" />
+			<element column="EnumToLongMap" type="long" />
+		</map>
+		<map name="enumToStringMap" table="SimplMapsEntityEnumToStringMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="EnumToStringMapKey" type="test.models.basic.SimpleEnum" />
+			<element column="EnumToStringMap" type="string" />
+		</map>
+		<property name="globalId" column="globalId" type="string" />
+		<map name="longToDateMap" table="SimpleMapsEntityLongToDateMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="LongToDateMapKey" type="long" />
+			<element column="LongToDateMap" type="date" />
+		</map>
+		<map name="longToEnumMap" table="SimpleMapsEntityLongToEnumMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="LongToEnumMapKey" type="long" />
+			<element column="LongToEnumMap" type="test.models.basic.SimpleEnum" />
+		</map>
+		<map name="longToLongMap" table="SimpleMapsEntityLongToLongMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="LongToLongMapKey" type="long" />
+			<element column="LongToLongMap" type="long" />
+		</map>
+		<map name="longToStringMap" table="SimplMapsEntityLongToStringMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="LongToStringMapKey" type="long" />
+			<element column="LongToStringMap" type="string" />
+		</map>
+		<property name="partition" column="partition_" type="string" />
+		<map name="stringToDateMap" table="SimplMapsEntityStringToDateMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="StringToDateMapKey" type="string" />
+			<element column="StringToDateMap" type="date" />
+		</map>
+		<map name="stringToEnumMap" table="SimplMapsEntityStringToEnumMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="StringToEnumMapKey" type="string" />
+			<element column="StringToEnumMap" type="test.models.basic.SimpleEnum" />
+		</map>
+		<map name="stringToLongMap" table="SimplMapsEntityStringToLongMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="StringToLongMapKey" type="string" />
+			<element column="StringToLongMap" type="long" />
+		</map>
+		<map name="stringToStringMap" table="SimplMapsEntitStrinToStringMap">
+			<key column="SimpleMapsEntityId" />
+			<map-key column="StringToStringMapKey" type="string" />
+			<element column="StringToStringMap" type="string" />
+		</map>
+	</class>
+</hibernate-mapping>

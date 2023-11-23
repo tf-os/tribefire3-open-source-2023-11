@@ -1,0 +1,28 @@
+<UML:AssociationClass xmlns:UML = 'org.omg.xmi.namespace.UML' xmi.id = '$id' name = '$name' visibility = 'public' isSpecification = 'false' isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+  <UML:Association.connection>
+    <UML:AssociationEnd xmi.id = '$end1Id' visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>     
+      <UML:AssociationEnd.participant>
+	<UML:Class xmi.idref = '$class1IdRef'/>
+      </UML:AssociationEnd.participant>
+    </UML:AssociationEnd>
+    <UML:AssociationEnd xmi.id = '$end2Id' visibility = 'public' isSpecification = 'false' isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance' changeability = 'changeable'>
+      <UML:AssociationEnd.multiplicity>
+	<UML:Multiplicity xmi.id = '$multiplicityId'>
+	  <UML:Multiplicity.range>
+	    <UML:MultiplicityRange xmi.id = '$multiplicityRangeId' lower = '0' upper = '-1'/>
+	  </UML:Multiplicity.range>
+	</UML:Multiplicity>
+      </UML:AssociationEnd.multiplicity>
+      <UML:AssociationEnd.participant>
+	<UML:Class xmi.idref = '$class2IdRef'/>
+      </UML:AssociationEnd.participant>
+    </UML:AssociationEnd>
+  </UML:Association.connection>
+  <UML:Classifier.feature>
+    <UML:Attribute xmi.id = '$keyId' name = 'key' visibility = 'public' isSpecification = 'false' ownerScope = 'instance' changeability = 'changeable' targetScope = 'instance'>
+      <UML:StructuralFeature.type>
+	<UML:Class xmi.idref = '$typeRef'/>
+      </UML:StructuralFeature.type>
+    </UML:Attribute>
+  </UML:Classifier.feature>
+</UML:AssociationClass>

@@ -1,0 +1,23 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  features.md:
+    priority: -300
+
+  glossary.md:
+    priority: -200
+
+  features:
+    displayTitle: "General Features"
+    priority: -190
+
+  metadata:
+    displayTitle: "Metadata"
+    priority: -180
+
+  gmql:
+    displayTitle: "GMQL"
+    priority: -170
+    tags:
+      - gmql

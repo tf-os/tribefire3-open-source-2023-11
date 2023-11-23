@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example Header Comment -->
+<Person number="123" id="john1">
+	<!-- Example Subelement Comment -->
+	<FirstName>John</FirstName>
+	<LastName>Doe</LastName>
+	<Address>ExampleStreet 123</Address>
+	<Email>john.doe@example.com</Email>
+</Person>

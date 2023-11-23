@@ -1,0 +1,65 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tribefire.extension.hibernate</groupId>
+	<artifactId>parent</artifactId>
+	<version>2.0.10</version>
+	<packaging>pom</packaging>
+	<properties>
+		<java.version>21</java.version>
+		<V.tribefire.extension.hibernate>[2.0,2.1)</V.tribefire.extension.hibernate>
+
+		<!-- non-gm -->
+		<V.com.braintribe.codec>[2.0,2.1)</V.com.braintribe.codec>
+		<V.com.braintribe.common>[2.0,2.1)</V.com.braintribe.common>
+		<V.com.braintribe.templatetools>[2.0,2.1)</V.com.braintribe.templatetools>
+		<V.com.braintribe.testing>[2.0,2.1)</V.com.braintribe.testing>
+		<V.com.braintribe.wire>[2.0,2.1)</V.com.braintribe.wire>
+		<V.com.braintribe.xml>[2.0,2.1)</V.com.braintribe.xml>
+
+		<!-- gm -->
+		<V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+		<V.tribefire.cortex>[3.0,3.1)</V.tribefire.cortex>
+		<V.tribefire.extension.web-api>[1.0,1.1)</V.tribefire.extension.web-api>
+		<V.tribefire.extension.jdbcdriver>[3.0,3.1)</V.tribefire.extension.jdbcdriver>
+
+		<V.tribefire.extension.hikari>[1.0,1.1)</V.tribefire.extension.hikari>
+
+		<!-- 3rd party -->
+		<V.cglib>2.2</V.cglib>
+		<V.com.fasterxml.jackson.core>2.12.1</V.com.fasterxml.jackson.core>
+		<V.com.h2database>1.4.196</V.com.h2database>
+		<V.com.mchange>0.9.5.5</V.com.mchange>
+		<V.com.microsoft.jdbc>4.0.2206.100</V.com.microsoft.jdbc>
+		<V.com.oracle>11.2.0.3.0</V.com.oracle>
+		<V.commons-jxpath>1.3</V.commons-jxpath>
+		<V.javax.activation>1.1.1</V.javax.activation>
+		<V.javax.transaction>1.2</V.javax.transaction>
+		<V.mysql>5.1.36</V.mysql>
+		<V.org.apache.commons>4.2</V.org.apache.commons>
+		<V.org.apache.derby>10.13.1.1</V.org.apache.derby>
+		<V.org.glassfish.jaxb_jaxb-core>2.3.0.1</V.org.glassfish.jaxb_jaxb-core>
+		<V.org.glassfish.jaxb_jaxb-runtime>2.3.2</V.org.glassfish.jaxb_jaxb-runtime>
+		<V.org.hibernate>5.6.0.Final</V.org.hibernate>
+		<V.org.mariadb.jdbc>1.1.8</V.org.mariadb.jdbc>
+		<V.org.postgresql>9.4-1202-jdbc41</V.org.postgresql>
+		<V.xmlunit>1.4</V.xmlunit>	</properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

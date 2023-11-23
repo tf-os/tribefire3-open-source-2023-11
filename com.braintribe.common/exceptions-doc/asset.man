@@ -1,0 +1,1 @@
+$nature = (MarkdownDocumentation=com.braintribe.model.asset.natures.MarkdownDocumentation)()

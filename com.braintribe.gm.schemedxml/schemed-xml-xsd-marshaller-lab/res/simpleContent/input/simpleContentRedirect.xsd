@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="simpleContent" type="ActiveOrHistoricCurrencyAndAmount"/>
+	<xs:complexType name="ActiveOrHistoricCurrencyAndAmount">
+		<xs:simpleContent>
+			<xs:extension base="ActiveOrHistoricCurrencyAndAmount_SimpleType">
+				<xs:attribute name="Ccy" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="ActiveOrHistoricCurrencyAndAmount_SimpleType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:totalDigits value="18"/>
+			<xs:fractionDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

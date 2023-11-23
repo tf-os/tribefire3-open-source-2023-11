@@ -1,0 +1,35 @@
+@external menuGroupSeparator menuGroupSeparatorText menuGroupSeparatorIcon menuGroupSeparatorTextWithIcon;
+
+.menuSep {
+  background-color: #e0e0e0;
+  border-bottom-color: #fff;
+  width: 100%;
+  margin: 4px 4px;
+  line-height: 1px;
+}
+
+.menuGroupSeparator {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;    
+    background-color: #f1f1f1 !important;
+}
+
+.menuGroupSeparatorText {
+	font-size: 12px;
+    width: 100%;
+    padding-left: 29px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}	
+
+.menuGroupSeparatorIcon {
+	padding-left: 4px;
+	padding-top: 2px;
+	height: 16px;
+	width: 16px;	
+}
+
+.menuGroupSeparatorText.menuGroupSeparatorTextWithIcon {
+    padding-left: 8px;
+}

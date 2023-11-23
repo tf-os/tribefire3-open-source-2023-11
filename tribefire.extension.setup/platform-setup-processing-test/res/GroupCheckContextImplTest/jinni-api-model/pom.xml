@@ -1,0 +1,56 @@
+<!--
+ ============================================================================
+ BRAINTRIBE TECHNOLOGY GMBH - www.braintribe.com
+ Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2018 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+--><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.setup</groupId>
+        <artifactId>parent</artifactId>
+        <version>[${major}.${minor},${major}.${nextMinor})</version>
+    </parent>
+    <artifactId>jinni-api-model</artifactId>
+    <version>${major}.${minor}.${revision}</version>
+    <properties>
+        <major>2</major>
+        <minor>1</minor>
+        <nextMinor>2</nextMinor>
+        <revision>3-pc</revision>
+        <archetype>model</archetype>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>root-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>service-api-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>transient-resource-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>collaborative-smood-api-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+            <?tag asset?>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.setup</groupId>
+            <artifactId>platform-setup-package-model</artifactId>
+            <version>${V.tribefire.extension.setup}</version>
+            <?tag asset?>
+        </dependency>
+    </dependencies>
+</project>

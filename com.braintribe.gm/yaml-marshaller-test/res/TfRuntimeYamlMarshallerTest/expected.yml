@@ -1,0 +1,35 @@
+apiVersion: "tribefire.cloud/v1alpha1"
+kind: "TribefireRuntime"
+metadata:
+  labels:
+    "stage": "dev"
+  name: "demo-fire"
+  namespace: "tribefire"
+spec:
+  backend:
+    params:
+      "url": "http://tf-etcd-cluster-client.etcd:2379"
+    type: "etcd"
+  components:
+    - env:
+        - name: "TRIBEFIRE_CUSTOM"
+          value: "true"
+      logJson: true
+      logLevel: DEBUG
+      name: "tribefire-master"
+      publicUrl: "http://demo.tribefire.local"
+      resources:
+        limits:
+          "memory": "2048Mi"
+          "cpu": "2000m"
+        requests:
+          "memory": "512Mi"
+          "cpu": "500m"
+      type: "Services"
+    - logJson: true
+      logLevel: INFO
+      name: "tribefire-control-center"
+      publicUrl: "http://demo.tribefire.local"
+      type: "ControlCenter"
+  databaseType: "local"
+  domain: "tribefire.local"

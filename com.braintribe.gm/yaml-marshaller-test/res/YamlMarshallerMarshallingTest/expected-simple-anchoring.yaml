@@ -1,0 +1,5 @@
+&0
+firstName: "Tina"
+friend:
+  firstName: "Dirk"
+  friend: *0

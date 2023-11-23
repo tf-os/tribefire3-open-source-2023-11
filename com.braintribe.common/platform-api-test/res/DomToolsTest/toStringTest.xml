@@ -1,0 +1,25 @@
+<!-- Before Root Comment 1 --><!-- Before Root Comment 2 --><RootElement>
+	<!-- SomeElement Comment 1 --><!-- SomeElement Comment 2 -->
+	<!-- SomeElement Comment 3
+		line 1
+		line 2
+	-->
+	<SomeElement>ElementText</SomeElement><SomeElement>ElementText</SomeElement>
+<SomeElement>ElementText</SomeElement>
+		<SomeElement>ElementText</SomeElement>
+  <SomeElement>ElementText</SomeElement>
+	<Attributes a="a" b="b"/>
+	
+	<CommentsAndText>
+	
+<!-- comment -->a<!-- comment --> b b <!-- comment -->c
+c
+c c
+<!-- comment -->
+
+<!-- comment -->
+
+d
+	</CommentsAndText>
+	
+</RootElement><!-- After Root Comment 1 --><!-- After Root Comment 2 -->

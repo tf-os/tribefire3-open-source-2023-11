@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.CardCompany" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.CardCompany" table="TEST_CARDCOMPANY" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<list name="employeeList" table="TEST_CARDCOMPANYEMPLOYEELIST">
+	 		<key column="CARDCOMPANYID" />
+	 		<list-index column="CARDCOMPANYEMPLOYEELISTIDX" />
+			<many-to-many class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Employee" column="EMPLOYEEID" />
+		</list>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="name" column="NAME_" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+	</class>
+</hibernate-mapping>

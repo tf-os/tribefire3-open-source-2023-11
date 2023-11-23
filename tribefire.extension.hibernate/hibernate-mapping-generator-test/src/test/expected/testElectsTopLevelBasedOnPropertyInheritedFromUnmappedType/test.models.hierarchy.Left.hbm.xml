@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping auto-import="true">
+	<subclass name="test.models.hierarchy.Left" entity-name="test.models.hierarchy.Left" abstract="false" extends="test.models.hierarchy.Base">
+		<property name="leftProperty" column="leftProperty" type="string" />
+	</subclass>
+</hibernate-mapping>

@@ -1,0 +1,3 @@
+This model artifact provides all deployment related entity types.
+This includes entity types for deployables, in this case e.g. an access and a (DDSA) service processor.
+For the service it also provides the modeled request and response types.

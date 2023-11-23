@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.ComplexCollectionsEntity" entity-name="test.models.basic.ComplexCollectionsEntity" table="ComplexCollectionsEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<list name="entityList" table="ComplexCollEntityEntityList" fetch="subselect">
+			<key column="ComplexCollectionsEntityId" />
+			<list-index column="ComplexCollEntityEntityListIdx" />
+			<many-to-many class="test.models.basic.SimpleEntity" column="SimpleEntityId" fetch="join" />
+		</list>
+		<set name="entitySet" table="ComplexCollEntityEntitySet">
+			<key column="ComplexCollectionsEntityId" />
+			<many-to-many class="test.models.basic.SimpleEntity" column="SimpleEntityId" />
+		</set>
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" index="myCustom partitionIdx" />
+	</class>
+</hibernate-mapping>

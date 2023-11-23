@@ -1,0 +1,10 @@
+#!/bin/sh
+#see https://docs.openshift.com/container-platform/3.3/creating_images/guidelines.html
+umask 002
+if ! grep $(id -u) /etc/passwd 1>/dev/null 2>&1; then
+  if [ -w /etc/passwd ]; then
+    echo "${USER_NAME:-default}:x:$(id -u):0:${USER_NAME:-default} user:/home/:/sbin/nologin" >> /etc/passwd
+  fi
+fi
+exec "$@"
+

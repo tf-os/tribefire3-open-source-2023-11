@@ -1,0 +1,56 @@
+
+<style>
+.errorReasonPanel {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	padding-left: 15px;
+	overflow:hidden;
+	min-height:50px;
+}
+
+.errorReasonIconWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.errorReasonIcon {
+	height: 32px;
+	width: 32px;
+	display: inline-block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.errorReasonMainSection {
+	flex-grow: 1;
+	padding-left: 15px;
+	overflow:hidden;
+}
+
+.errorReasonMainSection-si {
+	font-size: 14pt;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.errorReasonText {
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 12pt;
+}
+</style>
+
+<div class="errorReasonPanel">
+	<div class="errorReasonIconWrapper">
+		<div class="errorReasonIcon" style="{iconStyle}"></div>
+	</div>
+	<div class="errorReasonMainSection">
+		<div class="errorReasonMainSection-si" title="{hint}">{typeSignature}</div>
+	</div>
+</div>
+
+<div class="errorReasonText">{text}</div>

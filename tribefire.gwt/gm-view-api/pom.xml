@@ -1,0 +1,75 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.gwt</groupId>
+        <artifactId>parent</artifactId>
+        <version>[3.0,3.1)</version>
+    </parent>
+    <artifactId>gm-view-api</artifactId>
+    <version>3.0.42</version>
+    <properties>
+        <archetype>library</archetype>
+        <gwt-compatible>true</gwt-compatible>
+        <jsinterop>true</jsinterop>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency><groupId>com.sencha.gxt</groupId><artifactId>gxt</artifactId><version>${V.com.sencha.gxt}</version></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>access-control-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>common-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>data-editing-api-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.cortex</groupId><artifactId>extension-deployment-model</artifactId><version>${V.tribefire.cortex}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>icon-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>model-environment-api-model</artifactId><version>${V.com.braintribe.gm}</version></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>packaging-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>persistence-reflection-api-model</artifactId><version>${V.com.braintribe.gm}</version></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>style-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>ui-action-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>ui-component-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>ui-service-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>com.braintribe.gm</groupId><artifactId>legacy-workbench-model</artifactId><version>${V.com.braintribe.gm}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.extension.js</groupId><artifactId>js-ux-deployment-model</artifactId><version>${V.tribefire.extension.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>basic-gwt-codecs</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>file-api-module</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>generic-model-module</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>geom</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gm-resource-api</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gm-session-module</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gm-storage-api</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-acl-support</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-basic-notifying-gm-session</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-basic-persistence-gm-session</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-gm-core-commons</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-gm-core</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-gm-rpc-client-api</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-gm-session-api</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-meta-model-generation</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-notification-api</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-platform-api</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-query-model-processing</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-service-api</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>gwt-workbench-action-api</artifactId><version>${V.tribefire.js}</version><?tag js?></dependency>
+        <dependency><groupId>tribefire.js</groupId><artifactId>resource-model-api-module</artifactId><version>${V.tribefire.js}</version></dependency>
+        <dependency><groupId>tribefire.gwt</groupId><artifactId>action-module</artifactId><version>${V.tribefire.gwt}</version></dependency>
+        <dependency><groupId>tribefire.gwt</groupId><artifactId>gxt-resources</artifactId><version>${V.tribefire.gwt}</version></dependency>
+        <dependency><groupId>tribefire.gwt</groupId><artifactId>generic-model-validation</artifactId><version>${V.tribefire.gwt}</version></dependency>
+</dependencies>
+</project>

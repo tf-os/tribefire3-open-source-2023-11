@@ -1,0 +1,146 @@
+.topBanner, .topBanner .x-component, .x-panel-noborder .x-panel-body-noborder {
+	width: auto !important;
+}
+.headerbar-folder-menu-image {
+	opacity: 0.5;
+    padding-right: 15px;	
+    width: 32px;
+    height: 32px;
+}
+.headerbar-folder-menu-image:hover{
+	opacity: 1;
+}
+.headerbar-folder-image {
+	padding-top: 10px;
+	padding-left: 15px;
+	background-color: white;
+	width: 178px;	
+	max-height: 60px;
+}
+.headerbar_widget_quickAccess-slot {
+	width : 200px;
+}
+.headerbar_widget_globalState-slot {
+	width : 100%;
+}
+.headerbar-link {
+	white-space: nowrap;
+}
+
+.headerbar-button.disabled {
+	opacity: 0.5;
+}
+
+.headerbar-button a.topBannerAnchor, .headerbar-button a.topBannerAnchor:hover {
+	color: black;	
+}
+
+.headerbar-button.disabled a.topBannerAnchor {
+	cursor: default !important;
+	padding: 0px !important;
+}
+
+.headerbar-button-action {
+	display: flex;
+    flex-direction: row;
+    align-items: center;	
+}
+
+.headerbar-button.enabled {
+	opacity: 1;	
+}
+
+.headerbar-button.enabled:hover {
+	background-color: #eee;	
+}
+
+.headerbar-button.enabled a.topBannerAnchor {
+	padding: 0px !important;
+}
+.headerbar-button {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;    
+}
+
+.headerBarButtonPanel {
+    border: 1px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color: lightgray;	
+    box-shadow: 1px 2px 5px 1px #ccc;
+    -moz-box-shadow: 1px 2px 5px 1px #ccc;
+    -webkit-box-shadow: 1px 2px 5px 1px #ccc;    
+}
+
+.headerBarButtonBody {
+	background-color: transparent;
+}
+
+.headerbar-button-main {
+	padding-right: 5px;
+	padding-left: 5px;	
+	padding-top: 2px;
+    padding-bottom: 1px;
+}
+
+.headerbar-button-menu {
+	border-radius: 5px;
+    border: 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+
+.headerbar-button-menu.enabled:hover {
+    border-color: #eee;
+}
+
+.headerbar-button-text {
+	padding-left: 5px;
+}
+
+.headerbar-button-action img {
+	max-width: 24px;
+	max-height: 24px;
+}
+
+.headerbar-button.enabled:hover .headerbar-button-menu-image {
+	visibility: visible;
+}
+
+.headerbar-button-menu-image {
+	vertical-align: middle;
+	visibility: hidden;
+}
+
+.headerBarMenu {
+    border-radius: 15px;
+    box-shadow: 1px 2px 5px 1px #ccc;
+    -moz-box-shadow: 1px 2px 5px 1px #ccc;
+    -webkit-box-shadow: 1px 2px 5px 1px #ccc;    	
+}
+
+.headerBarMenu .gmeMenuListItem {
+	border-radius: 15px;	
+    background: transparent;
+    border-color: transparent;	
+}
+
+.headerBarMenu .gmeMenuListItem:hover {
+	background-color: #eee;
+	border: 1px solid #ddd;
+}
+
+#headerbar_button {
+	padding-right: 10px;
+}
+
+#logoPanel {
+	max-height: 60px;
+}
+
+#quickAccess-slot {
+	padding-left: 30px;
+	padding-top: 5px;
+}

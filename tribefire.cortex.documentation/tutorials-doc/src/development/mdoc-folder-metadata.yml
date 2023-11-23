@@ -1,0 +1,11 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  introduction.md:
+  components.md:
+  creating_artifacts.md:
+  developing_artifacts.md:
+  executing_rest.md:
+  bt_ant_tasks.md:
+  Tips:

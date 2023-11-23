@@ -1,0 +1,15 @@
+1 entry:
+entry key: SimpleEntity[
+  booleanProperty = false
+  globalId = null
+  id = 200
+  partition = null
+  stringProperty = 'simpleEntityTestString'
+]
+entry value: SimpleEntity[
+  booleanProperty = false
+  globalId = null
+  id = 400
+  partition = null
+  stringProperty = 'simpleEntity2TestString'
+]

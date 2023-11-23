@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+	<extension point="org.eclipse.ui.commands">
+		<category id="com.braintribe.eclipse.model.nature.ModelNatureCategory" name="Model Nature Commands">
+		</category>
+		<command 
+			id="com.braintribe.eclipse.model.nature.AssignModelNature"
+			name="Assign Model Nature Command" 
+			categoryId="com.braintribe.eclipse.model.nature.ModelNatureCategory"
+			defaultHandler="com.braintribe.eclipse.model.nature.AssignModelNature">
+		</command>
+		<command 
+			id="com.braintribe.eclipse.model.nature.RemoveModelNature"
+			name="Remove Model Nature Command" 
+			categoryId="com.braintribe.eclipse.model.nature.ModelNatureCategory"
+			defaultHandler="com.braintribe.eclipse.model.nature.RemoveModelNature">
+		</command>
+	</extension>
+	
+	<extension point="org.eclipse.ui.commandImages">
+		<image commandId="com.braintribe.eclipse.model.nature.AssignModelNature" icon="icons/model.png">
+		</image>
+		<image commandId="com.braintribe.eclipse.model.nature.RemoveModelNature" icon="icons/model.png">
+		</image>
+	</extension>
+	
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution allPopups="true" locationURI="popup:org.eclipse.ui.popup.any?after=natures">
+			<!--
+			<menuContribution allPopups="true" locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+			<separator name="mySeparator" visible="true">
+	        </separator>
+	        -->
+	        <menu id="com.braintribe.devrock" label="Devrock">
+	        <command commandId="com.braintribe.eclipse.model.nature.AssignModelNature" style="push" label="Add Model Nature">    
+			    <visibleWhen>    
+		    		<with variable="activeMenuSelection">
+			  			<iterate>			  							  				
+				        	<adapt type="org.eclipse.core.resources.IProject">
+				        		<and>				        		
+									<test property="org.eclipse.core.resources.open" value="open"/> 																				        		
+		                         	<not>
+										<test 
+						                  property="org.eclipse.core.resources.projectNature" 
+						                  value="com.braintribe.eclipse.model.nature.ModelNature" />
+		                         	</not>
+	                         	</and>
+				        	</adapt>	                         	
+						</iterate>
+		     		</with>    
+			    </visibleWhen>
+	        </command>
+	        <command commandId="com.braintribe.eclipse.model.nature.RemoveModelNature" style="push" label="Remove Model Nature">    
+			    <visibleWhen>    
+		    		<with variable="activeMenuSelection">
+			  			<iterate>			  				
+				        	<adapt type="org.eclipse.core.resources.IProject">
+				        	<and>				        		
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+									<test 
+				                  		property="org.eclipse.core.resources.projectNature" 
+				                  		value="com.braintribe.eclipse.model.nature.ModelNature" />
+				            </and>
+				        	</adapt>	                         					  																		
+						</iterate>
+		     		</with>    
+			    </visibleWhen>
+	        </command>
+	       </menu>
+	   	</menuContribution>
+	</extension>
+	
+	<extension id="com.braintribe.eclipse.model.nature.ModelBuilder" name="ModelBuilder"
+		point="org.eclipse.core.resources.builders">
+
+		<builder hasNature="true">
+			<run class="com.braintribe.eclipse.model.nature.ModelBuilder">
+				<parameter name="optimize" value="true" />
+				<parameter name="comment" value="Model Builder" />
+			</run>
+		</builder>
+
+	</extension>
+
+	<!-- model nature -->
+	<extension point="org.eclipse.core.resources.natures" id="com.braintribe.eclipse.model.nature.ModelNature"
+		name="Model Nature">
+		<runtime>
+			<run class="com.braintribe.eclipse.model.nature.ModelNature">
+			</run>
+		</runtime>
+		<builder id="com.braintribe.eclipse.model.nature.ModelBuilder">
+		</builder>
+	</extension>
+	
+	<!-- model nature decorator -->
+	<extension point="org.eclipse.ui.decorators">
+		<decorator
+			id="com.braintribe.eclipse.model.nature.ModelNatureDecorator"
+			label="Model decorator" state="true" lightweight="true"
+			class="com.braintribe.eclipse.model.nature.ModelNatureDecorator"
+			location="TOP_LEFT"
+			objectClass="org.eclipse.core.resources.IResource" 
+			adaptable="true">
+			
+			<description>
+				A decorator to show the model nature of a project
+			</description>
+		</decorator>
+	</extension>
+
+</plugin>

@@ -1,0 +1,8 @@
+This artifact bundles dependencies that are usually/often needed when implementing unit tests.
+This includes the JUnit library, general testing tools as well as custom assertions.
+
+The purpose of this artifact is to have a convenient way of getting all required testing deps.
+That way one also doesn't have to think about artifact versions.
+
+Note that this artifact does not include any GM dependencies.
+For GM tests one should use com.braintribe.testing:GmUnitTestDeps instead.

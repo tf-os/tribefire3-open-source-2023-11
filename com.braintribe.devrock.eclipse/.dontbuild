@@ -1,0 +1,11 @@
+com.braintribe.devrock.eclipse:artifact-container
+com.braintribe.devrock.eclipse:artifact-container-ng
+com.braintribe.devrock.eclipse:artifact-reflection-builder
+com.braintribe.devrock.eclipse:devrock
+com.braintribe.devrock.eclipse:greyface
+com.braintribe.devrock.eclipse:greyface-standalone
+com.braintribe.devrock.eclipse:model-nature
+com.braintribe.devrock.eclipse:model-nature-ng
+com.braintribe.devrock.eclipse:mungo-jerry
+com.braintribe.devrock.eclipse:mungo-jerry-ng
+com.braintribe.devrock.eclipse:virtual-environment

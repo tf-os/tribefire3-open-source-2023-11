@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<settings>
+    <localRepository>${env.VIEW_ASSET_TESTS_M2_REPO}</localRepository>
+    <profiles>
+        <profile>
+            <id>default</id>
+            <repositories>
+                <repository>
+                    <id>lock-versions-processor-test-repo</id>
+                    <layout>default</layout>
+                    <url>http://localhost:${env.VIEW_ASSET_TESTS_PORT}/LockVersionsProcessorTest/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                        <updatePolicy>never</updatePolicy>
+                    </releases>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>default</activeProfile>
+    </activeProfiles>
+</settings>

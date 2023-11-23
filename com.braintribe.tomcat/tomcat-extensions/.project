@@ -1,0 +1,18 @@
+<projectDescription>
+	<name>tomcat-extensions - com.braintribe.tomcat</name>
+	<comment/>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>com.braintribe.devrock.arb.builder.ArtifactReflectionBuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>

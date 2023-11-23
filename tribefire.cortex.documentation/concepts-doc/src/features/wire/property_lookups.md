@@ -1,0 +1,1 @@
+[](asset://com.braintribe.wire:wire-doc/property_lookups.md?INCLUDE)

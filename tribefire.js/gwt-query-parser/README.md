@@ -1,0 +1,1 @@
+Sources (especially generated ones) are copied from com.braintribe.gm:query-parser.

@@ -1,0 +1,23 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  generic_computing.md:
+    displayTitle: "I AM FIRST"
+    priority: -160
+    shortDescription: "configured like a boss"
+    tags:
+      - tag1
+      - tag2
+
+  deployment.md:
+    hidden: true
+    displayTitle: "I AM HIDDEN"
+  service_model.md:
+    displayTitle: "service model displayTitle"
+    boostedSearchTerms:
+      - "Model"
+      - "General"
+    
+  ddsa.md:
+  

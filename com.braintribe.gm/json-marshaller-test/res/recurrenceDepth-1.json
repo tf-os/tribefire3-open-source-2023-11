@@ -1,0 +1,122 @@
+[
+ {"_type": "com.braintribe.codec.marshaller.json.model.PersonEntity",
+  "address": {
+   "city": {
+    "country": {
+     "code": "SER",
+     "globalId": null,
+     "id": null,
+     "name": "Serbia",
+     "partition": null
+    },
+    "globalId": null,
+    "id": null,
+    "name": "Belgrade",
+    "partition": null
+   },
+   "globalId": null,
+   "houseNumber": 5,
+   "id": null,
+   "partition": null,
+   "street": "Upper Street"
+  },
+  "firstName": "Vladimir",
+  "friend": {
+   "address": {
+    "city": {
+     "country": {
+      "code": "GER",
+      "globalId": null,
+      "id": null,
+      "name": "Germany",
+      "partition": null
+     },
+     "globalId": null,
+     "id": null,
+     "name": "Berlin",
+     "partition": null
+    },
+    "globalId": null,
+    "houseNumber": 15,
+    "id": null,
+    "partition": null,
+    "street": "Upper Berlin Street"
+   },
+   "firstName": "Dirk",
+   "friend": {
+    "firstName": "Vladimir",
+    "globalId": null,
+    "lastName": "Bankovic",
+    "partition": null
+   },
+   "globalId": null,
+   "id": null,
+   "lastName": "Scheffler",
+   "partition": null
+  },
+  "globalId": null,
+  "id": null,
+  "lastName": "Bankovic",
+  "partition": null
+ },
+ {"_type": "com.braintribe.codec.marshaller.json.model.PersonEntity",
+  "address": {
+   "city": {
+    "country": {
+     "code": "GER",
+     "globalId": null,
+     "id": null,
+     "name": "Germany",
+     "partition": null
+    },
+    "globalId": null,
+    "id": null,
+    "name": "Berlin",
+    "partition": null
+   },
+   "globalId": null,
+   "houseNumber": 15,
+   "id": null,
+   "partition": null,
+   "street": "Upper Berlin Street"
+  },
+  "firstName": "Dirk",
+  "friend": {
+   "address": {
+    "city": {
+     "country": {
+      "code": "SER",
+      "globalId": null,
+      "id": null,
+      "name": "Serbia",
+      "partition": null
+     },
+     "globalId": null,
+     "id": null,
+     "name": "Belgrade",
+     "partition": null
+    },
+    "globalId": null,
+    "houseNumber": 5,
+    "id": null,
+    "partition": null,
+    "street": "Upper Street"
+   },
+   "firstName": "Vladimir",
+   "friend": {
+    "firstName": "Dirk",
+    "globalId": null,
+    "lastName": "Scheffler",
+    "partition": null
+   },
+   "globalId": null,
+   "id": null,
+   "lastName": "Bankovic",
+   "partition": null
+  },
+  "globalId": null,
+  "id": null,
+  "lastName": "Scheffler",
+  "partition": null
+ }
+]

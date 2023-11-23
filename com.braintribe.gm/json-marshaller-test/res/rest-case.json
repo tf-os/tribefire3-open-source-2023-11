@@ -1,0 +1,267 @@
+{
+    "_id": "0",
+    "_type": "com.braintribe.model.query.SelectQuery",
+    "distinct": false,
+    "noAbsenceInformation": false,
+    "froms": [
+      {
+        "_id": "1",
+        "_type": "com.braintribe.model.query.From",
+        "entityTypeSignature": "com.braintribe.custom.kostwein.model.invoice.smart.SmartInvoiceApprovalContext",
+        "name": "u"
+      }
+    ],
+    "restriction": {
+      "_type": "com.braintribe.model.query.Restriction",
+      "condition": {
+        "_type": "com.braintribe.model.query.conditions.Conjunction",
+        "operands": [
+          {
+            "_type": "com.braintribe.model.query.conditions.ValueComparison",
+            "leftOperand": {
+              "_type": "com.braintribe.model.query.PropertyOperand",
+              "propertyName": "assignee.id",
+              "source": {
+                "_ref": "1"
+              }
+            },
+            "operator": {
+              "_type": "com.braintribe.model.query.Operator",
+              "value": "equal"
+            },
+            "rightOperand": {
+              "_type": "string",
+              "value": null
+            }
+          }
+        ]
+      },
+      "paging": null
+    },
+    "selections": [
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "id",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "barcode",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "supplierId",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "supplierName",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "invoiceDate",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "dueDate",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "discount",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "eFlowComment",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "assignee.name",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "assignee.firstName",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "assignee.lastName",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "lockingUser.name",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "lockingUser.firstName",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "lockingUser.lastName",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "state",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "status",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "economicDate",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "contentId",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "type",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "mandant",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "currency",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "creditNoteNumber",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "invoiceSymbol",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "paymentReference",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "supplierVatNumber",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "paymentConditions",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "bookingText",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "taxAmount",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "invoiceTotal",
+        "source": {
+          "_ref": "1"
+        }
+      },
+      {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "assigneeGroup",
+        "source": {
+          "_ref": "1"
+        }
+      }
+    ],
+    "ordering": {
+      "_type": "com.braintribe.model.query.SimpleOrdering",
+      "direction": {
+        "_type": "com.braintribe.model.query.OrderingDirection",
+        "value": "ascending"
+      },
+      "orderBy": {
+        "_type": "com.braintribe.model.query.PropertyOperand",
+        "propertyName": "invoiceDate",
+        "source": {
+          "_ref": "1"
+        }
+      }
+    }
+  }

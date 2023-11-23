@@ -1,0 +1,30 @@
+package ${package};
+
+import com.braintribe.gwt.genericmodel.client.itw.JavascriptMemberReflection;
+import com.braintribe.gwt.genericmodel.client.itw.JsReflectionTools;
+
+import java.util.Set;
+import java.util.HashSet;
+
+public class ${className} implements JavascriptMemberReflection<${reflectedTypeName}> {
+
+	private final Set<String> jsMethodNames = new HashSet<String>();
+
+	{
+		init();
+	}
+
+	@com.google.gwt.core.client.UnsafeNativeLong
+	private native void init()/*-{
+	    var fun;
+		#foreach($jsniMethodSignature in $jsniMethodSignatures)
+		fun = function(){return this.$jsniMethodSignature;};
+		this.@${className}::jsMethodNames.@Set::add(Ljava/lang/Object;)(@JsReflectionTools::extractJsPropertyName(Lcom/google/gwt/core/client/JavaScriptObject;)(fun));
+		#end
+	}-*/;
+
+	public Set<String> getJsMethodNames() {
+		return jsMethodNames;
+	}
+ 
+}

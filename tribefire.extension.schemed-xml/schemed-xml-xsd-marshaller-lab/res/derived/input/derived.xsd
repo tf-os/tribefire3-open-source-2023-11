@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tf="URN:braintribe" targetNamespace="URN:braintribe" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="tf:root"/>
+	<xs:complexType name="root">
+		<xs:sequence>
+			<xs:element name="value" type="tf:base" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="base" abstract="true"/>
+	<xs:complexType name="extensionInt">
+		<xs:complexContent>
+			<xs:extension base="tf:base">
+				<xs:sequence>
+					<xs:element name="extendedIntegerValue" type="xs:integer"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="extensionString">
+		<xs:complexContent>
+			<xs:extension base="tf:base">
+				<xs:sequence>
+					<xs:element name="extendedStringValue" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="extensionFloat">
+		<xs:complexContent>
+			<xs:extension base="tf:base">
+				<xs:sequence>
+					<xs:element name="extendedFloatValue" type="xs:float"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

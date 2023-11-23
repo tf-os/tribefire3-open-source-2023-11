@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs ADX</title>
+	<head>   
+        <style>
+            iframe { display : none }
+        </style>
+        
+        <script>        
+            var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+            var accessId = "access.adx.content.spr-test-repo";
+            var remoteSession;
+            var persistenceSession;
+            var requestTypeSignature = "tribefire.adx.model.content.service.v1.request.representations.PrintRepresentationsById";
+            var documentId = "3a41e84a-4984-43d6-a10b-d052b1526c2d";
+
+            window.addEventListener('onStartTribefireJs', function(){
+                loadDocument();       
+            });
+
+            function loadDocument(){
+                openSession().then(ps => {
+                    var sr = $T.get(requestTypeSignature).create();
+                    sr.contentId = documentId;
+                    ps.evaluate(sr).then(r => {
+                        debugger;   
+                    });
+                });
+            }
+
+            function print(url){
+                var oReq = new XMLHttpRequest();
+                oReq.open("GET", url,  true);
+                oReq.responseType = "blob";
+                oReq.onload = function(oEvent) {
+                    var gwt_print_dialog_frame_id = "gwt-print-dialog-frame";
+
+                    el = document.getElementById(gwt_print_dialog_frame_id);
+                    if(el)
+                        el.parentNode.removeChild(el);
+
+                    var blob = oReq.response;
+                    var newBlob = new Blob([blob], {type: "application/pdf"});
+                    var data = window.URL.createObjectURL(newBlob);
+
+                    var a = document.createElement("iframe");
+                    a.setAttribute("id", gwt_print_dialog_frame_id);			
+                    setTimeout(function(){	
+                        a.contentWindow.focus();
+                        a.contentWindow.print();				
+                    },1000);					
+                    document.body.appendChild(a);			
+                    a.src = data;
+                };
+                oReq.send();
+            }
+
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }            
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+	<body>
+	</body>	
+</html>

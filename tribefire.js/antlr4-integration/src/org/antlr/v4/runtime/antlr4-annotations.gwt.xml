@@ -1,0 +1,9 @@
+<module>
+  <inherits name='com.google.gwt.user.User'/>
+  <source path="misc">
+  	<exclude name="**/GraphicsSupport.java" />
+  	<exclude name="**/JFileChooserConfirmOverwrite.java" />
+  	<exclude name="**/NullUsageProcessor.java" />
+  	<exclude name="**/TestRig.java" />
+  </source>
+</module> 

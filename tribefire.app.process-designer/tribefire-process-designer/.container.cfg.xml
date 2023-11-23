@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?gm-xml version="4"?>
+<gm-data>
+ <required-types>
+  <t alias='ArtifactContainerConfiguration^C$tK2M' num='1'>com.braintribe.model.malaclypse.cfg.container.ArtifactContainerConfiguration</t>
+  <t alias='ArtifactKind^DbJUQh'>com.braintribe.model.malaclypse.cfg.container.ArtifactKind</t>
+  <t alias='ContainerKind^C7ITQC'>com.braintribe.model.malaclypse.cfg.container.ContainerKind</t>
+  <t alias='ResolverKind^BtLBVR'>com.braintribe.model.malaclypse.cfg.container.ResolverKind</t>
+ </required-types>
+ <root-value>
+  <r>ArtifactContainerConfiguration^C$tK2M-$fc93c3d4-b17b-48e6-a1bf-0ade6c1cf0ff</r>
+ </root-value>
+ <pool>
+  <E id='ArtifactContainerConfiguration^C$tK2M-$fc93c3d4-b17b-48e6-a1bf-0ade6c1cf0ff'>
+   <e p='artifactKind'>ArtifactKind^DbJUQh.gwtTerminal</e>
+   <e p='containerKind'>ContainerKind^C7ITQC.dynamicContainer</e>
+   <s p='globalId'>fc93c3d4-b17b-48e6-a1bf-0ade6c1cf0ff</s>
+   <b p='modified'>false</b>
+   <e p='resolverKind'>ResolverKind^BtLBVR.optimistic</e>
+  </E>
+ </pool>
+</gm-data>

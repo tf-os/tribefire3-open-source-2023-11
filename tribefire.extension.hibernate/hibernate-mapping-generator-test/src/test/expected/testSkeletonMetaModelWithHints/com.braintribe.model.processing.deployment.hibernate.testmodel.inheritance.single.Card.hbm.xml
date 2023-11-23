@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Card" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Card" table="TEST_CARD" abstract="true">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<discriminator column="TYPE_OF_CARD" type="string" />
+		<many-to-one name="brand" class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.CardCompany" column="BRAND" />
+		<property name="date" column="DATE_" type="timestamp" />
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="internationalCoverage" column="INTERNATIONALCOVERAGE">
+			<type name="org.hibernate.type.EnumType"> 
+				<param name="enumClass">com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.CardInternationalCoverage</param> 
+				<param name="type">12</param>
+			</type>
+		</property>
+		<many-to-one name="issuer" class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Bank" column="ISSUER" />
+		<property name="number" column="NUMBER_" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+	</class>
+</hibernate-mapping>

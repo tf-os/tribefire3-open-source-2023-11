@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  webreader_overview.md: !com.braintribe.doc.meta.FileDisplayInfo
+    displayTitle: "WebReader Overview"
+    priority: -200
+
+  installation.md: !com.braintribe.doc.meta.FileDisplayInfo
+    displayTitle: "Installation"
+    priority: -190
+
+  using_webreader_ui: !com.braintribe.doc.meta.FileDisplayInfo
+    displayTitle: "Using WebReader UI"
+    priority: -180

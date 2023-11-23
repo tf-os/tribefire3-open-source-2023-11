@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/context</rootDir>
+    <workDir>/work</workDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>true</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <mavenClasspath>false</mavenClasspath>
+    <webPath>/simple-module</webPath>
+    <webClassPathEntries>
+    </webClassPathEntries>
+</tomcatProjectProperties>

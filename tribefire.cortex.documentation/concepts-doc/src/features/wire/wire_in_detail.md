@@ -1,0 +1,1 @@
+[](asset://com.braintribe.wire:wire-doc/wire_in_detail.md?INCLUDE)

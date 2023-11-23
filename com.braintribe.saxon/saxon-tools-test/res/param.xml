@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParamTest>
+	<someString>INSERT</someString>
+	<someInteger>INSERT</someInteger>
+	<someLong>INSERT</someLong>
+	<someFloat>INSERT</someFloat>
+	<someDouble>INSERT</someDouble>
+	<someBigDecimal>INSERT</someBigDecimal>
+	<someBoolean>INSERT</someBoolean>
+	<someURI>INSERT</someURI>
+</ParamTest>

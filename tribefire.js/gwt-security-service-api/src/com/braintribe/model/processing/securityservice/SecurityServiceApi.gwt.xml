@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.processing.service.ServiceApi"/>
+    <inherits name="com.braintribe.model.SecurityServiceApiModel"/>
+	<inherits name="com.braintribe.model.ServiceApiModel"/>
+	<inherits name="com.braintribe.model.TimeModel"/>
+	<inherits name="com.braintribe.model.UserModel"/>
+	<inherits name="com.braintribe.model.UserSessionModel"/>
+	<inherits name="com.braintribe.PlatformExceptions"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="api"/>
+</module>

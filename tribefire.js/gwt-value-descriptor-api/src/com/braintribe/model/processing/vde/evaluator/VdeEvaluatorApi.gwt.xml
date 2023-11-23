@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.common.Lcd"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+	<inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="api"/>
+</module>

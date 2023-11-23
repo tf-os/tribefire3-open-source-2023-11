@@ -1,0 +1,17 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  cloud_architecture.md:
+
+  cloud_deployment.md:
+
+  tfcloud_operator.md: 
+
+  Deploying_tf_with_operator.md: 
+
+  tf_operator_manager.md:
+
+  Tribefire_Cloud_API_v1alpha1.md:
+  
+  example_deployment_files.md:
+    

@@ -1,0 +1,9 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+     locks: !!set
+        ? "com.braintribe.common:codec-api#1.0.123"
+        ? "com.braintribe.common:common-api#1.0.12"
+        ? "com.braintribe.common:logging#1.0.26"
+    name: "core-dev"

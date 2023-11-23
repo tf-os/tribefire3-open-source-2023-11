@@ -1,0 +1,19 @@
+.text,
+.area,
+input.focus,
+textarea.focus,
+.empty,
+.focus,
+.wrap,
+.readonly,
+.invalid,
+.field,
+.file {
+  background: none !important;
+  border: none !important;
+  resize: none !important;
+  text-align: center;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 100%;
+}

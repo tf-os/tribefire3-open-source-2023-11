@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name='viewport' content='width=device-width'>
+  <title>Braintribe Web Components</title>
+  <link rel='stylesheet' href='index.css'>
+
+
+  <!-- <script src="./lib/web-form.js"></script> -->
+  <!-- <script src="./lib/app-configuration.js"></script> -->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+
+
+  <style>
+    .display-row {
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      margin: 10px 0 40px 0;
+    }
+
+    .display-row * {
+      margin: 5px;
+    }
+  </style>
+
+
+  <script src="./lib/wc-button.js"></script>
+  <script src="./lib/wc-checkbox.js"></script>
+  <script src="./lib/wc-input.js"></script>
+  <script src="./lib/wc-info.js"></script>
+  <script src="./lib/wc-multi-select.js"></script>
+  <script src="./lib/wc-modal.js"></script>
+  <script src="./lib/wc-editable-button.js"></script>
+  <script src="./lib/wc-avatar.js"></script>
+  <script src="./lib/wc-delete-button.js"></script>
+  <script src="./lib/wc-chevronup-button.js"></script>
+  <script src="./lib/wc-chevrondown-button.js"></script>
+  <script src="./lib/wc-chevronleft-button.js"></script>
+  <script src="./lib/wc-chevronright-button.js"></script>
+  <script src="./lib/wc-download-button.js"></script>
+  <script src="./lib/wc-upload-button.js"></script>
+  <script src="./lib/wc-message-button.js"></script>
+  <script src="./lib/wc-edit-button.js"></script>
+  <script src="./lib/wc-function-button.js"></script>
+  <script src="./lib/wc-single-select.js"></script>
+  <script src="./lib/wc-burger.js"></script>
+</head>
+
+<body>
+  <!-- <wc-button>wc-button</wc-button> -->
+
+  <!-- <wc-checkbox checked="wcSelect" id='sdsda' "></wc-checkbox> -->
+
+  <!-- <div onclick=" openModal()" style='width: 300px; height: 50px; background-color: aqua; '>
+    click to open modal
+  </div> -->
+  <!-- <wc-info size='22'>
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been thes
+    </wc-info> -->
+
+  <!-- <wc-multi-select></wc-multi-select> -->
+  <div>
+
+    <div>
+
+
+      ======================================================================== <br>
+      BUTTON ICONS <br>
+      start props are:<br>
+      export let svgsize = 18;<br>
+      export let size = 22;<br>
+      export let url = "";<br>
+      export let shape = "round";<br>
+      export let color = "var(--color)";<br>
+      export let background = "var(--primary-color-accent)";<br>
+      export let xstyle = ""; <br>
+      <div class="display-row">
+
+        <wc-editable-button size='30' svgsize='20' shape='squre' xstyle='width: 120px'
+          url='https://image.flaticon.com/icons/png/512/1265/1265745.png'>
+        </wc-editable-button>
+
+      </div>
+
+
+      <hr>
+
+
+
+      <div class="display-row">
+        <wc-delete-button size='24' svgsize='18'></wc-delete-button>
+
+      </div>
+      <hr>
+      props: <br>
+      export let srcimg = null;<br>
+      export let size = 90;<br>
+      export let name = "";<br>
+      export let lastname = "";<br>
+      export let color = "var(--color)";<br>
+      export let backgroundcolor = "var(--primary-color-accent)";<br>
+      export let fontsize = "26";<br>
+      export let xstyle: string = "";<br>
+
+      <div class="display-row">
+
+
+        <wc-avatar size='120' xstyle="box-shadow: 0 16px 10px rgb(0 0 0 / 60%)" srcimg='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+        '>
+        </wc-avatar>
+
+        <wc-avatar id='123' size='100' fontsize='22' name="marko milan" lastname="zavodja" color="#fff"
+          backgroundcolor="#B97375" xstyle="box-shadow: 0 10px 10px rgb(0 0 0 / 60%)">
+        </wc-avatar>
+        https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60
+        <wc-modal id='456'>
+          <wc-input id='test' label='URL' placeholder='URL' width='400' type='text'></wc-input>
+        </wc-modal>
+      </div>
+      <hr>
+
+      <wc-input></wc-input>
+      <wc-single-select></wc-single-select>
+      <div class="display-row">
+        <wc-burger></wc-burger>
+      </div>
+
+
+
+
+
+      <script src="index.js"></script>
+</body>
+
+
+<script lang="ts">
+
+
+  document.querySelector('wc-burger').addEventListener('burger', e => { console.log(e.detail.value); })
+
+  const modal = document.getElementById('456')
+  const avatar = document.getElementById('123')
+
+  avatar.addEventListener('edit', e => {
+    openModal();
+    document.getElementById('test').addEventListener('onblur', e => {
+      avatar?.setAttribute('srcimg', e.detail.value)
+    })
+  })
+
+  function openModal() {
+    modal.setAttribute('visible', true)
+  }
+
+
+
+
+
+</script>
+
+</html>

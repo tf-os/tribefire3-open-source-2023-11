@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": "./",
+    "importsNotUsedAsValues": "preserve",
+    "lib": [
+      "DOM",
+      "esnext"
+    ],
+    "moduleResolution": "node",
+    "paths": {
+      "@app-configuration": [
+        "./src-svelte/app-configuration/all-imports.ts"
+      ]
+    }
+  },
+  "include": [
+    //"docs-src/**/*",
+    "src-svelte",
+    "lib/**/*",
+  ]
+}

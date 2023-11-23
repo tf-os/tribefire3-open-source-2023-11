@@ -1,0 +1,23 @@
+/* @def HEADER_BTN eval('com.sencha.gxt.core.client.util.ImageHelper.createModuleBasedUrl("com/braintribe/gwt/gxt/gxtresources/images/blackMenu.png")'); */
+@def HEADER_BTN resourceUrl("blackMenu");
+
+.header {
+  background-image: none;
+  background-color: white;
+  color: grey;
+}
+
+.headOver .headInner,
+.headMenuOpen .headInner {
+  background-image: none;
+  background-color: white;
+}
+
+.headButton {
+  background-color: white;
+  top: 1px;
+}
+
+a.headButton:hover {
+  background-position: 0 center;
+}

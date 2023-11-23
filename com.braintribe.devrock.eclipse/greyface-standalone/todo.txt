@@ -1,0 +1,2 @@
+- Modify settings access to work with virtual environment
+

@@ -1,0 +1,59 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tribefire.extension.setup</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.1.20</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>21</java.version>
+        <V.tribefire.extension.setup>[2.1,2.2)</V.tribefire.extension.setup>
+        <!-- core -->
+        <V.com.braintribe.activemq>[2.0,2.1)</V.com.braintribe.activemq>
+        <V.com.braintribe.archives>[2.0,2.1)</V.com.braintribe.archives>
+        <V.com.braintribe.common>[2.0,2.1)</V.com.braintribe.common>
+        <V.com.braintribe.security>[2.0,2.1)</V.com.braintribe.security>
+        <V.com.braintribe.devrock>[2.0,2.1)</V.com.braintribe.devrock>
+        <V.com.braintribe.devrock.templates>[2.0,2.1)</V.com.braintribe.devrock.templates>
+        <V.com.braintribe.devrock.ant>[1.0,1.1)</V.com.braintribe.devrock.ant>
+        <V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+        <V.tribefire.extension.schemed-xml>[2.0,2.1)</V.tribefire.extension.schemed-xml>
+        <V.com.braintribe.logging>[2.0,2.1)</V.com.braintribe.logging>
+        <V.com.braintribe.wire>[2.0,2.1)</V.com.braintribe.wire>
+        <V.tribefire.cortex>[3.0,3.1)</V.tribefire.cortex>
+        <V.tribefire.cortex.assets>[3.0,3.1)</V.tribefire.cortex.assets>
+        <V.tribefire.cortex.assets.templates>[2.0,2.1)</V.tribefire.cortex.assets.templates>
+        <!-- extensions -->
+        <V.tribefire.extension.artifact>[2.0,2.1)</V.tribefire.extension.artifact>
+        <V.tribefire.extension.xmi>[2.0,2.1)</V.tribefire.extension.xmi>
+        <V.tribefire.extension.js>[3.0,3.1)</V.tribefire.extension.js>
+        <V.tribefire.extension.hikari>[1.0,1.1)</V.tribefire.extension.hikari>
+        <V.tribefire.extension.hydrux>[2.1,2.2)</V.tribefire.extension.hydrux>
+        <V.tribefire.extension.vitals.jdbc>[3.0,3.1)</V.tribefire.extension.vitals.jdbc>
+        <V.tribefire.extension.scripting>[1.0,1.1)</V.tribefire.extension.scripting>
+        <!-- externals -->
+        <V.org.apache.velocity>2.1</V.org.apache.velocity>
+        <V.org.freemarker>2.3.28</V.org.freemarker>
+        <V.org.graalvm.js>20.2.0</V.org.graalvm.js>
+        <V.com.fasterxml.jackson.core>2.13.3</V.com.fasterxml.jackson.core>
+        <V.com.vladsch.flexmark>0.34.18</V.com.vladsch.flexmark>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

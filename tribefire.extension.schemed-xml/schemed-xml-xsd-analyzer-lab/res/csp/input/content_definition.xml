@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentStores xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xsi:noNamespaceSchemaLocation="content_definition.xsd" indexCreationMode="auto">
+  <!-- indexCreationMode="auto" 
+           ... Automatic creation of all index tables during server startup or on demand (adminware).
+               Valid for all supporting IS/OS containers -->
+  <!-- indexCreationMode="script" 
+           ... automatic creation of all sql scripts for index table creation.
+               Valid for all supporting IS/OS containers -->
+  <!-- indexCreationMode="no" ... deactivated -->
+  <ScriptChecker nodeIdCheckContainer="NODE_ID_CHECKER" indexValueCheckContainer="INDEX_VAL_CHECKER" />
+  <ParameterDefinitions>
+    <IndexParameters>
+      <Parameter name="addnullvalues" type="boolean" description="If the index length is defined as 10 and the user sets only 6 characters, then automatically there will be four zero (0000) values added as a prefix to the user's value after the definition is saved. For example: The user sets '123456' as the index length, then upon the save function, the index will be changed to '0000123456'." />
+      <Parameter name="addtohitlist" type="boolean" description="The 'addtohitlist' adds the index to the search result; the user does not need to configure the search with this index for it to show in the search result, it will be added automatically. This is mostly used to show 'contentid' (Content ID) index values. This index will be added to the second position in the search result." />
+      <Parameter name="addtohitlistfirst" type="boolean" description=" Same as addtohitlist, but this time the index will be added to the search result in the first possible column of index values. Mostly it is used to show 'contentid' index values." />
+      <Parameter name="AutoCompleteMaxResultCount" type="integer" description="These values are needed for the SuggestBox feature. Please take all the information for the SuggestBox from the feature description. If you're using SuggestBox you can define the maximum of shown results." />
+      <Parameter name="AutoCompleteMinCharCount" type="integer" description="If you're using SuggestBox you can define the maximum of shown results. If you're using SuggestBox, this parameter defines when the search for suggestions will be made." />
+      <Parameter name="AutoCompleteTimeout" type="integer" description="If you're using SuggestBox you can define the maximum of shown results. If you're using SuggestBox, this parameter defines the time it takes until the suggestions will be shown. Shouldn't be less than 500." />
+      <Parameter name="AutoCompleteDataSource" type="string" description="If you're using SuggestBox you can define the maximum of shown results. If you're using SuggestBox, this parameter defines the source where the data will be taken from." />
+      <Parameter name="AutoCompleteDataField" type="string" description="If you're using SuggestBox you can define the maximum of shown results. If you're using SuggestBox, this parameter defines the table where the data will be taken from." />
+      <Parameter name="createDBIndexForIndices" type="boolean" description="This parameter defines if the server should create a separate database entry for this index. When disabled, you cannot search for this index, nor do any SQL queries with the index. If you have many indices, it could be very useful not to give every index its own database entry. Without the parameter, each index receives its own database entry. This can also be set globally within the server, in the IndexStoreI2ZFlat. Note that this is only possible with the flat index stores IndexStoreI2ZFlat or NISFlat which are the most common index stores. Note: It is not possible to remove the Content ID from the database, so its registered entry will always remain." />
+      <Parameter name="datetimeformat" type="string" description="This parameter defines a default value on how to show the Date/Time/Datetime component 'Guitype' (e.g. dd.mm.yyyy)." />
+      <Parameter name="defaultValue" type="string" description="This parameter defines a default value for this index; however, this index is only set if there isn't a value already inserted; this value should be inserted when importing a new document or something similar. When splitting, copying or merging content, this 'defaultValue' should not be inserted, because there will probably already be a value assigned to this index. When you want to overwrite the existing value with a default value from a split, merge, copy or something similar, check out the parameter 'defaultValueOverwrite'." />
+      <Parameter name="defaultValueEnabled" type="boolean" description="Combine this Parameter with 'defaultValue'. When this Parameter is enabled the date / time / datetime should automatically be checked in the Windows Client and, therefore, always imported with either the default date or a date chosen by the user." />
+      <Parameter name="defaultValueOverwrite" type="boolean" description="This parameter is nearly the same as defaultValue, but it differs in that it overwrites preexisting values with its default value." />
+      <Parameter name="disableExternUpdateIndex" type="boolean" description="This parameter denies updating index values in the property or import panel from external calls or applications; the parameter 'IsEditable' allows the updating of index values from external calls or applications. Example: A script may create a unique ID when importing a file. However, this ID should not be changed again when the properties are called." />
+      <Parameter name="formatmask" type="string" description="This parameter defines a pattern that the index value must match. For further useage of the formatmask please refer to the documentation." />
+      <Parameter name="guiBold" type="boolean" description="This parameter displays only the index caption in bold and not the value." />
+      <Parameter name="guidisabledfontcolor" type="color" description="This parameter assigns GUI color to an index, that can't be edited. You also need to assign 'isEditable' to this index, because 'guidisabledfontcolor' is meant ONLY for index values that cannot be edited. When assigning 'isEditable' 'true' you will not see a colored index." />
+      <Parameter name="guienabledfontcolor" type="color" description="This parameter assigns GUI color to an index. The color is only displayed if you are in edit mode. A second index is also necessary, because if you just have one, the value of the colored index is automatically marked, thus gray. When editing this index and then moving on to another, the index gets a defined color." />
+      <Parameter name="guiinputuppercase" type="boolean" description="This parameter designates that all inserted characters are shown and inserted as UPPER CASE CHARACTERS." />
+      <Parameter name="guiMultiValueAllowed" type="boolean" description="This parameter explicitly enables or disables multi values in the GUI. This parameter is used to show a larger multivalue box so that the user is able to see that a multi value is allowed. This box is used in the properties and import panel; if this parameter is set to true, you need to also assign the parameter 'isMultiValued'" />
+      <Parameter name="guisavedecimalseparator" type="char" description="This parameter contains mostly '.' or ',' values; it defines how numbers are shown in the search result (e.g. 24,00 or 24.00)." />
+      <Parameter name="guisavethousandseparator" type="char" description="This parameter contains mostly '.'' or ','' values; it defines how to save numbers larger than 999 (e.g. 1.000 or 1,000 - one thousand). This affects only the way data is stored in the database." />
+      <Parameter name="guiSelectList" type="string" description="Define values for your selectlist separated by '^' or '^##^'" />
+      <Parameter name="guiSelectListDefault" type="string" description="Predefined value for selectlist" />
+      <Parameter name="guiSelectListType" type="string" description="This parameter sets the GUI's select list (drop - down list) type. There are four possible values - 'selectList',  'selectListPlus', 'selectListWithEdit' and 'selectListPlusWithEdit'. This index parameter has to be used with the parameter 'guiSelectList'. You can call up scripts and put the result in all types of select lists." />
+      <Parameter name="guiType" type="string" description="Possible values of guiType parameter are listed in the documentation. If this parameter is not specified, your index element will be treated as String. Possible Values are: 'Date', 'Time', 'Datetime', 'Boolean', 'Decimal', 'XML', 'String', 'Password', 'Accounting', 'textArea'. " />
+      <Parameter name="guiviewdecimalcount" type="integer" description="This parameter shows the number of defined decimal positions after the decimal point; e.g.:2 -&gt; gt; 24,00." />
+      <Parameter name="guiviewdecimalseparator" type="char" description="This parameter contains mostly '.' or ',' values, it defines how the CSP Client should show decimal numbers; e.g. 123,00 or 123.00." />
+      <Parameter name="guiviewthousandseparator" type="char" description="This parameter contains mostly '.' or ',' values, it defines how the CSP Client should show large numbers (e.g. 1.255 or 1,255)." />
+      <Parameter name="hitlistRows" type="integer" description="Within the hitlist there should be the possibility to add linebreaks to indexvalues. This should affect certain cells to have multiline text being displayed. This parameter defines how many multiline rows are displayed. Select '-1' to show all lines, select any other value to only display a maximum of n lines or less." />
+      <Parameter name="hitlistSepa" type="string" description="This parameter overrides default linebreaks 'default: CR+LF' and has to be used in combination with 'hitlistRows'." />
+      <Parameter name="idxValCheckScript" type="string" description="This parameter defines a reference to a script. Scripts are inserted in the 'scripts_idx_val.xml' file. The parameter 'runScriptEvent' and possibly 'runScriptKey' are needed for this parameter also." />
+      <Parameter name="IndexGroup" type="boolean" description="Index Groups are indices that are logically linked together. This gives the possibility to assign index values only if a certain condition is fulfilled by another index value." />
+      <Parameter name="indexGroupID" type="string" description="Index Groups are indices that are logically linked together. This gives the possibility to assign index values only if a certain condition is fulfilled by another index value. The indexGroupID has the index ID of the index that operates the indexGroups assigned." />
+      <Parameter name="indexGroupValue" type="string" description="Index Groups are indices that are logically linked together. This gives the possibility to assign index values only if a certain condition is fulfilled by another index value. The indexGroupValue has the condition that needs to be fulfilled to show this index." />
+      <Parameter name="isEditable" type="boolean" description="This parameter specifies if the index is editable in the CSP Client. The parameter 'IsEditable' allows the updating of index values from external calls or applications. See also Parameter 'disableExternUpdateIndex' for denial to edit unique indices." />
+      <Parameter name="isInsertable" type="boolean" description="This parameter defines Indices that can be overwritten by drag and drop. Any index 'Value' in any Document can be overwritten via copy and inserting index values or can just simply be populated if the index value fields are empty in the target Document(s); when you have several or many Documents requiring the same 'Value' data in the index tab of the properties of other Document(s), by highlighting a completed Document and then right clicking that Document a typical Windows menu appears with several choices and by choosing 'Copy Index Values' and then while holding down your Shift key and highlighting each Document you would like contain the same 'Value' data, again right click the highlighted selections and from the drop-down menu choose 'Paste Index Values', and that's it, all the index 'Value' data from the filled out Document has now populated the 'Value' fields of all the other Documents. But first the parameter must be added to each index 'id' in the 'content_definition.xml' file." />
+      <Parameter name="isMandatory" type="boolean" description="This parameter specifies if the index has to be filled." />
+      <Parameter name="isMultiValued" type="boolean" description="This index can have more than one index value" />
+      <Parameter name="isSharedResource" type="boolean" description="If set to true, multivalue tables will not be created/used per content definition and index, but per index only. Default is false." />
+      <Parameter name="isSortable" type="boolean" description="This parameter is needed when a user is not allowed to sort specific index values; by default, this parameter is set to true; set this parameter to false when a user's allowance to sort should be taken away." />
+      <Parameter name="isSpoolTemplate" type="boolean" description="This parameter is needed if the user wants to save his preferences from the spoolpreview. More information to Spool files and what to do with them is available at the Spool Viewer Configuration." />
+      <Parameter name="isSystemIndex" type="boolean" description="When this parameter is set to true it is not possible to change this index in the CSP Client. The user can see the parameter in the properties panel. This could be used to show the index value 'ContentID'. " />
+      <Parameter name="isVisible" type="boolean" description="This parameter specifies if the index is visible in the client; by default this index is set to true." />
+      <Parameter name="justify" type="string" description="The parameter 'justify' has three possible values: left, right and center; with 'justify', you can define how the alignment of index values appear in the search result.." />
+      <Parameter name="length" type="integer" description="This parameter sets the maximum length of this index; in general all parameter length index values need to be assigned an integer value (length of index value in the database)." />
+      <Parameter name="linkcombogroup" type="string" description="Utilizing this parameter makes it possible to link one or more indices; if one index is changed then the linked one is also changed because of their linkage; you can insert a unique name into the value of this parameter, but then you need to assign this unique name to all the other indices to which it is linked to." />
+      <Parameter name="name/[locale]" type="string" description="Localization for nodes." />
+      <Parameter name="multivalueonlyifexists" type="boolean" description="This parameter 'multivalueonlyifexists' shows a larger box in the properties panel when more than one index value is saved to this index. If there is just one index value, then the space for values is not changed; however, this parameter is not needed when using 'isMultiValued' and 'guiMultiValueAllowed' to show all multi values in the property panel. This index parameter could be used when a script is executed to show a larger panel for more values; another possibility is to have the same index combined with more than one content definition; in one definition you can have all values shown and in the other definition you can show just one value." />
+      <Parameter name="MultiValueOnImport" type="boolean" description="Utilizing this parameter lets you deny visibility of multivalues at the import panel. Default: true (all multivalues are shown)." />
+      <Parameter name="onscriptindexchangeaction" type="string" description="If there are scripts which are supposed to be running in the background and if this index value is set to 'prompt' the CSP Client will trigger a message box asking the user if they really want to execute the script or not." />
+      <Parameter name="PasswordChar" type="string" description="This parameter defines which character is used for disguising a password in the client. The default value for this parameter is the character '*'. You can insert any value (e.g. *)." />
+      <Parameter name="runScriptEvent" type="string" description="This parameter has to be added in addition to 'idxValCheckScript'. It defines, when to run the script you have assigned to this index. For example 'onSave' will call the script referenced in parameter 'idxValCheckScript' when saving a document. Possible values are: 'onSave', 'onInit', 'onEnter', 'onAutomaticUpdate', 'onKey', 'onExit'" />
+      <Parameter name="runScriptKey" type="string" description="The value attribute of this parameter specifies the key on which to trigger an event. It must be used in conjunction with 'runScriptEvent' with value 'onKey'. Possible OnKey Values are: 'vk_f1', ..., 'vk_f12', 'vk_return', 'vk_tab', 'vk_shift', 'vk_control', 'vk_alt'." />
+      <Parameter name="savedatetimeformat" type="string" description="This parameter defines a default value on how to save the Date/Time/Datetime component 'Guitype' (e.g. dd.mm.yyyy or yyyymmdd)." />
+      <Parameter name="showinhint" type="boolean" description="This tool tip parameter shows 'hint' info for indexes; if you want to use tool tip hints you will need to configure the 'showInHint' operation; this tool will show the description of an index. " />
+      <Parameter name="showInImport" type="boolean" description="This parameter will show the index in the import panel; default = true. When this parameter is set to false, the CSP Client will not show this index in the import panel. When a document has been stored and the user then clicks on properties, the index will be shown." />
+      <Parameter name="simpledate" type="boolean" description="This parameter shows the date without separators. E.g.: 121410 (12/14/10)." />
+      <Parameter name="textAreaRows" type="integer" description="Use this parameter in combination with Guitype 'textArea'. This enables the Client to show a textarea with multiple rows." />
+      <Parameter name="TreeOrder" type="string" description="This parameter defines a custom tree hierarchy for the search result in CSP Client; the syntax is as followed; 'idxValue^idxValue'; for further information please refer to the CSP Client documentation under the section 'Configuring Search Result'. You can use this 'TreeOrder' parameter, but the CSP Client has a feature in the 'Structure' tab to customize the search result by clicking the 'Show Result as Hierarchy' box, making the need for this parameter redundant." />
+      <Parameter name="uniquepercontentid" type="boolean" description="If there are several index values set with one index then by utilizing the 'uniquepercontentid' parameter, it will only be possible to change the first index; all other indexes are read only and not allowed to be changed. " />
+      <Parameter name="useascheckbox" type="boolean" description="Use this parameter to represent the index value as a checkbox." />
+      <Parameter name="$I2ZFullTextContent" type="boolean" description="Utilizing the parameter 'I2ZFullTextContent' allows a 'full text search' in any document type, distinct  from its metadata; search results will include all documents containing your search criteria. " />
+    </IndexParameters>
+    <ContentDefinitionParameters />
+    <StoreIndexParameters />
+  </ParameterDefinitions>
+  <!-- ############################################################################## -->
+  <!-- IndexDefinition  -->
+  <!-- ############################################################################## -->
+  <IndexDefinition nextIndexId="100">
+    <!-- CONTENT OBJECTS DEFINITION -->
+    <!-- Properties valid for all Content Objects -->
+    <Index id="1001" name="totalSize" type="integer" />
+    <!-- Properties for one Content Object -->
+    <Index id="2000" name="originalFilePath" type="string">
+      <Parameters>
+        <Parameter name="length" value="50" />
+      </Parameters>
+    </Index>
+    <Index id="2001" name="originalFileName" type="string">
+      <Parameters>
+        <Parameter name="length" value="255" />
+        <Parameter name="field:type" value="originalFileName" />
+      </Parameters>
+    </Index>
+    <Index id="2002" name="originalFileExtension" type="string">
+      <Parameters>
+        <Parameter name="length" value="50" />
+        <Parameter name="field:type" value="originalFileExtension" />
+      </Parameters>
+    </Index>
+    <Index id="2003" name="MD5" type="string">
+      <Parameters>
+        <Parameter name="length" value="32" />
+        <Parameter name="field:type" value="md5" />
+      </Parameters>
+    </Index>
+    <Index id="2004" name="Original CID" type="string">
+      <Parameters>
+        <Parameter name="length" value="32" />
+        <Parameter name="field:type" value="originalcid" />
+      </Parameters>
+    </Index>
+    <Index id="2005" name="URI" type="string">
+      <Parameters>
+        <Parameter name="length" value="255" />
+        <Parameter name="field:type" value="uri" />
+      </Parameters>
+    </Index>
+    <Index id="2006" name="Size" type="integer">
+      <Parameters>
+        <Parameter name="field:type" value="filesize" />
+      </Parameters>
+    </Index>
+    <Index id="2007" name="Creation DTS" type="string">
+      <Parameters>
+        <Parameter name="field:type" value="originalFileCreationDTS" />
+        <Parameter name="length" value="40" />
+      </Parameters>
+    </Index>
+    <!-- end of CONTENT OBJECTS DEFINITION -->
+    <xi:include href="content_definition_processmonitor.xml" parse="xml" xpointer="xpointer(/ContentStores/IndexDefinition/*)" />
+    <xi:include href="content_definition_contentrecorder.xml" parse="xml" xpointer="xpointer(/ContentStores/IndexDefinition/*)" />
+    <xi:include href="content_definition_representations.xml" parse="xml" xpointer="xpointer(/ContentStores/IndexDefinition/*)" />
+    <xi:include href="content_definition_customer.xml" parse="xml" xpointer="xpointer(/ContentStores/IndexDefinition/*)" />
+  </IndexDefinition>
+  <!-- ############################################################################## -->
+  <!-- ContentObjectProperty definition  -->
+  <!-- ############################################################################## -->
+  <ContentObjectsPropertyDefinitions>
+    <ContentObjectsPropertyDefinition id="COP">
+      <ContentObjects />
+      <ContentObject>
+        <Index ref="2000" />
+        <Index ref="2001" />
+        <Index ref="2002" />
+        <Index ref="2003" />
+        <Index ref="2004" />
+        <Index ref="2005" />
+        <Index ref="2006" />
+        <Index ref="2007" />
+      </ContentObject>
+      <ObjectPart />
+    </ContentObjectsPropertyDefinition>
+  </ContentObjectsPropertyDefinitions>
+  <!-- ############################################################################## -->
+  <!-- ContentStore definition  -->
+  <!-- ############################################################################## -->
+  <ContentStore name="DMS" nextContentDefinitionId="100">
+    <xi:include href="content_definition_processmonitor.xml" parse="xml" xpointer="xpointer(/ContentStores/ContentStore/*)" />
+    <xi:include href="content_definition_contentrecorder.xml" parse="xml" xpointer="xpointer(/ContentStores/ContentStore/*)" />
+    <xi:include href="content_definition_representations.xml" parse="xml" xpointer="xpointer(/ContentStores/ContentStore/*)" />
+    <xi:include href="content_definition_customer.xml" parse="xml" xpointer="xpointer(/ContentStores/ContentStore/*)" />
+  </ContentStore>
+</ContentStores>
+

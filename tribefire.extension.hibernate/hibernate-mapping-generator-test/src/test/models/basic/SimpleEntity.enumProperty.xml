@@ -1,0 +1,6 @@
+		<property name="enumProperty" column="ENUM_COLUMN">
+			<type name="org.hibernate.type.EnumType"> 
+				<param name="enumClass">test.models.basic.SimpleEnum</param> 
+				<param name="useNamed">true</param> <!-- using useNamed instead of type -->
+			</type>
+		</property>

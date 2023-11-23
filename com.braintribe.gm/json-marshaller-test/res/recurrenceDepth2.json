@@ -1,0 +1,48 @@
+[
+ {"_type": "com.braintribe.codec.marshaller.json.model.PersonEntity",
+  "address": {
+   "city": {
+    "country": {
+     "code": "SER",
+     "name": "Serbia"
+    },
+    "name": "Belgrade"
+   },
+   "houseNumber": 5,
+   "street": "Upper Street"
+  },
+  "firstName": "Vladimir",
+  "friend": {
+   "address": {
+    "city": {
+     "country": {
+      "code": "GER",
+      "name": "Germany"
+     },
+     "name": "Berlin"
+    },
+    "houseNumber": 15,
+    "street": "Upper Berlin Street"
+   },
+   "firstName": "Dirk",
+   "friend": {
+    "firstName": "Vladimir",
+    "lastName": "Bankovic"
+   },
+   "lastName": "Scheffler"
+  },
+  "lastName": "Bankovic"
+ },
+ {"_type": "com.braintribe.codec.marshaller.json.model.PersonEntity",
+  "address": {
+   "houseNumber": 15,
+   "street": "Upper Berlin Street"
+  },
+  "firstName": "Dirk",
+  "friend": {
+   "firstName": "Vladimir",
+   "lastName": "Bankovic"
+  },
+  "lastName": "Scheffler"
+ }
+]

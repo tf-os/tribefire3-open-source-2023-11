@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:seq="seq" targetNamespace="seq" >
+	<xs:element name="root" type="seq:personType"/>
+	<xs:complexType name="personType">
+		<xs:sequence>	
+			<xs:element name="familyname" type="xs:string"/>
+			<xs:element name="givenname" type="xs:string" maxOccurs="3"/>			
+			<xs:element name="postal" type="xs:string" minOccurs="0"/>
+			<xs:element name="telecom" type="xs:string" minOccurs="0"/>
+			<xs:element name="online" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="salutation" type="xs:string"/>
+		<xs:attribute name="title" type="xs:string"/>
+	</xs:complexType>
+</xs:schema>

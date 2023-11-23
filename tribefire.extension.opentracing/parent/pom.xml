@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>tribefire.extension.opentracing</groupId>
+	<artifactId>parent</artifactId>
+	<version>${major}.${minor}.${revision}</version>
+	<packaging>pom</packaging>
+	<properties>
+		<major>1</major>
+		<minor>0</minor>
+		<nextMinor>1</nextMinor>
+		<revision>1-pc</revision>
+		<java.version>1.8</java.version>
+		<V.tribefire.extension.opentracing>[${major}.${minor},${major}.${nextMinor})</V.tribefire.extension.opentracing>
+
+		<V.com.braintribe.gm>[1.0,1.1)</V.com.braintribe.gm>
+		<V.com.braintribe.common>[1.0,1.1)</V.com.braintribe.common>
+		<V.tribefire.cortex>[2.0,2.1)</V.tribefire.cortex>
+		<V.com.braintribe.wire>[1.0,1.1)</V.com.braintribe.wire>
+		<V.com.braintribe.execution>[1.0,1.1)</V.com.braintribe.execution>
+		<V.com.braintribe.networktools>[1.0,1.1)</V.com.braintribe.networktools>
+		<V.tribefire.cortex.assets>[2.0,2.1)</V.tribefire.cortex.assets>
+		<V.tribefire.cortex.services>[2.0,2.1)</V.tribefire.cortex.services>
+	</properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+	<dependencyManagement>
+		<dependencies>
+			<!-- All third party dependencies -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>3.0.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.opentracing</groupId>
+				<artifactId>opentracing-api</artifactId>
+				<version>0.33.0</version>
+			</dependency>
+
+	<!-- JAEGER NOT WORKING - cannot compile -->			
+<!-- 
+			<dependency>
+			    <groupId>io.jaegertracing</groupId>
+			    <artifactId>jaeger-client</artifactId>
+			    <version>0.35.5</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jaegertracing</groupId>
+				<artifactId>jaeger-core</artifactId>
+				<version>1.1.0</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>slf4j-api</artifactId>
+						<groupId>org.slf4j</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+ -->
+			<dependency>
+				<groupId>io.jaegertracing</groupId>
+				<artifactId>jaeger-client</artifactId>
+				<version>1.1.0</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>slf4j-api</artifactId>
+						<groupId>org.slf4j</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+<!-- 
+			<dependency>
+				<groupId>io.jaegertracing</groupId>
+				<artifactId>jaeger-thrift</artifactId>
+				<version>1.1.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jaegertracing</groupId>
+				<artifactId>jaeger-tracerresolver</artifactId>
+				<version>1.1.0</version>
+			</dependency>
+ -->
+ 
+ <!-- 
+   <dependency>
+    <groupId>io.zipkin.reporter2</groupId>
+    <artifactId>zipkin-reporter</artifactId>
+    <version>2.7.6</version>
+  </dependency>
+  <dependency>
+    <groupId>io.zipkin.reporter2</groupId>
+    <artifactId>zipkin-sender-okhttp3</artifactId>
+    <version>2.7.6</version>
+  </dependency>
+  -->
+
+
+		</dependencies>
+	</dependencyManagement>
+</project>

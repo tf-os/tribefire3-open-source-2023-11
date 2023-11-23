@@ -1,0 +1,2 @@
+$natureType = com.braintribe.model.asset.natures.ModelPriming
+

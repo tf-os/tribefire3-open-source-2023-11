@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AccessDeploymentModel-1.0
+Bundle-SymbolicName: AccessDeploymentModel-1.0;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Activator: AccessDeploymentModel-1.0.Activator
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,bin

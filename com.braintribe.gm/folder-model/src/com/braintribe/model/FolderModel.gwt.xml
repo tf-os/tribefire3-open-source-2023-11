@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.BasicResourceModel"/>
+    <inherits name="com.braintribe.model.DescriptiveModel"/>
+    <inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.IconModel"/>
+    <inherits name="com.braintribe.model.ResourceModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="folder"/>
+</module>

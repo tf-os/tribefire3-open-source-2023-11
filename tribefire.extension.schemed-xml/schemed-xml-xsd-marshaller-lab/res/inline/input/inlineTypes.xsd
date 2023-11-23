@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Header"/>
+				<xs:element ref="ContinuationIndicator"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ContinuationIndicator">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="MORE"/>
+				<xs:enumeration value="LAST"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Header">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Sender"/>
+				<xs:element ref="Receiver"/>
+			</xs:sequence>
+			<xs:attribute name="simple">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="a"/>
+						<xs:enumeration value="b"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Receiver">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Identifier"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Sender">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Identifier"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Identifier">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+resources:
+- manifests.yaml
+- service.yaml
+
+configurations:
+- kustomizeconfig.yaml
+
+# todo add namespace selector
+patches:
+  - path: scope-patch.yaml
+    target:
+      group: admissionregistration.k8s.io
+      version: v1

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.TimeModel"/>
+    <inherits name="com.braintribe.model.UserModel"/>
+    <inherits name="com.braintribe.model.UserSessionModel"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="securityservice"/>
+</module>

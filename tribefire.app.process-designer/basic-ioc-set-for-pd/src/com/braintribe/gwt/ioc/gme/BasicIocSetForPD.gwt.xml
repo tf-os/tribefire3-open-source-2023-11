@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.Codec"/>
+	<inherits name="com.braintribe.common.Lcd"/>
+	<inherits name="com.braintribe.gm.model.persistence.reflection.PersistenceReflectionApi"/>
+	<inherits name="com.braintribe.gm.model.UiActionModel"/>
+	<inherits name="com.braintribe.gwt.async.Async"/>
+	<inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+	<inherits name="com.braintribe.gwt.codec.registry.Registry"/>
+	<inherits name="com.braintribe.gwt.codec.string.String"/>
+	<inherits name="com.braintribe.gwt.customizationui.CustomizationUi"/>
+	<inherits name="com.braintribe.gwt.gm.storage.StorageApi"/>
+	<inherits name="com.braintribe.gwt.gme.actionmenubuilder.ActionMenuBuilder"/>
+	<inherits name="com.braintribe.gwt.gme.constellation.GmeConstellation"/>
+	<inherits name="com.braintribe.gwt.gme.notification.Notification"/>
+	<inherits name="com.braintribe.gwt.gme.servicerequestpanel.ServiceRequestPanel"/>
+	<inherits name="com.braintribe.gwt.gme.templateevaluation.TemplateEvaluationUI"/>
+	<inherits name="com.braintribe.gwt.gme.verticaltabpanel.VerticalTabPanel"/>
+	<inherits name="com.braintribe.gwt.gme.websocket.WebSocket"/>
+	<inherits name="com.braintribe.gwt.gme.workbench.Workbench"/>
+	<inherits name="com.braintribe.gwt.gmresource.GmResource"/>
+	<inherits name="com.braintribe.gwt.gmrpc.api.GmRpcClientApi"/>
+	<inherits name="com.braintribe.gwt.gmrpc.web.GmWebRpcClient"/>
+	<inherits name="com.braintribe.gwt.gmsession.GMSessionModule"/>
+	<inherits name="com.braintribe.gwt.gmview.action.GmViewAction"/>
+	<inherits name="com.braintribe.gwt.gmview.actionbar.GmViewActionBar"/>
+	<inherits name="com.braintribe.gwt.gmview.codec.GmViewCodec"/>
+	<inherits name="com.braintribe.gwt.gmview.GmViewApi"/>
+	<inherits name="com.braintribe.gwt.gmview.util.GmViewUtil"/>
+	<inherits name="com.braintribe.gwt.ioc.Ioc"/>
+	<inherits name="com.braintribe.gwt.logging.Logging"/>
+	<inherits name="com.braintribe.gwt.logging.ui.gxt.LogUi"/>
+	<inherits name="com.braintribe.gwt.processdesigner.ProcessDesigner"/>
+	<inherits name="com.braintribe.gwt.security.Security"/>
+	<inherits name="com.braintribe.gwt.security.tfh.TfhSecurity"/>
+	<inherits name="com.braintribe.gwt.utils.GxtResourcesUtils"/>
+	<inherits name="com.braintribe.gwt.workbenchaction.processing.BasicWorkbenchActionProcessing"/>
+	<inherits name="com.braintribe.model.AccessApiModel"/>
+	<inherits name="com.braintribe.model.AccessRequestModel"/>
+	<inherits name="com.braintribe.model.AccessServiceApiModel"/>
+	<inherits name="com.braintribe.model.BasicMetaModel"/>
+	<inherits name="com.braintribe.model.BasicResourceModel"/>
+	<inherits name="com.braintribe.model.BootstrappingApiModel"/>
+	<inherits name="com.braintribe.model.FolderModel"/>
+	<inherits name="com.braintribe.model.generic.GenericModelValidation"/>
+	<inherits name="com.braintribe.model.generic.I18nModel"/>
+	<inherits name="com.braintribe.model.generic.ManipulationModel"/>
+	<inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+	<inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+	<inherits name="com.braintribe.model.GenericModel"/>
+	<inherits name="com.braintribe.model.IconModel"/>
+	<inherits name="com.braintribe.model.NotificationClientModel"/>
+	<inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+	<inherits name="com.braintribe.model.processing.session.impl.ManagedGmSessionImpl"/>
+	<inherits name="com.braintribe.model.processing.session.SessionApi"/>
+	<inherits name="com.braintribe.model.processing.workbench.action.WorkbenchActionApi"/>
+	<inherits name="com.braintribe.model.RootModel"/>
+	<inherits name="com.braintribe.model.ServiceApiModel"/>
+	<inherits name="com.braintribe.model.TransientResourceModel"/>
+	<inherits name="com.braintribe.model.UserModel"/>
+	<inherits name="com.braintribe.model.WorkbenchModel"/>
+	<inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.braintribe.Provider"/>
+	<inherits name="com.braintribe.utils.I18nTools"/>
+	<inherits name="com.braintribe.UtilsExclusion"/>
+	<inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+	<inherits name="com.google.gwt.core.CompilerParameters"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+	<inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+	<inherits name="com.google.gwt.core.StackTrace"/>
+	<inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+	<inherits name="com.google.gwt.core.XSLinker"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="com.google.gwt.i18n.CldrLocales"/>
+	<inherits name="com.google.gwt.user.Debug"/>
+	<inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+	<inherits name="com.sencha.gxt.widget.core.Core"/>
+	<inherits name="jsinterop.annotations.Annotations"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitemask.WhiteMask"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.components.Components"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitemenu.WhiteMenu"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.orangemenuitem.OrangeMenuItem"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitecolumnheader.WhiteColumnHeader"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitebutton.WhiteButton"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitewindow.WhiteWindow"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whitetoolbar.WhiteToolBar"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.whiteborderlayout.WhiteBorderLayout"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.flattextfield.FlatTextField"/>
+	<!--Resource Module -->
+	<inherits name="com.braintribe.utils.GmCoreUtilsStream"/>
+	<stylesheet src="bt-resources/iocset/iocset.css"/>
+	<source path="client"/>
+</module>

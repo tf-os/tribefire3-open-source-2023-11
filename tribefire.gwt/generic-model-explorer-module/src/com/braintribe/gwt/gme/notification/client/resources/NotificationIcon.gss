@@ -1,0 +1,55 @@
+@external notificationIcon;
+@external notificationIcon-button;
+@external notificationIcon-over;
+@external notificationIcon-unread;
+@external notificationIcon-bubble;
+@external notificationIcon-value;
+@external notificationIcon-image;
+
+.notificationIcon {
+  cursor: pointer;
+  position: relative;
+}
+
+.notificationIcon .notificationIcon-button {
+  margin-right: 10px;
+  opacity: 0.5;
+}
+
+.notificationIcon-over .notificationIcon-button {
+  opacity: 1;
+}
+
+.notificationIcon-unread .notificationIcon-bubble {
+  visibility: visible;
+}
+
+.notificationIcon-bubble {
+  border-radius: 6px;
+  width: 20px;
+  height: 16px;
+  right: 0;
+  display: table;
+  position: absolute;
+  z-index: 1;
+  background-color: #ffa500;
+  visibility: hidden;
+}
+
+.notificationIcon-value {
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+  position: relative;
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.notificationIcon-image {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 32px;
+  height: 32px;
+}

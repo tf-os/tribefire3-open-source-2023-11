@@ -1,0 +1,30 @@
+@external gmeElementDropTarget, gmeWidgetDropTarget;
+
+.anchorElement {
+	color: grey;
+}
+
+.anchorElementDisabled {
+	cursor: auto !important;
+	text-decoration: none !important;
+}
+
+.cancelElement {
+	cursor: pointer;
+	float: right;
+	position: relative;
+	margin-top: -17px;
+	margin-right: 20px;
+	color: grey;
+}
+
+.gmeElementDropTarget {
+	background: rgba(17,121,186,0.1);
+	border: 1px dotted #1179BA;
+}
+
+.gmeWidgetDropTarget {
+	background: rgba(17,121,186,0.1);
+	border: 1px dotted #1179BA;
+	margin-top: 1px;
+}

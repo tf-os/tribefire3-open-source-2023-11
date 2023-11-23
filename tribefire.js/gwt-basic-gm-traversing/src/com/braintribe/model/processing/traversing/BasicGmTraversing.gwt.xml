@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module rename-to="BasicGmTraversing">
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.ModelPathModelCondition"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+	<inherits name="com.braintribe.model.processing.manipulation.BasicManipulation"/>
+    <inherits name="com.braintribe.model.processing.Mpc"/>
+	<inherits name="com.braintribe.model.processing.session.impl.GmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.traversing.TraversingApi"/>
+    <inherits name="com.braintribe.model.processing.traversing.TraversingImpl"/>
+    <inherits name="com.braintribe.model.processing.vde.builder.VdeBuilderApi"/>
+    <inherits name="com.braintribe.model.processing.vde.evaluator.VdeEvaluatorApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="engine"/>
+</module>

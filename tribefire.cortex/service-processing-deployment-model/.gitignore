@@ -1,0 +1,12 @@
+/.gwt-cache
+/AccessDeploymentModel-1.0.uml
+/AccessDeploymentModel-1.0_kdm.xmi
+/bin
+/build
+/classes
+/dist
+/malaclypse.log*
+/plugin.xml
+/visited.zargo.txt
+/www
+/xmiToMetaModelConverter.log*

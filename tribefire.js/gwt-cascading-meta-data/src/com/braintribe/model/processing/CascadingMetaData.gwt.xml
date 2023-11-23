@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.common.AttributeApi"/>
+	<inherits name="com.braintribe.common.Lcd"/>
+	<inherits name="com.braintribe.model.AccessControlModel"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+	<inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.processing.core.expert.GmExpertRegistryApi"/>
+	<inherits name="com.braintribe.model.processing.core.expert.GmExpertRegistryImpl"/>
+    <inherits name="com.braintribe.model.processing.Index"/>
+	<inherits name="com.braintribe.utils.Collection"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="meta">
+    	<exclude name="**/LRUMap.java" />
+    </source>
+    <super-source path="emul"/>
+</module>

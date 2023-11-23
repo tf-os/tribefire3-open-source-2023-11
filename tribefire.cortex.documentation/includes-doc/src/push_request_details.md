@@ -1,0 +1,7 @@
+Parameter | Description
+---       | ---
+`clientIdPattern` |  A regular expression matching the registered client IDs. The request will only be sent to those client IDs that match the expression, for example, using `tribefire-control-center.auth` as the value means the request will be pushed only to Control Center instances in the `auth` access. <br/> <br/> This is a regular expression, so you might have to escape certain characters with `/`.
+`rolePattern` |  A regular expression matching the username, user role or the group derived from the registered session IDs. The request will only be sent to those that match the expression, for example using `tf-locksmith` as the value means the request will be pushed only to users who have the `tf-locksmith` role assigned, using `\$user-john` means the request will be pushed only to the user whose `name` parameter's value is `john`. <br/> <br/> This is a regular expression, so you might have to escape certain characters with `/`. <br/> <br/> For more information, see [User Roles](asset://tribefire.cortex.documentation:concepts-doc/features/user_roles.md).
+`serviceRequest` | The service request you want to push. <br/> <br/> This parameter is mandatory.
+`sessionIdPattern` | A regular expression matching the registered session IDs. The request will only be sent to those sessions that match the expression. <br/> <br/> This is a regular expression, so you might have to escape certain characters with `/`.
+

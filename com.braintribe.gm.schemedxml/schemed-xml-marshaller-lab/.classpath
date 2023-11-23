@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="res/generics/simpleChoice/flat/input/ReallySimplestMultipleChoiceFlatModel-1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="Braintribe.ArtifactClasspathContainer"/>
+	<classpathentry kind="lib" path="res/generics/simple/flat/input/SimpleFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simple/structured/input/SimpleStructuredModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleChoice/flat/input/SimpleChoiceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleChoice/structured/input/SimpleChoiceStructuredModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleDirect/flat/input/SimpleDirectFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleDirect/structured/input/SimpleDirectStructuredModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleRestriction/flat/input/SimpleRestrictionFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleRestriction/structured/input/SimpleDirectStructuredModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleTypeImport/flat/input/SimpleTypeImportFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/commonTypeImport/flat/input/CommonTypeImportFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/redefiningTypeImport/flat/input/RedefiningTypeImportFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/complexChoice/flat/input/ComplexFlattenedModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/unboundedSequence/flat/input/UnboundSequenceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/elementMix/flat/input/ElementMixFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/attributeGroups/flat/input/AttributeGroupFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/attributesLang/flat/input/AttributesLangFlatModel-1.0.jar"/>		
+	<classpathentry kind="lib" path="res/generics/attributes/flat/input/AttributesFlatModel-1.0.jar"/>		
+	<classpathentry kind="lib" path="res/generics/xmlNamespace/flat/input/XmlNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/swift/pacs/flat/input/PacsFlattenedModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/issues/swiftIssue.1/input/SwiftIssueOneFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/issues/swiftIssue.2/input/SwiftIssueTwoFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/issues/dateIssue/input/DatesIssueTwoFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/issues/redirectDateIssue/input/DatesIssueRedirectFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/swift/pain/flat/input/PainFlattenedModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/funds/flat/input/FundsXmlModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/nameclashes/flat/input/TypeClashFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/nameclashes2/flat/input/TypeAndAttrClashFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/nameclashes3/flat/input/TypeAndAttrDivClashFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/nameclashes4/flat/input/SingleTypeAndAttrDivClashFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleSequence/flat/input/SimpleSequenceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/tarmed/flat/input/TarmedFlattenedModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/simpleChoice/flat/input/ReallySimplestChoiceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/sequences/flat/input/SequencesNestedFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/namespaces/flat/input/AttributeQualifiedNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/namespaces/flat/input/ElementQualifiedNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/namespaces/flat/input/NoNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/namespaces/flat/input/QualifiedNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/namespaces/flat/input/UnqualifiedNamespaceFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/bms/invoice/input/BmsInvoiceModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/nestedquali/flat/input/NestedQualificationFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/overrides/names/flat/input/OverrideNameFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/overrides/collections/flat/input/OverrideCollectionModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/single/input/AnySingleFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/multiple/input/AnyMultipleFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/element/input/AnytypeElementFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/element/input/AnytypeElementNsFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/element/input/AnytypeTopElementFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/any/element/input/AnytypeTopElementNsFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/bidirectional/unique/input/BidiUniqueFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/generics/bidirectional/duplicate/input/BidiDuplicateFlatModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/swift/pain/flat/input/PainTwoFlattenedModel-1.0.jar"/>
+	<classpathentry kind="lib" path="res/fides/flat/input/ClientModel-7.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

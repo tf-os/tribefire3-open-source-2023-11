@@ -1,0 +1,10 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    name: "repo-a"
+    password: "myPassword-a"
+    url: "myURL-a"
+    user: "myUser-a"
+  - null # invalid repository - must not be null
+  - !com.braintribe.devrock.model.repository.LocalRepository
+    name: " "
+    rootPath: "somePath-ab"

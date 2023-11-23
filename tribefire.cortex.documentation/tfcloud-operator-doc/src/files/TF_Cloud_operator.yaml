@@ -1,0 +1,91 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tribefire-runtime-admission-server-secret
+  namespace: @@NAMESPACE@@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tfcloud-operator
+  namespace: @@NAMESPACE@@
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: tfcloud-operator
+  template:
+    metadata:
+      labels:
+        name: tfcloud-operator
+    spec:
+      imagePullSecrets:
+      - name: bt-artifactory
+      serviceAccountName: tfcloud-operator
+      volumes:
+      - name: cloudsql-service-account
+        secret:
+          secretName: cloudsql-service-account
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: tribefire-runtime-admission-server-secret
+
+      containers:
+      - name: tfcloud-operator
+        image: @@IMAGE@@:@@TAG@@
+        ports:
+        - containerPort: 60000
+          name: metrics
+        - containerPort: 9876
+          name: webhook-server
+          protocol: TCP
+        command:
+        - tfcloud-operator
+        imagePullPolicy: Always
+        volumeMounts:
+        - mountPath: "/cloudsql"
+          name: cloudsql-service-account
+        - mountPath: /tmp/cert
+          name: cert
+          readOnly: true
+        env:
+        - name: WATCH_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: OPERATOR_NAME
+          value: "tfcloud-operator"
+        - name: OPERATOR_LOGGING_EXTENDED
+          value: "true"
+        - name: OPERATOR_LOGGING_JSON
+          value: "true"
+        - name: TRIBEFIRE_PULL_SECRETS_USER
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: bt-artifactory-bootstrap
+        - name: TRIBEFIRE_PULL_SECRETS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: bt-artifactory-bootstrap
+
+        - name: TRIBEFIRE_GCP_DATABASES_PROJECT_ID
+          value: "tribefire-staging"
+        - name: TRIBEFIRE_OPERATOR_VERSION
+          value: "@@TAG@@"
+        - name: TRIBEFIRE_GCP_DATABASES_INSTANCE_ID
+          value: "tfcloud-operator"
+        - name: TRIBEFIRE_GCP_DATABASES_REGION
+          value: "europe-west3"
+        - name: TRIBEFIRE_OPERATOR_LOG_LEVEL
+          value: "DEBUG"
+        - name: TRIBEFIRE_OPERATOR_DUMP_RESOURCES_STDOUT
+          value: "false"
+        - name: TRIBEFIRE_IMAGE_PULL_POLICY
+          value: "IfNotPresent"
+        - name: TRIBEFIRE_USE_POSTGRES_CHECKER_INIT_CONTAINER
+          value: "true"

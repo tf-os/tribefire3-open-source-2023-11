@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<title>tribefire Demo App</title>
+	<head>
+		<style>
+			footer{    clear: both;
+    		padding: 10px;
+    		font-size: 0.8em;text-align:center;
+			}
+			*{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: left;
+    color: black;}
+			
+			
+			
+			html, body{ padding: 0; margin: 0;}
+			
+			.mainWrapper{
+				margin: 0 auto;
+				padding-top:65px;
+			}
+			
+			.aboutSectionWrapper{
+				display:block;
+				min-height:50px;
+				padding-left:10%;
+				padding-top:5px;
+			}
+  
+  			.aboutSectionWrapper:nth-child(odd){
+				background-color:rgb(230, 230, 230)
+			}
+			
+			.aboutSectionWrapper:nth-child(even){
+				background-color:white;
+			}
+			
+			.aboutSectionTitle{
+				color: #708090;
+				font-weight: bold;
+				padding: 5px;
+				text-transform: uppercase;
+			}
+			
+			.aboutSection{
+			
+			}
+			
+			#tf_header{
+				font-family: 'Open Sans', sans-serif;
+   			 	font-weight: 400;
+    			height: 50px;
+    			/* overflow: hidden; */
+   				background: #fff;
+   				display:table;
+   				padding-left:10%;
+   				box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    			width: 100%;
+    			position: fixed;
+			}
+			
+			#tf_logo{
+				margin: 10px 0px 0px 15px;
+			}
+		
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding-bottom: 15px;
+			}
+			
+			li{
+				padding-top:5px;
+			}
+			
+			.key, .value {display:inline-block;min-width:250px; max-width:600px;}
+			
+			.key{color: black; text-transform: uppercase; vertical-align: top}
+			
+			.value{color: grey}
+			
+			.undefined{color: silver; font-style: italic}
+			
+			.result {display:inline-block;min-width:250px; max-width:1000px;}
+			.result {color: #708090;}
+			
+			.info {display:inline-block;min-width:250px; max-width:1000px;}
+			.info {color: grey; font-size: 14pt;}
+			
+			.info2 {display:inline-block;min-width:250px; max-width:1000px;}
+			.info2 {color: #708090; font-size: 20pt; text-transform: uppercase;}
+			
+			#title{
+			    display: table-cell;
+    			color: black;
+   				height: 100%;
+    			vertical-align: middle;
+    			padding-left: 25px;
+    			font-size:12pt;
+    			text-transform:uppercase;
+    			width: 90%;
+			}
+			
+		</style>
+		
+	</head>
+	
+	
+	
+	<body>
+	
+		<div id="tf_header">			
+			<a href="./app.demo"><img src="${staticResUrl}/logo.png" id="tf_logo" alt="logo" width="185"></a>
+			<div id="title"><b>Demo Application</b></div>
+		</div>
+		
+		<div class="mainWrapper">
+			
+			<div class="aboutSectionWrapper"> </div>
+	  		 			
+			<div class="aboutSectionWrapper">
+				<br />
+				<!--
+				<span class="info2" align="center">
+					tribefire Demo!
+				</span>
+				-->
+				<div class="aboutSectionTitle">Global Search</div>
+				<span>
+					<form name="findByTextForm" action="./app.demo">
+						<!--<label>Global Search: </label>-->
+						<select name="type">
+							<option value="tribefire.extension.demo.model.data.Person">Person</option>
+							<option value="tribefire.extension.demo.model.data.Company">Company</option>
+							<option value="tribefire.extension.demo.model.data.Department">Department</option>
+							
+						</select>
+						<input type="text" name="text"/>
+	 					<input type="hidden" name="parameter" value="findByText" />
+					</form>
+				</span>
+				<br /></br></br>
+			</div>
+			
+			<div class="aboutSectionWrapper">
+	  			<div class="aboutSectionTitle">General Infos</div>
+				<ul class"about="SectionList">
+					<li>
+		  					<span class="info">
+		  						Result Count:
+		  					</span>
+		  					<span class="value">
+		  						$entities.size()
+		  					</span>
+		  					
+		  			</li>
+					<li>
+		  					<span class="info">
+		  						Result Type:
+		  					</span>
+		  					<span class="info">
+		  						$entityTypeDisplayInfo ($entityType.getTypeSignature())
+		  					</span>
+		  					
+		  			</li>
+		  			
+		  		</ul>
+		  	</div>
+
+	  		<div class="aboutSectionWrapper">
+	  			<div class="aboutSectionTitle">Results</div>
+	  			<br />
+	  			
+	  			#if ($isTypeListing)
+	  			<ul class="aboutSectionList">
+	  				#foreach($entity in $entities)
+		  				<ul class"about="SectionList">
+		  					<li><span class="info" style="color:black"><a href="./app.demo?parameter=$entity.getTypeSignature()">$selectiveInfoResolver.resolve($entity,$session)</a></span></li>
+		  					<li><span class="value" style="color:black">($entity.getTypeSignature())</span></li>
+		  				</ul>
+	  				#end			
+	  			</ul>
+	  			#else
+	  			<ul class="aboutSectionList">
+	  					<br />	
+	  					#foreach($person in $entities)			
+		  					<ul class"about="SectionList">
+		  					<li><span class="info2" style="color: #708090">$selectiveInfoResolver.resolve($person,$session)</span>
+		  					#if($isCompany)
+		  					<div>
+		  					<span class="info" style="font-size: 0.8em"><a href="./app.demo?parameter=getByGender&company=$person.getId()&gender=female">show female employees</a></span>
+		  					<span class="info" style="font-size: 0.8em"><a href="./app.demo?parameter=getByGender&company=$person.getId()&gender=male">show male employees</a></span>
+		  					</div>
+		  					#end
+		  					<br /><br/>
+			  				<span class="value">
+	
+		  					#foreach($property in $entityType.getProperties())
+		  					
+		  						#set( $propertyValue = $person.read($property))
+		  						
+			  					<span class="info">$property.getName():</span>
+				  				<span class="info" style="color: black">	
+				  					#if($propertyValue)
+				  						#if ($property.getType().isEntity())
+				  							$selectiveInfoResolver.resolve($propertyValue,$session)
+				  						#elseif ($property.getType().isCollection())
+				  						<span class="info" style="color: black">
+				  						<ul class="aboutSectionList">
+				  							#foreach( $element in $propertyValue)
+				  							
+				  								#set ( $elementType = $typeTool.getTypeForValue($element) )
+				  								#if ($elementType.isEntity())
+				  									$selectiveInfoResolver.resolve($element,$session),
+				  								#else
+				  									* $element<br/>
+				  								#end
+				  							
+				  							#end
+				  						</ul>	
+				  						</span>
+				  						#else
+				  							$propertyValue
+				  						#end
+				  					#end	 
+			  					</span>
+			  					
+			  					 <br />
+		  					#end
+			  				</span></li>
+		  					<br/>
+		  					</ul>
+			  			#end
+			  	</ul>
+			  	#end
+			</div>
+		  								
+	  	<footer>
+			&copy; <a href="http://www.braintribe.com" target="_blank">Braintribe IT-Technologies</a> 
+		</footer>
+	  	
+	  			
+	</body>
+	
+</html>

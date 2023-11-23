@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>tribefire Login</title>
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+<link href='${publicServicesUrl}/webpages/fonts/fonts.css' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="${publicServicesUrl}/webpages/favicon.ico" type="image/x-icon"/>
+<link href="${publicServicesUrl}/webpages/style-login.css" rel="stylesheet" type="text/css">
+
+<style>
+.input-field {
+	background-color: white !important; 
+	padding-left: 10px !important;
+	border: 1px solid lightgrey !important; 
+	border-radius: 10px !important;
+	min-height: 50px;
+}
+</style>
+
+<script>
+
+function bindForm() {
+ var form = document.getElementById("signinForm");
+ form.addEventListener("submit", function (event) {
+   event.preventDefault();
+   login(form);
+ });
+
+}
+
+function login() {
+
+	var loginData = new Object();
+	loginData.user = document.getElementById("input_user").value;
+	loginData.password = document.getElementById("input_password").value;
+	#if($offerStaySigned)
+	loginData.staySignedIn = document.getElementById("staySigned").checked;
+	#end
+
+    var loginDataJson= JSON.stringify(loginData);
+	
+	var request = new XMLHttpRequest();
+	
+ 	// Set up our request
+ 	//request.open('POST', 'api/v1/authenticate');
+ 	
+ 	request.open('POST', '${publicServicesUrl}/login/auth');
+	request.setRequestHeader("Content-Type","application/json");
+	request.setRequestHeader("Accept","application/json");
+	
+	// Define repsonse handling
+	request.onreadystatechange = function () {
+		
+		if(request.readyState == 4) {
+			
+			if (request.status == 200) {
+				var sessionId = request.responseText;
+				
+				var redirectLocation = "${publicServicesUrl}"; // default redirect to current page
+				
+				
+				
+				window.location = redirectLocation; // redirect to landing page
+			} else {
+				var failureMessage = "Could not sign in";
+				try {
+					var failure = JSON.parse(request.responseText);
+					if (failure.message && failureMessage.length > 0) {
+						failureMessage = failure.message;
+					}
+				
+				} catch (err) {
+					console.log("Could not parse response text");
+				}	
+				window.location = "remote-login?message="+encodeURI(failureMessage);
+			}
+			
+		}
+	
+	}
+	
+ 	// Send login request
+ 	request.send(loginDataJson);
+	//request.send();
+}
+
+</script>
+
+</head>
+<body onLoad="bindForm()">
+
+  <div class="loginContent">
+	<a href="${publicServicesUrl}"><img src="${publicServicesUrl}/webpages/logo-tf-orange.svg" alt="logo" width="240"></a>
+	<h2>Sign in to tribefire</h2>
+	
+	<form id="signinForm" style="width: 300px;" action="${publicServicesUrl}/login/auth" class="loginForm" accept-charset="UTF-8">
+	#if(${showStandardLoginForm})
+			<div>				
+				<input id="input_user" type="text" name="user" placeholder="Username" autofocus>
+			</div>
+			<div>
+				<input id="input_password" type="password" name="password" placeholder="Password">
+			</div>
+			<div>
+				<button type="submit">Sign in</button>
+			</div>
+			#if($offerStaySigned)
+			<div>
+				<input id="staySigned" type="checkbox" name="staySigned" checked="checked" value="true" class="mycheckbox" />
+				<span style="font-size:12px">Stay signed in</span>
+			</div>
+			#end
+
+			<div>
+				#if ($messageStatus == "OK")
+					<div class="okMessage" align="center">
+				#else
+					<div class="errorMessage" align="center">
+				#end
+					#if($message)
+						$tools.escape($message)
+					#else
+						&nbsp;
+					#end
+				</div>
+			</div>
+			
+			#if ($continue)
+				<input type="hidden" name="continue" value="$tools.escape($continue)" />
+			#end
+			
+	#end
+	
+	#if(${showTextLinks})
+		#foreach($authUrlEntry in $authUrls.entrySet())<a href="${authUrlEntry.value}">${authUrlEntry.key}</a>#if( $foreach.hasNext ) - #end#end
+	#else
+		#foreach($authUrlEntry in $authUrls.entrySet())
+
+			<a href="${authUrlEntry.value}">
+		
+			#set( $imageUrl = ${authImageUrls.get(${authUrlEntry.key})} )
+			#set( $imageContent = ${authEmbeddedImages.get(${authUrlEntry.key})} )
+		
+			#if(${imageContent})
+			
+				<div class="input-field" style="font-weight:500; position: relative; display: flex; align-items: center; justify-content: center;">
+					<img style="float:left; margin-left:3px; margin-top:1px; position: absolute; left:0" src="${imageContent}" width="40" alt="${authUrlEntry.key}">
+					Sign in with ${authUrlEntry.key}
+				</div>
+			
+			
+			#else
+			
+				<div class="input-field" style="font-weight:500; position: relative; display: flex; align-items: center; justify-content: center;">
+					<img style="float:left; margin-left:3px; margin-top:1px; position: absolute; left:0" src="${imageUrl}" width="40" alt="">
+					Sign in with ${authUrlEntry.key}
+				</div>
+				
+			#end
+		
+		
+			</a>
+		#end
+	#end
+			
+	
+	</form>
+	
+	<h3><a href="http://www.braintribe.com" target="_blank">www.braintribe.com</a></h3> 
+  </div>
+  
+
+</body>
+</html>

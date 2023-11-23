@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentStores xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <!-- ############################################################################## -->
+  <!-- IndexDefinition  -->
+  <!-- ############################################################################## -->
+  <IndexDefinition>
+    
+    <!-- ################################################################### -->
+    <!-- START: ContentRecorder Indices -->
+    <!-- ################################################################### -->
+
+    <Index id="1000001100" name="Aktion" type="string" description="Name of the action">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="action.name" />
+        <Parameter name="name/en" value="Action" />
+        <Parameter name="name/es" value="Acción" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isMandatory" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="1000001101" name="Content ID" type="string" description="Content ID">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="contentReference.contentId.guid" />
+        <Parameter name="name/en" value="Content ID" />
+        <Parameter name="name/es" value="Content ID" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isMandatory" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="1000001102" name="Benutzer" type="string" description="Name of the user">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="principal.name" />
+        <Parameter name="name/en" value="User" />
+        <Parameter name="name/es" value="Usuario" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="isMandatory" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="1000001103" name="IP" type="string" description="IP address of the user">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="ip" />
+        <Parameter name="name/en" value="IP" />
+        <Parameter name="name/es" value="Dirección IP" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <Index id="1000001104" name="Zeitstempel" type="date" description="Timestamp of the event">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="timestamp" />
+        <Parameter name="guiType" value="datetime" />
+        <Parameter name="isEditable" value="false" />
+        <Parameter name="type.format" value="yyyy-MM-dd HH:mm:ss.SSS" />
+        <Parameter name="datetimeformat" value="yyyy-mm-dd hh:nn:ss.zzz" />
+        <Parameter name="savedatetimeformat" value="yyyy-mm-dd hh:nn:ss.zzz" />
+        <Parameter name="name/en" value="Timestamp" />
+        <Parameter name="name/es" value="Timestamp" />
+        <Parameter name="isMandatory" value="true" />
+      </Parameters>
+    </Index>
+    <Index id="1000001105" name="Kategorie" type="string" description="Name of the category">
+      <Parameters>
+        <Parameter name="contentrecorder.field" value="category.name" />
+        <Parameter name="name/en" value="Category" />
+        <Parameter name="name/es" value="Categoría" />
+        <Parameter name="isEditable" value="false" />
+      </Parameters>
+    </Index>
+    <!-- ################################################################### -->
+    <!-- END: ContentRecorder Indices -->
+    <!-- ################################################################### -->
+    
+  </IndexDefinition>
+
+  <!-- ############################################################################## -->
+  <!-- ContentStore definition  -->
+  <!-- ############################################################################## -->
+  <ContentStore name="DMS" nextContentDefinitionId="4">
+    <ContentDefinition name="ContentRecorder" id="CD_CR" description="">
+      <IndexStore container="IND_STORE_CR">
+        <Indexes>
+          <Index ref="1000001100" />
+          <Index ref="1000001101" />
+          <Index ref="1000001102" />
+          <Index ref="1000001103" />
+          <Index ref="1000001104" />
+          <Index ref="1000001105" />
+        </Indexes>
+      </IndexStore>
+      <ObjectStore container="OBJ_STORE_CR">
+        <ContentProperties ref="COP" />
+      </ObjectStore>
+    </ContentDefinition>
+  </ContentStore>
+  
+</ContentStores>
+

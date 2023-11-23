@@ -1,0 +1,3 @@
+!com.braintribe.doc.meta.CustomAssetMetaData
+displayTitle: "Devrock plugin"
+shortDescription: "The central plugin. It is always required in order for the other plugins to work. Basically, it contains services for the other plugins and features that aren't related to any specific plugin. Also, all configuration UI is handled by it."

@@ -1,0 +1,164 @@
+.x-window-tl {
+	background-image: url(images/left-corners.png);
+}
+
+.x-window-bl {
+	background-image: url(images/left-corners.png);
+}
+
+.x-window-tr {
+	background-image: url(images/right-corners.png);
+}
+
+.x-window-br {
+	background-image: url(images/right-corners.png);
+}
+
+.x-window-tc {
+	background-image: url(images/top-bottom.png);
+}
+
+.x-window-bc {
+	background-image: url(images/top-bottom.png);
+}
+
+.x-window-ml {
+	background-image: url(images/left-right.png);
+}
+.x-window-mr {
+	background-image: url(images/left-right.png);
+}
+
+/* Style of the upper part of the hint message*/
+.hintUp {
+	border-bottom:3px solid;
+}
+
+/* Style of the text part of the hint message*/
+.hintText {
+	background:none repeat scroll 0 0 #FFF7D7;
+	color:#222222;
+	padding:0 7px;
+	font-weight:bold;
+	padding:2px 7px;
+	//text-align:center;
+	line-height:100%;
+	/*font-family:arial,sans-serif;*/
+}
+
+/* Style of the lower part of the hint message*/
+.hintDown {
+	border-top:3px solid;
+}
+
+.hintUp, .hintDown {
+	border-bottom-color:#FFF7D7;
+	border-top-color:#FFF7D7;
+	border-left:3px dotted transparent;
+	border-right:3px dotted transparent;
+	line-height:100%;
+}
+
+/* Style of the action present in the hint, if any */
+.hintAction {
+	color:#2A5DB0;
+	cursor:pointer;
+	text-decoration:underline;
+	white-space:nowrap;
+	margin-left:5px;
+	display:table-cell;
+	vertical-align:middle;
+	padding:0px 5px !important;
+}
+
+/* Style of the upper part of the hint message*/
+.errorUp {
+	border-bottom:3px solid;
+}
+
+/* Style of the text part of the hint message*/
+.errorText {
+	background:none repeat scroll 0 0 #FFE0E0;
+	color:#222222;
+	padding:0 7px;
+	
+	font-weight:bold;
+	padding:2px 7px;
+	//text-align:center;
+	line-height:100%;
+	/*font-family:arial,sans-serif;*/
+}
+
+/* Style of the lower part of the hint message*/
+.errorDown {
+	border-top:3px solid;
+}
+
+.errorUp, .errorDown {
+	border-bottom-color:#FFE0E0;
+	border-top-color:#FFE0E0;
+	border-left:3px dotted transparent;
+	border-right:3px dotted transparent;
+	line-height:100%;
+}
+
+/* Style of the action present in the hint, if any */
+.errorAction {
+	color:#2A5DB0;
+	cursor:pointer;
+	text-decoration:underline;
+	white-space:nowrap;
+	margin-left:5px;
+	display:table-cell;
+	vertical-align:middle;
+	padding:0px 5px !important;
+}
+
+/* Style of the upper part of the hint message*/
+.successUp {
+	border-bottom:3px solid;
+}
+
+/* Style of the text part of the hint message*/
+.successText {
+	background:none repeat scroll 0 0 #50FB6A;
+	color:#222222;
+	padding:0 7px;
+	
+	font-weight:bold;
+	padding:2px 7px;
+	//text-align:center;
+	line-height:100%;
+	/*font-family:arial,sans-serif;*/
+}
+
+/* Style of the lower part of the hint message*/
+.successDown {
+	border-top:3px solid;
+}
+
+.successUp, .successDown {
+	border-bottom-color:#50FB6A;
+	border-top-color:#50FB6A;
+	border-left:3px dotted transparent;
+	border-right:3px dotted transparent;
+	line-height:100%;
+}
+
+/* Style of the action present in the hint, if any */
+.successAction {
+	color:#2A5DB0;
+	cursor:pointer;
+	text-decoration:underline;
+	white-space:nowrap;
+	margin-left:5px;
+	display:table-cell;
+	vertical-align:middle;
+	padding:0px 5px !important;
+}
+
+.detailText{
+	display:table-cell;
+	vertical-align:middle;
+	padding:0px 5px !important;
+}

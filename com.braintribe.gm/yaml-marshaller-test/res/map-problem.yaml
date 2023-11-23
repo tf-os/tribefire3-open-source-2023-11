@@ -1,0 +1,4 @@
+- !com.braintribe.codec.marshaller.yaml.model.pets.SelfReference
+  self?: absent
+- !com.braintribe.codec.marshaller.yaml.model.pets.SelfReference
+  self?: !com.braintribe.model.generic.pr.AbsenceInformation

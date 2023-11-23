@@ -1,0 +1,666 @@
+@external propertyPanelPropertyValueWithGridLines propertyPanelPropertyValueReadOnly propertyPanelFlowCollectionElement;
+@external propertyPanelPropertyMenu propertyPanelPropertyValueCollectionAdd propertyPanelPropertyValueEntityAssign;
+@external propertyPanelPropertyFlowDisplay propertyPanelPropertyFlowDisplayLine propertyPanelPropertyIcons propertyPanelPropertyText;
+@external collectionInlineContainer collectionInlineRow collectionInlineBlock collectionInlineItem collectionInlineBackgroundBox;
+@external collectionInlineLabelHorizontal propertyPanelPropertyValueOperation propertyPanelValuePlaceholder;
+@external failPropertyValidationIcon infoPropertyValidationIcon failValidationPropertyToolTip gmePropertyValidationFail gmePropertyValue gmePropertyValueGroup;
+
+.border {
+  border: 1px solid #dedede !important;
+}
+
+/* Style of all property names */
+.propertyName {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  color: gray;
+  border-bottom: 1px dotted #e0e0e0;
+  border-right: 1px dotted #e0e0e0;
+  border-left: none;
+  padding: 4px 0 6px 20px;
+}
+
+.propertyPanelWithoutLines .propertyName {
+  border-bottom: none;
+  border-right: none;
+}
+
+/* Style of all non flow type property names, which appear first in its property grid section */
+.propertyNameFirst {
+  border-bottom: 1px dotted #e0e0e0;
+  border-right: 1px dotted #e0e0e0;
+  border-left: none;
+  margin-top: 5px;
+}
+
+.propertyPanelWithoutLines .propertyNameFirst {
+  border-bottom: none;
+  border-right: none;
+}
+
+/* Style of the flow type property names */
+.propertyNameFlow {
+  margin: 4px 5px 0 0;
+  border-right: none;
+  border-left: none;
+  padding: 0 1px 4px 0;
+}
+
+.propertyNameGroup {
+  padding-left: 20px !important;	
+}
+
+/* Style of the flow for entities */
+.propertyNameFlowLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Style of the mandatory property names */
+.propertyNameMandatory {
+  font-weight: bold;
+  color: #4b4b4b;
+}
+
+/* Style of the read only property names */
+.propertyNameReadOnly {
+  /* font-style: italic; */
+}
+
+/* Style of the collapsed state of the property name flow expander */
+.propertyNameFlowExpanderCollapsed {
+  gwt-sprite: "collapsed";
+  padding-right: 10px;
+  cursor: pointer;
+  background-position: left center;
+}
+
+/* Style of the expanded state of the property name flow expander */
+.propertyNameFlowExpanderExpanded {
+  gwt-sprite: "expanded";
+  padding-right: 10px;
+  cursor: pointer;
+  background-position: left center;
+}
+
+/* Style of the gme property values, flow type */
+.propertyValueFlow {
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #e0e0e0;
+  margin-top: 6px;
+}
+
+.propertyPanelWithoutLines .propertyValueFlow {
+  border-bottom: none;
+}
+
+/* Style of the gme property values, not flow type */
+.propertyValue {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  border-bottom: 1px dotted #e0e0e0;
+  border-right: none;
+  padding: 2px;
+  margin-right: 2px;
+}
+
+.propertyPanelPropertyValueWithGridLines {
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  border: 1px solid  #ededed !important;
+  border-radius: 4px;
+  padding: 3px;
+  margin-right: 30px;
+}
+
+.propertyPanelPropertyValueWithGridLines .propertyPanelPropertyText{
+  border: none !important;
+}
+
+.propertyPanelPropertyValueWithGridLines .propertyPanelPropertyIcons{
+  border: none !important;
+}
+
+.propertyPanelWithoutLines .propertyValue {
+  border-bottom: none;
+}
+
+/* Style of the gme property values, first entry */
+.propertyValueFirst {
+  border-bottom: 1px dotted #e0e0e0;
+  padding: 4px 2px;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  margin-top: 0;
+  margin-bottom: 1px;
+  margin-right: 2px;
+}
+
+.propertyPanelWithoutLines .propertyValueFirst {
+  border-bottom: none;
+}
+
+/* Style of the property menu icon */
+.propertyPanelPropertyMenu {
+  gwt-sprite: "dropdown";
+  /*margin-left: 6px;*/
+  cursor: pointer;
+  visibility: hidden;
+  order: 2;
+}
+
+.propertyName:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.propertyName:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+.RowExpanderStyle-rowExpanded:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.RowExpanderStyle-rowExpanded:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+.propertyValueFirst:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.propertyValueFirst:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+.propertyValue:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.propertyValue:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+.propertyPanelPropertyValueWithGridLines:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.propertyPanelPropertyValueWithGridLines:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+.propertyValueFlow:hover .propertyPanelPropertyMenu {
+  visibility: visible;
+}
+
+.propertyValueFlow:hover td.clickableTrigger {
+  visibility: visible;
+}
+
+/* Style of the property Collection Item Menu icon */
+.propertyCollectionItemMenu {
+  gwt-sprite: "dropdown";
+  margin-left: 2px;
+  cursor: pointer;
+  opacity: 0;	
+}
+
+.propertyPanelFlowCollectionElement:hover + .propertyCollectionItemMenu {
+  opacity: 1;	
+}
+
+.propertyPanelFlowCollectionElement:hover > .propertyCollectionItemMenu {
+  opacity: 1;	
+}
+
+.flowSetEntry:hover + .propertyCollectionItemMenu {
+  opacity: 1;	
+}
+
+.propertyCollectionItemMenu:hover {
+  opacity: 1;	
+}
+
+/* Style for inheriting the font styles from the parent */
+.inheritFont {
+  font: inherit;
+}
+
+/* This layout should be applied to tables that should keep the width defined manually, instead of computing new ones */
+.tableFixedLayout {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Style for the text in the grid columns, inside tables. Hidden overflow and no wrap */
+.textOverflowNoWrap {
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 1px;
+}
+
+@external propertyGroupRuler propertyGroupIcon gmePropertyPanel gmePropertyPanelPanel x-grid-group-hd x-grid3-row;
+@external x-grid3-hd-inner x-grid3-cell x-grid3-cell-inner x-grid3-col-value x-grid-group-div x-panel-header x-tool;
+/* Style of the Property Group */
+.propertyGroupRuler {
+	font-size: 15px;
+    font-weight: normal;
+    color: grey;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    
+  display:flex;
+  align-items:center;
+}
+
+.propertyGroupIcon{
+	padding-left:5px;
+	padding-right:5px;
+}
+
+/* Removing grouping header blue bottom border*/
+.gmePropertyPanel .x-grid-group-hd {
+  border-bottom: 0 !important;
+  border-left: 1px solid #ededed;
+}
+
+/* Removing the horizontal grid lines from the gmePropertyPanel grids */
+.gmePropertyPanel .x-grid3-row {
+  border-top: 0 none;
+  border-bottom: 0 none;
+}
+
+/* Removing padding from grid columns */
+.gmePropertyPanel .x-grid3-hd-inner {
+  padding: 0;
+}
+
+/* Removing margin and padding from grid columns */
+.gmePropertyPanel td.x-grid3-cell {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.gmePropertyPanel .x-grid3-cell-inner {
+  padding: 0 0 0 5px;
+}
+
+.gmePropertyPanel .x-grid3-col-value {
+  padding: 0 3px 0 0;
+}
+
+/* Removing property groups expand/collapse icons */
+.gmePropertyPanel .x-grid-group-div {
+  background-image: none;
+  padding: 4px;
+}
+
+/* Style of the checked value icon */
+.checkedValue {
+  gwt-sprite: "checked";
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Style of the null check value icon */
+.checkNullValue {
+  gwt-sprite: "checkNull";
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Style of the unchecked value icon */
+.uncheckedValue {
+  gwt-sprite: "unchecked";
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Style of the checked, read only, value icon */
+.checkedReadOnlyValue {
+  gwt-sprite: "checked";
+  cursor: default;
+  display: inline-block;
+}
+
+/* Style of the null check, read only, value icon */
+.checkNullReadOnlyValue {
+  gwt-sprite: "checkNull";
+  cursor: default;
+  display: inline-block;
+}
+
+/* Style of the unchecked, read only value icon */
+.uncheckedReadOnlyValue {
+  gwt-sprite: "unchecked";
+  cursor: default;
+  display: inline-block;
+}
+
+/* Style of the ordering within lists */
+td.flowListEntry {
+  padding-right: 4px;
+  color: gray;
+  text-align: right;
+}
+
+/* Style of bullets within sets */
+td .flowSetEntry {
+  gwt-sprite: "bullet";
+  background-position: center center;
+}
+
+/* Style of the map icon, within maps */
+td.flowMapEntry {
+  gwt-sprite: "smallarrow";
+  background-position: center center;
+}
+
+/* The styles below are styles for the clickable collection elements, within a flow item */
+.clickableElement {
+  cursor: pointer;
+}
+
+.propertyPanelFlowCollectionElement {
+  border: 1px solid transparent;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.propertyPanelFlowCollectionElement:hover {
+  text-decoration: underline;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.flowMapKeyElement {
+  border: 1px solid transparent;
+}
+
+.flowMapKeyElement:hover {
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.flowMapValueElement {
+  border: 1px solid transparent;
+}
+
+.flowMapValueElement:hover {
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+/* Changing the property panel header style */
+.gmePropertyPanelPanel .x-panel-header {
+  background: #f7f7f7 !important;
+  border: 1px solid #ededed !important;
+  color: gray !important;
+}
+
+.editableBox {
+  border: 1px solid transparent !important;
+}
+
+.editableBox:hover {
+  border: 1px solid #ededed !important;
+  border-radius: 4px;
+}
+
+.editableBox .propertyPanelPropertyText:hover {
+  border: none !important;
+}
+
+.editableBox .propertyPanelPropertyIcons:hover {
+  border: none !important;
+}
+
+.emptyValue {
+  /* border-bottom-color: #ededed !important; */
+}
+
+div.entityTypeLabel {
+  margin-top: -2px;
+  margin-left: 9px;
+}
+
+.entityTypeLabel {
+  font-size: 12px;
+  color: gray;
+  word-break: break-all;
+}
+
+.entityTitleLabel {
+  font-size: 18px;
+  font-weight: bold;
+  word-break: break-all;
+  margin-left: 9px;
+}
+
+div.entityDescriptionLabel {
+  padding-top: 5px;
+}
+
+.entityDescriptionLabel {
+  color: #999;
+  font-size: 18px;
+}
+
+.entityIcon {
+  width: 32px;
+  text-align: center;
+}
+
+.propertyPanelPropertyValueReadOnly {
+  background-image: resourceUrl("lock");
+  background-position: 0px 0px;
+  background-size: cover;
+  /* margin-left: 6px; */
+  opacity: 0;
+  order: 1;	
+}
+
+.propertyPanelPropertyValueReadOnly:hover {
+  opacity: 1;	
+}
+
+.propertyName:hover .propertyPanelPropertyValueReadOnly {
+  opacity: 1;	
+}
+
+.RowExpanderStyle-rowExpanded:hover .propertyPanelPropertyValueReadOnly {
+   opacity: 1;	
+}
+
+.propertyValueFirst:hover .propertyPanelPropertyValueReadOnly {
+   opacity: 1;	
+}
+
+.propertyValue:hover .propertyPanelPropertyValueReadOnly {
+   opacity: 1;	
+}
+
+.propertyPanelPropertyValueWithGridLines:hover .propertyPanelPropertyValueReadOnly {
+   opacity: 1;	
+}
+
+.propertyValueFlow:hover .propertyPanelPropertyValueReadOnly {
+   opacity: 1;	
+}
+
+.propertyEntity {
+  border: 1px solid transparent;
+}
+
+.propertyEntity:hover {
+  text-decoration: underline;
+  background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.clickableTrigger {
+	cursor: pointer;
+	visibility: hidden;
+	background-position: right center;
+  	background-repeat: no-repeat;
+}
+
+.clickableInsideTrigger {
+	cursor: pointer;
+}
+
+.propertyIcon {
+	vertical-align: middle;
+	padding-right: 3px;
+	height: 16px;
+	width: 16px; 
+}
+
+.entered {
+	background-color: #FFE6BA !important;
+    border: 3px dotted #A6E9FC !important;
+}
+
+.propertyPanelPropertyValueCollectionAdd {
+	color: #1179BA;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.propertyPanelPropertyValueCollectionAdd:hover {
+	text-decoration: underline;
+}
+
+.propertyPanelPropertyValueOperation {
+	color: #1179BA;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.propertyPanelPropertyValueOperation:hover {
+	text-decoration: underline;
+}
+
+.propertyPanelPropertyValueEntityAssign {
+	color: #1179BA;
+	cursor: pointer;
+	font-size: 13px;
+	max-width: 75px;
+}
+
+.propertyPanelPropertyValueEntityAssign:hover {
+	text-decoration: underline;
+}
+
+/* Style of the flow HTML */
+.propertyPanelPropertyFlowDisplay {
+	margin-left: 28px;
+	margin-bottom: 3px;
+	margin-top: 3px;
+	font-size: 13px;
+	font-weight: normal;
+	font-style: normal;
+	padding-left: 2px;
+	white-space: pre-wrap;
+	overflow: hidden;
+	justify-content: space-between;
+	flex-direction: row;
+	display: flex;
+}
+
+.propertyPanelPropertyFlowDisplayLine:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+.propertyPanelPropertyIcons {
+	display: flex;
+}
+
+.collectionInlineContainer {
+    width: 100%;
+}
+
+.collectionInlineRow {
+	display: flex;
+	align-items: center;
+ 	flex-wrap: wrap;
+}
+
+.collectionInlineContainer .collectionInlineRow {
+    margin: 0;
+    padding: 0;
+}
+
+.collectionInlineContainer br {
+    clear: both;
+}
+
+.collectionInlineContainer .collectionInlineBlock {
+    float: left;
+    margin-top: 2px;
+    min-width: 0;
+    flex-shrink: 1;
+    margin-left: 11px;
+}
+
+@media not all {
+	.collectionInlineContainer .collectionInlineBlock {
+   		margin-top: 5px;
+	}
+}
+
+div.collectionInlineItem {
+	width: 100%;
+    display: inline-block;
+    font-size: 12px;
+    min-width: 25px;
+    vertical-align: middle;
+}
+
+.collectionInlineBackgroundBox {
+	display: flex;
+	position: relative;
+	align-items:center;
+}
+
+.collectionInlineLabelHorizontal {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.propertyPanelValuePlaceholder {
+	color: #BDBCBC;
+	text-transform: uppercase;
+	display: inline-block;
+	padding-left: 3px;
+}
+
+.gmePropertyValidationFail .gmePropertyValue {
+	border: 1px solid  red !important;
+	border-radius: 4px;	
+}
+
+.failPropertyValidationIcon, .infoPropertyValidationIcon {
+    padding-right: 2px;
+    align-self: center;
+}
+
+.failValidationPropertyToolTip {
+	backround-color: red;
+}
+
+.gmePropertyValueGroup {
+	display : flex;
+	justify-content: flex-start;
+}
+

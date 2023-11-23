@@ -1,0 +1,10 @@
+<!--
+	============================================================================
+	BRAINTRIBE TECHNOLOGY GMBH - www.braintribe.com
+	Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2021 - All Rights Reserved
+	It is strictly forbidden to copy, modify, distribute or use this code without written permission
+	To this file the Braintribe License Agreement applies.
+	============================================================================
+--><project xmlns:artifact="antlib:org.apache.maven.artifact.ant" xmlns:bt="antlib:com.braintribe.build.ant.tasks" basedir="." default="default">
+	<bt:import artifact="com.braintribe.devrock.ant:model-ant-script#1.0" useCase="DEVROCK" />
+</project>

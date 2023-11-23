@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- elasticsearch (unfortunately) uses log4j directly and we can't bridge to slf4j (see also comment in asset.man).
+	Log4j will print the following error during startup if no log4j configuration is found:
+
+	"ERROR StatusLogger No Log4j 2 configuration file found. Using default configuration (logging only errors to the console), or user programmatically provided configurations. Set system property 'log4j2.debug' to show Log4j 2 internal initialization logging. See https://logging.apache.org/log4j/2.x/manual/configuration.html for instructions on how to configure Log4j 2"
+
+	This configuration file injects the default configuration which otherwise would be injected automatically.
+	The only purpose of this file is to get rid of the error message.
+
+	Of course, this configuration can be improved / adapted, if needed.
+-->
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="error">
+			<AppenderRef ref="Console"/>
+		</Root>
+	</Loggers>
+</Configuration>

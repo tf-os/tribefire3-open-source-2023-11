@@ -1,0 +1,2 @@
+$nature = (PluginPriming=com.braintribe.model.asset.natures.TribefireModule)()
+.accessIds= ('cortex', 'access.repositoryConfiguration')

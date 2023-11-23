@@ -1,0 +1,11 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  content: 
+    displayTitle: "Content"
+
+  formatting:
+    hidden: true
+    
+  configuring:
+    displayTitle: "Configuring"

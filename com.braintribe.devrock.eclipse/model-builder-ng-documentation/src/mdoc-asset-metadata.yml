@@ -1,0 +1,3 @@
+!com.braintribe.doc.meta.CustomAssetMetaData
+displayTitle: "Model builder"
+shortDescription: "This plugin is called by Eclipse when a model is being built. It in turn creates the 'model-declaration.xml' file."

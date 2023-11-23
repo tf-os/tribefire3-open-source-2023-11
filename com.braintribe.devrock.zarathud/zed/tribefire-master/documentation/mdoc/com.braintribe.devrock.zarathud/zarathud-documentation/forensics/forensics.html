@@ -1,0 +1,344 @@
+
+<html lang=en>
+<head>
+	<title>Documentation - Forensics</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="../../../.mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='../../../.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/custom.css'/>
+	<link rel="icon" href="../../../.mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src="../../../.mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.navgoco.min.js"></script>	
+	<link rel='stylesheet' href='../../../.mdoc/res/content.css'/>
+	
+   	<script src="../../../.mdoc/res/lunr.js"></script>
+    <script src="../../../.mdoc/res/lunr-index.js"></script>
+    
+    <link rel="stylesheet" href="../../../.mdoc/res/highlight-custom.css">
+	<script src="../../../.mdoc/res/highlight.pack.js"></script>
+	<script>hljs.highlightAll();</script>
+    
+    <script src="../../../.mdoc/res/content.js"></script>
+ 
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=../../../index.html><img src='../../../.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="../../../search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src="../../../.mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+    <main id='full-content' class='content-container'>
+    	<article>
+			<h1 id="forensics"><a href="#forensics" name="forensics" class="anchor-auto-link"></a>Forensics</h1>
+<p>Forensics in Zed are modules that analyze what the extraction has delivered.</p>
+<p>All forensic modules use the extracted data as input and - while also providing modeled data - retrieve all problems found. These problems are expressed as <a href="fingerprint.html">finger prints</a> that identify the issue and address of where the issue was detected.</p>
+<p>Common to all forensics is that they rate issues. There are 4 different ratings</p>
+<table>
+<thead>
+<tr><th>code</th><th>description</th></tr>
+</thead>
+<tbody>
+<tr><td>OK</td><td>nothing to report</td></tr>
+<tr><td>INFO</td><td>some issue to report, but nothing to worry about</td></tr>
+<tr><td>WARN</td><td>while not a direct problem, you should know about it</td></tr>
+<tr><td>ERROR</td><td>a big, fat fail - you definitively check it out</td></tr>
+</tbody>
+</table>
+<p>You can influence the ratings of course, but there are standard (default) ratings that Zed applies if not overridden. See about <a href="ratings.html">rating</a>.</p>
+<div class="toc">
+<h2>On this page</h2>
+<ol>
+<li><a href="#classpath-forensics">classpath forensics</a></li>
+<li><a href="#dependency-forensics">dependency forensics</a>
+<ol>
+<li><a href="#aggregators">Aggregators</a></li>
+</ol>
+</li>
+<li><a href="#module-forensics">module forensics</a></li>
+<li><a href="#model-forensics">model forensics</a></li>
+</ol>
+</div>
+<h2 id="classpath-forensics"><a href="#classpath-forensics" name="classpath-forensics" class="anchor-auto-link"></a>classpath forensics</h2>
+<p>Checks for duplicate classes in the classpath, i.e. finds classes with an identical name (package and type name) in separate artifacts in the classpath. Finds not only the presence, but also where they are referenced from.</p>
+<p>The following issues may be raised by the classpath forensics:</p>
+<table>
+<thead>
+<tr><th>code</th><th>description</th><th>default rating</th></tr>
+</thead>
+<tbody>
+<tr><td>ShadowingClassesinClasspath</td><td>duplicate classes in the classpath</td><td>WARN</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>Note : duplicate classes in classpath can be a problem if they are just named the same but contain different code, for instance, it could be of different version. As a class is loaded only once into the JVM, the wrong class may be loaded and thus lead to a runtime problem when accessed.</p>
+</blockquote>
+<h2 id="dependency-forensics"><a href="#dependency-forensics" name="dependency-forensics" class="anchor-auto-link"></a>dependency forensics</h2>
+<p>Checks the dependencies of an artifact, i.e. finds all missing (dependencies transitively inherited from the dependency tree, yet not declared as first-level dependencies) and excess (dependencies declared as first-level dependencies, yet not referenced by the terminal) dependencies. While determining the references of classes in the terminal, it also respects 'forward declarations'.</p>
+<table>
+<thead>
+<tr><th>code</th><th>description</th><th>default rating</th></tr>
+</thead>
+<tbody>
+<tr><td>MissingDependencyDeclarations</td><td>some transitively acquired dependencies are used without declaration</td><td>WARN</td></tr>
+<tr><td>ExcessDependencyDeclarations</td><td>some dependencies are declared, but never used directly</td><td>INFO</td></tr>
+<tr><td>ForwardDeclarations</td><td>forward declarations were detected</td><td>OK</td></tr>
+</tbody>
+</table>
+<p>You can influence what Zed considers to be a missing or excessive dependency by adding markers into the pom of some artifacts.</p>
+<ul>
+<li>
+<p>Missing Dependencies: while not a problem on the compile or runtime side, this poses a problem if an automatic process accesses the dependency list as the terminal was touched - for what ever reason and with what action whatsoever - and it actual direct dependencies are to be touched as well. If dependencies are not properly declared as direct dependencies, they are not detected as such and will lead to untouched artifacts. Also, automated branching requires that any required dependencies are correctly declared.</p>
+</li>
+<li>
+<p>Excess Dependencies : again, not a problem on the compile or runtime side, this also poses a problem if an automatic process accesses the dependency list as the terminal was touched - for what ever reason and with what action whatsoever - and it actual direct dependencies are to be touched as well. Dependencies listed as direct dependencies would be touched (and perhaps their dependencies as well) which leads to unnecessarily touched artifacts.</p>
+</li>
+<li>
+<p>ForwardDeclarations : this is not an issue per se, and therefore it's only an INFO. Basically, forward declarations actually 'mask' a dependency. Zed needs to understand forward declarations and hence can and does show them.</p>
+</li>
+</ul>
+<h3 id="aggregators"><a href="#aggregators" name="aggregators" class="anchor-auto-link"></a>Aggregators</h3>
+<p>Zed needs to understand the functionality of aggregators.</p>
+<blockquote>
+<p>An aggregator is an artifact that in itself doesn't contain any code and hence doesn't contribute to a classpath, yet it's dependencies. It can be compared to a parent that passes down its declared dependencies (not the managed dependencies) to all other artifacts referencing it as parent. An artifact can however have one single artifact, and a fine-grained codebase will require a more flexible structure to declare a set of dependencies to be used for specific purposes. Hence the aggregator.</p>
+</blockquote>
+<p>As an aggregator doesn't contribute to the classpath, any dependency to one would be always considered as an 'excess' dependency. So, Zed needs to detect and understand the use of aggregators.</p>
+<p>Aggregators are <strong>supposed</strong> to be marked accordingly. The owner of a dependency should declare a dependency to an aggregator and the aggregator to its proper dependencies.</p>
+<table>
+<thead>
+<tr><th>processing instruction</th><th>description</th></tr>
+</thead>
+<tbody>
+<tr><td>aggregator</td><td>this dependency leads to an aggregator</td></tr>
+<tr><td>aggregate</td><td>this dependency leads to an aggregate (which is a dependency of an aggregator)</td></tr>
+</tbody>
+</table>
+<blockquote>
+<p>As this requires discipline that not everbody is either willing or even aware of it, Zed also regards a dependency to a 'pom'-typed artifact as a dependency to an aggregator and its dependencies in turn as aggregates.</p>
+</blockquote>
+<h2 id="module-forensics"><a href="#module-forensics" name="module-forensics" class="anchor-auto-link"></a>module forensics</h2>
+<p>At its current state, the module forensics is just a listing of what the terminal requires to be declared as input, and what the dependencies in turn need to expose as exports - both on the package level.</p>
+<p>While zed tries to understand any type reference in the terminal, there are some types it doesn't see at all - thinking of transient types (putting resulting types into a another function, as it's not  really clear how ASM handles such type references. If ASM (or rather the Java compiler) does list them in the respective node-structure, they will be found.</p>
+<p>At a later state, zed should also analyze the 'module-info' class, extract the declared data and then compare this data with the data collected - just as it does with the dependencies of the terminal.</p>
+<h2 id="model-forensics"><a href="#model-forensics" name="model-forensics" class="anchor-auto-link"></a>model forensics</h2>
+<p>Checks the validity of a model.</p>
+<table>
+	<tr>
+		<th>code</th><th>description</th><th>default rating</th>
+	</tr>
+	<tr>
+		<td>MissingGetter</td><td>property without matching getter</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>MissingSetter</td><td>property without matching setter</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>TypeMismatch</td><td>setter / getter types do not match</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>InvalidTypes</td><td>invalid type for a property</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>NonConformMethods</td><td>unallowed methods found</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>ConformMethods</td><td>allowed methods found</td><td>INFO</td>
+	</tr>
+	<tr>
+		<td>CollectionInCollection</td><td>collection type has collection element type</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>PropertyNameLiteralMissing</td><td>property has no corresponding tag field</td><td>WARN</td>
+	</tr>
+	<tr>
+		<td>PropertyNameLiteralTypeMismatch</td><td>property tag has wrong type</td><td>ERROR</td>	
+	</tr>
+	<tr>
+		<td>PropertyNameLiteralMismatch</td><td>property tag's value doesn't match property</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>UnexpectedField</td><td>field found in model not related to property</td><td>INFO</td>
+	</tr>
+	<tr>
+		<td>ContainsNoGenericEntities</td><td>no valid types found in a model</td><td>INFO</td>
+	</tr>
+	<tr>
+		<td>InvalidEntitytypeDeclaration</td><td>entity type T literal is invalid</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>MissingEntitytypeDeclaration</td><td>entity type T literal is missing</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>ContainsNoDeclarationFile</td><td>no model-declaration.xml found</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>MissingTypeDeclarations</td><td>some existing types are not listed in the file</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>ExcessTypeDeclarations</td><td>types in file that do not exist</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>DeclarationFileInvalid</td><td>invalid format (xml error)</td><td>ERROR</td>
+	</tr>
+	<tr>
+		<td>NonCanonic</td><td>model has Java parts that are not capable of transformation into other model forms</td><td>INFO</td>
+	</tr>
+</table>
+<blockquote>
+<p>Non canonic : a model is canonic if it is isomorph, i.e. when it can be transposed across different valid formats, or simply said: if it survives a roundtrip via the modeler. Basically, it means that it must valid in the first place and may not contain conform methods.</p>
+</blockquote>
+<blockquote>
+<p>Conform / Non-Conform methods : Conform methods are methods that you can add to a model in its Java form (as Zed gets it to see) and that do not interfere with the getter/setter. For instance <em>default</em> and <em>static</em> methods are valid extensions, aka <em>conform</em> methods, as long as their names to not use the prefixes for getter/setter. Non-conform methods are all other methods that are not getter/setter.</p>
+</blockquote>
+<blockquote>
+<p>Unexpected field: <strong>Why only info? add...</strong></p>
+</blockquote>
+
+		</article>
+		
+		<div id='tags'>
+		</div>
+	</main>
+	  
+	<div class='menu'>
+	<nav class='nav'>
+    	<input id="navFilter" class="navFilter" placeholder="Filter..." name="menuFilter" oninput="onNavFilterTextChanged()" />
+		<ul>
+			<li><a href=#>Zarathud Documentation</a>
+  <ul>
+    <li>		<a href='#' class='folder'>forensics</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' class='file'>Finger prints</a>
+
+</li>
+    <li>		<a href='#' class='selflink file'>Forensics</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>integrations</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' class='file'>Running an analysis via ant target</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' class='file'>running an analysis in Eclipse</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' class='file'>Running an analysis via java</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' class='file'>Running an analysis via Jinni</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>rationale</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' class='file'>Rationale (mgmt redux)</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' class='file'>com.braintribe.devrock.zarathud:zarathud</a>
+
+</li>
+  </ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<aside class='nav' id='technicalLinks'>
+	  <ul>
+		<li><a href=#>See also...</a>
+		  <ul>
+		    <li><a href=#>Incoming Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' title='running an analysis in Eclipse - Zarathud Documentation' class="file">
+					running an analysis in Eclipse <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' title='Running an analysis via java - Zarathud Documentation' class="file">
+					Running an analysis via java <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' title='Running an analysis via Jinni - Zarathud Documentation' class="file">
+					Running an analysis via Jinni <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' title='com.braintribe.devrock.zarathud:zarathud - Zarathud Documentation' class="file">
+					com.braintribe.devrock.zarathud:zarathud <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		    <li><a href=#>Outgoing Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' title='Finger prints - Zarathud Documentation' class="file">
+					Finger prints <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	</aside>
+	</div>
+	
+	<!-- The Modal -->
+	<div id="imageModal" class="modal">
+	
+	  <!-- The Close Button -->
+	  <span class="close">&times;</span>
+	
+	  <!-- Modal Content (The Image) -->
+	  <img class="modal-content" id="modalImage">
+	
+	</div>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

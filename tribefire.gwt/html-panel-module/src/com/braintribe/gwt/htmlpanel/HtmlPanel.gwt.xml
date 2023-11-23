@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.gwt.action.Action"/>
+    <inherits name="com.braintribe.gwt.action.adapter.common.ActionAdapter"/>
+    <inherits name="com.braintribe.gwt.action.adapter.gxt.ActionAdapter"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.gwt.logging.Logging"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.http.HTTP"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="com.sencha.gxt.core.Core"/>
+    <inherits name="com.sencha.gxt.widget.core.Core"/>
+    <!--Resource Module-->
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.GxtResources"/>
+    <source path="client"/>
+</module>

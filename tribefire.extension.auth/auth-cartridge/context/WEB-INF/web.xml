@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+	============================================================================
+	Braintribe IT-Technologies GmbH - www.braintribe.com
+	Copyright Braintribe IT-Technologies GmbH, Austria, 2002-2015 - All Rights Reserved
+	It is strictly forbidden to copy, modify, distribute or use this code without written permission
+	To this file the Braintribe License Agreement applies.
+	============================================================================
+-->
+
+
+<web-app id="AuthCartridge" version="3.0" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemalocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	metadata-complete="true">
+
+	<display-name>AuthCartridge-2.0</display-name>
+
+	<absolute-ordering/>
+
+	<listener>
+		<listener-class>com.braintribe.web.api.ApplicationLoader</listener-class>
+	</listener>
+
+</web-app>

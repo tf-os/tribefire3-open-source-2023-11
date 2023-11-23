@@ -1,0 +1,85 @@
+---
+!com.braintribe.doc.meta.CustomDocMetaData
+
+title: "Docs"
+assets:
+  "tribefire.cortex.documentation:tribefire-home-doc": 
+  "tribefire.cortex.documentation:concepts-doc": 
+  "tribefire.cortex.documentation:tutorials-doc":
+   
+  "tribefire.cortex.documentation:development-environment-doc": 
+   
+  # "tribefire.cortex.documentation:api-doc": 
+  "tribefire.cortex.documentation:release-notes-doc":
+
+entrypoints:
+  - assetId: tribefire.cortex.documentation:tribefire-home-doc
+      # displayInfo:
+      #     displayTitle: Amazing Wire Dupa
+      #     imageUrl: images/icon-entrypoint.gif
+  - assetId: tribefire.cortex.documentation:concepts-doc
+  - assetId: tribefire.cortex.documentation:release-notes-doc
+  - assetId: tribefire.cortex.documentation:tfcloud-operator-doc
+
+tags:
+  - tagId: rest
+    displayTitle: REST
+    description: Tribefire exposes itself via REST endpoints.
+  - tagId: features
+    displayTitle: Features
+  - tagId: template
+    displayTitle: Template
+    description: Templates are used to create template-based actions, such as customized queries and service requests.
+  - tagId: cloud
+    displayTitle: Cloud
+  - tagId: metadata
+    displayTitle: Metadata
+  - tagId: selector
+    displayTitle: Metadata selector
+  - tagId: architecture
+    displayTitle: Architecture
+  - tagId: development
+    displayTitle: Development
+  - tagId: tutorial
+    displayTitle: Tutorial
+    description: Tutorials help you understand Tribefire through practical examples.
+  - tagId: API
+  - tagId: versioning
+    displayTitle: Versioning
+    description: Information related to versioning in Tribefire.
+  - tagId: installation
+    displayTitle: Installation
+    description: Information related to the installation of Tribefire and related components. 
+  - tagId: introduction
+    displayTitle: Introduction 
+  - tagId: administration
+    displayTitle: Administration 
+  - tagId: gmql
+    displayTitle: GMQL
+  - tagId: gmml
+    displayTitle: GMML
+  - tagId: devrock
+    displayTitle: DevRock
+    description: Information related to DevRock development suite
+  - tagId: templateEngine
+    displayTitle: Template Engine
+  - tagId: platformAssets
+    displayTitle: Platform Assets
+  - tagId: modules
+    displayTitle: Modules
+    description: Information related to Tribefire modular architecture and development.
+  - tagId: release
+    displayTitle: Release Notes
+  - tagId: jwt
+    displayTitle: JWT
+  - tagId: auth
+    displayTitle: Authorization
+  - tagId: config
+    displayTitle: Configuration
+  - tagId: checks
+    displayTitle: Health Check
+  - tagId: openapi
+    displayTitle: OpenAPI
+    description: Information related to OpenAPI support in tribefire
+  - tagId: serialization
+    displayTitle: Serialization

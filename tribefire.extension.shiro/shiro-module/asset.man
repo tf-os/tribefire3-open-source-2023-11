@@ -1,0 +1,2 @@
+$nature = (TribefireModule=com.braintribe.model.asset.natures.TribefireModule)()
+.privateDeps=['org.pac4j.*','io.buji.*','org.apache.shiro.*','commons\-configuration\:commons\-configuration.*']

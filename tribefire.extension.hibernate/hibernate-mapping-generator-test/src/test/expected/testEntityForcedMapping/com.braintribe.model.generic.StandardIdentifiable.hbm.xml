@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.generic.StandardIdentifiable" entity-name="com.braintribe.model.generic.StandardIdentifiable" table="StandardIdentifiable" abstract="true">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<discriminator column="StandardIdentifiableType" type="string" />
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" />
+	</class>
+</hibernate-mapping>

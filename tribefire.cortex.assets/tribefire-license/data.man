@@ -1,0 +1,27 @@
+$8=(StaticSource=com.braintribe.model.resource.source.StaticSource)()
+.id='170327125015-19359036-46f8-4a79-8bc9-93b5a3c2e2ca'
+$9=(Resource=com.braintribe.model.resource.Resource)()
+.id='170327125015-19359036-46f8-4a79-8bc9-93b5a3c2e2ca'
+.md5='fa6210326947d3a7a5f0d3ef3ac34159'
+.fileSize=1128L
+.created=date(2017Y,3M,27D,12H,50m,15S,215s,+0200Z)
+.name='tribefire-license.sigxml.glf'
+.creator=null
+.mimeType='text/plain'
+$8.resolverURI='1703/2712/50/157555fb-e4e3-4791-ad19-6d3f46273917'
+$9.resourceSource=$8
+$8.globalId='8ccba2bd-a630-4c56-8925-dabe173e993d'
+$9.globalId='12771a6c-58eb-4391-adbe-57e19b455d3b'
+$10=(License=com.braintribe.model.license.License)()
+.licenseResource=$9
+.uploadDate=date(2017Y,3M,27D,12H,50m,15S,522s,+0200Z)
+.active=false
+.uploader='cortex'
+.licensee='Braintribe Technology GmbH'
+.licensor='Braintribe'
+.expiryDate=date(2021Y,4M,1D,0H,0m,0S,0s,+0200Z)
+.issueDate=date(2020Y,1M,23D,11H,58m,1S,0s,+0100Z)
+.licenseeAccount='Default'
+.systemLicenseId='531'
+.globalId='94390dfb-b206-44d7-ac62-bdef5ac92fa2'
+$10.active=true

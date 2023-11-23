@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<title>tribefire ${header_information}</title>
+	<head>
+
+		<style>
+			footer{    clear: both;
+    		padding: 10px;
+    		font-size: 0.8em;text-align:center;
+			}
+			*{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: left;
+    color: black;}
+
+			html, body{ padding: 0; margin: 0;}
+
+			.mainWrapper{
+				margin: 0 auto;
+				padding-top:65px;
+			}
+
+			.adminSectionWrapper{
+				display:block;
+				min-height:50px;
+				padding-left:10%;
+				padding-top:5px;
+			}
+
+  			.adminSectionWrapper:nth-child(odd){
+				background-color:rgb(230, 230, 230)
+			}
+
+			.adminSectionWrapper:nth-child(even){
+				background-color:white;
+			}
+
+			.adminSectionTitle{
+				color: #ffa500;
+				font-weight: bold;
+				padding: 5px;
+				text-transform: uppercase;
+			}
+
+			.adminSection{
+
+			}
+
+			#tf_header{
+				font-family: 'Open Sans', sans-serif;
+   			 	font-weight: 400;
+    			height: 50px;
+    			/* overflow: hidden; */
+   				background: #fff;
+   				display:table;
+   				padding-left:10%;
+   				box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    			width: 100%;
+    			position: fixed;
+			}
+
+			#tf_logo{
+				margin: 10px 0px 0px 15px;
+			}
+
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding-bottom: 15px;
+			}
+
+			li{
+				padding-top:5px;
+			}
+
+			.key, .value {display:inline-block;min-width:250px; max-width:500px;}
+
+			.key{color: black; text-transform: uppercase; vertical-align: top}
+
+			.value{color: grey}
+
+			.undefined{color: silver; font-style: italic}
+
+			#title{
+			    display: table-cell;
+    			color: black;
+   				height: 100%;
+    			vertical-align: middle;
+    			padding-left: 25px;
+    			font-size:12pt;
+    			text-transform:uppercase;
+    			width: 90%;
+			}
+
+			#tf_elasticsearch_error{
+					color: grey;
+					font-size: 12px;
+					margin: 80px 10px 80px 10px;
+					width: 90%;
+					text-align: left;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="tf_header">
+			<a href="${tfsRelativePath}"><img src="${tfsRelativePath}/webpages/logo-tf-orange-services.png" alt="logo" width="185"></a>
+			<div id="title"><b>${header_information}</b></div>
+		</div>
+
+		<div class="mainWrapper">
+
+
+			<div id="tf_elasticsearch_error">
+				#if(${elasticsearchReflectionError})
+
+					#if(${elasticsearchReflectionError.nodeName})<b>NodeName:</b> ${elasticsearchReflectionError.nodeName}<br />#end
+					#if(${elasticsearchReflectionError.clusterName})<b>ClusterName:</b> ${elasticsearchReflectionError.clusterName}<br />#end
+					#if(${elasticsearchReflectionError.cause})<b>Cause:</b> ${elasticsearchReflectionError.cause}<br />#end
+					#if(${elasticsearchReflectionError.message})<b>Message:</b> ${elasticsearchReflectionError.message}<br />#end
+
+					#foreach( $elasticsearchReflectionErrorAddress in ${elasticsearchReflectionError.elasticsearchReflectionErrorAddresses} )
+						#if(${elasticsearchReflectionErrorAddress.host})<b>Host:</b> ${elasticsearchReflectionErrorAddress.host}<br />#end
+						#if(${elasticsearchReflectionErrorAddress.address})<b>Address:</b> ${elasticsearchReflectionErrorAddress.address}<br />#end
+						#if(${elasticsearchReflectionErrorAddress.port})<b>Port:</b> ${elasticsearchReflectionErrorAddress.port}<br />#end
+
+						#if( $foreach.hasNext )<br />#end
+					#end
+
+
+				#end <!-- elasticsearchReflectionError -->
+			</div>
+
+	  		<footer>
+			&copy; <a href="http://www.braintribe.com" target="_blank">Braintribe IT-Technologies</a> ${current_year}</a>
+			</footer>
+	  	</div>
+	</body>
+
+</html>

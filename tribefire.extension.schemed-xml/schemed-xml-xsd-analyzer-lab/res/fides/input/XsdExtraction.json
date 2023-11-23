@@ -1,0 +1,17 @@
+{
+	_type : "com.braintribe.build.model.types.XsdToMetaModelCmdType",
+	input : "src/main/resources/FIDES-ICC-DataModel-7.0.xsd",
+	skeleton : "target/model/FIDES_Data_Model_V7.0.skeleton.xml",
+	enriched : "target/model/FIDES_Data_Model_V7.0.enriched.xml",
+	mapping  : "target/model/FIDES_Data_Model_V7.0.mapping.xml",
+	targetName : "com.braintribe.custom.cs.fox.model:ClientModel#7.0",
+	targetPackage : "com.braintribe.model.fidesv",
+	explicitModelNames : true,
+	rootModelVersion : "1.0",
+	modelExposure : {
+		_type : "com.braintribe.model.meta.ModelExposure",
+		value : "condensed"
+	},
+	properties: [ "Agreement_CF.AgreementAccount", "CustomiseOutput_CF.AgreementAccount", "AgreementFormatChannel_CF.AgreementAccount", "Scheduling_CF.AgreementAccount", "Statement_CF.RelatedReceiverAgreement", "V11Unit_CF.RelatedReceiverAgreement", "EDocCIFGroup_CF.RelatedReceiverAgreement", "PayOrder_CF.EodTransaction", "Payment_CF.EodTransaction", "EODFile_CF.EODTransaction", "EODFile_CF.EODReconFindings"],
+	substitutes:["src/main/resources/FormatModel-7.0-model.xml{Agreement_CF.EodStatementExportSchedules:com.braintribe.model.time.schedule.Schedule,Agreement_CF.IntradayStatementExportSchedules:com.braintribe.model.time.schedule.Schedule,XMLResourceBundle_CF.ResourceBundleType:com.braintribe.custom.cs.fox.model.format.ResourceBundle,OutboundStatus_CF.Resource:com.braintribe.custom.cs.fox.model.format.ResourceBundle,Rule_CF.RuleScript:com.braintribe.model.rule.RuleScript,V11Unit_CF.PassThroughData:com.braintribe.model.resource.Resource,V11Set_CF.FileContent:com.braintribe.model.resource.Resource,EosDiexFiles_CF.FileContent:com.braintribe.model.resource.Resource,EDocument_CF.pdfContent:com.braintribe.model.resource.Resource,EDocEnclosure_CF.pdfEnclosureContent:com.braintribe.model.resource.Resource}"]
+}

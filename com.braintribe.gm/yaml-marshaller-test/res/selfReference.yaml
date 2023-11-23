@@ -1,0 +1,2 @@
+&1 !com.braintribe.codec.marshaller.yaml.model.pets.SelfReference
+  self: *1

@@ -1,0 +1,257 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  labels:
+    controller-tools.k8s.io: "1.0"
+  name: tribefireruntimes.tribefire.cloud
+spec:
+  group: tribefire.cloud
+  names:
+    kind: TribefireRuntime
+    plural: tribefireruntimes
+    shortNames:
+    - tf
+  additionalPrinterColumns:
+    - name: Status
+      type: string
+      description: A TribefireRuntime can be Available or Degraded
+      JSONPath: .status.status
+    - name: Age
+      type: date
+      description: When this TribefireRuntime was created
+      JSONPath: .metadata.creationTimestamp
+    - name: Domain
+      type: string
+      description: The domain used for the public URL (ingress)
+      JSONPath: .spec.domain
+      priority: 10
+    - name: Database
+      type: string
+      description: Either local (Postgres) or cloudSQL (Google)
+      JSONPath: .spec.databaseType
+      priority: 10
+    - name: Backend
+      type: string
+      description: The messaging backend used for this runtime. Currently etcd or activemq are supported
+      JSONPath: .spec.backend.type
+      priority: 10
+    - name: Unavailable
+      type: string
+      description: List of unavailable components
+      JSONPath: .status.components[?(@.status=="unavailable")].name
+      priority: 10
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          properties:
+            backend:
+              properties:
+                parameters:
+                  items:
+                    properties:
+                      name:
+                        type: string
+                      value:
+                        type: string
+                    required:
+                    - name
+                    - value
+                    type: object
+                  type: array
+                type:
+                  enum:
+                  - etcd
+                  - activemq
+                  type: string
+              type: object
+            components:
+              items:
+                properties:
+                  apiPath:
+                    description: absolute path or empty
+                    pattern: ^/[a-z-]*$|^$
+                    type: string
+                  env:
+                    items:
+                      type: object
+                    type: array
+                  image:
+                    description: todo this should be validated as an URL
+                    minLength: 3
+                    type: string
+                  imageTag:
+                    type: string
+                  labels:
+                    type: object
+                  logJson:
+                    type: boolean
+                  logLevel:
+                    enum:
+                    - DEBUG
+                    - INFO
+                    - WARN
+                    - ERROR
+                    - CRITICAL
+                    - FINE
+                    - FINER
+                    - FINEST
+                    type: string
+                  name:
+                    maxLength: 30
+                    minLength: 3
+                    type: string
+                  publicUrl:
+                    pattern: ^https?:\/\/.*$
+                    type: string
+                  replicas:
+                    format: int32
+                    maximum: 10
+                    minimum: 1
+                    type: integer
+                  resources:
+                    type: object
+                  type:
+                    type: string
+                required:
+                - name
+                - type
+                type: object
+              type: array
+            databaseType:
+              enum:
+              - cloudsql
+              - local
+              type: string
+            databases:
+              items:
+                properties:
+                  credentialsSecretRef:
+                    type: object
+                  databaseName:
+                    maxLength: 60
+                    minLength: 3
+                    type: string
+                  envPrefixes:
+                    description: todo think about validation
+                    items:
+                      type: string
+                    type: array
+                  instanceDescriptor:
+                    description: todo think about validation kubebuilder:validation:Pattern=^[^:]+:[^:]+:[^\=]\=tcp:[0-9]+$
+                    type: string
+                  name:
+                    maxLength: 20
+                    minLength: 3
+                    type: string
+                  serviceAccountSecretKey:
+                    type: string
+                  serviceAccountSecretRef:
+                    type: object
+                  type:
+                    enum:
+                    - cloudsql
+                    - local
+                    type: string
+                required:
+                - name
+                - type
+                - instanceDescriptor
+                - envPrefixes
+                - credentialsSecretRef
+                type: object
+              type: array
+            domain:
+              pattern: ^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$
+              type: string
+          required:
+          - components
+          type: object
+        status:
+          properties:
+            components:
+              items:
+                properties:
+                  name:
+                    type: string
+                  status:
+                    type: string
+                  urls:
+                    items:
+                      type: string
+                    type: array
+                required:
+                - name
+                - status
+                type: object
+              type: array
+            conditions:
+              items:
+                properties:
+                  lastTransitionTime:
+                    description: Last time the condition transitioned from one status
+                      to another.
+                    format: date-time
+                    type: string
+                  lastUpdateTime:
+                    description: The last time this condition was updated.
+                    format: date-time
+                    type: string
+                  message:
+                    description: A human readable message indicating details about
+                      the transition.
+                    type: string
+                  reason:
+                    description: The reason for the condition's last transition.
+                    type: string
+                  status:
+                    description: Status of the condition, one of True, False, Unknown.
+                    type: string
+                  type:
+                    description: Type of deployment condition.
+                    type: string
+                required:
+                - type
+                - status
+                type: object
+              type: array
+            created:
+              type: string
+            error:
+              type: boolean
+            observedGeneration:
+              format: int64
+              type: integer
+            phase:
+              type: string
+            status:
+              type: string
+            updated:
+              type: string
+          type: object
+      required:
+      - metadata
+      - spec
+  version: v1alpha1
+status:
+  acceptedNames:
+    kind: ""
+    plural: ""
+  conditions: []
+  storedVersions: []

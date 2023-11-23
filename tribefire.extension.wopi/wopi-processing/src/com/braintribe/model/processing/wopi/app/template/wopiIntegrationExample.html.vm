@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<!--
+Example based on "https://github.com/Microsoft/Office-Online-Test-Tools-and-Documentation/blob/master/samples/SampleHostPage.html"
+
+Additional feature is to open/close a document
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- Enable IE Standards mode -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src *; style-src 'unsafe-inline'; script-src 'unsafe-inline'; font-src * data:">
+
+    <title>WOPI example</title>
+    <meta name="description" content="WOPI example implementation to access WopiSession">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            -ms-content-zooming: none;
+        }
+
+        #office_frame {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 0;
+            border: none;
+            display: block;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        var wopiDocument;
+        var parentNode;
+
+        function closeWopiDocument() {
+            var frame = document.getElementById("frameholder");
+
+            //-------------
+            //openWopiDocument();
+            var xxx = document.getElementById("office_frame");
+            xxx.src = "about:blank";
+            //-------------
+
+            wopiDocument = frame;
+            parentNode = frame.parentNode
+            parentNode.removeChild(frame);
+        }
+        function openWopiDocument() {
+            parentNode.appendChild(wopiDocument);
+
+            activateWopiDocument();
+        }
+
+        function activateWopiDocument() {
+            var frameholder = document.getElementById('frameholder');
+            var office_frame = document.createElement('iframe');
+            office_frame.name = 'office_frame';
+            office_frame.id = 'office_frame';
+            // The title should be set for accessibility
+            office_frame.title = 'Office Frame';
+            // This attribute allows true fullscreen mode in slideshow view
+            // when using PowerPoint's 'view' action.
+            office_frame.setAttribute('allowfullscreen', 'true');
+            // The sandbox attribute is needed to allow automatic redirection to the O365 sign-in page in the business user flow
+            office_frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation allow-popups-to-escape-sandbox');
+            frameholder.appendChild(office_frame);
+            document.getElementById('office_form').submit();
+        }
+    </script>
+</head>
+
+<body>
+
+    <p>WOPI integration example</p>
+    <button onclick="closeWopiDocument()" style="color:red; height: 12px; width: 100px;">!!! CLOSE !!!</button>
+    <button onclick="openWopiDocument()" style="color:green; height: 12px; width: 100px;">!!! OPEN !!!</button>
+
+    <form id="office_form" name="office_form" target="office_frame" action="${wopiUrl}" method="post">
+        <input name="access_token" value="${accessToken}" type="hidden" />
+        <input name="access_token_ttl" value="${accessTokenTtl}" type="hidden" />
+    </form>
+
+    <span id="frameholder"></span>
+
+    <script type="text/javascript">
+
+
+
+        activateWopiDocument();
+
+    </script>
+</body>
+
+</html>

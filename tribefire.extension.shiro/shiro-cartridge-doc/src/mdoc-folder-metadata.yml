@@ -1,0 +1,9 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  shiro_cartridge.md:
+    priority: -200
+
+  shiro_setup_google.md: 
+    priority: -180

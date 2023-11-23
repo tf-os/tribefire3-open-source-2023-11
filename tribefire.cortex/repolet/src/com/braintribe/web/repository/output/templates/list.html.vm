@@ -1,0 +1,155 @@
+#if(!${tf_services_url})
+	#set( $tf_services_url = "/tribefire-services" )
+#end
+
+<!DOCTYPE html>
+<html>
+<head>
+<!--<title>Collection: $path</title>-->
+<title>tribefire Repository</title>
+<meta charset="utf-8">
+<link href="/tribefire-repository/webpages/style.css" rel="stylesheet" type='text/css'>   
+<link href='$tf_services_url/webpages/fonts/fonts.css' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="/tribefire-repository/webpages/favicon.ico" type="image/x-icon"/>
+<style type="text/css">
+div#tf_repo { margin: 20px; font-family: 'Open Sans', sans-serif; }
+#tf_repo li { margin:5px; color: gray; }
+#tf_repo ul { margin:5px;}
+#tf_repo h1 { font-size:30px; color: gray; font-weight: normal; }
+#tf_repo h2 { font-size:16px; color: gray; font-weight: normal; }
+#tf_repo h3 { font-size:14px; color: gray; font-weight: normal; }
+#tf_repo a { text-decoration: none;color: black; font-weight: normal; }
+#tf_repo a:hover { text-decoration: normal; ; font-weight: normal; color: orange;}
+
+</style>
+<script src="./webpages/js/jquery-3.3.1.min.js"></script>
+<script src="./webpages/js/jquery.popmenu.min.js"></script>
+<script>
+	
+        $(function(){
+            $('#menuBox').popmenu({
+								    'controller': true,       // use control button or not
+								    'width': '300px',         // width of menu
+								    'background': 'transparent',  // background color of menu
+								    'focusColor': '#FFDA97',  // hover color of menu's buttons
+								    'borderRadius': '0px',   // radian of angles, '0' for right angle
+								    'top': '-50',              // pixels that move up
+								    'left': '0',              // pixels that move left
+								    'iconSize': '32px'       // size of menu's buttons
+								});
+			});
+    
+</script>
+<style>
+	#menu_ul{
+		margin-top:0px !important;
+		margin-left:0px !important;
+		width:110px !important;
+		left: -50px !important;
+		box-shadow: 0px 2px 5px silver;
+	}
+	
+	.demo_li{
+		width: 100px !important;
+		height: 22px !important;
+		display: table !important;
+		margin: 5px;
+	}
+	
+	.menuLink{
+		background-color: transparent !important;
+		display: table-cell !important;
+		color: black !important;
+		font-size: 11px !important;
+		font-style: normal !important;
+		font-variant: normal !important;
+		font-weight: normal !important;
+		height: 16px !important;
+		line-height: 16px !important;
+		outline-color: rgb(34, 34, 34) !important;
+		outline-style: none !important;
+		outline-width: 0px !important;
+		padding: 0px !important;		
+		position: relative !important;
+		text-decoration: none !important;
+		white-space: nowrap !important;
+		width: 54px !important;
+		height: 22px !important;
+		vertical-align: middle;
+	}
+	
+	.demo_link:hover{
+		background-color:#FFC151 !important;
+	}
+	
+	.menuImage{
+		margin: 0 !important;
+		vertical-align: middle;
+		margin-top: 3px !important;
+	}
+	
+	.menuLink::after{
+		border: none !important;	
+	}
+</style>
+
+</head>
+<body>
+
+<div id="tf_header">
+	<a href="/tribefire-repository"><img src="/tribefire-repository/webpages/logo.png" id="tf_logo" alt="logo" width="185"></a>
+	<ul id="tf_nav" style="line-height:0px">
+	
+		<li class="tf_nav_text" ><a href="/tribefire-control-center" target="tfControlCenter">Control Center</a></li>		
+		<li class="tf_nav_text"><a href="/tribefire-explorer" target="tfExplorer">Explorer</a></li>		    		
+		<li class="tf_nav_text"><a href="$tf_services_url" target="tfServices">Services</a></li>
+			
+		<li title="Welcome" style="position:relative">
+				<img style="display: block; margin: 8px auto;" src="./webpages/logo-user-default.png" width="32" height="32" title="Welcome">
+				<!-- <a style="margin-top: 0px; font-size:12px; color:gray; display:inline-block" href="./logout" target="">Sign out</a>-->
+				
+				<div id="menuBox" style="position:absolute; width:50px; height:50px; top:0; left:0">
+            		<div class="pop_ctrl" style="cursor: default; width:50px; height:50px"><i class="fa fa-bars"></i></div>
+           				<ul id="menu_ul" style="border:1px solid silver; position: absolute; width: 150px; heigth: 150px; float: left; padding: 0px; display: none; background: white !important;">
+			                <li class="demo_li" style="display: table; color: black; float: left; text-align: center; border-radius: 10px; cursor: default;">
+			                
+			              	<img class="menuImage" onload="this.__gwtLastUnhandledEvent=&quot;load&quot;;" src="http://localhost:8080/tribefire-control-center/BtClientCustomization/clear.cache.gif" style="width: 16px; height: 16px; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR42mNgYGD4TyTGCahmgD0WnE+KAdiAPZo8PxSTbQCIfx7dEIJOxGIgiiHkGIBiCDYD7ImMmfOUGjAflwH8RETrfErCYD4l0Tif0oREUUqkbWYiywAAgoVwBuexnF0AAAAASUVORK5CYII=) no-repeat 0px 0px;" border="0" class=" x-menu-item-icon">
+			                <a class="menuLink" href="$tf_services_url/logout" style="text-decoration: none; color: black"><div><i class="fa fa-home"></i></div><div>Sign Out</div></a>
+			                
+			                </li>
+			            </ul>
+    			</div>
+		</li>
+
+		
+	</ul>
+</div>
+
+<div id="tf_repo">
+<h3>
+
+#foreach ($crumb in $breadCrumbs)
+	#if("$!crumb.link" != "")
+		<a href="$crumb.link">$crumb.name</a> > 
+	#else
+		$crumb.name
+		#set($current = $crumb.name)
+	#end
+#end
+</h3>
+
+#if ($current == "home")
+<h1>tribefire Repository</h1>
+#else
+<h1>$current</h1>
+#end
+
+<ul>
+#foreach ($entry in $entries)
+<li><a href="$entry">$entry</a></li>
+#end
+</ul>
+</div>
+
+</body>
+</html>

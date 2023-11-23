@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Peer van Driesten (Comprendium AG) -->
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="content_hierarchy.xsd" nextNodeId="4">
+  <node id="1000004000" name="Process Monitor" description="">
+    <constraints>
+	  <constraint role="admin" grant="useReportViewer" />    
+      <constraint role="user" deny="Read"/>
+    </constraints>
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_PM"/>
+    </ContentDefinitions>
+  </node>
+</ContentHierarchy>

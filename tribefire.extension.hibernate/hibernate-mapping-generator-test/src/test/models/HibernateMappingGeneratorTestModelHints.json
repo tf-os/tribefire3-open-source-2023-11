@@ -1,0 +1,53 @@
+{ 
+	"com.braintribe.model.processing.deployment.hibernate.testmodel.enriching.EnrichedEntity": {
+		"table": "XX_ENRICHED_ENTITY_HINTED_TB",
+		"properties": {
+			"id":                           { "idGeneration": "assigned" },
+			"textHintString":               { "type": "string", "length": 1000 },
+			"clobHintString":               { "type": "clob", "lazy": "true" },
+			"maxLengthAndTextHintString":   { "type": "string", "length": 3000 },
+			"maxLengthAndClobHintString":   { "type": "clob" },
+			"textHintStringSet":            { "type": "string", "length": 3000 },
+			"textHintStringList":           { "type": "string", "length": 2000, "table": "XX_TEXT_HINT_LIST" },
+			"textHintStringMapKey":         { "keyType": "string", "keyLength": 1000 },
+			"textHintStringMapValue":       { "type": "string", "length": 4000, "table": "XX_TEXT_HINT_MAP" },
+			"textHintStringMapKeyAndValue": { "type": "string", "length": 4000, "keyType": "string", "keyLength": 2000 },
+			"uniqueHintedString":           { "unique": true, "type": "string" },
+			"uniqueHintedNumber":           { "unique": true, "precision": 20, "scale": 0 },
+			"nonUniqueHintedString":        { "unique": false },
+			"nonUniqueHintedNumber":        { "unique": false },
+			"doubleWithPrecisionScale":     { "precision": 21, "scale": 20 },
+			"sharedIndexA":                 { "index": "XX_MULTI_COL_IDX" },
+			"sharedIndexB":                 { "index": "XX_MULTI_COL_IDX" },
+			"sharedUniqueIndexA":           { "uniqueKey": "XX_MULTI_COL_UNIQUE_IDX" },
+			"sharedUniqueIndexB":           { "uniqueKey": "XX_MULTI_COL_UNIQUE_IDX" }
+		}
+	}
+	,
+	"com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguity.S3": {
+		"table": "XX_S3"
+	}
+	,
+	"com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Person": {
+		"properties": {
+			"id":                   { "column": "PERSON_IDENTIFIER" },
+			"carList":              { "table": "XX_PERSON_CARS", "keyColumn": "PERSON_IDENTIFIER", "indexColumn": "PERSON_CAR_INDEX", "elementColumn": "CAR_IDENTIFIER" },
+			"carPlateCarMap":       { "mapKeyColumn": "CAR_PLATE_IDENTIFIER" },
+			"carPlateCarMarkMap":   { "elementColumn": "CAR_MARK", "length": 60, "mapKeyForeignKey": "FK_CAR_MARK"  },
+			"carSet":               { "manyToManyFetch": "select", "foreignKey": "FK_CAR_SET_OWNER", "elementForeignKey": "FK_CAR_SET_ELEMENT" },
+			"dateList":             { "indexColumn": "PERSON_DATE_INDEX" },
+			"longList":             { "fetch": "subselect", "lazy": "false" },
+			"name":                 { "lazy": "true" }
+		}
+	}
+	,
+	"com.braintribe.model.processing.deployment.hibernate.testmodel.collections.Car": {
+		"properties": {
+			"plate":                { "unique": true, "notNull": true, "foreignKey": "FK_CAR_PLATE" }
+		}
+	}
+	,
+	"com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.single.Card": {
+		"discColumn": "TYPE_OF_CARD"
+	}
+}

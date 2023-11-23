@@ -1,0 +1,13 @@
+- null
+- "null"
+- 1
+- !long 23
+- !float 2.718
+- 3.14
+- !decimal 0.000001
+- true
+- false
+- Ein Text
+- !!timestamp 2002-12-14
+- 2002-12-14
+- !com.braintribe.codec.marshaller.yaml.model.pets.Status available

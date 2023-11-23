@@ -1,0 +1,2885 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:FIDES"
+    targetNamespace="urn:FIDES">
+  <xs:element name="DataModel" type="DataModel"/>
+  <xs:element name="EDocs" type="EosDiexFiles_CF"/>
+  <xs:element name="EFTHeader" type="EFTFidesHeader_CF"/>
+  <xs:element name="FileGateHeader" type="FileGateHeaderPlus_CF"/>
+  <xs:element name="NotificationHeader" type="StsNotificationHeader_CF"/>
+  <xs:element name="PassThroughContainer" type="PassThroughContainer_CF"/>
+  <xs:element name="PayOrder" type="PayOrder_CF"/>
+  <xs:element name="StatementGroup" type="StatementGroup_CF"/>
+  <xs:element name="StatementHeaderCamt" type="StatementHeaderCamt_CF"/>
+  <xs:element name="StatusReport" type="StatusReport_CF"/>
+  <xs:element name="V11Set" type="V11Set_CF"/>
+  <xs:complexType name="AccountAlias_CF">
+    <xs:sequence>
+      <xs:element name="AliasType" type="AliasType_CF" minOccurs="0"/>
+      <xs:element name="AliasText" type="Max70Text_CF" minOccurs="1"/>
+      <xs:element name="AliasDescription" type="Max105Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Account_CF">
+    <xs:sequence>
+      <xs:element name="DateOfLastStatement" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="Owner" type="Party_CF" minOccurs="0"/>
+      <xs:element name="AccountName" type="Max150Text_CF" minOccurs="1"/>
+      <xs:element name="AccountNumber" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="IBAN" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Currency" type="Currency_CF" minOccurs="1"/>
+      <xs:element name="OpeningDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="ClosingDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="Status" type="StatusType_CF" default="OPENED" minOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="Blocked" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="ForcedManualMerge" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="AccountAlias" type="AccountAlias_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AssignedParties" type="Party_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Agreement" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AddressType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="BUSINESS"/>
+      <xs:enumeration value="DELIVERYTO"/>
+      <xs:enumeration value="MAILTO"/>
+      <xs:enumeration value="POBOX"/>
+      <xs:enumeration value="POSTAL"/>
+      <xs:enumeration value="RESIDENTIAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Address_CF">
+    <xs:sequence>
+      <xs:element name="AddressType" type="AddressType_CF" minOccurs="0"/>
+      <xs:element name="Department" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="StreetName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="BuildingNumber" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="PostCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="TownName" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Country" type="Country_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementAccount_CF">
+    <xs:sequence>
+      <xs:element name="Active" type="Boolean_CF" minOccurs="1"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1"/>
+      <xs:element name="Name" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="CountSeqNoEachStatementLoad" type="xs:int" default="0" minOccurs="1"/>
+      <xs:element name="CountSeqNoStatementWithTransaction" type="xs:int" default="0" minOccurs="1"/>
+      <xs:element name="CountSeqNoStatementOnceADay" type="xs:int" default="0" minOccurs="1"/>
+      <xs:element name="SetCounterToZeroAtNewYear" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="AccountShortName" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="Account" type="Account_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AgreementAccountBank" type="AgreementAccount_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AgreementFormatChannel_CF">
+    <xs:sequence>
+      <xs:element name="Active" type="Boolean_CF" minOccurs="1"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1"/>
+      <xs:element name="Name" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="FormatVersion" type="FormatVersion_CF" minOccurs="1"/>
+      <xs:element name="ChannelConfig" type="ChannelConfig_CF" minOccurs="1"/>
+      <xs:element name="AgreementAccount" type="AgreementAccount_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AgreementECIF" type="ECIF_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AgreementFormatChannel" type="AgreementFormatChannel_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BusinessOrderOrderType" type="BusinessOrderType_CF" minOccurs="0"/>
+      <xs:element name="AgreementFormatChannelBank" type="AgreementFormatChannel_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AgreementType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="SMARTCONNECT"/>
+      <xs:enumeration value="SWIFTSCORE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Agreement_CF">
+    <xs:sequence>
+      <xs:element name="CPID" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="Name" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="ClientOrBankContract" type="ClientOrBankCode_CF" minOccurs="1"/>
+      <xs:element name="AgreementNumber" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="Description" type="Max105Text_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AgreementType" type="AgreementType_CF" minOccurs="1"/>
+      <xs:element name="RefNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Blocked" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="PainStatusReportType" type="StatusRepType_CF" minOccurs="1"/>
+      <xs:element name="StartDate" type="Date_CF" minOccurs="1"/>
+      <xs:element name="EndDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="FreeText" type="Max105Text_CF" minOccurs="0" maxOccurs="10"/>
+      <xs:element name="FormerAgreementReference" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="AgreementAccount" type="AgreementAccount_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="MandatoryUseOfIBAN" type="Boolean_CF" default="false" minOccurs="0"/>
+      <xs:element name="AgreementFormatChannel" type="AgreementFormatChannel_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EodStatementExportSchedules" type="String_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="IntradayStatementExportSchedules" type="String_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="GeneralDuplicateCheck" type="Boolean_CF" default="true" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="PaymentsBulkOnBLevel" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="CustomerContractCollection" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="CustomerLanguage" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="CorrectionAllowed" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="AllOrNothing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NoPartialProcessing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="FeeAgreement" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0"/>
+      <xs:element name="EDocCIFNR" type="ECIF_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AutoDismiss" type="Boolean_CF" default="false" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AliasType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="ACCOUNT_NAME"/>
+      <xs:enumeration value="ACCOUNT_NUMBER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AnyBICIdentifier_CF">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AuditTrail_CF">
+    <xs:sequence>
+      <xs:element name="AuditReference" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="PreviousReference" type="AuditTrail_CF" minOccurs="0"/>
+      <xs:element name="LogPointName" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="ProcessStep" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="UserId" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="SystemReference" type="xs:long" minOccurs="0"/>
+      <xs:element name="SystemRefType" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="EntityName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="MessageReference" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="MessageRefType" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="LogDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="DefaultReason" type="DefaultReasonChoice_CF" minOccurs="0"/>
+      <xs:element name="Reason" type="Max4096Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="AvailableBalanceType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mandatory"/>
+      <xs:enumeration value="NotSending"/>
+      <xs:enumeration value="OnlyIfAvailabeFromBank"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="BankHoliday_CF">
+    <xs:sequence>
+      <xs:element name="Country" type="CountryCode_CF" minOccurs="1"/>
+      <xs:element name="Date" type="Date_CF" minOccurs="1"/>
+      <xs:element name="Description" type="Max70Text_CF" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BankSpecificCommType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EBICS"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BaseType_CF">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="BIC_CF">
+    <xs:sequence>
+      <xs:element name="BIC" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="InstitutionName" type="Max210Text_CF" minOccurs="1"/>
+      <xs:element name="PhysicalAddress1" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="PhysicalAddress2" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="PhysicalAddress3" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="PhysicalAddress4" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="City" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="Country" type="Max70Text_CF" minOccurs="1"/>
+      <xs:element name="Status" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Blob_CF">
+    <xs:restriction base="xs:hexBinary"/>
+  </xs:simpleType>
+  <xs:complexType name="Block2InputDetails_CF">
+    <xs:sequence>
+      <xs:element name="InputIdentifier" type="String_CF" minOccurs="1"/>
+      <xs:element name="MessageType" type="String_CF" minOccurs="1"/>
+      <xs:element name="DestinationAddress" type="String_CF" minOccurs="1"/>
+      <xs:element name="MessagePriority" type="String_CF" minOccurs="1"/>
+      <xs:element name="DeliveryMonitoring" type="String_CF" minOccurs="0"/>
+      <xs:element name="ObsolescencePeriod" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Block2MsgInputRef_CF">
+    <xs:sequence>
+      <xs:element name="Date" type="String_CF" minOccurs="1"/>
+      <xs:element name="LTIdentifier" type="String_CF" minOccurs="1"/>
+      <xs:element name="BranchCode" type="String_CF" minOccurs="1"/>
+      <xs:element name="SessionNumber" type="String_CF" minOccurs="1"/>
+      <xs:element name="ISN" type="String_CF" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Block2OutputDetails_CF">
+    <xs:sequence>
+      <xs:element name="OutputIdentifier" type="String_CF" minOccurs="1"/>
+      <xs:element name="MessageType" type="String_CF" minOccurs="1"/>
+      <xs:element name="InputTime" type="String_CF" minOccurs="1"/>
+      <xs:element name="MessageInputReference" type="Block2MsgInputRef_CF" minOccurs="1"/>
+      <xs:element name="Date" type="String_CF" minOccurs="1"/>
+      <xs:element name="Time" type="String_CF" minOccurs="1"/>
+      <xs:element name="MessagePriority" type="String_CF" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Block5_PDE">
+    <xs:sequence>
+      <xs:element name="Time" type="String_CF" minOccurs="0"/>
+      <xs:element name="MIR_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="MIR_LTIdentifier" type="String_CF" minOccurs="0"/>
+      <xs:element name="MIR_BranchCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="MIR_SessionNumber" type="String_CF" minOccurs="0"/>
+      <xs:element name="MIR_ISN" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Boolean_CF">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+  <xs:complexType name="BranchLookup_CF">
+    <xs:sequence>
+      <xs:element name="CSBranch" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="bic" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="bcBranchNr" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="bcHeadquarterNr" type="Max20Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="BTResourceBundle_CF">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="BusinessOrderType_CF">
+    <xs:sequence>
+      <xs:element name="UploadDownload" type="UploadDownloadType_CF" minOccurs="0"/>
+      <xs:element name="FileNamePrefix" type="Max10Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CargoStatus_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Duplicate"/>
+      <xs:enumeration value="Loaded"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ChangeReason_CF">
+    <xs:sequence>
+      <xs:element name="EntityName" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="IdRelatedEntity" type="xs:integer" minOccurs="0"/>
+      <xs:element name="DefaultReason" type="DefaultReasonType_CF" minOccurs="0"/>
+      <xs:element name="Reason" type="Max4096Text_CF" minOccurs="0"/>
+      <xs:element name="UserId" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ReasonDateTime" type="DateTime_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ChannelCargoType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="EOD"/>
+      <xs:enumeration value="MT9xx"/>
+      <xs:enumeration value="V11"/>
+      <xs:enumeration value="camt.05x"/>
+      <xs:enumeration value="eDOC"/>
+      <xs:enumeration value="pain_002"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ChannelConfigEbics_CF">
+    <xs:complexContent>
+      <xs:extension base="ChannelConfig_CF">
+        <xs:sequence>
+          <xs:element name="travicOperator" type="Max105Text_CF" minOccurs="0"/>
+          <xs:element name="travicPartnerID" type="Max35Text_CF" minOccurs="0"/>
+          <xs:element name="travicMandator" type="Max105Text_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChannelConfigFileAct_CF">
+    <xs:complexContent>
+      <xs:extension base="ChannelConfig_CF">
+        <xs:sequence>
+          <xs:element name="CompressionMode" type="CompressionMode_CF" minOccurs="0"/>
+          <xs:element name="FileActService" type="FileActService_CF" minOccurs="0"/>
+          <xs:element name="Encryption" type="Encryption_CF" minOccurs="0"/>
+          <xs:element name="FileActDn" type="Max256Text_CF" minOccurs="0"/>
+          <xs:element name="FileActFullname" type="Max256Text_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChannelConfigSecureFtp_CF">
+    <xs:complexContent>
+      <xs:extension base="ChannelConfig_CF">
+        <xs:sequence>
+          <xs:element name="travicOperator" type="Max105Text_CF" minOccurs="0"/>
+          <xs:element name="travicPartnerID" type="Max35Text_CF" minOccurs="0"/>
+          <xs:element name="travicMandator" type="Max105Text_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ChannelConfig_CF">
+    <xs:sequence>
+      <xs:element name="Name" type="Max70Text_CF" minOccurs="1"/>
+      <xs:element name="Description" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="ChannelDefinition" type="ChannelDefinition_CF" minOccurs="1"/>
+      <xs:element name="FilenameTemplate" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="PageSeparator" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="Password" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChannelDefinition_CF">
+    <xs:sequence>
+      <xs:element name="Name" type="Max256Text_CF" minOccurs="1"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="ChannelType" type="ChannelType_CF" minOccurs="1"/>
+      <xs:element name="ChannelCargoType" type="ChannelCargoType_CF" minOccurs="0"/>
+      <xs:element name="PayloadHandlingMethod" type="FtpPayloadHandling_CF" minOccurs="1"/>
+      <xs:element name="PriorityEmergency" type="Boolean_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ChannelPriority_CF">
+    <xs:sequence>
+      <xs:element name="Priority" type="xs:double" minOccurs="0"/>
+      <xs:element name="ChannelDefinition" type="ChannelDefinition_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ChannelType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="EBICS"/>
+      <xs:enumeration value="EFT"/>
+      <xs:enumeration value="FMP"/>
+      <xs:enumeration value="FileAct"/>
+      <xs:enumeration value="FileGate"/>
+      <xs:enumeration value="GPP"/>
+      <xs:enumeration value="Intersys"/>
+      <xs:enumeration value="NZV"/>
+      <xs:enumeration value="SFTP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ClientOrBankCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BANK"/>
+      <xs:enumeration value="CLIENT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CompressionMode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GZIP"/>
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="ZIP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ContactRole_CF">
+    <xs:sequence>
+      <xs:element name="RoleBaseType" type="RoleBaseType_CF" minOccurs="1"/>
+      <xs:element name="RoleType" type="RoleType_CF" minOccurs="1"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Contact" type="Contact_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Contact_CF">
+    <xs:sequence>
+      <xs:element name="FirstName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="LastName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="Email" type="Max210Text_CF" minOccurs="0"/>
+      <xs:element name="EmailAlternative" type="Max210Text_CF" minOccurs="0"/>
+      <xs:element name="Phone" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Mobile" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Fax" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ContactRole" type="ContactRole_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CountryCode_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="2"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Country_CF">
+    <xs:sequence>
+      <xs:element name="ISOCode" type="CountryCode_CF" minOccurs="1"/>
+      <xs:element name="IBANCode" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Name" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="SEPAMember" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="ISONumber" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="CurrencyCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="3"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Currency_CF">
+    <xs:sequence>
+      <xs:element name="CurrencyCode" type="CurrencyCode_CF" minOccurs="1"/>
+      <xs:element name="Description" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="NumericCode" type="xs:integer" minOccurs="0"/>
+      <xs:element name="MinorUnit" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomiseOutput_CF">
+    <xs:sequence>
+      <xs:element name="CustomiseName" type="Max105Text_CF" minOccurs="1"/>
+      <xs:element name="CustomiseFormat" type="FormatCustomisingScheduling_CF" minOccurs="1"/>
+      <xs:element name="CustomiseLevel" type="LevelType_CF" minOccurs="1"/>
+      <xs:element name="SequenceNumberType" type="SequenceNumberType_CF" minOccurs="1"/>
+      <xs:element name="SupplementaryDetails" type="SupplementaryDetailsType_CF" minOccurs="1"/>
+      <xs:element name="AvailableBalance" type="AvailableBalanceType_CF" minOccurs="1"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0"/>
+      <xs:element name="Account" type="Account_CF" minOccurs="0"/>
+      <xs:element name="AgreementAccount" type="AgreementAccount_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DataModel">
+    <xs:sequence>
+      <xs:element name="ModelVersion" type="Max35Text_CF" fixed="V7.0.6 (2019_04_25)" minOccurs="1"/>
+      <xs:element name="BankHoliday" type="BankHoliday_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Account" type="Account_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Agreement" type="Agreement_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Contact" type="Contact_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InboundStatus" type="InboundStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="OutboundStatus" type="OutboundStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ServiceProvider" type="ServiceProvider_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BIC" type="BIC_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Currency" type="Currency_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Country" type="Country_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ExchangeRate" type="ExchangeRate_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="PayOrder" type="PayOrder_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="StatementGroup" type="StatementGroup_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="StatusReport" type="StatusReport_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="V11LookupBankNr" type="BranchLookup_CF" minOccurs="0"/>
+      <xs:element name="EFTFidesHeader" type="EFTFidesHeader_CF" minOccurs="0"/>
+      <xs:element name="AuditTrail" type="AuditTrail_CF" minOccurs="0"/>
+      <xs:element name="DefaultReason" type="DefaultReasonChoice_CF" minOccurs="0"/>
+      <xs:element name="DefaultReasonType" type="DefaultReasonType_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DataResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="DateTime_CF">
+    <xs:restriction base="xs:dateTime"/>
+  </xs:simpleType>
+  <xs:simpleType name="Date_CF">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+  <xs:simpleType name="Decimal_CF">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+  <xs:complexType name="DefaultReasonChoice_CF">
+    <xs:sequence>
+      <xs:element name="DefaultReason" type="Max105Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DefaultReasonType_CF">
+    <xs:sequence>
+      <xs:element name="DefaultReason" type="Max105Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="DispatchStatusCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOK"/>
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="PENDING"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DispatchStatus_CF">
+    <xs:sequence>
+      <xs:element name="DispatchCode" type="DispatchStatusCode_CF" minOccurs="1"/>
+      <xs:element name="StatusReason" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="TextReason" type="Max256Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EbicsOrderType_CF">
+    <xs:complexContent>
+      <xs:extension base="BusinessOrderType_CF">
+        <xs:sequence>
+          <xs:element name="OrderTypeCode" type="Max3Text_CF" minOccurs="1"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ECIF_CF">
+    <xs:sequence>
+      <xs:element name="ECIFNumber" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="OpeningDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="ClosingDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="Status" type="StatusType_CF" default="OPENED" minOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="Blocked" type="Boolean_CF" default="false" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDocCIFGroup_CF">
+    <xs:sequence>
+      <xs:element name="RECIP_CIFNR" type="String_CF" minOccurs="1"/>
+      <xs:element name="Status" type="PassThroughState_CF" minOccurs="0"/>
+      <xs:element name="ECIF" type="ECIF_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedSenderParty" type="Party_CF" minOccurs="0"/>
+      <xs:element name="document" type="EDocument_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDocContract_CF">
+    <xs:sequence>
+      <xs:element name="contractId" type="String_CF" minOccurs="0"/>
+      <xs:element name="CIFGroup" type="EDocCIFGroup_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDocEnclosure_CF">
+    <xs:sequence>
+      <xs:element name="metadata" type="MetadataEnclosure_CF" minOccurs="0"/>
+      <xs:element name="pdfEnclosureContent" type="DataResourceBundle_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDocument_CF">
+    <xs:sequence>
+      <xs:element name="Status" type="PassThroughState_CF" minOccurs="0"/>
+      <xs:element name="metadata" type="MetadataEDocument_CF" minOccurs="0"/>
+      <xs:element name="pdfContent" type="BTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="enclosure" type="EDocEnclosure_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTCustomer_CF">
+    <xs:sequence>
+      <xs:element name="CustomerID" type="xs:string" minOccurs="1"/>
+      <xs:element name="CustomerIDType" type="xs:string" minOccurs="1"/>
+      <xs:element name="CustomerContractNumber" type="xs:string" minOccurs="1"/>
+      <xs:element name="CustomerContractNumberType" type="xs:string" minOccurs="1"/>
+      <xs:element name="CustomerLanguage" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTFidesHeader_CF">
+    <xs:sequence>
+      <xs:element name="Header" type="EFTHeader_CF" minOccurs="1"/>
+      <xs:element name="Timestamp" type="EFTTimestamp_CF" minOccurs="1"/>
+      <xs:element name="Tentant" type="EFTTentant_CF" minOccurs="1"/>
+      <xs:element name="Customer" type="EFTCustomer_CF" minOccurs="1"/>
+      <xs:element name="References" type="EFTReferences_CF" minOccurs="1"/>
+      <xs:element name="Message" type="EFTMessage_CF" minOccurs="1"/>
+      <xs:element name="Processing" type="EFTProcessing_CF" minOccurs="1"/>
+      <xs:element name="Fraud" type="EFTFraud_CF" minOccurs="0"/>
+      <xs:element name="Fulfillment" type="EFTFulfillment_CF" minOccurs="0"/>
+      <xs:element name="FreeText" type="EFTFreeText_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTFraud_CF">
+    <xs:sequence>
+      <xs:element name="FraudCheck" type="xs:string" minOccurs="1"/>
+      <xs:element name="FraudCheckType" type="xs:string" minOccurs="0"/>
+      <xs:element name="FraudCheckReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="FraudCheckReferenceIssuer" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTFreeText_CF">
+    <xs:sequence>
+      <xs:element name="FreeText" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTFulfillment_CF">
+    <xs:sequence>
+      <xs:element name="FulfillmentPID" type="xs:string" minOccurs="0"/>
+      <xs:element name="FulfillmentAction" type="xs:string" minOccurs="0"/>
+      <xs:element name="FulfillmentDate" type="xs:string" minOccurs="0"/>
+      <xs:element name="FulfillmentContractReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerContractReferenceType" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTHeader_CF">
+    <xs:sequence>
+      <xs:element name="HeaderID" type="xs:string" minOccurs="1"/>
+      <xs:element name="HeaderInformation" type="xs:string" minOccurs="1"/>
+      <xs:element name="DelivererID" type="xs:string" minOccurs="1"/>
+      <xs:element name="Contact" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTMessage_CF">
+    <xs:sequence>
+      <xs:element name="MessageType" type="xs:string" minOccurs="1"/>
+      <xs:element name="MessageIssuer" type="xs:string" minOccurs="1"/>
+      <xs:element name="MessageVersion" type="xs:string" minOccurs="1"/>
+      <xs:element name="MessageTimestamp" type="xs:string" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTProcessing_CF">
+    <xs:sequence>
+      <xs:element name="PDE-PDM" type="xs:string" minOccurs="1"/>
+      <xs:element name="FeeAgreement" type="xs:string" minOccurs="0"/>
+      <xs:element name="Test" type="xs:string" minOccurs="0"/>
+      <xs:element name="Express" type="xs:string" minOccurs="0"/>
+      <xs:element name="Encoding" type="xs:string" minOccurs="0"/>
+      <xs:element name="Encryption" type="xs:string" minOccurs="0"/>
+      <xs:element name="Compression" type="xs:string" minOccurs="0"/>
+      <xs:element name="FileName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FileTimestamp" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTReferences_CF">
+    <xs:sequence>
+      <xs:element name="UUID-ARS-EFT" type="xs:string" minOccurs="1"/>
+      <xs:element name="UUID-ICC" type="xs:string" minOccurs="1"/>
+      <xs:element name="ReferenceFreeText" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTTentant_CF">
+    <xs:sequence>
+      <xs:element name="InstituteID" type="xs:string" minOccurs="1"/>
+      <xs:element name="InstituteIDType" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFTTimestamp_CF">
+    <xs:sequence>
+      <xs:element name="Timestamp" type="xs:string" minOccurs="1"/>
+      <xs:element name="SequenceNumber" type="xs:string" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Encryption_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="ZIP"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="EODFile_CF">
+    <xs:sequence>
+      <xs:element name="OpfInstance" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="OpfInstanceType" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="ConsumerChannelId" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="ReportDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EODFile" type="DataResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="EODTransaction" type="EODTransaction_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EODReconFindings" type="EODReconFindings_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EODReconFindings_CF">
+    <xs:sequence>
+      <xs:element name="FindingDate" type="xs:date" minOccurs="1"/>
+      <xs:element name="FindingLevel" type="xs:int" default="0" minOccurs="1"/>
+      <xs:element name="IccRefALevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="IccRefBLevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="IccRefCLevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="GppRefALevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="GppRefBLevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="GppRefCLevel" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="FindingStatus" type="ReconFindingStatus_CF" minOccurs="0"/>
+      <xs:element name="FindingRemark" type="Max500Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EODTransaction_CF">
+    <xs:sequence>
+      <xs:element name="ReportingDate" type="xs:date" minOccurs="1"/>
+      <xs:element name="OPFTrxId" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="Reference" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ReferenceCS" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="EndToEndId" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedIntechangeId" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInterchangeRef" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInterchangeRefCS" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInterchangeChannelUUID" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInstructionId" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInstructionReference" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedInstructionRefCS" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="OPFTrxStatus" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="DebitAccount" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="CreditAccount" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="InstructedDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="SettlementDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="InstructedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="SettlementAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="SettlementCurrency" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="PayOrder" type="PayOrder_CF" minOccurs="0"/>
+      <xs:element name="Payment" type="Payment_CF" minOccurs="0"/>
+      <xs:element name="PayTransaction" type="PayTransaction_CF" minOccurs="0"/>
+      <xs:element name="EodReconFindingA" type="EODReconFindings_CF" minOccurs="0"/>
+      <xs:element name="EodReconFindingB" type="EODReconFindings_CF" minOccurs="0"/>
+      <xs:element name="EodReconFindingC" type="EODReconFindings_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EODTriggerFile_CF">
+    <xs:sequence>
+      <xs:element name="OpfInstanceType" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="ConsumerChannelId" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="ReportDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EODFile" type="EODFile_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EODTriggerFile" type="DataResourceBundle_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EosDiexFiles_CF">
+    <xs:sequence>
+      <xs:element name="Status" type="CargoStatus_CF" minOccurs="0"/>
+      <xs:element name="LoadTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="FileName" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="MD5Checksum" type="Max1025Text_CF" minOccurs="0"/>
+      <xs:element name="FileContent" type="BTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="contract" type="EDocContract_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExchangeRate_CF">
+    <xs:sequence>
+      <xs:element name="BaseCurrency" type="CurrencyCode_CF" minOccurs="1"/>
+      <xs:element name="QuoteCurrency" type="CurrencyCode_CF" minOccurs="1"/>
+      <xs:element name="ExchangeRate" type="Decimal_CF" minOccurs="1"/>
+      <xs:element name="QuotationDate" type="DateTime_CF" minOccurs="1"/>
+      <xs:element name="RateType" type="ExRateTypeCode_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ExRateTypeCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AGRD"/>
+      <xs:enumeration value="SALE"/>
+      <xs:enumeration value="SPOT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FileActRequestType_CF">
+    <xs:complexContent>
+      <xs:extension base="BusinessOrderType_CF">
+        <xs:sequence>
+          <xs:element name="FileActRequestType" type="Max35Text_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="FileActService_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CORP_REALTIME"/>
+      <xs:enumeration value="CORP_STORE_AND_FORWARD"/>
+      <xs:enumeration value="GENERIC_REALTIME"/>
+      <xs:enumeration value="GENERIC_STORE_AND_FORWARD"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FileGateHeaderPlus_CF">
+    <xs:sequence>
+      <xs:element name="HeaderID" type="xs:string" minOccurs="0"/>
+      <xs:element name="FileIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DelivererID" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerContractNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerContractCollection" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerFilename" type="xs:string" minOccurs="0"/>
+      <xs:element name="OriginalCustomerFilename" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerLanguage" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstantProcessing" type="xs:string" minOccurs="0"/>
+      <xs:element name="HowToBook" type="xs:string" minOccurs="0"/>
+      <xs:element name="SlipType" type="xs:string" minOccurs="0"/>
+      <xs:element name="CorrectionAllowed" type="xs:string" minOccurs="0"/>
+      <xs:element name="PartialProcessingAllowed" type="xs:string" minOccurs="0"/>
+      <xs:element name="FileFormat" type="xs:string" minOccurs="0"/>
+      <xs:element name="Compressed" type="xs:string" minOccurs="0"/>
+      <xs:element name="Blocked" type="xs:string" minOccurs="0"/>
+      <xs:element name="Encrypted" type="xs:string" minOccurs="0"/>
+      <xs:element name="NrOfPayments" type="xs:string" minOccurs="0"/>
+      <xs:element name="FileMoneyAmount" type="xs:string" minOccurs="0"/>
+      <xs:element name="CSReceivedTimestamp" type="xs:string" minOccurs="0"/>
+      <xs:element name="ApprovalAllowed" type="xs:string" minOccurs="0"/>
+      <xs:element name="DetachCorrectable" type="xs:string" minOccurs="0"/>
+      <xs:element name="MaxSplitSize" type="xs:string" minOccurs="0"/>
+      <xs:element name="IsTestfileOrder" type="xs:string" minOccurs="0"/>
+      <xs:element name="NotifyEmail" type="xs:string" minOccurs="0"/>
+      <xs:element name="NonSepaUrgent" type="xs:string" minOccurs="0"/>
+      <xs:element name="Reserve" type="xs:string" minOccurs="0"/>
+      <xs:element name="CustomerBC" type="xs:string" minOccurs="0"/>
+      <xs:element name="DiliUUID" type="xs:string" minOccurs="0"/>
+      <xs:element name="IccUUID" type="xs:string" minOccurs="0"/>
+      <xs:element name="GppUUID" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageType" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="FreeText" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinMessageBlock1_CF">
+    <xs:sequence>
+      <xs:element name="ApplicationIdentifier" type="String_CF" minOccurs="1"/>
+      <xs:element name="ServiceIdentifier" type="String_CF" minOccurs="1"/>
+      <xs:element name="LogicalTerminalAddress" type="String_CF" minOccurs="1"/>
+      <xs:element name="SessionNumber" type="String_CF" minOccurs="1"/>
+      <xs:element name="SequenceNumber" type="String_CF" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinMessageBlock2_CF">
+    <xs:sequence>
+      <xs:element name="InputDetails" type="Block2InputDetails_CF" minOccurs="0"/>
+      <xs:element name="OutputDetails" type="Block2OutputDetails_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinMessageBlock3_CF">
+    <xs:sequence>
+      <xs:element name="F103" type="String_CF" minOccurs="0"/>
+      <xs:element name="F113" type="String_CF" minOccurs="0"/>
+      <xs:element name="F108" type="String_CF" minOccurs="0"/>
+      <xs:element name="F119" type="String_CF" minOccurs="0"/>
+      <xs:element name="F423_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="F423_Time" type="String_CF" minOccurs="0"/>
+      <xs:element name="F423_HundredthsOfASecond" type="String_CF" minOccurs="0"/>
+      <xs:element name="F106_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="F106_LTIdentifier" type="String_CF" minOccurs="0"/>
+      <xs:element name="F106_BranchCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="F106_SessionNumber" type="String_CF" minOccurs="0"/>
+      <xs:element name="F106_ISN" type="String_CF" minOccurs="0"/>
+      <xs:element name="F424" type="String_CF" minOccurs="0"/>
+      <xs:element name="F115" type="String_CF" minOccurs="0"/>
+      <xs:element name="F433_CodeWord" type="String_CF" minOccurs="0"/>
+      <xs:element name="F433_AdditionalInformation" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinMessageBlock5_CF">
+    <xs:sequence>
+      <xs:element name="PAC" type="Max1025Text_CF" minOccurs="0"/>
+      <xs:element name="CHK" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_Time" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_MIR_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_MIR_LTIdentifier" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_MIR_BranchCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_MIR_SessionNumber" type="String_CF" minOccurs="0"/>
+      <xs:element name="SYS_MIR_ISN" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDE" type="Block5_PDE" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="TNG" type="Max1025Text_CF" minOccurs="0"/>
+      <xs:element name="PDM_Time" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDM_MOR_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDM_MOR_LTIdentifier" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDM_MOR_BranchCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDM_MOR_SessionNumber" type="String_CF" minOccurs="0"/>
+      <xs:element name="PDM_MOR_OSN" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_FullTime" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_MIR_Date" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_MIR_LTIdentifier" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_MIR_BranchCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_MIR_SessionNumber" type="String_CF" minOccurs="0"/>
+      <xs:element name="MRF_MIR_ISN" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FinMessageBlockDetails_CF">
+    <xs:complexContent>
+      <xs:extension base="ParkDataHolder_CF">
+        <xs:sequence>
+          <xs:element name="FinMessageBlock1" type="FinMessageBlock1_CF" minOccurs="1"/>
+          <xs:element name="FinMessageBlock2" type="FinMessageBlock2_CF" minOccurs="1"/>
+          <xs:element name="FinMessageBlock3" type="FinMessageBlock3_CF" minOccurs="0"/>
+          <xs:element name="FinMessageBlock5" type="FinMessageBlock5_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="FormatCustomisingScheduling_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MT940"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FormatVersion_CF">
+    <xs:sequence>
+      <xs:element name="VersionName" type="Max60Text_CF" minOccurs="1"/>
+      <xs:element name="Aliases" type="Max60Text_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Urn" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="VersionDescription" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="FormatDocument" type="Blob_CF" minOccurs="0"/>
+      <xs:element name="VersionValidFrom" type="Date_CF" minOccurs="0"/>
+      <xs:element name="VersionValidTo" type="Date_CF" minOccurs="0"/>
+      <xs:element name="Schemas" type="ValidationSchemaResourceBundle_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Schematrons" type="SchematronResourceBundle_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="XsltImport" type="XSLTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="XsltExport" type="XSLTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="URLFormatSpecificaton" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="DefaultFileExtension" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="FormatIdentification" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="FileActMessageIdentifier" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0"/>
+      <xs:element name="BusinessOrderType" type="BusinessOrderType_CF" minOccurs="0"/>
+      <xs:element name="BankFormat" type="FormatVersion_CF" minOccurs="0"/>
+      <xs:element name="Type" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="Issuer" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="Version" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ExecuteArchiving" type="Boolean_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FtpPayloadHandling_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FTP_REFERENCE"/>
+      <xs:enumeration value="MQ_HEADER"/>
+      <xs:enumeration value="PAYLOAD ONLY"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="IdentificationType_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Identification_CF">
+    <xs:sequence>
+      <xs:element name="IdentificationType" type="IdentificationType_CF" minOccurs="0"/>
+      <xs:element name="Identification" type="Max105Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InboundStatus_CF">
+    <xs:sequence>
+      <xs:element name="FormatVersion" type="FormatVersion_CF" minOccurs="1"/>
+      <xs:element name="ImportDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="Successful" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="ErrorText" type="Max210Text_CF" minOccurs="0"/>
+      <xs:element name="ErrorCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelConfig" type="ChannelConfig_CF" minOccurs="1"/>
+      <xs:element name="PaymentInitiation" type="Payment_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CashManagement" type="Statement_CF" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InputSchemaResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LevelType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Account"/>
+      <xs:enumeration value="AgreementAccount"/>
+      <xs:enumeration value="Party"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LogLevel_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Error"/>
+      <xs:enumeration value="Info"/>
+      <xs:enumeration value="Warning"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MappingDirectionType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN"/>
+      <xs:enumeration value="OUT"/>
+      <xs:enumeration value="UNDEF"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MappingResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="Max1025Text_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="1025"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max105Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="105"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max10Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="10"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max150Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="150"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max2048Text_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="2048"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max20Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="20"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max210Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="210"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max256Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max30Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max35Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="35"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max3Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="3"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max4096Text_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="4000"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max500Text_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="500"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max50Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="50"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max5Text_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max60Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="60"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Max70Text_CF">
+    <xs:restriction base="String_CF">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="70"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MessageCategory_CF">
+    <xs:restriction base="Max10Text_CF">
+      <xs:enumeration value="PAYMENT"/>
+      <xs:enumeration value="STATEMENT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="MetadataEDocument_CF">
+    <xs:sequence>
+      <xs:element name="XC101_RECIP_CIFNR" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DOC_TYP" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DOC_TRG_FRMT" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_APPL_ID" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DATE_BEVENT" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_TS_INREP" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_IS_ORIGINAL" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_IS_SIGNED" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DOC_LANG_COD" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_OWNER_CIFNR" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_TYP_RELATION" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_TYP_BU_RENUM" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_CURRENCY" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_AMOUNT" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DATE_VALUE" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_HAS_DOC_SUP" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_DOC_FILENAME" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_IS_IMPORTANT" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_UUID_DOC_C" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_ORDER_ID" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_IBAN" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_IBAN_C" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_ACCOUNT_C" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_CUR_C" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_TYPE_ACC_C" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_FLOW" type="String_CF" minOccurs="0"/>
+      <xs:element name="XC101_PAGES" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MetadataEnclosure_CF">
+    <xs:sequence>
+      <xs:element name="XC109_SUP_FILENAME" type="Max256Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Notes_CF">
+    <xs:sequence>
+      <xs:element name="IdRelatedEntity" type="xs:integer" minOccurs="0"/>
+      <xs:element name="Notes" type="Max4096Text_CF" minOccurs="0"/>
+      <xs:element name="UserId" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ChangeDateTime" type="DateTime_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="OrganisationType_CF">
+    <xs:restriction base="Max35Text_CF">
+      <xs:enumeration value="FINANCIAL_INSTITUTION"/>
+      <xs:enumeration value="NONFINANCIAL_INSTITUTION"/>
+      <xs:enumeration value="PERSON"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Organisation_CF">
+    <xs:complexContent>
+      <xs:extension base="Party_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OriginalBusinessQuery_CF">
+    <xs:sequence>
+      <xs:element name="Messagedentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="MsgNamedentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="DateTime_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OutboundStatus_CF">
+    <xs:sequence>
+      <xs:element name="FormatVersion" type="FormatVersion_CF" minOccurs="1"/>
+      <xs:element name="Statement" type="Statement_CF" minOccurs="0"/>
+      <xs:element name="Confirmation" type="StatusReport_CF" minOccurs="0"/>
+      <xs:element name="ExportDate" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="DownloadDate" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="Successful" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="RetryCounter" type="xs:int" minOccurs="0"/>
+      <xs:element name="ReturnCode" type="Max60Text_CF" minOccurs="0"/>
+      <xs:element name="ErrorText" type="xs:string" minOccurs="0"/>
+      <xs:element name="ErrorCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelConfig" type="ChannelConfig_CF" minOccurs="1"/>
+      <xs:element name="PaymentInitiation" type="Payment_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CashManagement" type="Statement_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Resource" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParkDataHolder_CF"/>
+  <xs:complexType name="Party_CF">
+    <xs:sequence>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="1"/>
+      <xs:element name="PartyName" type="Max70Text_CF" minOccurs="1"/>
+      <xs:element name="PartyNumber" type="Max70Text_CF" minOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="true" minOccurs="1"/>
+      <xs:element name="ParentParty" type="Party_CF" minOccurs="0"/>
+      <xs:element name="PartyType" type="OrganisationType_CF" minOccurs="0"/>
+      <xs:element name="Eam" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="Address" type="Address_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Identification" type="Identification_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Agreement" type="Agreement_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Scheduling" type="Scheduling_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CustomiseOutput" type="CustomiseOutput_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ContactRole" type="ContactRole_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PassThroughContainer_CF">
+    <xs:sequence>
+      <xs:element name="EFTHeader" type="EFTFidesHeader_CF" minOccurs="0"/>
+      <xs:element name="ContractNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AccountNumber" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="DeliveryType" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="FileName" type="Max210Text_CF" minOccurs="0"/>
+      <xs:element name="ClientIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="ProcessDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="ReferenceNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="SenderIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="PassThroughData" type="DataResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PassThroughState_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Dispatched"/>
+      <xs:enumeration value="Loaded"/>
+      <xs:enumeration value="LostAndFound"/>
+      <xs:enumeration value="Uncorrelated"/>
+      <xs:enumeration value="Undetected"/>
+      <xs:enumeration value="Unspawned"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PayAmendmentInfDetails_CF">
+    <xs:sequence>
+      <xs:element name="OriginalMandateIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="OriginalCreditorSchemeIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="OriginalDebtorAccount" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="OriginalDebtorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayCashAccount_CF">
+    <xs:sequence>
+      <xs:element name="IBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="AccountName" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayChequeInstruction_CF">
+    <xs:sequence>
+      <xs:element name="ChequeType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrType" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrDepartment" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrSubDepartment" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrStreetName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrBuildingNumber" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrPostCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrTownName" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrCountrySubDivision" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ChequeFromAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeFromAddressLine" type="Max70Text_CF" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="DeliveryMethodCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DeliveryMethodProprietary" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DeliverToAdrType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DeliverToAdrDepartment" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrSubDepartment" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrStreetName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrBuildingNumber" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrPostCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrTownName" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrCountrySubDivision" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="DeliverToAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="DeliverToAddressLine" type="Max70Text_CF" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="InstructionPriority" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeMaturityDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="FormsCode" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="MemoField" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="RegionalClearingZone" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="PrintLocation" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayContainer_CF">
+    <xs:choice>
+      <xs:element name="CreditTransfer" type="Payment_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="DirectDebit" type="PayDirectDebit_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="PayDirectDebitTrxInfo_CF">
+    <xs:sequence>
+      <xs:element name="MndtRltdInfMandateIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="MndtRltdInfDateOfSignature" type="xs:date" minOccurs="0"/>
+      <xs:element name="MndtRltdInfAmendmentIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="AmendmentInformationDetails" type="PayAmendmentInfDetails_CF" minOccurs="0"/>
+      <xs:element name="MndtRltdInfElectronicSignature" type="xs:string" minOccurs="0"/>
+      <xs:element name="MndtRltdInfFirstCollectionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="MndtRltdInfFrequency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorSchemeIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="PreNotificationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PreNotificationDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayDirectDebitTrx_CF">
+    <xs:sequence>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstructionIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="EndToEndIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInstructionPriority" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentServiceLevelCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentServiceLevelProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentLocalInstrumentCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentLocalInstrumentProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentCategorySequenceType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentCategoryPurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentCategoryPurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstructedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InstructedAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CurrencyOfTransfer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargeBearer" type="xs:string" minOccurs="0"/>
+      <xs:element name="DirectDebitTrxMandateInfo" type="PayDirectDebitTrxInfo_CF" minOccurs="0"/>
+      <xs:element name="UltimateCreditor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="DebitorAgentFinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="DebitorAgentAccount" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="DebitorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="DebitorAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebitorAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="UltimateDebitorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="InstructionForCreditorAgent" type="PayInstructionForCreditorAgent_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InstructionForDebtorAgent" type="xs:string" minOccurs="0"/>
+      <xs:element name="PurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RegulatoryReporting" type="PayRegulatoryReporting_CF" minOccurs="0" maxOccurs="10"/>
+      <xs:element name="Tax" type="PayTax_CF" minOccurs="0"/>
+      <xs:element name="RemittanceInformation" type="PayRemittanceInformation_CF" minOccurs="0"/>
+      <xs:element name="DispatchStatus" type="DispatchStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayDirectDebit_CF">
+    <xs:sequence>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInformationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentMethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="BatchBooking" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NumberOfTransactions" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ControlSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="PaymentInfoInstructionPriority" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoServiceLevelCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoServiceLevelProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoLocalInstrumentCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoLocalInstrumentProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoSequenceType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoCategoryPurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoCategoryPurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestedCollectionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="CreditorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="CreditorAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="SelectedAccountAlias" type="AccountAlias_CF" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAgentFinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgentAccount" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="UltimateCreditor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="ChargeBearer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="CreditorSchemeIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="DispatchStatus" type="DispatchStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Account" type="Account_CF" minOccurs="0"/>
+      <xs:element name="AccountAlias" type="AccountAlias_CF" minOccurs="0"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="Transaction" type="PayDirectDebitTrx_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayFinancialInstitution_CF">
+    <xs:sequence>
+      <xs:element name="FinInstBIC" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstClearingSystemIdentifCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstClearingSystemIdentifProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstMemberIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="FinInstOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstOtherSchemeNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstIOtherSchemeNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchIdName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayGenericPersonIdentification_CF">
+    <xs:sequence>
+      <xs:element name="PrivateIdentOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherIssuer" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayInstructionForCreditorAgent_CF">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstructionInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="PaymentType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="CreditTransfer"/>
+      <xs:enumeration value="DirectDebit"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Payment_CF">
+    <xs:sequence>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="CurrencyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInformationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="SystemPaymentInformationIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="InstructionReferenceFromOpf" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="PaymentMethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="BatchBooking" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NumberOfTransactions" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ControlSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="PaymentInfoInstructionPriority" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoServiceLevelCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoServiceLevelProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoLocalInstrumentCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoLocalInstrumentProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoCategoryPurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInfoCategoryPurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RequestedExecutionDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="DebtorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="DebtorAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="SelectedAccountAlias" type="AccountAlias_CF" minOccurs="0"/>
+      <xs:element name="DebtorAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAgentFinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="DebtorAgentAccount" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="UltimateDebtor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="ChargeBearer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesAccountAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="DispatchStatus" type="DispatchStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Account" type="Account_CF" minOccurs="0"/>
+      <xs:element name="AccountAlias" type="AccountAlias_CF" minOccurs="0"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="EodTransaction" type="EODTransaction_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EodReconFinding" type="EODReconFindings_CF" minOccurs="0"/>
+      <xs:element name="Transaction" type="PayTransaction_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayOrder_CF">
+    <xs:sequence>
+      <xs:element name="FileGateHeader" type="FileGateHeaderPlus_CF" minOccurs="0"/>
+      <xs:element name="MessageIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="SystemMessageIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="InterchangeReferenceFromOpf" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="MessageNameIdentification" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="SourceMessageFormat" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="AuthorisationCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="AuthorisationProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="NumberOfTransactions" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="ControlSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ChannelUUID" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelFreetextContainer" type="Max150Text_CF" minOccurs="0"/>
+      <xs:element name="AllOrNothing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="NoPartialProcessing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="FeeAgreement" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="DispatchStatus" type="DispatchStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InitiatingParty" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="ForwardingAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="PaymentType" type="PaymentType_CF" default="CreditTransfer" minOccurs="0"/>
+      <xs:element name="PayContainer" type="PayContainer_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="CurrencyCleanupApplied" type="Boolean_CF" default="false" minOccurs="0"/>
+      <xs:element name="EodTransaction" type="EODTransaction_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EodReconFinding" type="EODReconFindings_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayPartyIdentification_CF">
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrCountryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="OrgIdentBIC" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentBirthDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PrivateIdentProvinceOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentCityOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentCountryOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="OtherPersonIdentification" type="PayGenericPersonIdentification_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="CountryOfResidence" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsNamePrefix" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsPhoneNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsMobileNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsFaxNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsEmailAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsOther" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRegulatoryReportingDetails_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="Country" type="xs:string" minOccurs="0"/>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="Information" type="PayRegulatoryReportingInfo_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRegulatoryReportingInfo_CF">
+    <xs:sequence>
+      <xs:element name="Information" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRegulatoryReporting_CF">
+    <xs:sequence>
+      <xs:element name="DebitCreditReportingIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="AuthorityName" type="xs:string" minOccurs="0"/>
+      <xs:element name="AuthorityCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="Details" type="PayRegulatoryReportingDetails_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRelatedRemittanceInfo_CF">
+    <xs:sequence>
+      <xs:element name="RemittanceIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocMethod" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocElectronicAdr" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrName" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrType" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrDept" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrSubDept" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrStrtNm" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrBldgNb" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrPstCd" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrTwnNm" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrCtrySubDvsn" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrCtry" type="xs:string" minOccurs="0"/>
+      <xs:element name="RemittanceLocPostalAdrLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRemitAdjustment_CF">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="Reason" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRemitDiscount_CF">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="Proprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRemitReferredDocInfo_CF">
+    <xs:sequence>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="Number" type="xs:string" minOccurs="0"/>
+      <xs:element name="RelatedDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRemittanceInformation_CF">
+    <xs:sequence>
+      <xs:element name="Unstructured" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RemitReferredDocInfo" type="PayRemitReferredDocInfo_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ReferredDocAmountDuePayableAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountDuePayableCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountDiscountAppliedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountDiscountAppliedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountCreditNoteAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountCreditNoteCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountTaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountTaxCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="PayRemitAdjustmentAmountAndReason" type="PayRemitAdjustment_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ReferredDocAmountRemittedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAmountRemittedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoicerPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="InvoiceePartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="AdditionalRemittanceInformation" type="xs:string" minOccurs="0" maxOccurs="3"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayRemitTaxAmount_CF">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="Proprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayTaxAmountDetails_CF">
+    <xs:sequence>
+      <xs:element name="PeriodYear" type="xs:unsignedLong" minOccurs="0"/>
+      <xs:element name="PeriodType" type="xs:string" minOccurs="0"/>
+      <xs:element name="FromDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ToDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayTaxRecord_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Category" type="xs:string" minOccurs="0"/>
+      <xs:element name="CategoryDetails" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="CertificateIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FormsCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodYear" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodFromDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PeriodToDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="TaxAmountRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxableBaseAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxableBaseAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="TaxAmountDetails" type="PayTaxAmountDetails_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayTax_CF">
+    <xs:sequence>
+      <xs:element name="CreditorTaxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorRegistrationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorTaxType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorTaxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorRegistrationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorTaxType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAuthorisationTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAuthorisationName" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdministrationZone" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferenceNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="Method" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalTaxableBaseAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalTaxableBaseAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalTaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalTaxAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="SequenceNumber" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxRecord" type="PayTaxRecord_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PayTransaction_CF">
+    <xs:sequence>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstructionIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="SystemInstructionIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="TransactionReferenceFromOpf" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="EndToEndIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentInstructionPriority" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentServiceLevelCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentServiceLevelProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentLocalInstrumentCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentLocalInstrumentProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentCategoryPurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PaymentCategoryPurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstructedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InstructedAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="EquivalentAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="EquivalentAmountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="EquivalentAmountCurOfTransfer" type="xs:string" minOccurs="0"/>
+      <xs:element name="XchgRateInfExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="XchgRateInfRateType" type="xs:string" minOccurs="0"/>
+      <xs:element name="XchgRateInfContactInfo" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargeBearer" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChequeInstruction" type="PayChequeInstruction_CF" minOccurs="0"/>
+      <xs:element name="UltimateDebtor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent1FinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent1Account" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent2FinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent2Account" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent3FinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="IntermediaryAgent3Account" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgentFinancialInstitution" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgentAccount" type="PayCashAccount_CF" minOccurs="0"/>
+      <xs:element name="CreditorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="CreditorAccountIBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountOtherIdIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorAccountName" type="xs:string" minOccurs="0"/>
+      <xs:element name="UltimateCreditorPartyIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="InstructionForCreditorAgent" type="PayInstructionForCreditorAgent_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="InstructionForDebtorAgent" type="xs:string" minOccurs="0"/>
+      <xs:element name="PurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RegulatoryReporting" type="PayRegulatoryReporting_CF" minOccurs="0" maxOccurs="10"/>
+      <xs:element name="Tax" type="PayTax_CF" minOccurs="0"/>
+      <xs:element name="RelatedRemittanceInfo" type="PayRelatedRemittanceInfo_CF" minOccurs="0"/>
+      <xs:element name="RemittanceInformation" type="PayRemittanceInformation_CF" minOccurs="0"/>
+      <xs:element name="DispatchStatus" type="DispatchStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="EodTransaction" type="EODTransaction_CF" minOccurs="0"/>
+      <xs:element name="EodReconFinding" type="EODReconFindings_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Person_CF">
+    <xs:complexContent>
+      <xs:extension base="Party_CF">
+        <xs:sequence>
+          <xs:element name="FirstName" type="Max70Text_CF" minOccurs="0"/>
+          <xs:element name="LastName" type="Max70Text_CF" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="PriorityConfigType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="End_Of_Day_Processing"/>
+      <xs:enumeration value="Maintenance"/>
+      <xs:enumeration value="Payments_Processing"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="PriorityConfig_CF">
+    <xs:sequence>
+      <xs:element name="Name" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="Active" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="Status" type="StatusType_CF" minOccurs="0"/>
+      <xs:element name="PriorityConfigType" type="PriorityConfigType_CF" minOccurs="0"/>
+      <xs:element name="ProductPriorities" type="ProductPriority_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ChannelPriorities" type="ChannelPriority_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="PriorityInvervals" type="PriorityInterval_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PriorityInterval_CF">
+    <xs:sequence>
+      <xs:element name="ValidFromDayInMonth" type="xs:integer" minOccurs="0"/>
+      <xs:element name="ValidToDayInMonth" type="xs:integer" minOccurs="0"/>
+      <xs:element name="StartHour" type="xs:integer" minOccurs="0"/>
+      <xs:element name="EndHour" type="xs:integer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductPriority_CF">
+    <xs:sequence>
+      <xs:element name="Priority" type="xs:double" minOccurs="0"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ProductSubType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Balance Report"/>
+      <xs:enumeration value="Credit Transfer"/>
+      <xs:enumeration value="Direct Debit CH"/>
+      <xs:enumeration value="Direct Debit SEPA"/>
+      <xs:enumeration value="End-Of-Day Statement"/>
+      <xs:enumeration value="Intraday Statement"/>
+      <xs:enumeration value="Payment Status Report"/>
+      <xs:enumeration value="Processing Log DTA"/>
+      <xs:enumeration value="Processing Log LSV"/>
+      <xs:enumeration value="STAG"/>
+      <xs:enumeration value="V11"/>
+      <xs:enumeration value="eDocs"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Confirmation"/>
+      <xs:enumeration value="EodFile"/>
+      <xs:enumeration value="PassThrough"/>
+      <xs:enumeration value="Payment"/>
+      <xs:enumeration value="Statement"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Product_CF">
+    <xs:sequence>
+      <xs:element name="ProductSubType" type="ProductSubType_CF" minOccurs="0"/>
+      <xs:element name="ProductType" type="ProductType_CF" minOccurs="0"/>
+      <xs:element name="PriorityEmergency" type="Boolean_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProprietaryPrice_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="Price" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="PriceCur" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="ReconFindingStatus_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AUTOMATIC_RESOLVED"/>
+      <xs:enumeration value="GPP_REF_NOT_EXISTS"/>
+      <xs:enumeration value="GPP_REF_NOT_FOUND"/>
+      <xs:enumeration value="ICC_REF_NOT_FOUND"/>
+      <xs:enumeration value="MANUALLY_RESOLVED"/>
+      <xs:enumeration value="PRE_EOD_IGNORE"/>
+      <xs:enumeration value="REMOVED_IN_GPP"/>
+      <xs:enumeration value="REMOVED_IN_ICC"/>
+      <xs:enumeration value="UNDEF_RECON_STATUS"/>
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RequestType_CF">
+    <xs:restriction base="BaseType_CF"/>
+  </xs:simpleType>
+  <xs:simpleType name="RoleBaseType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BankRole"/>
+      <xs:enumeration value="NonBankRole"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="RoleType_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="Max105Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SchedulingIntervalType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Daily"/>
+      <xs:enumeration value="SelectedDays"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SchedulingStartTime_CF">
+    <xs:sequence>
+      <xs:element name="StartTime" type="DateTime_CF" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Scheduling_CF">
+    <xs:sequence>
+      <xs:element name="SchedulingName" type="Max105Text_CF" minOccurs="1"/>
+      <xs:element name="SchedulingFormat" type="FormatCustomisingScheduling_CF" minOccurs="1"/>
+      <xs:element name="SchedulingLevel" type="LevelType_CF" minOccurs="1"/>
+      <xs:element name="Active" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="ValidFrom" type="Date_CF" minOccurs="0"/>
+      <xs:element name="ValidTo" type="Date_CF" minOccurs="0"/>
+      <xs:element name="SchedulingInterval" type="SchedulingIntervalType_CF" minOccurs="1"/>
+      <xs:element name="Monday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Tuesday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Wednesday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Thursday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Friday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Saturday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="Sunday" type="Boolean_CF" default="false" minOccurs="1"/>
+      <xs:element name="SchedulingStartTime" type="SchedulingStartTime_CF" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0"/>
+      <xs:element name="AgreementAccount" type="AgreementAccount_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SchematronResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="SequenceNumberType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IncrementOnEachStatementLoad"/>
+      <xs:enumeration value="IncrementOnlyIfTransactions"/>
+      <xs:enumeration value="IncrementOnlyOnceADay"/>
+      <xs:enumeration value="OriginalFromBank"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ServiceConsumer_CF">
+    <xs:sequence>
+      <xs:element name="ConsumerName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="BIC" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ContractPrefix" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="Party" type="Party_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="SupportGroup" type="SupportGroup_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServiceProvider_CF">
+    <xs:sequence>
+      <xs:element name="ServiceProviderName" type="Max70Text_CF" minOccurs="0"/>
+      <xs:element name="PartnerClientOrBank" type="ClientOrBankCode_CF" minOccurs="0"/>
+      <xs:element name="FileActDn" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="FileActFullname" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="Name" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="Identification" type="Identification_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ServiceConsumer" type="ServiceConsumer_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Product" type="Product_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatementBase_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COPY"/>
+      <xs:enumeration value="ORIGINAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StatementEntryDetails_CF">
+    <xs:sequence>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="BatchMessageIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="BatchPaymentInfoIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="NumberOfTransactions" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="BatchTotalAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="BatchTotalAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="TransactionDetails" type="StmTrxDetails_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalEntryInformation" type="Max500Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatementEntry_CF">
+    <xs:sequence>
+      <xs:element name="PaymentInitiation" type="Payment_CF" minOccurs="0"/>
+      <xs:element name="EntryReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReversalIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Status" type="xs:string" minOccurs="0"/>
+      <xs:element name="BookingDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="BookingDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ValueDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="ValueDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="AccountServicerReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="Availability" type="StmCashBalanceAvailability_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BankTrxCodeDomainCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainSubFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProperitaryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProperitaryIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="AddtlInfIndMessageNameId" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AddtlInfIndMessageId" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AmountDetails" type="StmAmtAndCurExchange_CF" minOccurs="0"/>
+      <xs:element name="Charges" type="StmCharges_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="TransactionInterest" type="StmTrxInterest_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="StatementEntryDetails" type="StatementEntryDetails_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalEntryInformation" type="Max500Text_CF" minOccurs="0"/>
+      <xs:element name="OriginalValuesField86" type="Max70Text_CF" minOccurs="0" maxOccurs="6"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatementGroup_CF">
+    <xs:sequence>
+      <xs:element name="FileGateHeader" type="FileGateHeaderPlus_CF" minOccurs="0"/>
+      <xs:element name="StatementHeaderCamt" type="StatementHeaderCamt_CF" minOccurs="0"/>
+      <xs:element name="MessageIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="IsIntraday" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="MessageRecipient" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="MsgPagPageNumber" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="MsgPagLastPageIndic" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="OrgMsgIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrgMsgNameIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrgCreationDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="OriginalBusinessQuery" type="OriginalBusinessQuery_CF" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="Max500Text_CF" minOccurs="0"/>
+      <xs:element name="StatementType" type="StatementType_CF" minOccurs="0"/>
+      <xs:element name="Statement" type="Statement_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="FinMessageBlockDetails" type="FinMessageBlockDetails_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatementHeaderCamt_CF">
+    <xs:sequence>
+      <xs:element name="CreationDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="RequestId" type="xs:string" minOccurs="0"/>
+      <xs:element name="IBAN" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AccountNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="CifNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="BusinessUnit" type="xs:string" minOccurs="0"/>
+      <xs:element name="SenderBIC" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="MessageRecipient" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageType" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageTypeIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageTypeIssuerVersion" type="xs:string" minOccurs="0"/>
+      <xs:element name="DeliveryChannel" type="xs:string" minOccurs="0"/>
+      <xs:element name="ElectronicSequenceNumber" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="PageNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="LastPageIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="BookingDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="FromDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ToDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="BESRInfoAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="BESRInfoCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="BESRInfoNumberOfRecords" type="xs:integer" minOccurs="0"/>
+      <xs:element name="BESRInfoExternalSubscriberNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="BESRInfoInternalSubscriberNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="Gzip" type="xs:boolean" default="false" minOccurs="0"/>
+      <xs:element name="PayLoad" type="DataResourceBundle_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatementType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="EndOfDayStatement"/>
+      <xs:enumeration value="IntraDayStatement"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Statement_CF" id="uuid-fe6cf4b3-f8d9-4013-b9cf-8b8c09bdad33">
+    <xs:sequence>
+      <xs:element name="Identification" type="xs:string" minOccurs="0"/>
+      <xs:element name="StmtPagPageNumber" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="StmtPagLastPageIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ElectronicSequenceNumber" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="LegalSequenceNumber" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="FromDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ToDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="CopyDuplicateIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReportingSourceCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReportingSourceProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="MessageRecipient" type="Max150Text_CF" minOccurs="0"/>
+      <xs:element name="Account" type="StmCashAccount_CF" minOccurs="0"/>
+      <xs:element name="OriginalReceivedAccount" type="StmCashAccount_CF" minOccurs="0"/>
+      <xs:element name="Interest" type="StmAccountInterest_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Balance" type="StmCashBalance_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="TransactionsSummary" type="StmTrxSummary_CF" minOccurs="0"/>
+      <xs:element name="Entry" type="StatementEntry_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalStatementInformation" type="Max500Text_CF" minOccurs="0"/>
+      <xs:element name="SuccessfullyTransmitted" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="Locked4processing" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Base" type="StatementBase_CF" minOccurs="1"/>
+      <xs:element name="OriginalStatement" type="Statement_CF" minOccurs="0"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusReport_CF">
+    <xs:sequence>
+      <xs:element name="FileGateHeader" type="FileGateHeaderPlus_CF" minOccurs="0"/>
+      <xs:element name="EFTHeader" type="EFTFidesHeader_CF" minOccurs="0"/>
+      <xs:element name="NotificationHeader" type="StsNotificationHeader_CF" minOccurs="0"/>
+      <xs:element name="GroupHeader" type="StsGroupHeader_CF" minOccurs="1"/>
+      <xs:element name="OrgGroupInformationAndStatus" type="StsOriginalGroupInformationAndStatus_CF" minOccurs="1"/>
+      <xs:element name="OrgPaymentInformationAndStatus" type="StsOriginalPaymentInformationAndStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusRepType_CF">
+    <xs:restriction base="BaseType_CF">
+      <xs:enumeration value="ALL"/>
+      <xs:enumeration value="NOK"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="StatusType_CF">
+    <xs:restriction base="Max10Text_CF">
+      <xs:enumeration value="APPROVED"/>
+      <xs:enumeration value="CLOSED"/>
+      <xs:enumeration value="DELETED"/>
+      <xs:enumeration value="OPENED"/>
+      <xs:enumeration value="VERIFY"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StmAccountInterestRate_CF">
+    <xs:sequence>
+      <xs:element name="TypePercentage" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TypeOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeToBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeToBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToFromBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToFromBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToToBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToToBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EqualAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="NotEqualAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmAccountInterest_CF">
+    <xs:sequence>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Rate" type="StmAccountInterestRate_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="FromDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ToDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="Reason" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmAdditionalReturnInformation_CF">
+    <xs:sequence>
+      <xs:element name="Information" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmAmtAndCurExchange_CF">
+    <xs:sequence>
+      <xs:element name="InstructedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InstructedAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstrAmtCurExchSourceCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstrAmtCurExchTargetCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstrAmtCurExchUnitCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstrAmtCurExchExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="InstrAmtContractIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="InstrAmtQuotationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="TransactionAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TransactionAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TrxAmtCurExchSourceCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TrxAmtCurExchTargetCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TrxAmtCurExchUnitCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TrxAmtCurExchExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TrxAmtContractIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="TrxAmtQuotationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="CounterValueAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CounterValueAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="CounterValueAmtCurExchSourceCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="CounterValueAmtCurExchTargetCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="CounterValueAmtCurExchUnitCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="CounterValueAmtCurExchExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CounterValueAmtContractIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CounterValueAmtQuotationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtCurExchSourceCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtCurExchTargetCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtCurExchUnitCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtCurExchExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtContractIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="AnnouncedPostingAmtQuotationDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ProprietaryAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ProprietaryAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtCurExchSourceCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtCurExchTargetCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtCurExchUnitCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtCurExchExchangeRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtContractIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryAmtQuotationDate" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmCashAccount_CF">
+    <xs:sequence>
+      <xs:element name="IBAN" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdentOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdentOtherCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdentOtherProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="IdentOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="Owner" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="Servicer" type="StmFinancialInstitution_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmCashBalanceAvailability_CF">
+    <xs:sequence>
+      <xs:element name="NumberOfDays" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="ActualDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmCashBalance_CF">
+    <xs:sequence>
+      <xs:element name="BalanceTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BalanceTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="BalanceSubTypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BalanceSubTypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditLineIncluded" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="CreditLineAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CreditLineCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="DateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="Availability" type="StmCashBalanceAvailability_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmChargesRecord_CF">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargeIncludedIndicator" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietaryIdentific" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietaryIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="Rate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Bearer" type="xs:string" minOccurs="0"/>
+      <xs:element name="Agent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="TaxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="TaxRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmountCurrency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmCharges_CF">
+    <xs:sequence>
+      <xs:element name="TotalChargesAndTaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalChargesAndTaxAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargesRecord" type="StmChargesRecord_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmFinancialInstitution_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstBIC" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstClearingSystemIdentifCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstClearingSystemIdentifProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstMemberIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstPostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="FinInstOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstOtherSchemeNameCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstIOtherSchemeNameProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="FinInstOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchIdName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrCountry" type="xs:string" minOccurs="0"/>
+      <xs:element name="BrnchPostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmPartyIdentification_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Name" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrAddressType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrSubDepartment" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrStreetName" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrBuildingNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrPostCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrTownName" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrCountrySubDivision" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrCountryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PostalAdrAddressLine" type="xs:string" minOccurs="0" maxOccurs="7"/>
+      <xs:element name="OrgIdentBIC" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="OrganisIdentOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentBirthDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PrivateIdentProvinceOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentCityOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentCountryOfBirth" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="PrivateIdentOtherIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CountryOfResidence" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsNamePrefix" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsName" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsPhoneNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsMobileNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsFaxNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsEmailAddress" type="xs:string" minOccurs="0"/>
+      <xs:element name="ContactDetailsOther" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmProprietaryDate_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="DateTime" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmProprietaryReference_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Reference" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRelatedRemittanceInfo">
+    <xs:sequence>
+      <xs:element name="RemittanceId" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="RemittanceLctnMethod" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="RemittanceLctnElectronicAdr" type="Max2048Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRemitAdjustment_CF">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="Reason" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRemitDiscount_CF">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="Proprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRemitReferredDocInfo_CF">
+    <xs:sequence>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="Number" type="xs:string" minOccurs="0"/>
+      <xs:element name="RelatedDate" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRemittanceInformation_CF">
+    <xs:sequence>
+      <xs:element name="Unstructured" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RemitReferredDocInfo" type="StmRemitReferredDocInfo_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ReferredDocAamountDuePayableAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAamountDuePayableCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferredDocDiscountAppliedAmount" type="StmRemitDiscount_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ReferredDocAamountCreditNoteAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAamountCreditNoteCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferredDocTaxAmount" type="StmRemitTaxAmount_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="PayRemitAdjustmentAmountAndReason" type="StmRemitAdjustment_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ReferredDocAamountRemittedAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ReferredDocAamountRemittedCurrency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorReferenceInformationReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="InvoicerPartyIdentification" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="InvoiceePartyIdentification" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="AdditionalRemittanceInformation1" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdditionalRemittanceInformation2" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdditionalRemittanceInformation3" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmRemitTaxAmount_CF">
+    <xs:sequence>
+      <xs:element name="Code" type="xs:string" minOccurs="0"/>
+      <xs:element name="Proprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTaxInformation_CF">
+    <xs:sequence>
+      <xs:element name="CreditorTaxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorRegistrationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditorTaxType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorTaxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorRegistrationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorTaxType" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAuthorisationTitle" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorAuthorisationName" type="xs:string" minOccurs="0"/>
+      <xs:element name="AdministrationZone" type="xs:string" minOccurs="0"/>
+      <xs:element name="ReferenceNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="Method" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalTaxableBaseAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalTaxableBaseAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalTaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalTaxAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="Date" type="xs:date" minOccurs="0"/>
+      <xs:element name="SequenceNumber" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Record" type="StmTaxRecord_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTaxRecordDetails_CF">
+    <xs:sequence>
+      <xs:element name="PeriodYear" type="xs:date" minOccurs="0"/>
+      <xs:element name="PeriodType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodFromDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PeriodToDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTaxRecord_CF">
+    <xs:sequence>
+      <xs:element name="Type" type="xs:string" minOccurs="0"/>
+      <xs:element name="Category" type="xs:string" minOccurs="0"/>
+      <xs:element name="CategoryDetails" type="xs:string" minOccurs="0"/>
+      <xs:element name="DebtorStatus" type="xs:string" minOccurs="0"/>
+      <xs:element name="CertificateIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="FormsCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodYear" type="xs:date" minOccurs="0"/>
+      <xs:element name="PeriodType" type="xs:string" minOccurs="0"/>
+      <xs:element name="PeriodFromDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="PeriodToDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="TaxAmountRate" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmountTaxableBaseAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmountTaxableBaseAmtCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="TaxAmountTotalAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmountTotalAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="Details" type="StmTaxRecordDetails_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTrxDetails_CF">
+    <xs:sequence>
+      <xs:element name="PayTransaction" type="PayTransaction_CF" minOccurs="0"/>
+      <xs:element name="OrderReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefMessageIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefAccountServicerReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefPaymentInformationIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefInstructionIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefEndToEndIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefTransactionIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefMandateIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefChequeNumber" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefClearingSystemReference" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefAccountOwnerTrxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefAccountServicerTrxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefMarketInfrastructureTrxIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="RefProcessingIdentification" type="xs:string" minOccurs="0"/>
+      <xs:element name="ProprietaryReference" type="StmProprietaryReference_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="AmountDetails" type="StmAmtAndCurExchange_CF" minOccurs="0"/>
+      <xs:element name="Availability" type="StmCashBalanceAvailability_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="BankTrxCodeDomainCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainSubFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProperitaryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProperitaryIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="Charges" type="StmCharges_CF" minOccurs="0"/>
+      <xs:element name="TransactionInterest" type="StmTrxInterest_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedPartiesInitiatingParty" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesDebtor" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesDebtorAccount" type="StmCashAccount_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesUltimateDebtor" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesCreditor" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesCreditorAccount" type="StmCashAccount_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesUltimateCreditor" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesTradingParty" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RelatedPartiesProprietary" type="StmPartyIdentification_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedAgentsDebtorAgent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsCreditorAgent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsIntermediaryAgent1" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsIntermediaryAgent2" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsIntermediaryAgent3" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsReceivingAgent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsDeliveringAgent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsIssuingAgent" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsSettlementPlace" type="StmFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="RelatedAgentsProprietary" type="StmFinancialInstitution_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="PurposeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="PurposeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RelatedRemittanceInformation" type="StmRelatedRemittanceInfo" minOccurs="0" maxOccurs="10"/>
+      <xs:element name="RemittanceInformation" type="StmRemittanceInformation_CF" minOccurs="0"/>
+      <xs:element name="AcceptanceDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="TradeActivityContractualSettlementDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="TradeDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="InterbankSettlementDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="StartDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="EndDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="TransactionDateTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="ProprietaryDate" type="StmProprietaryDate_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedPriceDealPricTypeYldd" type="YesNoIndicator" minOccurs="0"/>
+      <xs:element name="RelatedPriceDealPricTypeValTp" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="RelatedPriceDealPricValueRate" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="RelatedPriceDealPricValueAmount" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="RelatedPriceDealPricValueRateCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="RelatedPriceProprietary" type="ProprietaryPrice_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="Tax" type="StmTaxInformation_CF" minOccurs="0"/>
+      <xs:element name="RetInfoOrigBankTrxCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoOrigBankTrxFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoOrigBankTrxSubFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoOrigBankTrxProprietaryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoOrigBankTrxProprietaryIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoOriginator" type="StmPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="RetInfoReasonCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoReasonProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RetInfoAdditionalInformation" type="StmAdditionalReturnInformation_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AdditionalTransactionInformation" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTrxInterestRecord_CF">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="Currency" type="xs:string" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="xs:string" minOccurs="0"/>
+      <xs:element name="RateTypePercentage" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="RateTypeOther" type="xs:string" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeToBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeToBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToFromBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToFromBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToToBndryAmt" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="ValidityRangeFromToToBndryIncl" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="EqualAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="NotEqualAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="VRCreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="VRCurrency" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTrxInterest_CF">
+    <xs:sequence>
+      <xs:element name="TotalChargesAndTaxAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalChargesAndTaxAmountCur" type="xs:string" minOccurs="0"/>
+      <xs:element name="Record" type="StmTrxInterestRecord_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="FromDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="ToDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="Reason" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTrxSummaryTotalPerTrxCd_CF">
+    <xs:sequence>
+      <xs:element name="NumberOfEntries" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="Sum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalNetEntryAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="CreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="ForecastIndicator" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeDomainSubFamilyCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProprietaryCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="BankTrxCodeProprietaryIssuer" type="xs:string" minOccurs="0"/>
+      <xs:element name="CashBalanceAvailability" type="StmCashBalanceAvailability_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StmTrxSummary_CF">
+    <xs:sequence>
+      <xs:element name="TotalEntriesNumOfEntries" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="TotalEntriesSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalNetEntryAmount" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalEntriesCreditDebitIndicator" type="xs:string" minOccurs="0"/>
+      <xs:element name="TotalCreditEntriesNumOfEntries" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="TotalCreditEntriesSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TotalDebitEntriesNumOfEntries" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="TotalDebitEntriesSum" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TrxSummaryTotalPerTrxCd" type="StmTrxSummaryTotalPerTrxCd_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="String_CF">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="0"/>
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="StsAmendmentInfoDetails_CF">
+    <xs:sequence>
+      <xs:element name="OrgMandateIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="OrgCreditorSchemeIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="OrgCreditorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="OrgCreditorAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="OriginalDebtor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="OrgDebtorAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="OrgDebtorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="OrgDebtorAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="OrgFinalCollectionDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="OrgFrequency" type="Max5Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsCashAccount_CF">
+    <xs:sequence>
+      <xs:element name="IBAN" type="String_CF" minOccurs="0"/>
+      <xs:element name="IdentOtherIdentification" type="String_CF" minOccurs="0"/>
+      <xs:element name="IdentOtherCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="IdentOtherProprietary" type="String_CF" minOccurs="0"/>
+      <xs:element name="IdentOtherIssuer" type="String_CF" minOccurs="0"/>
+      <xs:element name="TypeCode" type="String_CF" minOccurs="0"/>
+      <xs:element name="TypeProprietary" type="String_CF" minOccurs="0"/>
+      <xs:element name="Currency" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="Name" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsChargesInformation_CF">
+    <xs:sequence>
+      <xs:element name="Amount" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="Currency" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="Party" type="PayFinancialInstitution_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsGroupHeader_CF">
+    <xs:sequence>
+      <xs:element name="MessageIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="SystemMessageIdentificationTechnical" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="InitiatingParty" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="ForwardingAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="DebtorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsMandateRelatedInformation_CF">
+    <xs:sequence>
+      <xs:element name="MandateIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="DateOfSignature" type="Date_CF" minOccurs="0"/>
+      <xs:element name="AmendmentIndicator" type="Boolean_CF" minOccurs="0"/>
+      <xs:element name="StsAmendmentInfoDetails" type="StsAmendmentInfoDetails_CF" minOccurs="0"/>
+      <xs:element name="ElectronicSignature" type="Max1025Text_CF" minOccurs="0"/>
+      <xs:element name="FirstCollectionDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="FinalCollectionDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="Frequency" type="Max5Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsNotificationHeader_CF">
+    <xs:sequence>
+      <xs:element name="DeliveryTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="ChannelIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelUUID" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelFreetextContainer" type="Max150Text_CF" minOccurs="0"/>
+      <xs:element name="MessageInfoType" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="MessageInfoIssuer" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="MessageInfoVersion" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="LegalEntity" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="BusinessUnit" type="Max30Text_CF" minOccurs="0"/>
+      <xs:element name="BIC" type="String_CF" minOccurs="0"/>
+      <xs:element name="BankClearingNo" type="String_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsNumberOfTransactionsPerStatus_CF">
+    <xs:sequence>
+      <xs:element name="DetailedNumOfTrx" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="DetailedStatus" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="DetailedControlSum" type="Decimal_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsOriginalGroupInformationAndStatus_CF">
+    <xs:sequence>
+      <xs:element name="OrgMsgIdentification" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="OrgSystemMessageIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="OrgMsgNameIdentification" type="Max35Text_CF" minOccurs="1"/>
+      <xs:element name="OrgCreationDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="OrgNumberOfTransactions" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="OrgControlSum" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="GroupStatus" type="TrxGroupStatusCode_CF" minOccurs="0"/>
+      <xs:element name="ChannelUUID" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="ChannelFreeTextContainer" type="Max150Text_CF" minOccurs="0"/>
+      <xs:element name="StatusInformation" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="Max105Text_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="StatusReasonInformation" type="StsReasonInformation_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="NumberOfTransactionsPerStatus" type="StsNumberOfTransactionsPerStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsOriginalPaymentInformationAndStatus_CF">
+    <xs:sequence>
+      <xs:element name="OrgPaymentInfoIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="OrgSystemPaymentInformationIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="OrgNumberOfTransactions" type="xs:unsignedInt" minOccurs="0"/>
+      <xs:element name="OrgControlSum" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="PaymentInformationStatus" type="TrxGroupStatusCode_CF" minOccurs="0"/>
+      <xs:element name="StatusReasonInformation" type="StsReasonInformation_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="NumberOfTransactionsPerStatus" type="StsNumberOfTransactionsPerStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="TransactionInformationAndStatus" type="StsTransactionInformationAndStatus_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsOriginalTransactionReference_CF">
+    <xs:sequence>
+      <xs:element name="InterbankSettlementAmt" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="InterbankSettlementCurrency" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="InstructedAmount" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="InstructedCurrency" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="EquivalentAmount" type="Decimal_CF" minOccurs="0"/>
+      <xs:element name="EquivalentCurrency" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="EquivalentCurrencyOfTransfer" type="CurrencyCode_CF" minOccurs="0"/>
+      <xs:element name="InterbankSettlementDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="RequestedCollectionDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="RequestedExecutionDate" type="Date_CF" minOccurs="0"/>
+      <xs:element name="CreditorSchemeIdentification" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="SettlementInformation" type="StsSettlementInformation_CF" minOccurs="0"/>
+      <xs:element name="PaymentTypeInformation" type="StsPaymentTypeInformation_CF" minOccurs="0"/>
+      <xs:element name="PaymentMethod" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="MandateRelatedInformation" type="StsMandateRelatedInformation_CF" minOccurs="0"/>
+      <xs:element name="RemittanceInformation" type="PayRemittanceInformation_CF" minOccurs="0"/>
+      <xs:element name="UltimateDebtor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="Debtor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="DebtorAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="DebtorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="DebtorAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="CreditorAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="Creditor" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="CreditorAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="UltimateCreditor" type="PayPartyIdentification_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsPaymentTypeInformation_CF">
+    <xs:sequence>
+      <xs:element name="InstructionPriority" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="ClearingChannel" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="ServiceLevelCode" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="ServiceLevelProprietary" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="LocalInstrumentCode" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="LocalInstrumentProprietary" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="SequenceType" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="CategoryPurposeCode" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="CategoryPurposeProprietary" type="Max35Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsReasonInformation_CF">
+    <xs:sequence>
+      <xs:element name="Originator" type="PayPartyIdentification_CF" minOccurs="0"/>
+      <xs:element name="ReasonCode" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="ReasonProprietary" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="Max105Text_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsSettlementInformation_CF">
+    <xs:sequence>
+      <xs:element name="SettlementMethod" type="Max5Text_CF" minOccurs="0"/>
+      <xs:element name="SettlementAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="ClearingSystemCode" type="Max3Text_CF" minOccurs="0"/>
+      <xs:element name="ClearingSystemProprietary" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="InstructingReimbursementAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="InstructingReimbursementAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="InstructedReimbursementAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="InstructedReimbursementAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+      <xs:element name="ThirdReimbursementAgent" type="PayFinancialInstitution_CF" minOccurs="0"/>
+      <xs:element name="ThirdReimbursementAgentAccount" type="StsCashAccount_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StsTransactionInformationAndStatus_CF">
+    <xs:sequence>
+      <xs:element name="StatusIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="OrgInstructionIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="OrgSystemInstructionIdentification" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="OrgEndToEndIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="TransactionStatus" type="TrxIndividualStatusCode_CF" minOccurs="0"/>
+      <xs:element name="StatusReasonInformation" type="StsReasonInformation_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="ChargesInformation" type="StsChargesInformation_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="AcceptanceDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="AccountServicerRef" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="ClearingSystemRef" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AdditionalInformation" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="OriginalTransactionReference" type="StsOriginalTransactionReference_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SupplementaryDetailsType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CopyField61to86"/>
+      <xs:enumeration value="None"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="SupportGroup_CF">
+    <xs:sequence>
+      <xs:element name="GroupName" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="Routing" type="ChannelConfig_CF" minOccurs="0"/>
+      <xs:element name="SupportType" type="SupportType_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="SupportType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BUSINESS_SUPPORT"/>
+      <xs:enumeration value="IT_SUPPORT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrxGroupStatusCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCP"/>
+      <xs:enumeration value="ACSC"/>
+      <xs:enumeration value="ACSP"/>
+      <xs:enumeration value="ACTC"/>
+      <xs:enumeration value="ACWC"/>
+      <xs:enumeration value="PART"/>
+      <xs:enumeration value="PDNG"/>
+      <xs:enumeration value="RCVD"/>
+      <xs:enumeration value="RJCT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TrxIndividualStatusCode_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACCP"/>
+      <xs:enumeration value="ACSC"/>
+      <xs:enumeration value="ACSP"/>
+      <xs:enumeration value="ACTC"/>
+      <xs:enumeration value="ACWC"/>
+      <xs:enumeration value="PDNG"/>
+      <xs:enumeration value="RJCT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="UploadDownloadType_CF">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DOWNLOAD"/>
+      <xs:enumeration value="UPLOAD"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="UserState_CF">
+    <xs:sequence>
+      <xs:element name="UserId" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="StateKey" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="StateValue" type="Max4096Text_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="V11Set_CF">
+    <xs:sequence>
+      <xs:element name="Status" type="CargoStatus_CF" minOccurs="0"/>
+      <xs:element name="LoadTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="FileName" type="Max256Text_CF" minOccurs="0"/>
+      <xs:element name="MD5Checksum" type="Max1025Text_CF" minOccurs="0"/>
+      <xs:element name="FileContent" type="BTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="v11Unit" type="V11Unit_CF" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="V11Unit_CF">
+    <xs:sequence>
+      <xs:element name="Status" type="PassThroughState_CF" minOccurs="0"/>
+      <xs:element name="CreationDateTime" type="DateTime_CF" minOccurs="0"/>
+      <xs:element name="ContractNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="AccountNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="DeliveryType" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="FileName" type="Max500Text_CF" minOccurs="0"/>
+      <xs:element name="ClientIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="CreationDateHost" type="Max20Text_CF" minOccurs="0"/>
+      <xs:element name="ReferenceNumber" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="SenderIdentification" type="Max35Text_CF" minOccurs="0"/>
+      <xs:element name="TrxCount" type="xs:integer" minOccurs="0"/>
+      <xs:element name="RelatedAccount" type="Account_CF" minOccurs="0"/>
+      <xs:element name="RelatedSenderAgreement" type="Agreement_CF" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="RelatedReceiverAgreement" type="Agreement_CF" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="RelatedSenderParty" type="Party_CF" minOccurs="0"/>
+      <xs:element name="PassThroughData" type="BTResourceBundle_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValidationSchemaResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="XMLResourceBundle_CF">
+    <xs:sequence>
+      <xs:element name="Name" type="Max105Text_CF" minOccurs="0"/>
+      <xs:element name="ResourceBundleType" type="BTResourceBundle_CF" minOccurs="0"/>
+      <xs:element name="Date" type="Date_CF" minOccurs="0"/>
+      <xs:element name="SourceFormat" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="TargetFormat" type="Max50Text_CF" minOccurs="0"/>
+      <xs:element name="Direction" type="MappingDirectionType_CF" minOccurs="0"/>
+      <xs:element name="XsltVersion" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="ModelVersion" type="Max10Text_CF" minOccurs="0"/>
+      <xs:element name="LastModified" type="DateTime_CF" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="XSLTResourceBundle_CF">
+    <xs:complexContent>
+      <xs:extension base="XMLResourceBundle_CF"/>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="YesNoIndicator">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+</xs:schema>

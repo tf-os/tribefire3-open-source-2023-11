@@ -1,0 +1,15 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  devrock.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -210
+
+  artifact_container.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -200
+  
+  greyface.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -190
+
+  virtual_environment.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -180

@@ -1,0 +1,35 @@
+<projectDescription>
+	<name>tribefire-explorer - tribefire.app.explorer</name>
+	<comment>TribefireExplorer</comment>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>com.braintribe.devrock.arb.builder.ArtifactReflectionBuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.google.gdt.eclipse.core.webAppProjectValidator</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.google.gwt.eclipse.core.gwtProjectValidator</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.gwtplugins.gdt.eclipse.core.webAppProjectValidator</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.gwtplugins.gwt.eclipse.core.gwtProjectValidator</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.gwtplugins.gwt.eclipse.core.gwtNature</nature>
+	</natures>
+</projectDescription>

@@ -1,0 +1,10 @@
+@external tetherElement;
+
+.moveTetherActionStyle {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.tetherElement:hover .moveTetherActionStyle {
+  visibility: visible;
+}

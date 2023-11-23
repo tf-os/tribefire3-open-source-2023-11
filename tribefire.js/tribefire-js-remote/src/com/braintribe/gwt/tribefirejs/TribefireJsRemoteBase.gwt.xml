@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>	
+
+	<inherits name="com.braintribe.gwt.tribefirejs.TribefireJsBase"/>
+	<inherits name="com.braintribe.gwt.genericmodel.GenericModel"/>
+	<inherits name="com.braintribe.gwt.gmrpc.base.BaseGmRpcClient"/>
+	<inherits name="com.braintribe.gwt.security.Security"/>
+	<inherits name="com.braintribe.gwt.gmsession.GMSessionModule"/>
+	<inherits name="com.braintribe.model.processing.query.QueryParser"/>
+	<inherits name="com.braintribe.model.UserSessionModel"/>
+	<inherits name="com.braintribe.model.AccessServiceApiModel"/>
+	<inherits name="com.braintribe.model.processing.core.expert.GmExpertRegistryImpl"/>
+	<inherits name="com.braintribe.gwt.gmresource.GmResource"/>
+	<inherits name="com.braintribe.model.util.MetaModelUtil"/>	
+	<inherits name="com.braintribe.gwt.gm.resource.streamingprocessing.StreamingBasedResourceProcessing"/>
+	<inherits name="tribefire.js.model.TribefireJsConfigModel"/>
+	
+    <source path="client"/>
+</module>

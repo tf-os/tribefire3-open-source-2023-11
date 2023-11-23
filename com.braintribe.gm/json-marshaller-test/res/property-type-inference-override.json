@@ -1,0 +1,13 @@
+{
+    "firstLevelAbstract": {
+        "secondLevelAbstract": {
+            "thirdLevelAbstract": {
+                "name": "Meister Eckhart"
+            }
+        }
+    },
+    "firstLevelAbstracts": [
+        { "number": 4711 },
+        { "number": 815 }
+    ]
+}

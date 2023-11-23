@@ -1,0 +1,151 @@
+.emptyStyle {
+	/*font-family: Open Sans !important;*/
+	font-size: 20px;
+	color: #F19B00;
+	text-align: center;
+}
+
+.emptyLargeStyle {
+	/*font-family: Open Sans !important;*/
+	font-size: 40px;
+	color: #F19B00;
+	text-align: center;
+}
+
+*{
+  -moz-outline-style: none;
+	outline: none;
+}
+
+.dual-section-button:HOVER .dual-section-stack {
+	visibility: visible;
+	height: 50%;
+}
+
+.dual-section-button.enabled:HOVER .actionbar-image {
+	opacity: 1;
+}
+
+.dual-section-button .dual-section-stack .enabled {
+	visibility: hidden;
+	height: 0%;
+}
+
+.dual-section-button.enabled:HOVER {
+	border: 1px solid #dedede;
+}
+
+.dual-section-button {
+	border: 1px solid transparent;
+	/*width: 59px;*/
+	width: 100%;
+	padding-top: 4px;
+}
+
+.dual-section-button.enabled {
+    cursor: pointer;
+}
+
+.dual-section-stack {
+	transition: all 0.2s ease-in-out;
+	overflow: hidden;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-color:rgba(240, 240, 240, 0.75);
+}
+
+.dual-section-button.enabled:HOVER .dual-section-image {
+	opacity: 1;
+}
+
+.dual-section-image {
+	display: block; opacity: 0.6;
+	margin-left: 14px;
+}
+
+.globalActionToolBarBase>div {
+	display : flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.gmExplorerConstellationWestPanel .globalActionToolBarBase>div {
+	justify-content: center;
+	
+    border-radius: 5px;
+    height: 30px !important;
+    border: 1px solid #dedede;
+    justify-content: center !important;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: -moz-fit-content !important;
+    width: -webkit-fit-content !important;*/
+    width: auto !important;
+    /*padding-left: 15px;
+    padding-right: 20px;*/	
+}
+
+.globalActionToolBarBase.actionbar-text {
+	margin-top: 0px;
+}
+
+/* Style of highlight buttons */
+.constellationHighlightButton {
+	background-color: #ffa300;
+	color: #fff !important;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 3px;
+	border: 1px solid #ffa300;
+}
+
+.constellationHighlightButton:hover {
+	color: #000 !important;
+}
+
+.homeConstellation .browsingConstellationTopPanel {
+	border-bottom: 0px;
+}
+
+.browsingConstellationTopPanel {
+	display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    border-bottom: 1px solid #dedede;
+}
+
+.browsingConstellationActionBar {
+	width: auto !important;
+	position: relative !important;
+	left: auto !important;
+}
+
+.browsingConstellationTetherBar {
+	width: auto !important;
+    position: relative !important;
+}
+
+.globalActionPanelGroup {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	padding-top: 2px;
+	padding-left: 25px;
+	padding-top: 56px;
+}
+
+.globalActionPanelBody {	
+	height: 35px;
+}
+
+.globalActionPanel {
+	width: 100%;
+	height: 100% !important;
+}
+
+.global-action-button {
+	padding-left : 5px;
+}

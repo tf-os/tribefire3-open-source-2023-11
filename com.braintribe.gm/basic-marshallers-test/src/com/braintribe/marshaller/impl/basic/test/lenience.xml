@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?gm-xml version="3"?><gm-data>
+<required-types>
+<type>com.braintribe.marshaller.impl.basic.test.model.JackOfAllTrades</type>
+<type>com.braintribe.marshaller.impl.basic.test.model.Unkown</type>
+</required-types>
+<root-value>
+<list>
+<entity ref="0"/>
+<entity ref="1"/>
+</list>
+</root-value>
+<pool>
+<entity id="0" type="com.braintribe.marshaller.impl.basic.test.model.JackOfAllTrades">
+<property name="$globalId">
+<null/>
+</property>
+<property name="$partition">
+<null/>
+</property>
+<property name="booleanValue">
+<null/>
+</property>
+<property name="dateValue">
+<null/>
+</property>
+<property name="decimalValue">
+<null/>
+</property>
+<property name="doubleValue">
+<null/>
+</property>
+<property name="entityEntityMap">
+<map/>
+</property>
+<property name="entityList">
+<list/>
+</property>
+<property name="entitySet">
+<set/>
+</property>
+<property name="floatValue">
+<null/>
+</property>
+<property name="id">
+<null/>
+</property>
+<property name="integerValue">
+<null/>
+</property>
+<property name="longValue">
+<null/>
+</property>
+<property name="mode">
+<null/>
+</property>
+<property name="object">
+<null/>
+</property>
+<property name="objectList">
+<list/>
+</property>
+<property name="other">
+<null/>
+</property>
+<property name="primitiveBooleanValue">
+<boolean>false</boolean>
+</property>
+<property name="primitiveDoubleValue">
+<double>0.0</double>
+</property>
+<property name="primitiveFloatValue">
+<float>0.0</float>
+</property>
+<property name="primitiveIntegerValue">
+<integer>0</integer>
+</property>
+<property name="primitiveLongValue">
+<long>0</long>
+</property>
+<property name="stringList">
+<list/>
+</property>
+<property name="stringSet">
+<set/>
+</property>
+<property name="stringStringMap">
+<map/>
+</property>
+<property name="stringValue">
+<null/>
+</property>
+</entity>
+<entity id="1" type="com.braintribe.marshaller.impl.basic.test.model.Unknown">
+<property name="$globalId">
+<null/>
+</property>
+<property name="$partition">
+<null/>
+</property>
+<property name="booleanValue">
+<null/>
+</property>
+<property name="dateValue">
+<null/>
+</property>
+<property name="decimalValue">
+<null/>
+</property>
+<property name="doubleValue">
+<null/>
+</property>
+<property name="entityEntityMap">
+<map/>
+</property>
+<property name="entityList">
+<list/>
+</property>
+<property name="entitySet">
+<set/>
+</property>
+<property name="floatValue">
+<null/>
+</property>
+<property name="id">
+<null/>
+</property>
+<property name="integerValue">
+<null/>
+</property>
+<property name="longValue">
+<null/>
+</property>
+<property name="mode">
+<null/>
+</property>
+<property name="object">
+<null/>
+</property>
+<property name="objectList">
+<list/>
+</property>
+<property name="other">
+<null/>
+</property>
+<property name="primitiveBooleanValue">
+<boolean>false</boolean>
+</property>
+<property name="primitiveDoubleValue">
+<double>0.0</double>
+</property>
+<property name="primitiveFloatValue">
+<float>0.0</float>
+</property>
+<property name="primitiveIntegerValue">
+<integer>0</integer>
+</property>
+<property name="primitiveLongValue">
+<long>0</long>
+</property>
+<property name="stringList">
+<list/>
+</property>
+<property name="stringSet">
+<set/>
+</property>
+<property name="stringStringMap">
+<map/>
+</property>
+<property name="stringValue">
+<null/>
+</property>
+</entity>
+</pool>
+</gm-data>

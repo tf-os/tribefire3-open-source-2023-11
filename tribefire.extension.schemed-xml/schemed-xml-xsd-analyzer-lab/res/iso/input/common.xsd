@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+        attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://standards.iso.org/iso/15143/-3"
+        xmlns="http://standards.iso.org/iso/15143/-3"
+        version="1.0.0"
+>
+    <xs:element name="Fleet">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Links" type="Links" minOccurs="1" maxOccurs="unbounded" />
+                <xs:element name="Equipment" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="EquipmentHeader" type="EquipmentHeader" maxOccurs="1"/>
+                            <xs:element name="AverageLoadFactorLast24" type="LoadFactor" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Location" type="Location" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativeActiveRegenerationHours" type="CumulativeActiveRegenerationHours" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativeIdleHours" type="CumulativeIdleHours" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativeIdleNonOperatingHours" type="CumulativeIdleHours" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativeLoadCount" type="LoadCount" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativeOperatingHours" type="CumulativeOperatingHours" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativePowerTakeOffHours" type="CumulativePowerTakeOffHours" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="CumulativePayloadTotals" type="PayloadTotals" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="DEFRemaining" type="DEFRemaining" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Distance" type="Distance" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="EngineStatus" type="EngineStatus" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="FuelUsed" type="FuelUsed" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="FuelUsedLast24" type="FuelUsed" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="FuelRemaining" type="FuelRemaining" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="MaximumSpeedLast24" type="Speed" minOccurs="0" maxOccurs="1" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:unsignedInt" use="required"/>
+            <xs:attribute name="snapshotTime" type="xs:dateTime" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="serno">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="percent">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="3"/>
+            <xs:fractionDigits value="2"/>
+            <xs:minInclusive value="000.00"/>
+            <xs:maxInclusive value="100.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="lat">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="8"/>
+            <xs:fractionDigits value="6"/>
+            <xs:minInclusive value="-90.000000"/>
+            <xs:maxInclusive value="+90.000000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="long">
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="9"/>
+            <xs:fractionDigits value="7"/>
+            <xs:minInclusive value="-180.000000"/>
+            <xs:maxInclusive value="+180.000000"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="fueluom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="litre"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="defuom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="litre"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="odometeruom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="kilometre"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="altitudeuom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="metre"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="EquipmentHeader">
+        <xs:sequence>
+            <xs:element name="UnitInstallDateTime" minOccurs="0" maxOccurs="1" type="xs:dateTime"/>
+            <xs:element name="OEMName" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="Model" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="EquipmentID" minOccurs="0" maxOccurs="1" type="xs:string"/>
+            <xs:element name="SerialNumber" minOccurs="0" maxOccurs="1" type="serno" />
+            <xs:element name="PIN" minOccurs="0" maxOccurs="1" type="serno" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Location">
+        <xs:sequence>
+            <xs:element name="Latitude" type="lat"/>
+            <xs:element name="Longitude" type="long"/>
+            <xs:element name="Altitude" type="xs:decimal" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="AltitudeUnits" type="altitudeuom" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CumulativeActiveRegenerationHours">
+        <xs:sequence>
+            <xs:element name="Hour" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CumulativeOperatingHours">
+        <xs:sequence>
+            <xs:element name="Hour" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CumulativeIdleHours">
+        <xs:sequence>
+            <xs:element name="Hour" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="CumulativePowerTakeOffHours">
+        <xs:sequence>
+            <xs:element name="Hour" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="EngineStatus">
+        <xs:sequence>
+            <xs:element name="EngineNumber" type="xs:string"/>
+            <xs:element name="Running" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="DEFRemaining">
+        <xs:sequence>
+            <xs:element name="Percent" type="percent"/>
+            <xs:element name="DEFTankCapacityUnits" type="defuom" minOccurs="0"/>
+            <xs:element name="DEFTankCapacity" type="xs:decimal" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="FuelUsed">
+        <xs:sequence>
+            <xs:element name="FuelUnits" type="fueluom"/>
+            <xs:element name="FuelConsumed" type="xs:unsignedInt"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="FuelRemaining">
+        <xs:sequence>
+            <xs:element name="Percent" type="percent"/>
+            <xs:element name="FuelTankCapacityUnits" type="fueluom" minOccurs="0"/>
+            <xs:element name="FuelTankCapacity" type="xs:unsignedInt" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="Links">
+        <xs:sequence>
+            <xs:element name="rel" type="xs:string" minOccurs="1" />
+            <xs:element name="href" type="xs:string" minOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LoadFactor">
+        <xs:sequence>
+            <xs:element name="Percent" type="percent"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="LoadCount">
+        <xs:sequence>
+            <xs:element name="Count" type="xs:unsignedInt"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="PayloadTotals">
+        <xs:sequence>
+            <xs:element name="PayloadUnits" type="weightuom"/>
+            <xs:element name="Payload" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="weightuom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="kilogram"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Speed">
+        <xs:sequence>
+            <xs:element name="SpeedUnits" type="speeduom"/>
+            <xs:element name="Speed" type="xs:decimal"/>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+    <xs:simpleType name="speeduom">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="kilometres per hour"/>
+            <xs:enumeration value="metres per minute"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Distance">
+        <xs:sequence>
+            <xs:element name="OdometerUnits" type="odometeruom"/>
+            <xs:element name="Odometer">
+                <xs:simpleType>
+                    <xs:restriction base="xs:decimal">
+                        <xs:fractionDigits value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="datetime" type="xs:dateTime" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

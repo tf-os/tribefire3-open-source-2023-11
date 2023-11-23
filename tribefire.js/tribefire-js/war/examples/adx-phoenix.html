@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs DHF</title>
+	<head>        
+        <script>
+            var testUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/web-reader/?webReaderDebugMode&accessId=access.adx.content.jnj-am-2-3#documentId=5cfa3641-854c-4884-84b8-35d3757ad321&requestMeta.userId=none&requestMeta.adxId=TEST_ADXID&requestMeta.objectId=TEST_OBJECTID&requestMeta.appName=TEST_APPNAME";
+            
+            var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+            var accessId = "access.adx.content.jnj-am-2-3";
+            var documentId = "5cfa3641-854c-4884-84b8-35d3757ad321";
+            var remoteSession;
+            var persistenceSession;
+            var user = "cortex";
+            var pwd = "cortex";
+
+            window.addEventListener('onStartTribefireJs', function(){
+                loadDocument();   
+            });
+            
+            function loadDocument(){
+                openSession().then(s => {
+                    r = $T.com.braintribe.model.documents.service.v1.retrieval.GetDocumentInfo.create();
+                    r.documentId = documentId;
+                    r.metaData.put("requestMeta.userId", "author");
+                    r.metaData.put("requestMeta.adxId", "TEST_ADXID");
+                    r.metaData.put("requestMeta.objectId", "TEST_OBJECTID");
+                    r.metaData.put("requestMeta.appName", "TEST_APPNAME");
+                    s.evaluate(r).then(r => {
+                        r.acl.entries.forEach(e=>{
+                            console.log(e.operation + " " + e.role + " " + e.permission);
+                        });
+                        sa = s.getSessionAuthorization();                   
+                        logAcl(r, "ADD_ATTACHMENT", sa.getUserName(), sa.getUserRoles());
+                        logAcl(r, "ADD_ATTACHMENT<PersonalNote>", sa.getUserName(), sa.getUserRoles());
+                        logAcl(r, "ADD_ATTACHMENT<Question>", sa.getUserName(), sa.getUserRoles());
+                        logAcl(r, "ADD_ATTACHMENT<RevisionRequest>", sa.getUserName(), sa.getUserRoles());                        
+                    });
+                })   
+            }
+            
+            function logAcl(r, operation, user, givenRoles) {
+                var granted = isOperationGranted(r.owner, sa.getUserName(), r.acl, operation, sa.getUserRoles());  
+                var s = "Is acl set: " + (r.acl != null);		
+                s += ". evaluating operation: ";		
+                s += operation;		
+                s += " - for user: ";		
+                s += user;		
+                s += " - with given roles: ";
+                
+                if(givenRoles)
+                    for(var r of givenRoles.toArray())
+                        s += r + " ";
+
+                s += "- isOperationGranted: " + granted;		
+                console.log(s);	
+	       }
+            
+            function isOperationGranted(owner, userId, acl, op, roles){
+                var isOperationGranted = false;			
+			
+                if (owner != null && owner.equals(userId))
+                    isOperationGranted = true;
+
+                if (acl != null)
+                    isOperationGranted = acl.isOperationGranted(op, roles);
+                else
+                    isOperationGranted = false;
+
+                return isOperationGranted;   
+            }
+
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword(user, pwd);
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }
+            
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+	<body>
+	</body>	
+</html>

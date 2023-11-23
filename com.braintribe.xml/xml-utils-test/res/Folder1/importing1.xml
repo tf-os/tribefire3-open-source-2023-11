@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <node id="10000000" name="DMS" description="DMS">
+    <xi:include href="imported1.xml" parse="xml" xpointer="xpointer(/ContentHierarchy/*)" />
+  </node>
+</ContentHierarchy>
+

@@ -1,0 +1,2 @@
+$0=(GmMetaModel=com.braintribe.model.meta.GmMetaModel)()
+.globalId='post.SimpleSmokeTestModel'

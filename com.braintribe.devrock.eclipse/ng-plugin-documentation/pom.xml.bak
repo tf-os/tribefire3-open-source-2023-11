@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>com.braintribe.devrock.eclipse</groupId>
+    <artifactId>ng-plugin-documentation</artifactId>
+    <version>${major}.${minor}.${revision}</version>
+    <properties>
+        <major>1</major>
+        <minor>0</minor>
+        <nextMinor>1</nextMinor>
+        <revision>1-pc</revision>
+        <archetype>asset</archetype>
+		<V.standard.documentation.range>[1.0,1.1)</V.standard.documentation.range>
+		<V.zed.standard.documentation.range>[2.0,2.1)</V.zed.standard.documentation.range>
+    </properties>
+    <dependencies>    	
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>devrock-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>artifact-container-ng-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>greyface-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>model-builder-ng-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>artifact-reflection-builder-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>debug-module-builder-ng-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.eclipse</groupId>
+			<artifactId>mungo-jerry-ng-documentation</artifactId>
+			<version>${V.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+		<dependency>
+			<groupId>com.braintribe.devrock.zed</groupId>
+			<artifactId>zarathud-documentation</artifactId>
+			<version>${V.zed.standard.documentation.range}</version>
+			<?tag asset?>
+			<type>man</type>
+		</dependency>
+    </dependencies>
+</project>

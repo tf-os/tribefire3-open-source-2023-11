@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<title>Test Basic Template  Based App</title>
+	<head>
+	<style>
+		.timestamp {
+		    font-weight: bold;
+		    font-size:5em;
+		    padding: 5px;	    
+	    }
+	</style>		
+	</head>
+	
+	<body>	
+		<div id="tf_header">
+			<a href="./test.app"><img src="$tribefireRuntime.getServicesUrl()/webpages/logo-tf-orange-cartrdiges-small.png" id="tf_logo" alt="logo" width="185"/></a>			
+		</div>
+		
+		<div id="timestamp" class="timestamp">
+			$timestamp
+		</div>
+		  								
+	  	<footer>
+			<label value="©"/><a href="http://www.braintribe.com" target="_blank">Braintribe IT-Technologies</a> 
+		</footer>
+	  	
+	  			
+	</body>
+	
+</html>

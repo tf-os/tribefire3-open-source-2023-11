@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- simple settings for a test with the local repository and two repolet backed remote repositories -->
+<settings>	
+	<localRepository>${env.repo}</localRepository>		
+	<profiles>		
+		<profile>
+			<id>default</id>
+			<repositories>
+				<!-- repolet backed repository 'archiveA' -->
+				<repository>
+					<id>archiveA</id>
+					<layout>default</layout>
+					<url>http://localhost:${env.port}/archiveA/</url>					
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+				<!-- repolet backed repository 'archiveB' -->
+				<repository>
+					<id>archiveB</id>
+					<layout>default</layout>
+					<url>http://localhost:${env.port}/archiveB/</url>					
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>
+				<!-- repolet backed repository 'archiveC' -->
+				<repository>
+					<id>archiveC</id>
+					<layout>default</layout>
+					<url>http://localhost:${env.port}/archiveC/</url>					
+					<releases>
+						<enabled>true</enabled>
+						<updatePolicy>never</updatePolicy>
+					</releases>
+				</repository>									
+			</repositories>
+			<properties>
+				<target-repository>archiveA</target-repository>
+			</properties>						
+		</profile>		
+	</profiles>
+	<activeProfiles>
+		<activeProfile>default</activeProfile>
+	</activeProfiles>
+</settings>

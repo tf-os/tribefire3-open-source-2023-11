@@ -1,0 +1,28 @@
+.icon{
+	background-size: 100% !important;
+}
+
+.text {
+	 font-size: 13px !important;
+	 margin-left: 10px;
+}
+
+.node {
+	margin-top: 5px;
+}
+
+.gmeTreeText {
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-grow: 2;
+    flex-basis: 0;	
+}
+
+.element {
+	display: flex;
+}
+
+.gmeWorkbenchTable {
+	table-layout: fixed;
+}

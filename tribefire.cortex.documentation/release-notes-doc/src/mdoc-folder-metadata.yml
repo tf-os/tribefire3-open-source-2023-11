@@ -1,0 +1,121 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  release_tribefire-2.3.10.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.9.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.8.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.7.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.6.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.5.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.4.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.3.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.2.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.1.md:
+    tags:
+      - release
+
+  release_tribefire-2.3.0.md:
+    tags:
+      - release
+
+  release_2021_11_17.md:
+    tags:
+      - release
+
+  release_2021_06_25.md:
+    tags:
+      - release
+
+  release_2021_03_03_p1.md:
+    tags:
+      - release
+
+  release_2021_03_03.md:
+    tags:
+      - release
+
+  release_2020_12_02.md:
+    tags:
+      - release
+
+  release_2020_09_29.md:
+    tags:
+      - release
+
+  release_2020_06_05.md:
+    tags:
+      - release
+
+  release_2020_02_25.md:
+    tags:
+      - release
+
+  release_2019_12_18.md:
+    tags:
+      - release
+
+  release_2019_11_08.md:
+    tags:
+      - release
+
+  release_2019_08_20.md:
+    tags:
+      - release
+
+  release_2019_05_31.md:
+    tags:
+      - release
+
+  release_2019_03_27.md:
+    tags:
+      - release
+
+  release_2019_01_21.md:
+    tags:
+      - release
+
+  release_2018_12_13.md:
+    tags:
+      - release
+
+  release_2018_10_24.md:
+    tags:
+      - release
+
+  release_2018_09_27.md:
+    tags:
+      - release
+
+  next-release-notes-2.3.md:
+    hidden: true
+
+  next-release-notes-3.0.md:
+    hidden: true

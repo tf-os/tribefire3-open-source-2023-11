@@ -1,0 +1,1 @@
+[](asset://tribefire.extension.hibernate:hibernate-doc/hibernate-mapping/hibernate_mapping_metadata.md?INCLUDE)

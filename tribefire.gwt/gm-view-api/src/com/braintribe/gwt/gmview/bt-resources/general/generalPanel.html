@@ -1,0 +1,79 @@
+
+<style>
+.generalPanel {
+	display: flex;
+	align-items: center;
+	padding: 5px;
+	padding-left: 15px;
+	overflow:hidden;
+	min-height:50px;
+}
+
+.generalIconWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.generalIcon {
+	height: 32px;
+	width: 32px;
+	display: inline-block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+.generalMainSecion {
+	flex-grow: 1;
+	padding-left: 15px;
+	overflow:hidden;
+}
+
+.generalMainSecion-si {
+	font-size: 14pt;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.generalMainSecion-typeName {
+	
+}
+
+.generalMainSecion-typeSignature {
+	color: silver;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;	
+}
+
+.generalExpandWrapper {
+	display: flex;
+	align-items: center;
+}
+
+.generalExpandButton {
+	width: 16px;
+	height: 16px;
+	border:none;
+	background-color:none;
+	cursor: pointer;
+}
+
+.generalExpandIcon {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+</style>
+
+<div class="generalPanel">
+	<div class="generalIconWrapper">
+		<div class="generalIcon" style="{iconStyle}"></div>
+	</div>
+	<div class="generalMainSecion">
+		<div class="generalMainSecion-si" title="{si}">{si}</div>
+		<div class="generalMainSecion-typeSignature" title="{hint}">{typeSignature}</div>
+	</div>
+</div>

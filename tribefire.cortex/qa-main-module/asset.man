@@ -1,0 +1,3 @@
+$nature = (TribefireModule=com.braintribe.model.asset.natures.TribefireModule)()
+.accessIds=['cortex']
+.privateDeps=['.*']

@@ -1,0 +1,413 @@
+/* ### Header ### */
+
+.api-link.outsidelink:after {
+	background-image: url(outsidelink-white.svg);
+    font-size: 26px;
+    margin-top: -3px;
+    margin-left: 6px;
+}
+
+#header-menu {
+	overflow: hidden;
+    padding: 0px;
+    padding-left: 5px;
+}
+
+#header-menu > li {
+    float: left;
+    list-style: none;
+    height: 100%;
+}
+
+#header-menu > li.ownAsset > a {
+	border-bottom: 4px solid orange;	
+}
+
+#header-menu > li:hover > a {
+	background-color: #333;
+	border-bottom: 4px solid #79bde1;	
+}
+
+#header-menu > li.ownAsset:hover > a {
+	background-color: inherit;
+	border-color: orange;
+}
+
+#header-menu > li > a {
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    display: inline-block;
+    height: 100%;
+
+    padding: 17px 9px 0px 9px;
+}
+
+.header .tile {
+	height: 100%;
+	margin: 0px;
+	border-style: none;
+}
+
+.header .backlink {
+	width: 80px;
+	right: 0px;
+	position: absolute;
+	text-align: center;
+	font-weight: bold;
+	box-sizing: border-box;
+	color: black;
+	background-color: orange;
+}
+
+.header>.backlink>span {
+	background: url(overview.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 20px;
+	margin: 10px;
+	display: inline-block;
+}
+
+.header>.backlink:hover {
+	background-color: #ffbc00;
+}
+
+.header>.backlink:hover>span {
+	opacity: 0.8;
+}
+
+.header #search-bar {
+	flex-wrap: nowrap;
+    display: flex;
+}
+
+.header .search-input {
+	float: right;
+	position: relative;
+	display: inline-block;
+	padding: 20px;
+	width: 27ch;
+	font-size: large;
+	background: none;
+	color: #aaa;
+}
+
+.header #search-icon>input:hover {
+	background-color: orange;
+}
+
+.header #search-icon>input {
+	height: 100%;
+	padding: 10px;
+	display: block;
+}
+
+.header #search-icon.toggleEnabled>input {
+	width: 40px;
+	height: 40px;
+	padding: 3px;
+}
+
+.header #search-icon #toggleIcon {
+	height: 20%;
+	width: 95%;
+	margin-left: 1px;
+	display: none;
+}
+
+#toggleIcon>input {
+	display: none;
+}
+
+.header #search-icon.toggleEnabled #toggleIcon {
+	display: inline-block;
+	position: absolute;
+	bottom: 2px;
+}
+
+input+.toggler {
+	background-color: lime;
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+input:checked+.toggler {
+	background-color: yellow;
+}
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	border-radius: 20%;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 120%;
+	width: 35%;
+	left: -1px;
+	bottom: -1px;
+	background-color: yellow;
+	-webkit-transition: .4s;
+	transition: .4s;
+}
+
+input:checked+.slider {
+	background-color: #dd0;
+}
+
+input:focus+.slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+	-webkit-transform: translateX(27px);
+	-ms-transform: translateX(27px);
+	transform: translateX(27px);
+	background-color: white;
+}
+
+.header #search-icon {
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+}
+
+.header #search-bar:hover .search-input, .header .search-input:focus {
+	background-color: #000000;
+	color: white;
+}
+
+.header #search-icon:hover+.search-input::placeholder {
+	color: #333;
+}
+
+.header .search-input:hover::placeholder, .header .search-input:focus::placeholder
+	{
+	color: #ccc;
+}
+
+.home-button > a {
+	width: 130px;
+	display: block;
+}
+
+.home-button {
+	width: 130px;
+	margin: 15px;
+}
+
+/* ### Footer ### */
+.builtwith {
+	clear: both;
+	float: left;
+}
+
+.buildInfo {
+	font-size: xx-small;
+	float: right;
+	padding: 2px;
+}
+
+.collapse-all-button:hover {
+	color: white;
+	background: #151515;
+}
+
+.collapse-all-button {
+    position: fixed;
+    width: 24px;
+    background: #ccc;
+    left: 5px;
+    top: 80px;
+    text-align: center;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* ### Navgoco Menu ### */
+.javascript-enabled .inner-container .nav {
+	display: none;
+}
+
+.menu ul {
+	background-color: #fdfdfd;
+}
+
+.navFilter {
+    width: 100%;
+    border-width: 2px;
+    border-color: grey;
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+
+.nav, #header-menu {
+	padding: 0px;
+	margin: 0px;
+	font-family: 'News Cycle', 'Catamaran', 'Roboto', 'Helvetica', sans-serif;
+	
+}
+
+.menu a.selflink.file {
+	color: orange;
+	font-weight: bold;
+}
+
+/* make files in nav orange-ish, to easier tell them from folders */
+.menu li a.file {
+	color: #c08500;
+}
+
+/* make the orange on hover slightly lighter due to darker background */
+.menu li a.file:hover {
+	color: #ffb500;
+}
+
+
+.nav a {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 40px;
+}
+
+.nav li a {
+	font-size: 17px;
+	padding: 0.18em;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+.nav>ul>li>a {
+	font-size: 18px;
+}
+
+.nav a:hover {
+	text-decoration: none;
+}
+
+.nav ul li a {
+	border-top: 1px solid whitesmoke;
+	background-color: #FAFAFA;
+}
+
+.nav ul li ul li a {
+	padding-left: 20px;
+}
+
+.nav ul li ul li ul li a {
+	padding-left: 40px;
+}
+
+.nav ul li ul li ul li ul li a {
+	padding-left: 60px;
+}
+
+.nav>li {
+	margin: 0px;
+}
+
+.nav>li li {
+	margin: 0px;
+}
+
+.nav .open>a {
+	font-weight: bold;
+	background-color: #f1f1f1;
+}
+
+.nav ul {
+	margin: 0px;
+	
+	/* Especially for the drop-down header menu: */
+	position: relative;
+	z-index: 1;
+}
+
+.nav li a:hover {
+	background-color: #8D8D8D;
+}
+
+.nav i {
+    color: darkgrey;
+}
+
+.nav.dark .open>a {
+	background-color: #151515;
+}
+
+.nav.dark li a {
+	background-color: #555;
+}
+
+.nav.dark ul li a {
+	background-color: #333;
+}
+
+.nav.dark a {
+	color: white;
+}
+
+.nav.dark li a:hover {
+	background-color: #6A6A6A;
+}
+
+.nav.dark ul li a {
+	border: initial;
+}
+
+.header .nav>li>a {
+	font-weight: bold;
+	padding-top: 20px;
+}
+
+.header .nav {
+	font-size: 18px;
+}
+
+.header .nav > li > ul > li > a {
+    padding: 7px 9px;
+}
+
+header > nav {
+	display: flex;
+    height: 100%;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* pagination */
+
+#pagination-bar  {
+	padding-top: 10px;
+}

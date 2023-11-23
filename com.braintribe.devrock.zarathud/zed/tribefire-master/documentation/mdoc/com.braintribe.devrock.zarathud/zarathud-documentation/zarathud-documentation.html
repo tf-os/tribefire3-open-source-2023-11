@@ -1,0 +1,230 @@
+
+<html lang=en>
+<head>
+	<title>Documentation - com.braintribe.devrock.zarathud:zarathud</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="../../.mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='../../.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='../../.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='../../.mdoc/res/custom.css'/>
+	<link rel="icon" href="../../.mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src="../../.mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../.mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../.mdoc/res/jquery.navgoco.min.js"></script>	
+	<link rel='stylesheet' href='../../.mdoc/res/content.css'/>
+	
+   	<script src="../../.mdoc/res/lunr.js"></script>
+    <script src="../../.mdoc/res/lunr-index.js"></script>
+    
+    <link rel="stylesheet" href="../../.mdoc/res/highlight-custom.css">
+	<script src="../../.mdoc/res/highlight.pack.js"></script>
+	<script>hljs.highlightAll();</script>
+    
+    <script src="../../.mdoc/res/content.js"></script>
+ 
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=../../index.html><img src='../../.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class='ownAsset'><a href="../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class='ownAsset'><a href="../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="../../search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src="../../.mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+    <main id='full-content' class='content-container'>
+    	<article>
+			<h1 id="combraintribedevrockzarathudzarathud"><a href="#combraintribedevrockzarathudzarathud" name="combraintribedevrockzarathudzarathud" class="anchor-auto-link"></a>com.braintribe.devrock.zarathud:zarathud</h1>
+<h1 id="what-is-it"><a href="#what-is-it" name="what-is-it" class="anchor-auto-link"></a>What is it?</h1>
+<p>Zed is the current iteration of the Zarathud project. It's quite old - at least, the idea is. It started during the early days of the GmCore, made its move into the TF1.x world, but had to be completely redone for TF2.x world and for the newer Java versions.</p>
+<h1 id="how-does-it-work"><a href="#how-does-it-work" name="how-does-it-work" class="anchor-auto-link"></a>How does it work?</h1>
+<p>Zed is using <em>ASM</em> to analyze the <strong>compiled</strong> java code. Therefore it can work with any artifact, being one of ours or a third-party artifact. It analyzes the 'real' dependencies of an artifact, i.e. tries to figure out what classes are actually needed from the various dependencies.</p>
+<h1 id="what-does-zed-aim-for"><a href="#what-does-zed-aim-for" name="what-does-zed-aim-for" class="anchor-auto-link"></a>What does Zed aim for?</h1>
+<p>Zed aka Zarathud is a tool to analyze existing binary java code. It can extract data from such an artifact and store it as an assembly. Using that data, several features can be implemented, like comparing the extracted data of two versions of the same artifact, analyzing dependencies et al. <a href="rationale/rationale.html">More high-level rationale can be found here</a></p>
+<div class="toc">
+<h2>On this page</h2>
+<ol>
+<li><a href="#extraction">extraction</a></li>
+<li><a href="#modules">modules</a></li>
+<li><a href="#analysis">analysis</a></li>
+<li><a href="#comparison-projected">comparison (projected)</a></li>
+<li><a href="#how-good-is-the-analysis">how good is the analysis?</a></li>
+</ol>
+</div>
+<h2 id="extraction"><a href="#extraction" name="extraction" class="anchor-auto-link"></a>extraction</h2>
+<p>Zed can read <strong>binary</strong> java classes (either in jar or in a bin-folder), and extract data about classes, methods, fields etc.</p>
+<blockquote>
+<p>So one can imagine that Zed's data could be collected by running over our repositories and build an index from that. Next, AC could for instance sport something similar like CTRL+SHIFT+T, but not just querying the JDT indices (all classes somehow referenced by the project in your workspace), but actually across all classes in our repositories, with the option to get a respective dependency entry.</p>
+</blockquote>
+<h2 id="modules"><a href="#modules" name="modules" class="anchor-auto-link"></a>modules</h2>
+<p>Moving to modules is a lot of work that most of us don't even dare to start. Zed aims to help in that area, and produces import requirements for the terminal, and in reverse, export requirements for the dependencies.</p>
+<blockquote>
+<p>In a further step, zed should read the terminal's 'module-info.java' and at least show discrepanciues between what is declared there and what is actually need. Of course, zed is only savvy about the terminal, its view on the dependencies is very limited (terminal-centered). But still, the information about the export requirements of the terminal attributes to a analysis of the dependencies 'module-info.java' in turn.</p>
+</blockquote>
+<h2 id="analysis"><a href="#analysis" name="analysis" class="anchor-auto-link"></a>analysis</h2>
+<p>Using the extracted data, Zed can run <em>forensics</em>, in order to find problems in type references, implicit dependencies without declarations etc.
+<a href="forensics/forensics.html">Forensics</a> help to find issues with an artifact - missing dependency declarations, shadowing classes in the classpath et al. Model forensics allow to validate a model <em>before</em> it is presented to Tribefire.</p>
+<ul>
+<li>dependencies : missing, superfluous and 'forwarded' depedencies</li>
+<li>classpath: duplicate class-resource definitions in multiple jars in the classpath</li>
+<li>model: generic-entity declaration, string literals, enum declarations, conform/non-conform methods</li>
+<li>module : all imported packages with their origin, required exported packages of all dependencies</li>
+</ul>
+<h2 id="comparison-projected"><a href="#comparison-projected" name="comparison-projected" class="anchor-auto-link"></a>comparison (projected)</h2>
+<p>Using two sets of extracted data, Zed can compare them and analyze them for compatibility.
+The comparison feature allows us to either control publishing of hotfix revisions, or at the least, create awareness of breaking changes so one can react to them (change notes)</p>
+<h1 id="how-can-i-run-an-analysis-with-zed"><a href="#how-can-i-run-an-analysis-with-zed" name="how-can-i-run-an-analysis-with-zed" class="anchor-auto-link"></a>How can I run an analysis with Zed?</h1>
+<p>There are currently 4 different ways to get Zed to run an analysis</p>
+<ul>
+<li>directly via <a href="integrations/java-runner.html">Java</a></li>
+<li>via <a href="integrations/jinni-runner.html">Jinni</a></li>
+<li>via <a href="integrations/ant-runner.html">ant</a></li>
+<li>via <a href="integrations/eclipse-runner.html">eclipse</a></li>
+</ul>
+<h2 id="how-good-is-the-analysis"><a href="#how-good-is-the-analysis" name="how-good-is-the-analysis" class="anchor-auto-link"></a>how good is the analysis?</h2>
+<p>Well, to be frank, zed is no way finished and hence impossible to be perfect (if ever that would be possible). I do think that all its weaknesses are in the realm of understanding ASM lingo, and I still harbor the hope that eventually, zed will always work fine.</p>
+<p>Until then, zed will tell you what it didn't understand in its output - it will show that in its output.</p>
+
+		</article>
+		
+		<div id='tags'>
+		</div>
+	</main>
+	  
+	<div class='menu'>
+	<nav class='nav'>
+    	<input id="navFilter" class="navFilter" placeholder="Filter..." name="menuFilter" oninput="onNavFilterTextChanged()" />
+		<ul>
+			<li><a href=#>Zarathud Documentation</a>
+  <ul>
+    <li>		<a href='#' class='folder'>forensics</a>
+
+  <ul>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' class='file'>Finger prints</a>
+
+</li>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' class='file'>Forensics</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>integrations</a>
+
+  <ul>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' class='file'>Running an analysis via ant target</a>
+
+</li>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' class='file'>running an analysis in Eclipse</a>
+
+</li>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' class='file'>Running an analysis via java</a>
+
+</li>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' class='file'>Running an analysis via Jinni</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>rationale</a>
+
+  <ul>
+    <li>		<a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' class='file'>Rationale (mgmt redux)</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='selflink file'>com.braintribe.devrock.zarathud:zarathud</a>
+
+</li>
+  </ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<aside class='nav' id='technicalLinks'>
+	  <ul>
+		<li><a href=#>See also...</a>
+		  <ul>
+		    <li><a href=#>Outgoing Links</a>
+		      <ul>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' title='running an analysis in Eclipse - Zarathud Documentation' class="file">
+					running an analysis in Eclipse <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' title='Rationale (mgmt redux) - Zarathud Documentation' class="file">
+					Rationale (mgmt redux) <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' title='Running an analysis via ant target - Zarathud Documentation' class="file">
+					Running an analysis via ant target <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' title='Forensics - Zarathud Documentation' class="file">
+					Forensics <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' title='Running an analysis via java - Zarathud Documentation' class="file">
+					Running an analysis via java <i> - Zarathud Documentation</i>
+				</a></li>
+				<li><a href='../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' title='Running an analysis via Jinni - Zarathud Documentation' class="file">
+					Running an analysis via Jinni <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	</aside>
+	</div>
+	
+	<!-- The Modal -->
+	<div id="imageModal" class="modal">
+	
+	  <!-- The Close Button -->
+	  <span class="close">&times;</span>
+	
+	  <!-- Modal Content (The Image) -->
+	  <img class="modal-content" id="modalImage">
+	
+	</div>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

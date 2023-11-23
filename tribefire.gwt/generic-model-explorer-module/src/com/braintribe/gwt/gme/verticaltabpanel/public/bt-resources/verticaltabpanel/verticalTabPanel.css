@@ -1,0 +1,225 @@
+
+div.verticalTabItem.horizontalTabItem.staticTabItem.verticalTabSelected {
+    opacity: 1;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid #FFB52F !important;
+}
+div.verticalTabItem.horizontalTabItem.staticTabItem {
+    background: none repeat scroll 0 0 #FFFFFF !important;
+    border: 1px solid #FFFFFF !important;
+    opacity: 0.65;
+    color: #FFA500 !important;
+    font-weight: bold;
+    width: auto;
+}
+div.verticalTabItem.horizontalTabItem {
+    width: 100%;	
+}
+div.verticalTabItem.horizontalTabItem.staticTabItem:hover {
+    opacity: 1;
+}
+.verticalTabItems {
+    margin-bottom: 4px;
+    margin-top: 3px;
+    width: 100%;
+}
+td.verticalTabItem {
+    min-height: 25px;
+    padding-top: 1px;
+    vertical-align: middle;
+}
+div.verticalTabItem {
+    background-color: #FFE6BA;
+    border-color: #FFE6BA;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    cursor: pointer;
+    display: inline-block;
+    /*font-family: Open Sans,Arial;*/
+    font-size: 12px;
+    color: #3f4348 !important;
+    min-width: 25px;
+    padding-left: 8px;
+    vertical-align: middle;
+    /*min-height: 30px;*/
+}
+div.verticalTabItem:hover {
+    background-color: #FFDA97;
+    border-color: #FFDA97;
+}
+div.horizontalTabItem {
+    border-bottom-left-radius: 0;
+    border-right-width: 1px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin-left: 1px;
+}
+
+div.verticalTabItem.verticalTabSelected {
+    background-color: #FFB52F;
+    border-color: #FFB52F;
+    color: #000000;
+}
+div.verticalTabItem.staticTabItem {
+    border-radius: 0 0 0 0;
+}
+.tabItemLabel {
+    padding: 8px 4px 8px 4px;
+}
+.tabItemNoLabel{
+	display: none;
+}
+.tabItemLabelNoIcon {
+    padding: 8px 4px 8px 0;
+    /* position:relative; */
+}
+.tabItemLabelHorizontal {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+a.closeIcon {
+    background-image: url("tab-close.gif");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 11px;
+    margin-top: -20px;
+    opacity: 0.6;
+    position: absolute;
+    right: 3px;
+    width: 11px;
+    z-index: 2;
+}
+a.closeIcon:hover {
+    opacity: 1;
+}
+a.closeHorizontalIcon {
+    background-image: url("tab-close.gif");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 11px;
+    right: 2px;
+    opacity: 0.6;
+    position: absolute;
+    top: 2px;
+    width: 11px;
+    z-index: 2;
+}
+a.closeHorizontalIcon:hover {
+    opacity: 1;
+}
+.verticalTabElementIcon {
+	background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+    z-index: 2;
+}
+.verticalTabSeparator .verticalTabElementIcon {
+    cursor: auto;
+    background-size: auto;
+    background-position: center;
+}
+
+div.verticalTabItem.horizontalTabItem.staticTabItem.verticalTabSeparator{
+    cursor: auto;
+    min-width: 20px;
+    padding-left: 0px;
+}
+
+.horizontalTabsContainer {
+    width: 100%;
+}
+.horizontalTabsRow{
+	display:flex;
+	align-items:center;
+ 	flex-wrap: wrap;
+}
+.horizontalTabsContainer .horizontalTabsRow {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontalTabsContainer br {
+    clear: both;
+}
+.horizontalTabsContainer .horizontalTabsBlock {
+    float: left;
+    margin-top: 2px;
+    min-width: 0;
+    flex-shrink: 1;
+    margin-left: 11px;
+}
+.horizontalTabsContainer .horizontalTabsBlock.staticTabBlock {
+    flex-shrink: 0;
+    margin-left: 0px;
+}
+.browsingConstellationActionBar .horizontalTabsContainer .horizontalTabsRow {
+	justify-content: flex-end;
+    display: flex;
+}
+
+.browsingConstellationActionBar .horizontalTabsContainer {
+	justify-content: flex-end;
+    display: flex;
+    /*border-bottom: 1px solid rgb(222, 222, 222);*/
+	height: 39px;
+}
+.browsingConstellationActionBar .verticalTabElementIcon {
+    height: 16px;
+}
+.browsingConstellationActionBar .verticalTabElementIcon {
+	width: 20px;
+	height: 20px;
+}
+
+.browsingConstellationActionBar div.verticalTabItem.horizontalTabItem.staticTabItem {
+	opacity: 1;
+}
+
+.verticalTabBackgroundBox{
+	display: flex;
+	position: relative;
+	align-items:center;
+}
+
+.browsingConstellationActionBar .verticalTabBackgroundBox {
+    width: 20px;
+	height: 20px;     	
+}
+
+.browsingConstellationActionBar .verticalTabBackgroundBox.showDetailsPanel.actionStateDefault {
+	background: #FFB52F; 
+    border-radius: 50%;
+}
+
+.browsingConstellationActionBar .verticalTabBackgroundBox.showDetailsPanel.actionState:HOVER {
+	background: #FFE6BA; 
+    border-radius: 50%;
+}
+
+.verticalTabItemFlowInfoText {
+	background: red;
+    color: white;
+    padding-left: 5px;
+    border-color: red;
+    border-radius: 25px;
+    font-size: 10px;
+    padding-right: 5px;
+    position: relative;
+    left: -5px;
+    top: -5px;	
+    z-index: 5;
+}
+
+@media not all {
+.horizontalTabsContainer .horizontalTabsBlock {
+    margin-top: 5px;
+}
+}

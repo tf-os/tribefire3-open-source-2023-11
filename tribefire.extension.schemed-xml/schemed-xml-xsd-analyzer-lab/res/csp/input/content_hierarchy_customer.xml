@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="hierarchy.xsd" nextNodeId="10">
+  <node id="11000000" name="HL" description="HL">
+    <node id="11400000" name="Leben" description="Leben">
+      <node id="11401100" name="Auszahlung" description="Auszahlung">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <node id="11401200" name="Direktversicherung" description="Direktversicherung">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <node id="11401300" name="Risiko-/Leistungen" description="Risiko-/Leistungen">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <node id="11401400" name="Mathematik" description="Mathematik">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Mathematik -->
+      <node id="11401500" name="Allgemein" description="Allgemein">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Sonstiges -->
+      <node id="11401600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <node id="11402000" name="Postkorb" description="Postkorb LE">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB_LEBEN" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Standard_Leben" grant="addObject,useStamps,CopyXContent" />
+          <constraint role="Advanced_Leben" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject,ManageStamps,useStamps,CopyXContent" />
+          <constraint role="Admin_SU" grant="addObject,ManageStamps,useStamps,CopyXContent" />
+        </constraints>
+      </node>
+    </node>
+    <constraints>
+      <constraint role="Standard_Transport" deny="EditAnnotation, ShowHideAnnotation" />
+      <constraint role="Basis_Leben" grant="ReadIndexValue" />
+      <constraint role="Standard_Leben" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, useStamps, copycontent, SplitContent, addObject" />
+      <constraint role="Advanced_Leben" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, useStamps, copycontent, SplitContent, addObject" />
+      <!-- Wenn MA-Vertrag==J, dann sollen nur Mitarbeiter mit der Rolle MA-RECHT Zugriff bekommen -->
+      <constraint type="ILS" name="MA-Vertrag" description="Einschränkung für MA-Vertrag" inherit="true">
+        <roles value="regex:(?!.*MA-RECHT).*" skipIlsForRoles="MA-RECHT" />
+        <expression>
+          <Index id="100014" op="!=" expr="J" />
+        </expression>
+      </constraint>
+      <!-- CHEL-562: Wenn VIP-Vertrag==A, dann sollen nur Benutzer mit der Rolle KU-Vertrag Zugriff bekommen -->
+      <constraint type="ILS" name="VIP-Vertrag" description="Einschränkung für VIP-Vertrag" inherit="true">
+        <roles value="regex:(?!.*KU-RECHT).*" skipIlsForRoles="KU-RECHT" />
+        <expression>
+          <Index id="100205" op="!=" expr="A" />
+        </expression>
+      </constraint>
+      <constraint role="Admin_FV" grant="Read, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FD" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="ondemand" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+      <constraint role="i2z-xcopy" grant="Read, Write, CopyXContent" />
+      <constraint type="ILS" name="SL-Vertrag-HL" description="Einschränkung für SL-Vertrag" inherit="true">
+        <roles value="regex:(?!.*SL-RECHT).*" skipIlsForRoles="SL-RECHT" />
+        <expression>
+          <Index id="100035" op="!=" expr="S" />
+          <Index id="100035" op="!=" expr="L" />
+        </expression>
+      </constraint>
+      <!-- CHEL-526 -->
+      <constraint role="PO-HV-KSCGE" grant="ANNummerAction" />
+      <constraint role="PO-HV-UWFKG" grant="ANNummerAction" />
+      <constraint role="PO-HV-VP-Services" grant="ANNummerAction" />
+      <!-- ./CHEL-526 -->
+    </constraints>
+  </node>
+  <!-- Ende HL -->
+  <node id="13000000" name="HV" description="HV">
+    <node id="13300000" name="TR" description="TR">
+      <node id="13301001" name="Ware/VHV" description="Ware/VHV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende WARE -->
+      <node id="13301003" name="A &amp; C" description="A &amp; C">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende A &amp; C -->
+      <node id="13301600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <node id="13302010" name="Postkorb Ware/VHV" description="Postkorb Ware/VHV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB_TR" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <node id="13302020" name="Postkorb A &amp; C" description="Postkorb A &amp; C">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB_TR" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+      <constraints>
+        <constraint role="ondemand" grant="Read, Write" />
+        <constraint role="Standard_Transport" grant="Read, Write" />
+        <constraint role="Advanced_Transport" deny="Write" grant="Read" />
+        <constraint role="Admin_Transport" grant="Read, Write" />
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+      </constraints>
+      <node id="13305000" name="NAD" description="NAD Migrations Node TR">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende TR -->
+    <node id="13500000" name="SH" description="SH">
+      <!-- Beginn SHUK -->
+      <node id="135014001" name="Scandokumente-SHUK" description="Scandokumente-SHUK">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <!-- Ende SHUK -->
+      <node id="135011001" name="Ware/VHV" description="Ware/VHV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Ware -->
+      <node id="1350113001" name="A &amp; C" description="A &amp; C">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende A &amp; C -->
+      <node id="13501600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <node id="13502000" name="Postkorb SHUK" description="Postkorb SHUK">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <node id="13502010" name="Postkorb Ware/VHV" description="Postkorb Ware/VHV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB_TR" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <node id="13502020" name="Postkorb A &amp; C" description="Postkorb A &amp; C">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB_TR" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+          <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+          <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+      <constraints>
+        <constraint role="ondemand" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="i2z_basis" grant="ReadTextComments, printTextComments, mailFromViewer, savelocalfromviewer, ShowHideAnnotation" />
+        <constraint role="Standard_Transport" grant="Read, Write" />
+        <constraint role="Advanced_Transport" deny="Write" grant="Read" />
+        <constraint role="Admin_Transport" grant="Read, Write" />
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+      </constraints>
+      <node id="13505000" name="NAD" description="NAD Migrations Node SH">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende SH -->
+    <node id="13200000" name="IN" description="IN">
+      <node id="13201001" name="A- und F-Geschaeft-spezifische Dokumente(AF)" description="A- und F-Geschaeft-spezifische Dokumente(AF)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- A- und F-Geschaeft-spezifische Dokumente(AF) -->
+      <node id="13201002" name="Dokumente (Versicherungsscheine,Nachtraege etc.)(AFBI)" description="Dokumente (Versicherungsscheine,Nachtraege etc.)(AFBI)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Dokumente (Versicherungsscheine,Nachtraege etc.)(AFBI) -->
+      <node id="13201003" name="Allgemeiner Schriftwechsel(AFBI)" description="Allgemeiner Schriftwechsel(AFBI)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Allgemeiner Schriftwechsel(AFBI) -->
+      <node id="13201004" name="Beurteilungsunterlagen/Praemienermittlung/Brandschutz(BUU/PE)" description="Beurteilungsunterlagen/Praemienermittlung/Brandschutz(BUU/PE)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Beurteilungsunterlagen/Praemienermittlung/Brandschutz(BUU/PE) -->
+      <node id="13201005" name="Anbahnung/Angebot(AFBI)" description="Anbahnung/Angebot(AFBI)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Anbahnung/Angebot(AFBI) -->
+      <node id="13201006" name="Office-Dokumente/Sonstiges(AFBI)" description="Office-Dokumente/Sonstiges(AFBI)">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Office-Dokumente/Sonstiges(AFBI) -->
+      <node id="13201007" name="Programmgeschaeft/Grosskunden" description="Programmgeschaeft/Grosskunden">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Programmgeschaeft/Grosskunden -->
+      <node id="13201600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <constraints>
+        <constraint role="Admin_Transport" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation, Write" />
+        <constraint role="Advanced_Industrie" grant="Read, Write, Print, EditAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+        <constraint role="Advanced_Leben" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation, Write" />
+        <constraint role="Advanced_Transport" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation" />
+        <constraint role="Basic_Industrie" grant="ReadIndexValue" />
+        <constraint role="Basis_Leben" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation, Write" />
+        <constraint role="Basis_Transport" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation, Write" />
+        <constraint role="Standard_Industrie" grant="Read, Write, Print, EditAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+        <constraint role="Standard_Leben" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation, Write" />
+        <constraint role="Standard_Transport" grant="Write" deny="EditAnnotation, Print, Read, ReadIndexValue, ShowHideAnnotation" />
+        <constraint role="ondemand" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+      </constraints>
+      <node id="13205000" name="NAD" description="NAD Migrations Node IN">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+      <node id="13202000" name="Postkorb" description="Postkorb IN">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_HEL" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+    </node>
+    <!-- Ende IN -->
+    <node id="13700000" name="PV" description="PV">
+      <node id="13701600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <!-- Begin Scandokumente -->
+      <node id="13701100" name="Scandokumente" description="Scandokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Scandokumente -->
+      <node id="13702000" name="Postkorb" description="Postkorb PV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+      <constraints>
+        <constraint role="ondemand" grant="Read, Write, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="i2z_basis" grant="Read, Print, ReadTextComments, printTextComments, mailFromViewer, savelocalfromviewer, ShowHideAnnotation" />
+        <constraint role="Basis_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" />
+        <constraint role="Standard_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" />
+        <constraint role="Advanced_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" />
+        <constraint role="Admin_Transport" grant="Read, Write, Print, EditAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+        <constraint role="pet" grant="ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint type="ILS" name="ILS-PET" description="Einschränkung für PET" inherit="true">
+          <roles value="pet" />
+          <expression>
+            <Index id="100000" op="=" expr="*.054.*" />
+          </expression>
+        </constraint>
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+        <!-- CHEL-280 -->
+        <constraint role="i2z_punto" grant="Read, Write, Print" />
+        <constraint type="ILS" name="ILS-PUNTOBIZ_EXT.SICHTBAR" descrtiption="Einschränkung für Puntobiz nach ext.sichtbar" inherit="true">
+          <roles value="i2z_punto" />
+          <expression>
+            <Index id="100034" op="=" expr="J" />
+          </expression>
+        </constraint>
+        <constraint type="ILS" name="ILS-PUNTOBIZ" description="Einschränkung für Puntobiz" inherit="true">
+          <roles value="i2z_punto" />
+          <expression>
+            <OR>
+              <Index id="100001" op="=" expr="090.6802" />
+              <Index id="100001" op="=" expr="090.6803" />
+              <Index id="100001" op="=" expr="100.4683" />
+              <Index id="100001" op="=" expr="100.4932" />
+              <Index id="100001" op="=" expr="100.4696" />
+              <Index id="100034" op="=" expr="J" />
+            </OR>
+          </expression>
+        </constraint>
+        <!-- ./CHEL-280 -->
+      </constraints>
+      <node id="13705000" name="NAD" description="NAD Migrations Node PV">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende PV -->
+    <node id="13100000" name="KF" description="KF">
+      <node id="13101600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <!-- Begin Scandokumente -->
+      <node id="13101100" name="Scandokumente" description="Scandokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Scandokumente -->
+      <node id="13102000" name="Postkorb" description="Postkorb KF">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+      <constraints>
+        <constraint role="ondemand" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="i2z_basis" grant="Read, Print, ReadTextComments, printTextComments, mailFromViewer, savelocalfromviewer, ShowHideAnnotation" />
+        <constraint role="Basis_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Standard_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Advanced_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Admin_Transport" grant="Read, Write, Print, EditAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+        <constraint role="i2z_arag" grant="Read, Write, Print, addObject, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="i2z-hvd" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint type="ILS" name="ILS-I2Z_HVD" description="Einschränkung für i2z-hvd" inherit="true">
+          <roles value="i2z-hvd" />
+          <expression>
+            <OR>
+              <Index id="100001" op="=" expr="100.4683" />
+              <Index id="100001" op="=" expr="100.4932" />
+              <Index id="100001" op="=" expr="100.4696" />
+            </OR>
+          </expression>
+        </constraint>
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+      </constraints>
+      <node id="13105000" name="NAD" description="NAD Migrations Node KF">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende KF -->
+    <node id="13600000" name="GE" description="GE">
+      <node id="13601600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <!-- Begin Scandokumente -->
+      <node id="13601100" name="Scandokumente" description="Scandokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Scandokumente -->
+      <node id="13602000" name="Postkorb" description="Postkorb GE">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021_POSTKORB" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="ondemand" grant="addObject" />
+          <constraint role="Basis_Transport" grant="addObject" />
+          <constraint role="Standard_Transport" grant="addObject" />
+          <constraint role="Advanced_Transport" grant="addObject" />
+          <constraint role="Admin_Transport" grant="addObject" />
+          <constraint role="Admin_FD" grant="addObject" />
+          <constraint role="Admin_SU" grant="addObject" />
+        </constraints>
+      </node>
+      <!-- Ende Postkorb -->
+      <constraints>
+        <constraint role="ondemand" grant="Read, Write, Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="i2z_basis" grant="Read, Print, ReadTextComments, printTextComments, mailFromViewer, savelocalfromviewer, ShowHideAnnotation" />
+        <constraint role="Basis_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Standard_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Advanced_Transport" deny="Write, EditAnnotation, Print, Read, ShowHideAnnotation" grant="" />
+        <constraint role="Admin_Transport" grant="Read, Write, Print, EditAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+        <constraint role="Admin_FD" grant="Read, Write" />
+        <constraint role="Admin_SU" grant="Read, Write" />
+        <constraint role="i2z_wenske" grant="Read, Print" />
+        <constraint role="Admin_FV" grant="Read, Write" />
+        <constraint role="importdms" grant="Write" />
+        <constraint role="Admin" grant="Read, Write" />
+        <constraint role="admin" grant="Read, Write" />
+      </constraints>
+      <node id="13605000" name="NAD" description="NAD Migrations Node GE">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende GE -->
+    <!-- <node id="13800000" name="OR" description="ORGA"> -->
+    <!-- Ende OR -->
+    <constraints>
+      <constraint role="ondemand" grant="Print, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, checkout" />
+      <constraint role="Basis_Transport" grant="EditAnnotation, ShowHideAnnotation, deleteAnnotation, ReadIndexValue" />
+      <constraint role="Standard_Transport" grant="Print, EditAnnotation, deleteAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Advanced_Transport" deny="Write" grant="Print, EditAnnotation, deleteAnnotation, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_Transport" grant="Print, EditAnnotation, ShowHideAnnotation, deleteAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_FD" grant="Print, ReadTextComments, printTextComments, AddTextComments, EditAnnotation, ShowHideAnnotation, deleteAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_SU" grant="Print, DeactivateContent, EditAnnotation, ShowHideAnnotation, deleteAnnotation, mailFromViewer, savelocalfromviewer, checkout" />
+      <constraint role="i2z-xcopy" grant="Read, Write, CopyXContent" />
+      <constraint role="i2z_wenske" grant="Print, ReadTextComments, printTextComments, mailFromViewer, savelocalfromviewer" />
+      <constraint type="ILS" name="AG" description="Einschränkung für Agenturen" inherit="true">
+        <roles value="i2z_wenske" />
+        <expression>
+          <OR>
+            <Index id="100001" op="=" expr="090.7230" />
+            <Index id="100001" op="=" expr="090.7231" />
+            <Index id="100001" op="=" expr="090.7232" />
+            <Index id="100001" op="=" expr="090.7233" />
+            <Index id="100001" op="=" expr="090.7234" />
+            <Index id="100001" op="=" expr="090.7235" />
+            <Index id="100001" op="=" expr="090.7236" />
+            <Index id="100001" op="=" expr="090.7237" />
+            <Index id="100001" op="=" expr="090.7238" />
+            <Index id="100001" op="=" expr="090.7240" />
+            <Index id="100001" op="=" expr="090.7241" />
+            <Index id="100001" op="=" expr="090.7242" />
+          </OR>
+        </expression>
+      </constraint>
+      <!-- Wenn MA-Vertrag==J, dann sollen nur Mitarbeiter mit der Rolle MA-RECHT Zugriff bekommen -->
+      <constraint type="ILS" name="MA-Vertrag" description="Einschränkung für MA-Vertrag" inherit="true">
+        <roles value="regex:(?!.*MA-RECHT).*" skipIlsForRoles="MA-RECHT" />
+        <expression>
+          <Index id="100014" op="!=" expr="J" />
+        </expression>
+      </constraint>
+      <!-- CHEL-562: Wenn VIP-Vertrag==A, dann sollen nur Benutzer mit der Rolle KU-Vertrag Zugriff bekommen -->
+      <constraint type="ILS" name="VIP-Vertrag" description="Einschränkung für VIP-Vertrag" inherit="true">
+        <roles value="regex:(?!.*KU-RECHT).*" skipIlsForRoles="KU-RECHT" />
+        <expression>
+          <Index id="100205" op="!=" expr="A" />
+        </expression>
+      </constraint>
+      <constraint type="ILS" name="SL-Vertrag-HV" description="Einschränkung für SL-Vertrag" inherit="true">
+        <roles value="regex:(?!.*SL-RECHT).*" skipIlsForRoles="SL-RECHT" />
+        <expression>
+          <Index id="100035" op="!=" expr="S" />
+          <Index id="100035" op="!=" expr="L" />
+        </expression>
+      </constraint>
+      <!-- CHEL-526 -->
+      <constraint role="PO-HV-KSCGE" grant="ANNummerAction" />
+      <constraint role="PO-HV-UWFKG" grant="ANNummerAction" />
+      <constraint role="PO-HV-VP-Services" grant="ANNummerAction" />
+      <!-- ./CHEL-526 -->
+    </constraints>
+    <!-- <node id="13800000" name="OR" description="ORGA"> -->
+    <node id="13800000" name="VP" description="ORGA">
+      <node id="13801600" name="Hostdokumente" description="Hostdokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_ORGA" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="Admin_SU" grant="Read,Write" />
+          <constraint role="i2z-orga" grant="Read,Write,Print" />
+        </constraints>
+      </node>
+      <!-- Ende Hostdokumente -->
+      <!-- Begin Scandokumente -->
+      <node id="13801100" name="Scandokumente" description="Scandokumente">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_ORGA" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="i2z-orga" grant="Read,Write,Print,addObject" />
+          <constraint role="Admin_SU" grant="Read,Write,Print,addObject" />
+        </constraints>
+      </node>
+      <constraints>
+        <constraint role="i2z-orga" grant="Read, Write, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+        <constraint role="Admin_SU" grant="Read, Write, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+        <constraint role="ondemand" grant="Write, useRefetching" />
+        <!-- According to CHEL-472, the ILS constraints ILS_VP-FD-1, ILS_VP-FD-2, and ILS_VP-FD-3 have been removed (which were introduced with CHEL-120) -->
+      </constraints>
+      <node id="13805000" name="NAD" description="NAD Migrations Node VP">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+    <!-- Ende OR -->
+  </node>
+  <!-- Ende HV -->
+  <!-- Start Agenturen -->
+  <node id="90000000" name="Agenturen" description="Agenturen">
+    <node id="90072000" name="Agentur Wenske" description="Agentur Wenske">
+      <node id="90672000" name="Gewerbe" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="admin" grant="GEAction" />
+          <constraint role="i2z_wenske" grant="GEAction" />
+          <constraint role="i2z_wenske_k" grant="GEAction" />
+          <constraint role="Admin_SU" grant="GEAction" />
+        </constraints>
+      </node>
+      <node id="90172000" name="KFZ" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="admin" grant="KFAction, KFToCARSAction" />
+          <constraint role="i2z_wenske" grant="KFAction, KFToCARSAction" />
+          <constraint role="i2z_wenske_k" grant="KFAction, KFToCARSAction" />
+          <constraint role="Admin_SU" grant="KFAction, KFToCARSAction" />
+        </constraints>
+      </node>
+      <node id="90772000" name="Privat" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="admin" grant="PVAction, USCAction" />
+          <constraint role="i2z_wenske" grant="PVAction, USCAction" />
+          <constraint role="i2z_wenske_k" grant="PVAction, USCAction" />
+          <constraint role="Admin_SU" grant="PVAction, USCAction" />
+        </constraints>
+      </node>
+      <node id="90372000" name="Transport" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="admin" grant="TRVEAction, PVAction, SHAction" />
+          <constraint role="i2z_wenske" grant="TRVEAction, PVAction, SHAction" />
+          <constraint role="i2z_wenske_k" grant="TRVEAction, PVAction, SHAction" />
+          <constraint role="Admin_SU" grant="TRVEAction, PVAction, SHAction" />
+          <!-- CHEL-214 -->
+          <constraint role="i2z_wenske" grant="SHAction" />
+          <!-- ./CHEL-214 -->
+        </constraints>
+      </node>
+      <node id="90872000" name="Partnersparte" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints />
+      </node>
+      <node id="100090" name="Papierkorb" description="">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_1021" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="i2z_wenske" grant="Write" deny="addObject, AddTextComments, Print, savelocalfromviewer" />
+        </constraints>
+      </node>
+      <constraints>
+        <constraint role="i2z_wenske" grant="AddTextComments, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, Save, Write, copycontent, SplitContent, usePrefetching, addObject" deny="AddTwain, checkout, checkSignature, DeactivateContent, deleteAnnotation, EditAnnotation, ManageStamps, ${multiIndex}, PolyCut, ShowHideAnnotation, signDocument, useStamps" />
+        <constraint role="i2z_wenske_k" grant="AddTextComments, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, Save, Write, copycontent, SplitContent, usePrefetching, addObject" deny="AddTwain, checkout, checkSignature, DeactivateContent, deleteAnnotation, EditAnnotation, ManageStamps, ${multiIndex}, PolyCut, ShowHideAnnotation, signDocument, useStamps" />
+      </constraints>
+    </node>
+    <constraints>
+      <constraint role="Admin_SU" grant="addObject, AddTextComments, DeactivateContent, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, PolyCut, Print, printTextComments, Read, ReadTextComments, Save, ShowHideAnnotation, SplitContent, Write, searchcontentid, copycontent, SplitContent, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FV" deny="AddTextComments, deleteAnnotation, EditAnnotation, Print, Read, ReadTextComments, ShowHideAnnotation, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_FD" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="ondemand" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+      <!-- CHEL-526 -->
+      <constraint role="PO-HV-KSCGE" grant="ANNummerAction" />
+      <constraint role="PO-HV-UWFKG" grant="ANNummerAction" />
+      <constraint role="PO-HV-VP-Services" grant="ANNummerAction" />
+      <!-- ./CHEL-526 -->
+    </constraints>
+  </node>
+  <!-- Ende Agenturen -->
+  <node id="11480000" name="Gescannter Posteingang" description="Gescannter Posteingang">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+    </ContentDefinitions>
+    <!-- <node id="11480001" name="Posteingang LE" description="Knoten Beschreibung" >
+      <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+      </ContentDefinitions>
+      </node>
+      <node id="11480002" name="Posteingang TR" description="Knoten Beschreibung" >
+      <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+      </ContentDefinitions>
+      </node>
+      <node id="11480003" name="Posteingang SC" description="Knoten Beschreibung" >
+      <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+      </ContentDefinitions>
+      </node>
+      <node id="11480004" name="Posteingang IN" description="Knoten Beschreibung" >
+      <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+      </ContentDefinitions>
+      </node>
+      -->
+    <constraints>
+      <constraint role="Basis_Leben" grant="ReadIndexValue" />
+      <constraint role="Standard_Leben" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" grantLocal="Write" />
+      <constraint role="Advanced_Leben" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation" />
+      <constraint role="Basis_Transport" grant="ReadIndexValue" />
+      <constraint role="Standard_Transport" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" grantLocal="Write" />
+      <constraint role="Advanced_Transport" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_Transport" grant="EditAnnotation, Print, Read, ShowHideAnnotation, Write, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Basic_Industrie" deny="ReadIndexValue" />
+      <constraint role="Advanced_Industrie" grant="EditAnnotation, Print, Read, ShowHideAnnotation, Write, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Standard_Industrie" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_SU" grant="DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, searchcontentid, copycontent, SplitContent, addObject, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FV" grant="Read, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_FD" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="ondemand" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+  <!-- Gescannter Posteingang FD -->
+  <node id="11480010" name="Gescannter Posteingang FD" description="Gescannter Posteingang FD">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_1022" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="Admin_FD" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin_SU" grant="DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, searchcontentid, copycontent, SplitContent, addObject, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Basis_Leben" grant="ReadIndexValue" />
+      <constraint role="Standard_Leben" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" grantLocal="Write" />
+      <constraint role="Advanced_Leben" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Basis_Transport" grant="ReadIndexValue" />
+      <constraint role="Standard_Transport" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" grantLocal="Write" />
+      <constraint role="Advanced_Transport" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_Transport" grant="EditAnnotation, Print, Read, ShowHideAnnotation, Write, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Basic_Industrie" deny="ReadIndexValue" />
+      <constraint role="Advanced_Industrie" grant="EditAnnotation, Print, Read, ShowHideAnnotation, Write, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Standard_Industrie" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_FV" grant="Read, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="ondemand" grant="Read, Write, copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+  <!-- Porta Posteingang -->
+  <node id="11480020" name="Porta Posteingang" description="Porta Posteingang">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_1021_PORTA" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="Admin_FD" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, copycontent, SplitContent, usePrefetching" />
+      <constraint role="ondemand" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin_SU" grant="DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, searchcontentid, copycontent, SplitContent, addObject, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FV" grant="Read, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+  <node id="100002" name="Papierkorb" description="Nicht zuordbare Dokumente">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_1021_PAPIERKORB" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="Basis_Leben" grant="ReadIndexValue" />
+      <constraint role="Standard_Leben" grant="Write, EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Advanced_Leben" grant="Write, EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Basis_Transport" grant="ReadIndexValue" />
+      <constraint role="Standard_Transport" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Advanced_Transport" deny="Write" grant="EditAnnotation, Print, Read, ShowHideAnnotation, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_Transport" grant="AddTextComments, ReadTextComments, EditAnnotation, Print, Read, ShowHideAnnotation, Write, mailFromViewer, savelocalfromviewer" />
+      <constraint role="Admin_FD" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin_SU" grant="SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, searchcontentid, copycontent, SplitContent, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="pet" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+      <constraint role="ondemand" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+      <constraint role="i2z-hvd" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+      <!-- Wenn MA-Vertrag==J, dann sollen nur Mitarbeiter mit der Rolle MA-RECHT Zugriff bekommen -->
+      <constraint type="ILS" name="MA-Vertrag" description="Einschränkung für MA-Vertrag" inherit="true">
+        <roles value="regex:(?!.*MA-RECHT).*" skipIlsForRoles="MA-RECHT" />
+        <expression>
+          <Index id="100014" op="!=" expr="J" />
+        </expression>
+      </constraint>
+      <!-- CHEL-562: Wenn VIP-Vertrag==A, dann sollen nur Benutzer mit der Rolle KU-Vertrag Zugriff bekommen -->
+      <constraint type="ILS" name="VIP-Vertrag" description="Einschränkung für VIP-Vertrag" inherit="true">
+        <roles value="regex:(?!.*KU-RECHT).*" skipIlsForRoles="KU-RECHT" />
+        <expression>
+          <Index id="100205" op="!=" expr="A" />
+        </expression>
+      </constraint>
+      <constraint role="Admin_FV" grant="Read, Write, copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="Admin" grant="Read, Write" />
+      <!-- CHEL-280 -->
+      <constraint role="i2z_punto" grant="addObject, ReadTextComments, printTextComments, AddTextComments, Write, Print, Read, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation" />
+      <!-- ./CHEL-280 -->
+    </constraints>
+  </node>
+  <!--  Ende Papierkorb -->
+  <node id="100010" name="Process Monitor" description="Process Monitor">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_PM" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+  <node id="100020" name="Mailboxes" description="Mailboxes">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_MAILACCOUNTS" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="regex:.*" grant="importWithoutFiles" />
+      <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+  <constraints>
+    <constraint role="Admin" grant="copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print, ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+    <constraint role="admin" grant="copycontent, SplitContent, AddTextComments, DeleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, ReadTextComments, ShowHideAnnotation, usePrefetching" />
+    <constraint role="regex:.*" grant="SplitContent, copycontent, usePrefetching, useStamps" />
+    <constraint role="Admin_SU" grant="searchContentID" />
+  </constraints>
+  <node id="11482000" name="Info-Postkorb" description="Info-Postkorb">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_1021_POSTKORB" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="regex:(?i)admin.*" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, addObject" />
+      <constraint role="i2z_info" grant="EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, addObject" />
+      <constraint role="importdms" grant="Write, usePrefetching" />
+      <constraint role="Admin_FV" grant="copycontent, SplitContent, AddTextComments, ReadTextComments, EditAnnotation, deleteAnnotation, Print,  ShowHideAnnotation, mailFromViewer, savelocalfromviewer, usePrefetching" />
+      <constraint role="admin" grant="copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FD" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="ondemand" grant="copycontent, SplitContent, usePrefetching" />
+      <constraint role="i2z_arag" grant="copycontent, SplitContent, usePrefetching" />
+    </constraints>
+  </node>
+  <node id="100021" name="Dokumentarten ORGA" description="Dokumentarten ORGA">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_DOCTYPES_ORGA" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="regex:.*" grant="importWithoutFiles" />
+      <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+      <constraint role="Admin_SU" grant="Read, Write, ReadTextComments, printTextComments, AddTextComments, mailFromViewer, savelocalfromviewer, EditAnnotation, deleteAnnotation, ShowHideAnnotation, searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+    </constraints>
+  </node>
+  <node id="100024" name="NAD" description="NAD Migrations Node (ohne Zuordnung)">
+    <ContentDefinitions>
+      <ContentDefinition ref="CD_NAD" />
+    </ContentDefinitions>
+    <constraints>
+      <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+      <constraint role="ondemand" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+      <constraint role="Admin_FD" grant="Read, Write" />
+      <constraint role="Admin" grant="Read, Write" />
+    </constraints>
+  </node>
+</ContentHierarchy>
+

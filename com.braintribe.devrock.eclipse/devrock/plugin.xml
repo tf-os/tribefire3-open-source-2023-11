@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+
+<!-- devrock plugin by pit -->
+
+<plugin>
+    <!-- command declaration-->
+    <extension point="org.eclipse.ui.commands">
+        <category id="com.braintribe.devrock.Devrock.commands.category" name="Devrock Commands" />
+        <!-- quick import -->   
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.QuickImportProjectCommand" id="com.braintribe.devrock.commands.QuickImportProjectCommand" name="QI Dialog in project-insertion mode"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.QuickImportDependencyCommand" id="com.braintribe.devrock.commands.QuickImportDependencyCommand" name="QI Dialog in dependency-injection mode"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.QuickImportDropdownHandler" id="com.braintribe.devrock.commands.QuickImportDropdownHandler" name="QI Dialog parameterized"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.RunQuickImportScanCommand" id="com.braintribe.devrock.commands.RunQuickImportScanCommand" name="Run Quick Import Scan"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand" id="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand" name="Remote Dependency Importer"/>
+
+
+        <!-- jar import -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.JarImportCommand" id="com.braintribe.devrock.commands.JarImportCommand" name="Import jar-backing artifact's project into workspace"/>
+        <!-- dependency clipboard copy -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" id="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" name="Copy selected jar-backing artifact's dependencies to clipboard">
+            <commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" name="copy parameter" optional="true" />
+        </command>
+        <!-- dependency clipboard paste -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" id="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" name="Copy dependencies stored in clipboard">
+            <commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" name="paste parameter" optional="true" />
+        </command>
+        <!-- condensed name to clipboard copy -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.CondensedNameToClipboardCopyCommand" id="com.braintribe.devrock.commands.CondensedNameToClipboardCopyCommand" name="Copy condensed artifact names stored in clipboard"/>
+      
+        <!-- repository configuration viewers -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.RepositoryConfigurationInfoCommand" id="com.braintribe.devrock.commands.RepositoryConfigurationInfoCommand" name="Compile the repository configuration and show it"/>        
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.RepositoryConfigurationViewCommand" id="com.braintribe.devrock.commands.RepositoryConfigurationViewCommand" name="Load a persisted repository configuration and show it"/>
+        
+        <!-- zed -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.zed.RunAnalysisOnProjectCommand" id="com.braintribe.devrock.commands.zed.RunAnalysisOnProjectCommand" name="Run zed on the selected project"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.zed.RunAnalysisOnArtifactCommand" id="com.braintribe.devrock.commands.zed.RunAnalysisOnArtifactCommand" name="Run zed on a selected artifact"/>
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.zed.LoadAndDisplayAnalysisCommand" id="com.braintribe.devrock.commands.zed.LoadAndDisplayAnalysisCommand" name="Load a persistend zed analysis"/>
+        
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.zed.RunComparisonCommand" id="com.braintribe.devrock.commands.zed.RunComparisonCommand" name="Compare two artifacts"/>
+        
+            
+        <!-- tb runner -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.TbWizardCommand" id="com.braintribe.devrock.commands.TbWizardCommand" name="Run the build process"/>
+        
+        <!-- export workspace -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.ExportWorkspacePopulation" id="com.braintribe.devrock.commands.ExportWorkspacePopulation" name="Export the full content of the workspace to a YAML"/>
+                
+        <!-- import workspace -->
+        <command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.ImportWorkspacePopulation" id="com.braintribe.devrock.commands.ImportWorkspacePopulation" name="Import the workspace's content from a YAML"/>
+                
+        <!-- floating commands -->
+		<command categoryId="com.braintribe.devrock.Devrock.commands.category" defaultHandler="com.braintribe.devrock.commands.FloatingDevrockCommands" id="com.braintribe.devrock.commands.FloatingDevrockCommands" name="Commands that can run in empty workspace">
+			<commandParameter id="com.braintribe.devrock.devrock.command.param.floating" name="floating command parameter" optional="false" />
+		</command>
+
+    </extension>
+    
+    <!-- command icons -->
+   <extension point="org.eclipse.ui.commandImages">
+        <image commandId="com.braintribe.devrock.commands.QuickImportProjectCommand" icon="icons/quickImport.png"/>
+        <image commandId="com.braintribe.devrock.commands.QuickImportDependencyCommand" icon="icons/quickImport.png"/>
+        <image commandId="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand" icon="icons/quickImport.png"/>
+        <image commandId="com.braintribe.devrock.commands.RunQuickImportScanCommand" icon="icons/update_index.gif"/>   
+        <image commandId="com.braintribe.devrock.commands.JarImportCommand" icon="icons/importJar.png"/>
+        <image commandId="com.braintribe.devrock.commands.RepositoryConfigurationInfoCommand" icon="icons/configure.png"/>
+        <image commandId="com.braintribe.devrock.commands.RepositoryConfigurationViewCommand" icon="icons/configure.png"/>
+        <image commandId="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" icon="icons/copyToClipboard.png"/>
+        <image commandId="com.braintribe.devrock.commands.CondensedNameToClipboardCopyCommand" icon="icons/condensedName.gif"/>
+        <image commandId="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" icon="icons/pasteFromClipboard.png"/>
+        <image commandId="com.braintribe.devrock.commands.TbWizardCommand" icon="icons/ant.png"/>        
+        <image commandId="com.braintribe.devrock.commands.ImportWorkspacePopulation" icon="icons/push.png"/>
+        <image commandId="com.braintribe.devrock.commands.ExportWorkspacePopulation" icon="icons/pull.png"/>
+        <image commandId="com.braintribe.devrock.commands.FloatingDevrockCommands" icon="icons/firsteps16.png"/>
+        <image commandId="com.braintribe.devrock.commands.zed.RunAnalysisOnArtifactCommand" icon="icons/report_obj.gif"/>
+        <image commandId="com.braintribe.devrock.commands.zed.LoadAndDisplayAnalysisCommand" icon="icons/report_obj.gif"/>
+        <image commandId="com.braintribe.devrock.commands.zed.RunComparisonCommand" icon="icons/report_obj.gif"/>
+        
+   </extension>
+   
+    <!-- context menu -->
+   <extension point="org.eclipse.ui.menus">     
+   
+   		<!-- commands not attached to a selected entry in the package-explorer -> main menu -->
+   		<menuContribution allPopups="true" locationURI="menu:org.eclipse.ui.main.menu">
+   			<menu id="com.braintribe.devrock.main" label="Devrock" >
+   				<!-- quick import -->
+   			    <command commandId="com.braintribe.devrock.commands.QuickImportProjectCommand" label="import projects" tooltip="Import selected projects into workspace" />
+   			    			                           
+			    <separator name="main.additions" visible="false"/>
+			    
+	    		<!-- current repo cfg -->
+				<command commandId="com.braintribe.devrock.commands.RepositoryConfigurationInfoCommand" style="push" label="Analyze current repository configuration" tooltip="determine the active repository-configuration and display it"/>
+
+				<!-- external repo cfg -->
+				<command commandId="com.braintribe.devrock.commands.RepositoryConfigurationViewCommand" style="push" label="Analyze an existing repository configuration" tooltip="selecte a persisted repository-configuration and display it"/>					
+				
+				<separator name="main.additions.container" visible="false"/>
+				<!-- place for AC contributions -->
+				
+				
+				<separator name="main.additions.misc" visible="true"/>
+				<!-- place for misc contributions -->
+				
+   		   				
+				<menu  id="com.braintribe.devrock.experimental" label="Experimental" icon="icons/firststeps16.png">
+					<!-- zed -->										
+			    	<command commandId="com.braintribe.devrock.commands.zed.RunAnalysisOnArtifactCommand" style="push" label="Analyze a terminal with zed"/>
+					<command commandId="com.braintribe.devrock.commands.zed.LoadAndDisplayAnalysisCommand" style="push" label="Analyze an existing zed resolution"/>			
+					<command commandId="com.braintribe.devrock.commands.zed.RunComparisonCommand" style="push" label="Compare two terminals with zed"/>											
+				</menu>
+				
+				<menu  id="com.braintribe.devrock.maintenance" label="Maintenance" icon="icons/migrate16.png">
+	            	<command commandId="com.braintribe.devrock.commands.RunQuickImportScanCommand" label="rescan folders/repositories for artifact data" style="push" tooltip="Rescan artifact data for both the dependency- and the project-importer"/>   		    
+					
+					<separator name="main.maintenance.container" visible="false"/>
+				
+                 	<menu id="com.braintribe.devrock.maintenance.workspace" label="Workspace contents import/export" icon="icons/eclipse16.png">                    
+                    	<command commandId="com.braintribe.devrock.commands.ExportWorkspacePopulation" style="push" label="export workspace content to a YAML" tooltip="Save ALL workspace's working-sets and projects to a YAML"/>                    
+                    	<command commandId="com.braintribe.devrock.commands.ImportWorkspacePopulation" style="push" label="import workspace content from a YAML" tooltip="Load the working-sets and projects from a YAML and setup the workspace with it"/>
+                 	</menu>               
+                 	
+    	             <separator name="main.maintenance.nature" visible="false"/>
+				</menu>
+
+                <!-- workspace import / export -->
+                 
+   		    </menu>
+   		
+   		</menuContribution>
+          
+          
+         
+        <!-- commands centered on a selected entry in the workspace -> add to pop-up -->
+        <menuContribution allPopups="true" locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <menu id="com.braintribe.devrock.popup" label="Devrock" >                  	            
+                <!-- import features -->            
+                <separator name="imports" visible="true"/>
+                <!-- jar import -->
+                <dynamic class="com.braintribe.devrock.commands.dynamic.DynamicJarImportCommandItem" id="com.braintribe.devrock.commands.dynamic.DynamicJarImportCommandItem">            
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                                    
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </dynamic>            
+                
+                <!-- project import via quick import -->
+                <!--
+                <command commandId="com.braintribe.devrock.commands.QuickImportProjectCommand" style="push" label="Quick import of project" tooltip="Open the quick-import dialog">          
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                    
+                                    <adapt type="org.eclipse.core.resources.IProject">
+                                        <test property="org.eclipse.core.resources.open" value="open"/> 
+                                    </adapt>
+                                    <adapt type="org.eclipse.core.resources.IResource">
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                    </adapt>                                                                
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </command>
+                -->
+                                        
+                <!-- dependency import via quick import -->
+                <!--
+                <command commandId="com.braintribe.devrock.commands.QuickImportDependencyCommand" style="push" label="Quick import of dependencies (local sources)" tooltip="select a available source as a dependency">          
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                    
+                                    <adapt type="org.eclipse.core.resources.IProject">
+                                        <test property="org.eclipse.core.resources.open" value="open"/> 
+                                    </adapt>
+                                    <adapt type="org.eclipse.core.resources.IResource">
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                    </adapt>                                                                
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </command>
+                -->
+                
+                <!-- remote dependency import via quick import -->
+                <command commandId="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand" style="push" label="Quick import of remote dependencies" tooltip="select a dependency that is currently reachable (source, local and remote repositories)">          
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                    
+                                    <adapt type="org.eclipse.core.resources.IProject">
+                                        <test property="org.eclipse.core.resources.open" value="open"/> 
+                                    </adapt>
+                                    <adapt type="org.eclipse.core.resources.IResource">
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                    </adapt>                                                                
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </command>
+                       
+                <!-- clip board features -->
+                <separator name="clipboard" visible="false"/>
+                            
+                <!-- last option command : dynamic - will be generated on the fly : copy -->              
+                <dynamic class="com.braintribe.devrock.commands.dynamic.DynamicDependencyCopyCommandItem" id="com.braintribe.devrock.commands.dynamic.DynamicDependencyCopyCommandItem">
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                    
+                                    <adapt type="org.eclipse.core.resources.IProject">
+                                        <test property="org.eclipse.core.resources.open" value="open"/> 
+                                    </adapt>
+                                    <adapt type="org.eclipse.core.resources.IResource">
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                    </adapt>                                    
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </dynamic>              
+             
+                <!-- last option command : dynamic - generated on the fly : paste -->                        
+                <dynamic class="com.braintribe.devrock.commands.dynamic.DynamicDependencyPasteCommandItem" id="com.braintribe.devrock.commands.dynamic.DynamicDependencyPasteCommandItem">
+                    <visibleWhen>               
+                        <with
+                             variable="activeMenuSelection">
+                            <iterate>
+                                <or>                                                    
+                                    <adapt type="org.eclipse.core.resources.IProject">
+                                        <test property="org.eclipse.core.resources.open" value="open"/> 
+                                    </adapt>
+                                    <adapt type="org.eclipse.core.resources.IResource">
+                                        <test property="org.eclipse.core.resources.open" value="open"/>
+                                    </adapt>                                    
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                    <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                                </or>
+                            </iterate>
+                        </with>             
+                    </visibleWhen>
+                </dynamic>                                                                          
+                
+                <separator name="analysis" visible="true"/>
+                <!-- ac stuff goes here -->
+                	
+                <separator name="experimental" visible="true"/>
+                 <!-- analysis -->
+               	<menu  id="com.braintribe.devrock.popup.experimental" label="Experimental" icon="icons/firststeps16.png">               	
+					<!-- separator for zed features --> 
+					<separator name="zed" visible="false"/>
+					
+					<!-- zed runner -->
+               		<dynamic class="com.braintribe.devrock.commands.zed.DynamicProjectAnalysisCommandItem" id="com.braintribe.devrock.commands.zed.DynamicProjectAnalysisCommandItem">            
+	                    <visibleWhen>               
+		                    <with
+		                         variable="activeMenuSelection">
+		                        <iterate>
+		                            <or>                                                    
+		                                <adapt type="org.eclipse.core.resources.IProject">
+		                                    <test property="org.eclipse.core.resources.open" value="open"/> 
+		                                </adapt>
+		                                <adapt type="org.eclipse.core.resources.IResource">
+		                                    <test property="org.eclipse.core.resources.open" value="open"/>
+		                                </adapt>                                                                
+		                                <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+		                                <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+		                            </or>
+		                        </iterate>
+		                    </with>             
+	                	</visibleWhen>
+	                </dynamic>	                	            	                	                           	             
+               </menu>
+              <separator name="popup.natures" visible="true"/>
+            </menu>
+        </menuContribution>        
+    </extension>
+    
+    
+    <!--  toolbar -->
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+            <toolbar id="com.braintribe.devrock.commands.toolbar1">
+	            <!--
+	            <command commandId="com.braintribe.devrock.commands.FloatingDevrockCommands" id="com.braintribe.devrock.commands.FloatingDevrockCommands.tb.id" style="pulldown" tooltip="Floating commands"/>
+			    <command commandId="com.braintribe.devrock.commands.ImportWorkspacePopulation" id="com.braintribe.devrock.artifactcontainer.plugins.commands.tb.cmd.ImportWorkspacePopulationCommand" style="push" tooltip="Import projects and workingsets from stored workspace extraction"/>
+			    -->            
+	            <command commandId="com.braintribe.devrock.commands.JarImportCommand" id="com.braintribe.devrock.artifactcontainer.plugins.commands.tb.cmd.JarImportCommand" style="push" tooltip="Import selected jars"/>            
+	            <command commandId="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" id="com.braintribe.devrock.commands.tb.cmd.DependencyToClipboardCopyCommand" style="pulldown" tooltip="Copy selected artifacts' dependencies to clipboard" />
+	            <command commandId="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" id="com.braintribe.devrock.commands.tb.cmd.DependencyFromClipboardPasteCommand" style="pulldown" tooltip="Paste dependencies from clipboard into selected project" />                         
+	            <command commandId="com.braintribe.devrock.commands.QuickImportProjectCommand" id="com.braintribe.devrock.commands.tb.cmd.QuickImportDropdownHandler" style="pulldown" tooltip="Run the quick import" />
+	            <command commandId="com.braintribe.devrock.commands.TbWizardCommand" id="com.braintribe.devrock.commands.tb.cmd.TbWizardCommand" style="push" tooltip="Run the build runner wizard" />            
+            </toolbar>
+        </menuContribution>
+    </extension>
+    
+    <!-- toolbar entries -->
+    <extension point="org.eclipse.ui.menus">
+         <menuContribution locationURI="menu:com.braintribe.devrock.commands.FloatingDevrockCommands.tb.id">
+            <command commandId="com.braintribe.devrock.commands.FloatingDevrockCommands" label="import workspace" tooltip="Import selected projects into workspace" >
+            	<parameter name="com.braintribe.devrock.devrock.command.param.floating" value="WORKSPACE-IMPORT" />
+            </command>
+            <command commandId="com.braintribe.devrock.commands.FloatingDevrockCommands" label="show repository configuration" tooltip="Import selected projects into workspace" >
+            	<parameter name="com.braintribe.devrock.devrock.command.param.floating" value="REPOSITORY-VIEW" />
+            </command>
+         </menuContribution>
+         
+        <!-- quick import family -->
+        <menuContribution locationURI="menu:com.braintribe.devrock.commands.tb.cmd.QuickImportDropdownHandler">
+            <command commandId="com.braintribe.devrock.commands.QuickImportProjectCommand" label="import projects" tooltip="Import selected projects into workspace" />                         
+            <separator name="additions" visible="false"/>
+			<command commandId="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand" label="import remote dependencies" tooltip="Import selected remote dependencies into clipboard / selected project"/>			                           
+            <command commandId="com.braintribe.devrock.commands.RunQuickImportScanCommand" label="rescan folders/repositories for artifact data" style="push" tooltip="Rescan artifact data for both the dependency- and the project-importer"/>        
+       </menuContribution>
+               
+       <!-- dependency copy  -->
+       <menuContribution locationURI="menu:com.braintribe.devrock.commands.tb.cmd.DependencyToClipboardCopyCommand">
+            <command commandId="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" label="Replace version declaration(s) with variable reference(s)" style="push" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="referenced" />
+            </command> 
+            <separator name="additions" visible="false"/>
+            <command commandId="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" label="Rangify version declaration(s)" style="push" tooltip="Modify the version of the dependency to a hotfix supporting range">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="rangified" />
+            </command> 
+            <separator name="additions" visible="false"/>
+            <command commandId="com.braintribe.devrock.commands.DependencyToClipboardCopyCommand" label="Keep version declaration(s) as found" style="push" tooltip="Keep version of the dependency as in the classpath">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="untouched"/>            
+            </command>              
+       </menuContribution> 
+      
+        <!-- dependency paste  -->
+       <menuContribution locationURI="menu:com.braintribe.devrock.commands.tb.cmd.DependencyFromClipboardPasteCommand">
+            <command commandId="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" label="Replace version declaration(s) with variable reference(s)" style="push" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="referenced" />                
+            </command> 
+            <separator name="additions" visible="false"/>
+            <command commandId="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" label="Rangify version declaration(s)" style="push" tooltip="Modify the version of the dependency to a hotfix supporting range">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="rangified" />                
+            </command> 
+            <separator name="additions" visible="false"/>
+            <command commandId="com.braintribe.devrock.commands.DependencyFromClipboardPasteCommand" label="Keep version declaration(s) as found" style="push" tooltip="Keep version of the dependency as in the classpath">
+                <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="untouched"/>                                
+            </command>              
+       </menuContribution>
+       
+       <!-- ant build wizard-->
+        <menuContribution locationURI="menu:com.braintribe.devrock.commands.tb.cmd.TbWizardCommand">
+	        <command commandId="com.braintribe.devrock.commands.TbWizardCommand" label="build wizard" tooltip="run the build wizard"/>
+        </menuContribution>
+    </extension>
+    
+    <!--
+        KEY BINDINGS
+    -->
+    <extension point="org.eclipse.ui.bindings">
+        <key
+            commandId="com.braintribe.devrock.commands.QuickImportProjectCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+I"
+        />          
+        <key
+            commandId="com.braintribe.devrock.commands.QuickImportRemoteDependencyCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Ctrl+Shift+D"
+        />
+                
+    </extension>
+ 
+    <!--
+        PREFERENCES  
+    -->
+    <extension
+         point="org.eclipse.ui.preferencePages">        
+         <page                      
+            class="com.braintribe.devrock.preferences.pages.main.DevrockTitlePage"
+            id="com.braintribe.devrock.main"
+            name="Devrock">
+         </page>
+
+         <page            
+            category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.preferences.pages.ve.VirtualEnvironmentPage"
+            id="com.braintribe.devrock.preferences.pages.ve.VirtualEnvironmentPage"
+            name="Virtual Environment">
+        </page>
+        
+       <page            
+            category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.preferences.pages.scan.ScanConfigurationPage"
+            id="com.braintribe.devrock.preferences.pages.scan.ScanConfigurationPage"
+            name="Source Configuration">
+        </page>
+        
+        <page            
+            category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.preferences.pages.analysis.AnalysisPage"
+            id="com.braintribe.devrock.preferences.pages.analysis.AnalysisPage"
+            name="Analysis">
+        </page>
+        
+      
+        <page            
+            category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.preferences.pages.experimental.ExperimentalPage"
+            id="com.braintribe.devrock.preferences.pages.experimental.ExperimentalPage"
+            name="Experimental features">
+        </page>
+        
+   </extension>
+   
+	<!-- TF project icon decorator -->
+	<extension point="org.eclipse.ui.decorators">
+		<decorator
+			id="com.braintribe.devrock.decorator.TfNatureAwareDecorator"
+			label="Model decorator" state="true" lightweight="true"
+			class="com.braintribe.devrock.decorator.TfNatureAwareDecorator"
+			location="REPLACE"
+			objectClass="org.eclipse.core.resources.IResource" 
+			adaptable="true">
+			
+			<description>
+				A decorator to replace the default project icon with one specific for TF nature, e.g. model, module, api, aggregator.
+			</description>
+		</decorator>
+	</extension>
+ 
+</plugin>

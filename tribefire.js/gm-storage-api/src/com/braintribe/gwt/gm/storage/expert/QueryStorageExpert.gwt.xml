@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.gwt.gm.storage.StorageApi"/>
+    <inherits name="com.braintribe.model.QueryModel"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+	<inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="api"/>
+</module>

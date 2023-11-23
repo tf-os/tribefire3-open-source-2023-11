@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.SimpleEntity" entity-name="test.models.basic.SimpleEntity" table="SimpleEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<property name="booleanProperty" column="booleanProperty" type="boolean" />
+		<property name="dateProperty" column="dateProperty" type="timestamp" />
+		<property name="enumProperty" column="enumProperty">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">test.models.basic.SimpleEnum</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+		<property name="globalId" column="globalId" type="string" />
+		<property name="integerProperty" column="integerProperty" type="integer" />
+		<property name="longProperty" column="longProperty" type="long" />
+		<property name="partition" column="partition_" type="string" />
+		<property name="stringProperty" column="stringProperty" type="text" length="1000" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+.text {
+	border-color: #DDDDDD;
+	border-radius: 4px;
+	background: white;
+}
+
+.focus input,
+.focus textarea {
+	border-color: #DDDDDD !important;
+	border-radius: 4px;
+}
+
+.empty {
+	color: #808080;
+}
+
+.empty input {
+	text-align: center;
+}

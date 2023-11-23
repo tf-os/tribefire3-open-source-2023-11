@@ -1,0 +1,4506 @@
+{"_type": "com.braintribe.model.document.Document", "_id": "0",
+ "creationState": "created",
+ "heightInCm": 43.29396438598633,
+ "id": "18111610135223888f78cd1e5743ae98",
+ "lastCreationFinished": "2018-11-16T09:14:32.854+0000",
+ "lastCreationStarted": "2018-11-16T09:13:53.086+0000",
+ "name": "149_pages.pdf",
+ "pages": [
+  {"_id": "1",
+   "heightInCm": 43.29396438598633,
+   "name": "Page 1 of 149_pages.pdf",
+   "representations": [
+    {"_id": "2",
+     "created": "2018-11-16T09:13:54.296+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 120520,
+     "id": "3c192844-7109-48a0-8c4c-2fe8d1ec7a1e",
+     "md5": "4de9bca20566235c6029601491379e17",
+     "mimeType": "image/png",
+     "name": "149_pages-001.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "3",
+      "id": "0f860b81-7cf4-4b31-96b5-854e26c07008",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "4",
+      "heightInCm": 43.29396438598633,
+      "id": 3720,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3299,
+      "pixelWidth": 2549,
+      "widthInCm": 33.451446533203125
+     }
+    }
+   ],
+   "widthInCm": 33.451446533203125
+  },
+  {"_id": "5",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 2 of 149_pages.pdf",
+   "representations": [
+    {"_id": "6",
+     "created": "2018-11-16T09:13:55.432+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 615261,
+     "id": "2f172f84-5af0-4905-b533-1a67ffcb55d3",
+     "md5": "404cc8ab656f0c1b1af0daad6295e5b7",
+     "mimeType": "image/png",
+     "name": "149_pages-002.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "7",
+      "id": "049e28ae-ec1d-4ce2-90b2-51e4bb93ce18",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "8",
+      "heightInCm": 43.30708694458008,
+      "id": 3726,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "9",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 3 of 149_pages.pdf",
+   "representations": [
+    {"_id": "10",
+     "created": "2018-11-16T09:13:57.271+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1311713,
+     "id": "d4511377-65d8-4fee-8d0a-439ee6d4d242",
+     "md5": "3bee5ae9c0f298bef8d4e1fd242033de",
+     "mimeType": "image/png",
+     "name": "149_pages-003.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "11",
+      "id": "57c79f44-162b-4fb3-9e5d-9d7b12d9119f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "12",
+      "heightInCm": 43.30708694458008,
+      "id": 3737,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "13",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 4 of 149_pages.pdf",
+   "representations": [
+    {"_id": "14",
+     "created": "2018-11-16T09:14:00.216+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1258976,
+     "id": "1688063c-643c-45de-8525-d977462ba3c3",
+     "md5": "3c1fae9773d2c1a2bfa44ce7b6835885",
+     "mimeType": "image/png",
+     "name": "149_pages-004.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "15",
+      "id": "72cd229d-45f2-4909-8f4c-d698882dc433",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "16",
+      "heightInCm": 43.30708694458008,
+      "id": 3747,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "17",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 5 of 149_pages.pdf",
+   "representations": [
+    {"_id": "18",
+     "created": "2018-11-16T09:14:02.370+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1253188,
+     "id": "7cfb9fb0-dfee-427b-b96d-4d236d40552c",
+     "md5": "fb8a0aab0a674757777975780531a43f",
+     "mimeType": "image/png",
+     "name": "149_pages-005.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "19",
+      "id": "39640b92-a987-4ae2-ab01-08825634896e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "20",
+      "heightInCm": 43.30708694458008,
+      "id": 3755,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "21",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 6 of 149_pages.pdf",
+   "representations": [
+    {"_id": "22",
+     "created": "2018-11-16T09:14:04.933+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1118182,
+     "id": "e4590045-305c-4d53-86ca-29a0ea715fdd",
+     "md5": "680ff8bfa88f2098d775b858607324b2",
+     "mimeType": "image/png",
+     "name": "149_pages-006.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "23",
+      "id": "a5b7e87f-ecfd-4a1f-b1ed-b3356ce4266c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "24",
+      "heightInCm": 43.30708694458008,
+      "id": 3764,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "25",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 7 of 149_pages.pdf",
+   "representations": [
+    {"_id": "26",
+     "created": "2018-11-16T09:14:06.739+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1195986,
+     "id": "38ea484a-5372-4ed1-a1af-6e038c6e0583",
+     "md5": "cb79cf32a9ce1856c96a9d6262ab8cc3",
+     "mimeType": "image/png",
+     "name": "149_pages-007.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "27",
+      "id": "21314d02-2b4e-44e5-a108-1803b0f8e9a2",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "28",
+      "heightInCm": 43.30708694458008,
+      "id": 3773,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "29",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 8 of 149_pages.pdf",
+   "representations": [
+    {"_id": "30",
+     "created": "2018-11-16T09:14:08.242+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1226596,
+     "id": "a2040dfe-4db1-4946-9e2d-43ced8ca5010",
+     "md5": "0c906903652ba47f0b509697dd648c53",
+     "mimeType": "image/png",
+     "name": "149_pages-008.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "31",
+      "id": "70fba78c-c457-4895-9b0a-b93049b04ec3",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "32",
+      "heightInCm": 43.30708694458008,
+      "id": 3782,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "33",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 9 of 149_pages.pdf",
+   "representations": [
+    {"_id": "34",
+     "created": "2018-11-16T09:14:10.172+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1271286,
+     "id": "2dcfbda4-2f1c-4cd3-b04d-06f4c388afd1",
+     "md5": "a2464ef69554264ab78e0c98a3a3f8a4",
+     "mimeType": "image/png",
+     "name": "149_pages-009.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "35",
+      "id": "d6a94ff2-8c27-4878-b797-ad120f6bf559",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "36",
+      "heightInCm": 43.30708694458008,
+      "id": 3790,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "37",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 10 of 149_pages.pdf",
+   "representations": [
+    {"_id": "38",
+     "created": "2018-11-16T09:14:14.161+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1204711,
+     "id": "8b33c02e-858b-4305-aa9d-f39faaa70aae",
+     "md5": "e11f75ffc34bfb2f7be631ccb8375358",
+     "mimeType": "image/png",
+     "name": "149_pages-010.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "39",
+      "id": "33559279-10c4-4367-a318-5d96f51f464b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "40",
+      "heightInCm": 43.30708694458008,
+      "id": 3801,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "41",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 11 of 149_pages.pdf",
+   "representations": [
+    {"_id": "42",
+     "created": "2018-11-16T09:14:16.085+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1246547,
+     "id": "f65bf3b2-8920-48ad-b0c8-888aee13a09a",
+     "md5": "d063178a4995aac2cc4eb1149e59c18a",
+     "mimeType": "image/png",
+     "name": "149_pages-011.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "43",
+      "id": "f6f77e92-9015-4c9b-bc21-44938b844163",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "44",
+      "heightInCm": 43.30708694458008,
+      "id": 3809,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "45",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 12 of 149_pages.pdf",
+   "representations": [
+    {"_id": "46",
+     "created": "2018-11-16T09:14:17.399+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1244484,
+     "id": "e9944281-8752-4acd-b33f-6a4c00908ce7",
+     "md5": "5e860b00f578fbc184d80583de9a7547",
+     "mimeType": "image/png",
+     "name": "149_pages-012.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "47",
+      "id": "ceea0dc9-9d09-463c-aa29-038881f67d16",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "48",
+      "heightInCm": 43.30708694458008,
+      "id": 3817,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "49",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 13 of 149_pages.pdf",
+   "representations": [
+    {"_id": "50",
+     "created": "2018-11-16T09:14:19.169+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1217479,
+     "id": "a2745768-9d34-43ba-a037-259afafa25aa",
+     "md5": "a8a2a80f9aa86dbf80a658f63485f268",
+     "mimeType": "image/png",
+     "name": "149_pages-013.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "51",
+      "id": "247d1c6a-9373-4e95-bf1f-a38dd44a83c1",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "52",
+      "heightInCm": 43.30708694458008,
+      "id": 3821,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "53",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 14 of 149_pages.pdf",
+   "representations": [
+    {"_id": "54",
+     "created": "2018-11-16T09:14:21.697+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1247633,
+     "id": "d3fc6627-e438-45d9-a42f-35c964057655",
+     "md5": "8694679d626487902ea29c13d3113368",
+     "mimeType": "image/png",
+     "name": "149_pages-014.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "55",
+      "id": "dd78e1bf-9ce8-41ff-9ec3-a2371f3f1ba8",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "56",
+      "heightInCm": 43.30708694458008,
+      "id": 3830,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "57",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 15 of 149_pages.pdf",
+   "representations": [
+    {"_id": "58",
+     "created": "2018-11-16T09:14:23.014+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1265672,
+     "id": "d167f979-9024-41ca-8391-b26b97557626",
+     "md5": "66337630e16af34aa03a1f1d97b12c16",
+     "mimeType": "image/png",
+     "name": "149_pages-015.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "59",
+      "id": "6e78c26c-e468-4296-8b8e-eae755536a1f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "60",
+      "heightInCm": 43.30708694458008,
+      "id": 3836,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "61",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 16 of 149_pages.pdf",
+   "representations": [
+    {"_id": "62",
+     "created": "2018-11-16T09:14:24.613+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1186052,
+     "id": "556f325c-c00c-44db-b662-92591cc5f169",
+     "md5": "3beaa500113e63aacb3551ee4c9ddd57",
+     "mimeType": "image/png",
+     "name": "149_pages-016.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "63",
+      "id": "15933ba0-1e3d-4b0c-aa1a-62d48cc5ffa4",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "64",
+      "heightInCm": 43.30708694458008,
+      "id": 3844,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "65",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 17 of 149_pages.pdf",
+   "representations": [
+    {"_id": "66",
+     "created": "2018-11-16T09:14:26.459+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1080598,
+     "id": "0f82a6d3-cacf-4138-8521-b2ec09244bf5",
+     "md5": "874c6ae1851cc989455e5a28eb888448",
+     "mimeType": "image/png",
+     "name": "149_pages-017.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "67",
+      "id": "5d4ac93f-f484-414c-ab1c-d1a4d3dedded",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "68",
+      "heightInCm": 43.30708694458008,
+      "id": 3849,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "69",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 18 of 149_pages.pdf",
+   "representations": [
+    {"_id": "70",
+     "created": "2018-11-16T09:14:28.622+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1210538,
+     "id": "ce26b55e-ccad-4084-b7f4-71122a009866",
+     "md5": "c6e620e38d90d23e74f58579cac38f77",
+     "mimeType": "image/png",
+     "name": "149_pages-018.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "71",
+      "id": "3f887734-2616-404c-9f4e-0c7c37bfc6a5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "72",
+      "heightInCm": 43.30708694458008,
+      "id": 3856,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "73",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 19 of 149_pages.pdf",
+   "representations": [
+    {"_id": "74",
+     "created": "2018-11-16T09:14:30.252+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 712917,
+     "id": "0f3e13af-00a5-4c71-890b-092887f10a16",
+     "md5": "4ff1052742ab399329bd653e3af98682",
+     "mimeType": "image/png",
+     "name": "149_pages-019.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "75",
+      "id": "eae26a45-3f92-4aee-81f1-1b66a561138f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "76",
+      "heightInCm": 43.30708694458008,
+      "id": 3861,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "77",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 20 of 149_pages.pdf",
+   "representations": [
+    {"_id": "78",
+     "created": "2018-11-16T09:14:31.149+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1278829,
+     "id": "cb9dc6a3-c95d-472a-862f-435fd0ef3740",
+     "md5": "79be5e7449a5d261a503699365f1c345",
+     "mimeType": "image/png",
+     "name": "149_pages-020.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "79",
+      "id": "e20ea8f3-0649-4c26-861b-b3fb7621fe87",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "80",
+      "heightInCm": 43.30708694458008,
+      "id": 3865,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "81",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 21 of 149_pages.pdf",
+   "representations": [
+    {"_id": "82",
+     "created": "2018-11-16T09:13:54.372+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1326359,
+     "id": "8417679b-6bb7-416f-8a3a-6a8c3503d0c9",
+     "md5": "3a2d5817611f83bc9e2ceba8e188e4b5",
+     "mimeType": "image/png",
+     "name": "149_pages-021.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "83",
+      "id": "0c448efd-14f1-40c9-b51a-866edf534ac8",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "84",
+      "heightInCm": 43.30708694458008,
+      "id": 3723,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "85",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 22 of 149_pages.pdf",
+   "representations": [
+    {"_id": "86",
+     "created": "2018-11-16T09:13:57.253+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1284025,
+     "id": "3c47cf26-756a-48b7-877d-40a4b665c565",
+     "md5": "4eddb2987f6f78504fdef78952f47559",
+     "mimeType": "image/png",
+     "name": "149_pages-022.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "87",
+      "id": "db23d11a-ea37-4538-9b16-713f59d0a67c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "88",
+      "heightInCm": 43.30708694458008,
+      "id": 3736,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "89",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 23 of 149_pages.pdf",
+   "representations": [
+    {"_id": "90",
+     "created": "2018-11-16T09:13:59.954+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1245934,
+     "id": "eb9b2b99-b091-4096-ab5a-9f03d7bfb094",
+     "md5": "eb209c944b50e82184df6fe6683023c3",
+     "mimeType": "image/png",
+     "name": "149_pages-023.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "91",
+      "id": "2c5a0806-128a-41f7-91cb-38f2fc19c753",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "92",
+      "heightInCm": 43.30708694458008,
+      "id": 3745,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "93",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 24 of 149_pages.pdf",
+   "representations": [
+    {"_id": "94",
+     "created": "2018-11-16T09:14:01.452+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1273140,
+     "id": "51aa570b-af67-4b34-b745-d6da097fb844",
+     "md5": "6bbe99032e3eec50a5d7003aae9b1d80",
+     "mimeType": "image/png",
+     "name": "149_pages-024.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "95",
+      "id": "0a630ce8-d0ba-400c-9a15-b4b507dad4dc",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "96",
+      "heightInCm": 43.30708694458008,
+      "id": 3753,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "97",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 25 of 149_pages.pdf",
+   "representations": [
+    {"_id": "98",
+     "created": "2018-11-16T09:14:02.788+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1227120,
+     "id": "837f79f4-3b60-45e2-9945-2963ac8697a6",
+     "md5": "7c7c3ce8c1371ec35c4214ff8136b659",
+     "mimeType": "image/png",
+     "name": "149_pages-025.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "99",
+      "id": "818da37e-3274-45e1-bf1c-bdf5adf924b9",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "100",
+      "heightInCm": 43.30708694458008,
+      "id": 3761,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "101",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 26 of 149_pages.pdf",
+   "representations": [
+    {"_id": "102",
+     "created": "2018-11-16T09:14:05.017+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1255580,
+     "id": "930f3019-bdcc-4930-bff9-c46a6adc3353",
+     "md5": "7a163d3e239aeddaa0384cecb7d04560",
+     "mimeType": "image/png",
+     "name": "149_pages-026.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "103",
+      "id": "a2d216f1-a2dd-442d-b01e-e9726f5a7a60",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "104",
+      "heightInCm": 43.30708694458008,
+      "id": 3765,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "105",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 27 of 149_pages.pdf",
+   "representations": [
+    {"_id": "106",
+     "created": "2018-11-16T09:14:07.077+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1248726,
+     "id": "f604be9f-644f-4ffa-9377-6bb68a3cb9bf",
+     "md5": "788fc4fbdb79d555b6adeac465a5e3f1",
+     "mimeType": "image/png",
+     "name": "149_pages-027.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "107",
+      "id": "c71c43ee-31e0-422a-9aaa-7ecd07370c43",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "108",
+      "heightInCm": 43.30708694458008,
+      "id": 3776,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "109",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 28 of 149_pages.pdf",
+   "representations": [
+    {"_id": "110",
+     "created": "2018-11-16T09:14:09.305+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1303754,
+     "id": "5065ae89-9303-45c3-86eb-720490eda201",
+     "md5": "629b9d904ec58b0faa053e938389c269",
+     "mimeType": "image/png",
+     "name": "149_pages-028.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "111",
+      "id": "a0e152d7-b1d5-4757-89a9-ac4317f5687b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "112",
+      "heightInCm": 43.30708694458008,
+      "id": 3783,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "113",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 29 of 149_pages.pdf",
+   "representations": [
+    {"_id": "114",
+     "created": "2018-11-16T09:14:10.840+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1315366,
+     "id": "9a635e4b-9d29-4fb5-a236-133f58d03f88",
+     "md5": "a9eacdd0626e357d190362320af99648",
+     "mimeType": "image/png",
+     "name": "149_pages-029.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "115",
+      "id": "0ff59f9e-0957-406c-8695-8e6b2813d81f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "116",
+      "heightInCm": 43.30708694458008,
+      "id": 3794,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "117",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 30 of 149_pages.pdf",
+   "representations": [
+    {"_id": "118",
+     "created": "2018-11-16T09:14:14.197+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1245942,
+     "id": "2af59885-49e3-489c-bda1-774629284c50",
+     "md5": "37bf7f70f2d9f3339dafa2e20991b89e",
+     "mimeType": "image/png",
+     "name": "149_pages-030.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "119",
+      "id": "947514db-8acc-4da0-96d1-00ffa1d3d459",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "120",
+      "heightInCm": 43.30708694458008,
+      "id": 3803,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "121",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 31 of 149_pages.pdf",
+   "representations": [
+    {"_id": "122",
+     "created": "2018-11-16T09:14:16.087+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1264579,
+     "id": "3b599e46-9ee0-456c-88c3-a1d6d49cab11",
+     "md5": "00355efa9597303399517dfb51202879",
+     "mimeType": "image/png",
+     "name": "149_pages-031.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "123",
+      "id": "15708491-af7e-4a18-803f-247f6c0a9e40",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "124",
+      "heightInCm": 43.30708694458008,
+      "id": 3808,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "125",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 32 of 149_pages.pdf",
+   "representations": [
+    {"_id": "126",
+     "created": "2018-11-16T09:14:17.471+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1270575,
+     "id": "ae2ce247-23a9-447b-9261-470bc7d68587",
+     "md5": "805bb37687ed17078d9a2a31ab676f93",
+     "mimeType": "image/png",
+     "name": "149_pages-032.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "127",
+      "id": "891c12ea-cda2-48bd-87bd-9ed72c0c733b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "128",
+      "heightInCm": 43.30708694458008,
+      "id": 3815,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "129",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 33 of 149_pages.pdf",
+   "representations": [
+    {"_id": "130",
+     "created": "2018-11-16T09:14:19.185+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1225936,
+     "id": "7d9e9509-0519-4b67-8b73-41c79ed4307c",
+     "md5": "4331e88f6c6b75ccf7d31ce58b0ec93d",
+     "mimeType": "image/png",
+     "name": "149_pages-033.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "131",
+      "id": "81590c60-cfe2-424c-a185-1669f3c53296",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "132",
+      "heightInCm": 43.30708694458008,
+      "id": 3826,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "133",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 34 of 149_pages.pdf",
+   "representations": [
+    {"_id": "134",
+     "created": "2018-11-16T09:14:21.741+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1213352,
+     "id": "ffaeb84d-89e2-460d-8c2b-b2977b30a28f",
+     "md5": "69ae15324b9c3af6facc078ce38fc7c6",
+     "mimeType": "image/png",
+     "name": "149_pages-034.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "135",
+      "id": "ddcf1a1c-0c9f-4d14-9ba3-233cf700ce12",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "136",
+      "heightInCm": 43.30708694458008,
+      "id": 3829,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "137",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 35 of 149_pages.pdf",
+   "representations": [
+    {"_id": "138",
+     "created": "2018-11-16T09:14:23.010+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1248743,
+     "id": "81708166-92fe-4720-936a-e7823ef4971b",
+     "md5": "4a7ccb8df71fe7df07a3381ee1e4cdfa",
+     "mimeType": "image/png",
+     "name": "149_pages-035.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "139",
+      "id": "42de5531-4ddc-4263-97d2-d4fdc938913f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "140",
+      "heightInCm": 43.30708694458008,
+      "id": 3834,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "141",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 36 of 149_pages.pdf",
+   "representations": [
+    {"_id": "142",
+     "created": "2018-11-16T09:14:24.507+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1235401,
+     "id": "0e6ccd0e-36b2-4ad2-8197-8faa769e381f",
+     "md5": "68f71c9345964f5a777a636dc56249e8",
+     "mimeType": "image/png",
+     "name": "149_pages-036.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "143",
+      "id": "e695428c-e3f8-404f-9801-1de6361133dc",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "144",
+      "heightInCm": 43.30708694458008,
+      "id": 3841,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "145",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 37 of 149_pages.pdf",
+   "representations": [
+    {"_id": "146",
+     "created": "2018-11-16T09:14:26.482+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1278786,
+     "id": "279cf946-40cd-47fb-bc1d-e06f0239a00b",
+     "md5": "8addf078c1ab00cce1c55d35d9c4266b",
+     "mimeType": "image/png",
+     "name": "149_pages-037.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "147",
+      "id": "b2ae529a-82f5-4669-96b2-7525206fc0d4",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "148",
+      "heightInCm": 43.30708694458008,
+      "id": 3852,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "149",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 38 of 149_pages.pdf",
+   "representations": [
+    {"_id": "150",
+     "created": "2018-11-16T09:14:28.806+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1215990,
+     "id": "d9765326-f850-4fa7-b177-ab99a8d5f44b",
+     "md5": "4653ed54662445c1a0e79fd7367b4745",
+     "mimeType": "image/png",
+     "name": "149_pages-038.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "151",
+      "id": "79970789-9164-4de3-a87d-1eb194debe61",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "152",
+      "heightInCm": 43.30708694458008,
+      "id": 3859,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "153",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 39 of 149_pages.pdf",
+   "representations": [
+    {"_id": "154",
+     "created": "2018-11-16T09:14:30.293+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1275901,
+     "id": "ccfbb7cc-485f-4edf-9c18-7bff821f1808",
+     "md5": "d838d985e415c74dcb8a8092798dea28",
+     "mimeType": "image/png",
+     "name": "149_pages-039.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "155",
+      "id": "9bccf2fa-5c44-4ca7-b4a1-5a66d96e89ec",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "156",
+      "heightInCm": 43.30708694458008,
+      "id": 3862,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "157",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 40 of 149_pages.pdf",
+   "representations": [
+    {"_id": "158",
+     "created": "2018-11-16T09:14:31.669+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1292168,
+     "id": "6d50f681-7426-4710-8075-ad78764b767c",
+     "md5": "fed6c352d2fb91e8296f8fcf5f83e80d",
+     "mimeType": "image/png",
+     "name": "149_pages-040.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "159",
+      "id": "16383b55-465f-4428-b420-ee8791447c1b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "160",
+      "heightInCm": 43.30708694458008,
+      "id": 3868,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "161",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 41 of 149_pages.pdf",
+   "representations": [
+    {"_id": "162",
+     "created": "2018-11-16T09:13:54.727+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1260922,
+     "id": "aa3ece03-abfa-4870-a065-86ffc4ad864b",
+     "md5": "2834af9dc503135f1c274ad00896dbc8",
+     "mimeType": "image/png",
+     "name": "149_pages-041.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "163",
+      "id": "8c7a49c4-3d29-48fc-af50-ac11d6ca1a7e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "164",
+      "heightInCm": 43.30708694458008,
+      "id": 3729,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "165",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 42 of 149_pages.pdf",
+   "representations": [
+    {"_id": "166",
+     "created": "2018-11-16T09:13:56.890+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1251111,
+     "id": "69b1fd11-3d4e-4153-9c76-e78697bb5720",
+     "md5": "864a56e595ada78da5c7154ce428422e",
+     "mimeType": "image/png",
+     "name": "149_pages-042.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "167",
+      "id": "e0289f6c-43d7-40c5-a364-1e036c79b06e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "168",
+      "heightInCm": 43.30708694458008,
+      "id": 3733,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "169",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 43 of 149_pages.pdf",
+   "representations": [
+    {"_id": "170",
+     "created": "2018-11-16T09:13:59.753+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1262819,
+     "id": "89703c11-65a8-4974-bf54-4bdec16683df",
+     "md5": "0c8ac0daa88d65922f1da10c7ec06b3c",
+     "mimeType": "image/png",
+     "name": "149_pages-043.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "171",
+      "id": "00bba130-3610-4c16-81f8-401944558ff0",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "172",
+      "heightInCm": 43.30708694458008,
+      "id": 3744,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "173",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 44 of 149_pages.pdf",
+   "representations": [
+    {"_id": "174",
+     "created": "2018-11-16T09:14:01.383+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1230221,
+     "id": "69cd8267-3689-45de-a4fc-06d702383576",
+     "md5": "c7c93f33f27c1136b5b621c49f49aa95",
+     "mimeType": "image/png",
+     "name": "149_pages-044.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "175",
+      "id": "ef361d17-df1a-4e53-845c-ec8bf462cf1d",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "176",
+      "heightInCm": 43.30708694458008,
+      "id": 3751,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "177",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 45 of 149_pages.pdf",
+   "representations": [
+    {"_id": "178",
+     "created": "2018-11-16T09:14:02.697+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1261241,
+     "id": "bbb92bdc-8438-4c0a-bb2a-00d3b3bb1205",
+     "md5": "413f3d044ebc7fff0493071a79a796af",
+     "mimeType": "image/png",
+     "name": "149_pages-045.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "179",
+      "id": "1aecdd42-5f94-47d7-bfec-3ae30f76ee06",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "180",
+      "heightInCm": 43.30708694458008,
+      "id": 3756,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "181",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 46 of 149_pages.pdf",
+   "representations": [
+    {"_id": "182",
+     "created": "2018-11-16T09:14:04.967+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1278446,
+     "id": "91d833f4-c0aa-4271-950d-2c197584ac60",
+     "md5": "d4d2bc4c77b8f072c61eaf85eeb85fef",
+     "mimeType": "image/png",
+     "name": "149_pages-046.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "183",
+      "id": "32108760-6ea3-4262-9a4b-07e3463066df",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "184",
+      "heightInCm": 43.30708694458008,
+      "id": 3766,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "185",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 47 of 149_pages.pdf",
+   "representations": [
+    {"_id": "186",
+     "created": "2018-11-16T09:14:07.042+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1231634,
+     "id": "eeef99c2-cf40-4c24-8a61-d559f84fb3ce",
+     "md5": "ca9bb188d3f326f6d37ea32ea11ce422",
+     "mimeType": "image/png",
+     "name": "149_pages-047.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "187",
+      "id": "3029e122-5c3b-4cc7-a8f1-154916997d4e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "188",
+      "heightInCm": 43.30708694458008,
+      "id": 3774,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "189",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 48 of 149_pages.pdf",
+   "representations": [
+    {"_id": "190",
+     "created": "2018-11-16T09:14:09.272+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1323387,
+     "id": "15f19cd1-4fd6-40ef-8f9b-cc928e30f497",
+     "md5": "b3d627b3379dce9ff7306bd86467d679",
+     "mimeType": "image/png",
+     "name": "149_pages-048.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "191",
+      "id": "303364c5-08f8-4137-8bcc-037f096a7b64",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "192",
+      "heightInCm": 43.30708694458008,
+      "id": 3787,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "193",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 49 of 149_pages.pdf",
+   "representations": [
+    {"_id": "194",
+     "created": "2018-11-16T09:14:10.888+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1284338,
+     "id": "7428ef70-4b6a-4364-a487-2f6bea3b109e",
+     "md5": "1f98e5ce96784eb860eaed09d7db9980",
+     "mimeType": "image/png",
+     "name": "149_pages-049.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "195",
+      "id": "8d122231-1be6-458f-898a-9af1f3e1c775",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "196",
+      "heightInCm": 43.30708694458008,
+      "id": 3796,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "197",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 50 of 149_pages.pdf",
+   "representations": [
+    {"_id": "198",
+     "created": "2018-11-16T09:14:14.196+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1287240,
+     "id": "7f416a2d-9a28-4d8d-9e50-68ac41a2b6ab",
+     "md5": "524b3dee1fb1570b3f8b5eb00123f864",
+     "mimeType": "image/png",
+     "name": "149_pages-050.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "199",
+      "id": "56a6c601-b2a8-4f1a-8692-de4b5b65db39",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "200",
+      "heightInCm": 43.30708694458008,
+      "id": 3804,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "201",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 51 of 149_pages.pdf",
+   "representations": [
+    {"_id": "202",
+     "created": "2018-11-16T09:14:16.198+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1311658,
+     "id": "158c592b-2fbb-4ed9-b3a2-5fd687e0f959",
+     "md5": "c1abc7c6783410b961bbbf7090d9e846",
+     "mimeType": "image/png",
+     "name": "149_pages-051.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "203",
+      "id": "ae171162-0ad6-4b03-aed1-f301901d5a05",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "204",
+      "heightInCm": 43.30708694458008,
+      "id": 3812,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "205",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 52 of 149_pages.pdf",
+   "representations": [
+    {"_id": "206",
+     "created": "2018-11-16T09:14:17.792+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1279605,
+     "id": "4a4d1bbc-6d57-4e77-a7ad-406419946dea",
+     "md5": "ac57b60d18cef557b0843b860043d4b3",
+     "mimeType": "image/png",
+     "name": "149_pages-052.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "207",
+      "id": "a83ef433-f7aa-4e4c-9fd1-364ccff7474b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "208",
+      "heightInCm": 43.30708694458008,
+      "id": 3820,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "209",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 53 of 149_pages.pdf",
+   "representations": [
+    {"_id": "210",
+     "created": "2018-11-16T09:14:19.362+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1220938,
+     "id": "daaa2556-0c52-4fd9-8721-1468a4ccac7f",
+     "md5": "8756cefe17820098ed64b3b07d67e86d",
+     "mimeType": "image/png",
+     "name": "149_pages-053.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "211",
+      "id": "5fbd40bc-d174-4a40-89fc-fc150b6778f5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "212",
+      "heightInCm": 43.30708694458008,
+      "id": 3822,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "213",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 54 of 149_pages.pdf",
+   "representations": [
+    {"_id": "214",
+     "created": "2018-11-16T09:14:21.740+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1234094,
+     "id": "412d1dd0-d1c8-49f1-8b27-78c8d04fb3b5",
+     "md5": "b19513e997b9efdfd6686981ca15a1fe",
+     "mimeType": "image/png",
+     "name": "149_pages-054.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "215",
+      "id": "9bc1b0a4-108c-4dc4-b693-f5e2ebb8c44b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "216",
+      "heightInCm": 43.30708694458008,
+      "id": 3832,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "217",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 55 of 149_pages.pdf",
+   "representations": [
+    {"_id": "218",
+     "created": "2018-11-16T09:14:23.338+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1238447,
+     "id": "85453046-f47a-41e4-90f0-a9ae801731c2",
+     "md5": "ebe8660ef11bf786f4673e87d8f681bd",
+     "mimeType": "image/png",
+     "name": "149_pages-055.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "219",
+      "id": "06e12c86-0717-4028-bf82-1fffbf43ddc5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "220",
+      "heightInCm": 43.30708694458008,
+      "id": 3838,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "221",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 56 of 149_pages.pdf",
+   "representations": [
+    {"_id": "222",
+     "created": "2018-11-16T09:14:24.710+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 444641,
+     "id": "46ff91bc-1eb2-4553-a5b9-15913a3ad525",
+     "md5": "a7d950ee9e1cd9639fbeb5ade9403345",
+     "mimeType": "image/png",
+     "name": "149_pages-056.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "223",
+      "id": "0993f40d-23e2-4a2b-a971-deeeec15b198",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "224",
+      "heightInCm": 43.30708694458008,
+      "id": 3840,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "225",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 57 of 149_pages.pdf",
+   "representations": [
+    {"_id": "226",
+     "created": "2018-11-16T09:14:25.466+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 465124,
+     "id": "a87c137f-2a70-48c8-8f86-58372cb27d98",
+     "md5": "fb59f6f204bf3548140feb4a3a903ace",
+     "mimeType": "image/png",
+     "name": "149_pages-057.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "227",
+      "id": "b6209911-3cec-4180-96e6-7c12c57a1110",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "228",
+      "heightInCm": 43.30708694458008,
+      "id": 3843,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "229",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 58 of 149_pages.pdf",
+   "representations": [
+    {"_id": "230",
+     "created": "2018-11-16T09:14:26.402+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 768863,
+     "id": "d8342590-726e-413e-b110-66d197748a84",
+     "md5": "a4b8e23b6eb89edd13e25d6a4d0acb25",
+     "mimeType": "image/png",
+     "name": "149_pages-058.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "231",
+      "id": "a87f2f73-0c1e-44d0-9cea-ed70c61ebbbd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "232",
+      "heightInCm": 43.30708694458008,
+      "id": 3848,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "233",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 59 of 149_pages.pdf",
+   "representations": [
+    {"_id": "234",
+     "created": "2018-11-16T09:14:27.332+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 448864,
+     "id": "7cbfbe59-a49a-4199-85d8-2243d81424a9",
+     "md5": "6f58c7218675ddebe6d0d83d9487c7b2",
+     "mimeType": "image/png",
+     "name": "149_pages-059.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "235",
+      "id": "b1c9302f-8fe9-4dd6-b48d-7e1095df0611",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "236",
+      "heightInCm": 43.30708694458008,
+      "id": 3854,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "237",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 60 of 149_pages.pdf",
+   "representations": [
+    {"_id": "238",
+     "created": "2018-11-16T09:14:28.895+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 880750,
+     "id": "617f6c26-8472-40a4-9cbf-b1917b3c5474",
+     "md5": "8211bf7a0b33374eabb6fa0518354c2b",
+     "mimeType": "image/png",
+     "name": "149_pages-060.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "239",
+      "id": "52757d4b-2bdd-43b0-a5cf-6df7ac4d9592",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "240",
+      "heightInCm": 43.30708694458008,
+      "id": 3857,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "241",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 61 of 149_pages.pdf",
+   "representations": [
+    {"_id": "242",
+     "created": "2018-11-16T09:13:54.750+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1195586,
+     "id": "58658c67-d2a5-487b-a493-42c8266086a1",
+     "md5": "fbf97c8f61ed1b646a62d60aa5c4d14e",
+     "mimeType": "image/png",
+     "name": "149_pages-061.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "243",
+      "id": "e7ca6d19-2401-477c-b5df-e55e9fc7e941",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "244",
+      "heightInCm": 43.30708694458008,
+      "id": 3724,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "245",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 62 of 149_pages.pdf",
+   "representations": [
+    {"_id": "246",
+     "created": "2018-11-16T09:13:56.871+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1090589,
+     "id": "96795146-6e35-4690-bf52-981ef662f58d",
+     "md5": "3f27f5c1ce8ffc7135453f008f2d41be",
+     "mimeType": "image/png",
+     "name": "149_pages-062.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "247",
+      "id": "85dea0d8-0a42-4262-bf90-f7375d3452ec",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "248",
+      "heightInCm": 43.30708694458008,
+      "id": 3735,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "249",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 63 of 149_pages.pdf",
+   "representations": [
+    {"_id": "250",
+     "created": "2018-11-16T09:13:59.375+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1064124,
+     "id": "9aeb024d-99a4-4384-ae01-3d690ed750eb",
+     "md5": "2c7b3379175c1fed5536232e0eabc74b",
+     "mimeType": "image/png",
+     "name": "149_pages-063.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "251",
+      "id": "ee861da5-b861-4126-8478-a7e8020bbc9b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "252",
+      "heightInCm": 43.30708694458008,
+      "id": 3741,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "253",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 64 of 149_pages.pdf",
+   "representations": [
+    {"_id": "254",
+     "created": "2018-11-16T09:14:00.709+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1289851,
+     "id": "f2233a44-fac6-4a66-8fcc-d98809d4b31b",
+     "md5": "a86a93cebe1e052b714d38e141e62eb5",
+     "mimeType": "image/png",
+     "name": "149_pages-064.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "255",
+      "id": "39378d96-309f-4f4b-bf05-95afa9c3c6ae",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "256",
+      "heightInCm": 43.30708694458008,
+      "id": 3748,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "257",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 65 of 149_pages.pdf",
+   "representations": [
+    {"_id": "258",
+     "created": "2018-11-16T09:14:02.429+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1209874,
+     "id": "805d3c04-8699-47a8-9ac5-adff154acc49",
+     "md5": "2e10254a25ed995408fa6e3058fe42bf",
+     "mimeType": "image/png",
+     "name": "149_pages-065.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "259",
+      "id": "ccaa1437-b55f-4f0e-b207-d666dd34fcbd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "260",
+      "heightInCm": 43.30708694458008,
+      "id": 3757,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "261",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 66 of 149_pages.pdf",
+   "representations": [
+    {"_id": "262",
+     "created": "2018-11-16T09:14:04.962+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1220052,
+     "id": "dc70323f-f8bd-4c74-9a4b-f83fa0791a77",
+     "md5": "b1101dfebc87796e4f1b43a0f8fa55fd",
+     "mimeType": "image/png",
+     "name": "149_pages-066.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "263",
+      "id": "007c4bfe-f5cf-465d-bf3f-df912faeda4f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "264",
+      "heightInCm": 43.30708694458008,
+      "id": 3768,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "265",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 67 of 149_pages.pdf",
+   "representations": [
+    {"_id": "266",
+     "created": "2018-11-16T09:14:07.088+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1233777,
+     "id": "78cbb7f3-a13c-4a35-88cc-0c910690358f",
+     "md5": "2fd96714f7143864b99e16018f16bbf0",
+     "mimeType": "image/png",
+     "name": "149_pages-067.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "267",
+      "id": "fdcb57d1-2628-4eb2-ab37-e1264ebf1b6f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "268",
+      "heightInCm": 43.30708694458008,
+      "id": 3777,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "269",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 68 of 149_pages.pdf",
+   "representations": [
+    {"_id": "270",
+     "created": "2018-11-16T09:14:09.364+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1255569,
+     "id": "b202d3b1-82c8-4bf9-b293-b1695f648467",
+     "md5": "76da287c9916099c340fa195704c92d2",
+     "mimeType": "image/png",
+     "name": "149_pages-068.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "271",
+      "id": "b21e0e26-27a0-489d-94e2-fdd754d130e8",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "272",
+      "heightInCm": 43.30708694458008,
+      "id": 3784,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "273",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 69 of 149_pages.pdf",
+   "representations": [
+    {"_id": "274",
+     "created": "2018-11-16T09:14:10.800+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1268013,
+     "id": "90392a48-6d3d-4231-a061-279ee99f1ea9",
+     "md5": "7ec6565531d2c8f58f81608f9ecb348c",
+     "mimeType": "image/png",
+     "name": "149_pages-069.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "275",
+      "id": "f87e8a8e-85a6-4050-ad23-ba30f4b5a715",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "276",
+      "heightInCm": 43.30708694458008,
+      "id": 3795,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "277",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 70 of 149_pages.pdf",
+   "representations": [
+    {"_id": "278",
+     "created": "2018-11-16T09:14:14.170+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1313994,
+     "id": "9875dbc3-e523-458a-ad51-5b484fc90a82",
+     "md5": "bfda624195be15ab7a4aa82a1a13630e",
+     "mimeType": "image/png",
+     "name": "149_pages-070.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "279",
+      "id": "fb4cc79c-b21a-46ae-9467-02090cc9860a",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "280",
+      "heightInCm": 43.30708694458008,
+      "id": 3800,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "281",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 71 of 149_pages.pdf",
+   "representations": [
+    {"_id": "282",
+     "created": "2018-11-16T09:14:15.931+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1301035,
+     "id": "5c2a8ff9-6dda-46d0-a9fd-d53a8156a207",
+     "md5": "0afeef57130416ff63768ccbb1dba887",
+     "mimeType": "image/png",
+     "name": "149_pages-071.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "283",
+      "id": "bc1bb4a4-c148-4e39-9bbd-cf47f25f0603",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "284",
+      "heightInCm": 43.30708694458008,
+      "id": 3807,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "285",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 72 of 149_pages.pdf",
+   "representations": [
+    {"_id": "286",
+     "created": "2018-11-16T09:14:17.381+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1265618,
+     "id": "30c16591-5969-452b-95cf-3214c5acf9df",
+     "md5": "21c4609a4517d4d05fbca76e2ee7a3a3",
+     "mimeType": "image/png",
+     "name": "149_pages-072.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "287",
+      "id": "a3343c24-5e37-456d-a5b0-313836a1ee27",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "288",
+      "heightInCm": 43.30708694458008,
+      "id": 3816,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "289",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 73 of 149_pages.pdf",
+   "representations": [
+    {"_id": "290",
+     "created": "2018-11-16T09:14:19.241+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1288606,
+     "id": "fd95a393-dac6-48a9-9c1f-09bdd50aacf4",
+     "md5": "a3e1b7a60ee4e82e1f66d30e87d505f3",
+     "mimeType": "image/png",
+     "name": "149_pages-073.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "291",
+      "id": "932a4ce4-415f-4caa-a2ff-7b6bd9755c62",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "292",
+      "heightInCm": 43.30708694458008,
+      "id": 3823,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "293",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 74 of 149_pages.pdf",
+   "representations": [
+    {"_id": "294",
+     "created": "2018-11-16T09:14:21.696+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1230841,
+     "id": "6eab7aff-7296-4894-8ad3-c840aa6ec609",
+     "md5": "0f7cfe26f8a8c0f9ade4563f26eafff6",
+     "mimeType": "image/png",
+     "name": "149_pages-074.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "295",
+      "id": "9d036f77-0651-45a5-991b-a1fcc9b7b938",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "296",
+      "heightInCm": 43.30708694458008,
+      "id": 3828,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "297",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 75 of 149_pages.pdf",
+   "representations": [
+    {"_id": "298",
+     "created": "2018-11-16T09:14:22.936+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1247947,
+     "id": "fa2c491a-4deb-44da-a08e-344bacf8e067",
+     "md5": "608d66f78b0c979ca3c87ee5ec4890f0",
+     "mimeType": "image/png",
+     "name": "149_pages-075.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "299",
+      "id": "10894f27-8799-4769-b1ed-88743a1ce257",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "300",
+      "heightInCm": 43.30708694458008,
+      "id": 3833,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "301",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 76 of 149_pages.pdf",
+   "representations": [
+    {"_id": "302",
+     "created": "2018-11-16T09:14:24.396+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 751825,
+     "id": "bf7cc3a6-3f2a-4a7d-9d3d-46e7364d851e",
+     "md5": "697ca5b3dbc2bcd2d64e7169a05b0e72",
+     "mimeType": "image/png",
+     "name": "149_pages-076.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "303",
+      "id": "c53cef76-fe0d-4e38-a0fa-8dab401bca0c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "304",
+      "heightInCm": 43.30708694458008,
+      "id": 3839,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "305",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 77 of 149_pages.pdf",
+   "representations": [
+    {"_id": "306",
+     "created": "2018-11-16T09:14:25.425+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 702561,
+     "id": "27b3f698-40f8-40cc-8a77-c1a27be9f870",
+     "md5": "3f31952139608b0d815c1d1cd6ca9c78",
+     "mimeType": "image/png",
+     "name": "149_pages-077.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "307",
+      "id": "aca0bb73-e9a6-4017-9c45-2bc32d0d2141",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "308",
+      "heightInCm": 43.30708694458008,
+      "id": 3846,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "309",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 78 of 149_pages.pdf",
+   "representations": [
+    {"_id": "310",
+     "created": "2018-11-16T09:14:26.382+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 604588,
+     "id": "e12b4ad8-9ef5-48d8-90f6-79cff4ac0786",
+     "md5": "9edb308b02dec2ec86068d50cc331d28",
+     "mimeType": "image/png",
+     "name": "149_pages-078.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "311",
+      "id": "4451296f-ebaa-42a7-aca7-b27ace160d9e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "312",
+      "heightInCm": 43.30708694458008,
+      "id": 3847,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "313",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 79 of 149_pages.pdf",
+   "representations": [
+    {"_id": "314",
+     "created": "2018-11-16T09:14:27.291+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 650247,
+     "id": "90e9c84b-7049-4af1-a739-d02856aa3b7c",
+     "md5": "06ffb4e45dd25f8527b5289898ff58c3",
+     "mimeType": "image/png",
+     "name": "149_pages-079.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "315",
+      "id": "dc664ad1-cb80-4f20-be94-766a1d07e9ac",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "316",
+      "heightInCm": 43.30708694458008,
+      "id": 3853,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "317",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 80 of 149_pages.pdf",
+   "representations": [
+    {"_id": "318",
+     "created": "2018-11-16T09:14:28.772+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 591601,
+     "id": "3616a3c5-6679-46cf-837b-aa07cfaa29c2",
+     "md5": "8c2a1737e47f2bc9d5728f64e2e9c0f5",
+     "mimeType": "image/png",
+     "name": "149_pages-080.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "319",
+      "id": "ddf456b4-30ae-4b72-b5ed-007fa3f4feef",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "320",
+      "heightInCm": 43.30708694458008,
+      "id": 3855,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "321",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 81 of 149_pages.pdf",
+   "representations": [
+    {"_id": "322",
+     "created": "2018-11-16T09:13:53.950+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 610060,
+     "id": "7dad3ed7-a847-4841-a0bb-19789eedfdac",
+     "md5": "4cf09ca81a43c2d4711eb1cebf594852",
+     "mimeType": "image/png",
+     "name": "149_pages-081.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "323",
+      "id": "cdb811a0-e37d-4b23-abe6-f514f34cf814",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "324",
+      "heightInCm": 43.30708694458008,
+      "id": 3721,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "325",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 82 of 149_pages.pdf",
+   "representations": [
+    {"_id": "326",
+     "created": "2018-11-16T09:13:55.442+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 593631,
+     "id": "176fa5f0-a84c-4855-a333-3ed712666609",
+     "md5": "dc6fdc05a49b5bc528a9e715d0b76557",
+     "mimeType": "image/png",
+     "name": "149_pages-082.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "327",
+      "id": "41b9c79a-734f-44b1-8507-518e71b860e0",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "328",
+      "heightInCm": 43.30708694458008,
+      "id": 3728,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "329",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 83 of 149_pages.pdf",
+   "representations": [
+    {"_id": "330",
+     "created": "2018-11-16T09:13:57.184+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 654242,
+     "id": "2943d63d-3ba6-49bf-9fce-2a03e12bd45d",
+     "md5": "61b156cf74a14ef3d2eb6bfc771d0d53",
+     "mimeType": "image/png",
+     "name": "149_pages-083.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "331",
+      "id": "6d82b76d-82f3-43d1-8456-d82857c5aaea",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "332",
+      "heightInCm": 43.30708694458008,
+      "id": 3731,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "333",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 84 of 149_pages.pdf",
+   "representations": [
+    {"_id": "334",
+     "created": "2018-11-16T09:13:58.930+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 708324,
+     "id": "44438b0a-4cd1-4b93-ba58-8a90280eb028",
+     "md5": "9d47dd5a30783df4c0eca7d012683840",
+     "mimeType": "image/png",
+     "name": "149_pages-084.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "335",
+      "id": "3e9e734c-12f2-4f2f-9cf9-96aa322efb3b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "336",
+      "heightInCm": 43.30708694458008,
+      "id": 3738,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "337",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 85 of 149_pages.pdf",
+   "representations": [
+    {"_id": "338",
+     "created": "2018-11-16T09:14:00.189+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 716215,
+     "id": "85c331ad-6a0c-4a8b-be25-4317d3352704",
+     "md5": "ef0770d8d6c93706a48266f919f9456c",
+     "mimeType": "image/png",
+     "name": "149_pages-085.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "339",
+      "id": "e3f66b8a-cda6-4609-aa6b-8513a5975603",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "340",
+      "heightInCm": 43.30708694458008,
+      "id": 3742,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "341",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 86 of 149_pages.pdf",
+   "representations": [
+    {"_id": "342",
+     "created": "2018-11-16T09:14:01.246+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 601131,
+     "id": "1dc55724-23cd-4c42-8c17-ce942ea033ef",
+     "md5": "a8bf1bf689c23a65e28623d56ecacbcb",
+     "mimeType": "image/png",
+     "name": "149_pages-086.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "343",
+      "id": "00587df4-2dd8-450f-bd74-f42ee5a91793",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "344",
+      "heightInCm": 43.30708694458008,
+      "id": 3749,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "345",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 87 of 149_pages.pdf",
+   "representations": [
+    {"_id": "346",
+     "created": "2018-11-16T09:14:02.242+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 438097,
+     "id": "4793af54-4086-4d97-9d94-ed0b37731cbe",
+     "md5": "a0f80466329684fe643408d769d628ef",
+     "mimeType": "image/png",
+     "name": "149_pages-087.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "347",
+      "id": "3db68384-230d-480c-97cf-bd73ef23c4b7",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "348",
+      "heightInCm": 43.30708694458008,
+      "id": 3754,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "349",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 88 of 149_pages.pdf",
+   "representations": [
+    {"_id": "350",
+     "created": "2018-11-16T09:14:04.057+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 449076,
+     "id": "2bd4ce1d-d768-4e02-b495-8d49bcbf9e76",
+     "md5": "75b08ecc6372bc636e679b811aafab17",
+     "mimeType": "image/png",
+     "name": "149_pages-088.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "351",
+      "id": "12ea3ff0-8586-4e56-b194-a9f5ead7613c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "352",
+      "heightInCm": 43.30708694458008,
+      "id": 3760,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "353",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 89 of 149_pages.pdf",
+   "representations": [
+    {"_id": "354",
+     "created": "2018-11-16T09:14:04.820+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 414968,
+     "id": "132d63a7-5436-424f-ae56-5708129cb845",
+     "md5": "36d99d2dd6b3486b028c000bf22ad83b",
+     "mimeType": "image/png",
+     "name": "149_pages-089.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "355",
+      "id": "b9a19eb2-5ad1-4695-be79-ac9c5d301851",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "356",
+      "heightInCm": 43.30708694458008,
+      "id": 3763,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "357",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 90 of 149_pages.pdf",
+   "representations": [
+    {"_id": "358",
+     "created": "2018-11-16T09:14:05.657+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 355767,
+     "id": "abfe31c4-8307-430a-985a-11895abb2725",
+     "md5": "10d7b7356cd22b1cb2d994c4e75fc9e1",
+     "mimeType": "image/png",
+     "name": "149_pages-090.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "359",
+      "id": "db4ac72e-f9eb-4687-a773-a454f705a5a5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "360",
+      "heightInCm": 43.30708694458008,
+      "id": 3769,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "361",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 91 of 149_pages.pdf",
+   "representations": [
+    {"_id": "362",
+     "created": "2018-11-16T09:14:06.801+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 335435,
+     "id": "233ed9a3-36b3-4b06-ae05-308d0d99069c",
+     "md5": "14c60bd6713f9da9d9b12770489ca824",
+     "mimeType": "image/png",
+     "name": "149_pages-091.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "363",
+      "id": "1b6180cf-f6c9-4b51-b087-2da17086d861",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "364",
+      "heightInCm": 43.30708694458008,
+      "id": 3772,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "365",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 92 of 149_pages.pdf",
+   "representations": [
+    {"_id": "366",
+     "created": "2018-11-16T09:14:07.746+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 223807,
+     "id": "c09dab4c-9d4b-46eb-9c55-19fbb5e8142b",
+     "md5": "bfa3ca079423e89b12e3fb93d2d60dc1",
+     "mimeType": "image/png",
+     "name": "149_pages-092.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "367",
+      "id": "070012fa-b0be-4902-9fcc-665e48ad1815",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "368",
+      "heightInCm": 43.30708694458008,
+      "id": 3775,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "369",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 93 of 149_pages.pdf",
+   "representations": [
+    {"_id": "370",
+     "created": "2018-11-16T09:14:08.365+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 230926,
+     "id": "94aa3d81-e27e-4ae7-9838-9f72f1f57a4b",
+     "md5": "f2d433a08a5485d0d46fdd1d84e17594",
+     "mimeType": "image/png",
+     "name": "149_pages-093.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "371",
+      "id": "369d5664-ae47-4f25-b5da-bc909ea08488",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "372",
+      "heightInCm": 43.30708694458008,
+      "id": 3781,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "373",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 94 of 149_pages.pdf",
+   "representations": [
+    {"_id": "374",
+     "created": "2018-11-16T09:14:09.996+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 264357,
+     "id": "67f18756-eaaa-484b-8a98-be43dc610d67",
+     "md5": "df7be027b15219a27526841cd5b8ea5d",
+     "mimeType": "image/png",
+     "name": "149_pages-094.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "375",
+      "id": "e90af5f1-1312-44f3-8c4f-7541f05cce8d",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "376",
+      "heightInCm": 43.30708694458008,
+      "id": 3786,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "377",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 95 of 149_pages.pdf",
+   "representations": [
+    {"_id": "378",
+     "created": "2018-11-16T09:14:10.701+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 276226,
+     "id": "08d6782c-41fb-441c-b372-1eb8dbe94a07",
+     "md5": "6e003eec26e1a562888b2cdc2a056b5f",
+     "mimeType": "image/png",
+     "name": "149_pages-095.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "379",
+      "id": "85a42649-a1f7-4fd9-88fa-90add757ecdb",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "380",
+      "heightInCm": 43.30708694458008,
+      "id": 3792,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "381",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 96 of 149_pages.pdf",
+   "representations": [
+    {"_id": "382",
+     "created": "2018-11-16T09:14:13.963+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 262652,
+     "id": "65991785-4ad9-4023-b0d6-bdf66eb4dda3",
+     "md5": "4aa1aee910f118b32a92e131bfa8a6ff",
+     "mimeType": "image/png",
+     "name": "149_pages-096.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "383",
+      "id": "f55ed3cf-156c-48a3-97c6-07d659d26bb4",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "384",
+      "heightInCm": 43.30708694458008,
+      "id": 3798,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "385",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 97 of 149_pages.pdf",
+   "representations": [
+    {"_id": "386",
+     "created": "2018-11-16T09:14:15.471+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 276342,
+     "id": "204a84bb-acc3-42dd-8a3b-606dc94d6579",
+     "md5": "7c740161ceca23e04da775bd840667ee",
+     "mimeType": "image/png",
+     "name": "149_pages-097.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "387",
+      "id": "3778c337-3a25-42bf-86e8-992c0a87ace6",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "388",
+      "heightInCm": 43.30708694458008,
+      "id": 3805,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "389",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 98 of 149_pages.pdf",
+   "representations": [
+    {"_id": "390",
+     "created": "2018-11-16T09:14:16.281+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 237661,
+     "id": "2e28cb0c-afc7-4ced-8026-674c885c728e",
+     "md5": "2a9738bd4f8b49575711d9d6ad90f18e",
+     "mimeType": "image/png",
+     "name": "149_pages-098.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "391",
+      "id": "e9363623-f31e-4f01-bcb7-cfb5d01fb6fd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "392",
+      "heightInCm": 43.30708694458008,
+      "id": 3806,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "393",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 99 of 149_pages.pdf",
+   "representations": [
+    {"_id": "394",
+     "created": "2018-11-16T09:14:17.013+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 194587,
+     "id": "05479943-33ed-4147-8eb2-b1a4674de750",
+     "md5": "d5eaa11dfc1cc8da3173a75cc4cd49b5",
+     "mimeType": "image/png",
+     "name": "149_pages-099.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "395",
+      "id": "3602abab-54f8-44b0-bc4d-41733157a5d5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "396",
+      "heightInCm": 43.30708694458008,
+      "id": 3813,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "397",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 100 of 149_pages.pdf",
+   "representations": [
+    {"_id": "398",
+     "created": "2018-11-16T09:14:17.825+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1230678,
+     "id": "95a55ef9-5bb3-4a5b-a453-e8491858028a",
+     "md5": "0b43595a0cfd9c10950dbaa0cc5920f4",
+     "mimeType": "image/png",
+     "name": "149_pages-100.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "399",
+      "id": "aa991548-4fb2-432d-8c99-0872bf2d5afb",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "400",
+      "heightInCm": 43.30708694458008,
+      "id": 3819,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "401",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 101 of 149_pages.pdf",
+   "representations": [
+    {"_id": "402",
+     "created": "2018-11-16T09:13:54.288+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1127131,
+     "id": "93f1a321-30d8-4b0b-b970-8d176a6936d4",
+     "md5": "0b0543352b87a548672d6ffa7940345a",
+     "mimeType": "image/png",
+     "name": "149_pages-101.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "403",
+      "id": "08adcd90-198f-4618-8921-ea5f554697d0",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "404",
+      "heightInCm": 43.30708694458008,
+      "id": 3722,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "405",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 102 of 149_pages.pdf",
+   "representations": [
+    {"_id": "406",
+     "created": "2018-11-16T09:13:56.637+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1007803,
+     "id": "fa15d799-0884-47c5-b061-20cf4a3ba342",
+     "md5": "56ec7b1e421cc5ca1e70f834f0bb50ef",
+     "mimeType": "image/png",
+     "name": "149_pages-102.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "407",
+      "id": "7b1d5136-c775-4fa2-83ff-225a51a8cef3",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "408",
+      "heightInCm": 43.30708694458008,
+      "id": 3730,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "409",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 103 of 149_pages.pdf",
+   "representations": [
+    {"_id": "410",
+     "created": "2018-11-16T09:13:58.797+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1266373,
+     "id": "35eb0a98-7ccf-4e86-b771-6a513430848f",
+     "md5": "989a48690ac5f16ffd3b0369388f970f",
+     "mimeType": "image/png",
+     "name": "149_pages-103.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "411",
+      "id": "d366379e-03eb-4127-b95b-ac83b82a1358",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "412",
+      "heightInCm": 43.30708694458008,
+      "id": 3739,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "413",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 104 of 149_pages.pdf",
+   "representations": [
+    {"_id": "414",
+     "created": "2018-11-16T09:14:00.271+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1275092,
+     "id": "5fc2d929-f1df-46b4-aff0-20698ed5e572",
+     "md5": "e3e820a2f71e9cf05667874b4ae6b204",
+     "mimeType": "image/png",
+     "name": "149_pages-104.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "415",
+      "id": "d4837684-df53-4f49-9338-db08755b56bd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "416",
+      "heightInCm": 43.30708694458008,
+      "id": 3746,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "417",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 105 of 149_pages.pdf",
+   "representations": [
+    {"_id": "418",
+     "created": "2018-11-16T09:14:02.380+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1272398,
+     "id": "4f5b2399-fe31-4815-8242-17e04760305f",
+     "md5": "27a439bd60fb1e87915d0c7d633a31cc",
+     "mimeType": "image/png",
+     "name": "149_pages-105.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "419",
+      "id": "9caa9daa-a965-4f4f-bb65-b91a65dbe68c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "420",
+      "heightInCm": 43.30708694458008,
+      "id": 3759,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "421",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 106 of 149_pages.pdf",
+   "representations": [
+    {"_id": "422",
+     "created": "2018-11-16T09:14:04.994+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1324579,
+     "id": "8c1a9fe6-e524-4aed-91da-56adbf2b26f3",
+     "md5": "866739be20737bad7b241ac40ee9286b",
+     "mimeType": "image/png",
+     "name": "149_pages-106.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "423",
+      "id": "a3c89d7b-d405-4a37-968a-f71796c91999",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "424",
+      "heightInCm": 43.30708694458008,
+      "id": 3770,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "425",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 107 of 149_pages.pdf",
+   "representations": [
+    {"_id": "426",
+     "created": "2018-11-16T09:14:07.124+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1266629,
+     "id": "79723068-0751-4d69-bcc4-e0dcdf00725c",
+     "md5": "2a3c53b31ffb85be95d6f302fd7731e0",
+     "mimeType": "image/png",
+     "name": "149_pages-107.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "427",
+      "id": "8169515f-072a-4f25-8903-56256bc0e7fd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "428",
+      "heightInCm": 43.30708694458008,
+      "id": 3780,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "429",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 108 of 149_pages.pdf",
+   "representations": [
+    {"_id": "430",
+     "created": "2018-11-16T09:14:09.582+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1305839,
+     "id": "e3c4fc98-6ed5-4792-8294-f4f5fe04ec33",
+     "md5": "bc5a94af18f8f72ace77cd91f7605192",
+     "mimeType": "image/png",
+     "name": "149_pages-108.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "431",
+      "id": "ecdae830-9276-41f6-af9b-c98c65ec653d",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "432",
+      "heightInCm": 43.30708694458008,
+      "id": 3788,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "433",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 109 of 149_pages.pdf",
+   "representations": [
+    {"_id": "434",
+     "created": "2018-11-16T09:14:11.020+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1273517,
+     "id": "2f041d7e-2033-469f-8f29-706b56b49e06",
+     "md5": "cf494ec72abf6aacf25e85abf412c7a6",
+     "mimeType": "image/png",
+     "name": "149_pages-109.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "435",
+      "id": "0a33e648-f051-4f5f-a1ae-71089f8a1ac4",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "436",
+      "heightInCm": 43.30708694458008,
+      "id": 3797,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "437",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 110 of 149_pages.pdf",
+   "representations": [
+    {"_id": "438",
+     "created": "2018-11-16T09:14:14.180+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1253353,
+     "id": "1d8fb9c1-300f-4512-98a5-b713ecc2c4e0",
+     "md5": "ac2c5157b049e1cd110e10cb72ce7330",
+     "mimeType": "image/png",
+     "name": "149_pages-110.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "439",
+      "id": "5dcfccaa-0b4b-4212-b006-f28b7f62c99e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "440",
+      "heightInCm": 43.30708694458008,
+      "id": 3802,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "441",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 111 of 149_pages.pdf",
+   "representations": [
+    {"_id": "442",
+     "created": "2018-11-16T09:14:16.098+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1327143,
+     "id": "f08ddb2f-8b1d-45df-b486-5600a8d3447c",
+     "md5": "e60d70785b2c3df9dd0dc9d8b330e7a6",
+     "mimeType": "image/png",
+     "name": "149_pages-111.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "443",
+      "id": "ea5fbca2-e716-4e92-acfc-4913c4b97652",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "444",
+      "heightInCm": 43.30708694458008,
+      "id": 3811,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "445",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 112 of 149_pages.pdf",
+   "representations": [
+    {"_id": "446",
+     "created": "2018-11-16T09:14:17.756+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1285570,
+     "id": "8af63c82-5c81-4b7f-9428-ed21b1dcc708",
+     "md5": "3723c5e791343068eb685569cf455679",
+     "mimeType": "image/png",
+     "name": "149_pages-112.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "447",
+      "id": "dba42e19-b7cc-4878-98c9-aee6b0f7978a",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "448",
+      "heightInCm": 43.30708694458008,
+      "id": 3818,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "449",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 113 of 149_pages.pdf",
+   "representations": [
+    {"_id": "450",
+     "created": "2018-11-16T09:14:19.210+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1287370,
+     "id": "a6b3fb3a-ce71-4656-a4ec-732c80e2b243",
+     "md5": "8fe2f3244aab7bdc1c00e5c6d8d87221",
+     "mimeType": "image/png",
+     "name": "149_pages-113.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "451",
+      "id": "e0782849-6d27-4e0a-af58-7df0fd6ed0fd",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "452",
+      "heightInCm": 43.30708694458008,
+      "id": 3825,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "453",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 114 of 149_pages.pdf",
+   "representations": [
+    {"_id": "454",
+     "created": "2018-11-16T09:14:21.714+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1152863,
+     "id": "4530b057-9c07-49d7-a413-2ac2d0fd516b",
+     "md5": "c1a75d05b9f347fc5b975a69a00cff3b",
+     "mimeType": "image/png",
+     "name": "149_pages-114.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "455",
+      "id": "870db60e-ac69-446c-a04c-5c783806871b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "456",
+      "heightInCm": 43.30708694458008,
+      "id": 3827,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "457",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 115 of 149_pages.pdf",
+   "representations": [
+    {"_id": "458",
+     "created": "2018-11-16T09:14:22.938+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1288543,
+     "id": "d270486f-6e5b-483a-bc10-814f0ae7ff2f",
+     "md5": "00a55223078b032dfa58e121ab78a148",
+     "mimeType": "image/png",
+     "name": "149_pages-115.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "459",
+      "id": "89e7b93b-d3e6-44da-816d-c9def6fb4e29",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "460",
+      "heightInCm": 43.30708694458008,
+      "id": 3835,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "461",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 116 of 149_pages.pdf",
+   "representations": [
+    {"_id": "462",
+     "created": "2018-11-16T09:14:24.629+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1265384,
+     "id": "b0b37a2c-f52e-43a4-8992-7a5f6d3b8f4e",
+     "md5": "a8273c98690cdd7fc80617ec907fbc53",
+     "mimeType": "image/png",
+     "name": "149_pages-116.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "463",
+      "id": "d1a04c1a-04db-4235-bec3-1dcd6b0fd16b",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "464",
+      "heightInCm": 43.30708694458008,
+      "id": 3845,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "465",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 117 of 149_pages.pdf",
+   "representations": [
+    {"_id": "466",
+     "created": "2018-11-16T09:14:26.490+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1244331,
+     "id": "b184fea6-d47b-4708-890f-d06d8c6f0f12",
+     "md5": "a9dd8d8f53daa225897fc467bda73a1e",
+     "mimeType": "image/png",
+     "name": "149_pages-117.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "467",
+      "id": "a57da344-18c5-4e73-8094-7b4e85343d8e",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "468",
+      "heightInCm": 43.30708694458008,
+      "id": 3850,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "469",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 118 of 149_pages.pdf",
+   "representations": [
+    {"_id": "470",
+     "created": "2018-11-16T09:14:28.773+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1292448,
+     "id": "d21047e9-af13-443c-bd05-250780c8599e",
+     "md5": "9d7a7c5fcb9ffd159eb63af1b1d6b5f6",
+     "mimeType": "image/png",
+     "name": "149_pages-118.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "471",
+      "id": "b2cabb11-2b95-46f6-a39d-748cdf3933fc",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "472",
+      "heightInCm": 43.30708694458008,
+      "id": 3860,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "473",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 119 of 149_pages.pdf",
+   "representations": [
+    {"_id": "474",
+     "created": "2018-11-16T09:14:30.302+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1303934,
+     "id": "4949b379-bdbf-4deb-8c91-59f72bca37fe",
+     "md5": "3ba34af4cc930cf219137f93aef6a39f",
+     "mimeType": "image/png",
+     "name": "149_pages-119.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "475",
+      "id": "2a98fc25-3fa1-4c3b-a4b6-0d20443dc11f",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "476",
+      "heightInCm": 43.30708694458008,
+      "id": 3863,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "477",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 120 of 149_pages.pdf",
+   "representations": [
+    {"_id": "478",
+     "created": "2018-11-16T09:14:31.640+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1054594,
+     "id": "b941f9f5-0f13-417a-88f8-8a2fa2470cb9",
+     "md5": "5b5d05ccb7c0c36ca885f93fa0214287",
+     "mimeType": "image/png",
+     "name": "149_pages-120.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "479",
+      "id": "2eccffbc-78f1-405f-aea3-cff5152fc9a6",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "480",
+      "heightInCm": 43.30708694458008,
+      "id": 3866,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "481",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 121 of 149_pages.pdf",
+   "representations": [
+    {"_id": "482",
+     "created": "2018-11-16T09:13:54.408+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1200481,
+     "id": "dd2f3304-5568-4585-8726-5b723f05c973",
+     "md5": "b30dc8ba4be098a564f919ba4e54189e",
+     "mimeType": "image/png",
+     "name": "149_pages-121.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "483",
+      "id": "b706059e-b208-4f48-a636-0fe901d97e2a",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "484",
+      "heightInCm": 43.30708694458008,
+      "id": 3727,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "485",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 122 of 149_pages.pdf",
+   "representations": [
+    {"_id": "486",
+     "created": "2018-11-16T09:13:56.885+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1221705,
+     "id": "ff9c3be0-9fc5-466f-8fbe-2d18f01515b3",
+     "md5": "f39d99316961f0f4c7d2ce627321fb0f",
+     "mimeType": "image/png",
+     "name": "149_pages-122.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "487",
+      "id": "0b8cc3e2-ba33-4b5b-aebb-8e54107addbe",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "488",
+      "heightInCm": 43.30708694458008,
+      "id": 3734,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "489",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 123 of 149_pages.pdf",
+   "representations": [
+    {"_id": "490",
+     "created": "2018-11-16T09:13:59.910+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1294877,
+     "id": "51b2382e-7256-487b-a8c3-841f4a675c8c",
+     "md5": "a4398e6082e727020bd34943cdc0a1cc",
+     "mimeType": "image/png",
+     "name": "149_pages-123.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "491",
+      "id": "adc3ecbc-afe6-4f2c-a823-b3a2ba8abcd8",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "492",
+      "heightInCm": 43.30708694458008,
+      "id": 3743,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "493",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 124 of 149_pages.pdf",
+   "representations": [
+    {"_id": "494",
+     "created": "2018-11-16T09:14:01.419+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1247600,
+     "id": "8dcd6bcb-2dab-46b1-985a-632d9cee6b6a",
+     "md5": "1b8bfffd8c1be2cd18c49b9491ae26e0",
+     "mimeType": "image/png",
+     "name": "149_pages-124.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "495",
+      "id": "fa64fcdc-4d74-4812-96f9-8626d6186b5d",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "496",
+      "heightInCm": 43.30708694458008,
+      "id": 3752,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "497",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 125 of 149_pages.pdf",
+   "representations": [
+    {"_id": "498",
+     "created": "2018-11-16T09:14:03.798+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1268494,
+     "id": "3435b26c-0144-4d17-bc7c-c54c0e28a4a8",
+     "md5": "8e7186101db0cd27cb75f88611280d2c",
+     "mimeType": "image/png",
+     "name": "149_pages-125.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "499",
+      "id": "5089f96a-288e-474d-b65f-b8da207e886a",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "500",
+      "heightInCm": 43.30708694458008,
+      "id": 3762,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "501",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 126 of 149_pages.pdf",
+   "representations": [
+    {"_id": "502",
+     "created": "2018-11-16T09:14:05.346+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1266890,
+     "id": "2c6ac3ef-7ad7-48ac-8236-e82140513dbe",
+     "md5": "129469608b7f9a1117d2be7e43e3d133",
+     "mimeType": "image/png",
+     "name": "149_pages-126.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "503",
+      "id": "fcae81d8-c9cc-4f5f-ac9b-d4093a19bbb7",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "504",
+      "heightInCm": 43.30708694458008,
+      "id": 3767,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "505",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 127 of 149_pages.pdf",
+   "representations": [
+    {"_id": "506",
+     "created": "2018-11-16T09:14:07.079+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1307043,
+     "id": "20c1db9e-22f0-4d72-9e12-2addea8c0f42",
+     "md5": "b4f0973f4445eba54424e6aca3e3bf0a",
+     "mimeType": "image/png",
+     "name": "149_pages-127.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "507",
+      "id": "1161deff-610e-4e28-b0f6-f665dded1c28",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "508",
+      "heightInCm": 43.30708694458008,
+      "id": 3779,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "509",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 128 of 149_pages.pdf",
+   "representations": [
+    {"_id": "510",
+     "created": "2018-11-16T09:14:09.543+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1297311,
+     "id": "4706f84b-4f8f-4736-9832-af00d9b2a051",
+     "md5": "ea0dd85b2594a2311a228245a2844674",
+     "mimeType": "image/png",
+     "name": "149_pages-128.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "511",
+      "id": "259b2fec-73b1-43fc-b227-aab00ffe654c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "512",
+      "heightInCm": 43.30708694458008,
+      "id": 3789,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "513",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 129 of 149_pages.pdf",
+   "representations": [
+    {"_id": "514",
+     "created": "2018-11-16T09:14:11.121+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1286362,
+     "id": "4666f57d-cf6a-4e0f-9b0a-010ae130f2fb",
+     "md5": "030a1ebbd10e4b5a956d8d1b9673c6b1",
+     "mimeType": "image/png",
+     "name": "149_pages-129.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "515",
+      "id": "1f882e7d-65ae-4d46-904f-714c6ed1ba58",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "516",
+      "heightInCm": 43.30708694458008,
+      "id": 3791,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "517",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 130 of 149_pages.pdf",
+   "representations": [
+    {"_id": "518",
+     "created": "2018-11-16T09:14:14.170+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1279671,
+     "id": "46559689-3da5-4b9d-9e6c-1f4077e066cc",
+     "md5": "6d49a1de8482a323b8249eb0aa6d6bf6",
+     "mimeType": "image/png",
+     "name": "149_pages-130.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "519",
+      "id": "e38cd4dd-fc95-4325-8f93-4d48f250c00c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "520",
+      "heightInCm": 43.30708694458008,
+      "id": 3799,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "521",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 131 of 149_pages.pdf",
+   "representations": [
+    {"_id": "522",
+     "created": "2018-11-16T09:14:15.881+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1260863,
+     "id": "d44df79a-afb0-4d22-94a6-21efe75b7d99",
+     "md5": "51be7c27ed38b7dca9bbe370b636a152",
+     "mimeType": "image/png",
+     "name": "149_pages-131.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "523",
+      "id": "de897240-447c-4172-8ee9-1c529067d04c",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "524",
+      "heightInCm": 43.30708694458008,
+      "id": 3810,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "525",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 132 of 149_pages.pdf",
+   "representations": [
+    {"_id": "526",
+     "created": "2018-11-16T09:14:17.470+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1264356,
+     "id": "36f94ca3-2ee5-44e5-8f7f-a4e60a61f0c2",
+     "md5": "8aacac520394c8053306c28664299df6",
+     "mimeType": "image/png",
+     "name": "149_pages-132.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "527",
+      "id": "f53f72a6-fa7c-4650-8e3f-364133f6f555",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "528",
+      "heightInCm": 43.30708694458008,
+      "id": 3814,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "529",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 133 of 149_pages.pdf",
+   "representations": [
+    {"_id": "530",
+     "created": "2018-11-16T09:14:19.222+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1289905,
+     "id": "10ade819-93bb-4834-9b52-cab13fc5cd71",
+     "md5": "174b61da0403f705cb37a5784b04ba40",
+     "mimeType": "image/png",
+     "name": "149_pages-133.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "531",
+      "id": "c1283326-8cdc-4fd6-afd8-7eaf615da8b7",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "532",
+      "heightInCm": 43.30708694458008,
+      "id": 3824,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "533",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 134 of 149_pages.pdf",
+   "representations": [
+    {"_id": "534",
+     "created": "2018-11-16T09:14:21.765+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1238340,
+     "id": "c13271fb-914a-4d61-b3c4-37c70912dcb9",
+     "md5": "a1faaa20bde102b13d3b174eea5cdc44",
+     "mimeType": "image/png",
+     "name": "149_pages-134.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "535",
+      "id": "acf95313-6a3b-427b-99fb-478b1e37f57d",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "536",
+      "heightInCm": 43.30708694458008,
+      "id": 3831,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "537",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 135 of 149_pages.pdf",
+   "representations": [
+    {"_id": "538",
+     "created": "2018-11-16T09:14:23.147+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1321931,
+     "id": "cb26a13e-e34f-4fa7-95fd-7fac58538689",
+     "md5": "27978fe0091cdb92ce332c8535e062ed",
+     "mimeType": "image/png",
+     "name": "149_pages-135.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "539",
+      "id": "e8d2782b-1252-47b8-a79c-0592aeeb6030",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "540",
+      "heightInCm": 43.30708694458008,
+      "id": 3837,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "541",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 136 of 149_pages.pdf",
+   "representations": [
+    {"_id": "542",
+     "created": "2018-11-16T09:14:24.753+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1295096,
+     "id": "d7cf1253-3958-4351-9c93-ac54389c63b8",
+     "md5": "abd41a0739fe3785e8e9b4ef6dba67d3",
+     "mimeType": "image/png",
+     "name": "149_pages-136.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "543",
+      "id": "51926a6c-f636-41c0-b745-e3f7d89966f8",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "544",
+      "heightInCm": 43.30708694458008,
+      "id": 3842,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "545",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 137 of 149_pages.pdf",
+   "representations": [
+    {"_id": "546",
+     "created": "2018-11-16T09:14:26.493+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1283832,
+     "id": "3df8df60-1187-4f89-9074-3b1f41dd699a",
+     "md5": "cd7bf52a4dd3f09d46c91fe204b43680",
+     "mimeType": "image/png",
+     "name": "149_pages-137.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "547",
+      "id": "253b4e48-5636-4733-bd42-21a3cb964b13",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "548",
+      "heightInCm": 43.30708694458008,
+      "id": 3851,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "549",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 138 of 149_pages.pdf",
+   "representations": [
+    {"_id": "550",
+     "created": "2018-11-16T09:14:28.749+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1292186,
+     "id": "2af97187-5b9d-443c-a356-9ba25c6c6277",
+     "md5": "b3efd366eec1232df1d3b60788a8c530",
+     "mimeType": "image/png",
+     "name": "149_pages-138.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "551",
+      "id": "c393eeec-6f54-4bb2-b8ce-4b23cff88b13",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "552",
+      "heightInCm": 43.30708694458008,
+      "id": 3858,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "553",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 139 of 149_pages.pdf",
+   "representations": [
+    {"_id": "554",
+     "created": "2018-11-16T09:14:30.302+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1288966,
+     "id": "7eaa424d-833c-4941-bd31-0ba37d66107d",
+     "md5": "d3147093bcd04a42122596e03119cf72",
+     "mimeType": "image/png",
+     "name": "149_pages-139.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "555",
+      "id": "7806e2fd-87ef-4646-b4ee-24888fa111f1",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "556",
+      "heightInCm": 43.30708694458008,
+      "id": 3864,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "557",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 140 of 149_pages.pdf",
+   "representations": [
+    {"_id": "558",
+     "created": "2018-11-16T09:14:31.730+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1294081,
+     "id": "afc2d2a2-4634-495d-98f6-11813e37b7ba",
+     "md5": "b0e1c169d34e6e36776e43c8d6f4439c",
+     "mimeType": "image/png",
+     "name": "149_pages-140.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "559",
+      "id": "d7b74eed-1a82-47d7-9615-9a42c078a2a5",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "560",
+      "heightInCm": 43.30708694458008,
+      "id": 3867,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "561",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 141 of 149_pages.pdf",
+   "representations": [
+    {"_id": "562",
+     "created": "2018-11-16T09:13:54.677+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1228757,
+     "id": "126a6def-b04c-476e-8d84-0aae5f27c45d",
+     "md5": "8f01665f3dcffe2d58b03d52da2bdf7a",
+     "mimeType": "image/png",
+     "name": "149_pages-141.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "563",
+      "id": "0d4480c1-debd-4a90-b27e-5fbf833a5b0a",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "564",
+      "heightInCm": 43.30708694458008,
+      "id": 3725,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "565",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 142 of 149_pages.pdf",
+   "representations": [
+    {"_id": "566",
+     "created": "2018-11-16T09:13:57.116+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1259150,
+     "id": "30eb82aa-3523-457a-957a-7975ffb380ba",
+     "md5": "b79d216a10dc371c1369e3988d8e56a9",
+     "mimeType": "image/png",
+     "name": "149_pages-142.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "567",
+      "id": "3b258b81-dae7-45e6-b0d5-52c0056a8e07",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "568",
+      "heightInCm": 43.30708694458008,
+      "id": 3732,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "569",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 143 of 149_pages.pdf",
+   "representations": [
+    {"_id": "570",
+     "created": "2018-11-16T09:13:59.314+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1276483,
+     "id": "2960c848-dc64-4177-b2ea-73ba43dadc01",
+     "md5": "254c2c6b42ce010cc03a8b5a16f2e877",
+     "mimeType": "image/png",
+     "name": "149_pages-143.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "571",
+      "id": "2cad7c53-b050-4672-8f19-57d1b12689c2",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "572",
+      "heightInCm": 43.30708694458008,
+      "id": 3740,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "573",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 144 of 149_pages.pdf",
+   "representations": [
+    {"_id": "574",
+     "created": "2018-11-16T09:14:00.688+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1268271,
+     "id": "b9ecc4c1-6b2b-41d4-adf5-6ad105959a75",
+     "md5": "a80d1575828d0d44440a4866abc51246",
+     "mimeType": "image/png",
+     "name": "149_pages-144.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "575",
+      "id": "5a07c7e2-c390-4504-a3f6-4e6ee0d19323",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "576",
+      "heightInCm": 43.30708694458008,
+      "id": 3750,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "577",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 145 of 149_pages.pdf",
+   "representations": [
+    {"_id": "578",
+     "created": "2018-11-16T09:14:02.394+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1289340,
+     "id": "41e988fd-d176-43db-a077-176d6ffb1c26",
+     "md5": "24617317f72fb7ea08eee86f68c1c855",
+     "mimeType": "image/png",
+     "name": "149_pages-145.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "579",
+      "id": "4b74867b-ebf5-44c3-b669-24dce1926ac4",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "580",
+      "heightInCm": 43.30708694458008,
+      "id": 3758,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "581",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 146 of 149_pages.pdf",
+   "representations": [
+    {"_id": "582",
+     "created": "2018-11-16T09:14:05.006+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1309047,
+     "id": "c70539df-f1ca-4e48-92f0-15b5dc33d93e",
+     "md5": "a45165f686e644aac05a6f88b9baa79e",
+     "mimeType": "image/png",
+     "name": "149_pages-146.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "583",
+      "id": "ec5a2225-c3fe-4272-89b6-55e37161eab7",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "584",
+      "heightInCm": 43.30708694458008,
+      "id": 3771,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "585",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 147 of 149_pages.pdf",
+   "representations": [
+    {"_id": "586",
+     "created": "2018-11-16T09:14:07.124+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1280096,
+     "id": "360a0098-582e-42b3-b419-bdfb32720e5e",
+     "md5": "524ed5e86db24224f12c6270200bb0fa",
+     "mimeType": "image/png",
+     "name": "149_pages-147.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "587",
+      "id": "7ab2f638-5bfd-4e75-a9b1-c757a6937822",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "588",
+      "heightInCm": 43.30708694458008,
+      "id": 3778,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "589",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 148 of 149_pages.pdf",
+   "representations": [
+    {"_id": "590",
+     "created": "2018-11-16T09:14:09.333+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1270708,
+     "id": "fd332253-244c-451a-8f8f-72421fd36d1f",
+     "md5": "76d62f73e21b19c3c1de1d04e4d1b648",
+     "mimeType": "image/png",
+     "name": "149_pages-148.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "591",
+      "id": "d4394a34-4203-41fc-b399-dfe512e22089",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "592",
+      "heightInCm": 43.30708694458008,
+      "id": 3785,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  },
+  {"_id": "593",
+   "heightInCm": 43.30708694458008,
+   "name": "Page 149 of 149_pages.pdf",
+   "representations": [
+    {"_id": "594",
+     "created": "2018-11-16T09:14:10.795+0000",
+     "creator": "tribefire.extension.conversion.conversion-cartridge",
+     "fileSize": 1189351,
+     "id": "0344c352-429d-4764-b944-c23eead96b0c",
+     "md5": "1f3521407beb469be77fb23562af4912",
+     "mimeType": "image/png",
+     "name": "149_pages-149.png",
+     "partition": "conversion.access",
+     "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "595",
+      "id": "946e344a-7b2f-459d-bc30-b86008df89aa",
+      "partition": "conversion.access"
+     },
+     "specification": {"_type": "com.braintribe.model.resource.specification.RasterImageSpecification", "_id": "596",
+      "heightInCm": 43.30708694458008,
+      "id": 3793,
+      "pageCount": 1,
+      "partition": "conversion.access",
+      "pixelHeight": 3300,
+      "pixelWidth": 2465,
+      "widthInCm": 32.349082946777344
+     }
+    }
+   ],
+   "widthInCm": 32.349082946777344
+  }
+ ],
+ "sourceRepresentation": {"_id": "597", 
+  "created": "2018-11-16T09:13:52.665+0000",
+  "creator": "tribefire.extension.documents.documents-cartridge",
+  "fileSize": 850191,
+  "id": "cca14360-adc8-40da-bfc8-1ffd9efc0a97",
+  "md5": "c7d1450274ae1535bf28443ec44dbe14",
+  "mimeType": "application/pdf",
+  "name": "149_pages.pdf",
+  "partition": "conversion.access",
+  "resourceSource": {"_type": "com.braintribe.model.resource.source.SqlSource", "_id": "598",
+   "id": "018108db-3dd8-424d-8b86-8f9baaad3230",
+   "partition": "conversion.access"
+  },
+  "specification": {"_type": "com.braintribe.model.resource.specification.PdfSpecification", "_id": "599",
+   "detectPageRotation": false,
+   "heightInCm": 10.393701553344727,
+   "id": 3719,
+   "ignoreInvalidImages": false,
+   "imageAlignment": 0,
+   "pageCount": 149,
+   "partition": "conversion.access",
+   "scaleTiffByDpi": false,
+   "widthInCm": 8.031496047973633
+  }
+ },
+ "widthInCm": 33.451446533203125
+}

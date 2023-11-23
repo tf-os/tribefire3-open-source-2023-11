@@ -1,0 +1,202 @@
+
+<html lang=en>
+<head>
+	<title>Documentation - Rationale (mgmt redux)</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="../../../.mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='../../../.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/custom.css'/>
+	<link rel="icon" href="../../../.mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src="../../../.mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.navgoco.min.js"></script>	
+	<link rel='stylesheet' href='../../../.mdoc/res/content.css'/>
+	
+   	<script src="../../../.mdoc/res/lunr.js"></script>
+    <script src="../../../.mdoc/res/lunr-index.js"></script>
+    
+    <link rel="stylesheet" href="../../../.mdoc/res/highlight-custom.css">
+	<script src="../../../.mdoc/res/highlight.pack.js"></script>
+	<script>hljs.highlightAll();</script>
+    
+    <script src="../../../.mdoc/res/content.js"></script>
+ 
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=../../../index.html><img src='../../../.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="../../../search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src="../../../.mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+    <main id='full-content' class='content-container'>
+    	<article>
+			<h1 id="rationale-mgmt-redux"><a href="#rationale-mgmt-redux" name="rationale-mgmt-redux" class="anchor-auto-link"></a>Rationale (mgmt redux)</h1>
+<p>There are several reasons why Zed is quite extraordinarily useful for us and our business case.</p>
+<div class="toc">
+<h2>On this page</h2>
+<ol>
+<li><a href="#ci-vs-ce">CI vs CE</a></li>
+<li><a href="#java-modules">Java modules</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#shadowing">Shadowing</a></li>
+<li><a href="#model-validation">Model validation</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+</div>
+<h2 id="ci-vs-ce"><a href="#ci-vs-ce" name="ci-vs-ce" class="anchor-auto-link"></a>CI vs CE</h2>
+<p>Currently, we are doing something we use the term continuous integration  (CI) for. Actually, this is a misnomer, because in order to continuously integrate something, we need a thing to integrate into. While this is definitely possible with some of our artifacts (those we use in the platform themselves) and some of the terminal projects (ADX), it's obviously not possible to integrate things into a terminal as we do not have access to this terminal. And we hope that these cases grow..</p>
+<p>So, the correct term would rather be continuous exposure (CE) - we provide access to a repository of checked artifacts. When we do a release nowadays, we do not actually create a distribution, but the scope of a distribution : we actually provide a checked repository, i.e. a sum of checked artifacts that can be combined and used as the user (the developer) sees fit.</p>
+<p>Of course, as we cannot simply compile all possible terminals when we changed an artifact (even if we could: always keep in mind that squandering processing-power isn't such a great idea in the first place), there must be other means to ensure that a published artifact's hotfixes are compatible. Internally we of course still compile the (somewhat) related artifacts, but that only tells us that the functionality of the artifact that we currently access in the terminal is still compatible. We do not know if a feature that is in the artifact, yet not used in our terminal, is still compatible.</p>
+<p>Lucky for us, potential compile errors introduced by a hotfix revision can easily be detected by comparing two versions of an artifact - no need to compile anything (To use the current hyped term, it's using a <em>golden master</em> approach by constantly comparing the next installment of the artifact with the last one)</p>
+<p>Zed's comparison feature aims to do that.</p>
+<p>Obviously, Zed cannot know whether the functionality is still working just by means of its analysis, but neither does any build process - that is why we do run integration tests, and any external developer should do it. But with Zed, we can predict whether a switch to a new version does break the compilation, and if so, it can also provide hints what <em>release notes</em> should contain.</p>
+<h2 id="java-modules"><a href="#java-modules" name="java-modules" class="anchor-auto-link"></a>Java modules</h2>
+<p>Currently, we do not use Java modules yet. As a consequence, this means that any public class in our codebase can be accessed from an external side, and therefore any changes on these classes may break external code accessing such a class - even if such an access is not in our intention. In other words, not we decide what the API exposed to the outside is, but the visibility of the classes within Java does it. For Java 9 on, Java modules were introduced to remedy this.</p>
+<p>Java modules allow us to specify the visibility of packages independent of the visibility of the classes within (with some restrictions of course) and therefore to control the access. However, this requires a clear understanding of what a specific class requires (and others provide) and vice-versa.</p>
+<p>Zed's analysis feature aims to deliver this information.</p>
+<h2 id="dependencies"><a href="#dependencies" name="dependencies" class="anchor-auto-link"></a>Dependencies</h2>
+<p>In the Maven world, the coordinates of the first encounter of a certain dependency is crucial for clash resolving (basically, in short : the first encountered dependency wins). While you can mitigate clash resolving in Maven, easier is to trick with the by adding 'fake' dependencies to the terminal.</p>
+<p>Even if we as a team agree to prefer the optimistic approach (higher version wins) that doesn't require such tricks, we are confronted to the Maven world, and we do have such cases in our codebase.</p>
+<p>A clean dependency tree however is absolutely necessary when it comes to branching, i.e. when a new version increment is required, and one needs to determine what needs to be incremented as well.</p>
+<p>Zed's dependency analysis feature can tell us how the dependency actually needs to look like, and hence gives us the possibility to automatically <em>correct</em> dependency declarations.</p>
+<h2 id="shadowing"><a href="#shadowing" name="shadowing" class="anchor-auto-link"></a>Shadowing</h2>
+<p>Shadowing happens when two classes with the same name appear in the classpath. As the Java classloader will only load a class once per name, and as there are always multiple ways that lead to the loading of a class, situations when the wrong class is loaded can occur. Unfortunately, this is not something a compile process detects - integration tests may detect it, but most of the time, it's the customer that is confronted with the issue.</p>
+<p>Zed's classpath analysis feature can tell us whether duplicate classes exist in the classpath.</p>
+<h2 id="model-validation"><a href="#model-validation" name="model-validation" class="anchor-auto-link"></a>Model validation</h2>
+<p>With the introduction of modules in tribefire, models are always transported into tribefire as binary jars. Tribefire itself cannot know whether this is a valid model before it starts to incorporate it.</p>
+<p>Zed's model analysis feature not only tells is whether it is valid, but also whether it is canonic (i.e. can be transported, projected, without loosing information during the transformation), can be expressed in containment based formats (expressive XML).</p>
+<h2 id="conclusion"><a href="#conclusion" name="conclusion" class="anchor-auto-link"></a>Conclusion</h2>
+<p>The community seems to wake up in that matters. Gradle 6 is sporting similar features for the dependency tree and the classpath. Of course, models and further GM specifica are unique to our platform and no external tool can supply that. Furthermore, Zed aims to be useful without even access to the code - it can act on any artifact.</p>
+
+		</article>
+		
+		<div id='tags'>
+		</div>
+	</main>
+	  
+	<div class='menu'>
+	<nav class='nav'>
+    	<input id="navFilter" class="navFilter" placeholder="Filter..." name="menuFilter" oninput="onNavFilterTextChanged()" />
+		<ul>
+			<li><a href=#>Zarathud Documentation</a>
+  <ul>
+    <li>		<a href='#' class='folder'>forensics</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' class='file'>Finger prints</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' class='file'>Forensics</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>integrations</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' class='file'>Running an analysis via ant target</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' class='file'>running an analysis in Eclipse</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' class='file'>Running an analysis via java</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' class='file'>Running an analysis via Jinni</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>rationale</a>
+
+  <ul>
+    <li>		<a href='#' class='selflink file'>Rationale (mgmt redux)</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' class='file'>com.braintribe.devrock.zarathud:zarathud</a>
+
+</li>
+  </ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<aside class='nav' id='technicalLinks'>
+	  <ul>
+		<li><a href=#>See also...</a>
+		  <ul>
+		    <li><a href=#>Incoming Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' title='com.braintribe.devrock.zarathud:zarathud - Zarathud Documentation' class="file">
+					com.braintribe.devrock.zarathud:zarathud <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	</aside>
+	</div>
+	
+	<!-- The Modal -->
+	<div id="imageModal" class="modal">
+	
+	  <!-- The Close Button -->
+	  <span class="close">&times;</span>
+	
+	  <!-- Modal Content (The Image) -->
+	  <img class="modal-content" id="modalImage">
+	
+	</div>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:xsi="http://www.w3.org/2001/XInclude" xsi:noNamespaceSchemaLocation="d:\works\git\com.braintribe.gm.schemedxml\schemed-xml-marshaller-lab\res\include\input\including.xsd">
+	<xsi:include href="included.xml" parse="xml" xpointer="element(cousin)"/>
+</root>

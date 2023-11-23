@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs Tests</title>
+	<head>        
+        <script>        
+            var servicesUrl = "https://dev-phoenix-adx.staging.tribefire.cloud/services";
+            var accessId = "cortex";
+            var remoteSession;
+            var persistenceSession;    
+            
+            window.addEventListener('startTribefireJs', function(){
+	 			query();
+            }); 
+
+			function query(){
+                return openSession().then(ps => {
+					q = $tf.query.parse("from com.braintribe.model.meta.GmMetaModel");
+					q.traversingCriterion = $tf.tc.create().negation().joker().done(); //TC for getting all info				
+                    ps.query().entities("from com.braintribe.model.meta.GmMetaModel").then(r => {
+                        r.list().toArray().forEach(m => {
+                            console.log(m);
+                        })
+                    })
+                });    
+            }
+
+			function loadPropertyValue(propertyName, type, id){
+        		session.query().property("property " + propertyName + " of reference(" + type + ", '" + id + "')").then(r => {
+        			debugger;	
+        		});
+        	}              
+
+			function logout(sessionId){
+				r = $T.com.braintribe.model.securityservice.Logout.create();
+				r.sessionId = sessionId;
+				persistenceSession.evaluate(r).then(b => {
+					if(b)
+						console.log(sessionId +" was logged out");
+					else
+						console.log("couldn't log out " + sessionId);	
+				});
+			}   
+			              	
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+            
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }
+
+            function serviceRequest(){
+                console.log("start to eval");
+                console.time("serviceRequest");
+                return openSession().then(ps => {
+                    request = $T.tribefire.adx.model.deployment.service.statistics.GetGlobalRepresentationJobStatistics.create();
+                    ps.eval(request).then(r => {
+                        console.timeEnd("serviceRequest");
+                    });
+                })
+            }
+            
+            function create(){                
+                console.log("start to create");
+                console.time("create");
+                openSession().then(ps => {
+                    try{
+                        person = ps.create($T.custom.model.test.Person); 
+
+                        person.birthdate = $tf.time.parseDate("22.12.1989", "dd.MM.yyyy");
+                        person.longNumber = 350 //new $tf.Long(350);
+                        person.children = 3;
+                        person.salary = 56.7;
+                        person.firstName = "Stefan";
+                        person.lastName = "Prieler";
+
+                        person.gender = $T.custom.model.test.Gender.male;
+
+                        address = ps.create($T.custom.model.test.Address); 
+                        address.street = "Street";
+                        address.country = "Country";
+
+                        person.address = address;
+
+                        ps.commit().then(mr => {
+                            console.timeEnd("create");    
+                        });
+                    }catch(e){
+                        error = $tf.error.wrap(e);
+                        debugger;
+                    }    
+                });               
+            }
+
+ 			function manipulationListening2(){
+				openSession().then(ps => {  
+
+                    ps.listeners().add(m => {
+						console.log("notifying native " + m);
+					});
+					
+					ml = new $tf.manipulation.AbstractManipulationListener();
+					ml.noticeManipulation = function(m){
+						console.log("notifying abstract " + m);	
+					};
+					ps.listeners().add(ml);
+					
+					entity1 = ps.create($T.com.braintribe.model.meta.GmMetaModel);
+					entity1.name = "name";
+					
+				});
+			}
+            
+            function manipulationListening(){
+                openSession().then(ps => {  
+
+                    ps.listeners().add(m => {
+						console.log("notifying on global level");
+					});
+                    
+                    entity1 = ps.create($T.com.braintribe.model.meta.GmMetaModel);
+                    entity2 = ps.create($T.com.braintribe.model.meta.GmMetaModel);
+                    
+                    ps.listeners().entity(entity1).add(m => {
+						console.log("notifying on entity level");
+					});
+					
+                    ps.listeners().entityProperty(entity1,"name").add(m => {
+						console.log("notifying on entity property level");
+					});
+					
+                    entity2.dependencies = $tf.list();
+                    entity1.types = $tf.set();
+                    entity1.name = "name";
+
+ 					ps.listeners().entity(entity1).add(m => {
+	
+					})
+
+                });
+            }
+            
+            function collectionHandling(){
+            	var d = $tf.time.parseDate("22.12.1989", "dd.MM.yyyy");
+                console.log($tf.time.printDate(d));
+                var l = $tf.list();
+                l.add(5);
+                l.add("string");
+                l.forEach(el => {
+                    console.log(el);
+                });
+
+                var s = $tf.set();
+                s.add(5);
+                s.add("string");
+                s.forEach(el => {
+                    console.log(el);
+                });
+
+                var m = $tf.map();
+                m.put("string",5);
+                m.put("string2",4);
+                m.forEach((k,v) => {
+                    console.log(k + " : " + v);
+                });
+            }
+            
+            function getEnum(enumTypeSignature, enumConstant) {
+                var enumType = $T.get(enumTypeSignature)
+                var enumInstance = enumType.value(enumConstant)
+                return enumInstance;
+            }
+            
+            function modelOracle(){
+                openSession().then(ps => {
+                    var mo = ps.getModelAccessory().getOracle();
+                    var typesStream = mo.getTypes().filter(
+                        $tf.util.predicate(t => {
+                            return t.getTypeSignature().startsWith("com.braintribe.model.meta");
+                        })
+                    ).asGmTypes();
+                    debugger;
+                    var typesList = $tf.util.streamAsList(typesStream);
+                    typesList.forEach(t => {
+                        console.log(t.getTypeSignature());
+                    })
+                });    
+            }
+            
+            function metaDataResolving(){
+                openSession().then(ps => {
+                    var r = ps.getModelAccessory().getMetaData();
+                    var si = r.entityType($T.com.braintribe.model.meta.GmMetaModel)
+                    	.meta($T.com.braintribe.model.meta.data.display.SelectiveInformation)
+                    	.exclusive();
+                });
+            }
+
+			function i18n() {
+	            var ls = $tf.i18n.createLocalizedString("house");
+				//var ls = $T.com.braintribe.model.generic.i18n.LocalizedString.create();
+	
+	            //ls.putDefault("house");
+	            ls.put("de", "Haus");
+	            ls.put("es", "casa");
+	
+	            console.log(ls.value("de"));
+	            console.log(ls.value("es"));
+	            console.log(ls.defaultValue());
+        	}
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+    <body></body>
+</html>

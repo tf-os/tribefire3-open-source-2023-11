@@ -1,0 +1,19 @@
+<projectDescription>
+	<name>shiro-service-model - tribefire.extension.shiro</name>
+	<comment/>
+	<projects/>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+		<buildCommand>
+			<name>com.braintribe.eclipse.model.nature.ModelBuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.braintribe.eclipse.model.nature.ModelNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>

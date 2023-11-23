@@ -1,0 +1,11 @@
+$module=(Module=com.braintribe.model.deployment.Module)('module:tribefire.extension.etcd.etcd-vitals-module')
+
+$messaging=(EtcdMessaging=tribefire.extension.etcd.vitals.model.deployment.EtcdMessaging)()
+.globalId='default:tribefire.extension.etcd:etcd-vitals-module/etcdMessaging'
+.externalId='messaging.etcd.default'
+.name='Default ETCD Messaging'
+.autoDeploy=true
+.module=$module
+
+$cortexConfig=(CortexConfiguration=com.braintribe.model.cortex.deployment.CortexConfiguration)('config:cortex')
+.messaging=$messaging

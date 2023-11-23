@@ -1,0 +1,12 @@
+@external x-toolbar-mark;
+
+.x-toolbar-mark {
+	border-width: 0 0 1px 0;
+	border-bottom: 1px solid white;
+}
+
+.x-toolbar-mark {
+	background-image: none;
+	background-color: white;
+	height: auto;
+}

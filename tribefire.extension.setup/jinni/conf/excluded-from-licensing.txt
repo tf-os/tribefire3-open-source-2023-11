@@ -1,0 +1,5 @@
+# List file exclusion patterns in java "glob" format here
+**/.container.cfg.xml
+**/bin/**
+**/build/**
+**/class/**

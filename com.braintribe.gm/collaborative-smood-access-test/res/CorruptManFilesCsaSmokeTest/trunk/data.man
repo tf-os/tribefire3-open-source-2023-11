@@ -1,0 +1,1 @@
+$0=(Resource=com.braintribe.model.resource.Resource)() .globalId='resource.smoke.test' .name='Test Resource' .CORRUPT_ENTRY

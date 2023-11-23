@@ -1,0 +1,46 @@
+FROM ${deprecatedTribefireBaseImage}
+
+ENTRYPOINT [ "bash", "/opt/tribefire/startupWrapper.sh" ]
+
+ENV TRIBEFIRE_STORAGE_DIR="/opt/tribefire/storage"
+
+COPY startupWrapper.sh /opt/tribefire/startupWrapper.sh
+
+#if ( ${customInstructionsBeforeAddingAssets} )
+${customInstructionsBeforeAddingAssets}
+#end
+
+COPY webapps/${webappName}/ /opt/tribefire/host/webapps/ROOT/
+
+#if ( ${pluginsProvided} )
+#foreach( $pluginFolderName in ${pluginFolderNames} )
+COPY plugins/${pluginFolderName}/ /opt/tribefire/plugins/${pluginFolderName}/
+#end
+#end
+
+#if ( ${modulesProvided} )
+COPY modules/ /opt/tribefire/modules/
+#end
+
+#if ( ${rewriteConfigProvided} )
+COPY rewrite.config /opt/tribefire/host/conf/Catalina/localhost/rewrite.config
+#end
+
+COPY storage/ /opt/tribefire/storage/
+
+#if ( ${customInstructionsAfterAddingAssets} )
+${customInstructionsAfterAddingAssets}
+#end
+
+ARG FULLY_QUALIFIED_IMAGE='<unknown>'
+
+RUN echo "****************************************************" &&\
+    echo "*** Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    ls -la /opt/tribefire/host/webapps/ROOT/WEB-INF/lib/ &&\
+    (! ${storageProvided} || (ls -la /opt/tribefire/storage/ && find /opt/tribefire/storage)) &&\
+    (! ${modulesProvided} || (ls -la /opt/tribefire/modules/ && find /opt/tribefire/modules)) &&\
+    (! ${pluginsProvided} || (ls -la /opt/tribefire/plugins/ && find /opt/tribefire/plugins)) &&\
+    (! ${tribefirePropertiesProvided} || (cat /opt/tribefire/conf/tribefire.properties)) &&\
+    (! ${rewriteConfigProvided} || (cat /opt/tribefire/host/conf/Catalina/localhost/rewrite.config)) &&\
+    echo "*** End of Image Info for Image ${FULLY_QUALIFIED_IMAGE}" &&\
+    echo "****************************************************"

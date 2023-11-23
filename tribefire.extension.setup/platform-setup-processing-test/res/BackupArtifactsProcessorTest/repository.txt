@@ -1,0 +1,42 @@
+@local
+;  inital stage, all 1.0.1
+com.braintribe.gm:parent#1.0.1
+	-x
+
+com.braintribe.gm:parent#1.1.1
+	-x
+
+com.braintribe.gm:a1#1.0.1
+	-r
+		com.braintribe.gm:parent#[1.0,1.1)
+	-d
+		com.braintribe.gm:a2#[1.0,1.1)
+	-c
+		repositoryview:yaml;@res/BackupArtifactsProcessorTest/conversion-repositoryview.yaml
+		random:yaml;@res/BackupArtifactsProcessorTest/random.yaml
+	-x
+
+com.braintribe.gm:a1#1.0.2
+	-r
+		com.braintribe.gm:parent#[1.0,1.1)
+	-d
+		com.braintribe.gm:a2#[1.0,1.1)
+	-c
+		repositoryview:yaml;@res/BackupArtifactsProcessorTest/conversion-repositoryview.yaml
+	-x
+
+com.braintribe.gm:a1#1.0.10
+	-r
+		com.braintribe.gm:parent#[1.0,1.1)
+	-d
+		com.braintribe.gm:a2#[1.0,1.1)
+	-c
+		repositoryview:yaml;@res/BackupArtifactsProcessorTest/conversion-repositoryview.yaml
+	-x
+
+com.braintribe.gm:a2#1.0.1
+	-r
+		com.braintribe.gm:parent#[1.0,1.1)
+	-d
+		tribefire.cortex:b1#[2.0,2.1)
+	-x

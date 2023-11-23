@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        // hide not-often-used project files
+        ".gitignore": true,
+        "build.xml": true,
+        "js-project.yml": true,
+
+        // hide sources behind libs link
+        "lib/src": true,
+        "lib/ts-src": true,
+
+        // hide libs behind sources link
+        "sources/*.*": true,
+ 
+        // hide actual sources, so they are only accessible behind sources link
+        "src": true,
+        "ts-src": true
+    }
+}

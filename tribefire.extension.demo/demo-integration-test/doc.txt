@@ -1,0 +1,3 @@
+This artifact provides demo-module related integration tests.
+They require a running tribefire with the demo-module setup.
+The demo-module brings all required deployables, so after starting up tests can be run from the IDE just like any unit test.

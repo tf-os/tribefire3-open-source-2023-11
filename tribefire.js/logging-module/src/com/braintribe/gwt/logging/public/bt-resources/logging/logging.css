@@ -1,0 +1,15 @@
+.errorDialogErrorMessageStyle {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	margin-top: 4px;
+}
+
+.tabbedDialog div.errorMsg {
+	text-align: center;
+	vertical-Align: middle;
+	font-size: 14px;
+	font-weight: bold;
+}

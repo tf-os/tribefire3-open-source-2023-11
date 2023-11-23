@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:property-placeholder />
+	<context:annotation-config />
+
+	<!-- This expert checks the braintribe specific BeanNameAware interface 
+		and supplies the bean name for such -->
+	<bean class="com.braintribe.spring.support.BeanNameAwarePostProcessor" />
+
+	<!-- validation experts -->
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+		<property name="requiredAnnotationType" value="com.braintribe.cfg.Required" />
+	</bean>
+
+	<bean class="com.braintribe.spring.support.GmInterfaceBeanPostProcessor" />
+
+	<bean id="testConfiguration" class="com.braintribe.transport.messaging.mq.test.config.TestConfiguration">
+		<property name="host" value="10.202.1.1" />
+		<property name="port" value="1414" />
+		<property name="channel" value="SYSTEM.ADMIN.SVRCONN" />
+		<property name="queueManager" value="MQE" />
+		<property name="queueName" value="tf.dev.queue.remoteToDbl" />
+		<property name="topicName" value="tf.dev.topic.heartbeat" />
+	</bean>
+
+
+</beans>

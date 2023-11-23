@@ -1,0 +1,19 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  introduction.md:
+    tags:
+      - openapi
+    
+  endpoints.md:
+    tags:
+      - openapi
+
+  how-it-works.md: 
+    tags:
+      - openapi
+
+  metadata.md:
+    tags:
+      - openapi
+

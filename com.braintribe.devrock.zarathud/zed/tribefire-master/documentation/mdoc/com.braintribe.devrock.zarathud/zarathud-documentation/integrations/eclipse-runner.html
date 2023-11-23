@@ -1,0 +1,296 @@
+
+<html lang=en>
+<head>
+	<title>Documentation - running an analysis in Eclipse</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="../../../.mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='../../../.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/custom.css'/>
+	<link rel="icon" href="../../../.mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src="../../../.mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.navgoco.min.js"></script>	
+	<link rel='stylesheet' href='../../../.mdoc/res/content.css'/>
+	
+   	<script src="../../../.mdoc/res/lunr.js"></script>
+    <script src="../../../.mdoc/res/lunr-index.js"></script>
+    
+    <link rel="stylesheet" href="../../../.mdoc/res/highlight-custom.css">
+	<script src="../../../.mdoc/res/highlight.pack.js"></script>
+	<script>hljs.highlightAll();</script>
+    
+    <script src="../../../.mdoc/res/content.js"></script>
+ 
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=../../../index.html><img src='../../../.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="../../../search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src="../../../.mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+    <main id='full-content' class='content-container'>
+    	<article>
+			<h1 id="running-an-analysis-in-eclipse"><a href="#running-an-analysis-in-eclipse" name="running-an-analysis-in-eclipse" class="anchor-auto-link"></a>running an analysis in Eclipse</h1>
+<p>In the 'devrock plugin', three commands exist. One command runs the analysis on a selected project, the second command runs it on an external artifact, and the last one allows you to view a previously stored analysis.</p>
+<blockquote>
+<p>Please note that analysis will take some time. A progress-monitor is activated so that you can see that zed's alive, but as it's only weakly coupled with Eclipse, you cannot cancel the run.</p>
+</blockquote>
+<p>All three commands can be found in the pertinent context menu</p>
+<pre><code>&lt;context-menu&gt;-&gt;devrock-&gt;analysis
+</code></pre>
+<p><img src="images/eclipse.context.menu.jpg" alt="picture of zed's context menu addition" title="zed's addition to the analysis context menu" /></p>
+<blockquote>
+<p>Please note that if no project is selected, or the selection is not accessible (in some cases, the package-explorer will still show a selection, but it's still not accessible), or the selection is accessible, but the project itself isn't - in all these cases, the command to analyze a selected project will <em>not</em> appear in the context menu.</p>
+</blockquote>
+<div class="toc">
+<h2>On this page</h2>
+<ol>
+<li><a href="#analysis-of-a-project">analysis of a project</a></li>
+<li><a href="#analysis-of-an-external-artifact">analysis of an external artifact</a>
+<ol>
+<li><a href="#selecting-the-terminal">selecting the terminal</a></li>
+<li><a href="#selecting-the-repository-configuration">selecting the repository-configuration</a></li>
+</ol>
+</li>
+<li><a href="#viewing-of-a-previously-stored-analysis">viewing of a previously stored analysis</a></li>
+<li><a href="#the-viewer">the viewer</a>
+<ol>
+<li><a href="#dependency-tab">dependency tab</a></li>
+<li><a href="#module-tab">module tab</a></li>
+<li><a href="#model-tab">model tab</a></li>
+<li><a href="#classpath-tab">classpath tab</a></li>
+<li><a href="#issues-tab">issues tab</a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2 id="analysis-of-a-project"><a href="#analysis-of-a-project" name="analysis-of-a-project" class="anchor-auto-link"></a>analysis of a project</h2>
+<p>Running the analysis on a project is straight forward: you simply select an open and accessible project. The analysis will run on Eclipse's output folder (rather than the JAR) and will also use the output folders of any project in the workspace matching a dependency of the terminal project, while using the jar for all artifacts not backed by projects in the workspace.</p>
+<h2 id="analysis-of-an-external-artifact"><a href="#analysis-of-an-external-artifact" name="analysis-of-an-external-artifact" class="anchor-auto-link"></a>analysis of an external artifact</h2>
+<p>Running the analysis of an external artifact is more complicated as it requires the selection (and subsequent resolution) of the terminal.</p>
+<h3 id="selecting-the-terminal"><a href="#selecting-the-terminal" name="selecting-the-terminal" class="anchor-auto-link"></a>selecting the terminal</h3>
+<p>You can only select an existing artifact, i.e. differing from AC's dependency analysis, you cannot start with one (or more) dependencies, but you need to select a single, existing artifact. However, where that artifact and its dependencies reside is up to you.</p>
+<p><img src="images/eclipse.analysis.artifact.1.jpg" alt="picture of the initial state of the terminal selection dialog" title="opening the selection dialog" /></p>
+<p>If you had a project selected in the workspace, it will automatically appear as possible terminal.</p>
+<blockquote>
+<p>Please not that in this case, the analysis is <em>not</em> run on the project in the workspace, but on the artifact in the repositories. If no such artifact exists (for instance a PC version that has never been locally built (installed) yet, the command will fail.</p>
+</blockquote>
+<p><img src="images/eclipse.analysis.artifact.2.jpg" alt="picture of the intermediate state of the terminal selection dialog" title="entering groupid and artifactid" /></p>
+<p>You can enter a qualified dependency in the pertinent editor field. Group Id and artifact Id suffice, you can then use the 'normalize' button <img src="images/condensedName.gif" alt="" /> to the right to create a range for the dependency using the following logic:</p>
+<pre><code>&lt;groupId&gt;:&lt;artifactId&gt; -&gt; a fully open range is created : [,]
+&lt;groupId&gt;:&lt;artifactId&gt;#1 -&gt; a range based on the major is created : [1,2)
+&lt;groupId&gt;:&lt;artifactId&gt;#1.0 -&gt; a range based major/minor is created : [1.0,1.1)
+</code></pre>
+<p>In the next step, you can resolve the dependency using the 'scan/update' button <img src="images/update_index.gif" alt="" />, i.e. let mc find out what versions exist in the specified range.</p>
+<blockquote>
+<p>Please note that you do not have to use the auto-rangify feature, but you need to resolve the dependency as the analysis can only run on a specified artifact and not on a depedency.</p>
+</blockquote>
+<p><img src="images/eclipse.analysis.artifact.3.jpg" alt="picture of the initial state of the terminal selection dialog" title="opening the selection dialog" /></p>
+<h3 id="selecting-the-repository-configuration"><a href="#selecting-the-repository-configuration" name="selecting-the-repository-configuration" class="anchor-auto-link"></a>selecting the repository-configuration</h3>
+<p>As a matter of convenience, you can use the currently active repository-configuration (the one that the Devrock offering in Eclipse currently uses). In some cases however, the artifact you want to analyze may not be completely accessible with you current configuration.</p>
+<p>In that case, you can select a different repository-configuration to be used during the analysis (as in AC's dependency analysis). The file is expected to be in the YAML format (Maven style setting.xml are not supported here). The configuration will be used during the analysis and will not influence any other Devrock features.</p>
+<p>The dialog also remembers whether you chose to use an external configuration and which one it is.</p>
+<h2 id="viewing-of-a-previously-stored-analysis"><a href="#viewing-of-a-previously-stored-analysis" name="viewing-of-a-previously-stored-analysis" class="anchor-auto-link"></a>viewing of a previously stored analysis</h2>
+<p>As the analysis viewer has a feature to write all relevant data to disk, you can select such a persisted data set and view it again.</p>
+<h2 id="the-viewer"><a href="#the-viewer" name="the-viewer" class="anchor-auto-link"></a>the viewer</h2>
+<p>The viewer itself can show several tabs. Some of them are always shown, some are only present if they would contain relevant information</p>
+<p>To the right, above the tabs, the save button <img src="images/save_file.transparent.png" alt="" /> allows you to save the currently viewed data to disk to be viewed later.</p>
+<h3 id="dependency-tab"><a href="#dependency-tab" name="dependency-tab" class="anchor-auto-link"></a>dependency tab</h3>
+<p>This tab is always shown. It shows the analysis done on the dependencies, declared and actually used ones. Dependencies required yet not declared can be injected into the pom - if the analysis has been run on a project (obviously it can't work on artifacts as the need to be 1. considered as stable and 2. may reside in a read-only environment and 3. their pom may not even exist).</p>
+<p><img src="images/eclipse.analysis.viewer.dependency.1.jpg" alt="picture dependency tab of the zed-analysis viewer" title="the dependency tab" /></p>
+<p>The dialog shows all dependencies of the terminal:</p>
+<ul>
+<li>if prefixed by <img src="images/passed.png" alt="" /> : this dependency has been declared and is also required.</li>
+<li>if prefixed by <img src="images/add.gif" alt="" /> : this dependency has not been declared, but is required. It can be inserted into the pom (if terminal's a project)</li>
+<li>if prefixed by <img src="images/remove.gif" alt="" />  : this dependency has been declared, it is not required, i.e. not referenced by the terminal, and could be removed</li>
+<li>if prefixed by <img src="images/filter_obj.gif" alt="" />  : this dependency has been correctly declared, but not actUally required. However, the reference (mostly types) is actually not located in the declared dependency, but somewhere else, and only 'forwarded' to the dependency declared (via the 'forwarDed annotation', see GenericEntity, Reason et al)</li>
+</ul>
+<p>Dependencies that are required but not declared can show where the references actually appear in the terminal :</p>
+<p><img src="images/eclipse.analysis.viewer.dependency.2.jpg" alt="picture dependency tab of the zed-analysis viewer" title="the dependency tab with references" /></p>
+<blockquote>
+<p>Please note that due to the fact the zed may not be able to fully understand how external types interact with the types of the terminal - it's about generics, type-parameterization et al - it might not be able to understand all combinations and hence some references may get 'lost in analysis'. It is advisable to have a look at the issues and check the information there for relevance in this regard.</p>
+</blockquote>
+<p>If the terminal of the analysis is a project in your workspace, then the missing (aka not-declared, yet required) dependencies can be inserted into the appropriate pom file. You can either use the buttons below the tree, or use the context menu :</p>
+<p><img src="images/eclipse.analysis.viewer.dependency.3.jpg" alt="picture of the insertion context menu" title="the dependency tab with its context menu" /></p>
+<p>You can choose the method of insertion as in the Quick-Importer of the Devrock-Plugin:</p>
+<ul>
+<li>insert with the currently set default method</li>
+<li>insert with a variable standing for the version of the dependency (aka 'referenced') - will assume that you have declared somewhere a property in the form of <groupId> of dependency, prefixed with a 'V.'.</li>
+<li>insert with a range - version is replaced with a derived major/minor range</li>
+<li>insert as is - the dependency will be inserted with the very same version as was determined in the analysis.</li>
+</ul>
+<p>The default can be set using preferences that the Devrock Plugin brings :</p>
+<p><img src="images/eclipse.analysis.viewer.dependency.choices.dp.jpg" alt="picture the configuration in the Devrock plugin" title="How to set the default" /></p>
+<h3 id="module-tab"><a href="#module-tab" name="module-tab" class="anchor-auto-link"></a>module tab</h3>
+<p>The module tab list all packages required to be imported into the terminal - once Java modules are activated.</p>
+<p><img src="images/eclipse.analysis.viewer.module.1.jpg" alt="picture of the required import packages" title="The packages required to be imported" /></p>
+<p>For each package, you get to see where it needs to come from, and attached to the artifact, you see all packages that this dependency needs to expose - as the two things must be synched: only packages that are exported can be imported.</p>
+<blockquote>
+<p>Please note that this tab currently is only showing the information. Other than that, it has no functionality. Eventually, however, it should be able to read the 'module-info.java' file, compare and eventually touch the file - as zed does with the dependencies and the pom file.</p>
+</blockquote>
+<h3 id="model-tab"><a href="#model-tab" name="model-tab" class="anchor-auto-link"></a>model tab</h3>
+<p>The model tab is where the model-specific analysis are shown. See the pertinent <a href="../forensics/forensics.html">documentation</a> about what it tracked.</p>
+<p>The viewer simply shows the findings, the so-called 'finger print', and attached to it, the location (aka class or interface or method or field) is attached.</p>
+<p><img src="images/eclipse.analysis.viewer.model.1.jpg" alt="picture of the model analysis" title="The findings of the model analysis" /></p>
+<p>Each finger prints has a <a href="../forensics/ratings.html">rating</a> and that is reflect via the icon.</p>
+<ul>
+<li><img src="images/testok.png" alt="" /> : this has been successfully tested and is ok.</li>
+<li><img src="images/testignored.png" alt="" /> : this an issue, but zed is told to ignore it, so treat it as ok.</li>
+<li><img src="images/testwarn.png" alt="" /> : again, this is an issue, and should probably have a look at it.</li>
+<li><img src="images/testerr.png" alt="" /> : this now is a serious issue and may produce problems when this model is used.</li>
+</ul>
+<p>This example here shows some serious issues that can exist in a model :</p>
+<p><img src="images/eclipse.analysis.viewer.model.2.jpg" alt="picture of the model analysis" title="The findings of the model analysis" /></p>
+<blockquote>
+<p>Please note that the names of the enum and generic entity here are from a test artifact.. It's kind of confusing I must confess, but of course perfect for an automated test..</p>
+</blockquote>
+<h3 id="classpath-tab"><a href="#classpath-tab" name="classpath-tab" class="anchor-auto-link"></a>classpath tab</h3>
+<p>The classpath tab can show you whether you have any shadowing classes in the classpath, i.e. whether several resources exist with the same combination of package and name across the classpath.</p>
+<p>The tab shows you what duplicates exist, and in what artifact they were found.</p>
+<p><img src="images/eclipse.analysis.viewer.classpath.1.jpg" alt="picture of the classpath analysis" title="The findings of the classpath analysis : two colliding dependency types" /></p>
+<p>While listing the duplicate classes, zed also shows where the reference to these classes actually take place in terminal. In this example (again from a test setup), you see that zed detects type references on several different constructs.</p>
+<p>The picture above shows an issue where two dependencies both declare the same class, but it can of course be the terminal that declares a class that a dependency also does :</p>
+<p><img src="images/eclipse.analysis.viewer.classpath.2.png" alt="picture of the classpath analysis" title="The findings of the classpath analysis : a collision between terminal and dependency types" /></p>
+<h3 id="issues-tab"><a href="#issues-tab" name="issues-tab" class="anchor-auto-link"></a>issues tab</h3>
+<p>This tab doesn't show any analysis data, but shows the code fragements that Zed's analyzer didn't properly understand. It is shown, as these fails may have an impact on the analysis - as Zed is tracking the usage of types (and other things) of the dependencies, it might miss one due to such a analyzing failure. Hopefully, the number of issues will decrease in time, but in this state, some are to be expected.</p>
+<p><img src="images/eclipse.analysis.viewer.issues.1.jpg" alt="picture of issues encountered during analysis" title="Zed's hiccups during analysis" /></p>
+
+		</article>
+		
+		<div id='tags'>
+		</div>
+	</main>
+	  
+	<div class='menu'>
+	<nav class='nav'>
+    	<input id="navFilter" class="navFilter" placeholder="Filter..." name="menuFilter" oninput="onNavFilterTextChanged()" />
+		<ul>
+			<li><a href=#>Zarathud Documentation</a>
+  <ul>
+    <li>		<a href='#' class='folder'>forensics</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' class='file'>Finger prints</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' class='file'>Forensics</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>integrations</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' class='file'>Running an analysis via ant target</a>
+
+</li>
+    <li>		<a href='#' class='selflink file'>running an analysis in Eclipse</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/java-runner.html' class='file'>Running an analysis via java</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' class='file'>Running an analysis via Jinni</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>rationale</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' class='file'>Rationale (mgmt redux)</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' class='file'>com.braintribe.devrock.zarathud:zarathud</a>
+
+</li>
+  </ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<aside class='nav' id='technicalLinks'>
+	  <ul>
+		<li><a href=#>See also...</a>
+		  <ul>
+		    <li><a href=#>Incoming Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' title='com.braintribe.devrock.zarathud:zarathud - Zarathud Documentation' class="file">
+					com.braintribe.devrock.zarathud:zarathud <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		    <li><a href=#>Outgoing Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' title='Forensics - Zarathud Documentation' class="file">
+					Forensics <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	</aside>
+	</div>
+	
+	<!-- The Modal -->
+	<div id="imageModal" class="modal">
+	
+	  <!-- The Close Button -->
+	  <span class="close">&times;</span>
+	
+	  <!-- Modal Content (The Image) -->
+	  <img class="modal-content" id="modalImage">
+	
+	</div>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

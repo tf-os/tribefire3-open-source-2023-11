@@ -1,0 +1,3 @@
+AssetAggregator = com.braintribe.model.asset.natures.AssetAggregator
+
+$nature = AssetAggregator()

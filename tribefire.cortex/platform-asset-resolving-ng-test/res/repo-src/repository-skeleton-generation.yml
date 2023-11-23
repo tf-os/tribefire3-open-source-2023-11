@@ -1,0 +1,54 @@
+!com.braintribe.devrock.model.repolet.content.RepoletContent {
+artifacts: [
+
+{ groupId: tribefire.extension.test, artifactId: asset-test-aggregator, version: 1.0.1,
+
+  dependencies: [
+    "tribefire.extension.test:asset-test-initializer#[1.0,1.1)-asset:compile:man|tag:asset",
+    "tribefire.cortex.assets:tribefire-standard-aggregator#[2.0,2.1)-asset:compile:man|tag:asset",
+  ],
+
+  parts: {
+    "asset:man": "$nature = !com.braintribe.model.asset.natures.AssetAggregator()"
+  }
+},
+
+{ groupId: tribefire.extension.test, artifactId: asset-test-initializer, version: 1.0.1,
+
+  dependencies: [
+    "tribefire.extension.test:asset-test-module#[1.0,1.1)-asset:compile:man|tag:asset",
+  ],
+
+  parts: {
+    "asset:man": "$nature = !com.braintribe.model.asset.natures.PrimingModule()"
+  }
+},
+
+{ groupId: tribefire.extension.test, artifactId: asset-test-module, version: 1.0.1,
+
+  dependencies: [
+    "tribefire.extension.test:asset-test-model#[1.0,1.1)-asset:compile:man|tag:asset"
+  ],
+
+  parts: {
+    "asset:man": "$nature = !com.braintribe.model.asset.natures.TribefireModule()"
+  }
+},
+
+{ groupId: tribefire.extension.test, artifactId: asset-test-model, version: 1.0.1,
+
+  parts: {
+    "asset:man": "$nature = !com.braintribe.model.asset.natures.ModelPriming()",
+    ":jar": !com.braintribe.model.resource.FileResource test.jar
+  }
+},
+
+{ groupId: tribefire.cortex.assets, artifactId: tribefire-standard-aggregator, version: 2.0.12,
+
+  parts: {
+    "asset:man": "$nature = !com.braintribe.model.asset.natures.AssetAggregator()"
+  }
+},
+
+]
+}

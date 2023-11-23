@@ -1,0 +1,5 @@
+@def BORDER_COLOR #f1f1f1;
+
+.border {
+	border: 1px solid BORDER_COLOR !important;
+}

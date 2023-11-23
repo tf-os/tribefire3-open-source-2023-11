@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='markdown-style.css'/>
+	<link rel='stylesheet' href='customstyles.css'/>
+	<link rel="icon" href="favicon.png">
+  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="jquery.navgoco.min.js"></script>
+	<link rel="stylesheet" href="jquery.navgoco.css" type="text/css" media="screen" />
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.nav').navgoco();
+//			$('.nav > ul').navgoco('toggle', true);
+			
+			$(".selflink").parentsUntil('.nav').show();
+		});
+	</script>
+
+</head>
+<body background="docbg_dark.jpg">
+<div class=container>
+  <div class='header'>
+    <span class='home-button'><a href=index.html><img src='tfacademy-white-64x235.svg' /></a></span>
+    <span class='backlink'><a href=overview.html>Overview</a></span>
+    <div id=search-bar>
+		<form action="search.html" method="get">
+            <input class='search-input' placeholder="Search in documentation..." name="searchText"/>            
+        </form>		
+    </div>
+  </div><!-- Load JQuery -->	<div class='below-header'>
+		<div id=left-menu>
+			<div id=total-menu>
+	        	<ul class="nav">
+	            	<li>
+	<a href='#'>Tfcloud Operator</a>
+  <ul>
+    <li>	<a href='tribefire.cortex.documentation.external/tfcloud-operator-doc/readmeTest.html'>Readme</a>
+</li>
+  </ul>
+			  		</li>
+			  	</ul>
+			</div>
+		</div>
+		<div id=front>
+			<div id=greeting>
+				<h1>TECH. DOCUMENTATION. </h1>
+				<h2>  CONCEPTS. TUTORIALS. REFERENCES.</h2>
+				<br />
+				<p class="lead"> Our documentation is made for techies by techies. Combined with the training presentations and videos, it provides you with all necessary concepts and tutorials for a deep understanding of tribefire.
+				<p class="lead"> Use the links at the top of the page to switch between conceptual and API documentation and the portal will remember where you left off. </p> 
+				<p class="lead"> For a quick start, use one of the following:
+				<br /> <br />
+			</div>
+			<div id=search-bar-front>
+				<form action="search.html" method="get">
+		            <input class='search-input' name='searchText' id="search-input" placeholder="Search..." autocomplete="off" autofocus/>            
+		        </form>		
+		    </div>
+			<div id=entrypoints>				
+				<div class='entrypoint'>
+				 <span class='asset-name'>Tfcloud Operator</span>
+				 <div class='entrypoint-image'>
+				 </div>
+				 <a href="tribefire.cortex.documentation.external/tfcloud-operator-doc/readmeTest.html" > Go! </a>
+			 	</div>
+		 	</div>
+			
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+

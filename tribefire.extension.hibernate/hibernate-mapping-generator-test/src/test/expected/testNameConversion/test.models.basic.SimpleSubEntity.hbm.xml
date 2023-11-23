@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<hibernate-mapping auto-import="true">
+	<subclass name="test.models.basic.SimpleSubEntity" entity-name="test.models.basic.SimpleSubEntity" abstract="false" extends="test.models.basic.SimpleEntity">
+		<property name="siblingProperty" column="SIBLING_PROPERTY" type="string" />
+		<many-to-one name="simpleEntity" class="test.models.basic.SimpleEntity" column="SIMPLE_ENTITY" />
+		<property name="subProperty" column="SUB_PROPERTY" type="string" />
+	</subclass>
+</hibernate-mapping>

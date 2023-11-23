@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/src/main/webapp</rootDir>
+    <workDir>/work</workDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <mavenClasspath>false</mavenClasspath>
+    <webPath>/simple-module</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/simple-module/bin</webClassPathEntry>
+        <webClassPathEntry>org.eclipse.buildship.core.gradleclasspathcontainer</webClassPathEntry>
+    </webClassPathEntries>
+</tomcatProjectProperties>

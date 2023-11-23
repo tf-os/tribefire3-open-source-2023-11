@@ -1,0 +1,1 @@
+$natureType = tribefire.extension.js.model.asset.natures.JsLibrary

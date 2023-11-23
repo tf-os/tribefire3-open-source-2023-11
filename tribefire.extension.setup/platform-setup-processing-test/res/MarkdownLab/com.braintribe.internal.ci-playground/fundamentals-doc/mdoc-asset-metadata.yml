@@ -1,0 +1,5 @@
+---
+!com.braintribe.doc.meta.CustomAssetMetaData
+displayTitle: ASSET CONFIGURED TITLE
+shortDescription: ASSEt cofigured description
+imageUrl: asset://com.braintribe.internal.ci-playground:features-doc/images/StateEngineBigPicture.png

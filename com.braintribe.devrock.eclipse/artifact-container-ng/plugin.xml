@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+
+<!-- ARTIFACT CONTAINER NG plugin by pit -->
+
+<plugin>
+   
+   <!-- container initializer -->
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="com.braintribe.devrock.ac.container.ArtifactContainerInitializer"
+            id="Braintribe.ArtifactClasspathContainer">
+      </classpathContainerInitializer>
+   </extension>   
+   
+   <!-- runtime classpath entry resolver -->
+  
+   <extension
+         point="org.eclipse.jdt.launching.runtimeClasspathEntryResolvers">
+      <runtimeClasspathEntryResolver
+            class="com.braintribe.devrock.ac.container.ArtifactContainerRuntimeClasspathEntryResolver"
+            container="Braintribe.ArtifactClasspathContainer"
+            id="Braintribe.ArtifactContainerRuntimeClasspathEntryResolver">
+      </runtimeClasspathEntryResolver>
+   </extension>
+   
+   
+   <!-- container property page -->   
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="com.braintribe.devrock.ac.container.properties.ArtifactContainerPropertiesPage"
+            id="Braintribe.ArtifactClasspathContainer"
+            name="Devrock Artifact Classpath Container">
+      </classpathContainerPage>
+   </extension>   
+
+
+     <!-- MARKER -->    
+     <!--
+    <extension id="com.braintribe.devrock.ac.marker.failed" point="org.eclipse.core.resources.markers">
+    	<super type="org.eclipse.core.resources.problemmarker"/>      		
+   		<persistent value="false"/>
+    </extension>
+    
+    <extension id="com.braintribe.devrock.ac.marker.failed.reason" point="org.eclipse.core.resources.markers">
+    	<super type="org.eclipse.core.resources.problemmarker"/>      
+   		<persistent value="false"/>
+    </extension>
+    -->
+   
+	
+	<!-- DECORATOR -->
+	  	
+		
+ 	<extension point="org.eclipse.ui.decorators"> 	
+	     <decorator
+	           adaptable="true"
+	           class="com.braintribe.devrock.ac.container.decorator.ArtifactContainerDecorator"
+	           id="com.braintribe.devrock.ac.container.decorator.ArtifactContainerDecorator"
+	           label="Artifact container decorator"
+	           lightweight="true"
+	           location="TOP_LEFT"
+	           objectClass="org.eclipse.core.resources.IResource"           
+	           state="true">
+	           <description>
+	              The artifact container label decorator - shows errors and warnings from the dependency walk
+	           </description>
+	     </decorator>        
+	  </extension>
+  	
+  
+    <!-- command declaration-->
+    <extension point="org.eclipse.ui.commands">
+        <category id="com.braintribe.devrock.ac.commands.category" name="ArtifactContainer Commands" />
+        
+          <!-- build workspace -->
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand" id="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand" name="Refresh all containers in the workspace"/>
+        
+         <!-- build selected projects or workspace -->
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.BuildSelectedProjectsOrWorkspaceCommand" id="com.braintribe.devrock.ac.commands.BuildSelectedProjectsOrWorkspaceCommand" name="Refresh all containers of the selected projects or all in the workspace if none's selected"/>
+        
+        <!-- build projects -->     
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.BuildProjectCommand" id="com.braintribe.devrock.ac.commands.BuildProjectCommand" name="Refresh the containers of the selected project(s)"/>
+        
+        <!-- container properties dialog -->     
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.ShowContainerPropertiesCommand" id="com.braintribe.devrock.ac.commands.ShowContainerPropertiesCommand" name="Show the internal data of the selected container"/>
+        		
+        
+       <!-- container resolution dialog -->     
+       <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.ShowContainerResolutionCommand" id="com.braintribe.devrock.ac.commands.ShowContainerResolutionCommand" name="Show the resolution backing the selected container"/>        
+        
+        <!-- resolution viewer debug dialog : load a YAML resolution-->     
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.AnalyseResolutionCommand" id="com.braintribe.devrock.ac.commands.AnalyseResolutionCommand" name="Load resolution and show"/>
+        
+        <!-- resolution viewer debug dialog : run on a an artifact -->     
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.AnalyseArtifactCommand" id="com.braintribe.devrock.ac.commands.AnalyseArtifactCommand" name="Select artifact and analyse it"/>
+        
+        <!-- purge *.lck file -->
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.PurgeLockFilesCommand" id="com.braintribe.devrock.ac.commands.PurgeLockFilesCommand" name="Purge *.lck from local repository"/>
+		<!-- -->        
+        <command categoryId="com.braintribe.devrock.ac.commands.category" defaultHandler="com.braintribe.devrock.ac.commands.ViewAndEditInstallRepositoryCommand" id="com.braintribe.devrock.ac.commands.ViewAndEditInstallRepositoryCommand" name="View install-repository"/>
+        
+    </extension>
+
+  <!-- command icons -->
+   <extension point="org.eclipse.ui.commandImages">
+        <image commandId="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand" icon="icons/refresh.gif"/>
+        <image commandId="com.braintribe.devrock.ac.commands.BuildSelectedProjectsOrWorkspaceCommand" icon="icons/refresh-dependencies.png"/>
+        <image commandId="com.braintribe.devrock.ac.commands.BuildProjectCommand" icon="icons/refresh-classpath.png"/>
+        <image commandId="com.braintribe.devrock.ac.commands.ShowContainerPropertiesCommand" icon="icons/info_obj.gif"/>
+        <image commandId="com.braintribe.devrock.ac.commands.ShowContainerResolutionCommand" icon="icons/insp_sbook.gif"/>
+        <image commandId="com.braintribe.devrock.ac.commands.AnalyseResolutionCommand" icon="icons/insp_sbook.gif"/>
+        <image commandId="com.braintribe.devrock.ac.commands.AnalyseArtifactCommand" icon="icons/insp_sbook.gif"/>
+        <image commandId="com.braintribe.devrock.ac.commands.PurgeLockFilesCommand" icon="icons/rebuild_index.png"/>
+        <image commandId="com.braintribe.devrock.ac.commands.ViewAndEditInstallRepositoryCommand" icon="icons/repository.gif"/>
+   </extension>	
+
+    <extension point="org.eclipse.ui.menus">
+    	
+    	<!-- addition to main devrock menu -->             
+        <menuContribution allPopups="true" locationURI="menu:com.braintribe.devrock.main?after=main.additions.container">
+            <!-- resolution viewer for depednency / artifact resolution -->            
+			<command commandId="com.braintribe.devrock.ac.commands.AnalyseArtifactCommand" style="push" label="analyze a terminal-resolution" tooltip="Select an possibly remote artifact or a dependency, run a resolution and show the result"/>
+			<!-- resolution viewer for resolution in YAML format -->			
+			<command commandId="com.braintribe.devrock.ac.commands.AnalyseResolutionCommand" style="push" label="analyze an existing terminal-resolution" tooltip="Load a saved resolution in XML/YAML format and show it"/>								                       
+        </menuContribution>
+        
+        <!-- addition to main devrock maintenance menu -->
+        <menuContribution allPopups="true" locationURI="menu:com.braintribe.devrock.maintenance?after=main.maintenance.container">
+	        <!-- refresh workspace projects -->
+    	    <command commandId="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand" style="push" label="Refresh containers of all projects in workspace" tooltip="Refresh all containers in the workspace"/>                                               
+        	<!-- view install repository -->        
+			<command commandId="com.braintribe.devrock.ac.commands.ViewAndEditInstallRepositoryCommand" style="push" label="View install-repository" tooltip="Shows the contents of the install-repository and allows deleting obsolete builds"/>                                               		        
+        </menuContribution>
+        
+        <!-- addition to main popup menu -->
+        <menuContribution allPopups="true" locationURI="popup:com.braintribe.devrock.popup?after=analysis">                                  
+            <dynamic class="com.braintribe.devrock.ac.commands.dynamic.DynamicBuildProjectsCommandItem" id="com.braintribe.devrock.ac.commands.dynamic.DynamicBuildProjectsCommandItem">                                        
+                <visibleWhen>               
+                    <with
+                         variable="activeMenuSelection">
+                        <iterate>
+                            <or>                                                    
+                                <adapt type="org.eclipse.core.resources.IProject">
+                                    <test property="org.eclipse.core.resources.open" value="open"/> 
+                                </adapt>
+                                <adapt type="org.eclipse.core.resources.IResource">
+                                    <test property="org.eclipse.core.resources.open" value="open"/>
+                                </adapt>                                                                
+                                <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                            </or>
+                        </iterate>
+                    </with>             
+                </visibleWhen>
+            </dynamic>             
+            <dynamic class="com.braintribe.devrock.ac.commands.dynamic.DynamicContainerResolutionCommandItem" id="com.braintribe.devrock.ac.commands.dynamic.DynamicContainerResolutionCommandItem">                                        
+                <visibleWhen>               
+                    <with
+                         variable="activeMenuSelection">
+                        <iterate>
+                            <or>                                                    
+                                <adapt type="org.eclipse.core.resources.IProject">
+                                    <test property="org.eclipse.core.resources.open" value="open"/> 
+                                </adapt>
+                                <adapt type="org.eclipse.core.resources.IResource">
+                                    <test property="org.eclipse.core.resources.open" value="open"/>
+                                </adapt>                                                                
+                                <adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+                                <adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>                                                                   
+                            </or>
+                        </iterate>
+                    </with>             
+                </visibleWhen>
+            </dynamic>	            
+        </menuContribution>
+                        
+    </extension>
+
+    <!-- toolbar menu -->
+    <extension point="org.eclipse.ui.menus">
+        <menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+            <toolbar id="com.braintribe.devrock.ac.commands.toolbar1">
+                <command commandId="com.braintribe.devrock.ac.commands.BuildSelectedProjectsOrWorkspaceCommand" id="com.braintribe.devrock.ac.commands.tb.cmd.BuildSelectedProjectsOrWorkspaceCommand" style="pulldown" tooltip="Synchronize all containers or the selected projects depending on your preferences"/>
+                <command commandId="com.braintribe.devrock.ac.commands.ShowContainerResolutionCommand" id="com.braintribe.devrock.ac.commands.tb.cmd.ShowContainerResolutionCommand" style="push" tooltip="Show the analysis data of the current artifact container"/>
+            </toolbar>
+        </menuContribution>
+    </extension>
+    
+     <!-- toolbar entries -->
+    <extension point="org.eclipse.ui.menus">        
+        <menuContribution locationURI="menu:com.braintribe.devrock.ac.commands.tb.cmd.BuildSelectedProjectsOrWorkspaceCommand">
+            <command commandId="com.braintribe.devrock.ac.commands.BuildSelectedProjectsOrWorkspaceCommand" label="Sync workspace/projects" tooltip="Depending on your preferences: Synchronizes the selected projects (or all if none are selected) or all projects in the workspace" />
+            <command commandId="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand" label="Sync workspace" tooltip="Synchronize the containers of all projects in the workspace" />
+            <command commandId="com.braintribe.devrock.ac.commands.BuildProjectCommand" label="Sync projects" tooltip="Synchronize the containers of the selected projects" />
+
+        </menuContribution>
+        
+    </extension>
+
+    <!-- short cuts -->
+    <extension point="org.eclipse.ui.bindings">
+        <key
+            commandId="com.braintribe.devrock.ac.commands.BuildWorkspaceCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+W"
+        />      
+        <key
+            commandId="com.braintribe.devrock.ac.commands.ShowContainerResolutionCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="Alt+I"
+        />                      
+                
+    </extension>
+
+</plugin>

@@ -1,0 +1,21 @@
+---
+!com.braintribe.doc.meta.CustomDocMetaData
+
+assets:
+  "com.braintribe.devrock.eclipse:devrock-documentation":
+  "com.braintribe.devrock.eclipse:artifact-container-ng-documentation":
+  "com.braintribe.devrock.eclipse:greyface-documentation":
+  "com.braintribe.devrock.zaratud:zarathud-documentation":
+
+entryPoints: [
+  !com.braintribe.doc.meta.Entrypoint {
+    assetId: "com.braintribe.devrock.eclipse:devrock-documentation",
+    displayInfo: {
+      hidden: false,
+      displayTitle: "Devrock Plugin",
+      startingPoint: "",
+      shortDescription: "the main plugin of the suite",      
+    } 
+  }
+]
+  

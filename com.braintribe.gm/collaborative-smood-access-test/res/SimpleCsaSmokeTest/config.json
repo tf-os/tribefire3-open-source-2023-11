@@ -1,0 +1,8 @@
+{"_type": "com.braintribe.model.csa.CollaborativeSmoodConfiguration", "_id": "0",
+ "initializers": [
+  {"_type": "com.braintribe.model.csa.ManInitializer", "_id": "2",
+   "name": "ManipulationStage",
+   "skip": false
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+.header {
+  position: relative;
+}
+
+.headerIcon {
+  float: left;
+}
+
+.headerHasIcon .headerIcon {
+  width: 18px; 
+}
+
+.headerHasIcon .headerText {
+  left: 20px;
+}
+
+.headerText {
+  /*font-family: Open Sans;*/
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 8px;
+  color: #f19b00;
+}
+
+.headerBar {
+  float: right;
+}

@@ -1,0 +1,60 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.braintribe.gm</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.0.26</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+        <V.com.braintribe.archives>[2.0,2.1)</V.com.braintribe.archives>
+        <V.com.braintribe.asm>[2.0,2.1)</V.com.braintribe.asm>
+        <V.com.braintribe.codec>[2.0,2.1)</V.com.braintribe.codec>
+        <V.com.braintribe.common>[2.0,2.1)</V.com.braintribe.common>
+        <V.com.braintribe.devrock>[1.0,1.1)</V.com.braintribe.devrock>
+        <V.com.braintribe.security>[2.0,2.1)</V.com.braintribe.security>
+        <V.com.braintribe.servlet>[2.0,2.1)</V.com.braintribe.servlet>
+        <V.com.braintribe.systemtools>[2.0,2.1)</V.com.braintribe.systemtools>
+        <V.com.braintribe.templatetools>[2.0,2.1)</V.com.braintribe.templatetools>
+        <V.com.braintribe.testing>[2.0,2.1)</V.com.braintribe.testing>
+        <V.com.braintribe.velocity>[2.0,2.1)</V.com.braintribe.velocity>
+        <V.com.braintribe.web.multipart>[2.0,2.1)</V.com.braintribe.web.multipart>
+        <V.com.braintribe.wire>[2.0,2.1)</V.com.braintribe.wire>
+        <V.com.braintribe.xml>[2.0,2.1)</V.com.braintribe.xml>
+        
+        <!-- externals -->
+        <V.com.fasterxml.jackson.core>2.13.3</V.com.fasterxml.jackson.core>
+        <V.javax.jms>1.1-rev-1</V.javax.jms>
+        <V.com.googlecode.json-simple>1.1.1</V.com.googlecode.json-simple>
+        <V.commons-codec>1.6</V.commons-codec>
+        <V.commons-collections>3.2.1</V.commons-collections>
+        <V.commons-lang>2.6</V.commons-lang>
+        <V.javax.servlet_javax.servlet-api>3.0.1</V.javax.servlet_javax.servlet-api>
+        <V.javax.servlet_servlet-api>2.4</V.javax.servlet_servlet-api>
+        <V.joda-time>2.3</V.joda-time>
+        <V.junit>4.11</V.junit>
+        <V.org.antlr>4.5</V.org.antlr>
+        <V.org.apache.httpcomponents>4.5.13</V.org.apache.httpcomponents>
+        <V.org.freemarker>2.3.28</V.org.freemarker>
+        <V.org.snakeyaml>2.1</V.org.snakeyaml>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

@@ -1,0 +1,4 @@
+This artifact provides GenericEntity related tools. It only depends on the RootModel and the PlatformApi.
+The purpose of this artifact is to give other artifacts access to some GenericEntity related classes
+without adding any other dependencies. This in some cases makes it possible to decouple from GmCore (e.g. via EntityInstantiator),
+making it less likely that the artifact has to be branched.

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.ComplexEntity" entity-name="test.models.basic.ComplexEntity" table="ComplexEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<component name="entityProperty" class="test.models.basic.SimpleEntity">
+			<tuplizer entity-mode="pojo" class="com.braintribe.model.access.hibernate.gm.GmPojoComponentTuplizer"/>
+			<property name="id" formula="(select concat('test.models.basic.SimpleEntity#entityProperty#', id))" type="string" />
+<!---->		<property name="longProperty" column="longProperty" type="long" />
+<!---->		<property name="stringProperty" column="stringProperty" type="string" />
+		</component>
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="partition_" type="string" />
+	</class>
+</hibernate-mapping>

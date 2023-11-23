@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.1
+Created-By: 10.0.1+10 ("Oracle Corporation")
+Bundle-ManifestVersion: 2
+Bundle-Name: devrock's artifact container
+Bundle-SymbolicName: devrock.eclipse.artifact.container;singleton:=tru
+ e
+Bundle-Version: 4.0.0.qualifier
+Automatic-Module-Name: artifact.container.ng
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: modular mind labs
+Require-Bundle: devrock.eclipse.main;bundle-version="1.0.0",org.eclips
+ e.jdt.core;bundle-version="3.14.0",org.eclipse.ui;bundle-version="3.1
+ 09.100",org.eclipse.ui.ide;bundle-version="3.14.0",org.eclipse.core.r
+ untime;bundle-version="3.14.0",org.eclipse.jdt.launching;bundle-versi
+ on="3.10.0",org.eclipse.debug.core;bundle-version="3.12.0",org.eclips
+ e.jdt.ui;bundle-version="3.14.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: com.braintribe.devrock.ac.container.plugin.ArtifactC
+ ontainerPlugin
+Export-Package: com.braintribe.devrock.ac.container
+Bundle-ClassPath: .
+

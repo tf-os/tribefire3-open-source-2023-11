@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.gwt.action.Action" />
+	<inherits name="com.braintribe.gwt.codec.registry.Registry"/>
+	<inherits name="com.braintribe.gwt.gme.constellation.GmeConstellation" />
+	<inherits name="com.braintribe.gwt.gmview.action.GmViewAction" />
+	<inherits name="com.braintribe.gwt.gmview.GmViewApi" />
+	<inherits name="com.braintribe.gwt.gxt.gxtresources.GxtResources" />
+	<inherits name="com.braintribe.model.processing.session.SessionApi" />
+	<inherits name="com.google.gwt.emul.Emulation" />
+	<inherits name="com.google.gwt.user.Debug" />
+	<inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames" />
+	<inherits name="com.sencha.gxt.widget.core.Core" />
+</module>

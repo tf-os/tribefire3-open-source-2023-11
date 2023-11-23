@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+
+	<inherits name="com.braintribe.gwt.tribefirejs.TribefireJsRemoteBase"/>
+	<inherits name="com.braintribe.gwt.gmrpc.web.GmWebRpcClient"/>
+	<inherits name="com.braintribe.gwt.security.tfh.TfhSecurity"/>
+	<inherits name="com.braintribe.gwt.async.Async"/> 
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.resources.Resources"/>  	
+   		
+</module>

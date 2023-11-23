@@ -1,0 +1,43 @@
+# On Change
+
+This metadata allows you to assign a StateChangeProcessor that affects another part of tribefire when a property is changed.
+
+Metadata Property Name  | Type Signature  
+------- | -----------
+`OnChange` | `com.braintribe.model.extensiondeployment.meta.OnChange`
+
+## General
+
+This metadata allows you to assign a `StateChangeProcessor` which is used to carry out operations when a particular state is altered. These processors can be scripted directly in tribefire, using one of the available scripting languages.
+
+> For more information, see [State Change Processor](asset://tribefire.cortex.documentation:concepts-doc/features/tribefire-extensions/state_change_processor.md).
+
+Property | Description
+------- | -----------
+`callOnAfter` | Boolean property causing the `StateChangeProcessor` to be called after the actual change happens, i.e. after it is committed to persistence.
+`callOnBefore` | Boolean property causing the `StateChangeProcessor` to be called before the actual change happens, i.e. before it is committed to persistence.
+`processor` | The `StateChangeProcessor` to be used. Note that the  main `processStateChange()` method is always called asynchronously.
+
+As described above, the Cartridge State Change Processor is used when you wish to define the change through a customized cartridge and the Scripted State Change Processor is used when you want to define the change by either a BeanShell or a JavaScript. If you are using a Cartridge you must first install it on the system. However, when using the Scripted State Change Processor, you can enter the script directly into Control Center.
+
+## Example
+
+You must first add the correct object that this processor will use. There are two possible entities that can be attached:
+
+* Cartridge State Change Processor
+* Scripted State Change Processor
+
+Both these entities have the same properties that can be defined, apart from one crucial difference. Where the Cartridge State Change Processor has a property entitled Cartridge, the Scripted State Change Processor has a property Script. Both these properties should then be defined by a Cartridge instance or a Script instance (either BeanShell or JavaScript) respectively.
+
+* Cartridge Action Processor
+    The Cartridge Action Processor then requires the appropriate cartridge instance.
+
+* Scripted Action Processor
+
+    Alternatively, you can use the Scripted Action Processor to add either a BeanShell or JavaScript directly in tribefire. Both these objects are the same, only differing in the language they accept. You can enter the script into the source property.
+
+> You must always start any command that calls tribefire with `$`.
+
+There are two main methods which can be called from the context element: `getRequest() or getSession()`
+
+The main class used when scripting is `ScriptContext`.

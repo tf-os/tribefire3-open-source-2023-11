@@ -1,0 +1,88 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+		<localRepository>${env.MYPROJECT_LOCAL_REPOSITORY}</localRepository>
+
+		<servers>
+			<server>
+				<id>tribefire</id>
+				<username>${env.MYPROJECT_TRIBEFIRE_REPOSITORY_USER}</username>
+				<password>${env.MYPROJECT_TRIBEFIRE_REPOSITORY_PASSWORD}</password>
+			</server>
+			<server>
+				<id>distribution</id>
+				<username>${env.MYPROJECT_DISTRIBUTION_REPOSITORY_USER}</username>
+				<password>${env.MYPROJECT_DISTRIBUTION_REPOSITORY_PASSWORD}</password>
+			</server>
+		</servers>
+
+		<profiles>
+			<profile>
+				<id>tribefire</id>
+				<repositories>
+					<repository>
+						<id>tribefire</id>
+						<url>https://artifactory.server/artifactory/${env.MYPROJECT_TRIBEFIRE_REPOSITORY_NAME}/</url>
+						<releases>
+							<updatePolicy>never</updatePolicy>
+						</releases>
+						<snapshots>
+							<enabled>false</enabled>
+						</snapshots>
+					</repository>
+					<repository>
+						<id>distribution</id>
+						<url>https://artifactory.server/artifactory/${env.MYPROJECT_DISTRIBUTION_REPOSITORY_NAME}/</url>
+						<releases>
+							<updatePolicy>never</updatePolicy>
+						</releases>
+						<snapshots>
+							<enabled>false</enabled>
+						</snapshots>
+					</repository>
+					<!-- Maven automatically downloads from Maven Central. Jinni, however, is build system independent and can e.g.
+						also be used with Gradle, which uses JCenter by default. Therefore Jinni doesn't automatically use any public
+						third party repositories. Instead one has to explicitly specify them.
+						In this case we use Maven Central, but this could e.g. also be JCenter or a company-specific third-party repo. -->
+					<repository>
+						<id>central</id>
+						<url>https://repo.maven.apache.org/maven2/</url>
+						<releases>
+							<updatePolicy>never</updatePolicy>
+						</releases>
+						<snapshots>
+							<enabled>false</enabled>
+						</snapshots>
+					</repository>
+				</repositories>
+
+				<pluginRepositories>
+					<pluginRepository>
+						<id>tribefire</id>
+						<url>https://artifactory.server/artifactory/${env.MYPROJECT_TRIBEFIRE_REPOSITORY_NAME}/</url>
+						<snapshots>
+							<enabled>false</enabled>
+						</snapshots>
+						<releases>
+							<enabled>true</enabled>
+							<updatePolicy>never</updatePolicy>
+						</releases>
+					</pluginRepository>
+				</pluginRepositories>
+
+				<activation>
+					<activeByDefault>true</activeByDefault>
+				</activation>
+
+				<properties>
+					<updateReflectingRepositories>tribefire,distribution</updateReflectingRepositories>
+					<trustworthyRepositories>tribefire,distribution,central</trustworthyRepositories>
+					<ravenhurst-context>/</ravenhurst-context>
+					<ravenhurst-url-tribefire>https://artifactory.server/Ravenhurst/rest/${env.MYPROJECT_TRIBEFIRE_REPOSITORY_NAME}/</ravenhurst-url-tribefire>
+					<ravenhurst-url-distribution>https://artifactory.server/Ravenhurst/rest/${env.MYPROJECT_DISTRIBUTION_REPOSITORY_NAME}/</ravenhurst-url-distribution>
+				</properties>
+			</profile>
+
+		</profiles>
+</settings>

@@ -1,0 +1,10 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  tribefire_home_page.md:
+
+  landing_page.md:
+
+  normalization.md:
+    hidden: true 

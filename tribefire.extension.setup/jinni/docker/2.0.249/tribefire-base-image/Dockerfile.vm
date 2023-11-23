@@ -1,0 +1,106 @@
+#set($d = "$")
+
+###############################################################################
+#### Resources Download Image #################################################
+###############################################################################
+
+### Operating System & Tools ##################################################
+ARG BASE_IMAGE=debian:bullseye
+FROM ${d}{BASE_IMAGE} AS resourcesDownloadHelperImage
+RUN apt-get update &&\
+    apt-get -y install curl
+
+### JDK #######################################################################
+ARG JDK_ARCHIVE_URL=https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+ENV JDK_ARCHIVE_URL=${d}{JDK_ARCHIVE_URL}
+
+RUN echo Downloading JDK from ${d}{JDK_ARCHIVE_URL}. &&\
+    mkdir /tmp/jdk &&\
+    cd /tmp/jdk &&\
+    curl ${d}{JDK_ARCHIVE_URL} -o jdk.tar.gz
+
+
+
+###############################################################################
+### Main Image ################################################################
+###############################################################################
+
+### Operating System & Tools ##################################################
+FROM ${d}{BASE_IMAGE}
+## declare BASE_IMAGE again to make it visible to instructions after FROM
+ARG BASE_IMAGE
+ENV BASE_IMAGE=${d}{BASE_IMAGE}
+RUN echo Using base image ${d}{BASE_IMAGE}.
+
+ARG INSTALL_ANALYSIS_TOOLS=true
+ENV INSTALL_ANALYSIS_TOOLS=${d}{INSTALL_ANALYSIS_TOOLS}
+
+ENV LANG C.UTF-8
+
+RUN apt-get update &&\
+    apt-get -y install fontconfig jq &&\
+    if ${d}{INSTALL_ANALYSIS_TOOLS}; then apt-get -y install curl htop less mc nano procps vim wget; fi &&\
+    apt-get -y autoremove &&\
+    rm -rf /var/lib/apt/lists/*
+
+
+### Aliases ###################################################################
+ARG PROFILE_FILE=/etc/bash.bashrc
+RUN echo 'alias ls="ls -F --color=auto"' >> ${d}{PROFILE_FILE} &&\
+    echo 'alias ll="ls -lh"' >> ${d}{PROFILE_FILE} &&\
+    echo 'alias la="ll -A"' >> ${d}{PROFILE_FILE}
+
+
+### JDK #######################################################################
+ENV JAVA_HOME /opt/jdk
+ENV PATH ${d}{PATH}:${d}{JAVA_HOME}/bin
+
+## install Java using the specified JDK archive (which was downloaded before).
+## the archive must be a .tar.gz file and contain a single subfolder in the
+## root folder (such as 'jdk-17'). openjdk and zulu packages are known to work.
+COPY --from=resourcesDownloadHelperImage /tmp/jdk/jdk.tar.gz /tmp/jdk/jdk.tar.gz
+RUN echo Installing JDK. &&\
+    cd /tmp/jdk &&\
+    tar -xzf jdk.tar.gz &&\
+    rm jdk.tar.gz &&\
+    mv */ ${d}{JAVA_HOME}/ &&\
+    rm -rf /tmp/jdk
+
+
+### Tomcat ####################################################################
+## copy base Tomcat, i.e. tribefire runtime without webapps, modules, storage, etc.
+COPY tomcat/runtime/ /opt/tribefire/runtime/
+## set Tomcat home (needed when sourcing catalina.sh from startup wrapper)
+ENV CATALINA_HOME /opt/tribefire/runtime/host
+## add default mount dir for volumes (so that we can add write permissions below)
+RUN mkdir /opt/tribefire/mnt/
+
+
+### Logging ###################################################################
+COPY logging/log-json.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/log-json.sh
+
+COPY logging/default-logging.properties /opt/tribefire/runtime/host/conf/
+COPY logging/json-logging.properties /opt/tribefire/runtime/host/conf/
+
+## default log level
+ENV TRIBEFIRE_RUNTIME_LOGLEVEL FINE
+
+
+### Startup ###################################################################
+COPY startup/ /opt/tribefire/startup/
+RUN chmod ug+rx /opt/tribefire/startup/startup-wrapper.sh /opt/tribefire/startup/uid-entrypoint
+
+ENTRYPOINT ["/opt/tribefire/startup/uid-entrypoint"]
+CMD [ "bash", "/opt/tribefire/startup/startup-wrapper.sh" ]
+
+WORKDIR /opt/tribefire/startup/
+
+
+### Permissions ###############################################################
+RUN chgrp -R 0 /opt/tribefire /etc/passwd /home/ &&\
+    chmod -R g=u /opt/tribefire /etc/passwd /home/ &&\
+    chmod -R ug+rw /opt/tribefire/
+## add write permission to fonts folder. we do this to support adding new fonts,
+## e.g. via custom entry point, without requiring root permissions.
+RUN chmod -R ug+rw /usr/share/fonts/

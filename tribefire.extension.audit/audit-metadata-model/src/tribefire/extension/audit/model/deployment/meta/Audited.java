@@ -1,0 +1,24 @@
+// ============================================================================
+// Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+// 
+// This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+// ============================================================================
+package tribefire.extension.audit.model.deployment.meta;
+
+import com.braintribe.model.generic.annotation.meta.Description;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+import com.braintribe.model.meta.data.ExplicitPredicate;
+import com.braintribe.model.meta.data.UniversalMetaData;
+
+@Description("The predicate metadata Audited can be applied on entity types to record lifecycle manipulations and on properties to record property manipulations. "
+		+ "It can be deactivated with its erasure Unaudited. Use AuditedPreserved to record previous values as well.")
+public interface Audited extends ExplicitPredicate, UniversalMetaData {
+	EntityType<Audited> T = EntityTypes.T(Audited.class);
+}

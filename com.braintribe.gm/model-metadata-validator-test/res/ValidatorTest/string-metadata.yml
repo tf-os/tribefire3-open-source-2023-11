@@ -1,0 +1,36 @@
+!com.braintribe.model.processing.test.Base
+title: My Title
+child: !com.braintribe.model.processing.test.SelfContainingDerived
+  &1
+  name: child1
+  child: *1
+  int: 2
+  listOfChildren:
+    - *1
+    - name: child
+      age: 20
+    - name: child1.2
+      setOfChildren:
+        - name: child1.2.a
+        - name: child1.2.b
+          child: !com.braintribe.model.processing.test.SelfContainingDerived
+            name: child1.2.b.child
+            points: 1.2345
+            int: 10384
+    - name: child1.3
+      mapOfChildren:
+        ? !com.braintribe.model.processing.test.SelfContainingDerived
+          name: child1.3_key1
+          int: 12
+          points: 1.1346
+          child:
+            name: child1.3_key1.child
+        : !com.braintribe.model.processing.test.SelfContainingDerived
+          name: imposter
+          int: -7
+          child:
+            name: child1.3_value1.child
+        ? name: imposterchild1.3_value2xxxxxxxxxxxxxxxxxxxxxx
+        : !com.braintribe.model.processing.test.SelfContainingDerived
+          name: child1.3_value2xxxxxxxxxxxxxxxxxxxxxx
+          int: 100

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- FTP Uploader -->
+	<bean id="ftpUploader" class="com.braintribe.transport.ftp.upload.FtpUploader">
+		<property name="jobs">
+			<list>
+				<bean class="com.braintribe.transport.ftp.impl.FtpTransferJob">
+					<property name="name" value="CC-Client1" />
+					<property name="connection" ref="input.process.job.connection.CreditSuisse" />
+					<property name="remotePath" value="/rainer" />
+					<property name="localPath" value="C:\\Temp\\files1" />
+					<property name="sourcePostProcessing" value="DELETE" />
+					<property name="moveSourceAfterTransferTarget" value="C:\\Temp\\Foo" />
+				</bean>
+				<bean class="com.braintribe.transport.ftp.impl.FtpTransferJob">
+					<property name="name" value="CC-Client2" />
+					<property name="connection" ref="input.process.job.connection.CreditSuisse" />
+					<property name="remotePath" value="/rainer2" />
+					<property name="localPath" value="C:\\Temp\\files2" />
+					<property name="sourcePostProcessing" value="DELETE" />
+					<property name="moveSourceAfterTransferTarget" value="C:\\Temp\\Foo" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- FTP Poller -->
+	<bean id="ftpPoller" class="com.braintribe.transport.ftp.polling.FtpPoller">
+		<property name="jobs">
+			<list>
+				<bean class="com.braintribe.transport.ftp.impl.FtpTransferJob">
+					<property name="name" value="CC-Client1" />
+					<property name="connection" ref="input.process.job.connection.CreditSuisse" />
+					<property name="remotePath" value="/rainer" />
+					<property name="localPath" value="C:\\Temp\\files1" />
+					<property name="sourcePostProcessing" value="DELETE" />
+					<property name="targetConflictHandling" value="OVERWRITE" />
+				</bean>
+				<bean class="com.braintribe.transport.ftp.impl.FtpTransferJob">
+					<property name="name" value="CC-Client2" />
+					<property name="connection" ref="input.process.job.connection.CreditSuisse" />
+					<property name="remotePath" value="/rainer2" />
+					<property name="localPath" value="C:\\Temp\\files2" />
+					<property name="sourcePostProcessing" value="DELETE" />
+					<property name="targetConflictHandling" value="OVERWRITE" />
+					<!-- 
+					<property name="moveSourceAfterTransferTarget" value="C:\\Temp\\Foo" />
+					 -->
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="input.process.job.connection.CreditSuisse" class="com.braintribe.transport.ftp.impl.FtpConnection">
+		<property name="name" value="CreditSuisseFtp" />
+		<property name="host" value="192.168.4.103" />
+		<property name="port" value="1560" />
+		<property name="username" value="BTCredit" />
+		<property name="password" value="credit" />
+	</bean>
+</beans>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.cc.CodingCollections"/>
+    <inherits name="com.braintribe.Codec"/>
+    <inherits name="com.braintribe.common.CommonLcd"/>
+    <inherits name="com.braintribe.PlatformExceptions"/>
+    <inherits name="com.braintribe.Provider"/>
+    <!-- Resource Module -->
+    <inherits name="com.braintribe.UtilsExclusion"/>
+    <source path="logging"/>
+    <source path="lcd">
+		<exclude name="**/AutoResettingStopWatch.java"/>
+		<exclude name="**/FileTools.java"/>
+		<exclude name="**/StopWatch.java"/>
+	</source>
+    <source path="stream">
+		<exclude name="**/CountingDigestInputStream.java"/>
+		<exclude name="**/CountingInputStream.java"/>
+		<exclude name="**/DeferredInputStream.java"/>
+		<exclude name="**/DeleteOnCloseFileInputStream.java"/>
+		<exclude name="**/FileBackedPipe.java"/>
+		<exclude name="**/MemoryThresholdBuffer.java"/>
+		<exclude name="**/MultiplierOutputStream.java"/>
+		<exclude name="**/NullWriter.java"/>
+		<exclude name="**/PrintStreamWriter.java"/>
+		<exclude name="**/ReaderInputStream.java"/>
+		<exclude name="**/ReferencingFileInputStream.java"/>
+		<exclude name="**/RepeatableInputStream.java"/>
+		<exclude name="**/TeePrintWriter.java"/>
+		<exclude name="**/TeeReader.java"/>
+		<exclude name="**/TeeWriter.java"/>
+		<exclude name="**/TeeWriterOutputStream.java"/>
+		<exclude name="**/WriterOutputStream.java"/>
+	</source>
+    <source path="paths">
+		<exclude name="**/FilePath.java"/>
+		<exclude name="**/FilePathImpl.java"/>
+		<exclude name="**/PathCollectors.java"/>
+		<exclude name="**/PathList.java"/>
+		<exclude name="**/UniversalPath.java"/>
+	</source>
+    <source>
+		<exclude name="**/classloader/**"/>
+		<exclude name="**/file/**"/>
+	</source>
+</module>

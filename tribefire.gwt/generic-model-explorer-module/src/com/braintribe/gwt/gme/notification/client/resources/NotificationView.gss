@@ -1,0 +1,184 @@
+@external notificationView;
+@external notificationView-group;
+@external notificationView-header;
+@external notificationView-ruler;
+@external notificationView-source;
+@external notificationView-caption;
+@external notificationView-unread;
+@external notificationView-messages;
+@external notificationView-item;
+@external notificationView-command;
+@external notificationView-item-text;
+@external notificationView-item-over;
+@external notificationView-item-sel;
+@external notificationView-collapsed;
+@external notificationView-expanded;
+@external notificationView-info;
+@external notificationView-warning;
+@external notificationView-error;
+@external notificationView-success;
+@external notificationView-selectable;
+@external notificationConstellationComboBoxListParent;
+@external notificationConstellationComboBoxList;
+
+.notificationView {
+  overflow: auto;
+}
+
+.notificationView-group {
+  background-color: #fafafa;
+  border-color: #fafafa;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  cursor: default;
+  margin: 4px;
+  padding: 5px;
+}
+
+.notificationView-header,
+.notificationView-item {
+  padding: 5px 5px 5px 36px;
+  border-color: #fafafa;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 2px 0 0 0;
+  word-wrap: break-word;
+}
+
+.notificationView-header {
+  margin-top: 0;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  border-style: none;
+  padding-left: 5px;
+}
+
+.notificationView-caption {
+  color: #808080;
+  font-weight: normal;
+}
+
+.notificationView-source {
+  border-color: #fafafa;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  float: right;
+  font-style: italic;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: relative;
+}
+
+.notificationView-unread {
+  color: #000;
+  font-weight: bold;
+}
+
+.notificationView-messages {
+}
+
+.notificationView-messages.notificationView-collapsed {
+  display: none;
+}
+
+.notificationView-messages.notificationView-expanded {
+  display: inherit;
+}
+
+.notificationView-item {
+  background-repeat: no-repeat;
+  background-position: 10px 45%;
+  background-size: 16px 16px
+}
+
+@def URL_INFO resourceUrl("infosInfoBigCircle");
+
+.notificationView-info {
+  background-color: #fff7d7;
+  background-image: URL_INFO;
+}
+
+@def URL_WARNING resourceUrl("infosAlertCircle");
+
+.notificationView-warning {
+  background-color: #fff7d7;
+  background-image: URL_WARNING;
+}
+
+@def URL_ERROR resourceUrl("infosErrorCircle");
+
+.notificationView-error {
+  background-color: #ffe0e0;
+  background-image: URL_ERROR;
+}
+
+@def URL_SUCCESS resourceUrl("infosSuccessCircle");
+
+.notificationView-success {
+  background-color: #ebffd6;
+  background-image: URL_SUCCESS;
+}
+
+.notificationView-item-text {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.notificationView-command {
+  background-color: #fafafa;
+  border-color: #828383;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  float: right;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  margin-left: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.notificationView-item-sel {
+  border-color: #ffa500 !important;
+  border-style: solid !important;
+  border-width: 1px !important;
+}
+
+.notificationView-ruler {
+  background-repeat: no-repeat;
+  background-position: 0 45%;
+  cursor: pointer;
+  float: left;
+  height: 16px;
+  position: relative;
+  width: 16px;
+  margin-left: 6px;
+  margin-right: 10px;
+}
+
+.notificationConstellationComboBoxListParent {
+	width : auto !important;
+}
+
+.notificationConstellationComboBoxList {
+	width : auto !important;
+} 
+
+@def URL_ARROW_COLLAPSED resourceUrl("arrowCollapsed");
+
+.notificationView-ruler.notificationView-collapsed {
+  background-image: URL_ARROW_COLLAPSED;
+}
+
+@def URL_ARROW_EXPANDED resourceUrl("arrowExpanded");
+
+.notificationView-ruler.notificationView-expanded {
+  background-image: URL_ARROW_EXPANDED;
+}

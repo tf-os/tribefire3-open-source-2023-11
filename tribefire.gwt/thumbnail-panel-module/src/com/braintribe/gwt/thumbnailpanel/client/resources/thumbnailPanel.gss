@@ -1,0 +1,6 @@
+.emptyStyle {
+  /*font-family: 'Open Sans' !important;*/
+  font-size: 20px;
+  color: #f19b00;
+  text-align: center;
+}

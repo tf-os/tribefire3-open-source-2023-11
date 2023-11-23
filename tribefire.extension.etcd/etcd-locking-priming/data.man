@@ -1,0 +1,11 @@
+$module=(Module=com.braintribe.model.deployment.Module)('module:tribefire.extension.etcd.etcd-vitals-module')
+
+$lockManager=(EtcdLockManager=tribefire.extension.etcd.vitals.model.deployment.EtcdLockManager)()
+.globalId='default:tribefire.extension.etcd:etcd-vitals-module/etcdLocking'
+.externalId='locking.etcd.default'
+.name='Default ETCD Locking'
+.autoDeploy=true
+.module=$module
+
+$cortexConfig=(CortexConfiguration=com.braintribe.model.cortex.deployment.CortexConfiguration)('config:cortex')
+.lockManager=$lockManager

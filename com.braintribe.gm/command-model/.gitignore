@@ -1,0 +1,8 @@
+/.gwt-cache
+/bin
+/build
+/classes
+/dist
+/malaclypse.log*
+/www
+/xmiToMetaModelConverter.log*

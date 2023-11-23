@@ -1,0 +1,42 @@
+!com.braintribe.devrock.model.repositoryview.resolution.RepositoryViewResolution
+solutions:
+  - &0
+    artifact: "tribefire.cortex.assets:tribefire-standard-view#2.0.2"
+    repositoryView:
+      repositories:
+        - !com.braintribe.devrock.model.repository.MavenHttpRepository
+          artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+            locks: !!set
+              ? "tribefire.cortex:cortex-api-model#2.0.17-pc"
+              ? "tribefire.cortex:cortex-cors-handler#2.0.10-pc"
+              ? "tribefire.cortex:cortex-deployment-model#2.0.26-pc"
+          name: "core-dev"
+  - &1
+    artifact: "tribefire.extension.conversion:conversion-view#2.3.1"
+    dependencies:
+      - *0
+    repositoryView:
+      repositories:
+        - !com.braintribe.devrock.model.repository.MavenHttpRepository
+          artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+            locks: !!set
+              ? "tribefire.extension.conversion:conversion-aspose-license#2.3.3-pc"
+              ? "tribefire.extension.conversion:conversion-commons#2.3.9-pc"
+              ? "tribefire.extension.conversion:conversion-deployment-model#2.3.3-pc"
+          name: "core-dev"
+  - &2
+    artifact: "tribefire.adx.phoenix:adx-view#2.5.1"
+    dependencies:
+      - *1
+      - *0
+    repositoryView:
+      repositories:
+        - !com.braintribe.devrock.model.repository.MavenHttpRepository
+          artifactFilter: !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+            locks: !!set
+              ? "tribefire.adx.phoenix:adx-aws-deployment-model#2.5.1"
+              ? "tribefire.adx.phoenix:adx-aws-initializer-module#2.5.1"
+              ? "tribefire.adx.phoenix:adx-aws-module#2.5.1"
+          name: "core-dev"
+terminals:
+  - *2

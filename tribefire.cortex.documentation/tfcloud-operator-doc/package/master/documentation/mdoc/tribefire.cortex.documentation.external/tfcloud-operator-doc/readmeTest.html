@@ -1,0 +1,201 @@
+<html>
+<head>
+	<title>Documentation - Readme</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='../../markdown-style.css'/>
+	<link rel='stylesheet' href='../../customstyles.css'/>
+	<link rel="icon" href="../../favicon.png">
+  
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../jquery.navgoco.min.js"></script>
+	<link rel="stylesheet" href="../../jquery.navgoco.css" type="text/css" media="screen" />
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.nav').navgoco();
+//			$('.nav > ul').navgoco('toggle', true);
+			
+			$(".selflink").parentsUntil('.nav').show();
+		});
+	</script>	
+   	<script src="../../mark.min.js"></script>
+	
+   	<script src="../../lunr.js"></script>
+    <script src="../../lunr-index.js"></script>
+   <script>
+    function Hilitor(id, tag)
+	{
+	
+	  var targetNode = document.getElementById(id) || document.body;
+	  var hiliteTag = tag || "EM";
+	  var skipTags = new RegExp("^(?:" + hiliteTag + "|SCRIPT|FORM|SPAN)$");
+	  var colors = ["#ff6", "#a0ffff", "#9f9", "#f99", "#f6f"];
+	  var wordColor = [];
+	  var colorIdx = 0;
+	  var matchRegex = "";
+	
+	  // characters to strip from start and end of the input string
+	  var endCharRegex = new RegExp("^[^\\\w]+|[^\\\w]+$", "g");
+	
+	  // characters used to break up the input string into words
+	  var breakCharRegex = new RegExp("[^\\\w'-]+", "g");
+	
+	  this.setRegex = function(input)
+	  {
+	    input = input.replace(endCharRegex, "");
+	    input = input.replace(breakCharRegex, "|");
+	    input = input.replace(/^\||\|$/g, "");
+	    if(input) {
+	      var re = "\\w*" + input + "\\w*";
+	      matchRegex = new RegExp(re, "i");
+		  console.log("Match Regex", matchRegex)
+	      return true;
+	    }
+	    return false;
+	  };
+	
+	  this.getRegex = function()
+	  {
+	    var retval = matchRegex.toString();
+	    retval = retval.replace(/(^\/(\\b)?|\(|\)|(\\b)?\/i$)/g, "");
+	    retval = retval.replace(/\|/g, " ");
+	    return retval;
+	  };
+	
+	  // recursively apply word highlighting
+	  this.hiliteWords = function(node)
+	  {
+	    if(node === undefined || !node) return;
+	    if(!matchRegex) return;
+	    if(skipTags.test(node.nodeName)) return;
+	
+	    if(node.hasChildNodes()) {
+	      for(var i=0; i < node.childNodes.length; i++)
+	        this.hiliteWords(node.childNodes[i]);
+	    }
+	    if(node.nodeType == 3) { // NODE_TEXT
+	      if((nv = node.nodeValue) && (regs = matchRegex.exec(nv))) {
+	        if(!wordColor[regs[0].toLowerCase()]) {
+	          wordColor[regs[0].toLowerCase()] = colors[colorIdx++ % colors.length];
+	        }
+	
+	        var match = document.createElement(hiliteTag);
+	        match.appendChild(document.createTextNode(regs[0]));
+	        match.style.backgroundColor = "yellow";
+	        match.style.fontStyle = "inherit";
+	        match.style.color = "#000";
+	        match.class = "highlight"
+	
+	        var after = node.splitText(regs.index);
+	        after.nodeValue = after.nodeValue.substring(regs[0].length);
+	        node.parentNode.insertBefore(match, after);
+	      }
+	    };
+	  };
+	
+	  // remove highlighting
+	  this.remove = function()
+	  {
+	    var arr = document.getElementsByTagName(hiliteTag);
+	    while(arr.length && (el = arr[0])) {
+	      var parent = el.parentNode;
+	      parent.replaceChild(el.firstChild, el);
+	      parent.normalize();
+	    }
+	  };
+	
+	  // start highlighting at target node
+	  this.apply = function(input)
+	  {
+	    this.remove();
+	    if(input === undefined || !input) return;
+	    if(this.setRegex(input)) {
+	      this.hiliteWords(targetNode);
+	    }
+	  };
+	
+	}
+    </script>
+    
+	<script>
+		window.onload = function() {
+			var urlParams = new URLSearchParams(window.location.search);
+			var searchText = urlParams.get('searchText')
+			
+			if (!searchText)
+				return;
+				
+			console.log("User searched for '" + searchText + "'");
+			
+			idx = lunr.Index.load(serializedIndex);
+			results = idx.search(searchText)
+					
+			var context = document.querySelector("#content-container")
+			var myHilitor = new Hilitor("full-content", "MARK");
+			
+			var ranges = results
+				.filter (r => window.location.pathname.endsWith(r.ref))
+				.flatMap (r => Object.keys(r.matchData.metadata))
+				.forEach (term => {
+					console.log("marking '" + term + "'");
+					
+					myHilitor.apply(term)
+				});
+				//.flatMap (r => r.body.position)
+				//.map (pos => ({start: pos[0], length: pos[1]}))
+			
+			// Scroll to first found element
+			var firstMarkedElement = context.getElementsByTagName("mark")[0]
+			if (firstMarkedElement)
+				firstMarkedElement.scrollIntoView();
+				
+			var contextContainer = context.parentElement.parentElement
+				console.log(context)
+				console.log(window.innerHeight + contextContainer.scrollTop, context.offsetHeight)
+	        // If the window is not scrolled already to bottom...
+			if ((window.innerHeight + contextContainer.scrollTop) < context.offsetHeight) {
+				// scroll up half the window height to get a bit more context on screen
+				console.log("Scrolling up by", window.innerHeight/2) 
+    			contextContainer.scrollTop -= window.innerHeight/2
+		    }
+		}
+	</script>
+</head>
+<body>
+<div class='container'>
+  <div class='header'>
+    <span class='home-button'><a href=../../index.html><img src='../../tfacademy-white-64x235.svg' /></a></span>
+    <span class='backlink'><a href=../../overview.html>Overview</a></span>
+    <div id=search-bar>
+		<form action="../../search.html" method="get">
+            <input class='search-input' placeholder="Search in documentation..." name="searchText"/>            
+        </form>		
+    </div>
+  </div><!-- Load JQuery -->  <div class='below-header'>
+	  <div class='menu nav'>
+	  	<ul>
+<li><a href="#">Tfcloud Operator Content</a>
+<ul>
+<li><a href=# class='selflink'>Readme</a></li>
+</ul>
+</li>
+</ul>
+
+	  </div>
+	  <div id='full-content'>
+	    <div id='content-container'>
+	  	<h1 id="readme"><a href="#readme" name="readme"></a>Readme</h1>
+
+	  	</div>
+	  </div>
+  </div>
+</div>
+</body>
+</html>
+

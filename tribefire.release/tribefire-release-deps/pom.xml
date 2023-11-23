@@ -1,0 +1,179 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>tribefire.release</groupId>
+		<artifactId>parent</artifactId>
+		<version>[3.0,3.1)</version>
+	</parent>
+	<properties>
+	</properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+	<artifactId>tribefire-release-deps</artifactId>
+	<version>3.0.3</version>
+	<dependencies>
+		<!-- Main tribefire components -->
+		<dependency>
+			<groupId>tribefire.setup.classic.env</groupId>
+			<artifactId>env-aware-standard-setup</artifactId>
+			<version>${V.tribefire.setup.classic.env}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.app.modeler</groupId>
+			<artifactId>tribefire-modeler</artifactId>
+			<version>${V.tribefire.app.modeler}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.cortex.assets</groupId>
+			<artifactId>tomcat-runtime</artifactId>
+			<version>${V.tribefire.cortex.assets}</version>
+		</dependency>
+		<!-- Testing tools -->
+		<dependency>
+			<groupId>tribefire.cortex</groupId>
+			<artifactId>tribefire-test-deps</artifactId>
+			<version>${V.tribefire.cortex}</version>
+		</dependency>
+		<!-- Demo tribefire extensions -->
+		<dependency>
+			<groupId>tribefire.extension.demo</groupId>
+			<artifactId>demo-setup</artifactId>
+			<version>${V.tribefire.extension.demo}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.simple</groupId>
+			<artifactId>simple-setup</artifactId>
+			<version>${V.tribefire.extension.simple}</version>
+		</dependency>
+		<!-- Essential tribefire extensions (which are NOT anyway included via env-aware-standard-setup) -->
+		<!--
+		<dependency>
+			<groupId>tribefire.extension.audit</groupId>
+			<artifactId>data-audit-module</artifactId>
+			<version>${V.tribefire.extension.audit}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.aws</groupId>
+			<artifactId>aws-setup</artifactId>
+			<version>${V.tribefire.extension.aws}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.elastic</groupId>
+			<artifactId>elasticsearch-setup</artifactId>
+			<version>${V.tribefire.extension.elastic}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.email</groupId>
+			<artifactId>email-setup</artifactId>
+			<version>${V.tribefire.extension.email}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.gcp</groupId>
+			<artifactId>gcp-setup</artifactId>
+			<version>${V.tribefire.extension.gcp}</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>tribefire.extension.html-marshalling</groupId>
+			<artifactId>html-marshaller-module</artifactId>
+			<version>${V.tribefire.extension.html-marshalling}</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>tribefire.extension.ldap</groupId>
+			<artifactId>ldap-setup</artifactId>
+			<version>${V.tribefire.extension.ldap}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.okta</groupId>
+			<artifactId>okta-initializer</artifactId>
+			<version>${V.tribefire.extension.okta}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.okta</groupId>
+			<artifactId>okta-module</artifactId>
+			<version>${V.tribefire.extension.okta}</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>tribefire.extension.shiro</groupId>
+			<artifactId>shiro-setup</artifactId>
+			<version>${V.tribefire.extension.shiro}</version>
+		</dependency>
+		<!--
+		<dependency>
+			<groupId>tribefire.extension.spreadsheet</groupId>
+			<artifactId>spreadsheet-exchange-module</artifactId>
+			<version>${V.tribefire.extension.spreadsheet}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.tracing</groupId>
+			<artifactId>tracing-setup</artifactId>
+			<version>${V.tribefire.extension.tracing}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.extension.wopi</groupId>
+			<artifactId>wopi-setup</artifactId>
+			<version>${V.tribefire.extension.wopi}</version>
+		</dependency>
+		-->
+		<!-- Jinni -->
+		<dependency>
+			<groupId>tribefire.extension.setup</groupId>
+			<artifactId>jinni</artifactId>
+			<version>${V.tribefire.extension.setup}</version>
+		</dependency>
+		<!-- Jinni - An old version, which we (still) want to include in the release. -->
+		<dependency>
+			<groupId>tribefire.extension.setup</groupId>
+			<artifactId>jinni</artifactId>
+			<version>${V.tribefire.extension.setup_old}</version>
+		</dependency>
+		<!-- Templates -->
+		<dependency>
+			<groupId>com.braintribe.devrock.templates</groupId>
+			<artifactId>release-deps</artifactId>
+			<version>${V.com.braintribe.devrock.templates}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.cortex.assets.templates</groupId>
+			<artifactId>release-deps</artifactId>
+			<version>${V.tribefire.cortex.assets.templates}</version>
+		</dependency>
+		<!-- Maven & Gradle Plugins -->
+		<dependency>
+			<groupId>tribefire.cortex.maven</groupId>
+			<artifactId>model-declaration-plugin</artifactId>
+			<version>${V.tribefire.cortex.maven}</version>
+		</dependency>
+		<dependency>
+			<groupId>tribefire.cortex.gradle</groupId>
+			<artifactId>cortex-gradle-plugin</artifactId>
+			<version>${V.tribefire.cortex.gradle}</version>
+		</dependency>
+		<!-- Others -->
+		<!-- Used e.g. in demo-test (in demo extension). TODO: move? -->
+		<dependency>
+			<groupId>com.braintribe.gm</groupId>
+			<artifactId>simple-access-wirings</artifactId>
+			<version>${V.com.braintribe.gm}</version>
+		</dependency>
+	</dependencies>
+</project>

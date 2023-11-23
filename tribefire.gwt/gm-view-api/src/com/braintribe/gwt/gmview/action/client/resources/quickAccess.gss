@@ -1,0 +1,104 @@
+@external propertyGroupRuler spotlightImage quickAccessGroupColumn;
+
+/* .propertyGroupRuler { */
+/*   font-family: Arial; */
+/*   font-size: 16px; */
+/*   font-weight: bold; */
+/*   color: #f19b00; */
+/*   padding: 0; */
+/*   margin-bottom: 8px; */
+/*   margin-left: 3px; */
+/*   border-bottom-width: 1px; */
+/*   border-bottom-style: solid; */
+/*   border-bottom-color: #e0e0e0; */
+/* } */
+
+.quickAccessGroupColumn {
+  visibility: hidden;
+  width: 1px;		
+}
+
+.quickAccessText {
+  padding-top: 2px;
+  padding-bottom: 4px;
+}
+
+.actionPosition {
+  position: fixed;
+  right: 4px;
+  cursor: pointer;
+}
+
+.actionIcon {
+  border: 1px solid transparent;
+}
+
+.actionIcon:HOVER {
+  border: 1px solid #dedede;
+  cursor: pointer;
+}
+
+.toolBarStyle li {
+  float: left;
+  list-style: none;
+}
+
+.toolBarStyle li div {
+  display: block;
+}
+
+.toolBarElement:HOVER .toolBarElementImage {
+  opacity: 1;
+}
+
+.toolBarElement:HOVER {
+  border: 1px solid #dedede;
+}
+
+.toolBarElement {
+  border: 1px solid transparent;
+  width: 69px;
+  margin-top: 3px;
+  margin-right: 3px;
+}
+
+.toolBarElement {
+  cursor: pointer;
+}
+
+.toolBarElementImage {
+  display: block;
+  opacity: 1;
+  margin-left: 19px;
+  margin-top: 2px;
+  width: 32px;
+  height: 32px;
+}
+
+.toolBarElementText {
+  color: #333;
+  font: 11px arial, tahoma, verdana, helvetica;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.toolBarParentStyle {
+  border: 1px solid #dedede !important;
+  padding-left: 5px;
+  padding-top: 2px;
+}
+
+.toolTip {
+  width: 0 !important;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 5px solid #dedede;
+  position: absolute;
+  left: 25px;
+}
+
+.spotlightImage {
+	width : 16px;
+	height : 16px;
+}

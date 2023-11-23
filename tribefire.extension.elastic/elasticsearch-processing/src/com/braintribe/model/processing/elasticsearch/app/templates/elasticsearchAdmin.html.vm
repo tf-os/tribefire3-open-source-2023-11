@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<title>tribefire Elasticsearch Admin</title>
+	<head>
+
+		<style>
+			footer{    clear: both;
+    		padding: 10px;
+    		font-size: 0.8em;text-align:center;
+			}
+			*{
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: left;
+    color: black;}
+
+			html, body{ padding: 0; margin: 0;}
+
+			.mainWrapper{
+				margin: 0 auto;
+				padding-top:65px;
+			}
+
+			.adminSectionWrapper{
+				display:block;
+				min-height:50px;
+				padding-left:10%;
+				padding-top:5px;
+			}
+
+  			.adminSectionWrapper:nth-child(odd){
+				background-color:rgb(230, 230, 230)
+			}
+
+			.adminSectionWrapper:nth-child(even){
+				background-color:white;
+			}
+
+			.adminSectionTitle{
+				color: #ffa500;
+				font-weight: bold;
+				padding: 5px;
+				text-transform: uppercase;
+			}
+
+			.adminSection{
+
+			}
+
+			#tf_header{
+				font-family: 'Open Sans', sans-serif;
+   			 	font-weight: 400;
+    			height: 50px;
+    			/* overflow: hidden; */
+   				background: #fff;
+   				display:table;
+   				padding-left:10%;
+   				box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    			width: 100%;
+    			position: fixed;
+			}
+
+			#tf_logo{
+				margin: 10px 0px 0px 15px;
+			}
+
+			ul{
+				list-style-type: none;
+				margin: 0;
+				padding-bottom: 15px;
+			}
+
+			li{
+				padding-top:5px;
+			}
+
+			.key, .value {display:inline-block;min-width:250px; max-width:500px;}
+
+			.shard {margin-left: 20px;}
+			.threadpoolInfo {margin-left: 20px;}
+
+			.key{color: black; text-transform: uppercase; vertical-align: top}
+
+			.value, .shard. .threadpoolInfo {color: grey}
+
+			.undefined{color: silver; font-style: italic}
+
+			#title{
+			    display: table-cell;
+    			color: black;
+   				height: 100%;
+    			vertical-align: middle;
+    			padding-left: 25px;
+    			font-size:12pt;
+    			text-transform:uppercase;
+    			width: 90%;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="tf_header">
+			<a href="${tfsRelativePath}"><img src="${tfsRelativePath}/webpages/logo-tf-orange-services.png" alt="logo" width="185"></a>
+			<div id="title"><b>Elasticsearch Admin</b></div>
+		</div>
+
+		<div class="mainWrapper">
+			#if(${elasticsearch})
+	  		<div class="adminSectionWrapper">
+	  			<div class="adminSectionTitle">Cluster Health</div>
+	  					<!-- CLUSTER HEALTH -->
+	  					#if(${elasticsearch.clusterHealth})
+		  					<div class="key">General</div>
+			  				<div class="value">
+			  					#set( $clusterHeath = ${elasticsearch.clusterHealth} )
+
+			  					#if(${clusterHeath.activePrimaryShards})ActivePrimaryShards: ${clusterHeath.activePrimaryShards}<br />#end
+			  					#if(${clusterHeath.activeShards})ActiveShards: ${clusterHeath.activeShards}<br />#end
+			  					#if(${clusterHeath.activeShardsPercent})ActiveShardsPercent: ${clusterHeath.activeShardsPercent}<br />#end
+			  					#if(${clusterHeath.clusterName})Clustername: ${clusterHeath.clusterName}<br />#end
+			  					#if(${clusterHeath.delayedUnassignedShards})DelayedUnassignedShards: ${clusterHeath.delayedUnassignedShards}<br />#end
+									#if(${clusterHeath.initializingShards})InitializingShards: ${clusterHeath.initializingShards}<br />#end
+				  				#if(${clusterHeath.numberOfNodes})NumberOfNodes: ${clusterHeath.numberOfNodes}<br />#end
+		  						#if(${clusterHeath.numberOfDataNodes})NumberOfDataNodes: ${clusterHeath.numberOfDataNodes}<br />#end
+		  						#if(${clusterHeath.numberOfPendingTasks})NumberOfPendingTasks: ${clusterHeath.numberOfPendingTasks}<br />#end
+		  						#if(${clusterHeath.relocatingShards})RelocatingShards: ${clusterHeath.relocatingShards}<br />#end
+		  						#if(${clusterHeath.status})Status: ${clusterHeath.status}<br />#end
+		  						#if(${clusterHeath.taskMaxWaitingTime})TaskMaxWaitingTime: ${clusterHeath.taskMaxWaitingTime}<br />#end
+		  						#if(${clusterHeath.unassignedShards})UnassignedShards: ${clusterHeath.unassignedShards}<br />#end
+		  						<!-- validationFailures -->
+		  						#foreach( $vf in ${clusterHeath.validationFailures} )
+		  							#if(${vf})ValidationFailure: ${vf}<br />#end
+		  						#end <!-- clusterHeath.validationFailures -->
+
+								</div>
+								<br />
+								<!-- indices -->
+								#set( $indexNumber = 0 )
+
+								#foreach( $indicesEntry in ${clusterHeath.indices.entrySet()} )
+									#set( $indexNumber = $indexNumber + 1 )
+									#set( $indexKey = ${indicesEntry.key} )
+									#set( $indexValue = ${indicesEntry.value} )
+
+									<br />
+									<div class="key">Index (#${indexNumber})</div>
+									<div class="value">
+
+										#if(${indexValue.index})Index Name: ${indexValue.index}<br />#end
+										#if(${indexValue.numberOfReplicas})NumberOfReplicas: ${indexValue.numberOfReplicas}<br />#end
+										#if(${indexValue.numberOfShards})NumberOfShards: ${indexValue.numberOfShards}<br />#end
+										#if(${indexValue.activePrimaryShards})ActivePrimaryShards: ${indexValue.activePrimaryShards}<br />#end
+										#if(${indexValue.activeShards})ActiveShards: ${indexValue.activeShards}<br />#end
+										#if(${indexValue.initializingShards})InitializingShards: ${indexValue.initializingShards}<br />#end
+										#if(${indexValue.relocatingShards})RelocatingShards: ${indexValue.relocatingShards}<br />#end
+										#if(${indexValue.status})Status: ${indexValue.status}<br />#end
+										#if(${indexValue.unassignedShards})UnassignedShards: ${indexValue.unassignedShards}<br />#end
+
+										<!-- validationFailures -->
+		  							#foreach( $vf in ${indexValue.validationFailures} )
+	  									#if(${vf})ValidationFailure: ${vf}<br />#end
+	  								#end <!-- indexValue.validationFailures -->
+										<br />
+
+										<!-- shards -->
+										#set( $shardNumber = 0 )
+										#foreach( $shardEntry in ${indexValue.shards.entrySet()} )
+											Shard (#${shardNumber})<br />
+											<div class="shard">
+												#set( $shardNumber = $shardNumber + 1 )
+
+
+												#set( $shardKey = ${shardEntry.key} )
+												#set( $shardValue = ${shardEntry.value} )
+
+												#if(${shardValue.shardId})ShardId: ${shardValue.shardId}<br />#end
+												#if(${shardValue.primaryActive})PrimaryActive: ${shardValue.primaryActive}<br />#end
+
+												#if(${shardValue.status})Status: ${shardValue.status}<br />#end
+					  						#if(${shardValue.activeShards})ActiveShards: ${shardValue.activeShards}<br />#end
+												#if(${shardValue.relocatingShards})RelocatingShards: ${shardValue.relocatingShards}<br />#end
+												#if(${shardValue.initializingShards})InitializingShards: ${shardValue.initializingShards}<br />#end
+												#if(${shardValue.unassignedShards})UnassignedShards: ${shardValue.unassignedShards}<br />#end
+											</div>
+										#end <!-- indexValue.shards.entrySet -->
+	  								<br />
+									</div>
+								#end <!-- indices.entrySet -->
+		  					<br/>
+	  					#end <!-- CLUSTER HEALTH -->
+					</div>
+
+					<div class="adminSectionWrapper">
+				  	<div class="adminSectionTitle">Nodes Information</div>
+	  					<!-- NODE INFO -->
+	  					#if(${elasticsearch.nodeInformation})
+		  					#set( $nodeInformation = ${elasticsearch.nodeInformation} )
+
+								#set( $nodeNumber = 0 )
+								#set( $nodesTotal = ${nodeInformation.nodeInfo.size()} )
+		  					#foreach( $nodeInfo in $nodeInformation.nodeInfo )
+									#set( $nodeNumber = $nodeNumber + 1 )
+	  							<div class="key">General (#$nodeNumber)</div>
+		  						<div class="value">
+
+		  						#if(${nodeInfo.hostName})HostName: ${nodeInfo.hostName}<br />#end
+		  						#if(${nodeInfo.version})Version: ${nodeInfo.version}<br />#end
+
+									<br />
+									</div>
+									<br />
+									<!-- Headers -->
+									<div class="key">Headers (#$nodeNumber)</div>
+									<div class="value">
+		  						#foreach( $header in $nodeInfo.headers )
+		  							#if(${header})Header: ${header}<br />#end
+		  						#end <!-- nodeInfo.headers -->
+									<!-- END Headers -->
+									<br />
+									</div>
+									<br />
+									<!-- JVM INFO -->
+									<div class="key">JVM Info (#$nodeNumber)</div>
+									<div class="value">
+
+		  						#set( $jvmInfo = ${nodeInfo.jvmInfo} )
+		  						#if(${jvmInfo.bootClassPath})BootClassPath: ${jvmInfo.bootClassPath}<br />#end
+			  					#if(${jvmInfo.classPath})ClassPath: ${jvmInfo.classPath}<br />#end
+									#if(${jvmInfo.pid})Pid: ${jvmInfo.pid}<br />#end
+									#if(${jvmInfo.startTime})StartTime: ${jvmInfo.startTime}<br />#end
+									#if(${jvmInfo.version})Version: ${jvmInfo.version}<br />#end
+									#if(${jvmInfo.vmName})VmName: ${jvmInfo.vmName}<br />#end
+									#if(${jvmInfo.vmVendor})VmVendor: ${jvmInfo.vmVendor}<br />#end
+									#if(${jvmInfo.vmVersion})VmVersion: ${jvmInfo.vmVersion}<br />#end
+
+			  					#foreach( $inputArgument in $jvmInfo.inputArguments )
+			  						#if(${inputArgument})InputArgument: ${inputArgument}<br />#end
+		  						#end <!-- jvmInfo.inputArguments -->
+		  						#set( $mem = ${jvmInfo.mem} )
+		  						#if(${mem.directMemoryMax})DirectMemoryMax: ${mem.directMemoryMax}<br />#end
+		  						#if(${mem.heapInit})HeapInit: ${mem.heapInit}<br />#end
+			  					#if(${mem.heapMax})HeapMax: ${mem.heapMax}<br />#end
+			  					#if(${mem.nonHeapInit})NonHeapInit: ${mem.nonHeapInit}<br />#end
+			  					#if(${mem.nonHeapMax})NonHeapMax: ${mem.nonHeapMax}<br />#end
+
+									#set( $systemPropertyNumber = 0 )
+									#foreach( $systemProperty in ${jvmInfo.systemProperties.entrySet()} )
+										#set( $systemPropertyNumber = $systemPropertyNumber + 1 )
+
+										#set( $systemPropertyKey = ${systemProperty.key} )
+										#set( $systemPropertyValue = ${systemProperty.value} )
+
+										#if(${systemPropertyKey})JVM SystemProperty (#${systemPropertyNumber}): ${systemPropertyKey}: ${systemPropertyValue}<br />#end
+									#end <!-- jvmInfo.systemProperties.entrySet -->
+									<!-- END JVM INFO -->
+
+									<br />
+									</div>
+									<br />
+									<!-- DISCOVERY NODE -->
+									<div class="key">Discovery Node (#$nodeNumber)</div>
+									<div class="value">
+
+									#set( $discoveryNode = ${nodeInfo.node} )
+									#if(${discoveryNode.hostAddress})HostAddress: ${discoveryNode.hostAddress}<br />#end
+									#if(${discoveryNode.hostName})HostName: ${discoveryNode.hostName}<br />#end
+									#if(${discoveryNode.discoveryNodeId})DiscoveryNodeId: ${discoveryNode.discoveryNodeId}<br />#end
+									#if(${discoveryNode.name})Name: ${discoveryNode.name}<br />#end
+									#if(${discoveryNode.version})Version: ${discoveryNode.version}<br />#end
+
+
+									#set( $address = ${discoveryNode.address} )
+		  						#if(${address.address})Address: ${address.address}<br />#end
+		  						#if(${address.host})Host: ${address.host}<br />#end
+		  						#if(${address.port})Port: ${address.port}<br />#end
+
+		  						#set( $attributesNumber = 0 )
+									#foreach( $attribute in ${discoveryNode.attributes.entrySet()} )
+										#set( $attributesNumber = $attributesNumber + 1 )
+
+										#set( $attributeKey = ${attribute.key} )
+										#set( $attributeValue = ${attribute.value} )
+	  								#if(${attributeKey})Discovery Node SystemProperty (#${systemPropertyNumber}): ${attributeKey}: ${attributeValue}<br />#end
+	  							#end <!-- discoveryNode.attributes.entrySet -->
+									<!-- END DISCOVERY NODE -->
+
+									<br />
+									</div>
+									<br />
+									<!-- OS INFO -->
+									<div class="key">OS Information (#$nodeNumber)</div>
+									<div class="value">
+									#set( $osInfo = ${nodeInfo.osInfo} )
+									#if(${osInfo.allocatedProcessors})AllocatedProcessors: ${osInfo.allocatedProcessors}<br />#end
+									#if(${osInfo.arch})Arch: ${osInfo.arch}<br />#end
+									#if(${osInfo.availableProcessors})AvailableProcessors: ${osInfo.availableProcessors}<br />#end
+									#if(${osInfo.name})Name: ${osInfo.name}<br />#end
+									#if(${osInfo.refreshInterval})RefreshInterval: ${osInfo.refreshInterval}<br />#end
+									#if(${osInfo.version})Version: ${osInfo.version}<br />#end
+									<!-- END OS INFO -->
+
+									<br />
+									</div>
+									<br />
+									<!-- PLUGINS AND MODULES -->
+									<div class="key">Plugins &amp; Modules (#$nodeNumber)</div>
+									<div class="value">
+									#set( $pluginsAndModules = ${nodeInfo.pluginsAndModules} )
+		  						#foreach( $moduleInfo in ${pluginsAndModules.moduleInfos} )
+										#if(${moduleInfo.classname})Classname: ${moduleInfo.classname}<br />#end
+										#if(${moduleInfo.description})Description: ${moduleInfo.description}<br />#end
+										#if(${moduleInfo.name})Name: ${moduleInfo.name}<br />#end
+										#if(${moduleInfo.url})Url: ${moduleInfo.url}<br />#end
+										#if(${moduleInfo.version})Version: ${moduleInfo.version}<br />#end
+  								#end <!-- pluginsAndModules.moduleInfos -->
+		  						#foreach( $pluginInfo in ${pluginsAndModules.pluginInfos} )
+										#if(${pluginInfo.classname})Classname: ${pluginInfo.classname}<br />#end
+										#if(${pluginInfo.description})Description: ${pluginInfo.description}<br />#end
+										#if(${pluginInfo.name})Name: ${pluginInfo.name}<br />#end
+										#if(${pluginInfo.url})Url: ${pluginInfo.url}<br />#end
+										#if(${pluginInfo.version})Version: ${pluginInfo.version}<br />#end
+  								#end <!-- pluginsAndModules.pluginInfos -->
+									<!-- END PLUGINS AND MODULES -->
+
+									<br />
+									</div>
+									<br />
+									<!-- PROCESS INFO -->
+									<div class="key">Process Info (#$nodeNumber)</div>
+									<div class="value">
+									#set( $processInfo = ${nodeInfo.processInfo} )
+									#if(${processInfo.processInfoId})ProcessInfoId: ${processInfo.processInfoId}<br />#end
+									#if(${processInfo.refreshInterval})RefreshInterval: ${processInfo.refreshInterval}<br />#end
+									<!-- END PROCESS INFO -->
+
+									<br />
+									</div>
+									<br />
+									<!-- SERVICE ATTRIBUTES -->
+									<div class="key">Service Attributes (#$nodeNumber)</div>
+									<div class="value">
+		  						#set( $serviceAttributeNumber = 0 )
+									#foreach( $serviceAttribute in ${nodeInfo.serviceAttributes.entrySet()} )
+										#set( $serviceAttributeNumber = $serviceAttributeNumber + 1 )
+
+										#set( $serviceAttributeKey = ${serviceAttribute.key} )
+										#set( $serviceAttributeValue = ${serviceAttribute.value} )
+
+		  							#if(${serviceAttributeKey})ServiceAttribute (${serviceAttributeNumber}):${serviceAttributeKey}: ${serviceAttributeValue}<br />#end
+		  						#end <!-- nodeInfo.serviceAttributes.entrySet -->
+									<!-- END SERVICE ATTRIBUTES -->
+
+									<br />
+									</div>
+									<br />
+									<!-- SETTINGS -->
+									<div class="key">Settings (#$nodeNumber)</div>
+									<div class="value">
+		  						#set( $settingNumber = 0 )
+									#foreach( $setting in ${nodeInfo.settings.entrySet()} )
+										#set( $settingNumber = $settingNumber + 1 )
+										#set( $settingKey = ${setting.key} )
+										#set( $settingValue = ${setting.value} )
+
+		  							#if(${settingKey})Setting (#${settingNumber}): ${settingKey}: ${settingValue}<br />#end
+		  						#end <!-- nodeInfo.settings.entrySet -->
+									<!-- END SETTINGS -->
+
+									<br />
+									</div>
+									<br />
+									<!-- THREADPOOL INFO -->
+									<div class="key">Threadpool Info (#$nodeNumber)</div>
+									<div class="value">
+									#foreach( $threadPoolInfo in ${nodeInfo.threadPoolInfos} )
+										#if(${threadPoolInfo.name})Name: ${threadPoolInfo.name}<br />#end
+										<div class="threadpoolInfo">
+										#if(${threadPoolInfo.threadPoolType})ThreadPoolType: ${threadPoolInfo.threadPoolType}<br />#end
+										#if(${threadPoolInfo.min})Min: ${threadPoolInfo.min}<br />#end
+										#if(${threadPoolInfo.max})Max: ${threadPoolInfo.max}<br />#end
+										#if(${threadPoolInfo.queueSize})QueueSize: ${threadPoolInfo.queueSize}<br />#end
+										#if(${threadPoolInfo.keepAlive})KeepAlive: ${threadPoolInfo.keepAlive}<br />#end
+										</div>
+  								#end <!-- nodeInfo.threadPoolInfos -->
+									<!-- END THREADPOOL INFO -->
+
+									<br />
+									</div>
+									<br />
+									<!-- TRANSPORT -->
+									<div class="key">Transport (#$nodeNumber)</div>
+									<div class="value">
+									#set( $transport = ${nodeInfo.transport} )
+									#set( $address = ${transport.address} )
+									#foreach( $boundAddress in ${address.boundAddresses} )
+										#if(${boundAddress.address})Address: ${boundAddress.address}<br />#end
+										#if(${boundAddress.host})Host: ${boundAddress.host}<br />#end
+										#if(${boundAddress.port})Port: ${boundAddress.port}<br />#end
+									#end <!-- address.boundAddresses -->
+									#set( $publishAddress = ${address.publishAddress} )
+									#if(${publishAddress.address})Address: ${publishAddress.address}<br />#end
+									#if(${publishAddress.host})Host: ${publishAddress.host}<br />#end
+									#if(${publishAddress.port})Port: ${publishAddress.port}<br />#end
+
+		  						#set( $profileAddressNumber = 0 )
+									#foreach( $profileAddress in ${transport.profileAddresses.entrySet()} )
+										#set( $profileAddressNumber = $profileAddressNumber + 1 )
+
+										ProfileAddress: ${profileAddressNumber}<br />
+										#set( $profileAddressKey = ${profileAddress.key} )
+										#set( $profileAddressValue = ${profileAddress.value} )
+
+										#foreach( $boundAddress in ${profileAddressValue.boundAddresses} )
+											#if(${boundAddress.address})Address: ${boundAddress.address}<br />#end
+											#if(${boundAddress.host})Host: ${boundAddress.host}<br />#end
+											#if(${boundAddress.port})Port: ${boundAddress.port}<br />#end
+										#end <!-- profileAddressValue.boundAddresses -->
+										#set( $publishAddress = ${profileAddressValue.publishAddress} )
+										#if(${publishAddress.address})Address: ${publishAddress.address}<br />#end
+										#if(${publishAddress.host})Host: ${publishAddress.host}<br />#end
+										#if(${publishAddress.port})Port: ${publishAddress.port}<br />#end
+		  						#end <!-- transport.profileAddresses.entrySet -->
+									<!-- END TRANSPORT -->
+		  					#end <!-- nodeInformation.nodeInfo -->
+		  				</div>
+	  					<br/>
+						#end <!-- elasticsearch.nodeInformation (NODE INFO) -->
+			</div>
+
+			<div class="adminSectionWrapper">
+				<div class="adminSectionTitle">Pending Cluster Tasks</div>
+						<!-- PENDING CLUSTER TASKS -->
+						#if(${elasticsearch.pendingClusterTasks})
+							#set( $pendingTasks = 0 )
+							#set( $pendingClusterTasks = ${elasticsearch.pendingClusterTasks} )
+							#set( $pendingTasksTotal = ${pendingClusterTasks.pendingClusterTasks.size()} )
+							#foreach( $pendingClusterTask in ${pendingClusterTasks.pendingClusterTasks} )
+								#set( $pendingTasks = $pendingTasks + 1 )
+								<div class="key">Pending Task ($pendingTasks/$pendingTasksTotal) </div>
+								<div class="value">
+								#if(${pendingClusterTask.source})Source: ${pendingClusterTask.source}<br />#end
+								#if(${pendingClusterTask.insertOrder})InsertOrder: ${pendingClusterTask.insertOrder}<br />#end
+								#if(${pendingClusterTask.priority})Priority: ${pendingClusterTask.priority}<br />#end
+								#if(${pendingClusterTask.timeInQueueInMillis})TimeInQueueInMillis: ${pendingClusterTask.timeInQueueInMillis}<br />#end
+								#if(${pendingClusterTask.executing})Executing: ${pendingClusterTask.executing}<br />#end
+								</div>
+								<br />
+							#end <!-- pendingClusterTasks.pendingClusterTasks -->
+						#end <!-- elasticsearch.pendingClusterTasks -->
+						<br/>
+				</div>
+
+
+				<div class="adminSectionWrapper">
+					<div class="adminSectionTitle">Nodestats Info</div>
+							<!-- NODESTATSINFO -->
+							#set( $nodeStatsInfo = ${elasticsearch.nodeStatsInfo} )
+							#if(${nodeStatsInfo})
+								#set( $nodeStatsList = ${nodeStatsInfo.nodeStatsList} )
+								#if(${nodeStatsList})
+									#set( $nodeIndex = 0 )
+									#foreach( $nodestats in ${nodeStatsList} )
+										#set( $nodeIndicesStats = ${nodestats.indices} )
+										#set( $nodeIndex = $nodeIndex + 1 )
+										<div class="key">Node (#$nodeIndex) - StoreStats</div>
+										<div class="value">
+										<!-- TODO: separation of stats into different blocks? -->
+
+										<!-- StoreStats -->
+										#set( $storeStats = ${nodeIndicesStats.store} )
+										#if(${storeStats.sizeInBytes})SizeInBytes: ${storeStats.sizeInBytes}<br />#end
+										#if(${storeStats.throttleTimeInNanos})ThrottleTimeInNanos: ${storeStats.throttleTimeInNanos}<br />#end
+										<!-- END StoreStats -->
+										<br />
+										</div>
+										<br />
+										<!-- DocStats -->
+										<div class="key">Node (#$nodeIndex) - StoreStats</div>
+										<div class="value">
+										#set( $docStats = ${nodeIndicesStats.docs} )
+										#if(${docStats.count})Count: ${docStats.count}<br />#end
+										#if(${docStats.deleted})Deleted: ${docStats.deleted}<br />#end
+										<!-- END DocStats -->
+										<br />
+										</div>
+										<br />
+										<!-- indexingStats -->
+										<div class="key">Node (#$nodeIndex) - IndexingStats</div>
+										<div class="value">
+										#set( $total = ${nodeIndicesStats.indexingStats.total} )
+										#set( $typeStats = ${nodeIndicesStats.indexingStats.typeStats} )
+										#if(${total})
+											#if(${total.indexCount})IndexCount: ${total.indexCount}<br />#end
+											#if(${total.indexTimeInMillis})IndexTimeInMillis: ${total.indexTimeInMillis}<br />#end
+											#if(${total.indexCurrent})IndexCurrent: ${total.indexCurrent}<br />#end
+											#if(${total.indexFailedCount})IndexFailedCount: ${total.indexFailedCount}<br />#end
+											#if(${total.deleteCount})DeleteCount: ${total.deleteCount}<br />#end
+											#if(${total.deleteTimeInMillis})DeleteTimeInMillis: ${total.deleteTimeInMillis}<br />#end
+											#if(${total.deleteCurrent})DeleteCurrent: ${total.deleteCurrent}<br />#end
+											#if(${total.noopUpdateCount})NoopUpdateCount: ${total.noopUpdateCount}<br />#end
+											#if(${total.throttleTimeInMillis})ThrottleTimeInMillis: ${total.throttleTimeInMillis}<br />#end
+											#if(${total.isThrottled})IsThrottled: ${total.isThrottled}<br />#end
+										#end <!-- total -->
+										#if(${typeStats})
+											#foreach( $typeStat in ${typeStats.entrySet()} )
+												#set( $typeStatNumber = $typeStatNumber + 1 )
+
+												#set( $typeStatKey = ${typeStat.key} )
+												#set( $typeStatValue = ${typeStat.value} )
+
+												#if(${typeStatValue.indexCount})${typeStatKey} (#${typeStatNumber}): IndexCount: ${typeStatValue.indexCount}<br />#end
+												#if(${typeStatValue.indexTimeInMillis})${typeStatKey} (#${typeStatNumber}): IndexTimeInMillis: ${typeStatValue.indexTimeInMillis}<br />#end
+												#if(${typeStatValue.indexCurrent})${typeStatKey} (#${typeStatNumber}): IndexCurrent: ${typeStatValue.indexCurrent}<br />#end
+												#if(${typeStatValue.indexFailedCount})${typeStatKey} (#${typeStatNumber}): IndexFailedCount: ${typeStatValue.indexFailedCount}<br />#end
+												#if(${typeStatValue.deleteCount})${typeStatKey} (#${typeStatNumber}): DeleteCount: ${typeStatValue.deleteCount}<br />#end
+												#if(${typeStatValue.deleteTimeInMillis})${typeStatKey} (#${typeStatNumber}): DeleteTimeInMillis: ${typeStatValue.deleteTimeInMillis}<br />#end
+												#if(${typeStatValue.deleteCurrent})${typeStatKey} (#${typeStatNumber}): DeleteCurrent: ${typeStatValue.deleteCurrent}<br />#end
+												#if(${typeStatValue.noopUpdateCount})${typeStatKey} (#${typeStatNumber}): NoopUpdateCount: ${typeStatValue.noopUpdateCount}<br />#end
+												#if(${typeStatValue.throttleTimeInMillis})${typeStatKey} (#${typeStatNumber}): ThrottleTimeInMillis: ${typeStatValue.throttleTimeInMillis}<br />#end
+												#if(${typeStatValue.isThrottled})${typeStatKey} (#${typeStatNumber}): IsThrottled: ${typeStatValue.isThrottled}<br />#end
+				  						#end <!-- typeStats.entrySet -->
+										#end <!-- typeStats -->
+										<!-- End indexingStats -->
+										<br />
+										</div>
+										<br />
+										<!-- GetStats -->
+										<div class="key">Node (#$nodeIndex) - GetStats</div>
+										<div class="value">
+										#set( $get = ${nodeIndicesStats.get} )
+										#if(${get.existsCount})ExistsCount: ${get.existsCount}<br />#end
+										#if(${get.existsTimeInMillis})ExistsTimeInMillis: ${get.existsTimeInMillis}<br />#end
+										#if(${get.missingCount})MissingCount: ${get.missingCount}<br />#end
+										#if(${get.missingTimeInMillis})MissingTimeInMillis: ${get.missingTimeInMillis}<br />#end
+										#if(${get.current})Current: ${get.current}<br />#end
+										<!-- End GetStats -->
+										<br />
+										</div>
+										<br />
+										<!-- SearchStats -->
+										<div class="key">Node (#$nodeIndex) - SearchStats</div>
+										<div class="value">
+										#set( $search = ${nodeIndicesStats.search} )
+										#set( $total = ${search.total} )
+										#set( $groupStats = ${search.groupStats} )
+
+										#if(${search.openContexts})OpenContexts: ${search.openContexts}<br />#end
+										#if(${total})
+											#if(${total.queryCount})QueryCount: ${total.queryCount}<br />#end
+											#if(${total.queryTimeInMillis})QueryTimeInMillis: ${total.queryTimeInMillis}<br />#end
+											#if(${total.queryCurrent})QueryCurrent: ${total.queryCurrent}<br />#end
+											#if(${total.fetchCount})FetchCount: ${total.fetchCount}<br />#end
+											#if(${total.fetchTimeInMillis})FetchTimeInMillis: ${total.fetchTimeInMillis}<br />#end
+											#if(${total.fetchCurrent})FetchCurrent: ${total.fetchCurrent}<br />#end
+											#if(${total.scrollCount})ScrollCount: ${total.scrollCount}<br />#end
+											#if(${total.scrollTimeInMillis})ScrollTimeInMillis: ${total.scrollTimeInMillis}<br />#end
+											#if(${total.scrollCurrent})ScrollCurrent: ${total.scrollCurrent}<br />#end
+											#if(${total.suggestCount})SuggestCount: ${total.suggestCount}<br />#end
+											#if(${total.suggestTimeInMillis})SuggestTimeInMillis: ${total.suggestTimeInMillis}<br />#end
+											#if(${total.suggestCurrent})SuggestCurrent: ${total.suggestCurrent}<br />#end
+										#end <!-- total -->
+										#if(${groupStats})
+											#foreach( $groupStat in ${groupStats.entrySet()} )
+												#set( $groupStatNumber = $groupStatNumber + 1 )
+
+												#set( $groupStatKey = ${groupStat.key} )
+												#set( $groupStatValue = ${groupStat.value} )
+
+												#if(${groupStatValue.queryCount})${groupStatKey} (#${groupStatNumber}): QueryCount: ${groupStatValue.queryCount}<br />#end
+												#if(${groupStatValue.queryTimeInMillis})${groupStatKey} (#${groupStatNumber}): QueryTimeInMillis: ${groupStatValue.queryTimeInMillis}<br />#end
+												#if(${groupStatValue.queryCurrent})${groupStatKey} (#${groupStatNumber}): QueryCurrent: ${groupStatValue.queryCurrent}<br />#end
+												#if(${groupStatValue.fetchCount})${groupStatKey} (#${groupStatNumber}): FetchCount: ${groupStatValue.fetchCount}<br />#end
+												#if(${groupStatValue.fetchTimeInMillis})${groupStatKey} (#${groupStatNumber}): FetchTimeInMillis: ${groupStatValue.fetchTimeInMillis}<br />#end
+												#if(${groupStatValue.fetchCurrent})${groupStatKey} (#${groupStatNumber}): FetchCurrent: ${groupStatValue.fetchCurrent}<br />#end
+												#if(${groupStatValue.scrollCount})${groupStatKey} (#${groupStatNumber}): ScrollCount: ${groupStatValue.scrollCount}<br />#end
+												#if(${groupStatValue.scrollTimeInMillis})${groupStatKey} (#${groupStatNumber}): ScrollTimeInMillis: ${groupStatValue.scrollTimeInMillis}<br />#end
+												#if(${groupStatValue.scrollCurrent})${groupStatKey} (#${groupStatNumber}): ScrollCurrent: ${groupStatValue.scrollCurrent}<br />#end
+												#if(${groupStatValue.suggestCount})${groupStatKey} (#${groupStatNumber}): SuggestCount: ${groupStatValue.suggestCount}<br />#end
+												#if(${groupStatValue.suggestTimeInMillis})${groupStatKey} (#${groupStatNumber}): SuggestTimeInMillis: ${groupStatValue.suggestTimeInMillis}<br />#end
+												#if(${groupStatValue.suggestCurrent})${groupStatKey} (#${groupStatNumber}): SuggestCurrent: ${groupStatValue.suggestCurrent}<br />#end
+											#end <!-- groupStats.entrySet -->
+										#end <!-- groupStats -->
+										<!-- End SearchStats -->
+										<br />
+										</div>
+										<br />
+										<!-- MergeStats -->
+										<div class="key">Node (#$nodeIndex) - MergeStats</div>
+										<div class="value">
+										#set( $merge = ${nodeIndicesStats.merge} )
+										#if(${merge.total})Total: ${merge.total}<br />#end
+										#if(${merge.totalTimeInMillis})TotalTimeInMillis: ${merge.totalTimeInMillis}<br />#end
+										#if(${merge.totalNumDocs})TotalNumDocs: ${merge.totalNumDocs}<br />#end
+										#if(${merge.totalSizeInBytes})TotalSizeInBytes: ${merge.totalSizeInBytes}<br />#end
+										#if(${merge.current})Current: ${merge.current}<br />#end
+										#if(${merge.currentNumDocs})CurrentNumDocs: ${merge.currentNumDocs}<br />#end
+										#if(${merge.currentSizeInBytes})CurrentSizeInBytes: ${merge.currentSizeInBytes}<br />#end
+										#if(${merge.totalStoppedTimeInMillis})TotalStoppedTimeInMillis: ${merge.totalStoppedTimeInMillis}<br />#end
+										#if(${merge.totalThrottledTimeInMillis})TotalThrottledTimeInMillis: ${merge.totalThrottledTimeInMillis}<br />#end
+										#if(${merge.totalBytesPerSecAutoThrottle})TotalBytesPerSecAutoThrottle: ${merge.totalBytesPerSecAutoThrottle}<br />#end
+										<!-- End MergeStats -->
+										<br />
+										</div>
+										<br />
+										<!-- RefreshStats -->
+										<div class="key">Node (#$nodeIndex) - RefreshStats</div>
+										<div class="value">
+										#set( $refresh = ${nodeIndicesStats.refresh} )
+										#if(${refresh.total})Total: ${refresh.total}<br />#end
+										#if(${refresh.totalTimeInMillis})TotalTimeInMillis: ${refresh.totalTimeInMillis}<br />#end
+										#if(${refresh.listeners})Listeners: ${refresh.listeners}<br />#end
+										<!-- End RefreshStats -->
+										<br />
+										</div>
+										<br />
+										<!-- FlushStats -->
+										<div class="key">Node (#$nodeIndex) - FlushStats</div>
+										<div class="value">
+										#set( $flush = ${nodeIndicesStats.flush} )
+										#if(${flush.total})Total: ${flush.total}<br />#end
+										#if(${flush.totalTimeInMillis})TotalTimeInMillis: ${flush.totalTimeInMillis}<br />#end
+										<!-- End FlushStats -->
+										<br />
+										</div>
+										<br />
+										<!-- FieldDataStats -->
+										<div class="key">Node (#$nodeIndex) - FieldDataStats</div>
+										<div class="value">
+										#set( $fieldData = ${nodeIndicesStats.fieldData} )
+										#if(${fieldData.memorySizeInBytes})MemorySizeInBytes: ${fieldData.memorySizeInBytes}<br />#end
+										#if(${fieldData.evictions})Evictions: ${fieldData.evictions}<br />#end
+										<!-- End FieldDataStats -->
+										<br />
+										</div>
+										<br />
+										<!-- QueryCacheStats -->
+										<div class="key">Node (#$nodeIndex) - QueryCacheStats</div>
+										<div class="value">
+										#set( $queryCache = ${nodeIndicesStats.queryCache} )
+										#if(${queryCache.memorySizeInBytes})MemorySizeInBytes: ${queryCache.memorySizeInBytes}<br />#end
+										#if(${queryCache.hitCount})HitCount: ${queryCache.hitCount}<br />#end
+										#if(${queryCache.missCount})MissCount: ${queryCache.missCount}<br />#end
+										#if(${queryCache.cacheCount})CacheCount: ${queryCache.cacheCount}<br />#end
+										#if(${queryCache.cacheSize})CacheSize: ${queryCache.cacheSize}<br />#end
+										<!-- End QueryCacheStats -->
+										<br />
+										</div>
+										<br />
+										<!-- RequestCacheStats -->
+										<div class="key">Node (#$nodeIndex) - RequestCacheStats</div>
+										<div class="value">
+										#set( $requestCache = ${nodeIndicesStats.requestCache} )
+										#if(${requestCache.memorySizeInBytes})MemorySizeInBytes: ${requestCache.memorySizeInBytes}<br />#end
+										#if(${requestCache.evictions})Evictions: ${requestCache.evictions}<br />#end
+										#if(${requestCache.hitCount})HitCount: ${requestCache.hitCount}<br />#end
+										#if(${requestCache.missCount})MissCount: ${requestCache.missCount}<br />#end
+										<!-- End RequestCacheStats -->
+										<br />
+										</div>
+										<br />
+										<!-- CompletionStats -->
+										<div class="key">Node (#$nodeIndex) - CompletionStats</div>
+										<div class="value">
+										#set( $completion = ${nodeIndicesStats.completion} )
+										#if(${completion.sizeInBytes})SizeInBytes: ${completion.sizeInBytes}<br />#end
+										<!-- End CompletionStats -->
+										<br />
+										</div>
+										<br />
+										<!-- SegmentsStats -->
+										<div class="key">Node (#$nodeIndex) - SegmentsStats</div>
+										<div class="value">
+										#set( $segments = ${nodeIndicesStats.segments} )
+										#if(${segments.count})Count: ${segments.count}<br />#end
+										#if(${segments.memoryInBytes})MemoryInBytes: ${segments.memoryInBytes}<br />#end
+										#if(${segments.termsMemoryInBytes})TermsMemoryInBytes: ${segments.termsMemoryInBytes}<br />#end
+										#if(${segments.storedFieldsMemoryInBytes})StoredFieldsMemoryInBytes: ${segments.storedFieldsMemoryInBytes}<br />#end
+										#if(${segments.termVectorsMemoryInBytes})TermVectorsMemoryInBytes: ${segments.termVectorsMemoryInBytes}<br />#end
+										#if(${segments.normsMemoryInBytes})NormsMemoryInBytes: ${segments.normsMemoryInBytes}<br />#end
+										#if(${segments.pointsMemoryInBytes})PointsMemoryInBytes: ${segments.pointsMemoryInBytes}<br />#end
+										#if(${segments.docValuesMemoryInBytes})DocValuesMemoryInBytes: ${segments.docValuesMemoryInBytes}<br />#end
+										#if(${segments.indexWriterMemoryInBytes})IndexWriterMemoryInBytes: ${segments.indexWriterMemoryInBytes}<br />#end
+										#if(${segments.versionMapMemoryInBytes})VersionMapMemoryInBytes: ${segments.versionMapMemoryInBytes}<br />#end
+										#if(${segments.maxUnsafeAutoIdTimestamp})MaxUnsafeAutoIdTimestamp: ${segments.maxUnsafeAutoIdTimestamp}<br />#end
+										#if(${segments.bitsetMemoryInBytes})BitsetMemoryInBytes: ${segments.bitsetMemoryInBytes}<br />#end
+
+										#set( $fileSizes = ${segments.fileSizes} )
+										#if(${fileSizes})
+											#foreach( $fileSize in ${fileSizes.entrySet()} )
+												#set( $fileSizeNumber = $fileSizeNumber + 1 )
+
+												#set( $fileSizeKey = ${fileSize.key} )
+												#set( $fileSizeValue = ${fileSize.value} )
+
+												#if(${fileSizeKey})${fileSizeKey} (#${fileSizeNumber}): ${fileSizeValue}<br />#end
+											#end <!-- groupStats.entrySet -->
+										#end <!-- fileSizes -->
+										<!-- End SegmentsStats -->
+
+										</div>
+										<br />
+									#end <!-- nodestatsList -->
+								#end <!-- nodestatsList -->
+							#end <!-- elasticsearch.nodeStatsInfo -->
+							<br/>
+					</div>
+
+
+		  #end <!-- elasticsearch -->
+
+	  		<footer>
+			&copy; <a href="http://www.braintribe.com" target="_blank">Braintribe IT-Technologies</a> ${current_year}</a>
+			</footer>
+	  	</div>
+	</body>
+
+</html>

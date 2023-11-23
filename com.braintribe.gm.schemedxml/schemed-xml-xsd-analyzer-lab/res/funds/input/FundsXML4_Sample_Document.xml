@@ -1,0 +1,1531 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FundsXML4 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ControlData>
+		<UniqueDocumentID>ABC.2017-01-01.123</UniqueDocumentID>
+		<DocumentGenerated>2017-01-01T12:00:00</DocumentGenerated>
+		<ContentDate>2016-09-30</ContentDate>
+		<DataSupplier>
+			<SystemCountry>AT</SystemCountry>
+			<Short>Sample</Short>
+			<Name>Sample System</Name>
+			<Type>Vendor</Type>
+		</DataSupplier>
+		<Language>DE</Language>
+	</ControlData>
+	<Funds>
+		<Fund>
+			<Identifiers>
+				<LEI>2138000SAMPLE00LEI00</LEI>
+			</Identifiers>
+			<Names>
+				<OfficialName>FundsXML Sample Fund</OfficialName>
+				<ShortName>FundsXML Sample Fund</ShortName>
+			</Names>
+			<Currency>EUR</Currency>
+			<SingleFundFlag>true</SingleFundFlag>
+			<FundStaticData>
+				<ListedLegalStructure>UCITS</ListedLegalStructure>
+				<InceptionDate>2000-01-01</InceptionDate>
+				<StartOfFiscalYear>
+					<Day>1</Day>
+					<Month>1</Month>
+				</StartOfFiscalYear>
+				<OpenClosedEnded>OPEN</OpenClosedEnded>
+			</FundStaticData>
+			<FundDynamicData>
+				<TotalAssetValues>
+					<TotalAssetValue>
+						<NavDate>2016-09-30</NavDate>
+						<TotalAssetNature>OFFICIAL</TotalAssetNature>
+						<TotalNetAssetValue>
+							<Amount ccy="EUR">9357424.31</Amount>
+						</TotalNetAssetValue>
+					</TotalAssetValue>
+				</TotalAssetValues>
+				<Portfolios>
+					<Portfolio>
+						<NavDate>2016-09-30</NavDate>
+						<Positions>
+							<Position>
+								<UniqueID>AK279855</UniqueID>
+								<Identifiers>
+									<ISIN>US0028241000</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">104951.57</Amount>
+									<Amount ccy="USD">117855.36</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>2844.00</Units>
+									<Price>
+										<Amount ccy="USD">41.44</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK344442</UniqueID>
+								<Identifiers>
+									<ISIN>US00287Y1091</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">178119.13</Amount>
+									<Amount ccy="USD">200018.88</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>3184.00</Units>
+									<Price>
+										<Amount ccy="USD">62.82</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK363727</UniqueID>
+								<Identifiers>
+									<ISIN>US01609W1027</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">248706.80</Amount>
+									<Amount ccy="USD">279285.30</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>2646.00</Units>
+									<Price>
+										<Amount ccy="USD">105.55</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK386833</UniqueID>
+								<Identifiers>
+									<ISIN>US02079K1079</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">1174644.48</Amount>
+									<Amount ccy="USD">1319067.02</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>1702.00</Units>
+									<Price>
+										<Amount ccy="USD">775.01</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK386832</UniqueID>
+								<Identifiers>
+									<ISIN>US02079K3059</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">371675.32</Amount>
+									<Amount ccy="USD">417372.80</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>520.00</Units>
+									<Price>
+										<Amount ccy="USD">802.64</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK279887</UniqueID>
+								<Identifiers>
+									<ISIN>US0231351067</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">686599.14</Amount>
+									<Amount ccy="USD">771016.50</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>930.00</Units>
+									<Price>
+										<Amount ccy="USD">829.05</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK278191</UniqueID>
+								<Identifiers>
+									<ISIN>AT0000730007</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">244044.90</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>4980.00</Units>
+									<Price>
+										<Amount ccy="EUR">49.005</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK279913</UniqueID>
+								<Identifiers>
+									<ISIN>US0378331005</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">385491.36</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>3858.00</Units>
+									<Price>
+										<Amount ccy="EUR">99.92</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK280039</UniqueID>
+								<Identifiers>
+									<ISIN>US1912161007</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">280337.24</Amount>
+									<Amount ccy="USD">314804.70</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>7490.00</Units>
+									<Price>
+										<Amount ccy="USD">42.03</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK325629</UniqueID>
+								<Identifiers>
+									<ISIN>US30303M1027</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">1701859.21</Amount>
+									<Amount ccy="USD">1911102.80</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>14920.00</Units>
+									<Price>
+										<Amount ccy="USD">128.09</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK279669</UniqueID>
+								<Identifiers>
+									<ISIN>SE0000106270</ISIN>
+								</Identifiers>
+								<Currency>SEK</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">169546.54</Amount>
+									<Amount ccy="SEK">1630359.50</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>6545.00</Units>
+									<Price>
+										<Amount ccy="SEK">249.10</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK361106</UniqueID>
+								<Identifiers>
+									<ISIN>ES0148396007</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">301437.50</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>9100.00</Units>
+									<Price>
+										<Amount ccy="EUR">33.125</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK98519</UniqueID>
+								<Identifiers>
+									<ISIN>CH0012005267</ISIN>
+								</Identifiers>
+								<Currency>CHF</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">234103.84</Amount>
+									<Amount ccy="CHF">254307.00</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>3292.00</Units>
+									<Price>
+										<Amount ccy="CHF">77.25</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK324081</UniqueID>
+								<Identifiers>
+									<ISIN>US7185461040</ISIN>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">123196.58</Amount>
+									<Amount ccy="USD">138343.60</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>1745.00</Units>
+									<Price>
+										<Amount ccy="USD">79.28</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>AK279056</UniqueID>
+								<Identifiers>
+									<ISIN>DE0007164600</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">410159.20</Amount>
+								</TotalValue>
+								<Equity>
+									<Units>5080.00</Units>
+									<Price>
+										<Amount ccy="EUR">80.74</Amount>
+									</Price>
+								</Equity>
+							</Position>
+							<Position>
+								<UniqueID>RE1074407</UniqueID>
+								<Identifiers>
+									<ISIN>DE0001102374</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">644246.85</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>600000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">107.063</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">642378.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">1401.6375</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">1868.85</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE1084600</UniqueID>
+								<Identifiers>
+									<ISIN>FR0012517027</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">261863.36</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>250000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">104.57</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">261425.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">328.77</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">438.36</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE1088862</UniqueID>
+								<Identifiers>
+									<ISIN>IT0005107708</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">143656.98</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>140000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">102.323</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">143252.20</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">303.585</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">404.78</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE1111307</UniqueID>
+								<Identifiers>
+									<ISIN>ES00000128B8</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">144868.36</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>140000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">103.35</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">144690.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">133.77</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">178.36</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE1083680</UniqueID>
+								<Identifiers>
+									<ISIN>ES00000126Z1</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">269364.21</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>250000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">107.075</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">267687.50</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">1257.5325</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">1676.71</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE1060334</UniqueID>
+								<Identifiers>
+									<ISIN>AT0000A185T1</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">174487.99</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>150000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">114.77</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">172155.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">1749.7425</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">2332.99</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE856959</UniqueID>
+								<Identifiers>
+									<ISIN>BE0000318270</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">176193.82</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>150000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">117.442</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">176163.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">23.115</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">30.82</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE857280</UniqueID>
+								<Identifiers>
+									<ISIN>NL0000102275</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">194291.53</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>150000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">126.874</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">190311.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">2985.3975</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">3980.53</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE433557</UniqueID>
+								<Identifiers>
+									<ISIN>FI0001006306</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">114995.79</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>100000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">113.941</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">113941.00</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">791.0925</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">1054.79</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>RE857318</UniqueID>
+								<Identifiers>
+									<ISIN>IT0004644735</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">403258.84</Amount>
+								</TotalValue>
+								<Bond>
+									<Nominal>310000.00</Nominal>
+									<Price>
+										<Amount ccy="EUR">129.723</Amount>
+									</Price>
+									<MarketValue>
+										<Amount ccy="EUR">402141.30</Amount>
+									</MarketValue>
+									<InterestClaimNet>
+										<Amount ccy="EUR">838.155</Amount>
+									</InterestClaimNet>
+									<InterestClaimGross>
+										<Amount ccy="EUR">1117.54</Amount>
+									</InterestClaimGross>
+								</Bond>
+							</Position>
+							<Position>
+								<UniqueID>AS226494</UniqueID>
+								<Identifiers>
+									<ISIN>FR0010655738</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">20451.60</Amount>
+								</TotalValue>
+								<ShareClass>
+									<Shares>65.00</Shares>
+									<Price>
+										<Amount ccy="EUR">314.64</Amount>
+									</Price>
+								</ShareClass>
+							</Position>
+							<Position>
+								<UniqueID>AS220552</UniqueID>
+								<Identifiers>
+									<ISIN>IE00B52SF786</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">37832.80</Amount>
+								</TotalValue>
+								<ShareClass>
+									<Shares>380.00</Shares>
+									<Price>
+										<Amount ccy="EUR">99.56</Amount>
+									</Price>
+								</ShareClass>
+							</Position>
+							<Position>
+								<UniqueID>AS233709</UniqueID>
+								<Identifiers>
+									<ISIN>IE00B4WXJD03</ISIN>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">46943.00</Amount>
+								</TotalValue>
+								<ShareClass>
+									<Shares>1300.00</Shares>
+									<Price>
+										<Amount ccy="EUR">36.11</Amount>
+									</Price>
+								</ShareClass>
+							</Position>
+							<Position>
+								<UniqueID>FU222874</UniqueID>
+								<Identifiers>
+									<Bloomberg>
+										<Ticker>NHZ6</Ticker>
+									</Bloomberg>
+								</Identifiers>
+								<Currency>JPY</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-1117.14</Amount>
+									<Amount ccy="JPY">-1117.14</Amount>
+								</TotalValue>
+								<Future>
+									<Contracts>1.00</Contracts>
+									<Price>
+										<Amount ccy="JPY">16525.00</Amount>
+									</Price>
+								</Future>
+							</Position>
+							<Position>
+								<UniqueID>FU224715</UniqueID>
+								<Identifiers>
+									<Bloomberg>
+										<Ticker>VGZ6</Ticker>
+									</Bloomberg>
+								</Identifiers>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-1950.00</Amount>
+								</TotalValue>
+								<Future>
+									<Contracts>4.00</Contracts>
+									<Price>
+										<Amount ccy="EUR">2979.00</Amount>
+									</Price>
+								</Future>
+							</Position>
+							<Position>
+								<UniqueID>FU227620</UniqueID>
+								<Identifiers>
+									<Bloomberg>
+										<Ticker>SMZ6</Ticker>
+									</Bloomberg>
+								</Identifiers>
+								<Currency>CHF</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-699.62</Amount>
+									<Amount ccy="CHF">-699.62</Amount>
+								</TotalValue>
+								<Future>
+									<Contracts>1.00</Contracts>
+									<Price>
+										<Amount ccy="CHF">8131.00</Amount>
+									</Price>
+								</Future>
+							</Position>
+							<Position>
+								<UniqueID>FU222835</UniqueID>
+								<Identifiers>
+									<Bloomberg>
+										<Ticker>Z Z6</Ticker>
+									</Bloomberg>
+								</Identifiers>
+								<Currency>GBP</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">1138.40</Amount>
+									<Amount ccy="GBP">1138.40</Amount>
+								</TotalValue>
+								<Future>
+									<Contracts>1.00</Contracts>
+									<Price>
+										<Amount ccy="GBP">6877.50</Amount>
+									</Price>
+								</Future>
+							</Position>
+							<Position>
+								<UniqueID>FU222833</UniqueID>
+								<Identifiers>
+									<Bloomberg>
+										<Ticker>ESZ6</Ticker>
+									</Bloomberg>
+								</Identifiers>
+								<Currency>USD</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-2315.33</Amount>
+									<Amount ccy="USD">-2315.33</Amount>
+								</TotalValue>
+								<Future>
+									<Contracts>4.00</Contracts>
+									<Price>
+										<Amount ccy="USD">2148.50</Amount>
+									</Price>
+								</Future>
+							</Position>
+							<Position>
+								<UniqueID>DT803221</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">578.87</Amount>
+								</TotalValue>
+								<FXForward/>
+							</Position>
+							<Position>
+								<UniqueID>GE552562</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-707.36</Amount>
+									<Amount ccy="CHF">-768.40</Amount>
+								</TotalValue>
+								<Account/>
+							</Position>
+							<Position>
+								<UniqueID>GE552564</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">1135.30</Amount>
+									<Amount ccy="GBP">982.3219866</Amount>
+								</TotalValue>
+								<Account>
+									<MarketValue>
+										<Amount ccy="EUR">1135.76</Amount>
+										<Amount ccy="GBP">982.72</Amount>
+									</MarketValue>
+									<Interests>
+										<Amount ccy="EUR">-0.46</Amount>
+										<Amount ccy="GBP">-0.397946</Amount>
+									</Interests>
+								</Account>
+							</Position>
+							<Position>
+								<UniqueID>GE552565</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-1137.34</Amount>
+									<Amount ccy="JPY">-129805.8219178</Amount>
+								</TotalValue>
+								<Account>
+									<MarketValue>
+										<Amount ccy="EUR">-1137.07</Amount>
+										<Amount ccy="JPY">-129775.00</Amount>
+									</MarketValue>
+									<Interests>
+										<Amount ccy="EUR">-0.27</Amount>
+										<Amount ccy="JPY">-30.726432</Amount>
+									</Interests>
+								</Account>
+							</Position>
+							<Position>
+								<UniqueID>GE552566</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">-2877.71</Amount>
+									<Amount ccy="USD">-3231.5213992</Amount>
+								</TotalValue>
+								<Account>
+									<MarketValue>
+										<Amount ccy="EUR">-2872.90</Amount>
+										<Amount ccy="USD">-3226.12</Amount>
+									</MarketValue>
+									<Interests>
+										<Amount ccy="EUR">-4.81</Amount>
+										<Amount ccy="USD">-5.405478</Amount>
+									</Interests>
+								</Account>
+							</Position>
+							<Position>
+								<UniqueID>FO1090</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">74595.55</Amount>
+								</TotalValue>
+								<Account/>
+							</Position>
+							<Position>
+								<UniqueID>GE552563</UniqueID>
+								<Identifiers/>
+								<Currency>EUR</Currency>
+								<TotalValue>
+									<Amount ccy="EUR">43452.75</Amount>
+								</TotalValue>
+								<Account/>
+							</Position>
+						</Positions>
+						<BreakDowns>
+							<BreakDown>
+								<Dimensions>
+									<Dimension>Currency</Dimension>
+								</Dimensions>
+								<CalculationMethod>Including FX Hedges</CalculationMethod>
+								<Values>
+									<Value>
+										<DimValues>
+											<DimValue>EUR</DimValue>
+										</DimValues>
+										<Percentage>60</Percentage>
+									</Value>
+									<Value>
+										<DimValues>
+											<DimValue>USD</DimValue>
+										</DimValues>
+										<Percentage>30</Percentage>
+									</Value>
+									<Value>
+										<DimValues>
+											<DimValue>JPY</DimValue>
+										</DimValues>
+										<Percentage>10</Percentage>
+									</Value>
+								</Values>
+							</BreakDown>
+							<BreakDown>
+								<Dimensions>
+									<Dimension>Asset Class</Dimension>
+									<Dimension>Currency</Dimension>
+								</Dimensions>
+								<CalculationMethod>Excluding FX Hedges</CalculationMethod>
+								<Values>
+									<Value>
+										<DimValues>
+											<DimValue dim="1">Bonds</DimValue>
+											<DimValue dim="2">EUR</DimValue>
+										</DimValues>
+										<Percentage>30</Percentage>
+									</Value>
+									<Value>
+										<DimValues>
+											<DimValue dim="1">Bonds</DimValue>
+											<DimValue dim="2">USD</DimValue>
+										</DimValues>
+										<Percentage>50</Percentage>
+									</Value>
+									<Value>
+										<DimValues>
+											<DimValue dim="1">Equities</DimValue>
+											<DimValue dim="2">EUR</DimValue>
+										</DimValues>
+										<Percentage>20</Percentage>
+									</Value>
+								</Values>
+							</BreakDown>
+						</BreakDowns>
+					</Portfolio>
+				</Portfolios>
+			</FundDynamicData>
+			<SingleFund>
+				<SingleFundStaticData>
+					<Managers>
+						<Manager>
+							<Identifiers>
+								<LEI>2138000SAMPLE00LEI00</LEI>
+								<SwiftBIC>XYZQATWW</SwiftBIC>
+							</Identifiers>
+							<Name>Fund Management Company</Name>
+						</Manager>
+					</Managers>
+					<ManagementType>ACTIVE</ManagementType>
+					<PricePublishedFlag>true</PricePublishedFlag>
+				</SingleFundStaticData>
+				<ShareClasses>
+					<ShareClass>
+						<Identifiers>
+							<ISIN>AT000SAMPLE0</ISIN>
+						</Identifiers>
+						<Names>
+							<OfficialName>FundsXML Sample Fund</OfficialName>
+							<ShortName>FundsXML Sample Fund</ShortName>
+						</Names>
+						<Currency>EUR</Currency>
+						<ShareClassType>
+							<Code>A</Code>
+						</ShareClassType>
+						<Prices>
+							<Price>
+								<ActionCode>C</ActionCode>
+								<NavDate>2016-09-30</NavDate>
+								<PriceCurrency>EUR</PriceCurrency>
+								<PriceNature>OFFICIAL</PriceNature>
+								<NavPrice>123.45</NavPrice>
+							</Price>
+						</Prices>
+						<TotalAssetValues>
+							<TotalAssetValue>
+								<NavDate>2016-09-30</NavDate>
+								<TotalAssetNature>OFFICIAL</TotalAssetNature>
+								<SharesOutstanding>75799.31</SharesOutstanding>
+							</TotalAssetValue>
+						</TotalAssetValues>
+					</ShareClass>
+				</ShareClasses>
+			</SingleFund>
+		</Fund>
+	</Funds>
+	<AssetMasterData>
+		<Asset>
+			<UniqueID>GE552562</UniqueID>
+			<Identifiers/>
+			<Currency>CHF</Currency>
+			<Country>AT</Country>
+			<Name>Cash Account/Giro in CHF</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<SwiftBIC>BKAUATWW</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank Austria</Name>
+						<Address>
+							<Country>AT</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>GE552564</UniqueID>
+			<Identifiers/>
+			<Currency>GBP</Currency>
+			<Country>AT</Country>
+			<Name>Cash Account/Giro in GBP</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<SwiftBIC>BKAUATWW</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank Austria</Name>
+						<Address>
+							<Country>AT</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>GE552565</UniqueID>
+			<Identifiers/>
+			<Currency>JPY</Currency>
+			<Country>AT</Country>
+			<Name>Cash Account/Giro in JPY</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<SwiftBIC>BKAUATWW</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank Austria</Name>
+						<Address>
+							<Country>AT</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>GE552566</UniqueID>
+			<Identifiers/>
+			<Currency>USD</Currency>
+			<Country>AT</Country>
+			<Name>Cash Account/Giro in USD</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<SwiftBIC>BKAUATWW</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank Austria</Name>
+						<Address>
+							<Country>AT</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>FO1090</UniqueID>
+			<Identifiers/>
+			<Currency>EUR</Currency>
+			<Country>AT</Country>
+			<Name>Giro in EUR</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<SwiftBIC>BKAUATWW</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank Austria</Name>
+						<Address>
+							<Country>AT</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>GE552563</UniqueID>
+			<Identifiers/>
+			<Currency>EUR</Currency>
+			<Country>DE</Country>
+			<Name>Initial Margin in EUR</Name>
+			<AssetType>AC</AssetType>
+			<AssetDetails>
+				<Account>
+					<Counterparty>
+						<Identifiers>
+							<LEI>2ZCNRR8UK83OBTEK2170</LEI>
+							<SwiftBIC>HYVEDEMM</SwiftBIC>
+						</Identifiers>
+						<Name>UniCredit Bank AG München</Name>
+						<Address>
+							<Country>DE</Country>
+						</Address>
+					</Counterparty>
+				</Account>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1074407</UniqueID>
+			<Identifiers>
+				<ISIN>DE0001102374</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>DE</Country>
+			<Name>0.5% BUNDANL.V.15/25</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1084600</UniqueID>
+			<Identifiers>
+				<ISIN>FR0012517027</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>FR</Country>
+			<Name>0.5% REP. FSE 15-25 O.A.T.</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1088862</UniqueID>
+			<Identifiers>
+				<ISIN>IT0005107708</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>IT</Country>
+			<Name>0.7% B.T.P. 15-20</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1111307</UniqueID>
+			<Identifiers>
+				<ISIN>ES00000128B8</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>ES</Country>
+			<Name>0.75% SPANIEN 16-21</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1083680</UniqueID>
+			<Identifiers>
+				<ISIN>ES00000126Z1</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>ES</Country>
+			<Name>1.6% SPANIEN 15-25</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE1060334</UniqueID>
+			<Identifiers>
+				<ISIN>AT0000A185T1</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>AT</Country>
+			<Name>1.65% OESTERR.,REP 14-24/1</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE856959</UniqueID>
+			<Identifiers>
+				<ISIN>BE0000318270</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>BE</Country>
+			<Name>3.75% BELGIQUE 10-20  58</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE857280</UniqueID>
+			<Identifiers>
+				<ISIN>NL0000102275</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>NL</Country>
+			<Name>3.75% NEDERLD 06-23</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE433557</UniqueID>
+			<Identifiers>
+				<ISIN>FI0001006306</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>FI</Country>
+			<Name>4.375% FINLD 08-19</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>RE857318</UniqueID>
+			<Identifiers>
+				<ISIN>IT0004644735</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>IT</Country>
+			<Name>4.5% B.T.P. 10-26</Name>
+			<AssetType>BO</AssetType>
+			<AssetDetails>
+				<Bond>
+					<ConvertibleFlag>false</ConvertibleFlag>
+				</Bond>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK279855</UniqueID>
+			<Identifiers>
+				<ISIN>US0028241000</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>ABBOTT LABS</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK344442</UniqueID>
+			<Identifiers>
+				<ISIN>US00287Y1091</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>ABBVIE INC.        DL-,01</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK363727</UniqueID>
+			<Identifiers>
+				<ISIN>US01609W1027</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>KY</Country>
+			<Name>ALIBABA GR.HLDG SP.ADR 1</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK386833</UniqueID>
+			<Identifiers>
+				<ISIN>US02079K1079</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>ALPHABET INC.CL C DL-,001</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK386832</UniqueID>
+			<Identifiers>
+				<ISIN>US02079K3059</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>ALPHABET INC.CL.A DL-,001</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK279887</UniqueID>
+			<Identifiers>
+				<ISIN>US0231351067</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>AMAZON.COM INC.    DL-,01</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK278191</UniqueID>
+			<Identifiers>
+				<ISIN>AT0000730007</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>AT</Country>
+			<Name>ANDRITZ AKT.O.N.</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK279913</UniqueID>
+			<Identifiers>
+				<ISIN>US0378331005</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>US</Country>
+			<Name>APPLE INC.</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK280039</UniqueID>
+			<Identifiers>
+				<ISIN>US1912161007</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>COCA-COLA CO.      DL-,25</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK325629</UniqueID>
+			<Identifiers>
+				<ISIN>US30303M1027</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>FACEBOOK INC.A DL-,000006</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK279669</UniqueID>
+			<Identifiers>
+				<ISIN>SE0000106270</ISIN>
+			</Identifiers>
+			<Currency>SEK</Currency>
+			<Country>SE</Country>
+			<Name>HENNES + MAURITZ B SK-125</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK361106</UniqueID>
+			<Identifiers>
+				<ISIN>ES0148396007</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>ES</Country>
+			<Name>INDITEX INH.      EO 0,03</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK98519</UniqueID>
+			<Identifiers>
+				<ISIN>CH0012005267</ISIN>
+			</Identifiers>
+			<Currency>CHF</Currency>
+			<Country>CH</Country>
+			<Name>NOVARTIS NAM.     SF 0,50</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK324081</UniqueID>
+			<Identifiers>
+				<ISIN>US7185461040</ISIN>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>PHILLIPS 66        DL-,01</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AK279056</UniqueID>
+			<Identifiers>
+				<ISIN>DE0007164600</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>DE</Country>
+			<Name>SAP SE O.N.</Name>
+			<AssetType>EQ</AssetType>
+			<AssetDetails>
+				<Equity/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>FU222874</UniqueID>
+			<Identifiers>
+				<Bloomberg>
+					<Ticker>NHZ6</Ticker>
+				</Bloomberg>
+			</Identifiers>
+			<Currency>JPY</Currency>
+			<Country>JP</Country>
+			<Name>CME NIKKEI 225 DEC16</Name>
+			<AssetType>FU</AssetType>
+			<AssetDetails>
+				<Future>
+					<Type>IF</Type>
+					<ContractSize>500.00</ContractSize>
+					<MaturityDate>2016-12-15</MaturityDate>
+				</Future>
+			</AssetDetails>
+			<Securitized>false</Securitized>
+		</Asset>
+		<Asset>
+			<UniqueID>FU224715</UniqueID>
+			<Identifiers>
+				<Bloomberg>
+					<Ticker>VGZ6</Ticker>
+				</Bloomberg>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>DE</Country>
+			<Name>DJ Euro STOXX50 Fut. EUX DEC16</Name>
+			<AssetType>FU</AssetType>
+			<AssetDetails>
+				<Future>
+					<Type>IF</Type>
+					<ContractSize>10.00</ContractSize>
+					<MaturityDate>2016-12-15</MaturityDate>
+				</Future>
+			</AssetDetails>
+			<Securitized>false</Securitized>
+		</Asset>
+		<Asset>
+			<UniqueID>FU227620</UniqueID>
+			<Identifiers>
+				<Bloomberg>
+					<Ticker>SMZ6</Ticker>
+				</Bloomberg>
+			</Identifiers>
+			<Currency>CHF</Currency>
+			<Country>CH</Country>
+			<Name>FSMI DEZ/16 FT</Name>
+			<AssetType>FU</AssetType>
+			<AssetDetails>
+				<Future>
+					<Type>IF</Type>
+					<ContractSize>10.00</ContractSize>
+					<MaturityDate>2016-12-16</MaturityDate>
+				</Future>
+			</AssetDetails>
+			<Securitized>false</Securitized>
+		</Asset>
+		<Asset>
+			<UniqueID>FU222835</UniqueID>
+			<Identifiers>
+				<Bloomberg>
+					<Ticker>Z Z6</Ticker>
+				</Bloomberg>
+			</Identifiers>
+			<Currency>GBP</Currency>
+			<Country>GB</Country>
+			<Name>FTSE 100 Future DEC16</Name>
+			<AssetType>FU</AssetType>
+			<AssetDetails>
+				<Future>
+					<Type>IF</Type>
+					<ContractSize>10.00</ContractSize>
+					<MaturityDate>2016-12-15</MaturityDate>
+				</Future>
+			</AssetDetails>
+			<Securitized>false</Securitized>
+		</Asset>
+		<Asset>
+			<UniqueID>FU222833</UniqueID>
+			<Identifiers>
+				<Bloomberg>
+					<Ticker>ESZ6</Ticker>
+				</Bloomberg>
+			</Identifiers>
+			<Currency>USD</Currency>
+			<Country>US</Country>
+			<Name>Mini S&amp;P 500 Future DEC16</Name>
+			<AssetType>FU</AssetType>
+			<AssetDetails>
+				<Future>
+					<Type>IF</Type>
+					<ContractSize>50.00</ContractSize>
+					<MaturityDate>2016-12-15</MaturityDate>
+				</Future>
+			</AssetDetails>
+			<Securitized>false</Securitized>
+		</Asset>
+		<Asset>
+			<UniqueID>DT803221</UniqueID>
+			<Identifiers/>
+			<Currency>USD</Currency>
+			<Name>266,482.50 EUR --&gt; 300,000.00 USD</Name>
+			<AssetType>FX</AssetType>
+			<AssetDetails>
+				<FXForward>
+					<CurrencyBuy>USD</CurrencyBuy>
+					<AmountBuy>300000.00</AmountBuy>
+					<CurrencySell>EUR</CurrencySell>
+					<AmountSell>266482.38</AmountSell>
+					<AgreedFxRate>1.125778</AgreedFxRate>
+					<StartDate>2016-09-26</StartDate>
+					<MaturityDate>2016-10-12</MaturityDate>
+					<Counterparty>
+						<Identifiers/>
+						<Name>Unknown</Name>
+					</Counterparty>
+				</FXForward>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AS226494</UniqueID>
+			<Identifiers>
+				<ISIN>FR0010655738</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>FR</Country>
+			<Name>Amundi ETF MSCI Nordic</Name>
+			<AssetType>SC</AssetType>
+			<AssetDetails>
+				<ShareClass/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AS220552</UniqueID>
+			<Identifiers>
+				<ISIN>IE00B52SF786</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>IE</Country>
+			<Name>iShs VII-MSCI EM Canada U.ETF</Name>
+			<AssetType>SC</AssetType>
+			<AssetDetails>
+				<ShareClass/>
+			</AssetDetails>
+		</Asset>
+		<Asset>
+			<UniqueID>AS233709</UniqueID>
+			<Identifiers>
+				<ISIN>IE00B4WXJD03</ISIN>
+			</Identifiers>
+			<Currency>EUR</Currency>
+			<Country>IE</Country>
+			<Name>iShsIII-MSCI Pac.Ex-Jap.U.ETF</Name>
+			<AssetType>SC</AssetType>
+			<AssetDetails>
+				<ShareClass/>
+			</AssetDetails>
+		</Asset>
+	</AssetMasterData>
+</FundsXML4>

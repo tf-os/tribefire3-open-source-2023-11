@@ -1,0 +1,14 @@
+---
+!com.braintribe.doc.meta.CustomDocMetaData
+
+title: "Devrock plugin tutorials"
+
+assets: 
+  "com.braintribe.devrock.eclipse:devrock-tutorials": &1
+    displayTitle: Devrock plugin tutorials
+    startingPoint: intro.html  
+
+entrypoints:
+  - assetId: com.braintribe.devrock.eclipse:devrock-tutorials
+    displayInfo: *1
+

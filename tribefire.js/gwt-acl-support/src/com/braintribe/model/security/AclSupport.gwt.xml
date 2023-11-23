@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.AccessControlModel"/>
+    <inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+	<inherits name="com.braintribe.model.processing.MetaModelApi"/>
+    <inherits name="com.braintribe.model.processing.ModelOracle"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="acl"/>
+</module>

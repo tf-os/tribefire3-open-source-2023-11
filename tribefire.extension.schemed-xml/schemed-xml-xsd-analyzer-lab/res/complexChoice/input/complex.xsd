@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+			<xs:element name="elements" type="Elements"/>
+			<xs:element name="sequences" type="Sequences"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Elements">
+		<xs:choice>
+			<xs:element name="single" type="xs:string"/>
+			<xs:element name="multiple" type="xs:string" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Sequences">
+		<xs:choice>
+			<xs:sequence>
+				<xs:element name="singleOne" type="xs:string"/>
+				<xs:element name="multipleOne" type="xs:string" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:sequence>
+				<xs:element name="singleTwo" type="xs:string"/>
+				<xs:element name="multipleTwo" type="xs:string" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

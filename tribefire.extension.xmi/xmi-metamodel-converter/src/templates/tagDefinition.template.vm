@@ -1,0 +1,9 @@
+<UML:TagDefinition xmi.id="$id" name="$name" isSpecification="false" xmlns:UML = 'org.omg.xmi.namespace.UML'>
+	<UML:TagDefinition.multiplicity>
+		<UML:Multiplicity xmi.id="$multiplicityId">
+			<UML:Multiplicity.range>
+				<UML:MultiplicityRange xmi.id="$multiplicityRangeId" lower="0" upper="0"/>
+			</UML:Multiplicity.range>
+		</UML:Multiplicity>
+	</UML:TagDefinition.multiplicity>
+</UML:TagDefinition>

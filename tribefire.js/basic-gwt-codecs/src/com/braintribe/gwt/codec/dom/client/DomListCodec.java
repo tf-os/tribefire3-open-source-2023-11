@@ -1,0 +1,41 @@
+// ============================================================================
+// Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+// 
+// This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+// ============================================================================
+package com.braintribe.gwt.codec.dom.client;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class DomListCodec<T> extends DomCollectionCodec<T, List<T>> {
+
+	public DomListCodec() {
+		super("list", null);
+	}
+	
+	public DomListCodec(String tagName) {
+		super(tagName);
+	}
+	
+	public DomListCodec(String parentTagName, String tagName) {
+		super(parentTagName, tagName);
+	}
+	
+	@Override
+	protected List<T> createCollection() {
+		return new ArrayList<T>();
+	}
+	
+	@SuppressWarnings("rawtypes")
+	@Override
+	public Class<List<T>> getValueClass() {
+		return (Class) List.class;
+	}
+}

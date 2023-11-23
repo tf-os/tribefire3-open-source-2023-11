@@ -1,0 +1,50 @@
+version: 1
+
+dn: ou=Users,dc=mydomain,dc=org
+objectClass: organizationalUnit
+objectClass: top
+ou: Users
+
+dn: ou=Groups,dc=mydomain,dc=org
+objectClass: organizationalUnit
+objectClass: top
+ou: Groups
+
+dn: cn=Test1 Ldap,ou=Users,dc=mydomain,dc=org
+objectClass: inetOrgPerson
+cn: Test1 Ldap
+sn: Ldap
+uid: ldaptest1
+userPassword: 12345
+givenName: Mr.
+postalAddress: mr.ldap@braintribe.com
+
+
+dn: cn=Roman Kurmanowytsch,ou=Users,dc=mydomain,dc=org
+objectClass: inetOrgPerson
+cn: Roman Kurmanowytsch
+sn: Kurmanowytsch
+uid: roman.kurmanowytsch
+userPassword: 12345
+givenName: Roman
+postalAddress: roman.kurmanowytsch@braintribe.com
+
+
+dn: cn=Peter Brandner,ou=Users,dc=mydomain,dc=org
+objectClass: inetOrgPerson
+cn: Peter Brandner
+sn: Brandner
+uid: peter.brandner
+userPassword: 12345
+givenName: Peter
+postalAddress: peter.brandner@braintribe.com
+
+
+dn: cn=Peter Pan,ou=Users,dc=mydomain,dc=org
+objectClass: inetOrgPerson
+cn: Peter Pan
+sn: Pan
+uid: peter.pan
+userPassword: 12345
+givenName: Peter
+postalAddress: peter.pan@braintribe.com

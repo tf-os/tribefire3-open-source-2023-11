@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.Codec"/>
+    <inherits name="com.google.gwt.http.HTTP"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.google.gwt.json.JSON"/>
+    <inherits name="com.braintribe.gwt.logging.Logging"/>
+    <inherits name="com.braintribe.gwt.codec.dom.Dom"/>
+    <inherits name="com.google.gwt.xml.XML"/>
+    <inherits name="com.google.gwt.event.EventBase"/>
+    <source path="client"/>
+</module>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:imported="import" targetNamespace="import" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:complexType name="Imported">
+		<xs:sequence>
+			<xs:element name="value" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

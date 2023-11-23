@@ -1,0 +1,18 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+
+  ldap_cartridge.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -200
+
+  ldap_creating_connection.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -190
+
+  ldap_creating_access.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -180
+
+  ldap_synchronization.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -170
+
+  ldap_cortex.md: !com.braintribe.doc.meta.FileDisplayInfo
+    priority: -160

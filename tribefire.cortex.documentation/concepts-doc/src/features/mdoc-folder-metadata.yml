@@ -1,0 +1,142 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  reflection.md:
+    boostedSearchTerms: 
+     - reflection
+
+  traversing_criteria.md: 
+    boostedSearchTerms: 
+     - "traversing"
+     - "criteria"
+
+  traversing_criteria_in_detail.md: 
+    boostedSearchTerms: 
+     - "traversing"
+     - "criteria"
+
+  ddsa.md: 
+    boostedSearchTerms: 
+     - "denotation"
+     - "service request"
+
+  service_domain.md:
+    boostedSearchTerms: 
+     - "denotation"
+
+  tribefire-services.md: 
+
+  deployment.md: 
+    boostedSearchTerms: 
+     - "deployable"
+     - "deployment"
+
+  platform_assets.md:
+    tags:
+     - platformAssets 
+    boostedSearchTerms: 
+     - "platform"
+     - "assets"
+     - "architecture"
+
+  access_control.md:
+    boostedSearchTerms: 
+     - "access"
+     - "security" 
+
+  marshalling.md:
+    tags:
+     - serialization
+
+  security_considerations.md: 
+    boostedSearchTerms: 
+     - "security"
+
+  user_roles.md: 
+    boostedSearchTerms: 
+     - "user"
+     - "roles"
+
+  smood.md: 
+
+  gmml.md: 
+    tags:
+     - gmml
+     - serialization
+    boostedSearchTerms: 
+     - "generic"
+     - "manipulation"
+     - "language"
+
+  gmql.md:
+    tags:
+     - gmql
+     - serialization
+    boostedSearchTerms: 
+     - "generic"
+     - "manipulation"
+     - "language"
+
+  value_descriptors.md:
+    boostedSearchTerms: 
+     - "templates"
+     - "descriptor" 
+
+  runtime_properties.md:
+
+  wire:
+    displayTitle: "Wire"
+
+  models:
+    displayTitle: "Models"  
+    boostedSearchTerms: 
+     - "model"
+
+  entities:
+    displayTitle: "Entities"  
+
+  platform-models:
+    displayTitle: "Platform Models"  
+
+  service-model:
+    displayTitle: "Service Model"  
+
+  tribefire-modules:
+    displayTitle: "Tribefire Modules"
+    boostedSearchTerms: 
+     - "architecture"
+
+  ui-clients:
+    displayTitle: "UI Clients"  
+    boostedSearchTerms: 
+     - "interface"
+     - "user interface" 
+
+  monitoring:
+    displayTitle: "Monitoring"  
+
+  checks:
+    displayTitle: "Tribefire Checks"  
+
+  architecture:
+    hidden: true
+  data-integration:
+    hidden: true
+  dataflow-engine:
+    hidden: true
+  generic_computing.md:
+    hidden: true
+  gmml-example.md:
+    hidden: true
+  internationalization.md:
+    hidden: true
+  model-as-api.md:
+    hidden: true
+  push_requests.md:
+    hidden: true
+  scripting.md:
+    hidden: true
+  tribefire-extensions:
+    hidden: true
+  version_management.md:
+    hidden: true

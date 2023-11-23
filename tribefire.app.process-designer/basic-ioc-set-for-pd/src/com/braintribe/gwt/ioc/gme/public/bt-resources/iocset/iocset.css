@@ -1,0 +1,49 @@
+/* Showing the split button arrow only when hovering */
+.globalToolBar .x-btn-mc em.x-btn-split {
+	background-image: none !important;
+}
+
+.globalToolBar .x-btn-over .x-btn-mc em.x-btn-split {
+	background-image: url("splitOrange.gif") !important;
+}
+
+.ib-filterPanel{
+	display:flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-bottom: 1px solid #ddd;
+}
+
+.ib-filterText{
+	height: 32px;
+	width: 550px;
+	border-radius:5px 0px 0px 5px;
+	border:1px solid #ddd;
+	border-right: none;
+	margin-left: 15px;
+	text-indent: 10px;
+}
+
+.ib-filterButton{
+	height: 33px;
+	width: 45px;
+	border-radius:0px 5px 5px 0px;
+	border:1px solid #ddd;
+	border-left: none;
+	background-color: orange;	
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.ib-toolBar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding: 15px; */
+}
+
+.ib-toolBarButton {
+	padding: 5px 10px
+}

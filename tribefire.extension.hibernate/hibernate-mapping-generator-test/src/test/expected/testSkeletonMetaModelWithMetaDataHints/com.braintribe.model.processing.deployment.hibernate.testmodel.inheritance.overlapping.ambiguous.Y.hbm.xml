@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.Y" entity-name="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.Y" table="TEST_Y" abstract="false">
+		<id name="id" column="ID" type="long">
+			<generator class="native" />
+		</id>
+		<property name="globalId" column="GLOBALID" type="string" />
+		<property name="partition" column="PARTITION_" type="string" />
+		<many-to-one name="y" class="com.braintribe.model.processing.deployment.hibernate.testmodel.inheritance.overlapping.ambiguous.C" column="Y" />
+	</class>
+</hibernate-mapping>

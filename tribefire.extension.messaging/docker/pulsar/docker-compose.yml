@@ -1,0 +1,51 @@
+version: '2'
+networks:
+  acme:
+services:
+  pulsar:
+    image: apachepulsar/pulsar:latest
+    container_name: pulsar-queue
+    command: bin/pulsar standalone
+    hostname: pulsar
+    environment:
+      PULSAR_MEM: " -Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g"
+    volumes:
+      - ./tools/pulsar/data:/pulsar/data
+    ports:
+      - 6650:6650
+      - 8081:8080 # http://localhost:8080/metrics/
+    restart: unless-stopped
+    networks:
+      - acme
+
+  pulsar-manager:
+      image: apachepulsar/pulsar-manager:latest
+      container_name: pulsar_manager
+      ports:
+        - 9527:9527 # http://localhost:9527 (login:pulsar/pulsar)
+        - 7750:7750
+      depends_on:
+        - pulsar
+      links:
+        - pulsar
+      environment:
+        SPRING_CONFIGURATION_FILE: /pulsar-manager/pulsar-manager/application.properties
+      networks:
+        - acme
+
+ # pulsar:
+ #   image: apachepulsar/pulsar:2.9.1
+ #   container_name: pulsar
+ #   ports:
+ #     - "8081:8080"
+ #     - "6650:6650"
+ #   environment:
+ #     PULSAR_MEM: " -Xms512m -Xmx512m -XX:MaxDirectMemorySize=1g"
+ #   command: bin/pulsar standalone
+ #   volumes:
+ #     - pulsardata:/pulsar/data
+ #     - pulsarconf:/pulsar/conf
+
+#volumes:
+#  pulsardata:
+#  pulsarconf:

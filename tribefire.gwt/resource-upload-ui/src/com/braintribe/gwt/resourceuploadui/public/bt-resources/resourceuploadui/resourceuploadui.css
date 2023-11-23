@@ -1,0 +1,172 @@
+
+@charset "UTF-8";
+* {
+    font-family: "Arial";
+}
+.dragNDropAreaText {
+    display: table-cell;
+    height: 20px;
+//    left: 50%;
+    line-height: 20px;
+    margin: -12px auto 0 -75px;
+//    position: absolute;
+    text-align: center;
+//    top: 50%;
+    vertical-align: middle;
+    width: 150px;
+    color: grey;
+}
+.dragNDropArea {
+	display:table;
+    background-color: white;
+    border: 3px dotted silver;
+    border-radius: 15px 15px 15px 15px;
+    margin: 15px auto;
+    padding: 5px;
+    position: relative;
+    color: white;
+}
+.entered {
+    background-color: #FFE6BA;
+    border: 3px dotted #A6E9FC;
+}
+.inputWrapper {
+    background-color: white;
+    border: 3px dotted silver;
+    margin: 5px auto;
+    padding: 5px;
+    width: 300px;
+}
+.titleLabel {
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 12pt;
+    text-align: center;
+    color: grey;
+}
+
+.progressBarWrapper{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	margin:0 auto;
+}
+
+.progressBar{
+	width: 250px;
+	height: 20px;
+	text-align: center;
+	border: 1px solid silver;
+	position: relative;
+	margin:0 auto;
+	border-radius:4px;
+}
+
+.progressBarText{
+	line-height:20px;
+	text-align:center;
+	position: absolute;
+	width:100%;
+	z-index:5;	
+}
+
+.progressBarFill{
+	background-color: #FFDAAA;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0px;
+	z-index:4;
+	border-radius:4px;
+}
+
+.previewArea {
+   background-color: white;
+    border: 3px dotted silver;
+    color: white;
+    height: auto;
+    margin: 5px auto;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px;
+    position: relative;
+    width: 300px;
+}
+
+.previewEntry {
+    border-bottom: 1px dotted white;
+    padding: 5px;
+    text-align: center;
+}
+
+.previewText{
+    color: grey;
+    text-align: center;
+    word-break: break-all;
+    word-wrap: normal;
+}
+
+div.x-window-tl  {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-tc {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-tr {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-ml {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-mc {
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-mr {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-bl {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-bc {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+div.x-window-br {
+	background: white;
+    background-color: white;
+    border-color: white;    
+}
+
+
+div.x-window-tl .x-window-header {
+font-size: 16px;
+font-weight: bold;
+color: #f19b00;
+}
+

@@ -1,0 +1,173 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.swagger</groupId>
+        <artifactId>parent</artifactId>
+        <version>[3.0,3.1)</version>
+    </parent>
+    <artifactId>swagger-model-import-processor</artifactId>
+    <version>3.0.11</version>
+    <properties>
+        <model-revision>1</model-revision>
+        <archetype>library</archetype>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <!-- Adding standard tribefire models that we want to use in our model -->
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>access-request-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.swagger</groupId>
+            <artifactId>swagger-model-import-deployment-model</artifactId>
+            <version>${V.tribefire.extension.swagger}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.swagger</groupId>
+            <artifactId>swagger-model-import-service-model</artifactId>
+            <version>${V.tribefire.extension.swagger}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.swagger</groupId>
+            <artifactId>swagger-api-model</artifactId>
+            <version>${V.tribefire.extension.swagger}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.swagger</groupId>
+            <artifactId>swagger-model-processing</artifactId>
+            <version>${V.tribefire.extension.swagger}</version>
+        </dependency>
+        <!-- Adding swagger processing specific imports -->
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>gm-core</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>logging</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>gm-client-support</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>assembly-importer</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <!-- Dependency -->
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-parser</artifactId>
+            <version>${V.io.swagger.swagger-parser}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.github.fge</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>2.2.6</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.mail</groupId>
+                    <artifactId>mailapi</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-databind</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${V.com.fasterxml.jackson.core}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${V.com.fasterxml.jackson.core}</version>
+            <!-- jackson-databind used to be a transitive dependency (via generic-model-json-codec) and
+                there jackson-annotations artifact was excluded, hence we also exclude it here.
+            -->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.github.fge</groupId>
+            <artifactId>btf</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.fge</groupId>
+            <artifactId>msg-simple</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.libphonenumber</groupId>
+            <artifactId>libphonenumber</artifactId>
+            <version>6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.fge</groupId>
+            <artifactId>uri-template</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>exchange-model-processing</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+    </dependencies>
+</project>

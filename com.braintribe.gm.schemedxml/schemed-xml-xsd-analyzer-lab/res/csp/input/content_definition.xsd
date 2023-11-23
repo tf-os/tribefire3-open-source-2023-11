@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="ContentStores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ScriptChecker" minOccurs="0">
+          <xs:complexType>
+            <xs:attribute name="nodeIdCheckContainer" type="xs:string" use="optional" />
+            <xs:attribute name="indexValueCheckContainer" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ParameterDefinitions" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IndexParameters" type="parameterDefinitionsType" />
+              <xs:element name="ContentDefinitionParameters" type="parameterDefinitionsType" />
+              <xs:element name="StoreIndexParameters" type="parameterDefinitionsType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="IndexDefinition" type="indexDefinitionType" />
+        <xs:element name="ContentObjectsPropertyDefinitions" type="contentObjectsPropertyDefinitionsType" minOccurs="0" />
+        <xs:element name="ContentStore" type="contentStoreType" />
+      </xs:sequence>
+      <xs:attribute name="indexCreationMode" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="contentDefinitionType">
+    <xs:sequence>
+      <xs:element name="Parameters" type="parametersType" minOccurs="0" />
+      <xs:element name="IndexStore" type="indexStoreType" maxOccurs="unbounded" />
+      <xs:element name="ObjectStore" type="objectStoreType" minOccurs="0" />
+      <xs:element name="Constraints" type="ConstraintListType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attributeGroup ref="ag_ID" />
+    <xs:attribute name="physicalstore" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          if this attribute is set then there will be no separate table for the CD with given id, but instead the one given in this attribute will be used
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="parentMerge" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="contentObjectsPropertyDefinitionType">
+    <xs:sequence>
+      <xs:element name="ContentObjects" type="indexesType" />
+      <xs:element name="ContentObject" type="indexesType" />
+      <xs:element name="ObjectPart" type="indexesType" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="contentObjectsPropertyDefinitionsType">
+    <xs:sequence>
+      <xs:element name="ContentObjectsPropertyDefinition" type="contentObjectsPropertyDefinitionType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="parameterDefinitionsType">
+    <xs:sequence>
+      <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="type" type="st_typeParamDef" use="required" />
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="description" type="xs:string" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="contentStoreType">
+    <xs:sequence>
+      <xs:element name="ContentDefinition" type="contentDefinitionType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="nextContentDefinitionId" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="indexType">
+    <xs:attribute name="id" type="xs:string" use="required" />
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <xs:attribute name="type" type="st_type" use="required" />
+    <xs:attribute name="description" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="indexesType">
+    <xs:sequence>
+      <xs:element name="Index" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute ref="ref" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="indexDefinitionType">
+    <xs:sequence>
+      <xs:element name="Index" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="indexType">
+              <xs:sequence>
+                <xs:element name="Parameters" type="parametersType" minOccurs="0" />
+              </xs:sequence>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="nextIndexId" type="xs:int" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="indexStoreType">
+    <xs:sequence>
+      <xs:element name="Indexes">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Index" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="Constraints" type="ConstraintListType" minOccurs="0" />
+                  <xs:element name="Parameters" type="parametersType" minOccurs="0" />
+                </xs:all>
+                <xs:attribute ref="ref" use="required" />
+                <xs:attribute ref="matchid" use="optional" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="container" type="xs:string" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="objectStoreType">
+    <xs:sequence>
+      <xs:element name="ContentProperties">
+        <xs:complexType>
+          <xs:attribute ref="ref" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="container" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="parametersType">
+    <xs:sequence>
+      <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="name" type="xs:string" use="required" />
+          <xs:attribute name="value" type="xs:string" use="required" />
+          <xs:attribute name="type" type="xs:string" use="optional" />
+          <xs:attribute name="ignoreForRoles" type="xs:string" use="optional" />
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <!-- ***** SIMPLE TYPES ***** -->
+  <xs:simpleType name="st_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string" />
+      <xs:enumeration value="integer" />
+      <xs:enumeration value="positiv" />
+      <xs:enumeration value="natural" />
+      <xs:enumeration value="biginteger" />
+      <xs:enumeration value="decimal" />
+      <xs:enumeration value="bigdecimal" />
+      <xs:enumeration value="date" />
+      <xs:enumeration value="time" />
+      <xs:enumeration value="dts" />
+      <xs:enumeration value="char" />
+      <xs:enumeration value="binary" />
+      <xs:enumeration value="boolean" />
+      <xs:enumeration value="clob" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="st_cmd">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CHAR" />
+      <xs:enumeration value="DECIMAL" />
+      <xs:enumeration value="DATE" />
+      <xs:enumeration value="DECIMAL_STRING" />
+      <xs:enumeration value="DATE_STRING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="st_typeParamDef">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="string" />
+      <xs:enumeration value="char" />
+      <xs:enumeration value="integer" />
+      <xs:enumeration value="boolean" />
+      <xs:enumeration value="scripts" />
+      <xs:enumeration value="color" />
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- ***** ATTRIBUTE GROUPS ***** -->
+  <xs:attributeGroup name="ag_ID">
+    <xs:attribute ref="id" use="required" />
+    <xs:attribute ref="name" use="required" />
+    <xs:attribute ref="description" use="optional" />
+    <xs:attribute ref="parent" use="optional" />
+  </xs:attributeGroup>
+  <!-- ***** ATTRIBUTES ***** -->
+  <xs:attribute name="id" type="xs:string" />
+  <xs:attribute name="name" type="xs:string" />
+  <xs:attribute name="description" type="xs:string" />
+  <xs:attribute name="parent" type="xs:string" />
+  <xs:attribute name="ref" type="xs:string" />
+  <xs:attribute name="matchid" type="xs:string" />
+
+  <xs:complexType name="ConstraintListType">
+    <xs:sequence>
+      <xs:element name="Constraint" type="ConstraintType" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ConstraintType" mixed="true">
+    <xs:sequence>
+      <xs:element name="roles" type="RolesType" minOccurs="0" />
+      <xs:element name="expression" type="ExpressionType" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="optional" />
+    <xs:attribute name="type" type="xs:string" use="required" />
+    <xs:attribute name="description" type="xs:string" use="optional" />
+    <xs:attribute name="inherit" type="xs:boolean" use="optional" />
+  </xs:complexType>
+
+  <xs:complexType name="RolesType">
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attribute name="value" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ExpressionType">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="OR" type="ExpressionType" />
+      <xs:element name="AND" type="ExpressionType" />
+      <xs:element name="Index" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="id" type="xs:string" use="required" />
+          <xs:attribute name="op" type="xs:string" use="required" />
+          <xs:attribute name="expr" type="xs:string" use="required" />
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+
+
+</xs:schema>

@@ -1,0 +1,9 @@
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    cachable: true
+    changesIndexType: incremental
+    name: "repo"
+    password: "password2"
+    updateable: true
+    url: "url4"
+    user: "user1"

@@ -1,0 +1,76 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.app.process-designer</groupId>
+        <artifactId>parent</artifactId>
+        <version>[1.0,1.1)</version>
+    </parent>
+    <artifactId>process-designer</artifactId>
+    <version>1.0.3</version>
+    <properties>
+        <archetype>library</archetype>
+        <gwt-compatible>true</gwt-compatible>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>com.sencha.gxt</groupId>
+            <artifactId>gxt</artifactId>
+            <optional>true</optional>
+            <version>${V.com.sencha.gxt}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>${V.com.google.gwt}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.vectomatic</groupId>
+            <artifactId>lib-gwt-svg</artifactId>
+            <version>${V.org.vectomatic}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.js</groupId>
+            <artifactId>geom</artifactId>
+            <version>${V.tribefire.js}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.gwt</groupId>
+            <artifactId>generic-model-explorer-module</artifactId>
+            <version>${V.tribefire.gwt}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.gwt</groupId>
+            <artifactId>gm-view-api</artifactId>
+            <version>${V.tribefire.gwt}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.process</groupId>
+            <artifactId>process-definition-representation-model</artifactId>
+            <version>${V.tribefire.extension.process}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.js</groupId>
+            <artifactId>gwt-assembly-monitoring</artifactId>
+            <version>${V.tribefire.js}</version>
+        </dependency>
+    </dependencies>
+</project>

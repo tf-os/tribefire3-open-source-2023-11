@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="lunr.js"></script>
+    <script src="serIdx.js"></script>
+    <script>
+
+        /*idx = lunr(function () {
+            this.ref('id')
+            this.field('body')
+
+            idxContent.forEach(function (doc) {
+                this.add(doc)
+            }, this)
+        });*/
+
+        idx = lunr.Index.load(idxContent);
+
+        function search() {
+            var searchText = document.getElementById("search").value;
+            var results = idx.search(searchText);
+            alert(results);
+        }
+
+    </script>
+</head>
+<body>
+        <input id="search"/>
+        <button onclick="search()">search</button>
+</body>
+</html>

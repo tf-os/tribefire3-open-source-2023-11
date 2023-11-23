@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="com.test.UnreferencedLeafNodeType" entity-name="com.test.UnreferencedLeafNodeType" table="UnreferencedLeafNodeType" abstract="false">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="native" />
+		</id>
+		<property name="unreferencedLeafNodeTypeProperty" column="unrefLeafNodeTypeProperty" />
+	</class>
+</hibernate-mapping>

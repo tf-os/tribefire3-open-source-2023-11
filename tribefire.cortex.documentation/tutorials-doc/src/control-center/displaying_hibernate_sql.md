@@ -1,0 +1,1 @@
+[](asset://tribefire.extension.hibernate:hibernate-doc/displaying_hibernate_sql.md?INCLUDE)

@@ -1,0 +1,11 @@
+$module=(Module=com.braintribe.model.deployment.Module)('module:tribefire.extension.vitals.dmb.dmb-locking-module')
+
+$lockManager=(DmbLocking=tribefire.extension.dmb.locking.model.deployment.DmbLocking)()
+.globalId='default:tribefire.extension.vitals.dmb:dmb-locking-module/dmbLocking'
+.externalId='locking.dmb.default'
+.name='Default DMB Locking'
+.autoDeploy=true
+.module=$module
+
+$cortexConfig=(CortexConfiguration=com.braintribe.model.cortex.deployment.CortexConfiguration)('config:cortex')
+.lockManager=$lockManager

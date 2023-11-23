@@ -1,0 +1,35 @@
+// ============================================================================
+// Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+// 
+// This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+// License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+// 
+// This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+// ============================================================================
+package com.braintribe.gm.model.reason.config;
+
+import com.braintribe.gm.model.reason.Reason;
+import com.braintribe.model.generic.annotation.SelectiveInformation;
+import com.braintribe.model.generic.reflection.EntityType;
+import com.braintribe.model.generic.reflection.EntityTypes;
+
+@SelectiveInformation("unresolved property ${propertyName}")
+public interface UnresolvedProperty extends Reason {
+
+	EntityType<UnresolvedProperty> T = EntityTypes.T(UnresolvedProperty.class);
+
+	String propertyName = "propertyName";
+
+	String getPropertyName();
+	void setPropertyName(String value);
+
+	static UnresolvedProperty create(String propertyName) {
+		UnresolvedProperty result = T.create();
+		result.setText("unresolved property " + propertyName);
+		result.setPropertyName(propertyName);
+		return result;
+	}
+}

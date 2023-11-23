@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+  
+<hibernate-mapping package="com.braintribe.model.lock">
+  <class name="com.braintribe.model.lock.ApplicationLock" table="TF_APPLOCK" abstract="true">
+  	<id name="id" column="id">
+  		<generator class="assigned" />
+  	</id>
+
+	<discriminator column="lock_type" type="string"/>
+
+  </class>
+</hibernate-mapping>

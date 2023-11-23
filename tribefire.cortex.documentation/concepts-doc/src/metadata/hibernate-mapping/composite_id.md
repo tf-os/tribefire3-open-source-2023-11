@@ -1,0 +1,1 @@
+[](asset://tribefire.extension.hibernate:hibernate-doc/hibernate-mapping/composite_id.md?INCLUDE)

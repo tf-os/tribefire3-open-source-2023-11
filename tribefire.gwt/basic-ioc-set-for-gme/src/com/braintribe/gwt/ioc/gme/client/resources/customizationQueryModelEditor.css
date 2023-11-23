@@ -1,0 +1,87 @@
+@CHARSET "ISO-8859-1";
+
+/* Class for hovered conditions (e.g. if the mouse pointer is moved over "id = 123"). */
+.con_hov {
+	cursor:pointer;
+	background-color:#DEDEDE; /* light grey */
+}
+
+/* Class for hovered elements if the parent condition is selected (e.g. if "id = 123" is selected and mouse pointer is moved over "id"). */
+.el_hov {
+	cursor:pointer;
+	text-decoration:underline;
+}
+
+/* Class for selected condition elements (e.g. if one clicks condition "id = 123"). */
+.con_sel {
+	background-color:#BABABA; /* grey */
+}
+
+/* Used at all? (old description: class for children conditions or elements of the parent is already selected). */
+.child_hov {
+	background-color:darkred;
+}
+
+/* Used at all? */
+.value_hov {
+	background-color:green;
+}
+
+/* Used at all? */
+.value_sel {
+	background-color:purple;
+}
+
+/* Used at all? */
+.value_el_sel {
+	background-color:orange;
+}
+
+/* Font color for boolean operators (i.e. AND, OR, NOT). */
+.bool_op{
+	color:SteelBlue;
+}
+
+/* Font color for the comparison operator (e.g. "=", "like", "in"). */
+.op{
+	color:SteelBlue;
+}
+
+/* Font color for some editable parts of the query, e.g. sort mode ("Ascending") or the order-by-property. */
+.editable{
+	color:SteelBlue;
+}
+	
+/* Font color for parentheses, e.g. "not ( condition )". */
+.bracket{
+	color:SteelBlue;
+}
+
+.smaller{
+	font-size:90%;
+}
+
+.smallest{
+	font-size:100%;
+}
+
+.comp{
+	display: inline-block;	
+	white-space: nowrap;	
+}
+
+.query {
+	font-size:14pt;
+}
+
+.bigFont {	
+	font-size:14pt;
+}
+
+.paddedToolbar{
+	padding: 5px;	
+}
+
+.highlightedEntity{
+	border:3px solid black;
+}

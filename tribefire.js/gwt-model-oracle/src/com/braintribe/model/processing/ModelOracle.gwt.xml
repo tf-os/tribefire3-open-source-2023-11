@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.common.Lcd"/>
+	<inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+	<inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.GmCoreApi"/>
+    <inherits name="com.braintribe.model.MetaModel"/>
+    <inherits name="com.braintribe.model.processing.Index"/>
+	<inherits name="com.braintribe.PlatformExceptions"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+    <source path="meta"/>
+</module>

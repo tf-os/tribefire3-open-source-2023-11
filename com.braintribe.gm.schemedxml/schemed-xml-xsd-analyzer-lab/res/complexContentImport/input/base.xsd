@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="base" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:complexType name="Base">
+		<xsd:attribute name="base" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:simpleType name="simple">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="20"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,7 @@
+This artifact bundles dependencies that are often/usually needed when implementing unit tests for GM code.
+This includes several GM dependencies, GM-specific test tools and assertions as well as general UnitTestDeps (see below).
+
+The purpose of this artifact is to have a convenient way of getting all required testing deps.
+That way one also doesn't have to think about artifact versions.
+
+For tests that do not require GM dependencies one should use com.braintribe.testing:UnitTestDeps instead.

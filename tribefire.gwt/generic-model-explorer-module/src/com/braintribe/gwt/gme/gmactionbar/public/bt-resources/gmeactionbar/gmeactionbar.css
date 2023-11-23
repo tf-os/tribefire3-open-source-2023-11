@@ -1,0 +1,138 @@
+.actionbar-folder-action:HOVER .actionbar-stack {
+	visibility: visible;
+	height: 50%;
+}
+
+.actionbar-folder-action.enabled:HOVER .actionbar-image {
+	opacity: 1;
+}
+
+.actionbar-folder-action .actionbar-stack .enabled {
+	visibility: hidden;
+	height: 0%;
+}
+
+.actionbar-folder-action.enabled:HOVER {
+	border: 1px solid #dedede;
+}
+
+.actionbar-folder-action.enabled.split:HOVER {
+	background-image: url("split.png") !important;
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+.splitAction {
+	width: 12px;
+}
+
+.actionbar-text-split {
+	margin-left: 9px;
+}
+
+.actionbar-folder-action {
+	border: 1px solid transparent;
+	width: 69px;
+	margin-top: 3px;
+}
+
+.actionbar-more {
+	width: 30px;
+}
+
+.actionbar-folder-action.enabled {
+    cursor: pointer;
+}
+
+.actionbar-stack {
+	transition: all 0.2s ease-in-out;
+	overflow: hidden;
+	background-position:center center;
+	background-repeat:no-repeat;
+	background-image: url("folder-normal.png");
+	background-color:rgba(240, 240, 240, 0.75);
+}
+
+.actionbar-stack:HOVER {
+	background-image: url("folder-open.png");
+}
+
+.globalActionToolBarBase .actionbar-text,
+.globalActionToolBarBase .actionbar-text-horizontal {
+	margin-top: 0px !important;
+}
+
+.actionbar-text-horizontal {
+	align-self: center;
+}
+
+.actionbar-text {
+	color: #3f4348;
+	font: 12px Open Sans;
+	text-align: center;
+	margin-top: 2px;
+}
+
+.actionbar-image {
+	display: block; opacity: 1;
+	margin-left: 19px;
+	margin-top: 2px;
+	width: 32px;
+	height: 32px;
+}
+
+.actionbar-more-image {
+	margin-left: 0px;
+}
+
+/* Style of the tetherBar elements */
+.actionbar-toolbar {
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	height: 100%;
+	/*border-bottom: 1px solid #dedede;*/
+	/*height: 70px;*/
+	/*height: 2.3em;*/	
+}
+
+.actionbar-toolbar li {
+	float: left;
+	/*line-height: 2.3em;*/
+	/*padding-left: .75em;*/
+	list-style: none;
+	/*color: #dd2c0d;*/
+}
+
+.actionbar-toolbar li div {
+	display: block;
+	/*padding: 0 15px 0 0;*/
+	/*font-weight: normal;
+	cursor: pointer;*/
+}
+
+.actionbar-toolbar li div:HOVER {
+	/*text-decoration: underline;*/
+}
+
+.actionbar-tether {
+	background: url(crumbs.gif) no-repeat right center;
+	padding: 0 20px 0 0;
+	width: 69px;
+	cursor: pointer;
+}
+
+.actionbar-tether:HOVER .actionbar-image {
+	opacity: 1;
+}
+
+.actionbar-separator {
+	margin-left: 3px;
+	margin-right: 3px;
+	position: relative;
+	top: 10px;
+}
+
+.toolBarViewBody .htmlPanel {
+	height: 100% !important;
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="Root" type="RootType"/>
+	<xs:complexType name="RootType">
+		<xs:sequence>
+			<xs:element name="one" type="Choice"/>
+			<xs:element name="two" type="Choice"/>
+			<xs:element name="three" type="Choice"/>
+			<xs:element name="multi" type="MultiChoice"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Choice">
+		<xs:choice>
+			<xs:element name="string" type="xs:string"/>
+			<xs:element name="number">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minExclusive value="5"/>
+						<xs:maxExclusive value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="enum">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="one"/>
+						<xs:enumeration value="two"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="MultiChoice">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="mcString" type="xs:string"/>
+			<xs:element name="mcNumber" type="xs:integer"/>
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

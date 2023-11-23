@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+	<inherits name="com.braintribe.BasicConfigAnnotations"/>
+	<inherits name="com.braintribe.Codec"/>
+    <inherits name="com.braintribe.gwt.action.Action"/>
+    <inherits name="com.braintribe.gwt.async.Async"/>
+    <inherits name="com.braintribe.gwt.browserfeatures.BrowserFeatures"/>
+    <inherits name="com.braintribe.gwt.codec.registry.Registry"/>
+    <inherits name="com.braintribe.gwt.gmview.action.GmViewAction"/>
+    <inherits name="com.braintribe.gwt.gmview.codec.GmViewCodec"/>
+    <inherits name="com.braintribe.gwt.gmview.GmViewApi"/>
+    <inherits name="com.braintribe.gwt.gmview.metadata.GmViewMetaData"/>
+    <inherits name="com.braintribe.gwt.gmview.util.GmViewUtil"/>
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.components.Components"/>
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.extendedcomponents.ExtendedComponents"/>
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.extendedtrigger.ExtendedTrigger"/>
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.GxtResources"/>
+    <inherits name="com.braintribe.gwt.gxt.gxtresources.multieditor.MultiEditor"/>
+    <inherits name="com.braintribe.gwt.ioc.Ioc"/>
+    <inherits name="com.braintribe.gwt.logging.Logging"/>
+    <inherits name="com.braintribe.model.BasicMetaModel"/>
+    <inherits name="com.braintribe.model.BasicResourceModel"/>
+    <inherits name="com.braintribe.model.generic.GenericModelValidation"/>
+    <inherits name="com.braintribe.model.generic.I18nModel"/>
+    <inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.IconModel"/>
+    <inherits name="com.braintribe.model.PathModel"/>
+    <inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <inherits name="com.braintribe.model.StyleModel"/>
+    <inherits name="com.braintribe.model.TimeModel"/>
+    <inherits name="com.braintribe.model.TransientResourceModel"/>
+    <inherits name="com.braintribe.model.WorkbenchModel"/>
+    <inherits name="com.braintribe.utils.I18nTools"/>
+    <inherits name="com.google.gwt.cell.Cell"/>
+    <inherits name="com.google.gwt.core.AsyncFragmentLoader"/>
+    <inherits name="com.google.gwt.core.CompilerParameters"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.core.CoreWithUserAgent"/>
+    <inherits name="com.google.gwt.core.CrossSiteIframeLinker"/>
+    <inherits name="com.google.gwt.core.StackTrace"/>
+    <inherits name="com.google.gwt.core.SynchronousFragmentLoadCallback"/>
+    <inherits name="com.google.gwt.core.XSLinker"/>
+    <inherits name="com.google.gwt.dom.DOM"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="com.google.gwt.event.dom.DomEvent"/>
+    <inherits name="com.google.gwt.event.EventBase"/>
+    <inherits name="com.google.gwt.event.logical.LogicalEvent"/>
+    <inherits name="com.google.gwt.i18n.CldrLocales"/>
+    <inherits name="com.google.gwt.regexp.RegExp"/>
+    <inherits name="com.google.gwt.resources.Resources"/>
+    <inherits name="com.google.gwt.safehtml.SafeHtml"/>
+    <inherits name="com.google.gwt.user.Debug"/>
+    <inherits name="com.google.gwt.user.RemoteServiceObfuscateTypeNames"/>
+    <inherits name="com.sencha.gxt.cell.core.Core"/>
+    <inherits name="com.sencha.gxt.core.Core"/>
+    <inherits name="com.sencha.gxt.data.Data"/>
+    <inherits name="com.sencha.gxt.theme.base.Base"/>
+    <inherits name="com.sencha.gxt.widget.core.Core"/>
+    <!--Resource Module-->
+    <inherits name="edu.ycp.cs.dh.acegwt.AceGWT"/>
+    <!-- Adding css styles -->
+    <stylesheet src="bt-resources/gmgxtsupport/gmgxtsupport.css"/>
+    <replace-with class="com.braintribe.gwt.genericmodelgxtsupport.client.field.ClickableComboBoxListViewAppearance">
+    	<when-type-is class="com.sencha.gxt.widget.core.client.ListView.ListViewAppearance" />
+  	</replace-with>
+</module>

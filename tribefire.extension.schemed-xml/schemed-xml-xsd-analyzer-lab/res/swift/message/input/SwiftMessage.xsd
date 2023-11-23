@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" elementFormDefault="qualified">
+	<xs:element name="swift-message" type="swift-message"/>
+	<xs:complexType name="swift-message">
+		<xs:sequence>
+			<xs:element name="header" type="header"/>
+			<xs:element name="body" type="body"/>
+			<xs:element name="errors" type="errors" minOccurs="0"/>
+			<xs:element name="raw-swift" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="header" type="header"/>
+	<xs:complexType name="header">
+		<xs:sequence>
+			<xs:element name="message-type" type="xs:string"/>
+			<xs:element name="mir" type="xs:string"/>
+			<xs:element name="sender_date" type="xs:string"/>
+			<xs:element name="sender-time" type="xs:string"/>
+			<xs:element name="sender-bic" type="xs:string"/>
+			<xs:element name="receiver-bic" type="xs:string"/>
+			<xs:element name="valuta" type="xs:string"/>
+			<xs:element name="currency" type="xs:string"/>
+			<xs:element name="amount" type="xs:decimal"/>
+			<xs:element name="transaction-no" type="xs:integer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="body" type="body"/>
+	<xs:complexType name="body">
+		<xs:sequence>
+			<xs:element name="field" type="field" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="field" type="field"/>
+	<xs:complexType name="field">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="index" type="xs:integer" use="required"/>
+				<xs:attribute name="tag" type="xs:integer" use="required"/>
+				<xs:attribute name="option" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="errors" type="errors"/>
+	<xs:complexType name="errors">
+		<xs:sequence>
+			<xs:element name="error" type="error" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="error" type="error"/>
+	<xs:complexType name="error">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="count" type="xs:integer" use="optional"/>
+				<xs:attribute name="index" type="xs:integer" use="required"/>
+				<xs:attribute name="tag" type="xs:integer" use="required"/>
+				<xs:attribute name="option" type="xs:string" use="optional"/>
+				<xs:attribute name="code" type="xs:string" use="optional"/>
+				<xs:attribute name="text" type="xs:string" use="optional"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

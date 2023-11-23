@@ -1,0 +1,273 @@
+#if ( $source.uiTheme )
+
+#if ( $source.uiTheme.basicFont)
+.* {
+
+	 #if ( $source.uiTheme.basicFont.family)
+      font-family: $source.uiTheme.basicFont.family;
+    #end
+    #if ( $source.uiTheme.basicFont.size)
+      font-size: $source.uiTheme.basicFont.size.value$source.uiTheme.basicFont.size.unit;
+    #end
+    #if ( $source.uiTheme.basicFont.weight)
+      font-weight: $source.uiTheme.basicFont.weight;
+    #end
+    #if ( $source.uiTheme.basicFont.style)
+      font-style: $source.uiTheme.basicFont.style;
+    #end
+    #if ( $source.uiTheme.basicFont.variant)
+      font-variant: $source.uiTheme.basicFont.variant;
+    #end
+    #if ( $source.uiTheme.basicFont.color)
+      color: rgb($source.uiTheme.basicFont.color.red,$source.uiTheme.basicFont.color.green,$source.uiTheme.basicFont.color.blue);
+    #end
+	
+}
+#end
+
+
+#if ( $source.uiTheme.menuFont)
+a.x-menu-item {
+    #if ( $source.uiTheme.menuFont.family)
+      font-family: $source.uiTheme.menuFont.family !important;
+    #end
+    #if ( $source.uiTheme.menuFont.size)
+      font-size: $source.uiTheme.menuFont.size.value$source.uiTheme.menuFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.menuFont.weight)
+      font-weight: $source.uiTheme.menuFont.weight !important;
+    #end
+    #if ( $source.uiTheme.menuFont.style)
+      font-style: $source.uiTheme.menuFont.style !important;
+    #end
+    #if ( $source.uiTheme.menuFont.variant)
+      font-variant: $source.uiTheme.menuFont.variant !important;
+    #end
+    #if ( $source.uiTheme.menuFont.color)
+      color: rgb($source.uiTheme.menuFont.color.red,$source.uiTheme.menuFont.color.green,$source.uiTheme.menuFont.color.blue) !important; 
+    #end
+}
+#end
+  
+#if ( $source.uiTheme.headerFont)
+#tf_nav li a {
+    #if ( $source.uiTheme.headerFont.family)
+      font-family: $source.uiTheme.headerFont.family !important;
+    #end
+    #if ( $source.uiTheme.headerFont.size)
+      font-size: $source.uiTheme.headerFont.size.value$source.uiTheme.headerFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.headerFont.weight)
+      font-weight: $source.uiTheme.headerFont.weight !important;  
+    #end
+    #if ( $source.uiTheme.headerFont.style)
+      font-style: $source.uiTheme.headerFont.style !important;
+    #end
+    #if ( $source.uiTheme.headerFont.variant)
+      font-variant: $source.uiTheme.headerFont.variant !important;
+    #end
+    #if ( $source.uiTheme.headerFont.color)
+      color: rgb($source.uiTheme.headerFont.color.red,$source.uiTheme.headerFont.color.green,$source.uiTheme.headerFont.color.blue) !important;
+    #end
+}
+#end  
+
+#if ( $source.uiTheme.tetherFont)
+.tetherSelectedElement {
+    #if ( $source.uiTheme.tetherFont.family)
+      font-family: $source.uiTheme.tetherFont.family !important;
+    #end
+    #if ( $source.uiTheme.tetherFont.size)
+      font-size: $source.uiTheme.tetherFont.size.value$source.uiTheme.tetherFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.tetherFont.weight)
+      font-weight: $source.uiTheme.tetherFont.weight !important;  
+    #end
+    #if ( $source.uiTheme.tetherFont.style)
+      font-style: $source.uiTheme.tetherFont.style !important;
+    #end
+    #if ( $source.uiTheme.tetherFont.variant)
+      font-variant: $source.uiTheme.tetherFont.variant !important;
+    #end
+    #if ( $source.uiTheme.tetherFont.color)
+      color: rgb($source.uiTheme.tetherFont.color.red,$source.uiTheme.tetherFont.color.green,$source.uiTheme.tetherFont.color.blue) !important;
+    #end
+}
+#end      
+
+#if ( $source.uiTheme.tabFont)
+.tabItemLabelHorizontal {
+    #if ( $source.uiTheme.tabFont.family)
+      font-family: $source.uiTheme.tabFont.family !important;
+    #end
+    #if ( $source.uiTheme.tabFont.size)
+      font-size: $source.uiTheme.tabFont.size.value$source.uiTheme.tabFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.tabFont.weight)
+      font-weight: $source.uiTheme.tabFont.weight !important;  
+    #end
+    #if ( $source.uiTheme.tabFont.style)
+      font-style: $source.uiTheme.tabFont.style !important;
+    #end
+    #if ( $source.uiTheme.tabFont.variant)
+      font-variant: $source.uiTheme.tabFont.variant !important;
+    #end
+    #if ( $source.uiTheme.tabFont.color)
+      color: rgb($source.uiTheme.tabFont.color.red,$source.uiTheme.tabFont.color.green,$source.uiTheme.tabFont.color.blue) !important;
+    #end
+}
+#end  
+
+#if ( $source.uiTheme.hooverColor)
+#tf_nav li a:after {
+	border-bottom: 1px solid rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;	
+}
+#end      
+
+#if ( $source.uiTheme.selectInactiveColor)
+div.verticalTabItem {
+    background-color: rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+    border-color: rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+div.verticalTabItem:hover {
+    background-color: rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+    border-color: rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.selectColor)
+div.verticalTabItem.verticalTabSelected {
+	background-color: rgb($source.uiTheme.selectColor.red,$source.uiTheme.selectColor.green,$source.uiTheme.selectColor.blue) !important;
+	border-color: rgb($source.uiTheme.selectColor.red,$source.uiTheme.selectColor.green,$source.uiTheme.selectColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.selectInactiveColor)
+.x-menu-item-active {
+    background: none repeat scroll 0 0 rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+    border: 1px solid rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+.emptyStyle {
+color: rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+.propertyGroupRuler {
+color: rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+.tabbedEntityView li.x-tab-strip-active, .tabbedEntityView li.x-tab-strip-active:hover {
+border-bottom: 2px solid rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.selectInactiveColor)
+.tabbedEntityView li:hover{
+    border-bottom: 1px solid rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;	
+}
+#end      
+
+#if ( $source.uiTheme.selectInactiveColor)
+.x-grid3-row-selected {
+background-color: rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.selectInactiveColor)
+.x-grid3-row-selected .gmeGridColumn {
+background-color: rgb($source.uiTheme.selectInactiveColor.red,$source.uiTheme.selectInactiveColor.green,$source.uiTheme.selectInactiveColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.selectColor)
+.queryModelEditorSearchElement {
+background-color: rgb($source.uiTheme.selectColor.red,$source.uiTheme.selectColor.green,$source.uiTheme.selectColor.blue) !important;
+}
+#end
+
+#if ( $source.uiTheme.hooverColor)
+.x-grid3-text-row:hover {
+	border-bottom: 1px solid rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;	
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+div.x-window-tl .x-window-header {
+color: rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end      
+
+#if ( $source.uiTheme.hooverColor)
+.gmeWorkbenchRow:hover { 
+border-bottom: 1px solid rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+}
+#end
+
+#if ( $source.uiTheme.hooverColor)
+.thumbnailPanelSelectionContainerSelected 
+.thumbnailPanelImageContainer {
+background: none;
+outline: 2px solid rgb($source.uiTheme.hooverColor.red,$source.uiTheme.hooverColor.green,$source.uiTheme.hooverColor.blue) !important;
+cursor: pointer;
+}
+#end
+
+#if ( $source.uiTheme.headerFont)
+.gmePropertyName {
+    #if ( $source.uiTheme.headerFont.family)
+      font-family: $source.uiTheme.headerFont.family !important;
+    #end
+    #if ( $source.uiTheme.headerFont.size)
+      font-size: $source.uiTheme.headerFont.size.value$source.uiTheme.headerFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.headerFont.weight)
+      font-weight: $source.uiTheme.headerFont.weight !important;  
+    #end
+    #if ( $source.uiTheme.headerFont.style)
+      font-style: $source.uiTheme.headerFont.style !important;
+    #end
+    #if ( $source.uiTheme.headerFont.variant)
+      font-variant: $source.uiTheme.headerFont.variant !important;
+    #end
+    #if ( $source.uiTheme.headerFont.color)
+      color: rgb($source.uiTheme.headerFont.color.red,$source.uiTheme.headerFont.color.green,$source.uiTheme.headerFont.color.blue) !important;
+    #end
+}
+#end
+
+#if ( $source.uiTheme.basicFont)
+.gmePropertyValue {
+
+	 #if ( $source.uiTheme.basicFont.family)
+      font-family: $source.uiTheme.basicFont.family !important;
+    #end
+    #if ( $source.uiTheme.basicFont.size)
+      font-size: $source.uiTheme.basicFont.size.value$source.uiTheme.basicFont.size.unit !important;
+    #end
+    #if ( $source.uiTheme.basicFont.weight)
+      font-weight: $source.uiTheme.basicFont.weight !important;
+    #end
+    #if ( $source.uiTheme.basicFont.style)
+      font-style: $source.uiTheme.basicFont.style !important;
+    #end
+    #if ( $source.uiTheme.basicFont.variant)
+      font-variant: $source.uiTheme.basicFont.variant !important;
+    #end
+    #if ( $source.uiTheme.basicFont.color)
+      color: rgb($source.uiTheme.basicFont.color.red,$source.uiTheme.basicFont.color.green,$source.uiTheme.basicFont.color.blue) !important;
+    #end
+	
+}
+#end
+
+
+#end

@@ -1,0 +1,51 @@
+[
+    1,
+    "Hallo",
+    true,
+    false,
+    2.5,
+    132132142354215421,
+    { "_type": "long", "value": "5"},
+    { "_type": "com.braintribe.codec.marshaller.json.model.TestEnum", "value": "ONE"},
+    { "_type": "com.braintribe.codec.marshaller.json.model.TestEnum", "value": "TWO"},
+    { "_type": "com.braintribe.codec.marshaller.json.model.TestEnum", "value": "THREE"},
+    { 
+        "one": 1,
+        "two": 2,
+        "three": 3
+    },
+    { 
+        "_type": "com.braintribe.codec.marshaller.json.model.TestEntity",
+        "integerValue": 1,
+        "floatValue": 2
+    },
+    { 
+        "integerValue": 1,
+        "floatValue": 2.1,
+        "doubleValue": 3.14,
+        "decimalValue": "2.8132142342314231412432315214231423155214231423152314231412212",
+        "_type": "com.braintribe.codec.marshaller.json.model.TestEntity"
+    },
+    { 
+        "integerValue": 1,
+        "floatValue": 2.1,
+        "doubleValue": 3.14,
+        "decimalValue": 2.81,
+        "_type": "com.braintribe.codec.marshaller.json.model.TestEntity"
+    },
+    { 
+        "_type": "com.braintribe.codec.marshaller.json.model.TestEntity",
+        "entityValue": {
+            "stringValue": "Hallo",
+            "floatValue": 1
+        }
+    },
+    { 
+        "entityValue": {
+            "stringValue": "Hallo",
+            "floatValue": 1
+        },
+        "_type": "com.braintribe.codec.marshaller.json.model.TestEntity"
+    }
+
+]

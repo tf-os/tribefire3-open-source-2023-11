@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.model.Example1Model"/>
+    <inherits name="com.google.gwt.emul.EmulationWithUserAgent"/>
+    <inherits name="com.braintribe.model.RootModel"/>
+    <source path="example2"/>
+</module>

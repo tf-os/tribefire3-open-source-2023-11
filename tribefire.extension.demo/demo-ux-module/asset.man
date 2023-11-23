@@ -1,0 +1,3 @@
+JsUxModule = tribefire.extension.js.model.asset.natures.JsUxModule
+
+$nature = JsUxModule()

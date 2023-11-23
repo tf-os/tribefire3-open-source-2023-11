@@ -1,0 +1,69 @@
+/* Hibernate Mapping Meta Data */
+
+EntityMapping=com.braintribe.model.accessdeployment.hibernate.meta.EntityMapping
+PropertyMapping=com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping
+
+$mappedEntity=EntityMapping()
+.inherited=true
+.mapToDb=true
+.globalId='hbm:mapped-entity'
+
+$unmappedEntity=EntityMapping()
+.inherited=true
+.mapToDb=false
+.globalId='hbm:unmapped-entity'
+
+
+$mappedProperty=PropertyMapping()
+.inherited=true
+.mapToDb=true
+.globalId='hbm:mapped-property'
+
+$unmappedProperty=PropertyMapping()
+.inherited=true
+.mapToDb=false
+.globalId='hbm:unmapped-property'
+
+/* Basic Model with globalId and partition unmapped */
+
+GmEntityTypeOverride = com.braintribe.model.meta.override.GmEntityTypeOverride
+GmEntityType = com.braintribe.model.meta.GmEntityType
+GmMetaModel = com.braintribe.model.meta.GmMetaModel
+GmProperty = com.braintribe.model.meta.GmProperty
+PropertyMapping = com.braintribe.model.accessdeployment.hibernate.meta.PropertyMapping
+GmPropertyOverride = com.braintribe.model.meta.override.GmPropertyOverride
+
+$rootModel         = GmMetaModel('model:com.braintribe.gm:root-model')
+$genericEntityType = GmEntityType('type:com.braintribe.model.generic.GenericEntity')
+$globalIdProperty  = GmProperty('property:com.braintribe.model.generic.GenericEntity/globalId')
+$partitionProperty = GmProperty('property:com.braintribe.model.generic.GenericEntity/partition')
+
+$configModel           = GmMetaModel()
+$genericEntityOverride = GmEntityTypeOverride()
+$globalIdOverride      = GmPropertyOverride()
+$partitionOverride     = GmPropertyOverride()
+
+$configModel
+.dependencies = [$rootModel]
+.globalId = 'model:tribefire.extension.hibernate:basic-hbm-configuration-model'
+.name = 'tribefire.extension.hibernate:basic-hbm-configuration-model'
+.typeOverrides = ($genericEntityOverride)
+.version = '1.0'
+
+$genericEntityOverride
+.declaringModel = $configModel
+.entityType = $genericEntityType
+.globalId = 'typeO:tribefire.extension.hibernate:basic-hbm-configuration-model/type:com.braintribe.model.generic.GenericEntity'
+.propertyOverrides = [$globalIdOverride, $partitionOverride]
+
+$globalIdOverride
+.declaringTypeInfo = $genericEntityOverride
+.globalId = 'propertyO:typeO:tribefire.extension.hibernate:basic-hbm-configuration-model/type:com.braintribe.model.generic.GenericEntity/globalId'
+.metaData = ($unmappedProperty)
+.property = $globalIdProperty
+
+$partitionOverride
+.declaringTypeInfo = $genericEntityOverride
+.globalId = 'propertyO:typeO:tribefire.extension.hibernate:basic-hbm-configuration-model/type:com.braintribe.model.generic.GenericEntity/partition'
+.metaData = ($unmappedProperty)
+.property = $partitionProperty

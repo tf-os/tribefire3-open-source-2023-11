@@ -1,0 +1,2 @@
+$nature = (ResourcePriming=com.braintribe.model.asset.natures.ResourcePriming)()
+.accessId = 'access.demo.wb'

@@ -1,0 +1,141 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.gcp</groupId>
+        <artifactId>parent</artifactId>
+        <version>[2.8,2.9)</version>
+    </parent>
+    <artifactId>gcp-processing</artifactId>
+    <version>2.8.3</version>
+    <properties>
+        <archetype>library</archetype>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>tribefire.extension.gcp</groupId>
+            <artifactId>gcp-processing-api</artifactId>
+            <version>${V.tribefire.extension.gcp}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>meta-model</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>gm-core</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>json-marshaller</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>basic-access-adapters</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>generic-model-core-tools</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>access-interfaces</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>instant-type-weaving</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>action-processing-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>deployment-processing-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>gm-worker-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>check-api</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <!-- for TF App - servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+            <version>${V.javax.servlet}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.cortex</groupId>
+            <artifactId>basic-servlet-adapters</artifactId>
+            <version>${V.tribefire.cortex}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.gcp</groupId>
+            <artifactId>gcp-service-model</artifactId>
+            <version>${V.tribefire.extension.gcp}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.gcp</groupId>
+            <artifactId>gcp-model</artifactId>
+            <version>${V.tribefire.extension.gcp}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-storage</artifactId>
+            <version>${V.com.google.cloud}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${V.com.google.guava}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>${V.org.apache.commons}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>resource-model-processing</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.common</groupId>
+            <artifactId>stream-tracking</artifactId>
+            <version>${V.com.braintribe.common}</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,23 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  formatting_metadata.md:
+    boostedSearchTerms:
+      - "formatting"
+  
+  code.md:
+    boostedSearchTerms:
+      - "CodeFormatting"
+
+  fraction_digits.md:
+    boostedSearchTerms:
+      - "FractionDigitsFormatting"
+
+  total_digits.md:
+    boostedSearchTerms:
+      - "TotalDigitsFormatting"
+
+  whitespace.md:
+    boostedSearchTerms:
+      - "WhitespaceFormatting"

@@ -1,0 +1,1 @@
+> See [Resources](asset://tribefire.cortex.documentation:development-environment-doc/resources.md) for information where to download tribefire components from.

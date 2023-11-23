@@ -1,0 +1,129 @@
+[part] {
+  box-sizing: border-box;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  outline: none;
+}
+
+[part="field"] {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+[part="fieldset"] {
+  border: 0;
+  padding: 0;
+  min-inline-size: 0;
+}
+
+[part="input"],
+[part="textarea"] {
+  font-family: inherit;
+  font-size: inherit;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--primary-color, inherit);
+  border: none;
+  padding: 4px;
+  transition: background 0.2s ease;
+}
+
+[part="input"]:focus,
+[part="textarea"]:focus {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+[part="textarea"] {
+  resize: none;
+}
+
+[part="label"] {
+  color: var(--secondary-color);
+  padding: 0 0 0 4px;
+  opacity: 0.7;
+}
+
+[part="error-message"] {
+  margin: 4px 0 12px;
+  color: var(--danger-color, red);
+  padding: 0 0 0 4px;
+}
+
+@media screen and (min-width: 800px) {
+  [name="userData"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  [name="userDataPartA"],
+  [name="userDataPartB"] {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
+
+[part="button"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  border: var(--border);
+  background-color: var(--background-color);
+  color: var(--color);
+}
+
+[part="button"]:focus {
+  background-color: var(--background-color-focus);
+}
+
+[part="button"]:active {
+  transform: scale(0.98);
+}
+
+[name="discardButton"] {
+  --border: 1px solid var(--danger-color);
+  --background-color: var(--danger-color);
+  --background-color-focus: var(--danger-color-lighten);
+  --color: var(--danger-color-contrast);
+}
+
+[name="resetButton"] {
+  --border: 1px solid var(--primary-color);
+  --background-color: transparent;
+  --background-color-focus: rgba(255, 255, 255, 0.04);
+  --color: var(--primary-color);
+}
+
+[name="submitButton"] {
+  --border: 1px solid var(--primary-color);
+  --background-color: var(--primary-color);
+  --background-color-focus: var(--primary-color-lighten);
+  --color: var(--primary-color-contrast);
+}
+
+[name="buttons"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+@media screen and (min-width: 360px) {
+  [name="buttons"] {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  [part="button"]:not(:last-of-type) {
+    margin-right: 8px;
+  }
+}

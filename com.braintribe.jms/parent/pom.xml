@@ -1,0 +1,41 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.braintribe.jms</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.0.5</version>
+    <packaging>pom</packaging>
+    <properties>
+        <java.version>1.8</java.version>
+        <V.com.braintribe.jms>[2.0,2.1)</V.com.braintribe.jms>
+        <V.com.braintribe.common>[2.0,2.1)</V.com.braintribe.common>
+        <V.com.braintribe.execution>[2.0,2.1)</V.com.braintribe.execution>
+        <V.com.braintribe.gm>[2.0,2.1)</V.com.braintribe.gm>
+        <V.com.ibm>7.5.0.2</V.com.ibm>
+        <V.concurrent>1.3.1</V.concurrent>
+        <V.javax.annotation>1.3.2</V.javax.annotation>
+        <V.javax.jms>1.1</V.javax.jms>
+        <V.jboss_jboss-common>4.2.2.GA</V.jboss_jboss-common>
+        <V.jboss_jbossmq-client>4.0.2</V.jboss_jbossmq-client>
+        <V.jboss_jnp-client>4.2.2.GA</V.jboss_jnp-client>
+        <V.org.apache.activemq>5.15.8</V.org.apache.activemq>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+</project>

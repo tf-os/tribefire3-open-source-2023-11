@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<model-declaration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="model-declaration-1.0.xsd">
+
+  <name>tribefire.cortex:job-api-model</name>
+
+  <groupId>tribefire.cortex</groupId>
+  <artifactId>job-api-model</artifactId>
+  <version>3.0.5-pc</version>
+  <hash>7acb170edee5aa6b613f7171f1168574</hash>
+
+  <dependencies>
+    <dependency>com.braintribe.gm:service-api-model</dependency>
+  </dependencies>
+
+  <types>
+    <type>com.braintribe.model.job.api.JobRequest</type>
+    <type>com.braintribe.model.job.api.JobResponse</type>
+  </types>
+
+</model-declaration>

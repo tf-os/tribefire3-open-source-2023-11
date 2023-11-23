@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<?eclipse version="3.4"?>
+<plugin>
+	<!--
+		PREFERENCES 
+	-->
+	<!-- preference pages -->
+   	<extension
+         point="org.eclipse.ui.preferencePages">         
+      <page      		      	
+      		category="com.braintribe.devrock.main"
+            class="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            id="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            name="Artifact Container">
+      </page>  
+        <page      		      	
+      		category="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            class="com.braintribe.devrock.artifactcontainer.plugin.preferences.indices.IndicesPreferencePage"
+            id="com.braintribe.devrock.artifactcontainer.plugin.preferences.indices.IndicesPreferencePage"
+            name="Repository indices">
+      </page>  
+      <page
+       		category="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            class="com.braintribe.devrock.artifactcontainer.plugin.preferences.project.ProjectPreferencesPage"
+            id="com.braintribe.devrock.artifactcontainer.plugin.preferences.project.ProjectPreferencesPage"
+            name="Source repositories">
+      </page>
+      
+      <page
+       		category="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            class="com.braintribe.devrock.artifactcontainer.plugin.preferences.bias.PublishingCandidatePreferencesPage"
+            id="com.braintribe.devrock.artifactcontainer.plugin.preferences.bias.PublishingCandidatePreferencesPage"
+            name="Artifact origin bias">
+      </page>
+      
+      <page
+       		category="com.braintribe.devrock.artifactcontainer.plugin.preferences.container.ArtifactContainerPreferencePage"
+            class="com.braintribe.devrock.artifactcontainer.plugin.preferences.maven.MavenPreferencesPage"
+            id="com.braintribe.devrock.artifactcontainer.plugin.preferences.maven.MavenPreferencesPage"
+            name="Maven integration">
+      </page>            
+    
+   	</extension>
+   	
+  
+   <!--
+   	ARTIFACT CONTAINER 
+   -->
+   <!-- container initializer -->
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+      <classpathContainerInitializer
+            class="com.braintribe.devrock.artifactcontainer.container.ArtifactContainerInitializer"
+            id="Braintribe.ArtifactClasspathContainer">
+      </classpathContainerInitializer>
+   </extension>   
+
+   <!-- runtime classpath entry resolver -->
+   <extension
+         point="org.eclipse.jdt.launching.runtimeClasspathEntryResolvers">
+      <runtimeClasspathEntryResolver
+            class="com.braintribe.devrock.artifactcontainer.container.ArtifactContainerRuntimeClasspathEntryResolver"
+            container="Braintribe.ArtifactClasspathContainer"
+            id="Braintribe.ArtifactContainerRuntimeClasspathEntryResolver">
+      </runtimeClasspathEntryResolver>
+   </extension>
+   
+   <extension
+         point="org.eclipse.jdt.ui.classpathContainerPage">
+      <classpathContainerPage
+            class="com.braintribe.devrock.artifactcontainer.container.properties.ArtifactContainerPropertiesPage"
+            id="Braintribe.ArtifactClasspathContainer"
+            name="Braintribe Artifact Classpath Container">
+      </classpathContainerPage>
+   </extension>
+   
+   <extension point="org.eclipse.core.resources.natures" id="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNature"
+		name="Tribefire Services">
+		<runtime>
+			<run class="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNature">
+			</run>
+		</runtime>
+	</extension>
+	
+   
+   
+   <!--
+   		COMMANDS  
+   -->
+   <!-- command declaration-->
+   <extension point="org.eclipse.ui.commands">
+   	<!-- synchronize -->
+     <category id="com.braintribe.devrock.artifactcontainer.commands.category" name="ArtifactContainer Commands" />
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" id="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" name="Synchronize selected project(s)">
+        <commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" name="sync parameter" optional="true" />
+     </command>
+     <!-- refresh -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" id="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" name="Refresh selected projects(s)">
+        <commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" name="sync parameter" optional="true" />
+     </command>      
+     <!-- standalone workspace sync -->
+	<command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.SingleShotWorkspaceSynchronizer" id="com.braintribe.devrock.artifactcontainer.commands.SingleShotWorkspaceSynchronizer" name="workspace synchronizer"/>     
+     <!-- quick import -->   
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" id="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" name="QI Dialog in project-insertion mode"/>
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand" id="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand" name="QI Dialog in dependency-injection mode"/>
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.QuickImportDropdownHandler" id="com.braintribe.devrock.artifactcontainer.commands.QuickImportDropdownHandler" name="QI Dialog parameterized"/>
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.RunQuickImportScanCommand" id="com.braintribe.devrock.artifactcontainer.commands.RunQuickImportScanCommand" name="Run Quick Import Scan"/>
+     <!-- jar import -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.JarImportCommand" id="com.braintribe.devrock.artifactcontainer.commands.JarImportCommand" name="Import jar-backing artifact's project into workspace"/>
+     <!-- dependency clipboard copy -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" id="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" name="Copy selected jar-backing artifact's dependencies to clipboard">
+     	<commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" name="copy parameter" optional="true" />
+     </command>
+     <!-- dependency clipboard paste -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" id="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" name="Copy dependencies stored in clipboard">
+     	<commandParameter id="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" name="paste parameter" optional="true" />
+     </command>
+	<!-- condensed name to clipboard copy -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.CondensedNameToClipboardCopyCommand" id="com.braintribe.devrock.artifactcontainer.commands.CondensedNameToClipboardCopyCommand" name="Copy condensed artifact names stored in clipboard"/>
+
+    <!-- artifact intelligence -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" id="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" name="Artifact intelligence dialog"/>
+	 <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.SelectionIgnoringArtifactInformationCommand" id="com.braintribe.devrock.artifactcontainer.commands.SelectionIgnoringArtifactInformationCommand" name="Artifact intelligence dialog"/>
+
+    <!-- ant wizard -->
+    <!--
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.AntWizardCommand" id="com.braintribe.devrock.artifactcontainer.commands.AntWizardCommand" name="Ant runner wizard"/>
+     -->
+     <!-- tb wizard -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.TbWizardCommand" id="com.braintribe.devrock.artifactcontainer.commands.TbWizardCommand" name="TB runner wizard"/>     
+	<!-- validation run -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.ValidateSettingsCommand" id="com.braintribe.devrock.artifactcontainer.commands.ValidateSettingsCommand" name="Run AC's internal validation"/>          
+     
+     <!-- update workspace registry -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.commands.UpdateWorkspaceRegistryCommand" id="com.braintribe.devrock.artifactcontainer.commands.UpdateWorkspaceRegistryCommand" name="Rescan the workspace for artifacts"/>          
+
+	<!-- tribefire services nature -->
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.natures.AddTribefireServicesNature" id="com.braintribe.devrock.artifactcontainer.natures.AddTribefireServicesNature" name="Assign the Tribefire Services nature"/>
+     <command categoryId="com.braintribe.devrock.artifactcontainer.commands.category" defaultHandler="com.braintribe.devrock.artifactcontainer.natures.RemoveTribefireServicesNature" id="com.braintribe.devrock.artifactcontainer.natures.RemoveTribefireServicesNature" name="Remove the Tribefire Services nature"/>
+     
+          
+   </extension>
+   <!-- command icons -->
+   <extension point="org.eclipse.ui.commandImages">
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" icon="icons/refresh-dependencies.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" icon="icons/refresh-classpath.png"/>
+     
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" icon="icons/quickImport.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand" icon="icons/quickImport.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.RunQuickImportScanCommand" icon="icons/update_index.gif"/>
+
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" icon="icons/info_obj.gif"/>
+	 <image commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionIgnoringArtifactInformationCommand" icon="icons/info_obj.gif"/>
+     
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.TbWizardCommand" icon="icons/ant.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.JarImportCommand" icon="icons/importJar.png"/>
+     
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" icon="icons/copyToClipboard.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.CondensedNameToClipboardCopyCommand" icon="icons/condensedName.gif"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" icon="icons/pasteFromClipboard.png"/>
+     
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.ValidateSettingsCommand" icon="icons/validate_settings.gif"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.commands.UpdateWorkspaceRegistryCommand" icon="icons/update_index.gif"/>
+     
+     <image commandId="com.braintribe.devrock.artifactcontainer.natures.AddTribefireServicesNature" icon="icons/module.carrier.png"/>
+     <image commandId="com.braintribe.devrock.artifactcontainer.natures.RemoveTribefireServicesNature" icon="icons/module.carrier.png"/>
+          
+     
+   </extension>
+  
+   <!-- 
+   		context menu 
+   	-->
+   <extension point="org.eclipse.ui.menus">				
+		<menuContribution allPopups="true" locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		<menu id="com.braintribe.devrock" label="Devrock" >
+		
+			<!--
+    		 	*
+    			container features
+    			*
+    		-->
+			<separator name="container" visible="true"/>
+        	
+        	<!-- project synchronizer -->
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" style="push" label="Synchronize project(s)">   	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>							
+							<or>
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>												
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>							
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>             
+            <!-- project refresher -->
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" style="push" label="Refresh project(s)">   	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>							
+							<or>
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>																								
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>							
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>        	 
+        	
+        	<!--
+    		 	*
+    			import features
+    			*
+    		-->
+        	
+        	<separator name="imports" visible="true"/>
+            <!-- jar import -->
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.JarImportCommand" style="push" label="Import artifact(s)">        	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>																	
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>
+        	<!-- -->
+        	<!-- project import via quick import -->
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" style="push" label="Quick import of project">        	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>													
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>																
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>
+        	
+        	
+        	<!-- dependency import via quick import -->
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand" style="push" label="Quick import of dependencies">        	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>													
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>																
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>
+        	
+    		<!--
+    		 	*
+    			clip board features
+    			*
+    		-->
+        	<separator name="clipboard" visible="true"/>
+        	
+        	
+        	<!-- condensed name to clipboard copy -->
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.CondensedNameToClipboardCopyCommand" style="push" label="Copy condensed name to clipboard">        	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>										
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>							
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>
+      
+        	<!-- 
+        		dependency to clipboard copy 
+        	-->
+        	      		
+        	<!-- last option command : dynamic - will be generated on the fly : copy -->
+        	<dynamic class="com.braintribe.devrock.artifactcontainer.commands.dynamic.DynamicDependencyCopyCommandItem" id="com.braintribe.devrock.artifactcontainer.commands.dynamic.DynamicDependencyCopyCommandItem">
+        		<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>													
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>									
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</dynamic>        		
+        	<!-- last option command : dynamic - generated on the fly : paste -->        	
+       		<dynamic class="com.braintribe.devrock.artifactcontainer.commands.dynamic.DynamicDependencyPasteCommandItem" id="com.braintribe.devrock.artifactcontainer.commands.dynamic.DynamicDependencyPasteCommandItem">
+        		<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>													
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>									
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</dynamic>
+        	<separator name="clipboard_options_begin" visible="true"/>
+        	
+        	<!-- submenu - dependency to clipboard copy -->
+        	<menu id="com.braintribe.devrock.dependency.copy" label="Copy dependency declaration options" icon="icons/copyToClipboard.png">	
+	        	<!-- variable insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" style="push" label="Replace version declaration(s) with variable reference(s)" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+				 <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="referenced">
+        			</parameter>        	
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+	        	<!-- rangified insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" style="push" label="Rangify version declaration(s)" tooltip="Modify the version of the dependency to a hotfix supporting range">
+				 <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="rangified">
+        			</parameter>        	
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+        		<!-- direct insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" style="push" label="Keep version declaration(s) as found" tooltip="Keep version of the dependency as in the classpath">
+				     <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="untouched">
+        			</parameter>
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+        	</menu>
+        	
+        	<!-- 
+        		dependency to clipboard paste 
+        	-->
+        
+	        <!-- submenu -->	            	
+        	<menu id="com.braintribe.devrock.dependency.paste" label="Paste dependency declaration options" icon="icons/pasteFromClipboard.png">	
+	        	<!-- variable insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" style="push" label="Replace version declaration(s) with variable reference(s)" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+				 <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="referenced">
+        			</parameter>        	
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+	        	<!-- rangified insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" style="push" label="Rangify version declaration(s)" tooltip="Modify the version of the dependency to a hotfix supporting range">
+				 <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="rangified">
+        			</parameter>        	
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+        		<!-- direct insertion -->
+				<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" style="push" label="Keep version declaration(s) as found" tooltip="Keep version of the dependency as in the classpath">
+				     <parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="untouched">
+        			</parameter>
+					<visibleWhen>				
+						<with
+		                     variable="activeMenuSelection">
+							<iterate>
+								<or>													
+									<adapt type="org.eclipse.core.resources.IProject">
+										<test property="org.eclipse.core.resources.open" value="open"/> 
+									</adapt>
+									<adapt type="org.eclipse.core.resources.IResource">
+										<test property="org.eclipse.core.resources.open" value="open"/>
+									</adapt>																
+									<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+									<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+								</or>
+							</iterate>
+						</with>				
+					</visibleWhen>
+	        	</command>
+        	</menu>
+        	
+        	<!-- 
+        		indices (clearing of)
+        	-->
+        	
+        	<separator name="indices" visible="true"/>
+       		<menu id="com.braintribe.devrock.artifactcontainer.commands.dynamic.IndicesSubmenu" label="Rebuild indices" icon="icons/rebuild_index.gif">       		       			   
+      			<dynamic class="com.braintribe.devrock.artifactcontainer.commands.dynamic.purge.IndicesSubmenuForRebuild" id="com.braintribe.devrock.artifactcontainer.commands.dynamic.IndicesSubmenuForDeepRebuild"/>        			
+			</menu>
+              	
+			<separator name="features" visible="true"/>              	
+        	<!--
+    		 	*
+    			misc features
+    			*
+    		-->
+        
+        	<!-- validation runner -->
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.ValidateSettingsCommand" style="push" label="Run AC's internal validation"/>
+
+        	<!-- workspace update runner -->
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.UpdateWorkspaceRegistryCommand" style="push" label="Rescan the workspace for artifacts"/>
+        	     
+        	 <!-- artifact intelligence -->        	
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" style="push" label="Display artifact information">   	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>		
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>															
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>
+        	  
+        	 <!-- ant runner -->
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.TbWizardCommand" style="push" label="Run tb">   	
+				<visibleWhen>				
+					<with
+	                     variable="activeMenuSelection">
+						<iterate>
+							<or>
+								<adapt type="org.eclipse.core.resources.IProject">
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+								</adapt>
+								<adapt type="org.eclipse.core.resources.IResource">
+									<test property="org.eclipse.core.resources.open" value="open"/>
+								</adapt>																								
+								<adapt type="org.eclipse.jdt.core.IPackageFragment"/>
+								<adapt type="org.eclipse.jdt.core.IPackageFragmentRoot"/>																	
+							</or>
+						</iterate>
+					</with>				
+				</visibleWhen>
+        	</command>  
+        
+        
+        	<!-- nature -->
+        	 <command commandId="com.braintribe.devrock.artifactcontainer.natures.AddTribefireServicesNature" style="push" label="Add Tribefire Services Nature">    
+			    <visibleWhen>    
+		    		<with variable="activeMenuSelection">
+			  			<iterate>			  							  				
+				        	<adapt type="org.eclipse.core.resources.IProject">
+				        		<and>				        		
+									<test property="org.eclipse.core.resources.open" value="open"/> 																				        		
+		                         	<not>
+										<test 
+						                  property="org.eclipse.core.resources.projectNature" 
+						                  value="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNature" />
+		                         	</not>
+	                         	</and>
+				        	</adapt>	                         	
+						</iterate>
+		     		</with>    
+			    </visibleWhen>
+	        </command>
+	        <command commandId="com.braintribe.devrock.artifactcontainer.natures.RemoveTribefireServicesNature" style="push" label="Remove Tribefire Services Nature">    
+			    <visibleWhen>    
+		    		<with variable="activeMenuSelection">
+			  			<iterate>			  				
+				        	<adapt type="org.eclipse.core.resources.IProject">
+				        	<and>				        		
+									<test property="org.eclipse.core.resources.open" value="open"/> 
+									<test 
+				                  		property="org.eclipse.core.resources.projectNature" 
+				                  		value="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNature" />
+				            </and>
+				        	</adapt>	                         					  																		
+						</iterate>
+		     		</with>    
+			    </visibleWhen>
+	        </command>
+	        
+        	<!--
+    		 	*
+    			end of features - other plugins attach here below
+    			*
+    		-->
+            <separator name="additions" visible="false"/>               
+           </menu>	
+		</menuContribution>
+	</extension>
+	
+	
+	
+	<!-- 
+		toolbar 	
+	-->
+	<extension point="org.eclipse.ui.menus">
+     	<menuContribution locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+        	<toolbar id="com.braintribe.devrock.artifactcontainer.commands.toolbar1">
+           	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.SynchronizeDropdownHandler" style="pulldown" tooltip="Synchronize project's dependencies with global repo"/>           	         
+           	<command commandId="com.braintribe.devrock.artifactcontainer.commands.JarImportCommand" id="com.braintribe.devrock.artifactcontainer.plugins.commands.tb.cmd.JarImportCommand" style="push" tooltip="Import selected jars"/>         	
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.DependencyToClipboardCopyCommand" style="pulldown" tooltip="Copy selected artifacts' dependencies to clipboard" />
+			<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.DependencyFromClipboardPasteCommand" style="pulldown" tooltip="Paste dependencies from clipboard into selected project" />          	           
+          	<command commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.QuickImportDropdownHandler" style="pulldown" tooltip="Run the quick import" />
+          	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.SelectionSavyArtifactInformationCommand" style="pulldown" tooltip="Display artifact information" />
+
+          	<command commandId="com.braintribe.devrock.artifactcontainer.commands.TbWizardCommand" id="com.braintribe.devrock.artifactcontainer.commands.tb.cmd.TbWizardCommand" style="push" tooltip="Run tb" />
+        	</toolbar>
+     	</menuContribution>
+  	</extension>
+  	
+  	<!-- toolbar entries -->
+  	<extension point="org.eclipse.ui.menus">
+   		<menuContribution locationURI="menu:com.braintribe.devrock.artifactcontainer.commands.tb.cmd.SynchronizeDropdownHandler">
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" label="synchronize project(s)" style="push" tooltip="synchronize selected project-container(s) - and all their dependers">
+           		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" value="selected">
+           		</parameter>
+        	</command>
+        	<separator name="additions" visible="false">
+        	</separator>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" label="synchronize workspace" style="push" tooltip="synchronize all project-containers in workspace">
+           		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" value="all">
+           		</parameter>
+        	</command>
+        	<separator name="additions" visible="false">
+        	</separator>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SynchronizeDropdownHandler" label="atomically synchronize project(s)" style="push" tooltip="synchronize selected project-containers only - no dependers">
+           		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" value="atomic">
+           		</parameter>
+        	</command>        
+        	
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" label="refresh project(s)" style="push" tooltip="refresh selected project(s)">
+           		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" value="selected">
+           		</parameter>
+        	</command>
+        	<separator name="additions" visible="false">
+        	</separator>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.RefreshDropdownHandler" label="refresh workspace" style="push" tooltip="refresh all projects in workspace">
+           		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.sync" value="all">
+           		</parameter>
+        	</command>        
+     	</menuContribution>    
+     	<!-- quick import family -->
+     	<menuContribution locationURI="menu:com.braintribe.devrock.artifactcontainer.commands.tb.cmd.QuickImportDropdownHandler">
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand" label="import projects" tooltip="Import selected projects into workspace">           	
+        	</command>
+        	<separator name="additions" visible="false">
+        	</separator>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand" label="import dependencies" tooltip="Import selected dependencies into clipboard / selected project">           	
+        	</command>
+     	     <command commandId="com.braintribe.devrock.artifactcontainer.commands.RunQuickImportScanCommand" label="rescan working copy" style="push" tooltip="Rescan the working copy"/>        
+       </menuContribution> 
+       <!-- artifact information -->
+       <menuContribution locationURI="menu:com.braintribe.devrock.artifactcontainer.commands.tb.cmd.SelectionSavyArtifactInformationCommand">
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionSavyArtifactInformationCommand" label="info about selected artifact" style="push" tooltip="Information about selected artifact"/>           	
+        	<separator name="additions" visible="false">
+        	</separator>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.SelectionIgnoringArtifactInformationCommand" label="info about entered artifact" style="push" tooltip="Information about any artifact">
+        	</command>        
+       </menuContribution>
+       
+          <!-- dependency copy  -->
+       <menuContribution locationURI="menu:com.braintribe.devrock.artifactcontainer.commands.tb.cmd.DependencyToClipboardCopyCommand">
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" label="Replace version declaration(s) with variable reference(s)" style="push" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="referenced" >
+        		</parameter>
+        	</command> 
+        	<separator name="additions" visible="false"/>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" label="Rangify version declaration(s)" style="push" tooltip="Modify the version of the dependency to a hotfix supporting range">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="rangified" >
+        		</parameter>
+        	</command> 
+        	<separator name="additions" visible="false"/>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyToClipboardCopyCommand" label="Keep version declaration(s) as found" style="push" tooltip="Keep version of the dependency as in the classpath">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.copy" value="untouched">
+        		</parameter>
+        	</command>           	
+       </menuContribution> 
+      
+        <!-- dependency paste  -->
+       <menuContribution locationURI="menu:com.braintribe.devrock.artifactcontainer.commands.tb.cmd.DependencyFromClipboardPasteCommand">
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" label="Replace version declaration(s) with variable reference(s)" style="push" tooltip="Deduce a variable from the groupId of the dependency and replace the version with a reference">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="referenced" >
+        		</parameter>
+        	</command> 
+        	<separator name="additions" visible="false"/>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" label="Rangify version declaration(s)" style="push" tooltip="Modify the version of the dependency to a hotfix supporting range">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="rangified" >
+        		</parameter>
+        	</command> 
+        	<separator name="additions" visible="false"/>
+        	<command commandId="com.braintribe.devrock.artifactcontainer.commands.DependencyFromClipboardPasteCommand" label="Keep version declaration(s) as found" style="push" tooltip="Keep version of the dependency as in the classpath">
+        		<parameter name="com.braintribe.devrock.artifactcontainer.common.commands.command.param.paste" value="untouched">
+        		</parameter>
+        	</command>           	
+       </menuContribution> 
+      
+  	</extension>
+
+	<!--
+		VIEWS
+	-->      
+	<extension point="org.eclipse.ui.views">
+	  	<category id="com.braintribe.devrock" name="Devrock's Views"/>
+		<view 	id="com.braintribe.devrock.artifactcontainer.DependencyView"
+				name="ArtifactContainer's Dependency view"
+				category="com.braintribe.devrock"
+				class="com.braintribe.devrock.artifactcontainer.views.dependency.DependencyView"
+				icon="icons/wand.png">
+		</view>
+	</extension>
+	
+	<extension point="org.eclipse.ui.views">
+	  	<category id="com.braintribe.devrock" name="Devrock's Views"/>
+		<view 	id="com.braintribe.devrock.artifactcontainer.RavenhurstView"
+				name="ArtifactContainer's Update policy view"
+				category="com.braintribe.devrock"
+				class="com.braintribe.devrock.artifactcontainer.views.ravenhurst.RavenhurstView"
+				icon="icons/arrow_refresh.png">
+		</view>
+	</extension>
+	
+	
+	<!--
+		DECORATOR
+	-->  	
+ 	<extension point="org.eclipse.ui.decorators">
+ 	
+     <decorator
+           adaptable="true"
+           class="com.braintribe.devrock.artifactcontainer.control.container.decorator.ProjectDecorator"
+           id="com.braintribe.devrock.artifactcontainer.control.container.decorator.ProjectDecorator"
+           label="Artifact container decorator"
+           lightweight="true"
+           location="TOP_LEFT"
+           objectClass="org.eclipse.core.resources.IResource"           
+           state="true">
+           <description>
+              The artifact container label decorator - shows errors and warnings from the dependency walk
+           </description>
+     </decorator>
+    
+      <decorator
+			id="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNatureDecorator"
+			label="Module carrier decorator" state="true" lightweight="true"
+			class="com.braintribe.devrock.artifactcontainer.natures.TribefireServicesNatureDecorator"
+			location="TOP_LEFT"
+			objectClass="org.eclipse.core.resources.IResource" 
+			adaptable="true">			
+			<description>
+				A decorator to show whether the project has a tribefire services nature  
+			</description>
+		</decorator>
+  </extension>
+
+	<!--
+		KEY BINDINGS
+	-->
+	<extension point="org.eclipse.ui.bindings">
+		<key
+	        commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportProjectCommand"
+	        contextId="org.eclipse.ui.contexts.window"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	        sequence="Ctrl+Shift+I"
+        />			
+        <key
+	        commandId="com.braintribe.devrock.artifactcontainer.commands.QuickImportDependencyCommand"
+	        contextId="org.eclipse.ui.contexts.window"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	        sequence="Ctrl+Shift+D"
+        />
+        <key
+	        commandId="com.braintribe.devrock.artifactcontainer.commands.SingleShotWorkspaceSynchronizer"
+	        contextId="org.eclipse.ui.contexts.window"
+	        schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+	        sequence="Alt+W"
+        />		
+        		
+	</extension>
+
+</plugin>

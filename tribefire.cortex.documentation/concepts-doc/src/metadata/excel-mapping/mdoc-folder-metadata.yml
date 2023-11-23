@@ -1,0 +1,17 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  excel_mapping_metadata.md:
+
+  excel_column.md:
+    boostedSearchTerms:
+      - "excelcolumnmapping"
+  
+  excel_identity.md:
+    boostedSearchTerms:
+      - "ExcelIdentityManagementProperty"
+
+  excel_reference.md:
+    boostedSearchTerms:
+      - "ExcelReferenceColumnMapping"

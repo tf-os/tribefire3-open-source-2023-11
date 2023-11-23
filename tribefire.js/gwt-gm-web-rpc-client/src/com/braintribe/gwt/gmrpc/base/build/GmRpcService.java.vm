@@ -1,0 +1,46 @@
+package ${package};
+
+import com.braintribe.gwt.gmrpc.base.client.AbstractGmRpcService;
+import com.braintribe.gwt.gmrpc.base.client.AbstractServiceProxy;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.function.Function;
+
+public class ${className} extends AbstractGmRpcService<${serviceClassName}> {
+	private static Map<String, Function<String, Throwable>> exceptionProviders = null;
+	
+	protected AbstractServiceProxy newProxyInstance() {
+		return new ${serviceProxyClassName}();
+	}
+	
+	public Throwable createException(String typeSignature, String message) {
+		if (exceptionProviders == null) {
+			exceptionProviders = new HashMap<String, Function<String, Throwable>>();
+			#foreach($exception in $exceptions)
+				exceptionProviders.put("$exception.typeSignature", new Function<String, Throwable>() {
+					public Throwable apply(String message) throws RuntimeException {
+					#if($exception.hasMessageArgument())
+						return new $exception.typeSignature(message);
+					#else
+						return new $exception.typeSignature();
+					#end
+					}
+				});
+			#end
+		}
+		
+		Function<String, Throwable> provider = exceptionProviders.get(typeSignature);
+		
+		if (provider != null) {
+			try {
+				return provider.apply(message);
+			}
+			catch (Exception e) {
+				// not an expected case but fallback behaviour
+				return null;
+			}
+		}
+		else 
+			return null;
+	}
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+	<bean
+		class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor">
+		<property name="requiredAnnotationType" value="com.braintribe.cfg.Required" />
+	</bean>
+
+	<bean id="conversionService"
+		class="org.springframework.context.support.ConversionServiceFactoryBean">
+		<property name="converters">
+			<list>
+				<bean class="com.braintribe.spring.support.converter.StringToProviderConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="stringToProviderConverterTest.testBean"
+		class="com.braintribe.spring.support.StringToProviderConverterTest.TestBean">
+		<property name="stringProvider" value="provided string value" />
+	</bean>
+
+</beans>

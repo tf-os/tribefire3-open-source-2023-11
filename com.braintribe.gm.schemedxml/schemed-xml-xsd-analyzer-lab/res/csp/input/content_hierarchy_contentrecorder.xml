@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Peer van Driesten (Comprendium AG) -->
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="content_hierarchy.xsd" nextNodeId="4">
+	<node id="1000001000" name="Content Recorder" description="">
+		<constraints>
+			<constraint role="admin" grant="ContentRecorderBranchToObjects, ShowContent, useReportViewer" deny="Write"/>
+			<constraint role="regex:.*" grant="Read" />
+		</constraints>
+		<ContentDefinitions>
+			<ContentDefinition ref="CD_CR"/>
+		</ContentDefinitions>
+	</node>
+</ContentHierarchy>

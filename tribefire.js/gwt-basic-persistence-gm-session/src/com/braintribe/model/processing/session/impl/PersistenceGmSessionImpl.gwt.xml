@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.BasicConfigAnnotations"/>
+	<inherits name="com.braintribe.cc.CodingCollections"/>
+	<inherits name="com.braintribe.common.AttributeApi"/>
+	<inherits name="com.braintribe.model.AccessApiModel"/>
+	<inherits name="com.braintribe.model.AccessInterfaces"/>
+	<inherits name="com.braintribe.model.AccessRequestModel"/>
+	<inherits name="com.braintribe.model.BasicResourceModel"/>
+	<inherits name="com.braintribe.model.EssentialMetaDataModel"/>
+	<inherits name="com.braintribe.model.generic.ManipulationModel"/>
+    <inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+	<inherits name="com.braintribe.model.generic.TypeConditionModel"/>
+    <inherits name="com.braintribe.model.generic.ValueDescriptorModel"/>
+	<inherits name="com.braintribe.model.GenericModel"/>
+	<inherits name="com.braintribe.model.IconModel"/>
+	<inherits name="com.braintribe.model.MetaModel"/>
+	<inherits name="com.braintribe.model.processing.CascadingMetaData"/>
+	<inherits name="com.braintribe.model.processing.core.GmCoreCommons"/>
+	<inherits name="com.braintribe.model.processing.manipulation.BasicManipulation"/>
+	<inherits name="com.braintribe.model.processing.MetaModelApi"/>
+	<inherits name="com.braintribe.model.processing.ModelOracle"/>
+	<inherits name="com.braintribe.model.processing.query.QuerySupport"/>
+	<inherits name="com.braintribe.model.processing.QueryProcessing"/>
+	<inherits name="com.braintribe.model.processing.session.impl.ManagedGmSessionImpl"/>
+    <inherits name="com.braintribe.model.processing.session.SessionApi"/>
+    <inherits name="com.braintribe.model.processing.Smood"/>
+	<inherits name="com.braintribe.model.QueryModel"/>
+	<inherits name="com.braintribe.model.ServiceApiModel"/>
+	<inherits name="com.braintribe.model.TransientResourceModel"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+	<inherits name="com.braintribe.utils.I18nTools"/>
+	<inherits name="com.google.gwt.core.Core"/>
+	<inherits name="com.google.gwt.emul.Emulation"/>
+	<inherits name="jsinterop.annotations.Annotations"/>
+    <source path="persistence"/>
+</module>

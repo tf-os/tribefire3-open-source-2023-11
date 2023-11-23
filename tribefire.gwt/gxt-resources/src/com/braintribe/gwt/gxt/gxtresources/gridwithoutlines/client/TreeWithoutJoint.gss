@@ -1,0 +1,13 @@
+.treeWithoutJoint .joint {
+	visibility: hidden;
+}
+
+.text {
+	/*font-family: Open Sans !important;*/
+	font-size: 12px !important;
+	color: #3f4348;
+}
+
+.element {
+	height: 25px !important;
+}

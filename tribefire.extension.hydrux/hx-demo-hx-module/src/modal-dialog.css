@@ -1,0 +1,33 @@
+.hx-full-window.hx-modal {
+    background-color: rgb(1,1,1,0.5);
+}
+
+.hx-dialog {
+    background :rgb(20, 10, 60);
+    top : 0;
+    right : 0;
+    position: absolute;
+    color : white;
+    width : 500px;
+    padding-bottom: 40px;
+    min-width: 400px;
+    min-height: 220px;
+}
+
+.dialog-options {
+    display : flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialogOption {
+    padding: 5px;
+    width: 350px;
+    line-height: 50px;
+    margin: 10px;
+    text-align: center;
+}
+

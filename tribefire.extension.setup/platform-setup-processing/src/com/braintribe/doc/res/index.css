@@ -1,0 +1,303 @@
+/* ### Index ### */
+body {
+	background-size: cover;
+    background-position-x: -100px;
+}
+
+#greeting {
+    font-size: 120%;
+    line-height: 1.35;
+}
+
+#greeting h1 {
+	margin: 20px;
+}
+
+#greeting p {
+	max-width: 80ch;
+	margin: auto;
+}
+
+.asset-list ul {
+	list-style-type: none;
+}
+
+.asset-list {
+	padding-inline-start: 0px;
+	list-style-type: none;
+}
+
+#search-bar-front {
+	width: 80%;
+	margin: auto;
+	margin-top: 15px;
+}
+
+#search {
+	background: #eee;
+	margin: 10px auto;
+	padding: 10px;
+	opacity: 0.9;
+	max-width: 70ch;
+	position: relative;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#search .search-bar {
+	margin-bottom: 1em;
+}
+
+#search .nav li a {
+    font-size: inherit;
+}
+
+.search-bar {
+	width: 90%;
+}
+
+.search-input {
+	margin-left: 0px;
+	padding: .5em;
+	width: 14em;
+	font-size: 0.8em;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin-top: 10px;
+}
+
+#search-input {
+	width: 100%;
+	font-size: medium;
+}
+
+#front {
+	margin: auto;
+	width: 780px;
+	max-width: 100%;
+}
+
+.asset-menu {
+	width: 80%;
+	text-align: left;
+	margin-top: 30px;
+    display: inline-block;	
+}
+
+
+#all-docs-link {
+	padding: 10px;
+	background-color: white;
+	text-decoration: none;
+	color: inherit; 
+	
+    display: block;
+    width: 170px;
+    margin: auto;
+    
+    border: 2px solid black;
+    font-weight: 400;
+    transition: all 200ms;
+}
+
+#all-docs-link:hover {
+	background-color: black;
+	color: white;
+}
+
+.card {
+	position: relative;
+	padding: 10px 0;
+	margin: 10px 0;
+    background: white;
+    display: block;
+    width: 100%;
+ 	box-shadow: 0 8px 8px 5px rgba(0, 0, 0, 0.07);
+ 	
+ 	word-wrap: break-word;
+    text-decoration: none;
+    color: inherit;
+    
+    transition-property: all;
+    transition-duration: 200ms;
+}
+
+.card:hover {
+	transform: translateY(-2px) scale(1.02);
+	box-shadow: 0 10px 10px 5px rgba(0, 0, 0, 0.07);
+}
+
+#entrypoints {
+    margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.entrypoint {
+	word-wrap: break-word;
+	text-align: center;
+	width: 170px;
+	border: 1px dashed orange;
+	margin: 10px;
+}
+
+.entrypoint-image {
+	height: 100px;
+	width: auto;
+    max-width: 95%;
+    margin: auto;
+    object-fit: contain;
+}
+
+.card .icon {
+	float: right;
+    height: 1.7em;
+    margin-top: -5px;
+    padding-left: 10px;
+}
+
+.card > .large-icon {
+	display: flex;
+    align-items: center;
+    float: right;
+    width: 25%;
+    height: 100%;
+    border-left: 1px solid;
+    padding: 10px;
+    background-color: white;
+    /* */
+	display: none;
+}
+
+.asset-tile {
+	
+}
+
+.asset-tiles {
+    width: max-content;
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.asset-tiles-container .introduction {
+	margin: 20px;
+	margin-bottom: 40px;
+}
+
+.asset-tiles-container .introduction h1 {
+	border-style: none;
+}
+
+.asset-tiles-container > section {
+	margin-bottom: 40px;
+	overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.asset-tiles-container {
+    margin: auto;
+    width: 100%;
+    max-width: 1170px;
+}
+
+.card > h3 {
+	width: 100%;
+    border-bottom: 2px solid orange;
+    padding: 10px;
+    margin: 0;
+}
+
+.asset-tile > .description {
+    padding: 10px;
+}
+
+.description {
+	margin-bottom: 10px;
+}
+
+.md-file {
+	width: 100%;
+	max-width: 80ch;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.doc-count {
+	display: block;
+	float: right;
+	font-size: 16px;
+}
+
+#tag-container {
+	max-width: 80ch;
+	margin: auto;
+}
+
+.entrypoint .asset-name {
+	color: black;
+	width: 100%;
+	display: block;
+	font-size: large;
+	height: 2.9em;
+	position: relative;
+}
+
+#grouping {
+	color: #656565;
+	padding: 5px;
+}
+
+.asset-name {
+	font-weight: bold;
+    color: #151515;
+}
+
+.asset-list .asset-name {
+	border-bottom: 2px solid orange;
+	padding: 1px 3px;
+} 
+
+small.asset-group {
+    color: #656565;
+	font-size: small;
+	
+}
+
+.entrypoint small.asset-group {
+	color: black;
+	width: 100%;
+	display: block;
+	font-size: xx-small;
+}
+
+.center-content {
+	text-align: center;
+}
+
+@media (min-width: 630px){
+	#greeting h1 {
+		font-size: 40px;
+	}
+	
+	#greeting {
+	    padding: 10px;
+	}
+	
+	.card {
+		margin: 10px 10px;
+	}
+	
+	.entrypoint {
+	}
+	
+	.asset-tile {
+		float: left;
+		width: 370px;
+		height: 200px;
+	}
+}

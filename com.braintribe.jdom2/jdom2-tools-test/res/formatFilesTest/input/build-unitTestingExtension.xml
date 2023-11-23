@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	This script can be used to run unit tests for one or multiple artifacts and create an XML report (the same way DevQA does).
+
+	For more information please read https://confluence.braintribe.com/display/DEV/Local+Test+Execution.
+-->
+<project xmlns:artifact="antlib:org.apache.maven.artifact.ant" xmlns:bt="antlib:com.braintribe.build.ant.tasks">
+
+	<!-- ********************************* Fixed Paths *************************************************** -->
+	<property name="unittests.artifactsRootDir" location="${basedir}"/>
+	<property name="unittests.resources.resourcesDir" location="${unittests.artifactsRootDir}/res"/>
+
+	<property name="unittests.resources.antExtensionsDir" location="${unittests.resources.resourcesDir}/AntExtensions"/>
+	<property name="unittests.resources.saxonJar" location="${unittests.resources.antExtensionsDir}/Saxon/Saxon.jar"/>
+
+	<property name="unittests.resources.unitTestingDir" location="${unittests.resources.resourcesDir}/UnitTesting"/>
+
+	<property name="unittests.resources.loggingDir" location="${unittests.resources.resourcesDir}/logging/JulExtensions"/>
+	<property name="unittests.resources.loggingPropertiesFile" location="${unittests.resources.loggingDir}/systemout_debug_logging.properties"/>
+	<property name="unittests.resources.loggingLibsDir" location="${unittests.resources.loggingDir}/libs"/>
+	<!-- ************************************************************************************************* -->
+
+
+	<target name="initUnitTests" depends="ensureArtifactProperties">
+
+		<!-- Make sure M2_REPO environment variable. -->
+		<fail message="Environment variable M2_REPO not set! (Please point to your local Maven repository.)">
+			<condition>
+				<not>
+					<isset property="env.M2_REPO"/>
+				</not>
+			</condition>
+		</fail>
+
+		<!-- **** Report dirs/files (just default settings - will usually be specified via command line). **** -->
+		<property name="unittests.reportsDir" value="unitTestsReports"/>
+		<property name="unittests.reportFile" value="${unittests.reportsDir}/report.xml"/>
+		<!-- ************************************************************************************************* -->
+
+		<!-- Used in some cases to signal that something is not set, e.g. an exclude regex. This is also a workaround for issues
+			with passing empty strings. -->
+		<property name="unittests.notSet" value="[NOT_SET]"/>
+
+		<!-- Non-Braintribe artifacts are skipped without any logging. -->
+		<property name="unittests.braintribeArtifactsRegex" value="com\.braintribe(\.|\:).+"/>
+
+		<!-- Set OS specific ant executable path. -->
+		<condition property="unittests.antExecutable" value="${ant.home}/bin/ant.bat">
+			<os family="windows"/>
+		</condition>
+		<condition property="unittests.antExecutable" value="${ant.home}/bin/ant">
+			<os family="unix"/>
+		</condition>
+		<!-- On Windows one needs to wrap empty strings with quotation marks when passing values using -Dproperty=value in Exec
+			command. On Linux, however, those quotes would be part of the value. -->
+		<condition property="unittests.quoteForPassingEmptyStrings" value="&quot;">
+			<os family="windows"/>
+		</condition>
+		<condition property="unittests.quoteForPassingEmptyStrings" value="">
+			<os family="unix"/>
+		</condition>
+
+		<property name="unittests.artifact.rootDir" location="${basedir}/${relativePath}"/>
+
+		<!-- An OS-independent artifact/path separator. This is needed, because some OS use ':' as path.separator and that is a
+			problem, since it's also used in qualified artifact names). -->
+		<property name="unittests.osIndependentPathSeparator" value="%%%"/>
+
+		<!-- Remove repo dir prefix. (We don't just use relativePath property, because it doesn't respect OS specific file separator.) -->
+		<unitTests_stringReplace target="${unittests.artifact.rootDir}" resultProperty="unittests.artifact.relativeDir" searchedString="${basedir}${file.separator}" replacementString=""/>
+
+		<unitTests_getFullyQualifiedArtifactName relativeArtifactDir="${unittests.artifact.relativeDir}" fileSeparator="${file.separator}" resultproperty="unittests.artifact.fullyQualifiedName"/>
+		<unitTests_getFullyQualifiedArtifactNameForFileName fullyQualifiedArtifactName="${unittests.artifact.fullyQualifiedName}" resultproperty="unittests.artifact.fullyQualifiedNameForFileName"/>
+
+		<!-- If this fails, the artifact to be tested has not been built yet (at least some depencencies are missing). -->
+		<artifact:dependencies pathId="unittests.artifact.dependencies.path" filesetId="unittests.artifact.dependencies.fileset" sourcesFilesetId="unittests.artifact.dependencies.sourcesFileset" useScope="compile">
+			<artifact:pom file="${unittests.artifact.rootDir}/pom.xml"/>
+		</artifact:dependencies>
+		<pathconvert property="unittests.artifact.dependencies.pathAsString.pathSeparatorSeparated" refid="unittests.artifact.dependencies.path"/>
+		<unitTests_stringReplace target="${unittests.artifact.dependencies.pathAsString.pathSeparatorSeparated}" resultProperty="unittests.artifact.dependencies.pathAsString" searchedString="${path.separator}" replacementString="${unittests.osIndependentPathSeparator}"/>
+
+		<property name="unittests.repoDir" location="${env.M2_REPO}"/>
+
+		<!-- If include/exclude regex are not set, every test artifact is included. -->
+		<property name="unittests.testedArtifacts.includeRegex" value=".*"/>
+		<property name="unittests.testedArtifacts.excludeRegex" value=""/>
+		<!-- If include/exclude regex are not set, every test class is included. -->
+		<property name="unittests.testClasses.includeRegex" value=".*"/>
+		<property name="unittests.testClasses.excludeRegex" value=""/>
+
+		<!-- If excluded categories are not set, we set to empty string (i.e. include all categories). -->
+		<property name="unittests.excludedCategories" value=""/>
+
+		<property name="unittests.xslt.processor" value="trax"/>
+		<property name="unittests.xslt.classpath" location="${unittests.resources.saxonJar}"/>
+
+		<property name="unittests.reportTransformationsDir" location="${unittests.resources.unitTestingDir}"/>
+
+		<property name="unittests.reports.prefix" value=""/>
+	</target>
+
+	<!-- Finds all test artifacts for the specified artifact and its dependencies. The result is stored in property 'unittests.testArtifactsString'. -->
+	<target name="findTestArtifacts" depends="initUnitTests">
+		<unitTests_assertBooleanProperty property="unittests.specifiedArtifactIsSingleTestArtifact" isMandatory="false"/>
+		<if>
+			<equals arg1="${unittests.specifiedArtifactIsSingleTestArtifact}" arg2="true"/>
+			<then>
+				<property name="unittests.testArtifactsString" value="${unittests.artifact.fullyQualifiedName}"/>
+			</then>
+			<else>
+				<unitTests_findTestArtifacts repositoryJarFilePathsString="${unittests.artifact.dependencies.pathAsString}" repositoryDir="${env.M2_REPO}" resultProperty="unittests.testArtifactsString" artifactsIncludeRegex="${unittests.testedArtifacts.includeRegex}" artifactsExcludeRegex="${unittests.testedArtifacts.excludeRegex}" delimiter="${unittests.osIndependentPathSeparator}"/>
+			</else>
+		</if>
+		<if>
+			<equals arg1="${unittests.testArtifactsString}" arg2=""/>
+			<then>
+				<property name="unittests.noTestArtifactsFound" value="true"/>
+				<echo message="No test artifacts found!"/>
+			</then>
+			<else>
+				<unitTests_stringReplace target="${unittests.testArtifactsString}" resultProperty="unittests.testArtifactsString.lineSeparatorSeparated" searchedString="${unittests.osIndependentPathSeparator}" replacementString="${line.separator}"/>
+				<echo message="Found the following test artifacts:${line.separator}${unittests.testArtifactsString.lineSeparatorSeparated}"/>
+			</else>
+		</if>
+	</target>
+
+	<!-- Builds test artifacts and their dependencies. After finding the test artifacts (see findTestArtifacts), a temporary
+		artifact is created which depends on all found test artifacts. For this artifact then all dependencies are installed/downloaded.
+		This ensures that all test artifact dependencies are available. Since everything is built through the single temporary
+		artifact, the dependencies are only built once. Nevertheless, if two artifacts depend on different versions of a third
+		artifact,
+		install-deps will install both (which is important). -->
+	<target name="buildTestArtifacts" depends="findTestArtifacts" unless="${unittests.noTestArtifactsFound}">
+
+		<!-- Define properties for temporary artifact. -->
+		<local name="unittests.testArtifactsDependenciesArtifact.pomTemplate"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.pomTemplate" location="${unittests.resources.unitTestingDir}/testArtifactsDependenciesPomTemplate.xml"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.groupId"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.groupId" value="com.braintribe.test.unittesting"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.artifactId"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.artifactId" value="TemporaryArtifactThatDependsOnAllTestArtifacts"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.version"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.version" value="0.0"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.folderWithoutVersion"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.folderWithoutVersion" location="com/braintribe/test/unittesting/${unittests.testArtifactsDependenciesArtifact.artifactId}"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.folder"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.folder" location="${unittests.testArtifactsDependenciesArtifact.folderWithoutVersion}/${unittests.testArtifactsDependenciesArtifact.version}"/>
+		<local name="unittests.testArtifactsDependenciesArtifact.pom"/>
+		<property name="unittests.testArtifactsDependenciesArtifact.pom" location="${unittests.testArtifactsDependenciesArtifact.folder}/pom.xml"/>
+
+		<!-- Create XML fragment that lists the depencencies. -->
+		<local name="unittests.testArtifactsDependenciesArtifact.dependencies"/>
+		<unitTests_getPomDependenciesXmlFragmentForArtifacts artifactsString="${unittests.testArtifactsString}" delimiter="${unittests.osIndependentPathSeparator}" resultProperty="unittests.testArtifactsDependenciesArtifact.dependencies"/>
+
+		<!-- Create pom. -->
+		<delete dir="${unittests.testArtifactsDependenciesArtifact.folderWithoutVersion}"/>
+		<mkdir dir="${unittests.testArtifactsDependenciesArtifact.folder}"/>
+
+		<copy file="${unittests.testArtifactsDependenciesArtifact.pomTemplate}" tofile="${unittests.testArtifactsDependenciesArtifact.pom}"/>
+
+		<replace file="${unittests.testArtifactsDependenciesArtifact.pom}" token="[GROUP_ID]" value="${unittests.testArtifactsDependenciesArtifact.groupId}"/>
+		<replace file="${unittests.testArtifactsDependenciesArtifact.pom}" token="[ARTIFACT_ID]" value="${unittests.testArtifactsDependenciesArtifact.artifactId}"/>
+		<replace file="${unittests.testArtifactsDependenciesArtifact.pom}" token="[VERSION]" value="${unittests.testArtifactsDependenciesArtifact.version}"/>
+		<replace file="${unittests.testArtifactsDependenciesArtifact.pom}" token="[DEPENDENCIES]" value="${unittests.testArtifactsDependenciesArtifact.dependencies}"/>
+
+		<!-- Build deps of the created artifact. (See unitTests_runTargetOnArtifacts for why 'exec' is used instead of 'ant'.) -->
+		<exec executable="${unittests.antExecutable}" failonerror="true">
+			<arg value="-Dartifact=${unittests.testArtifactsDependenciesArtifact.groupId}:${unittests.testArtifactsDependenciesArtifact.artifactId}#${unittests.testArtifactsDependenciesArtifact.version}"/>
+			<arg value="install-deps"/>
+			<arg value="download-deps"/>
+		</exec>
+
+		<delete dir="${unittests.testArtifactsDependenciesArtifact.folderWithoutVersion}"/>
+	</target>
+
+	<!-- Runs unit tests for test artifacts (see runUnitTestsForTestArtifacts) and creates a report (see createTestReportForTestArtifacts). -->
+	<target name="runUnitTestsForTestArtifactsAndCreateReport" depends="runUnitTestsForTestArtifacts,createTestReportForTestArtifacts"/>
+
+	<!-- Runs unit tests for found test artifacts (see findTestArtifacts and runUnitTestsForArtifact). -->
+	<target name="runUnitTestsForTestArtifacts" depends="findTestArtifacts" unless="${unittests.noTestArtifactsFound}">
+		<unitTests_runTargetOnArtifacts artifactsString="${unittests.testArtifactsString}" delimiter="${unittests.osIndependentPathSeparator}" target="runUnitTestsForArtifact"/>
+	</target>
+
+	<!-- Runs unit tests for the specified artifact. The artifact must be a test artifact and it must have been built (including
+		all deps). -->
+	<target name="runUnitTestsForArtifact" depends="initUnitTests">
+
+		<!-- *** Check that sources are available and that artifact has been built. *** -->
+		<property name="unittests.artifact.sourcesDir" location="${unittests.artifact.rootDir}/src"/>
+		<property name="unittests.artifact.compiledClassesDir" location="${unittests.artifact.rootDir}/build"/>
+		<property name="unittests.artifact.reportsDir" location="${unittests.reportsDir}/${unittests.artifact.fullyQualifiedNameForFileName}"/>
+
+		<delete dir="${unittests.artifact.reportsDir}"/>
+		<mkdir dir="${unittests.artifact.reportsDir}"/>
+
+		<!-- On linux max file name length is usually 255. On Windows it's 255 too, but the full path length is also relevant (maximum
+			is 260, but including driver letter prefix, so we just use 255 again). -->
+		<if>
+			<os family="windows"/>
+			<then>
+				<length string="${unittests.artifact.reportsDir}" property="unittests.artifact.reportsDirPathLength"/>
+				<!-- 255 - 4 (.xml) - reports dir path length - 1 (/ after reports dir) -->
+				<math result="unittests.artifact.maxReportFileKeyLength" operand1="250" operation="-" operand2="${unittests.artifact.reportsDirPathLength}" datatype="int"/>
+			</then>
+			<else>
+				<!-- 255 - 4 (.xml) -->
+				<property name="unittests.artifact.maxReportFileKeyLength" value="251"/>
+			</else>
+		</if>
+
+		<fail message="Expected sources dir ${unittests.artifact.sourcesDir} doesn't exist!">
+			<condition>
+				<not>
+					<available file="${unittests.artifact.sourcesDir}" type="dir"/>
+				</not>
+			</condition>
+		</fail>
+
+		<fail message="Expected compiled classes dir ${unittests.artifact.compiledClassesDir} doesn't exist!">
+			<condition>
+				<not>
+					<available file="${unittests.artifact.compiledClassesDir}" type="dir"/>
+				</not>
+			</condition>
+		</fail>
+
+		<!-- Get tests classpath (this includes all dependencies, also JUnit, but not Ant JUnit libs). -->
+		<path id="unittests.testsClasspath">
+			<path refid="unittests.artifact.dependencies.path"/>
+			<pathelement location="${unittests.artifact.compiledClassesDir}"/>
+		</path>
+		<pathconvert property="unittests.testsClasspathAsString" refid="unittests.testsClasspath"/>
+
+		<!-- Get tests execution classpath (this also includes Ant JUnit libs + custom extensions). -->
+		<path id="unittests.testsExecutionClasspath">
+			<path refid="unittests.testsClasspath"/>
+			<pathelement location="${ant.library.dir}/ant.jar"/>
+			<pathelement location="${ant.library.dir}/ant-junit.jar"/>
+			<pathelement location="${ant.library.dir}/ant-junit4.jar"/>
+			<pathelement location="${unittests.resources.unitTestingDir}/AntJUnitExtensions-1.0.jar"/>
+			<fileset dir="${unittests.resources.loggingLibsDir}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+		<pathconvert property="unittests.testsExecutionClasspathAsString" refid="unittests.testsExecutionClasspath"/>
+
+		<!-- ********************* -->
+		<!-- In order to resolve the problem of a long classpath on command line on Windows, the classpath can be replaced by a
+			single jar file with an in-manifest Class-Path attribute whose value lists all the jar and zip files the class path should
+			contain. -->
+		<if>
+			<length string="${unittests.testsExecutionClasspathAsString}" when="gt" length="1800"/>
+			<then>
+				<echo message="Execution classpath length is greater than the expected length. Creating manifest classpath ..."/>
+				<property name="unittests.testsExecutionClasspathManifestJarFile" location="${unittests.artifact.reportsDir}/manifest_classpath_helper.jar"/>
+				<manifestclasspath property="unittests.testsExecutionClasspathManifestClasspathProperty" jarfile="${unittests.testsExecutionClasspathManifestJarFile}" maxParentLevels="100">
+					<classpath refid="unittests.testsExecutionClasspath"/>
+				</manifestclasspath>
+				<jar destfile="${unittests.testsExecutionClasspathManifestJarFile}">
+					<manifest>
+						<attribute name="Class-Path" value="${unittests.testsExecutionClasspathManifestClasspathProperty}"/>
+					</manifest>
+				</jar>
+				<path id="unittests.finalTestsExecutionClasspath">
+					<pathelement path="${unittests.testsExecutionClasspathManifestJarFile}"/>
+				</path>
+			</then>
+			<else>
+				<path id="unittests.finalTestsExecutionClasspath">
+					<path refId="unittests.testsExecutionClasspath"/>
+				</path>
+			</else>
+		</if>
+		<pathconvert property="unittests.finalTestsExecutionClasspathAsString" refid="unittests.finalTestsExecutionClasspath"/>
+		<!-- ********************* -->
+
+		<echo message="Junit Tests Settings: "/>
+		<echo message="  excluded test categories:        ${unittests.excludedCategories}"/>
+		<echo message="  test classes include regex:      ${unittests.testClasses.includeRegex}"/>
+		<echo message="  test classes exclude regex:      ${unittests.testClasses.excludeRegex}"/>
+		<echo message="  max report file key length:      ${unittests.artifact.maxReportFileKeyLength}"/>
+		<echo message="  tests working directory:         ${unittests.artifact.rootDir}"/>
+		<echo message="  tests sources directory:         ${unittests.artifact.sourcesDir}"/>
+		<echo message="  tests classpath:                 ${unittests.testsClasspathAsString}"/>
+		<echo message="  tests execution classpath:       ${unittests.testsExecutionClasspathAsString}"/>
+		<echo message="  final tests execution classpath: ${unittests.finalTestsExecutionClasspathAsString}"/>
+
+		<!-- *** Find test classes and (relevant) test methods. *** -->
+		<!-- Explanation: we could also just run a simple batchtest, but that would run ALL tests. We want to filter out some tests
+			though (e.g. tests that depend on a custom environment). One could filter tests using Ignore annotation, but then Eclipse
+			would ignore them too. The suggested approach is to use TestSuites. But then developers would have to define TestSuites
+			that only include the 'real' unit tests.
+			To keep it as simple as possible for developers, we instead search relevant test classes and methods using a custom task. -->
+		<bt:findJunitTests testsSrcDir="${unittests.artifact.sourcesDir}" testsClasspathString="${unittests.testsClasspathAsString}" resultProperty="unittests.testClassesAndMethods" testClassesIncludeRegex="${unittests.testClasses.includeRegex}" testClassesExcludeRegex="${unittests.testClasses.excludeRegex}" excludedCategories="${unittests.excludedCategories}" verbose="true"/>
+		<echo message="Found the following test classes and methods: ${unittests.testClassesAndMethods}"/>
+
+		<!-- *** Run unit tests *** -->
+		<!-- For each test class ... -->
+		<for list="${unittests.testClassesAndMethods}" delimiter="^" param="unittests.testClassAndMethods">
+			<sequential>
+				<local name="unittests.currentTest.testClass"/>
+				<local name="unittests.currentTest.testMethods"/>
+				<unitTests_splitStringOnce string="@{unittests.testClassAndMethods}" delimiter=":" resultProperty1="unittests.currentTest.testClass" resultproperty2="unittests.currentTest.testMethods"/>
+
+				<local name="unittests.currentTest.reportFileKey"/>
+				<unitTests_getFilekeyForTestReport prefix="${unittests.reports.prefix}" className="${unittests.currentTest.testClass}" maxLength="${unittests.artifact.maxReportFileKeyLength}" resultproperty="unittests.currentTest.reportFileKey"/>
+
+				<if>
+					<not>
+						<!-- [ALL_METHODS] indicates that all methods must be run, which actually means that we don't specify any method.
+							This is used for parameterized tests where specifying the test method names doesn't work with junit-Ant-task (version
+							1.9.7).
+						-->
+						<equals arg1="${unittests.currentTest.testMethods}" arg2="[ALL_METHODS]"/>
+					</not>
+					<then>
+						<echo message="Running test ${unittests.currentTest.testClass}. Test methods: ${unittests.currentTest.testMethods}"/>
+
+						<junit printsummary="false" fork="true" includeantruntime="false" haltonfailure="false" failureproperty="unittests.errorOccurred" showoutput="false" maxmemory="4000m" filtertrace="true" logfailedtests="false" dir="${unittests.artifact.rootDir}" newenvironment="true">
+							<jvmarg value="-Djava.util.logging.config.file=${unittests.resources.loggingPropertiesFile}"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.propertiesIncludeRegex=unittests.artifact.fullyQualifiedName"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.sysoutMaxLengthForSuccess=5000"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.syserrMaxLengthForSuccess=50000"/>
+							<classpath>
+								<path refid="unittests.finalTestsExecutionClasspath"/>
+							</classpath>
+							<formatter classname="com.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter" extension=".xml"/>
+							<test name="${unittests.currentTest.testClass}" todir="${unittests.artifact.reportsDir}" skipNonTests="false" methods="${unittests.currentTest.testMethods}" outfile="${unittests.currentTest.reportFileKey}"/>
+						</junit>
+					</then>
+					<else>
+						<echo message="Running test ${unittests.currentTest.testClass}. Test methods: (all)"/>
+						<!-- copy of the junit task above, but this time we don't specify the method name (to run all methods). -->
+						<junit printsummary="false" fork="true" includeantruntime="false" haltonfailure="false" failureproperty="unittests.errorOccurred" showoutput="false" maxmemory="4000m" filtertrace="true" logfailedtests="false" dir="${unittests.artifact.rootDir}" newenvironment="true">
+							<jvmarg value="-Djava.util.logging.config.file=${unittests.resources.loggingPropertiesFile}"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.propertiesIncludeRegex=unittests.artifact.fullyQualifiedName"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.sysoutMaxLengthForSuccess=5000"/>
+							<jvmarg value="-Dcom.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter.syserrMaxLengthForSuccess=50000"/>
+							<classpath>
+								<path refid="unittests.finalTestsExecutionClasspath"/>
+							</classpath>
+							<formatter classname="com.braintribe.build.ant.junitextensions.ExtendedXmlJUnitResultFormatter" extension=".xml"/>
+							<test name="${unittests.currentTest.testClass}" todir="${unittests.artifact.reportsDir}" skipNonTests="false" outfile="${unittests.currentTest.reportFileKey}"/>
+						</junit>
+					</else>
+				</if>
+
+			</sequential>
+		</for>
+
+	</target>
+
+	<!-- Creates a report based on tests from test artifacts (see runUnitTestsForTestArtifacts). -->
+	<target name="createTestReportForTestArtifacts" depends="findTestArtifacts" unless="${unittests.noTestArtifactsFound}">
+		<local name="unittests.artifact.mergedReportDir"/>
+		<property name="unittests.artifact.mergedReportDir" location="${unittests.reportsDir}/MergedReport_${unittests.artifact.fullyQualifiedNameForFileName}"/>
+
+		<delete dir="${unittests.artifact.mergedReportDir}"/>
+		<mkdir dir="${unittests.artifact.mergedReportDir}"/>
+
+		<for list="${unittests.testArtifactsString}" delimiter="${unittests.osIndependentPathSeparator}" param="unittests.currentArtifact.fullyQualifiedName">
+			<sequential>
+				<local name="unittests.currentArtifact.fullyQualifiedNameForFileName"/>
+				<unitTests_getFullyQualifiedArtifactNameForFileName fullyQualifiedArtifactName="@{unittests.currentArtifact.fullyQualifiedName}" resultproperty="unittests.currentArtifact.fullyQualifiedNameForFileName"/>
+
+				<copy todir="${unittests.artifact.mergedReportDir}/${unittests.currentArtifact.fullyQualifiedNameForFileName}">
+					<fileset dir="${unittests.reportsDir}/${unittests.currentArtifact.fullyQualifiedNameForFileName}">
+						<include name="${unittests.reports.prefix}*.xml"/>
+					</fileset>
+				</copy>
+			</sequential>
+		</for>
+
+		<!-- Merge report files into single file. Note: The input file is ignored, but one has to set a valid xml, therefore we
+			just point to the xslt. -->
+		<xslt in="${unittests.reportTransformationsDir}/01_merge_report_files_into_single_file.xsl" style="${unittests.reportTransformationsDir}/01_merge_report_files_into_single_file.xsl" out="${unittests.artifact.mergedReportDir}/01_report_files_merged_into_single_file.temp" processor="${unittests.xslt.processor}" classpath="${unittests.xslt.classpath}" force="true">
+			<param name="reportsDir" expression="${unittests.artifact.mergedReportDir}"/>
+			<param name="reportsFilenamePrefix" expression="${unittests.reports.prefix}"/>
+		</xslt>
+		<!-- We used a temporary file extension to exclude the merged file from the transformation. Rename to .xml now. -->
+		<move file="${unittests.artifact.mergedReportDir}/01_report_files_merged_into_single_file.temp" tofile="${unittests.artifact.mergedReportDir}/01_report_files_merged_into_single_file.xml"/>
+
+		<xslt in="${unittests.artifact.mergedReportDir}/01_report_files_merged_into_single_file.xml" style="${unittests.reportTransformationsDir}/02_transform_to_merged_report.xsl" out="${unittests.artifact.mergedReportDir}/02_merged_report.xml" processor="${unittests.xslt.processor}" classpath="${unittests.xslt.classpath}" force="true"/>
+
+		<copy file="${unittests.artifact.mergedReportDir}/02_merged_report.xml" tofile="${unittests.reportFile}"/>
+
+	</target>
+
+	<!-- Runs the specified target on the passed artifacts. -->
+	<macrodef name="unitTests_runTargetOnArtifacts">
+		<attribute name="artifactsString"/>
+		<attribute name="delimiter"/>
+		<attribute name="target"/>
+		<sequential>
+
+			<echo message="Running target '@{target}' on artifacts @{artifactsString} ..."/>
+			<for list="@{artifactsString}" delimiter="@{delimiter}" param="unittests.currentArtifact.qualifiedName">
+				<sequential>
+					<echo message="Running target '@{target} on artifact @{unittests.currentArtifact.qualifiedName} ..."/>
+
+					<!-- If not specified, we set to NOT_SET, which means we want to keep the default. -->
+					<local name="testClassesIncludeRegex"/>
+					<unitTests_getPropertyValueOrDefault sourceProperty="unittests.testClasses.includeRegex" default="${unittests.notSet}" targetProperty="testClassesIncludeRegex" emptyValueAllowed="false"/>
+					<local name="testClassesExcludeRegex"/>
+					<unitTests_getPropertyValueOrDefault sourceProperty="unittests.testClasses.excludeRegex" default="${unittests.notSet}" targetProperty="testClassesExcludeRegex" emptyValueAllowed="false"/>
+					<local name="excludedCategories"/>
+					<unitTests_getPropertyValueOrDefault sourceProperty="unittests.excludedCategories" default="${unittests.notSet}" targetProperty="excludedCategories" emptyValueAllowed="false"/>
+
+					<echo message="Command: ${unittests.antExecutable} -Dunittests.reportsDir=${unittests.reportsDir} -Dunittests.reportFile=${unittests.reportFile} -Dunittests.testClasses.includeRegex=${unittests.quoteForPassingEmptyStrings}${testClassesIncludeRegex}${unittests.quoteForPassingEmptyStrings} -Dunittests.testClasses.excludeRegex=${unittests.quoteForPassingEmptyStrings}${testClassesExcludeRegex}${unittests.quoteForPassingEmptyStrings} -Dunittests.excludedCategories=${unittests.quoteForPassingEmptyStrings}${excludedCategories}${unittests.quoteForPassingEmptyStrings} -Dartifact=@{unittests.currentArtifact.qualifiedName} @{target}"/>
+
+					<!-- Using exec instead of ant/antcall, because the artifact is usually specified from command line via '-Dartifact=...'
+						and apparently one cannot override this. -->
+					<exec executable="${unittests.antExecutable}" failonerror="true">
+						<arg value="-Dunittests.reportsDir=${unittests.reportsDir}"/>
+						<arg value="-Dunittests.reportFile=${unittests.reportFile}"/>
+						<arg value="-Dunittests.testClasses.includeRegex=${unittests.quoteForPassingEmptyStrings}${testClassesIncludeRegex}${unittests.quoteForPassingEmptyStrings}"/>
+						<arg value="-Dunittests.testClasses.excludeRegex=${unittests.quoteForPassingEmptyStrings}${testClassesExcludeRegex}${unittests.quoteForPassingEmptyStrings}"/>
+						<arg value="-Dunittests.excludedCategories=${unittests.quoteForPassingEmptyStrings}${excludedCategories}${unittests.quoteForPassingEmptyStrings}"/>
+						<arg value="-Dartifact=@{unittests.currentArtifact.qualifiedName}"/>
+						<arg value="@{target}"/>
+					</exec>
+				</sequential>
+			</for>
+		</sequential>
+	</macrodef>
+
+	<!-- Gets a [delimiter]-separated list of fully qualified names of test artifacts. The macro only includes existing test
+		artifacts
+		(i.e. folder exists) which are not filtered out by include/exclude regex. -->
+	<macrodef name="unitTests_findTestArtifacts">
+		<attribute name="repositoryJarFilePathsString"/>
+		<attribute name="repositoryDir"/>
+		<attribute name="resultProperty"/>
+		<attribute name="artifactsIncludeRegex"/>
+		<attribute name="artifactsExcludeRegex"/>
+		<attribute name="delimiter"/>
+
+		<sequential>
+
+			<local name="unittests.artifactDeps.relativeArtifactDirsString"/>
+			<unitTests_getArtifactDirsForRepoJars repoClasspath="@{repositoryJarFilePathsString}" repoDir="@{repositoryDir}" artifactSeparator="@{delimiter}" fileSeparator="${file.separator}" resultProperty="unittests.artifactDeps.relativeArtifactDirsString"/>
+
+			<echo message="Searching test artifacts ..."/>
+
+			<var name="unitTests_findTestArtifacts.testArtifactsString" value=""/>
+			<!-- for each artifact dir ... -->
+			<!-- TODO: we add the relative artifact dir, because it is not included in the deps. Should be included in repo jars string
+				... -->
+			<for list="${unittests.artifactDeps.relativeArtifactDirsString}@{delimiter}${unittests.artifact.relativeDir}" delimiter="${unittests.osIndependentPathSeparator}" param="unittests.currentArtifact.relativeDir">
+				<sequential>
+					<local name="unittests.currentArtifact.qualifiedName"/>
+					<unitTests_getFullyQualifiedArtifactName relativeArtifactDir="@{unittests.currentArtifact.relativeDir}" fileSeparator="${file.separator}" resultproperty="unittests.currentArtifact.qualifiedName"/>
+
+					<!-- Check if current artifact is a BT artifact. -->
+					<local name="unittests.currentArtifact.isBraintribeArtifact"/>
+					<unitTests_matchesRegex string="${unittests.currentArtifact.qualifiedName}" regex="${unittests.braintribeArtifactsRegex}" resultProperty="unittests.currentArtifact.isBraintribeArtifact"/>
+					<if>
+						<isfalse value="${unittests.currentArtifact.isBraintribeArtifact}"/>
+						<then>
+							<!-- Ignoring this artifact. -->
+						</then>
+						<else>
+
+							<local name="unittests.currentArtifact.matchesIncludeRegex"/>
+							<unitTests_matchesRegex string="${unittests.currentArtifact.qualifiedName}" regex="@{artifactsIncludeRegex}" resultProperty="unittests.currentArtifact.matchesIncludeRegex"/>
+							<local name="unittests.currentArtifact.matchesExcludeRegex"/>
+							<unitTests_matchesRegex string="${unittests.currentArtifact.qualifiedName}" regex="@{artifactsExcludeRegex}" resultProperty="unittests.currentArtifact.matchesExcludeRegex"/>
+
+							<echo message="Checking artifact ${unittests.currentArtifact.qualifiedName} ..."/>
+							<if>
+								<and>
+									<istrue value="${unittests.currentArtifact.matchesIncludeRegex}"/>
+									<isfalse value="${unittests.currentArtifact.matchesExcludeRegex}"/>
+								</and>
+								<then>
+									<local name="unittests.currentTestArtifact.relativeDir"/>
+									<unitTests_getTestArtifactDir artifactDir="@{unittests.currentArtifact.relativeDir}" fileSeparator="${file.separator}" resultProperty="unittests.currentTestArtifact.relativeDir"/>
+									<local name="unittests.currentTestArtifact.absoluteDir"/>
+									<property name="unittests.currentTestArtifact.absoluteDir" location="${unittests.artifactsRootDir}${file.separator}${unittests.currentTestArtifact.relativeDir}"/>
+
+									<if>
+										<available file="${unittests.currentTestArtifact.absoluteDir}" type="dir"/>
+										<then>
+											<local name="unittests.currentTestArtifact.qualifiedName"/>
+											<unitTests_getFullyQualifiedArtifactName relativeArtifactDir="${unittests.currentTestArtifact.relativeDir}" fileSeparator="${file.separator}" resultproperty="unittests.currentTestArtifact.qualifiedName"/>
+											<echo message="  Including unit tests from artifact ${unittests.currentTestArtifact.qualifiedName} ..."/>
+
+											<if>
+												<equals arg1="${unitTests_findTestArtifacts.testArtifactsString}" arg2=""/>
+												<then>
+													<var name="unitTests_findTestArtifacts.testArtifactsString" value="${unittests.currentTestArtifact.qualifiedName}"/>
+												</then>
+												<else>
+													<var name="unitTests_findTestArtifacts.testArtifactsString" value="${unitTests_findTestArtifacts.testArtifactsString}@{delimiter}${unittests.currentTestArtifact.qualifiedName}"/>
+												</else>
+											</if>
+
+										</then>
+										<else>
+											<echo message="  Skipping unit tests for ${unittests.currentArtifact.qualifiedName}, because folder ${unittests.currentTestArtifact.absoluteDir} doesn't exist."/>
+										</else>
+									</if>
+								</then>
+								<else>
+									<echo message="  Skipping unit tests for ${unittests.currentArtifact.qualifiedName}, because it is filtered out by include/exlude regex."/>
+								</else>
+							</if>
+						</else>
+					</if>
+				</sequential>
+			</for>
+			<property name="@{resultProperty}" value="${unitTests_findTestArtifacts.testArtifactsString}"/>
+		</sequential>
+	</macrodef>
+
+	<!-- Transforms a [artifactSeparator]-separated list of jar file paths (in the repository) into a [artifactSeparator]-separated
+		list of repository-relative directory paths.
+		Example input: my/repository/com/braintribe/ProviderApi/1.0/ProviderApi-1.0.jar;my/repository/com/braintribe/FilterApi/1.1/FilterApi-1.1.jar
+		Example output: com/braintribe/ProviderApi/1.0;com/braintribe/FilterApi/1.1 -->
+	<scriptdef name="unitTests_getArtifactDirsForRepoJars" language="javascript">
+		<attribute name="repoclasspath"/>
+		<attribute name="repodir"/>
+		<attribute name="artifactSeparator"/>
+		<attribute name="fileSeparator"/>
+		<attribute name="resultproperty"/>
+		
+		<![CDATA[
+			var artifactSeparator = attributes.get("artifactseparator");
+			var fileSeparator = attributes.get("fileseparator");
+			var prefixToRemove = attributes.get("repodir");
+      if (!prefixToRemove.endsWith(fileSeparator)) {
+        prefixToRemove = prefixToRemove + fileSeparator;
+      }
+      var repoJarFiles = attributes.get("repoclasspath").split(artifactSeparator);
+      var i;
+      var result = "";
+      for (i = 0; i < repoJarFiles.length; i++) {
+        if (result != "") {
+          result = result + artifactSeparator
+        }
+        var repoJarFile = repoJarFiles[i];
+        if (repoJarFile.indexOf(prefixToRemove) != 0 || repoJarFile.lastIndexOf(prefixToRemove) != 0 && repoJarFile.lastIndexOf(".jar") <= 0) {
+          throw new Error("Unexpected repo jar file path: " + repoJarFile);
+        }
+
+        var jarFile = repoJarFile.substring(prefixToRemove.length)
+        if (jarFile.lastIndexOf(fileSeparator) <= 0) {
+          throw new Error("Unexpected jar file path: " + jarFile);
+        }
+
+        var artifactDir = jarFile.substring(0,jarFile.lastIndexOf(fileSeparator));
+
+        result = result + artifactDir
+      }
+			self.project.setProperty( attributes.get("resultproperty"), result);]]>
+
+	</scriptdef>
+
+	<!-- Gets the (expected) test artifact dir for the specified artifact dir. -->
+	<scriptdef name="unitTests_getTestArtifactDir" language="javascript">
+		<attribute name="artifactDir"/>
+		<attribute name="fileSeparator"/>
+		<attribute name="resultproperty"/>
+		<![CDATA[
+      var fileSeparator = attributes.get("fileseparator");
+      var artifactDir = attributes.get("artifactdir");
+      var testArtifactDir = artifactDir.substring(0,artifactDir.lastIndexOf(fileSeparator)) + "Test" + artifactDir.substring(artifactDir.lastIndexOf(fileSeparator))
+
+      self.project.setProperty( attributes.get("resultproperty"), testArtifactDir);
+    ]]>
+	</scriptdef>
+
+	<!-- Based on an (optional) prefix and the test class name this script creates a (unique) file key (i.e. without extension)
+		to be used to store the test report for the respective test.
+		This method makes sure that the maximum file name length is not exceeded. If the name is too long, the method just replaces
+		the end of the name with a timestamp.
+	-->
+	<scriptdef name="unitTests_getFilekeyForTestReport" language="javascript">
+		<attribute name="prefix"/>
+		<attribute name="className"/>
+		<attribute name="maxLength"/>
+		<attribute name="resultproperty"/>
+		<![CDATA[
+			var maxLength = attributes.get("maxlength")
+			var filename = attributes.get("prefix") + attributes.get("classname");
+			if (filename.length > maxLength) {
+			    var timestampSuffix = "_" + new Date().getTime();
+					if (timestampSuffix.length > maxLength) {
+						// this really shouldn't happen!
+						throw "cannot create file names for specified maximum file name length " + maxLength + "!"
+					}
+			    filename = filename.substring(0,(maxLength-timestampSuffix.length)) + timestampSuffix;
+			}
+      self.project.setProperty( attributes.get("resultproperty"), filename);
+    ]]>
+	</scriptdef>
+
+	<!-- Gets the POM dependencies XML fragment for the specified artifacts string ('delimiter'-separated list of fully qualified
+		artifact names). -->
+	<scriptdef name="unitTests_getPomDependenciesXmlFragmentForArtifacts" language="javascript">
+		<attribute name="artifactsString"/>
+		<attribute name="delimiter"/>
+		<attribute name="resultProperty"/>
+		<![CDATA[
+      var artifacts = attributes.get("artifactsstring").split(attributes.get("delimiter"));
+
+      var i;
+      var result = "";
+      for (i = 0; i < artifacts.length; i++) {
+
+        var artifact = artifacts[i];
+
+        var groupId = artifact.substring(0, artifact.indexOf(":"));
+        var artifactId = artifact.substring(artifact.indexOf(":") + 1, artifact.indexOf("#"));
+        var version = artifact.substring(artifact.indexOf("#") + 1);
+
+        result = result + "<dependency>\n  <groupId>" + groupId + "</groupId>\n  <artifactId>" + artifactId + "</artifactId>\n  <version>" + version + "</version>\n</dependency>\n";
+      }
+
+      self.project.setProperty( attributes.get("resultproperty"), result);
+    ]]>
+	</scriptdef>
+
+	<!-- Splits the specified string once. -->
+	<scriptdef name="unitTests_splitStringOnce" language="javascript">
+		<attribute name="string"/>
+		<attribute name="delimiter"/>
+		<attribute name="resultProperty1"/>
+		<attribute name="resultproperty2"/>
+	<![CDATA[
+      var string = attributes.get("string");
+      var delimiter = attributes.get("delimiter");
+
+      var beforeDelimiter = string.substring(0,string.lastIndexOf(delimiter));
+      var afterDelimiter = string.substring(string.lastIndexOf(delimiter) + 1);
+
+      self.project.setProperty( attributes.get("resultproperty1"), beforeDelimiter);
+      self.project.setProperty( attributes.get("resultproperty2"), afterDelimiter);
+    ]]>
+	</scriptdef>
+
+	<!-- Gets the fully qualified artifact name (e.g. com.braintribe:PlatformApi#1.0) for the specified relative artifact dir
+		(e.g. com/braintribe/PlatformApi/1.0). -->
+	<scriptdef name="unitTests_getFullyQualifiedArtifactName" language="javascript">
+		<attribute name="relativeArtifactDir"/>
+		<attribute name="fileSeparator"/>
+		<attribute name="resultproperty"/>
+	<![CDATA[
+      var fileSeparator = attributes.get("fileseparator");
+      var artifactDir = attributes.get("relativeartifactdir");
+      var qualifiedArtifactName = artifactDir.substring(0,artifactDir.lastIndexOf(fileSeparator)) + "#" + artifactDir.substring(artifactDir.lastIndexOf(fileSeparator) + 1)
+      qualifiedArtifactName = qualifiedArtifactName.substring(0,qualifiedArtifactName.lastIndexOf(fileSeparator)) + ":" + qualifiedArtifactName.substring(qualifiedArtifactName.lastIndexOf(fileSeparator) + 1)
+      qualifiedArtifactName = qualifiedArtifactName.split(fileSeparator).join(".");
+
+      self.project.setProperty( attributes.get("resultproperty"), qualifiedArtifactName);
+    ]]>
+	</scriptdef>
+
+	<!-- Modifies the fullyQualifiedArtifactName (see unitTests_getFullyQualifiedArtifactName) so that it can be used as file/folder
+		name. -->
+	<macrodef name="unitTests_getFullyQualifiedArtifactNameForFileName">
+		<attribute name="fullyQualifiedArtifactName"/>
+		<attribute name="resultProperty"/>
+		<sequential>
+			<local name="unitTests_getFullyQualifiedArtifactNameForFileName_tmp"/>
+			<unitTests_stringReplace target="@{fullyQualifiedArtifactName}" resultProperty="unitTests_getFullyQualifiedArtifactNameForFileName_tmp" searchedString=":" replacementString="!"/>
+			<!-- we also replace the #, because it's a special URI character (Saxon issue). -->
+			<unitTests_stringReplace target="${unitTests_getFullyQualifiedArtifactNameForFileName_tmp}" resultProperty="@{resultProperty}" searchedString="#" replacementString="!"/>
+		</sequential>
+	</macrodef>
+
+	<!-- ********************************************************************* -->
+	<!-- ****************** Helpers copied from DevQA. *********************** -->
+	<!-- ********************************************************************* -->
+
+	<!-- Sets the result property to true or false, depending on whether the (whole) passed string matches the specified regex. -->
+	<macrodef name="unitTests_matchesRegex">
+		<attribute name="string"/>
+		<attribute name="regex"/>
+		<attribute name="resultProperty"/>
+		<sequential>
+			<local name="unitTests_matchesRegexHelper"/>
+			<!-- Only if the string matches the regex, the property will be set (\0 selects the whole string). -->
+			<propertyregex property="unitTests_matchesRegexHelper" input="@{string}" regexp="^@{regex}$" select="\0"/>
+			<if>
+				<isset property="unitTests_matchesRegexHelper"/>
+				<then>
+					<property name="@{resultProperty}" value="true"/>
+				</then>
+				<else>
+					<property name="@{resultProperty}" value="false"/>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Gets the value of the targetProperty, replaces occurrences of searchedString with replacementString and stores the
+		result in the resultProperty. -->
+	<macrodef name="unitTests_propertyStringReplace">
+		<attribute name="targetProperty"/>
+		<attribute name="resultProperty"/>
+		<attribute name="searchedString"/>
+		<attribute name="replacementString"/>
+		<sequential>
+			<loadresource property="@{resultProperty}">
+				<propertyresource name="@{targetProperty}"/>
+				<filterchain>
+					<tokenfilter>
+						<filetokenizer/>
+						<replacestring from="@{searchedString}" to="@{replacementString}"/>
+					</tokenfilter>
+				</filterchain>
+			</loadresource>
+		</sequential>
+	</macrodef>
+
+	<!-- Replaces occurrences of searchedString in target with replacementString and stores the result in the resultProperty. -->
+	<macrodef name="unitTests_stringReplace">
+		<attribute name="target"/>
+		<attribute name="resultProperty"/>
+		<attribute name="searchedString"/>
+		<attribute name="replacementString"/>
+		<sequential>
+			<if>
+				<equals arg1="@{target}" arg2=""/>
+				<then>
+					<property name="@{resultProperty}" value=""/>
+				</then>
+				<else>
+					<local name="stringForPropertyStringReplace"/>
+					<property name="stringForPropertyStringReplace" value="@{target}"/>
+					<unitTests_propertyStringReplace targetProperty="stringForPropertyStringReplace" resultProperty="@{resultProperty}" searchedString="@{searchedString}" replacementString="@{replacementString}"/>
+				</else>
+			</if>
+			<!-- <echo message="In string '@{target} replaced '@{searchedString}' with '@{replacementString}'. Result: '${@{resultProperty}}'"
+				/> -->
+		</sequential>
+	</macrodef>
+
+	<!-- Verifies that the specified value is a valid boolean. -->
+	<macrodef name="unitTests_assertBoolean">
+		<attribute name="value"/>
+		<sequential>
+			<if>
+				<or>
+					<equals arg1="@{value}" arg2="true"/>
+					<equals arg1="@{value}" arg2="false"/>
+				</or>
+				<then>
+					<!-- fine -->
+				</then>
+				<else>
+					<fail message="'@{value}' is not a valid boolean string!"/>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Verifies that the value of the specified property is a valid boolean. -->
+	<macrodef name="unitTests_assertBooleanProperty">
+		<attribute name="property"/>
+		<attribute name="isMandatory" default="true"/>
+		<sequential>
+			<unitTests_assertBoolean value="@{isMandatory}"/>
+			<if>
+				<isset property="@{property}"/>
+				<then>
+					<if>
+						<or>
+							<equals arg1="${@{property}}" arg2="true"/>
+							<equals arg1="${@{property}}" arg2="false"/>
+						</or>
+						<then>
+							<!-- fine -->
+						</then>
+						<else>
+							<fail message="Property '@{property}' is not a valid boolean property (value = '${@{property}}')!"/>
+						</else>
+					</if>
+				</then>
+				<else>
+					<if>
+						<equals arg1="@{isMandatory}" arg2="true"/>
+						<then>
+							<fail message="Mandatory property '@{property}' is not set and thus not a valid boolean property!"/>
+						</then>
+						<else>
+							<!-- fine -->
+						</else>
+					</if>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Either gets the value of the specified source property or the default (if the property isn't set). The result is stored
+		in the target property (which must not be set yet). If the source property is set, empty values are accepted by default.
+		This can be controlled by setting the emptyValueAllowed flag. -->
+	<macrodef name="unitTests_getPropertyValueOrDefault">
+		<attribute name="sourceProperty"/>
+		<attribute name="default"/>
+		<attribute name="targetProperty"/>
+		<attribute name="emptyValueAllowed" default="true"/>
+		<sequential>
+			<unitTests_assertPropertyNotSet name="@{targetProperty}"/>
+			<if>
+				<and>
+					<isset property="@{sourceProperty}"/>
+					<and>
+						<or>
+							<not>
+								<equals arg1="${@{sourceProperty}}" arg2=""/>
+							</not>
+							<equals arg1="@{emptyValueAllowed}" arg2="true"/>
+						</or>
+					</and>
+				</and>
+				<then>
+					<property name="@{targetProperty}" value="${@{sourceProperty}}"/>
+				</then>
+				<else>
+					<property name="@{targetProperty}" value="@{default}"/>
+				</else>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<!-- Verifies that the specified property is not set yet. -->
+	<macrodef name="unitTests_assertPropertyNotSet">
+		<attribute name="name"/>
+		<sequential>
+			<fail message="Property '@{name}' is already set! Value: '${@{name}}'">
+				<condition>
+					<isset property="@{name}"/>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+
+</project>

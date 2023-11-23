@@ -1,0 +1,8 @@
+!com.braintribe.devrock.model.repository.RepositoryConfiguration
+repositories:
+  - !com.braintribe.devrock.model.repository.MavenHttpRepository
+    artifactFilter: !com.braintribe.devrock.model.repository.filters.ConjunctionArtifactFilter
+      operands:
+        - !com.braintribe.devrock.model.repository.filters.LockArtifactFilter
+          locks: !!set []
+    name: "core-dev"

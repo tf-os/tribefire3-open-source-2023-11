@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?gm-xml version="4"?>
+<gm-data>
+	<required-types>
+		<t alias='User^CsSFfF' num='2'>com.braintribe.model.user.User</t>
+	</required-types>
+	<root-value>
+		<S>
+			<r>User^CsSFfF-0</r>
+		</S>
+	</root-value>
+	<pool>
+		<E id='User^CsSFfF-0'>
+			<s p='firstName'>Stefan</s>
+			<s p='globalId'>be9bbe0a-1707-49ca-88a3-25e6ddeba4fe</s>
+			<s p='id'>19f70231-6008-46f2-bafc-f99d4ad1c32c</s>
+			<s p='lastName'>Prieler</s>
+			<s p='name'>cortex</s>
+			<s p='password'></s>
+			<S p='roles' />
+		</E>
+	</pool>
+</gm-data>

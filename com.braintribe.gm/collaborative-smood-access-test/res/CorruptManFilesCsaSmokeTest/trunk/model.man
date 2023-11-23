@@ -1,0 +1,1 @@
+$0=(GmMetaModel=com.braintribe.model.meta.GmMetaModel)() .globalId='test.smoke.SimpleSmokeTestModel' .name='test.smoke:SimpleSmokeTestModel' .CORRUPT_ENTRY

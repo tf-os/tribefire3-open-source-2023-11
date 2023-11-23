@@ -1,0 +1,19 @@
+<and>
+	<loggerNames>com.braintribe.model.processing.securityservice.usersession.basic.BasicUserSessionService, com.braintribe.model.processing.securityservice.basic.SecurityServiceProcessor, com.braintribe.web.servlet.auth.AuthServlet, com.braintribe.cartridge.common.processing.web.ServiceEndpointFilter@FINE</loggerNames>
+	<or>
+		<!-- Login -->
+		<matches>.*Authentication of user .* succeeded.*</matches>
+		<!-- Wrong password -->
+		<matches>.*Authentication of user .* failed.*</matches>
+		<!-- Session is closed -->
+		<matches>.*Closing user session .* for user .*</matches>
+		<!-- Session has expired -->
+		<matches>.*session .* was considered expired .*</matches>
+		<!-- Session is invalid -->
+		<matches>.*An invalid sessionId.* was provided.*</matches>
+		<!-- Session does not exist -->
+		<!-- We get something like this: 'com.braintribe.model.processing.ddra.endpoints.api.v1.ApiV1RestServlet      'Error while executing: REST call: GET' -->
+		<!-- Information is in the stacktrace and we cannot filter for this.-->
+		<!--<matches>TODO</matches>-->
+	</or>
+</and>

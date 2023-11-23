@@ -1,0 +1,56 @@
+apiVersion: tribefire.cloud/v1
+kind: TribefireRuntime
+metadata:
+  name: tfdemo-stable
+  namespace: @@TF_NAMESPACE@@
+spec:
+  backend:
+    type: etcd
+    parameters:
+      - name: url
+        value: 'http://tfcloud-@@TF_NAMESPACE@@-tf-etcd-cluster-client:2379'
+  components:
+  - env:
+    - name: CI_RUN_URL
+      value: internal
+    image: dockerregistry.example.com/releases/cortex/tribefire-demo/2.0/tribefire-explorer
+    imageTag: latest
+    name: tribefire-explorer
+    resources:
+      limits:
+        cpu: "1"
+        memory: 512Mi
+      requests:
+        cpu: 100m
+        memory: 192Mi
+    type: explorer
+  - env:
+    - name: CI_RUN_URL
+      value: internal
+    image: dockerregistry.example.com/releases/cortex/tribefire-demo/2.0/tribefire-master
+    imageTag: latest
+    name: tribefire-master
+    resources:
+      limits:
+        cpu: "3"
+        memory: 3Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    type: services
+  - env:
+    - name: CI_RUN_URL
+      value: internal
+    image: dockerregistry.example.com/releases/cortex/tribefire-demo/2.0/tribefire-control-center
+    imageTag: latest
+    name: tribefire-control-center
+    resources:
+      limits:
+        cpu: "3"
+        memory: 3Gi
+      requests:
+        cpu: 500m
+        memory: 1Gi
+    type: control-center
+  databaseType: local
+  domain: localhost

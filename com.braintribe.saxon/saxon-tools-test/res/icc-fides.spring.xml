@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ============================================================================
+ Braintribe IT-Technologies GmbH - www.braintribe.com
+ Copyright Braintribe IT-Technologies GmbH, Austria, 2002-2015 - All Rights Reserved
+ It is strictly forbidden to copy, modify, distribute or use this code without written permission
+ To this file the Braintribe License Agreement applies.
+ ============================================================================
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<import resource="icc-namespace-index.spring.xml" />
+	<import resource="icc-urns.spring.xml" />
+	<!--
+		IP = Input Process
+		PI = Payment Import Process
+		PE = Payment Export Process
+		SI = Statement Import Process
+		SE = Statement Export Process
+		CI = Confirmation Import Process
+		CE = Confirmation Export Process
+	-->
+
+	<!-- FileGate MQ Configuration for Payments -->
+	<bean id="comm.jms.internal.server.mq.payments" class="com.braintribe.transport.jms.server.JmsServerMq">
+		<property name="host" value="--changeme--" />
+		<property name="port" value="--changeme--" />
+		<property name="channel" value="--changeme--" />
+		<property name="queueManager" value="--changeme--" />
+	</bean>
+
+	<bean id="fileGateQueuePE1" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="queueName" value="--changeme--" />
+				<entry key="msgMinSizeInKb" value="0" />
+				<entry key="msgMaxSizeInKb" value="--changeme--" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- FileGate MQ Input for Confirmations -->
+	<bean id="comm.jms.internal.server.mq.input" class="com.braintribe.transport.jms.server.JmsServerMq">
+		<property name="host" value="--changeme--" />
+		<property name="port" value="--changeme--" />
+		<property name="channel" value="--changeme--" />
+		<property name="queueManager" value="--changeme--" />
+	</bean>
+
+	<bean id="fileGateQueueInput" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="queueName" value="--changeme--" />
+				<entry key="msgMinSizeInKb" value="--changeme--" />
+				<entry key="msgMaxSizeInKb" value="--changeme--" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- Internal MQ Server Configuration -->
+	<bean id="comm.jms.internal.server" class="com.braintribe.transport.jms.server.JmsServerMq">
+		<property name="host" value="--changeme--" />
+		<property name="port" value="--changeme--" />
+		<property name="channel" value="--changeme--" />
+		<property name="queueManager" value="--changeme--" />
+	</bean>
+
+	<bean id="queueNames" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="paymentImportQueueName" value="--changeme--" />
+				<entry key="paymentImportCorrelationQueueName" value="--changeme--" />
+				<entry key="paymentExportQueueName" value="--changeme--" />
+
+				<entry key="statementImportQueueName" value="--changeme--" />
+				<entry key="statementExportQueueName" value="--changeme--" />
+
+				<entry key="confirmationImportQueueName" value="--changeme--" />
+				<entry key="confirmationExportQueueName" value="--changeme--" />
+
+				<entry key="passthroughImportQueueName" value="--changeme--" />
+				<entry key="passthroughExportQueueName" value="--changeme--" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- General Configuration -->
+	<bean id="stageContextMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<!-- IP -->
+				<!-- Specifies the triggering of the ftp poller -->
+				<entry key="pollerCronExpression" value="0 0/5 * * * ?" />
+				<!-- Enables/disables the InputProcess DuplicateCheckProcessor -->
+				<entry key="activateInputProcessDuplicateCheck" value="false" />
+				<!-- Interval from current minus dayRange value for check in InputProcess DuplicateCheckProcessor -->
+				<entry key="inputProcessDuplicateCheckDayRange" value="180" />
+
+				<!-- PI -->
+				<!-- Support Attribute for selecting payorders. Interval from current
+					day minus dayRange value -->
+				<entry key="dayRange" value="180" />
+
+				<!-- PE -->
+				<!-- Specifies personal id (pid) in SOAP Header request to NZV -->
+				<entry key="spid" value="--changeme--" />
+				<!-- Default Bic for Status Report created in PE Transmit/Confirm Processors -->
+				<!-- if it cannot be find in ServiceConsumer_CF entity -->
+				<entry key="defaultBic" value="--changeme--" />
+
+				<!-- SI -->
+				<!-- Interval how often should Merge Wait schedule worker check if related
+					statements are in the Merge Wait State -->
+				<!-- and choose statements contexts which should be moved to Merge state -->
+				<entry key="intervalInMinutes" value="5" />
+
+				<!-- SE -->
+				<!-- Turn on/off workarounds that cannot be simulated outside UAT/PROD -->
+				<entry key="workaroundEnabled" value="false" />
+
+				<!-- PE, SE -->
+				<!-- If the result of the PE or SE should be transmitted via email. Configure SMTP. -->
+				<!-- Depends on the channel details ChnDetailsMail_CF. -->
+				<entry key="smtpHost" value="--changeme--" />
+				<entry key="smtpPort" value="--changeme--" />
+				<entry key="smtpUser" value="--changeme--" />
+				<entry key="smtpPassword" value="--changeme--" />
+				<entry key="smtpFrom" value="--changeme--" />
+				<entry key="smtpDefaultToAddressesIt" value="--changeme--" />
+				<entry key="smtpDefaultToAddressesBusiness" value="--changeme--" />
+				<entry key="smtpAuthentication" value="false" />
+				<entry key="smtpStartTls" value="false" />
+				<entry key="serverMustUnderstandSecurityHeaders" value="false" />
+				<!-- FileGate transmit: If groupSizeInKb value > encoded resources size resource will be transmitted view MQ grouping -->
+				<entry key="msgGroupSizeInKb" value="--changeme--" />
+
+				<!-- CE -->
+				<entry key="pain002SwiftService" value="swift.corp.fa!p" />
+				<entry key="pain002SwiftServiceStoreAndForward" value="swift.corp.fast!p" />
+
+				<!-- customization for FIDES -->
+				<entry key="customization" value="true" />
+
+				<!-- PE -->
+				<!-- Defines the pool size used for NZV Service pooling in PE / Transmit -->
+				<entry key="nzvServicePoolCapacity" value="--changeme--" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- PE -->
+	<util:list id="stageContext.dispatchWebServiceUrls" value-type="java.lang.String">
+		<value>--changeme--</value>
+	</util:list>
+
+	<bean id="payment.process.handler.dispatch.webserviceclient.sslfactory" class="com.braintribe.transport.ssl.impl.VersatileSslSocketFactoryProvider">
+		<property name="securityProtocol" value="SSL" />
+		<property name="truststoreFile" value="--changeme--" />
+		<property name="truststorePassword" value="--changeme--" />
+		<property name="keystoreFile" value="--changeme--" />
+		<property name="keystorePassword" value="--changeme--" />
+		<property name="keyPassword" value="--changeme--" />
+	</bean>
+	<!-- =========================================================== -->
+
+	<!-- SI -->
+	<bean id="iccNamesapceIndex" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="mt940xml-mtmsg" value="urn:swift:xsd:mtmsg.2015" />
+				<entry key="mt940xml-fin940" value="urn:swift:xsd:fin.940.2015" />
+				<entry key="mt942xml-mtmsg" value="urn:swift:xsd:mtmsg.2015" />
+				<entry key="mt942xml-fin942" value="urn:swift:xsd:fin.942.2015" />
+			</map>
+		</constructor-arg>
+	</bean>
+	<!-- =========================================================== -->
+
+	<!-- Filegate header file format to FormatVersion urn -->
+	<util:map id="fileGateHeader.fileFormat_to_FormatVersion.urn_map" key-type="java.lang.String" value-type="java.lang.String">
+		<entry key="DTA-Disc" value="pain.DTAVP-CH-CS-0.0-CS-ST" />
+		<entry key="LSV+-Disc" value="pain.LSV.plus.VP-CH-CS-0.0-CS-ST" />
+		<entry key="SDD-PAIN.008" value="" />
+		<entry key="SDD-PAIN.002" value="" />
+		<entry key="CCTI-PAIN.001" value="" />
+	</util:map>
+	<!-- =========================================================== -->
+
+	<!-- Filegate header file format to FormatVersion urn -->
+	<bean id="filegate.header.format.version.urn.file.formats" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.String">
+				<entry key="DTA" value="DTA-Disc" />
+				<entry key="LSV" value="LSV+-Disc" />
+			</map>
+		</constructor-arg>
+	</bean>
+	<!-- =========================================================== -->
+
+</beans>

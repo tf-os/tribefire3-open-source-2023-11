@@ -1,0 +1,10 @@
+import tribefire.extension.drools.model.test.TestProcess;
+
+dialect "java"
+
+rule "Foo"
+when
+	$p: TestProcess(marked == true)
+then
+	$p.setMarked(false);
+end

@@ -1,0 +1,52 @@
+@external noheader gmeDialog messageDialog;
+
+.gmeDialog .top {
+	background: white;
+	height: 40px;
+}
+
+.gmeDialog .topLeft, .gmeDialog .topRight {
+	background: transparent;
+	height: 40px;
+	border-bottom: 0px;
+}
+
+.gmeDialog .left, .gmeDialog .right, .gmeDialog .bottomLeft, .gmeDialog .bottomRight {
+	background: transparent;
+}
+
+.gmeDialog .bottom {
+	background: transparent;
+}
+
+.top, .topLeft, .topRight {
+	background: #f8f8ff;
+}
+
+.topLeft {
+	border-bottom: 1px solid #d3d3d3;
+}
+
+.left, .right, .bottomLeft, .bottomRight, .bottom {
+	background: none;
+}
+
+.bottom, .bottomLeft, .bottomRight {
+	/*height: 0;*/
+}
+
+.content {
+	background: white !important;
+}
+
+.messageDialog .content {
+	background: none !important;
+}
+
+.noheader .top {
+	height: 0px !important;
+}
+
+.noheader .topLeft {
+	height: 0px !important;
+}

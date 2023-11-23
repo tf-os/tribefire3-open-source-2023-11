@@ -1,0 +1,227 @@
+
+################################################################
+##                         Basic                              ##
+################################################################
+	
+	#####################################
+	## . . . . Scalar properties . . . ##
+	#####################################
+
+		>>
+		>> select ... from BasicScalarEntity
+		>>
+
+		SIMPLE
+			select stringValue
+			select integerValue
+			select longValue
+			select floatValue
+			select doubleValue
+			select booleanValue
+			select dateValue
+			select decimalValue
+
+			select stringValue, integerValue, longValue, floatValue, doubleValue, booleanValue, dateValue, decimalValue
+
+		ENUM	
+			select color
+
+		CONDITIONS
+			select stringValue
+				where stringValue = 'value'
+				where integerValue =  42
+				where longValue = 42L
+				where floatValue = 42f
+				where doubleValue = 42d
+				where booleanValue = true
+				where dateValue = [1.1.2042]
+				where decimalValue = new BigDecimal(42)
+				where color = Color.GREEN
+
+				where stringValue like '*al*'
+				where stringValue ilike '*al*'
+
+				where integerValue > 42
+				where integerValue < 42
+
+				where integerValue = 42 or integerValue = 147
+				where integerValue > 42 and integerValue < 147
+				where (integerValue = 42 and longValue = 43) or (integerValue = 142 and longValue = 143)
+				where integerValue in {2, 3, 5, 7}	
+
+				where stringValue != NULL
+
+		ORDERING
+			select stringValue
+				order by stringValue
+				order by integerValue
+				order by longValue
+				order by floatValue
+				order by doubleValue
+				order by booleanValue
+				order by dateValue
+				order by decimalValue
+				order by color
+
+				order by stringValue asc
+				order by stringValue desc
+
+				order by stringValue asc, integerValue desc
+
+		AGGREGATION
+			select stringValue, count(integerValue)
+			select stringValue, sum(integerValue)
+			select stringValue, min(integerValue)
+			select stringValue, max(integerValue)
+			select stringValue, avg(integerValue)
+
+
+		AGGREGATION + ORDERING
+			select stringValue, count(integerValue)
+				order by count(integerValue)
+
+			select stringValue, count(integerValue)
+				order by sum(longValue)
+
+		HAVING
+			select stringValue, count(integerValue)
+				having sum(longValue) > 10
+
+
+	#####################################
+	## . . . . Entity properties . . . ##
+	#####################################
+
+		>>
+		>> select ... from BasicEntity e
+		>>
+
+		ENTITY BEING REFERENCED
+
+			select e
+			select e.basicEntity
+
+			select e.basicEntity
+				where e = ${instance of BasicEntity}
+
+			select e.localizedStringValue
+
+			select count(e), e.basicEntity
+
+			// NOTE this doesn't need any table join to be performed, assuming we use globalId as a foreign key
+			select count(e), e.basicEntity.globalId
+				group by e.basicEntity 
+
+		JOINS
+			select e, j from BasicEntity e join e.basicEntity j
+			select e, j from BasicEntity e right join e.basicEntity j
+			select e, j from BasicEntity e left join e.basicEntity j
+			select e, j from BasicEntity e outter join e.basicEntity j
+
+
+		LOCALIZATION
+			select localize(e.localizedStringValue, 'en')
+
+			select e.stringValue
+				where localize(e.localizedStringValue, 'en') = 'yes'
+
+
+
+################################################################
+##                      Collections                           ##
+################################################################
+
+	SIMPLE
+		select stringSet from CollectionsEntity
+
+		// We will introduce this function and support it in other accesses later
+		select size(stringSet) from CollectionsEntity
+
+		select s from CollectionsEntity c join c.stringSet s 
+			where s = 'value'
+
+		select c from CollectionsEntity c
+			where 'value' in c.stringSet
+
+		select s from CollectionsEntity c join c.stringSet s 
+			where 'value' in c.stringSet
+
+	JOIN FUNCTIONS
+		select listIndex(l), l from CollectionsEntity c join c.stringList l
+
+		select mapKey(m), m from CollectionsEntity c join c.integerStringMap m
+
+	ENTITIES
+
+		select entitySet from CollectionsEntity
+
+		select c from CollectionsEntity c
+			where ${instance of CollectionEntity} in c.entitySet
+
+		select mapKey(m), m from CollectionsEntity c join c.entityIntegerMap m
+
+		select c from CollectionsEntity c
+			where mapKey(c.entityIntegerMap) = ${instance of CollectionEntity}
+
+
+	JOINS
+		select e, j from CollectionsEntity e join e.entitySet j
+		select e, j from CollectionsEntity e right join e.entitySet j
+		select e, j from CollectionsEntity e left join e.entitySet j
+		select e, j from CollectionsEntity e outter join e.entitySet j
+
+
+################################################################
+##                         TREE                               ##
+################################################################
+
+	ENTITY SIGNATURE
+		// static
+		select entitySignature(e) from TreeLeft e
+
+		// dynamic
+		select entitySignature(e) from TreeBase e
+
+		select e from TreeBase e
+			where entitySignature(e.treeEntity) = 'TreeRight'
+
+
+	ENTITY
+		select e from TreeEntity e
+
+		select e.treeEntitySet from TreeEntity e
+
+		select e from TreeEntity e
+			where ${instance of TreeLeft} in e.treeEntitySet // we can optimize this to only consider TreeLeft thingies, maybe?
+
+		select e from TreeEntity e
+			where ${instance of TreeLeft} in e.treeEntitySet
+
+
+		select mapKey(r.integerTreeEntityMap), r.integerTreeEntityMap from TreeReferee r
+
+		select mapKey(r.treeEntityIntegerMap), r.treeEntityIntegerMap from TreeReferee r
+
+
+################################################################
+##                       DIAMOND                              ##
+################################################################
+	
+	DIAMOND
+
+		// the big question is what do we join with what in each of these two case
+
+		select dl.diamondDuplicateSet from DiamondLeft dl
+
+		select dt.diamondDuplicateSet from DiamondTail dt
+
+################################################################
+##                        Object                              ##
+################################################################
+
+
+	select value from ObjectPropertiesEntity // really depends on all the possible values
+
+
+	select value from ObjectPropertiesEntity
+		where value != null

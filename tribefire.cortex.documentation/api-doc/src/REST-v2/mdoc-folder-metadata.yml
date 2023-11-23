@@ -1,0 +1,19 @@
+---
+!com.braintribe.doc.meta.CustomFolderMetaData
+files:
+  
+  rest_v2_introduction.md: 
+  
+  rest_authentication.md:
+
+  quick_start_rest_v2.md:
+
+  rest_v2_api_v1.md: 
+
+  rest_v2_rest_v2.md:
+
+  rest_v2_rest_v2_entities.md:
+
+  rest_v2_rest_v2_properties.md:
+
+  using_swagger_ui.md:

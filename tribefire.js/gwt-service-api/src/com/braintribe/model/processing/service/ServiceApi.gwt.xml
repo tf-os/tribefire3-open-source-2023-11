@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <inherits name="com.braintribe.common.AttributeApi"/>
+    <inherits name="com.braintribe.model.generic.AbsenceInformationModel"/>
+	<inherits name="com.braintribe.model.generic.pr.TraversingCriteriaModel"/>
+    <inherits name="com.braintribe.model.GenericModel"/>
+    <inherits name="com.braintribe.model.ServiceApiModel"/>
+    <inherits name="com.braintribe.processing.async.AsyncApi"/>
+    <inherits name="com.braintribe.utils.Collection"/>
+    <inherits name="com.google.gwt.core.Core"/>
+    <inherits name="com.google.gwt.emul.Emulation"/>
+    <inherits name="jsinterop.annotations.Annotations"/>
+    <source path="api" />
+    <source path="impl">
+    	<include name="**/AbstractAttributeContextBuilder.java"/>
+    	<include name="**/AbstractServiceProcessor.java"/>
+    	<include name="**/BasicOutputConfig.java"/>
+    	<include name="**/ConfigurableDispatchingServiceProcessor.java"/>
+    	<include name="**/ConfigurableServiceRequestEvaluator.java"/>
+    </source>
+    <source path="commons">
+    	<include name="**/NoOpServiceRequestSummaryLogger.java"/>
+    	<include name="**/ServiceRequestContexts.java"/>
+    	<include name="**/StandardServiceRequestContext.java"/>
+    	<include name="**/StandardServiceRequestContextBuilder.java"/>
+    </source>
+</module>

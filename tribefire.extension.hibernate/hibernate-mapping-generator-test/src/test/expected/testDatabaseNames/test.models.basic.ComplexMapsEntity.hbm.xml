@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true">
+	<class name="test.models.basic.ComplexMapsEntity" entity-name="test.models.basic.ComplexMapsEntity" table="ComplexMapsEntity" abstract="false">
+		<id name="id" column="id" type="long">
+			<generator class="native" />
+		</id>
+		<map name="entityToEntityMap" table="myCustom_entToEnt_table">
+			<key column="myCustom_collectionKeyCol" />
+			<map-key-many-to-many column="myCustom_mapKeyCol" class="test.models.basic.SimpleEntity" />
+			<many-to-many class="test.models.basic.SimpleEntity" column="myCustom_collectionElementCol" />
+		</map>
+		<map name="entityToStringMap" table="ComplMapsEntitEntitToStringMap">
+			<key column="ComplexMapsEntityId" />
+			<map-key-many-to-many column="SimpleEntityId" class="test.models.basic.SimpleEntity" />
+			<element column="EntityToStringMap" type="string" />
+		</map>
+		<property name="globalId" column="globalId" type="string" />
+		<property name="partition" column="`myCustom partitionCol`" type="string" />
+		<map name="stringToEntityMap" table="ComplMapsEntitStrinToEntityMap">
+			<key column="ComplexMapsEntityId" />
+			<map-key column="StringToEntityMapKey" type="string" />
+			<many-to-many class="test.models.basic.SimpleEntity" column="SimpleEntityId" />
+		</map>
+	</class>
+</hibernate-mapping>

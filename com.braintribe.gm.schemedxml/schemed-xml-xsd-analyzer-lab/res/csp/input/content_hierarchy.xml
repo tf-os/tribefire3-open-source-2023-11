@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xsi:noNamespaceSchemaLocation="hierarchy.xsd" onConsistencyViolation="warn" nextNodeId="4">
+  <!-- CONTENT HIERARCHY LEGEND -->
+  <operations>
+    <!-- MINIMUM OPERATIONS -->
+    <operation name="Read" description="This operation allows read access to index values and documents." />
+    <operation name="Write" description="This operation grants the user write access to index values, documents for inserting data." />
+    <!-- Standard Operations -->
+    <operation name="addJumpMark" description="This operation grants the user the rights to set a jump mark for quick navigation through various documents in the viewer.." />
+    <operation name="addObject" description="This operation grants the user the rights for adding documents or pages to existing content in the HitList." />
+    <operation name="AddTextComments" description="This operation grants the user the rights for adding comments to document(s) in the viewer window pane." />
+    <operation name="AddTwain" description="This operation grants the user the rights to add a document via a scanner and to also import it as object." />
+    <operation name="changeindexfromviewer" description="This operation grants the user the rights to change the hierarchy node in the viewer; if denied then the windows client disables the move content button in the viewer panel's menu bar" />
+    <operation name="checkout" description="This operation grants the user the rights to the functions of checkin and checkout of documents or pages." />
+    <operation name="clonecontent" description="This operation grants the user the rights to create a content with a dummy.tif only. This was a special feature for a customer." />
+    <operation name="CopyAndInsertIndexValues" description="This operation grants the user the rights to copy index values by clicking with the right mouse button and insert index values by selecting a new content and pasting the copied values." />
+    <operation name="copycontent" description="This operation grants the user the rights for copying and pasting of documents to another node." />
+    <operation name="createpdffromviewer" description="This operation grants the user the rights to create a PDF with all the selected objects in the viewer." />
+    <operation name="DeactivateContent" description="This operation grants the user the rights to deactivate documents and index data." />
+    <operation name="ReactivateContent" description="This operation allows the reactivating of the deactivated document(s) and index data." />
+    <operation name="deactivateobject" description="This operation grants the user the rights to deactivate single objects attached to a content." />
+    <operation name="DeleteAnnotation" description="This operation grants the user the rights to delete annotations in the viewer." />
+    <operation name="denychangeindex" description="This operation denies the right of the user for moving content to another node." />
+    <operation name="denyDropToHierarchy" description="This operation denies the right of the user to drag and drop content and files to a hierarchy node or to a structured search result node." />
+    <operation name="denyEditIndexValues" description="This operation denies the right of the user to edit index values only. However, multiindexing and moving content is still allowed." />
+    <operation name="denyFileImport" description="This operation denies the right of the user to attach objects to a specific node." />
+    <operation name="denyHitlistAddContent" description="This operation denies the right of the user to perform Hitlist, AddContent and AddContentHere actions." />
+    <operation name="denyImport" description="This operation denies the right of the user to add content to a specific node. This only effects manual import. Importing with Content Automation is still valid." />
+    <operation name="disableediting" description="This operation denies the right of the user to change any index values." />
+    <operation name="dragfilefromhitlist" description="This operation grants the user the rights to drag files from the HitList to another location. To drag files press 'CTRL+SHIFT'." />
+    <operation name="dragfilefromviewer" description="This operation grants the user the rights to drag files from viewer to another location. To drag files press 'CTRL+SHIFT'." />
+    <operation name="dragobjectfromhitlist" description="This operation grants the user the rights to drag and drop objects from the search result on a result with operation 'write' and 'addObject'." />
+    <operation name="dragobjectfromviewer" description="This operation grants the user the rights to drag and drop objects from the viewer on the HitList with operation 'write' and 'addObject'." />
+    <operation name="dragmerge" description="This operation grants the user the rights to drag objects for merging contents in hitlist." />
+    <operation name="dropmerge" description="This operation grants the user the rights to drop objects for merging contents in HitList." />
+    <operation name="EditAnnotation" description="This operation grants the user the rights for editing annotations in the Viewer." />
+    <operation name="eventDocumentViewed" description="This operation enables the CSP client to send a 'documentViewed' event to the server." />
+    <operation name="ExportWithAnno" description="This operation grants the user the rights to export HitLists with annotations." />
+    <operation name="ExportWithoutAnno" description="This operation grants the user the rights to export HitLists without annotations." />
+    <operation name="hideVisibleNodes" description="This operation hides visible nodes from the client (set the 'isVisible' parameter to no); note that this takes precedence over 'showInvisibleNodes'." />
+    <operation name="hitlistchange" description="This operation grants the user the rights for changing hierarchy node with hitlist." />
+    <operation name="hitlistmerge" description="This operation grants the user the rights to merge content in the HitList." />
+    <operation name="hitlistmulti" description="This operation grants the user the rights to create multiindex with the HitList." />
+    <operation name="ignoreLocalCache" description="This operation ignores the local client cache for this content types." />
+    <operation name="importWithoutFiles" description="This operation grants the user the rights for importing without any dialog message that there are no files attached. " />
+    <operation name="launch" description="This operation opens the selected object with the operating system's default application." />
+    <operation name="mailFromViewer" description="This operation grants the user the rights for mailing documents in Viewer." />
+    <operation name="ManageStamps" description="This operation allows the management of stamps." />
+    <operation name="multiDocumentViewing" description="This operation grants the user the rights to view same document in multiple viewers." />
+    <operation name="multiIndex" description="This operation grants the user the rights for multiindexing." />
+    <operation name="multiindexingallowed" description="This operation grants the user the rights for multiinedxing in the Client GUI." />
+    <operation name="multiindexingview" description="This operation grants the user the rights to view multiindexes only - disables creating multiindexes." />
+    <operation name="newindexfromviewer" description="This operation creates a new index set from the viewer." />
+    <operation name="PolyCut" description="This operation allows the function polyCut in viewer." />
+    <operation name="Print" description="This operation allows the printing of documents." />
+    <operation name="PrintTextComments" description="This operation allows the printing of comments to documents in viewer." />
+    <operation name="reactivateObject" description="This operation grants the user the rights to reactivate objects that have been deactivated." />
+    <operation name="ReadIndexValue" description="This operation grants the user the rights for read access to index values only, documents cannot be viewed." />
+    <operation name="ReadTextComments" description="This operation grants the user the rights to view the comments you have added previously to the document." />
+    <operation name="removeJumpMark" description="This operation grants the user the rights to remove a jump mark." />
+    <operation name="Save" description="This operation grants the user the rights to save all the changes of the objects." />
+    <operation name="savelocalfromviewer" description="This operation grants the user the rights for saving of documents or pages to local file system out of Viewer." />
+    <operation name="searchcontentid" description="This operation grants the user the rights to search via ContentID." />
+    <operation name="searchdeactivated" description="This operation grants the user the rights to search deactivated objects." />
+    <operation name="showCheckInComment" description="This operation grants the user the rights for adding 'Comments' in the 'CheckIn' viewer dialog." />
+    <operation name="ShowHideAnnotation" description="This operation allows the displaying and hiding of annotations; Button is in the Viewer 'Show/Hide Note'." />
+    <operation name="showDeactivatedObjects" description="This operation displays for the user all objects that have been deactivated." />
+    <operation name="showInHint" description="This operation will show content info in a Hitlist Hint." />
+    <operation name="showVisibleNodes" description="An operation that is always granted and allows to see nodes" />
+    <operation name="showInvisibleNodes" description="This operation denies the right to hide content hierarchy from user." />
+    <operation name="SplitContent" description="This operation allows the splitting/duplicating of documents." />
+    <operation name="usePrefetching" description="This operation allows the content to be prefetched in the HitList." />
+    <operation name="useStamps" description="This operation allows the usage of stamps. Button is in the Viewer 'Show Stamp Manager'." />
+    <operation name="viewerLinkedDoc" description="This operation shows all linked documents." />
+    <operation name="viewJumpMarks" description="This operation will display jump marks." />
+    <operation name="viewrepresentation" description="This operation allows the creation of document representations." />
+    <!-- Operations for Custom Actions 'personal Folder'. Adds two buttons to the search result panel of the client. Users will be able to 'bookmark' documents.-->
+    <operation name="personalFolderAdd" description="This operation grants the user the rights to creating personal folder entries." />
+    <operation name="personalFolderDelete" description="This operation grants the user the rights for deleting personal folder entries (should just be added to Personal Folder node)." />
+    <!-- Branch Operations only-->
+    <!--Invoices Node-->
+    <operation name="ShowHeadData" description="This operation is the default 'Branch To' Operation for the Node 'Invoices': 'Show Head Data'" />
+    <operation name="ShowPositionData" description="This operation is a default 'Branch To' operation for the 'Invoices' node: Show Position Data" />
+    <!--System Node Branch Tos-->
+    <operation name="ShowHistory" description="This operation in 'Branch To' is an option to collect the working history of any content and deposit it to the Audit Trail." />
+    <operation name="ShowReferencingObjects" description="This operation allows a 'Branch To' search from Objects; it takes the MD5 and searches for the same MD5 in the 'Objects' Node." />
+    <operation name="ShowObjects" description="This operation allows a 'Branch To' search from any content to all of its objects." />
+    <operation name="ShowOriginalContent" description="This operation allows a 'Branch To' search from Objects; this takes the ContentID of an Object and searches for ContentID." />
+    <operation name="ContentRecorderBranchToObjects" description="This operation grants the user the rights to the 'Branch To Search' function for Content Recorder to see referenced objects." />
+    <operation name="ShowContent" description="This operation causes the client to display the 'ShowContent' saved search in the Content Recorder Node." />
+    <operation name="ShowIOQueueOperations" description="This operation enables management of single IOQueues." />
+    <operation name="ShowIOQueues" description="This operation enables management operations on a set of IOQueues." />
+    <operation name="PersonalFolderBranchToObjects" description="This operation grants the user the rights to see original objects from the sub-node 'Personal Folder'." />
+    <operation name="PersonalFolderShowContent" description="This operation grants the user the rights for 'Branch To' from Personal Folder node to its original content; searches for a Content ID." />
+    <operation name="ShowCheckedOutContent" description="" />
+    <operation name="ShowRepresentations" description="This operation allows 'Branch To' to the Representaion search of selected content." />
+    <!--System Monitoring Operations-->
+    <operation name="showCheckStatus" description="This operation allows a Branch To search from Monitoring Hosts to related Check status." />
+    <operation name="showCheckHistory" description="This operation will display content history in the 'Content Recorder' Node via the 'Branch To' action." />
+    <operation name="showNotification" description="This operation allows a 'Branch To' search in 'Notifications' node." />
+    <!-- WebClient DocumentViewer Operations -->
+    <operation name="useReportViewer" description="Forces the Web-Client to use the ReportViewer (mainly used for HTML) instead of the WebReader" />
+    <!-- WebReader Annotation Operations -->
+    <operation name="annotation.create" description="This CSP Web Client operation grants the user the rights to create new annotations in the WebReader." />
+    <operation name="annotation.delete" description="This CSP Web Client operation grants the user the rights to delete existing annotations in the WebReader." />
+    <operation name="annotation.changeText" description="This CSP Web Client operation grants the user the rights to change the text of annotations in the WebReader." />
+    <operation name="annotation.size" description="This CSP Web Client operation grants the user the rights to resize annotations in the WebReader." />
+    <operation name="annotation.move" description="This CSP Web Client operation grants the user the rights to move annotations in the WebReader." />
+    <operation name="annotation.select" description="This CSP Web Client operation allows the user to select annotations in the WebReader." />
+    <operation name="annotation.changeCategories" description="This CSP Web Client operation grants the user the rights to change the category of annotations in the WebReader." />
+    <!-- Grouped Operations-->
+    <operation name="Standard" ref="Read, Write" description="Basic DMS operations" />
+    <operation name="FileOperations" ref="mailFromViewer,Save,launch,Print,multiDocumentViewing" description="Basic File Operations" />
+    <operation name="AdminFileOperations" ref="addObject, AddTwain, checkout, newindexfromviewer, changeindexfromviewer, showInvisibleNodes, importWithoutFiles" description="Administrator file operations" />
+    <operation name="DragDrop" ref="dragfilefromhitlist, dragfilefromviewer, dragobjectfromhitlist, dragobjectfromviewer, dragmerge, dropmerge, hitlistchange, hitlistmerge" description="Drag and Drop incl. hitlist operations to create new content or changing nodes" />
+    <operation name="Multiindex" ref="multiIndex, multiindexingallowed, hitlistmulti" description="creating multiindices" />
+    <operation name="Comments" ref="AddTextComments, ReadTextComments, PrintTextComments, showCheckInComment" description="All text comment operations" />
+    <operation name="Annotations" ref="ShowHideAnnotation, EditAnnotation, DeleteAnnotation, useStamps, ManageStamps, annotation.delete, annotation.create, annotation.size, annotation.move, annotation.select, annotation.changeText, annotation.changeCategories" description="Annotation operations incl. stamps" />
+    <operation name="Jumpmark" ref="addJumpMark, removeJumpMark, viewJumpMarks" description="Jumpmark operations" />
+    <operation name="Deactivating" ref="DeactivateContent, deactivateobject, searchdeactivated, searchcontentid, showDeactivatedObjects, ReactivateContent, reactivateObject" description="Seeing deactivated objects, Deactivating, Reactivating objects" />
+    <operation name="Export" ref="ExportWithAnno, createpdffromviewer, savelocalfromviewer" description="export operations" />
+    <operation name="Copy" ref="CopyAndInsertIndexValues" description="copy and paste index values with drag and drop or mouse action" />
+    <operation name="Representation" ref="viewrepresentation" description="representation operation" />
+    <operation name="Content" ref="SplitContent,PolyCut,clonecontent,copycontent" description="content operations" />
+    <operation name="DeniedOperations" ref="denychangeindex, denyDropToHierarchy, denyHitlistAddContent, denyImport, multiindexingview, ExportWithoutAnno, denyFileImport, hideVisibleNodes" description="operations that deny something" />
+    <operation name="MetaOperations" ref="usePrefetching, viewerLinkedDoc, showInHint, ignoreLocalCache, eventDocumentViewed" description="operations for metainformation" />
+    <operation name="branchToOperations" ref="ShowHistory, ShowObjects, ShowRepresentations" description="Operations for branch to searches (System Node)" />
+    <operation name="disableViewerandEditing" ref="ReadIndexValue, disableediting" description="Only reading index values is allowed" />
+    <operation name="PVAction" description="Special action only for node PV." />
+    <operation name="KFAction" description="Special action only for node KF." />
+    <operation name="GEAction" description="Special action only for node GE." />
+    <operation name="TRAction" description="Special action only for node TR." />
+    <operation name="SHAction" description="Special action only for node TR" />
+    <operation name="USCAction" description="Special action only for node PV" />
+    <operation name="TRVEAction" description="Special action only for node TR" />
+    <operation name="KFToCARSAction" description="Special action only for node KF." />
+    <operation name="ANNummerAction" description="Special action for filling AN-Nummer." />
+    <operation name="CopyXContent" description="Special function 'Mehrfachkopie' for node Postkorb." />
+  </operations>
+  <ParameterDefinitions>
+    <ContentHierarchyParameters />
+  </ParameterDefinitions>
+  <node id="10000000" name="DMS" description="Helvetia DMS">
+    <Parameters>
+      <Parameter name="allowedExtensions" value=".pdf,.jpg,.jpeg,.tif,.tiff,.bmp,.gif,.png,.doc,.odt,.dot,.rtf,.txt,.htm,.html,.xml,.ppt,.xls,.xlsx,.xlt,.docx,.docm,.dotx,.dotm,.xslx,xslm,.xltx,.xltm,.xslb,.xlam,.pptx,.pptm,.potx,.potm,.ppam,.ppsx,.ppsm,.mht,.eml,.xlsm" inherit="true" />
+      <Parameter name="deniedExtensions" value=".$EMPTY$,.$NUM$" inherit="true" />
+    </Parameters>
+    <ContentViews>
+      <ContentView roles="Basis_Leben" ref="CD_1021_LEBEN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Standard_Leben" ref="CD_1021_LEBEN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Advanced_Leben" ref="CD_1021_LEBEN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_arag" ref="CD_1021_ARAG" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_wenske" ref="CD_1021_AG" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_wenske_k" ref="CD_1021_AG" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="ondemand" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_basis" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Basis_Transport" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Standard_Transport" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Advanced_Transport" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Basic_Industrie" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Standard_Industrie" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Advanced_Industrie" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="MA-RECHT" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z-hvd" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="pet" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_info" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_orga" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Admin_FD" ref="CD_1021_ADMIN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Admin_FV" ref="CD_1021_ADMIN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Admin_Transport" ref="CD_1021_ADMIN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="Admin" ref="CD_1021_ADMIN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="admin" ref="CD_1021_ADMIN" inherit="true" replacecd="CD_1021" />
+      <ContentView roles="i2z_punto" ref="CD_1021_HEL" inherit="true" replacecd="CD_1021" />
+    </ContentViews>
+    <xi:include href="content_hierarchy_customer.xml" parse="xml" xpointer="xpointer(/ContentHierarchy/*)" />
+    <Parameters />
+    <node id="1000000000" name="System" description="System">
+      <constraints />
+      <Parameters>
+        <Parameter name="name/en" value="System" />
+        <Parameter name="icon" value="system.bmp" />
+      </Parameters>
+      <xi:include href="content_hierarchy_processmonitor.xml" parse="xml" xpointer="xpointer(/ContentHierarchy/*)" />
+      <xi:include href="content_hierarchy_contentrecorder.xml" parse="xml" xpointer="xpointer(/ContentHierarchy/*)" />
+      <xi:include href="content_hierarchy_representations.xml" parse="xml" xpointer="xpointer(/ContentHierarchy/*)" />
+      <node id="100023" name="NAD Monitor" description="NAD Migrations Monitoring Node">
+        <ContentDefinitions>
+          <ContentDefinition ref="CD_NAD_MON" />
+        </ContentDefinitions>
+        <constraints>
+          <constraint role="regex:.*(?&lt;!Admin_SU)|(?!Admin_SU).*" deny="Read,Write" />
+          <constraint role="admin" grant="Read, Write, copycontent, SplitContent, AddTextComments, deleteAnnotation, EditAnnotation, mailFromViewer, savelocalfromviewer, Print, printTextComments, Read, ReadTextComments, ShowHideAnnotation, Write, usePrefetching" />
+          <constraint role="Admin_SU" grant="searchcontentid, copycontent, SplitContent, addObject, DeactivateContent, EditAnnotation, Print, Read, ShowHideAnnotation, deleteAnnotation, Write, mailFromViewer, savelocalfromviewer, usePrefetching, ManageStamps, useStamps" />
+          <constraint role="Admin" grant="Read, Write" />
+        </constraints>
+      </node>
+    </node>
+  </node>
+</ContentHierarchy>
+

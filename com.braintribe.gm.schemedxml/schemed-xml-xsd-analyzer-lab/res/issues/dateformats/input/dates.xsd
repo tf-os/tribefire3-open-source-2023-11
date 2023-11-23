@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="root" type="Root"/>
+	<xs:complexType name="Root">
+		<xs:sequence>
+		<xs:element name="time" type="xs:time"/>
+		<xs:element name="date" type="xs:date"/>
+		<xs:element name="dateTime" type="xs:dateTime"/>
+		<xs:element name="duration" type="xs:duration"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

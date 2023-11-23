@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module rename-to="tfjs">
+	<inherits name="com.braintribe.gwt.tribefirejs.TribefireJsBase" /> 	
+	<inherits name="com.braintribe.model.processing.session.impl.PersistenceGmSessionImpl" /> 	
+	<inherits name="com.braintribe.gwt.gmresource.GmResource" /> 	
+	
+	<define-linker name="tss" class="com.braintribe.gwt.tribefirejs.linker.TribefireJsSingleScriptLinker" /> 
+	
+    <set-property name="user.agent" value="safari"/>
+
+    <entry-point class="com.braintribe.gwt.tribefirejs.client.StartupEntryPoint"/>
+    
+	<add-linker name="tss"/>
+</module>

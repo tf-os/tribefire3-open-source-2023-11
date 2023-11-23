@@ -1,0 +1,28 @@
+/*
+.group .grid-cell .grid-cellInner {
+  background: transparent no-repeat 3px -47px;
+  padding: 0 4px 4px 12px;
+}
+*/
+
+.groupCollapsed .grid-cell .grid-cellInner {
+  background-image: resourceUrl("arrowRight") !important;  
+  background-position: 3px 3px;
+}
+
+.bodyCollapsed {
+  display: none;
+}
+
+.group .grid-cell .grid-cellInner {
+  background-image: resourceUrl("arrowDown");
+  background-position: 10px 12px;
+  height: auto;
+  width: auto;  
+  color: #3764a0;
+  font: bold 11px tahoma, arial, helvetica, sans-serif;
+}
+
+.group .grid-cell {
+  border-bottom-style: none;
+}

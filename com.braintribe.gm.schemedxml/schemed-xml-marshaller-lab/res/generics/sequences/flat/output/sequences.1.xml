@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" salutation="String" title="String">
+	<familyname>String</familyname>
+	<givenname>String</givenname>
+	<givenname>String</givenname>
+	<postal>String</postal>
+	<telecom>String</telecom>
+	<online>String</online>
+</root>

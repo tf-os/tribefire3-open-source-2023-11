@@ -1,0 +1,2 @@
+$0=(StagedEntity=com.braintribe.model.access.smood.collaboration.manager.model.StagedEntity)()
+.globalId='post.StagedEntity'

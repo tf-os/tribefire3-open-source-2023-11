@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<title>tribefireJs Tests</title>
+	<head>        
+        <script>        
+            var servicesUrl = "http://localhost:8080/tribefire-services";
+            var accessId = "cortex";
+            var remoteSession;
+            var persistenceSession;    
+            
+            window.addEventListener('load', function(){	
+            	var fileselect = document.getElementById("fileselect");
+      			fileselect.addEventListener("change", upload, false);	
+            });
+
+			function upload(e){
+				fileList = e.target.files;
+				xhr = new XMLHttpRequest();
+				
+				url = "https://dev-phoenix-adx.staging.tribefire.cloud/services/api/v1/access.adx.content.spr-test-repo/" + 
+				"com.braintribe.model.resourceapi.persistence.UploadResource?sessionId=" + persistenceSession.getSessionAuthorization().getSessionId();
+				
+				xhr.open("post", url, true);
+				
+				xhr.onreadystatechange = (function() {
+					if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+						console.log(xhr.responseText);
+					}      				
+				});
+				
+				formData = new FormData();
+			
+				for (file in fileList){
+					formData.append("resource", file);
+					break;
+				}
+		
+				xhr.send(formData);	
+			}
+			              	
+            function authenticate() {
+                console.log("start to authenticate");
+                console.time("authenticate");
+                if(remoteSession){
+                    console.log(remoteSession)
+                    console.timeEnd("authenticate");
+                    return Promise.resolve(remoteSession);    
+                }else{
+                    var config = $T.tribefire.js.model.config.RemoteSessionConfig.create();
+                    config.credentials = $tf.credentials.userPassword("cortex", "cortex");
+                    config.servicesUrl = servicesUrl;
+                    var promise = $tf.remote.sessionFactory.open(config);
+                    promise.then(rs => {                        
+                        remoteSession = rs;
+                        console.log(remoteSession);
+                        console.timeEnd("authenticate");
+                    });                    
+                    return promise;
+                }
+            }
+            
+            function openSession() {  
+                console.log("start to open session");
+                console.time("openSession");
+                if(persistenceSession){
+                    console.log(persistenceSession)
+                    console.timeEnd("openSession");
+                    return Promise.resolve(persistenceSession);        
+                }else{                      
+                    var promise =  authenticate().then(rs => {    
+                        return rs.openPersistenceSession(accessId);        
+                    });                  
+                    promise.then(session => {
+                        persistenceSession = session;
+                        console.log(persistenceSession);
+                        console.timeEnd("openSession");
+                    });
+                    return promise;                   
+                }
+            }
+
+        </script>
+        <script src="../tribefire.js"></script>
+	</head>
+    <body>
+		<input type="file" id="fileselect" name="fileselect[]" multiple/>
+	</body>
+</html>

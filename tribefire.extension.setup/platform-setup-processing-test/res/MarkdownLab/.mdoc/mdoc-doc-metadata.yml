@@ -1,0 +1,15 @@
+---
+!com.braintribe.doc.meta.CustomDocMetaData
+title: My Dox
+autoGenerateEntryPoints: true
+assets:
+  "com.braintribe.internal.ci-playground:gk-doc": 
+  "com.braintribe.internal.ci-playground:installation-doc": 
+  "com.braintribe.internal.ci-playground:fundamentals-doc": 
+  "com.braintribe.internal.ci-playground:test-documentation-asset-doc": null
+tags:
+  - tagId: tag1
+    displayTitle: BOSSS TAG
+    description: This is the first of all tags.
+  - tagId: features
+  - tagId: whatever

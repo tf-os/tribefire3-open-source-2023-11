@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Peer van Driesten (Comprendium AG) -->
+<ContentHierarchy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="content_hierarchy.xsd" nextNodeId="4">
+
+    <node id="1000013000" name="Document Representations" description="">
+      <Parameters>
+        <Parameter name="guiVisible" value="false"/>
+      </Parameters>
+      <constraints>
+      	<constraint role="admin" grant="${Deactivating}, ${branchToOperations}, showInvisibleNodes" />
+      	<constraint role="regex:.*" grant="Read" />
+    	</constraints>
+	    <ContentDefinitions>
+		    <ContentDefinition ref="CD_REPRESENTATIONS"/>
+	    </ContentDefinitions>
+    </node>
+
+</ContentHierarchy>

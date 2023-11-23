@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.braintribe.model.lock">
+	<subclass name="com.braintribe.model.lock.SharedLock"  abstract="false"
+		extends="com.braintribe.model.lock.ApplicationLock"
+		discriminator-value="com.braintribe.model.lock.SharedLock">
+		<set name="holders" table="TF_SHLCKHLDS" cascade="save-update,delete">
+	      <key column="sharedLock_id" />
+	      <one-to-many class="com.braintribe.model.lock.LockHolder"/>
+	    </set>
+	    
+	    <property name="blocked"/>   
+		
+	</subclass>
+</hibernate-mapping>

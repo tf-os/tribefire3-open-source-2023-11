@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+	"-//Hibernate/Hibernate Mapping DTD//EN" 
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false">
+	<class name="com.braintribe.model.smoodstorage.JavaClass" entity-name="com.braintribe.model.smoodstorage.JavaClass" table="TF_JAVACLASS" abstract="false">
+			<id name="id" column="ID" type="java.lang.String">
+				<generator class="assigned" />
+			</id>
+			<property name="globalId" column="`$GLOBALID`" />
+			<property name="partition" column="`$PARTITION`" />
+			<property name="classData" type="materialized_clob" lazy="true">
+				<column name="CLASSDATA" />
+			</property>
+			<property name="md5" column="MD5" />
+			<property name="qualifiedName" column="QUALIFIEDNAME" />
+			<property name="sequenceNumber" column="SEQUENCENUMBER" type="integer"/>
+	</class>
+</hibernate-mapping>

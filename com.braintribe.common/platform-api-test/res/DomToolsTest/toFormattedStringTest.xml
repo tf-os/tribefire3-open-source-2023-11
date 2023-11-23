@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Before Root Comment 1 -->
+<!-- Before Root Comment 2 -->
+
+<!-- Before Root Comment 3 --><!-- Before Root Comment 4 -->
+
+<!-- Before Root Comment 5 -->
+<RootElement>
+	<!-- SomeElement Comment 1 --><!-- SomeElement Comment 2 -->
+	<!-- SomeElement Comment 3
+		line 1
+		line 2
+	-->
+	<SomeElement>ElementText</SomeElement><SomeElement>ElementText</SomeElement>
+<SomeElement>ElementText</SomeElement>
+		<SomeElement>ElementText</SomeElement>
+  <SomeElement>ElementText</SomeElement>
+	<Attributes c="c" d="d" a="a" b="b"/>
+	
+	<LongAttributes ccccccccccccccccccccccccc="ccccccccccccccccccccccccccccc" dddddddddddddddddddddddd="ddddddddddddddddddd" aaaaa="aaaa" b="b"/>
+	
+	<EmptyElement/>	<EmptyElement2></EmptyElement2><GermanCharacters>ÄÖÜöäüß</GermanCharacters>
+	<CommentsAndText>
+
+<!-- comment -->a<!-- comment --> b b <!-- comment -->c
+c
+c c
+<!-- comment -->
+
+<!-- comment -->
+
+d
+	</CommentsAndText>
+	
+</RootElement><!-- After Root Comment 1 --><!-- After Root Comment 2 -->
+<!-- After Root Comment 3 -->
+
+<!-- After Root Comment 4 -->

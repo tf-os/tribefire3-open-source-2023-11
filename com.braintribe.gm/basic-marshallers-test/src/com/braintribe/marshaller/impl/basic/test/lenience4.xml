@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?gm-xml version="4"?>
+<gm-data>
+ <required-types>
+  <t as='JackOfAllTrades' alias='a' num='1'>com.braintribe.marshaller.impl.basic.test.model.JackOfAllTrades</t>
+  <t as='Unknown' alias='b' num='1'>com.braintribe.marshaller.impl.basic.test.model.Unknown</t>
+ </required-types>
+ <root-value>
+  <L>
+   <r>a-0</r>
+   <r>b-0</r>
+  </L>
+ </root-value>
+ <pool>
+  <E t='JackOfAllTrades' id='a-0'>
+   <b p='primitiveBooleanValue'>false</b>
+   <d p='primitiveDoubleValue'>0.0</d>
+   <f p='primitiveFloatValue'>0.0</f>
+   <i p='primitiveIntegerValue'>0</i>
+   <l p='primitiveLongValue'>0</l>
+  </E>
+  <E t='Unknown' id='b-0'>
+   <b p='primitiveBooleanValue'>false</b>
+   <d p='primitiveDoubleValue'>0.0</d>
+   <f p='primitiveFloatValue'>0.0</f>
+   <i p='primitiveIntegerValue'>0</i>
+   <l p='primitiveLongValue'>0</l>
+  </E>
+ </pool>
+</gm-data>

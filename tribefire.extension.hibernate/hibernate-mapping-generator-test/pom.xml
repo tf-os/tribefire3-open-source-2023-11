@@ -1,0 +1,164 @@
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tribefire.extension.hibernate</groupId>
+        <artifactId>parent</artifactId>
+        <version>[2.0,2.1)</version>
+    </parent>
+    <artifactId>hibernate-mapping-generator-test</artifactId>
+    <version>2.0.10</version>
+    <properties>
+        <archetype>test</archetype>
+    </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/lgpl-3.0.html</url>
+            <distribution>repo</distribution>
+            <comments>A free software license that allows users to run, study, share, and modify the software.</comments>
+        </license>
+    </licenses>
+    <dependencies>
+        <dependency>
+            <groupId>com.braintribe.xml</groupId>
+            <artifactId>dom-parser</artifactId>
+            <version>${V.com.braintribe.xml}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.testing</groupId>
+            <artifactId>derby-test-deps</artifactId>
+            <version>${V.com.braintribe.testing}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>gm-unit-test-deps</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.braintribe.gm</groupId>
+            <artifactId>meta-model-tools</artifactId>
+            <version>${V.com.braintribe.gm}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.hibernate</groupId>
+            <artifactId>hibernate-mapping-generator-test-model</artifactId>
+            <version>${V.tribefire.extension.hibernate}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.hibernate</groupId>
+            <artifactId>hibernate-mapping-generator</artifactId>
+            <version>${V.tribefire.extension.hibernate}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.hibernate</groupId>
+            <artifactId>hibernate-access</artifactId>
+            <version>${V.tribefire.extension.hibernate}</version>
+        </dependency>
+        <dependency>
+            <groupId>tribefire.extension.hibernate</groupId>
+            <artifactId>hibernate-support</artifactId>
+            <version>${V.tribefire.extension.hibernate}</version>
+        </dependency>
+        <!-- 3rd party desp -->
+        <dependency>
+            <groupId>com.microsoft.jdbc</groupId>
+            <artifactId>sqljdbc4</artifactId>
+            <version>${V.com.microsoft.jdbc}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>${V.com.oracle}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${V.org.postgresql}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${V.mysql}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>${V.org.mariadb.jdbc}</version>
+        </dependency>
+        <dependency>
+            <groupId>xmlunit</groupId>
+            <artifactId>xmlunit</artifactId>
+            <version>${V.xmlunit}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.transaction</groupId>
+                    <artifactId>jta</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${V.org.hibernate}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.transaction</groupId>
+            <artifactId>javax.transaction-api</artifactId>
+            <version>${V.javax.transaction}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.activation</groupId>
+                    <artifactId>activation</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${V.org.glassfish.jaxb_jaxb-runtime}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>jaxb-runtime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.istack</groupId>
+                    <artifactId>istack-commons-runtime</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>javax.xml.bind</groupId>
+                    <artifactId>jaxb-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.glassfish.jaxb</groupId>
+                    <artifactId>txw2</artifactId>
+                </exclusion>
+            </exclusions>
+            <version>${V.org.glassfish.jaxb_jaxb-core}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>${V.javax.activation}</version>
+        </dependency>
+    </dependencies>
+</project>

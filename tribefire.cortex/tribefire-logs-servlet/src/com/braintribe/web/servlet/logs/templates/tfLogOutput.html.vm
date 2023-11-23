@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<title>tribefire Logs</title>
+  <head>
+    <style>
+      
+/*COMMON HTML TAGS*/
+/*COMMON HTML TAGS*/
+/*COMMON HTML TAGS*/
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Roboto', sans-serif;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}
+ul li {
+	list-style-type: none;
+}
+nav {
+	height: 80px;
+	max-height: 80px;
+}
+nav ul li, .brand, .date-select, .log-viewer ul li {
+	display: inline;
+	vertical-align: middle;
+}
+nav label {
+	font-size: 14px;
+	margin-right: 6px;
+}
+select {
+	background-color: transparent;
+	border-radius: 4px;
+	padding: 8px 12px 8px 6px;
+	width: 200px;
+}
+h3 img {
+	margin-right: 12px;
+}
+img {
+	vertical-align: middle;
+}
+/*COLORS*/
+/*COLORS*/
+/*COLORS*/
+
+
+.light-grey {
+	background-color: #f9f9f9;
+}
+.orange {
+	background-color: #faa500;
+}
+.light-grey select {
+	border: 1px solid #2d2d2d;
+}
+.orange select {
+	border: 1px solid #fff;
+	color: #fff;
+}
+.orange select option {
+	color: #000;
+}
+.orange h3 {
+	color: #fff;
+}
+/*BUTTONS*/
+/*BUTTONS*/
+/*BUTTONS*/
+
+button.orange-btn {
+	padding: 12px 40px;
+	border-radius: 24px;
+	border: 4px solid #faa500;
+	color: #faa500;
+	background-color: transparent;
+	font-size: 16px;
+	font-weight: 600;
+	text-transform: uppercase;
+	position: absolute;
+	bottom: 12%;
+	right: 3%;
+	transition: all 0.4s;
+}
+button.orange-btn:hover {
+	background-color: #faa500;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+button.transparent {
+	background-color: transparent;
+	padding: 6px 12px;
+	border: 1px solid #2d2d2d;
+	border-radius: 4px;
+}
+button.transparentInactive {
+	background-color: transparent;
+	padding: 6px 12px;
+	border: 1px dashed #999999;
+	border-radius: 4px;
+}
+button.transparent:hover {
+	border: 1px solid #888;
+	cursor: pointer;
+	background-color: #f7f7f7;
+	color: #888;
+}
+button.transparent img {
+	margin-right: 8px;
+}
+
+/*FLEX*/
+/*FLEX*/
+/*FLEX*/
+nav .flex-container {
+	box-shadow: none;
+}
+.flex-container {
+	display: -webkit-flex;
+	display: flex;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	width: 80%;
+	min-height: 140px;
+	margin: 20px auto;
+	position: relative;
+	box-shadow: 1px 1px 1px #ddd;
+	font-family: "Roboto", sans-serif;
+}
+
+.flex-item {
+	flex-grow:1;
+	min-height: 150px;
+	margin: auto;
+	/*margin: 16px auto 8px auto;*/
+	overflow:hidden
+}
+.flex-item h3 {
+	margin-top: 35px;
+	text-transform: uppercase;
+}
+.flex-item h3 span {
+	text-transform: capitalize;
+}
+.flex-item h3, .flex-item select {
+	margin-left: 40px;
+}
+.flex-end {
+	-webkit-align-self: flex-end;
+	align-self: flex-end;
+}
+.flex-half {
+	-webkit-flex: 2;
+	flex: 2;
+}
+.flex-three {
+	-webkit-flex: 3;
+	flex: 3;
+}
+.flex-full {
+	-webkit-flex: 4;
+	flex: 4;
+}
+.item5 {
+	-webkit-align-self: stretch;
+	align-self: stretch;
+}
+.date-select {
+	float: right;
+}
+.date-select label {
+	color: #ffa500;
+}
+.date-select input[type="date"] {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 6px 12px 6px 6px;
+}
+.date-select ul li:not(:last-child) {
+	margin-right: 12px;
+}
+.log-file {
+	margin-left: 15px;
+}
+.log-file ul li, .log-level ul li {
+	display: block !important;
+	margin-top: 10px;
+}
+.log-data {
+	box-shadow: none;
+}
+.log-data ul li {
+	display: inline-block;
+	margin-bottom: 5px !important;
+	line-height: 24px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.logs {
+	overflow: auto;
+	overflow-x: scroll;
+	font-family: monospace;
+    white-space: nowrap;
+    flex-grow:1;
+//    height: 25em;
+//    line-height: 1em
+}
+.logs h2 {
+	text-align: center;
+	margin-top: 10%;
+	color: #ddd;
+}
+.logs p {
+	font-size: 12px;
+}
+.log-viewer {
+	padding: 12px;
+	border: 1px solid #ddd;
+	flex-grow: 1
+	}
+}
+.log-viewer ul {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 12px;
+}
+.log-viewer ul li:first-child {
+	font-weight: bold;
+}
+.log-viewer ul li {
+	width: auto !important;
+	display: inline-block;
+	font-size: 14px;    
+}
+.log-viewer ul li input[type="text"] {
+	width: 50px;
+	border: 1px solid #ddd;
+	padding-left: 5px;
+	height: 24px;
+}
+.log-viewer ul li button {
+	background-color: #ffa500;
+	border: none;
+	border-radius: 4px;
+	padding: 8px 12px;
+	color: #fff;
+}
+.log-viewer ul li img {
+	padding: 6px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-left: 4px;
+	background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+.log-viewer ul li img.pressed {
+	background-color: orange;	
+}
+
+.log-viewer ul li:not(:last-child) {
+	margin-right: 10px;
+	padding-right: 3%;
+}
+      
+ </style>
+<script src="webpages/js/jquery-3.3.1.min.js" type="text/javascript" ></script>
+<script>
+      var logFilesArray = [];
+      /*var defaultLogFilesArray = ["catalina", "commons-daemon", "host-manager", "localhost", "manager", "tribefire-host-stderr", "tribefire-host-stdout", "tribefire-repository_debug", "tribefire-repository_warn", "tribefire-services_debug", "tribefire-services_security", "tribefire-services_warn"];*/
+      var defaultLogFilesArray = ["catalina", "commons-daemon", "host-manager", "localhost", "manager", "tribefire-host-stderr", "tribefire-host-stdout"];
+      var logFilesTailArray = [];
+      var timeSelect = "from=" + '$fromDate' + "&to=" + '$toDate';
+      
+      function initial(){
+      		#foreach($fileKey in $logFiles.keySet())
+				logFilesArray.push('$fileKey');
+			#end  
+			
+			#foreach($fileKey in $logFiles.keySet())
+				#foreach($file in $logFiles.getAll($fileKey))
+	           		logFilesTailArray.push('$file.name');
+				#end
+			#end
+			
+			var value = getUrlParameter('logFile');
+			if(value != 0)
+				$("#selectLogFilesTailTag select").val(value);
+      }
+    
+      function triggerDL(sel){
+      	if(sel != null && sel.value != null)
+        	window.location.href = "logs/" + sel.value;
+      }
+      
+      function getUrlParameter(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		return (results!=null) ? results[1] : 0;
+	  }
+      
+      function addOptionToSelect(idSelect, valueSelect, textSelect){
+      		$(idSelect).append($('<option>', { 
+			        value: valueSelect,
+			        text : textSelect
+			 }));
+      }
+      
+      function createUrlForDownload(idSelectFile, nameInputRadio){
+      			var urlSelect = "downloadPackage/";
+				var logSelect = $(idSelectFile).val();
+				var url = {};  
+				if(logSelect != 'empty'){
+					  urlSelect += "?file=";
+					  if (logSelect == '*') {
+					    urlSelect += encodeURIComponent("*");
+					  } else {
+					  	urlSelect += encodeURIComponent(logSelect + ".*");
+					  }
+					  
+					  var logNumber = $('input[name="' + nameInputRadio + '"]:checked').val();
+					  if(logNumber !== undefined && logNumber != "*")
+					  		urlSelect += "&top=" + logNumber;
+					  urlSelect += "&"+timeSelect;
+					  
+					  console.log(urlSelect);
+					  url.value =  urlSelect;
+				}
+				return url;
+      }
+      
+      $( document ).ready(function() {
+			initial();   
+			
+			$('#downloadLogFile').on('click', function() {
+				  triggerDL(createUrlForDownload('#selectLogFiles', 'freshness_filter'));
+			});		
+			
+			$('#downloadLogFileCartridges').on('click', function() {
+				  triggerDL(createUrlForDownload('#selectLogFilesCartridges', 'freshness_filter_cartridge'));
+			});	
+			
+			$('#selectLogFilesTail').on('change', function(event) {
+				var logSelect = $('#selectLogFilesTail').val();
+				logFile = logSelect;
+				//var url = "logs?logFile="+logSelect+"&showLogLines=15&logLines=100";
+				//var res = encodeURI(url);
+				event.stopPropagation();
+				startLogViewer();
+				//window.location = res;
+			});
+			
+			$('#showLogLines').on('change', function(event) {
+			   logLines =  parseInt($('#showLogLines').val(), 10);
+			   startLogViewer();
+			   event.stopPropagation();
+			});
+			$('#showLogLines').val(logLines);
+			
+			$('#logLinesShown').on('change', function(event) {
+			   logLinesShown =  parseInt($('#logLinesShown').val(), 10);
+			   $('#logViewer').attr('style','line-height:1em; height: ' + logLinesShown + 'em');
+			   event.stopPropagation();
+			});
+			$('#logLinesShown').val(logLinesShown);	
+			$('#logViewer').attr('style','line-height:1em; height: ' + logLinesShown + 'em');
+			
+			$('#viewLogFileTail').on('click', function() {
+				$('#checkRadioView').click();
+			});	
+			
+			$('#pauseLogButton').on('click', function() {
+				pauseLog = pauseLog ? false : true; startLogViewer();
+				debugger;
+				if(pauseLog)
+					$('#pauseLogButton').addClass("pressed");
+				else
+					$('#pauseLogButton').removeClass("pressed");
+			});
+			if(pauseLog)
+				$('#pauseLogButton').addClass("pressed");
+			else
+				$('#pauseLogButton').removeClass("pressed");
+
+			$('#followTailButton').on('click', function() {
+				followTail = followTail ? false : true; startLogViewer();
+				debugger;
+				if(followTail)
+					$('#followTailButton').addClass("pressed");
+				else
+					$('#followTailButton').removeClass("pressed");
+			});	
+			if(followTail)
+				$('#followTailButton').addClass("pressed");
+			else
+				$('#followTailButton').removeClass("pressed");
+					
+			$('.selectLogFilesClass select').on('change', function(event) {
+			  event.stopPropagation();
+			  return;
+			});
+			
+	  });
+</script>
+<script>
+document.currentLogLevel = {};
+  var logViewerEl = null;
+  function getLogViewer() {
+    if (logViewerEl === undefined || logViewerEl == null) {
+      logViewerEl = document.getElementById('logViewer');
+    }
+
+    return logViewerEl;
+  }
+
+  function getParameter(siteUrl, paramName) {
+    var parameterArea = siteUrl.split('?')[1];
+
+    if (parameterArea !== undefined && parameterArea != null) {
+      var parameters = parameterArea.split('&');
+
+      for (var i = 0, l = parameters.length; i < l; i++) {
+        var keyValue = parameters[i].split('=');
+        if (keyValue[0] == paramName) {
+          return (keyValue[1] ? keyValue[1] : '');
+        }
+      }
+    }
+
+    return null;
+  }
+
+  var logViewerFileSet = false;
+  var siteUrl = window.location.href;
+  var logFile = getParameter(siteUrl, 'logFile');
+  var logLines = getParameter(siteUrl, 'logLines') != null ? getParameter(siteUrl, 'logLines') : 100;
+  var logLinesShown = getParameter(siteUrl, 'logLinesShown') != null ? getParameter(siteUrl, 'logLinesShown') : 25;
+  var pauseLog = getParameter(siteUrl, 'pauseLog') != null ? getParameter(siteUrl, 'pauseLog') : false;
+  var followTail = getParameter(siteUrl, 'followTail') != null ? getParameter(siteUrl, 'followTail') : true;
+  
+  var tfLogViewer = {
+        logFile: logFile,
+        logMark: undefined,
+        scrollPos: undefined,
+        logContent: undefined,
+        creationDate: undefined
+  }
+    
+  function startLogViewer() {
+    var logViewer = getLogViewer();
+    tfLogViewer = {
+        logFile: logFile,
+        logMark: undefined,
+        scrollPos: undefined,
+        logContent: undefined,
+        creationDate: undefined
+    }
+    if(logLines === undefined || logLines == null)
+    	logLines = 100;
+    if(pauseLog === undefined || pauseLog == null)
+    	pauseLog = false;
+    if(followTail === undefined || followTail == null)
+    	followTail = true;
+    if(logViewer === undefined || logViewer == null) {
+      setTimeout(startLogViewer, 100);
+      return;
+    }
+    logViewerFileSet = (logFile !== undefined && logFile != null && logFile != '');
+
+    /*if(sessionStorage.tfLogViewer !== undefined) {
+      var tfLogViewer = JSON.parse(sessionStorage.tfLogViewer);
+
+      logViewerFileSet = (logFile !== undefined && logFile != null && logFile != '');
+      if (tfLogViewer.logFile == logFile) {
+        fillLogViewer(logViewer, tfLogViewer.logContent);
+        if (followTail) {
+          logViewer.scrollTop = logViewer.scrollHeight;
+        } else {
+          logViewer.scrollTop = 0;
+        }
+      } else {
+        clearLogViewer(true);
+      }
+    } */
+
+    logViewerWorker();
+  }
+
+  function logViewerWorker() {    
+	//debugger;
+    /*var tfLogViewer = undefined;
+    if (sessionStorage.tfLogViewer !== undefined) {
+      tfLogViewer = JSON.parse(sessionStorage.tfLogViewer);
+    } else {
+      tfLogViewer = {
+        logFile: logFile,
+        logMark: undefined,
+        scrollPos: undefined,
+        logContent: undefined,
+        creationDate: undefined
+      }
+
+      sessionStorage.tfLogViewer = JSON.stringify(tfLogViewer);
+    } */
+    
+    var tfLogViewer = {
+        logFile: logFile,
+        logMark: undefined,
+        scrollPos: undefined,
+        logContent: undefined,
+        creationDate: undefined
+      }
+
+    if ((logFile !== undefined && logLines !== undefined) && (logFile != null && logFile != '' && logLines > 0)) {
+      var loadLogLines = logLines;
+      if (!pauseLog) {
+        var logContentSize = (tfLogViewer.logContent instanceof Array ? tfLogViewer.logContent.length : 0);
+        if (logContentSize < logLines) {
+          loadLogLines = logLines - logContentSize;
+        } else {
+          loadLogLines = 0;
+        }
+      }else{
+      	loadLogLines = 0;
+      }      
+
+      if (loadLogLines != 0) {
+        callService(logFile, logLines, loadLogLines, followTail, logViewerHandler, tfLogViewer.logMark, tfLogViewer.creationDate);
+      } else {
+        tfLogViewer.scrollPos = getLogViewer().scrollTop;
+        sessionStorage.tfLogViewer = JSON.stringify(tfLogViewer);
+      }
+    }
+
+    setTimeout(logViewerWorker, 1000);
+  }
+
+  function callService(logFile, logLines, loadLogLines, followTail, callback, logMark, creationDate) {
+    var url = 'logs/logContent?logFile=' + encodeURIComponent(logFile) + '&logLines=' + loadLogLines;
+    if (logMark !== undefined && logMark != null) {
+      url = url + '&logMark=' + logMark;
+    }
+    if (creationDate !== undefined && creationDate != null) {
+      url = url + '&creationDate=' + creationDate;
+    }
+
+    try {
+      var xmlHttp;
+      if (window.XMLHttpRequest !== undefined) {
+        xmlHttp = new XMLHttpRequest();
+      } else {
+        xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+
+      xmlHttp.onreadystatechange = function() {
+        if (callback !== undefined && callback instanceof Function && this.readyState == 4) {
+          if (this.status == 200) {
+            var data = xmlHttp.responseText;
+            var serviceResult = JSON.parse(data);
+
+            // Return result
+            callback(logFile, logLines, followTail, serviceResult);
+          } else {
+            // Service-Error
+            callback(logFile, logLines, followTail, null);
+          }
+        }
+      };
+
+      xmlHttp.open('GET', url, false);
+      xmlHttp.send();
+    } catch (e) {
+      // XMLHttpRequest-Error
+    }
+  }
+
+  function logViewerHandler(logFile, logLines, followTail, serviceResult) {
+    //var tfLogViewer = JSON.parse(sessionStorage.tfLogViewer);
+
+    var logContent = tfLogViewer.logContent;
+    if ((logContent instanceof Array) == false) {
+      logContent = [];
+    }
+
+    while (logContent.length > logLines) {
+      logContent.shift();
+    }
+
+    var logViewer = getLogViewer();
+    if ((serviceResult !== undefined && serviceResult != null) && (serviceResult.content instanceof Array)) {
+      serviceResult.content.forEach(function(item, index) {
+        if (logContent.length >= logLines) {
+          logContent.shift();
+        }
+
+        logContent.push(item);
+      });
+
+      fillLogViewer(logViewer, logContent);
+
+      tfLogViewer.logMark = serviceResult.mark;
+      tfLogViewer.creationDate = serviceResult.creationDate;
+    }
+
+    if (followTail) {
+      logViewer.scrollTop = logViewer.scrollHeight;
+    }
+
+    tfLogViewer.logFile = logFile;
+    tfLogViewer.logContent = logContent;
+    tfLogViewer.scrollPos = logViewer.scrollTop;
+    sessionStorage.tfLogViewer = JSON.stringify(tfLogViewer);
+  }
+
+  function fillLogViewer(logViewer, logContent) {
+    if (logViewerFileSet == true) {
+      var logViewerHTML = '';
+      if (logContent instanceof Array) {
+        logContent.forEach(function(item, index) {
+          logViewerHTML = logViewerHTML + item + '<br />';
+        });
+      }
+
+      logViewer.innerHTML = logViewerHTML;
+    }
+  }
+
+  function clearLogViewer(clearLogMark) {
+    if (clearLogMark !== undefined && clearLogMark == true) {
+      sessionStorage.removeItem('tfLogViewer');
+      $("#logViewer").empty();
+    } else if(sessionStorage.tfLogViewer !== undefined) {
+      //var tfLogViewer = JSON.parse(sessionStorage.tfLogViewer);
+
+      tfLogViewer.scrollPos = undefined;
+      tfLogViewer.logContent = undefined;
+      sessionStorage.tfLogViewer = JSON.stringify(tfLogViewer);
+    }
+
+    fillLogViewer(getLogViewer());
+  }
+
+  function clearSelectedLogFile(sender) {
+    var inputEl = sender.form.getElementsByTagName("input");
+    for (var i = 0, l = inputEl.length; i < l; i++) {
+      if (inputEl[i].name == 'logFile' && inputEl[i].checked == true) {
+        inputEl[i].checked = false;
+      }
+    }
+
+    sender.form.submit();
+
+  }
+
+  function submitLogLines(sender, event) {
+    if (event !== undefined && event.keyCode != 13) {
+      return; //not enter
+    }
+
+    if (checkNumberValue(sender, 100, 3000) == true) {
+      sender.form.submit();
+    }
+  }
+
+  function submitShowLogLines(sender, event) {
+    if (event !== undefined && event.keyCode != 13) {
+      return; //not enter
+    }
+
+    if (checkNumberValue(sender, 10, 43) == true) {
+      sender.form.submit();
+    }
+  }
+
+  function checkNumberValue(sender, defaultMin, defaultMax) {
+    var min = (sender.min !== undefined && sender.min != '' ? parseInt(sender.min) : defaultMin);
+    var max = (sender.max !== undefined && sender.max != '' ? parseInt(sender.max) : defaultMax);
+
+    var value = parseInt(sender.value);
+    if (isNaN(value) == true) {
+      return false;
+    } else if (value < min) {
+      sender.value = min;
+    } else if (value > max) {
+      sender.value = max;
+    }
+
+    return true;
+  }
+  
+  function setLogLevel(cartridgeName, newLogLevel, url){
+  	debugger;
+  	try {
+      var xmlHttp;
+      if (window.XMLHttpRequest !== undefined) {
+        xmlHttp = new XMLHttpRequest();
+      } else {
+        xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      xmlHttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+          	debugger;
+          	document.getElementById(cartridgeName + ".logLevel.button." + document.currentLogLevel[cartridgeName]).classList.add("transparent");
+          	document.getElementById(cartridgeName + ".logLevel.button." + document.currentLogLevel[cartridgeName]).classList.remove("transparentInactive");
+          	document.getElementById(cartridgeName + ".logLevel.button." + newLogLevel).classList.add("transparentInactive");
+          	document.getElementById(cartridgeName + ".logLevel.button." + newLogLevel).classList.remove("transparent");
+          	document.currentLogLevel[cartridgeName] = newLogLevel;
+          	document.getElementById(cartridgeName + ".currentLogLevel").innerText = newLogLevel;
+          } 
+        }
+      };
+      xmlHttp.open('GET', url, false);
+      xmlHttp.send();
+    } catch (e) {
+      // XMLHttpRequest-Error
+    }
+  }
+</script>
+
+</head>
+<body onLoad='startLogViewer();'>
+
+	<nav>
+		<div class="flex-container">
+			<!--
+			<div class="flex-item">
+				<div class="brand">
+					<a href='.' style='background: none; display:table-cell; width:50px'>
+        				<img src='webpages/logo-tf-orange-services.png' id='tf_logo' alt='logo' width='185'>
+      				</a>
+				</div>
+			</div>
+			<div class="flex-item flex-three">
+				<div class="date-select">
+					<ul>
+						<li>LOGS</li>
+						<li>
+							<label>From</label>
+							<input type="date" name="from">
+						</li>
+						<li>
+							<label>To</label>
+							<input type="date" name="to">
+						</li>
+						<li><button class="transparent"><img src="webpages/images/logs/update.png" width="19px">Update</button></li>
+					</ul>
+				</div>
+			-->
+			</div>
+		</div>
+	</nav>
+
+	<div class="flex-container light-grey">
+		<div class="flex-item item-5 flex-half">
+			<h3 class="dark"><img src="webpages/images/logs/available_logs.png">Available log bundles</h3>
+			<select id="selectLogFiles">
+				<option value="*">*</option>
+				#foreach($fileKey in $logFiles.keySet())
+					<option value="${fileKey}">${fileKey}.*</option>	
+				#end
+			</select>
+		</div>
+		<div class="flex-item flex-half">
+			<button class="orange-btn" id="downloadLogFile">
+				Download
+			</button>
+		</div>
+		
+		
+	</div>
+
+	<div class="flex-container orange">
+		<div id="selectLogFilesTailTag" class="flex-item orange flex-full">
+			<h3 class="white">INDIVIDUAL LOGS VIEW - <span>set log viewer files</span></h3>
+			<select id="selectLogFilesTail">
+				<option value="">Select an option</option>
+				#set($singlenode = true)
+				#if($clusterLogFiles.size() > 1)
+					#set($singlenode = false)
+				#end
+				#foreach($entry in $clusterLogFiles.entrySet())
+					#set($nodeid = $entry.getKey())
+					
+					#foreach($fileentry in $entry.getValue().entrySet())
+
+						#set($filename = $fileentry.getKey())
+						#set($instanceid = $fileentry.getValue())
+					
+						#if($singlenode)
+							<option value="appId:${instanceid.getApplicationId()},nodeId:${instanceid.getNodeId()};logFilename:${filename}">$filename</option>
+						#else
+							<option value="appId:${instanceid.getApplicationId()},nodeId:${instanceid.getNodeId()};logFilename:${filename}">${nodeid} - $filename</option>
+						#end
+					#end
+					
+				#end
+			</select>
+		</div>
+	</div>
+
+	<div class="flex-container log-data">
+		<div class="flex-item log-file">
+			<h4>LOG FILE</h4>
+			<ul>
+				#foreach($liveApplication in $liveApplications)
+  					#set($currentLogLevel = $liveLogLevels.get($liveApplication))
+  					#if ($currentLogLevel && $currentLogLevel != "")
+  						<li>${liveApplication}</li>
+  					#end
+  				#end
+  				#set($currentLogLevel = "")
+			</ul>
+		</div>
+		<div class="flex-item log-level">
+			<h4>LOG LEVEL</h4>
+			<ul>
+				#foreach($liveApplication in $liveApplications)
+  					#set($currentLogLevel = $liveLogLevels.get($liveApplication))
+  					#if ($currentLogLevel && $currentLogLevel != "")
+  						<li id="${liveApplication}.currentLogLevel">${currentLogLevel}</li>
+  					#end
+  				#end
+  				#set($currentLogLevel = "")
+			</ul>
+		</div>
+		<div class="flex-item flex-half">
+			<h4>ADVANCED MODE</h4>
+			
+			#foreach($liveApplication in $liveApplications)
+  				#set($currentLogLevel = $liveLogLevels.get($liveApplication))
+  				#if ($currentLogLevel && $currentLogLevel != "")
+					<ul>
+						#foreach($logLevel in $LogLevel.values())
+							#if($logLevel.name() == $currentLogLevel)
+							<script type="text/javascript">
+								document.currentLogLevel['$liveApplication'] = "$logLevel.name()";
+							</script>
+							#end
+							<li><button class="#if($logLevel.name() == $currentLogLevel) transparentInactive #else transparent #end" id="${liveApplication}.logLevel.button.$logLevel.name()" onclick="setLogLevel('${liveApplication}', '$logLevel.name()', encodeURI('logs/setLogLevel?logLevel=$logLevel.name()&cartridgeName=$liveApplication'))">$logLevel.name()</button></li>
+							
+						#end
+					</ul>
+  				#end
+  			#end
+  			#set($currentLogLevel = "")			
+		</div>
+	</div>
+
+	<div class="flex-container">
+		<div class="flex-item">
+			<div class="log-viewer">
+				<ul>
+					<li>LOG VIEWER</li>
+					<li>TOTAL LOG LINES <input id="showLogLines" type="text" name="" value="100"></li>
+					<li>LOG LINES SHOWN <input id="logLinesShown" type="text" name="" value="15"></li>
+					<li>PAUSE LOG <img src="webpages/images/logs/pause.png" width="16px;" id="pauseLogButton"></li>
+					<li>FOLLOW TAIL <img src="webpages/images/logs/follow.png" width="16px;" id="followTailButton"></li>
+					<li><button onclick="clearLogViewer(true)">Clear</button></li>
+				</ul>
+				<form id='logFileForm' action='logs' method='GET' style="padding-top:20px">
+					<input id="checkRadioView" type="radio" name="logFile" value="" onclick="this.form.submit()" style='display:none;' checked/>
+				</form>
+				<div class="logs" id="logViewer">
+					<h2 class="no-selection">Please select a Log viewer file</h2>
+					<!-- <p>some log file</p> -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+  </body>
+</html>

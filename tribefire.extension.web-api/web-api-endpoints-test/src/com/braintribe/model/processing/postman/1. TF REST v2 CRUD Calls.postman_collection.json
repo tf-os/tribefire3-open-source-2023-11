@@ -1,0 +1,1291 @@
+{
+	"info": {
+		"_postman_id": "4271bbee-7e7f-499f-b8b7-64c3da9b3b11",
+		"name": "1. TF REST v2 CRUD Calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4abfe678-1826-4d32-872b-e094f6540576",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "827076f0-d4d7-4fe1-8487-f1aee1fe5b24",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"sessionId\", res);",
+							"postman.setGlobalVariable(\"tfsessionId\", res);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user\": \"cortex\",\n\t\"password\": \"cortex\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/authenticate",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Entities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b8893a2-9d1e-48c3-a827-9d1fc53fcb49",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"person-id\", res[0].id.value);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-depth",
+						"value": "3"
+					},
+					{
+						"key": "gm-write-empty-properties",
+						"value": "false"
+					},
+					{
+						"key": "gm-projection",
+						"value": "results"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseURL}}/tribefire-services/rest/v2/entities/{{accessId}}/{{typeSignature}}.Person?sessionId={{sessionId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tribefire-services",
+						"rest",
+						"v2",
+						"entities",
+						"{{accessId}}",
+						"{{typeSignature}}.Person"
+					],
+					"query": [
+						{
+							"key": "sessionId",
+							"value": "{{sessionId}}"
+						},
+						{
+							"key": "depth",
+							"value": "shallow",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Entities - Header config",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bec3a7fd-848c-4cb7-aca5-effdf742e07b",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"address-id\", res.id.value);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "gm-session-id",
+						"value": "{{sessionId}}"
+					},
+					{
+						"key": "gm-write-empty-properties",
+						"value": "true"
+					},
+					{
+						"key": "gm-projection",
+						"value": "firstResult"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/{{typeSignature}}.Address",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"{{typeSignature}}.Address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Entity by ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person/{{person-id}}?",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}"
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "shallow",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Entity by ID - shallow",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person/{{person-id}}/?depth=shallow",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						""
+					],
+					"query": [
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Entities by Simple Value Comparison",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b3f8c94c-7258-4d4f-b106-be64b35fb4af",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"mother-id\", res.id.value);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-projection",
+						"value": "firstResult"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?where.firstName=Jane&depth=shallow",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "where.firstName",
+							"value": "Jane"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Entities with Conjunction",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?where.firstName=John&where.lastName=Doe&depth=shallow",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "where.firstName",
+							"value": "John"
+						},
+						{
+							"key": "where.lastName",
+							"value": "Doe"
+						},
+						{
+							"key": "depth",
+							"value": "shallow"
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Simple Property Value",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseURL}}/tribefire-services/rest/v2/properties/{{accessId}}/Person/{{person-id}}/firstName",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"tribefire-services",
+						"rest",
+						"v2",
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"firstName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Complex Property Value",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{person-id}}/address",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Collection Property",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{mother-id}}/children",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{mother-id}}",
+						"children"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Entities by Enum",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ae91cea1-70c4-442b-8472-2daf3e59e77e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-depth",
+						"value": "shallow"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?where.gender=female",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "where.gender",
+							"value": "female"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Entitities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06ed31e4-a90d-4186-a8db-8b10106f87a9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"firstName\": \"Foo\",\n    \"lastName\": \"Bar\"\n  },\n  {\n    \"firstName\": \"Bar\",\n    \"lastName\": \"Foo\"\n  }\n]"
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?list-entities-request=true",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "list-entities-request",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Multiple Entitities Header Param",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ec9db715-33ae-4732-b1ba-5e5f69bf5451",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-list-entities-request",
+						"value": "true"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"firstName\": \"Smith\",\n    \"lastName\": \"Rikonen\"\n  },\n  {\n    \"firstName\": \"Aka\",\n    \"lastName\": \"Abonen\"\n  }\n]"
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Entity",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "154a240c-a598-48f0-9331-500c43f6ab9a",
+						"type": "text/javascript",
+						"exec": [
+							"var res = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"person-id\", res.value);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstName\": \"Jack\",\n\t\"lastName\": \"Black\",\n\t\"comments\": [\n\t\t\"Welcome aboard!\",\n\t\t\"Please update your personal data.\"\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Entity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {\n    \t\"_type\": \"long\",\n    \t\"value\": {{person-id}}\n    },\n    \"lastName\": \"Johnson\",\n    \"anything\": \"I can be anything... ;)\",\n\t\"mother\": {\n\t    \"id\": {\n\t    \t\"_type\": \"long\",\n\t    \t\"value\": {{mother-id}}\n\t    }\n\t}\n}"
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person/{{person-id}}",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Simple Property",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"999\""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/{{typeSignature}}.Person/{{person-id}}/ssn",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"{{typeSignature}}.Person",
+						"{{person-id}}",
+						"ssn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Simple Date Property",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"1976-07-17T00:00:00.000+0100\""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{person-id}}/birthday",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"birthday"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query Entities by Date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-depth",
+						"value": "shallow"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user",
+							"value": "cortex",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "cortex",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?where.birthday=1976-07-17T00:00:00.000%2B0100",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "where.birthday",
+							"value": "1976-07-17T00:00:00.000%2B0100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Enum Property",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"male\""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{person-id}}/gender",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"gender"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Complex Property",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": {\n    \t\"_type\": \"long\",\n    \t\"value\": {{address-id}}\n    }\n}"
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{person-id}}/address",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Complex Property to Collection",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"_type\": \"tribefire.demo.model.data.Person\",\n    \"id\": {\n    \t\"_type\": \"long\",\n        \"value\": {{person-id}}\n        \n    }\n}"
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{mother-id}}/children",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{mother-id}}",
+						"children"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Complex Property",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{person-id}}/address",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{person-id}}",
+						"address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clear Collection Property",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/properties/{{accessId}}/Person/{{mother-id}}/children",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"properties",
+						"{{accessId}}",
+						"Person",
+						"{{mother-id}}",
+						"children"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Entity",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person/{{mother-id}}",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person",
+						"{{mother-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Entity - Where Clause",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Cookie",
+						"value": "tfsessionId={{tfsessionId}}"
+					},
+					{
+						"key": "gm-allow-multiple-delete",
+						"value": "true"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{restv2url}}/entities/{{accessId}}/Person?where.firstName=Jack&where.lastName=Johnson",
+					"host": [
+						"{{restv2url}}"
+					],
+					"path": [
+						"entities",
+						"{{accessId}}",
+						"Person"
+					],
+					"query": [
+						{
+							"key": "where.firstName",
+							"value": "Jack"
+						},
+						{
+							"key": "where.lastName",
+							"value": "Johnson"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\t\n\t\"_type\": \"com.braintribe.model.securityservice.GetCurrentUser\",\n\t\"sessionId\": \"20180427115107120-5e8def6b-9989-46e7-8034-913cfaade302\"\n}"
+				},
+				"url": {
+					"raw": "{{apiUrl}}/serviceDomain:platform/com.braintribe.model.securityservice.Logout?sessionId={{sessionId}}",
+					"host": [
+						"{{apiUrl}}"
+					],
+					"path": [
+						"serviceDomain:platform",
+						"com.braintribe.model.securityservice.Logout"
+					],
+					"query": [
+						{
+							"key": "sessionId",
+							"value": "{{sessionId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

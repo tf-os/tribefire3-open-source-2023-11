@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<module>
+    <source path="xml">
+    	<exclude name="**/DOMTools.java" />
+    	<exclude name="**/ElementIterator.java" />
+    	<exclude name="**/NodeIterator.java" />
+    	<exclude name="**/TextIterator.java" />
+    	<exclude name="**/XmlTools.java" />
+    	<exclude name="**/XmlUtil.java" />
+    	<exclude name="**/jdom/**" />
+    	<exclude name="**/xpath/**" />
+    </source>
+</module>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright BRAINTRIBE TECHNOLOGY GMBH, Austria, 2002-2022
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License along with this library; See http://www.gnu.org/licenses/.
+-->
+<project xmlns:artifact="antlib:org.apache.maven.artifact.ant" xmlns:bt="antlib:com.braintribe.build.ant.tasks"	name="tf-module-ant-script" default="dist" basedir=".">
+
+	<bt:import artifact="com.braintribe.devrock.ant:library-ant-script#1.0" useCase="DEVROCK" />
+
+	<target name="dist" depends="clean, compile, update-manifest, dist-javadoc">
+		<jar jarfile="${dist}/lib/${versionedName}.jar" manifest="${META-INF}/MANIFEST.MF">
+			<fileset dir="${build}"/>
+		</jar>
+		<jar jarfile="${dist}/${versionedName}-sources.jar" basedir="${src}"/>
+		<!-- Copied from lib-ant-script and only added the following if-block (resources.zip). -->
+		<if>
+			<available file="resources" type="dir"/>
+			<then>
+				<bt:indexRes dir="resources" exclude="public/.*" destfile="${dist}/__resource-index__.yml" />
+				<zip destfile="${dist}/${versionedName}-resources.zip">
+					<fileset dir="resources"/>
+					<fileset dir="dist" includes="__resource-index__.yml" />
+				</zip>
+			</then>
+		</if>
+	</target>
+
+	<target name="d2">
+		<if>
+			<available file="resources" type="dir"/>
+			<then>
+				<bt:indexRes dir="resources" destfile="${dist}/__resource-index__.yml" />
+				<zip destfile="${dist}/${versionedName}-resources.zip">
+					<fileset dir="resources"/>
+					<fileset dir="dist" includes="__resource-index__.yml" />
+				</zip>
+			</then>
+		</if>
+	</target>
+
+	<target name="install" depends="dist">
+		<bt:install file="${dist}/lib/${versionedName}.jar">
+			<pom refid="pom.project"/>
+			<attach file="asset.man" type="asset:man"/>
+			<attach file="${dist}/${versionedName}-sources.jar" classifier="sources"/>
+		</bt:install>
+		<if>
+			<available file="${dist}/${versionedName}-javadoc.jar" type="file"/>
+			<then>
+				<bt:install>
+					<pom refid="pom.project"/>
+					<attach file="${dist}/${versionedName}-javadoc.jar" classifier="javadoc"/>
+				</bt:install>
+			</then>
+		</if>
+		<!-- Copied from lib-ant-script and only added the following if-block (resources.zip). -->
+		<if>
+			<available file="dist/${versionedName}-resources.zip" type="file"/>
+			<then>
+				<bt:install>
+					<pom refid="pom.project"/>
+					<attach file="dist/${versionedName}-resources.zip" classifier="resources"/>
+				</bt:install>
+			</then>
+		</if>
+	</target>
+</project>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:swift:xsd:$pacs.008.001.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:swift:xsd:$pacs.008.001.01 D:\works\svn\artifacts\com\braintribe\build\GmXsdCommandsTest\2.0\res\cs\smartConnect\pacs\input\PACS00~1.XSD">
+	<pacs.008.001.01>
+		<GrpHdr>
+			<MsgId>NSCT0710020000170000000000000000001</MsgId>
+			<CreDtTm>2007-10-02T10:04:24</CreDtTm>
+			<NbOfTxs>6</NbOfTxs>
+			<TtlIntrBkSttlmAmt Ccy="EUR">23028.00</TtlIntrBkSttlmAmt>
+			<IntrBkSttlmDt>2007-10-02</IntrBkSttlmDt>
+			<SttlmInf>
+				<SttlmMtd>CLRG</SttlmMtd>
+				<ClrSys>
+					<Prtry>ST2</Prtry>
+				</ClrSys>
+			</SttlmInf>
+			<InstdAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZ</BIC>
+				</FinInstnId>
+			</InstdAgt>
+		</GrpHdr>
+		<CdtTrfTxInf>
+			<PmtId>
+				<EndToEndId>ETEIDEBAD01001</EndToEndId>
+				<TxId>22741101010000000001</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">3005.4</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>ESSESES0</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>Pit Steinlin</Nm>
+				<PstlAdr>
+					<AdrLine>60437 Frankfurt am Main</AdrLine>
+					<Ctry>DE</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>DE32500101111665322400</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>ESSEDE50</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>Testitem SEPA</Nm>
+				<PstlAdr>
+					<AdrLine>DE 51368 LEVERKUSEN</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+			<RmtInf>
+				<Ustrd>/EBA-TEST/OCTOBER/2007</Ustrd>
+			</RmtInf>
+		</CdtTrfTxInf>
+		<CdtTrfTxInf>
+			<PmtId>
+				<InstrId>RBSTTTO00000186X</InstrId>
+				<EndToEndId>RBSTTTO00000186</EndToEndId>
+				<TxId>RBSTTTO00000186X</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">4002.10</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>INTERNATIONAL UNDERWRITERS ASS</Nm>
+				<PstlAdr>
+					<AdrLine>TRINITY HOUSE,                     TRINITY ROAD,</AdrLine>
+					<AdrLine>FOLKESTONE, KENT,                  CT20 2RJ</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>GB68RBOS16040020214645</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20XXX</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>CH BANKING TEST DAY 1</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+		</CdtTrfTxInf>
+		<CdtTrfTxInf>
+			<PmtId>
+				<InstrId>RBSTTTO00000187X</InstrId>
+				<EndToEndId>RBSTTTO00000187</EndToEndId>
+				<TxId>RBSTTTO00000187X</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">4003.20</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>INTERNATIONAL UNDERWRITERS ASS</Nm>
+				<PstlAdr>
+					<AdrLine>TRINITY HOUSE,                     TRINITY ROAD,</AdrLine>
+					<AdrLine>FOLKESTONE, KENT,                  CT20 2RJ</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>GB68RBOS16040020214645</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20XXX</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>CH BANKING TEST DAY 1</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+		</CdtTrfTxInf>
+		<CdtTrfTxInf>
+			<PmtId>
+				<InstrId>RBSTTTO00000188X</InstrId>
+				<EndToEndId>RBSTTTO00000188</EndToEndId>
+				<TxId>RBSTTTO00000188X</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">4004.30</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>INTERNATIONAL UNDERWRITERS ASS</Nm>
+				<PstlAdr>
+					<AdrLine>TRINITY HOUSE,                     TRINITY ROAD,</AdrLine>
+					<AdrLine>FOLKESTONE, KENT,                  CT20 2RJ</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>GB68RBOS16040020214645</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20XXX</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>CH BANKING TEST DAY 1</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+		</CdtTrfTxInf>
+		<CdtTrfTxInf>
+			<PmtId>
+				<InstrId>RBSTTTO00000189X</InstrId>
+				<EndToEndId>RBSTTTO00000189</EndToEndId>
+				<TxId>RBSTTTO00000189X</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">4005.40</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>INTERNATIONAL UNDERWRITERS ASS</Nm>
+				<PstlAdr>
+					<AdrLine>TRINITY HOUSE,                     TRINITY ROAD,</AdrLine>
+					<AdrLine>FOLKESTONE, KENT,                  CT20 2RJ</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>GB68RBOS16040020214645</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20XXX</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>CH BANKING TEST DAY 1</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+		</CdtTrfTxInf>
+		<CdtTrfTxInf>
+			<PmtId>
+				<InstrId>RBSTTTO00000191X</InstrId>
+				<EndToEndId>RBSTTTO00000191</EndToEndId>
+				<TxId>RBSTTTO00000191X</TxId>
+			</PmtId>
+			<PmtTpInf>
+				<SvcLvl>
+					<Cd>SEPA</Cd>
+				</SvcLvl>
+			</PmtTpInf>
+			<IntrBkSttlmAmt Ccy="EUR">4007.60</IntrBkSttlmAmt>
+			<ChrgBr>SLEV</ChrgBr>
+			<InstgAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20</BIC>
+				</FinInstnId>
+			</InstgAgt>
+			<Dbtr>
+				<Nm>INTERNATIONAL UNDERWRITERS ASS</Nm>
+				<PstlAdr>
+					<AdrLine>TRINITY HOUSE,                     TRINITY ROAD,</AdrLine>
+					<AdrLine>FOLKESTONE, KENT,                  CT20 2RJ</AdrLine>
+					<Ctry>GB</Ctry>
+				</PstlAdr>
+			</Dbtr>
+			<DbtrAcct>
+				<Id>
+					<IBAN>GB68RBOS16040020214645</IBAN>
+				</Id>
+			</DbtrAcct>
+			<DbtrAgt>
+				<FinInstnId>
+					<BIC>RBOSGB20XXX</BIC>
+				</FinInstnId>
+			</DbtrAgt>
+			<CdtrAgt>
+				<FinInstnId>
+					<BIC>CRESCHZZXXX</BIC>
+				</FinInstnId>
+			</CdtrAgt>
+			<Cdtr>
+				<Nm>CH BANKING TEST DAY 1</Nm>
+			</Cdtr>
+			<CdtrAcct>
+				<Id>
+					<IBAN>CH8404835000018900530</IBAN>
+				</Id>
+			</CdtrAcct>
+		</CdtTrfTxInf>
+	</pacs.008.001.01>
+</Document>

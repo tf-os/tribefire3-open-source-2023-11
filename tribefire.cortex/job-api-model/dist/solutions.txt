@@ -1,0 +1,2693 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?gm-xml version="4"?>
+<gm-data>
+ <required-types>
+  <t alias='AlphaNumericVersionPart^z$hNV' num='10'>com.braintribe.model.artifact.version.AlphaNumericVersionPart</t>
+  <t alias='DashedDelimiterVersionPart^BMWxfc' num='10'>com.braintribe.model.artifact.version.DashedDelimiterVersionPart</t>
+  <t alias='Dependency^rgPfY' num='14'>com.braintribe.model.artifact.Dependency</t>
+  <t alias='DottedDelimiterVersionPart^BgCiFh' num='78'>com.braintribe.model.artifact.version.DottedDelimiterVersionPart</t>
+  <t alias='NumericVersionPart^D9duCn' num='131'>com.braintribe.model.artifact.version.NumericVersionPart</t>
+  <t alias='PartTuple^CUaZb$' num='48'>com.braintribe.model.artifact.PartTuple</t>
+  <t alias='Part^DK76eo' num='48'>com.braintribe.model.artifact.Part</t>
+  <t alias='Solution^J0YIa' num='25'>com.braintribe.model.artifact.Solution</t>
+  <t alias='VersionRange^B8Qtpe' num='14'>com.braintribe.model.artifact.version.VersionRange</t>
+  <t alias='Version^DN8CVx' num='53'>com.braintribe.model.artifact.version.Version</t>
+ </required-types>
+ <root-value>
+  <L>
+   <r>Solution^J0YIa-0</r>
+   <r>Solution^J0YIa-1</r>
+   <r>Solution^J0YIa-2</r>
+   <r>Solution^J0YIa-3</r>
+   <r>Solution^J0YIa-4</r>
+   <r>Solution^J0YIa-5</r>
+   <r>Solution^J0YIa-6</r>
+   <r>Solution^J0YIa-7</r>
+   <r>Solution^J0YIa-8</r>
+   <r>Solution^J0YIa-9</r>
+  </L>
+ </root-value>
+ <pool>
+  <E id='Solution^J0YIa-0'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>async-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-0</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-0</r>
+    <r>Part^DK76eo-1</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-0</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-0</r>
+  </E>
+  <E id='Solution^J0YIa-1'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>common-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-1</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-2</r>
+    <r>Part^DK76eo-3</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-1</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-1</r>
+  </E>
+  <E id='Solution^J0YIa-2'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>gm-core-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-2</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-4</r>
+    <r>Part^DK76eo-5</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-2</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-2</r>
+  </E>
+  <E id='Solution^J0YIa-3'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-6</r>
+    <r>Part^DK76eo-7</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-3</r>
+  </E>
+  <E id='Solution^J0YIa-4'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>logging</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-8</r>
+    <r>Part^DK76eo-9</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-4</r>
+  </E>
+  <E id='Solution^J0YIa-5'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>logging-ndc</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-8</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-a</r>
+    <r>Part^DK76eo-b</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-8</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-5</r>
+  </E>
+  <E id='Solution^J0YIa-6'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>platform-exceptions</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-9</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-c</r>
+    <r>Part^DK76eo-d</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-9</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-6</r>
+  </E>
+  <E id='Solution^J0YIa-7'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>reason-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-a</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-e</r>
+    <r>Part^DK76eo-f</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-a</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-7</r>
+  </E>
+  <E id='Solution^J0YIa-8'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>root-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-10</r>
+    <r>Part^DK76eo-11</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-8</r>
+  </E>
+  <E id='Solution^J0YIa-9'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>service-api-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-d</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-12</r>
+    <r>Part^DK76eo-13</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-d</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-9</r>
+  </E>
+  <E id='Dependency^rgPfY-0'>
+   <s p='artifactId'>async-api</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-2</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-a</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-0</r>
+  </E>
+  <E id='Part^DK76eo-0'>
+   <s p='artifactId'>async-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\async-api\2.0.2\async-api-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-0</r>
+   <r p='version'>Version^DN8CVx-0</r>
+  </E>
+  <E id='Part^DK76eo-1'>
+   <s p='artifactId'>async-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\async-api\2.0.2\async-api-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1</r>
+   <r p='version'>Version^DN8CVx-0</r>
+  </E>
+  <E id='Version^DN8CVx-0'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-0</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-0</r>
+    <r>NumericVersionPart^D9duCn-1</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1</r>
+    <r>NumericVersionPart^D9duCn-2</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-1'>
+   <s p='artifactId'>common-api</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-2</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-b</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-1</r>
+  </E>
+  <E id='Part^DK76eo-2'>
+   <s p='artifactId'>common-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\common-api\2.0.6\common-api-2.0.6.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2</r>
+   <r p='version'>Version^DN8CVx-1</r>
+  </E>
+  <E id='Part^DK76eo-3'>
+   <s p='artifactId'>common-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\common-api\2.0.6\common-api-2.0.6.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-3</r>
+   <r p='version'>Version^DN8CVx-1</r>
+  </E>
+  <E id='Version^DN8CVx-1'>
+   <s p='originalVersionString'>2.0.6</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-3</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2</r>
+    <r>NumericVersionPart^D9duCn-4</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3</r>
+    <r>NumericVersionPart^D9duCn-5</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-2'>
+   <s p='artifactId'>gm-core-api</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.gm</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-8</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-c</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-2</r>
+  </E>
+  <E id='Part^DK76eo-4'>
+   <s p='artifactId'>gm-core-api</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\gm-core-api\2.0.36-pc\gm-core-api-2.0.36-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-4</r>
+   <r p='version'>Version^DN8CVx-2</r>
+  </E>
+  <E id='Part^DK76eo-5'>
+   <s p='artifactId'>gm-core-api</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\gm-core-api\2.0.36-pc\gm-core-api-2.0.36-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-5</r>
+   <r p='version'>Version^DN8CVx-2</r>
+  </E>
+  <E id='Version^DN8CVx-2'>
+   <s p='originalVersionString'>2.0.36-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-6</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-4</r>
+    <r>NumericVersionPart^D9duCn-7</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-5</r>
+    <r>NumericVersionPart^D9duCn-8</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-0</r>
+    <r>AlphaNumericVersionPart^z$hNV-0</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-3'>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-1</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-d</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-3</r>
+  </E>
+  <E id='Dependency^rgPfY-4'>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-2</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-e</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-4</r>
+  </E>
+  <E id='Dependency^rgPfY-5'>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-0</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-f</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-5</r>
+  </E>
+  <E id='Part^DK76eo-6'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-6</r>
+   <r p='version'>Version^DN8CVx-3</r>
+  </E>
+  <E id='Part^DK76eo-7'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-7</r>
+   <r p='version'>Version^DN8CVx-3</r>
+  </E>
+  <E id='Version^DN8CVx-3'>
+   <s p='originalVersionString'>2.0.4</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-9</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-6</r>
+    <r>NumericVersionPart^D9duCn-a</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-7</r>
+    <r>NumericVersionPart^D9duCn-b</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-6'>
+   <s p='artifactId'>logging</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-2</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-10</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-6</r>
+  </E>
+  <E id='Dependency^rgPfY-7'>
+   <s p='artifactId'>logging</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-6</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-11</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-7</r>
+  </E>
+  <E id='Part^DK76eo-8'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-8</r>
+   <r p='version'>Version^DN8CVx-4</r>
+  </E>
+  <E id='Part^DK76eo-9'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-9</r>
+   <r p='version'>Version^DN8CVx-4</r>
+  </E>
+  <E id='Version^DN8CVx-4'>
+   <s p='originalVersionString'>2.0.6</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-c</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-8</r>
+    <r>NumericVersionPart^D9duCn-d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-9</r>
+    <r>NumericVersionPart^D9duCn-e</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-8'>
+   <s p='artifactId'>logging-ndc</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-4</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-12</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-8</r>
+  </E>
+  <E id='Part^DK76eo-a'>
+   <s p='artifactId'>logging-ndc</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging-ndc\2.0.2\logging-ndc-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-a</r>
+   <r p='version'>Version^DN8CVx-5</r>
+  </E>
+  <E id='Part^DK76eo-b'>
+   <s p='artifactId'>logging-ndc</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging-ndc\2.0.2\logging-ndc-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-b</r>
+   <r p='version'>Version^DN8CVx-5</r>
+  </E>
+  <E id='Version^DN8CVx-5'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-a</r>
+    <r>NumericVersionPart^D9duCn-10</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-b</r>
+    <r>NumericVersionPart^D9duCn-11</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-9'>
+   <s p='artifactId'>platform-exceptions</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.common</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-0</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-13</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-9</r>
+  </E>
+  <E id='Part^DK76eo-c'>
+   <s p='artifactId'>platform-exceptions</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\platform-exceptions\2.0.2\platform-exceptions-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-c</r>
+   <r p='version'>Version^DN8CVx-6</r>
+  </E>
+  <E id='Part^DK76eo-d'>
+   <s p='artifactId'>platform-exceptions</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\platform-exceptions\2.0.2\platform-exceptions-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-d</r>
+   <r p='version'>Version^DN8CVx-6</r>
+  </E>
+  <E id='Version^DN8CVx-6'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-12</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-c</r>
+    <r>NumericVersionPart^D9duCn-13</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-d</r>
+    <r>NumericVersionPart^D9duCn-14</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-a'>
+   <s p='artifactId'>reason-model</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.gm</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-9</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-14</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-a</r>
+  </E>
+  <E id='Part^DK76eo-e'>
+   <s p='artifactId'>reason-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\reason-model\2.0.3-pc\reason-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-e</r>
+   <r p='version'>Version^DN8CVx-7</r>
+  </E>
+  <E id='Part^DK76eo-f'>
+   <s p='artifactId'>reason-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\reason-model\2.0.3-pc\reason-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-f</r>
+   <r p='version'>Version^DN8CVx-7</r>
+  </E>
+  <E id='Version^DN8CVx-7'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-15</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-e</r>
+    <r>NumericVersionPart^D9duCn-16</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-f</r>
+    <r>NumericVersionPart^D9duCn-17</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-1</r>
+    <r>AlphaNumericVersionPart^z$hNV-1</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-b'>
+   <s p='artifactId'>root-model</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.gm</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-7</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-15</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-b</r>
+  </E>
+  <E id='Dependency^rgPfY-c'>
+   <s p='artifactId'>root-model</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.gm</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-9</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-16</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-c</r>
+  </E>
+  <E id='Part^DK76eo-10'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-10</r>
+   <r p='version'>Version^DN8CVx-8</r>
+  </E>
+  <E id='Part^DK76eo-11'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-11</r>
+   <r p='version'>Version^DN8CVx-8</r>
+  </E>
+  <E id='Version^DN8CVx-8'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-18</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-10</r>
+    <r>NumericVersionPart^D9duCn-19</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-11</r>
+    <r>NumericVersionPart^D9duCn-1a</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-2</r>
+    <r>AlphaNumericVersionPart^z$hNV-2</r>
+   </L>
+  </E>
+  <E id='Dependency^rgPfY-d'>
+   <s p='artifactId'>service-api-model</s>
+   <b p='autoDefined'>false</b>
+   <b p='excluded'>false</b>
+   <s p='groupId'>com.braintribe.gm</s>
+   <b p='isInvalid'>false</b>
+   <b p='optional'>false</b>
+   <S p='requestors'>
+    <r>Solution^J0YIa-17</r>
+   </S>
+   <s p='scope'>compile</s>
+   <S p='solutions'>
+    <r>Solution^J0YIa-18</r>
+   </S>
+   <b p='undetermined'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='versionRange'>VersionRange^B8Qtpe-d</r>
+  </E>
+  <E id='Part^DK76eo-12'>
+   <s p='artifactId'>service-api-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\service-api-model\2.0.3-pc\service-api-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-12</r>
+   <r p='version'>Version^DN8CVx-9</r>
+  </E>
+  <E id='Part^DK76eo-13'>
+   <s p='artifactId'>service-api-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\service-api-model\2.0.3-pc\service-api-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-13</r>
+   <r p='version'>Version^DN8CVx-9</r>
+  </E>
+  <E id='Version^DN8CVx-9'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-1b</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-12</r>
+    <r>NumericVersionPart^D9duCn-1c</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-13</r>
+    <r>NumericVersionPart^D9duCn-1d</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-3</r>
+    <r>AlphaNumericVersionPart^z$hNV-3</r>
+   </L>
+  </E>
+  <E id='Solution^J0YIa-a'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>async-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-0</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-14</r>
+    <r>Part^DK76eo-15</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-0</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-a</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-0'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-b</r>
+   <r p='minimum'>Version^DN8CVx-c</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-0'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-1'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-0'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-0'/>
+  <E id='NumericVersionPart^D9duCn-1'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1'/>
+  <E id='NumericVersionPart^D9duCn-2'>
+   <i p='value'>2</i>
+  </E>
+  <E id='Solution^J0YIa-b'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>common-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-1</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-16</r>
+    <r>Part^DK76eo-17</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-1</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-d</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-1'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-e</r>
+   <r p='minimum'>Version^DN8CVx-f</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-2'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-3'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-3'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2'/>
+  <E id='NumericVersionPart^D9duCn-4'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3'/>
+  <E id='NumericVersionPart^D9duCn-5'>
+   <i p='value'>6</i>
+  </E>
+  <E id='Solution^J0YIa-c'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>gm-core-api</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-2</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-18</r>
+    <r>Part^DK76eo-19</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-2</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-10</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-2'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-11</r>
+   <r p='minimum'>Version^DN8CVx-12</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-4'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-5'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-6'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-4'/>
+  <E id='NumericVersionPart^D9duCn-7'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-5'/>
+  <E id='NumericVersionPart^D9duCn-8'>
+   <i p='value'>36</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-0'/>
+  <E id='AlphaNumericVersionPart^z$hNV-0'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='Solution^J0YIa-d'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-1a</r>
+    <r>Part^DK76eo-1b</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-13</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-3'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-14</r>
+   <r p='minimum'>Version^DN8CVx-15</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='Solution^J0YIa-e'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-1c</r>
+    <r>Part^DK76eo-1d</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-16</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-4'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-17</r>
+   <r p='minimum'>Version^DN8CVx-18</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='Solution^J0YIa-f'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>jsinterop-base</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-1e</r>
+    <r>Part^DK76eo-1f</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-3</r>
+    <r>Dependency^rgPfY-4</r>
+    <r>Dependency^rgPfY-5</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-19</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-5'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-1a</r>
+   <r p='minimum'>Version^DN8CVx-1b</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-6'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-7'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-9'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-6'/>
+  <E id='NumericVersionPart^D9duCn-a'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-7'/>
+  <E id='NumericVersionPart^D9duCn-b'>
+   <i p='value'>4</i>
+  </E>
+  <E id='Solution^J0YIa-10'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>logging</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-20</r>
+    <r>Part^DK76eo-21</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-1c</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-6'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-1d</r>
+   <r p='minimum'>Version^DN8CVx-1e</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='Solution^J0YIa-11'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>logging</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-22</r>
+    <r>Part^DK76eo-23</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-6</r>
+    <r>Dependency^rgPfY-7</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-1f</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-7'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-20</r>
+   <r p='minimum'>Version^DN8CVx-21</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-8'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-9'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-c'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-8'/>
+  <E id='NumericVersionPart^D9duCn-d'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-9'/>
+  <E id='NumericVersionPart^D9duCn-e'>
+   <i p='value'>6</i>
+  </E>
+  <E id='Solution^J0YIa-12'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>logging-ndc</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-8</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-24</r>
+    <r>Part^DK76eo-25</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-8</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-22</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-8'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-23</r>
+   <r p='minimum'>Version^DN8CVx-24</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-a'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-b'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-a'/>
+  <E id='NumericVersionPart^D9duCn-10'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-b'/>
+  <E id='NumericVersionPart^D9duCn-11'>
+   <i p='value'>2</i>
+  </E>
+  <E id='Solution^J0YIa-13'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>platform-exceptions</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-9</r>
+   </L>
+   <s p='groupId'>com.braintribe.common</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-26</r>
+    <r>Part^DK76eo-27</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-9</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-25</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-9'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-26</r>
+   <r p='minimum'>Version^DN8CVx-27</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-c'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-d'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-12'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-c'/>
+  <E id='NumericVersionPart^D9duCn-13'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-d'/>
+  <E id='NumericVersionPart^D9duCn-14'>
+   <i p='value'>2</i>
+  </E>
+  <E id='Solution^J0YIa-14'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>reason-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-a</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-28</r>
+    <r>Part^DK76eo-29</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-a</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-28</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-a'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-29</r>
+   <r p='minimum'>Version^DN8CVx-2a</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-e'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-f'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-15'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-e'/>
+  <E id='NumericVersionPart^D9duCn-16'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-f'/>
+  <E id='NumericVersionPart^D9duCn-17'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-1'/>
+  <E id='AlphaNumericVersionPart^z$hNV-1'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='Solution^J0YIa-15'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>root-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-2a</r>
+    <r>Part^DK76eo-2b</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-2b</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-b'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-2c</r>
+   <r p='minimum'>Version^DN8CVx-2d</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='Solution^J0YIa-16'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>root-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-2c</r>
+    <r>Part^DK76eo-2d</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-b</r>
+    <r>Dependency^rgPfY-c</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-2e</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-c'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-2f</r>
+   <r p='minimum'>Version^DN8CVx-30</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-10'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-11'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-18'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-10'/>
+  <E id='NumericVersionPart^D9duCn-19'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-11'/>
+  <E id='NumericVersionPart^D9duCn-1a'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-2'/>
+  <E id='AlphaNumericVersionPart^z$hNV-2'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='Solution^J0YIa-17'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>job-api-model</s>
+   <b p='corrupt'>false</b>
+   <s p='groupId'>tribefire.cortex</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-31</r>
+  </E>
+  <E id='Solution^J0YIa-18'>
+   <b p='aggregator'>false</b>
+   <s p='artifactId'>service-api-model</s>
+   <b p='corrupt'>false</b>
+   <L p='dependencies'>
+    <r>Dependency^rgPfY-d</r>
+   </L>
+   <s p='groupId'>com.braintribe.gm</s>
+   <i p='hierarchyLevel'>0</i>
+   <s p='packaging'>jar</s>
+   <S p='parts'>
+    <r>Part^DK76eo-2e</r>
+    <r>Part^DK76eo-2f</r>
+   </S>
+   <S p='requestors'>
+    <r>Dependency^rgPfY-d</r>
+   </S>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <b p='unresolved'>false</b>
+   <r p='version'>Version^DN8CVx-32</r>
+  </E>
+  <E id='VersionRange^B8Qtpe-d'>
+   <b p='interval'>true</b>
+   <r p='maximum'>Version^DN8CVx-33</r>
+   <r p='minimum'>Version^DN8CVx-34</r>
+   <b p='openLower'>false</b>
+   <b p='openUpper'>true</b>
+   <s p='originalVersionRange'>[2.0,2.1)</s>
+   <b p='symbolicLatest'>false</b>
+   <b p='symbolicRelease'>false</b>
+   <b p='undefined'>false</b>
+  </E>
+  <E id='PartTuple^CUaZb$-12'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-13'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-1b'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-12'/>
+  <E id='NumericVersionPart^D9duCn-1c'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-13'/>
+  <E id='NumericVersionPart^D9duCn-1d'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-3'/>
+  <E id='AlphaNumericVersionPart^z$hNV-3'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='Part^DK76eo-14'>
+   <s p='artifactId'>async-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\async-api\2.0.2\async-api-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-14</r>
+   <r p='version'>Version^DN8CVx-a</r>
+  </E>
+  <E id='Part^DK76eo-15'>
+   <s p='artifactId'>async-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\async-api\2.0.2\async-api-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-15</r>
+   <r p='version'>Version^DN8CVx-a</r>
+  </E>
+  <E id='Version^DN8CVx-a'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-1e</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-14</r>
+    <r>NumericVersionPart^D9duCn-1f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-15</r>
+    <r>NumericVersionPart^D9duCn-20</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-b'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-21</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-16</r>
+    <r>NumericVersionPart^D9duCn-22</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-c'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-23</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-17</r>
+    <r>NumericVersionPart^D9duCn-24</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-16'>
+   <s p='artifactId'>common-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\common-api\2.0.6\common-api-2.0.6.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-16</r>
+   <r p='version'>Version^DN8CVx-d</r>
+  </E>
+  <E id='Part^DK76eo-17'>
+   <s p='artifactId'>common-api</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\common-api\2.0.6\common-api-2.0.6.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-17</r>
+   <r p='version'>Version^DN8CVx-d</r>
+  </E>
+  <E id='Version^DN8CVx-d'>
+   <s p='originalVersionString'>2.0.6</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-25</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-18</r>
+    <r>NumericVersionPart^D9duCn-26</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-19</r>
+    <r>NumericVersionPart^D9duCn-27</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-e'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-28</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1a</r>
+    <r>NumericVersionPart^D9duCn-29</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-f'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-2a</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1b</r>
+    <r>NumericVersionPart^D9duCn-2b</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-18'>
+   <s p='artifactId'>gm-core-api</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\gm-core-api\2.0.36-pc\gm-core-api-2.0.36-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-18</r>
+   <r p='version'>Version^DN8CVx-10</r>
+  </E>
+  <E id='Part^DK76eo-19'>
+   <s p='artifactId'>gm-core-api</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\gm-core-api\2.0.36-pc\gm-core-api-2.0.36-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-19</r>
+   <r p='version'>Version^DN8CVx-10</r>
+  </E>
+  <E id='Version^DN8CVx-10'>
+   <s p='originalVersionString'>2.0.36-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-2c</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1c</r>
+    <r>NumericVersionPart^D9duCn-2d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1d</r>
+    <r>NumericVersionPart^D9duCn-2e</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-4</r>
+    <r>AlphaNumericVersionPart^z$hNV-4</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-11'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-2f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1e</r>
+    <r>NumericVersionPart^D9duCn-30</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-12'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-31</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-1f</r>
+    <r>NumericVersionPart^D9duCn-32</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-1a'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1a</r>
+   <r p='version'>Version^DN8CVx-13</r>
+  </E>
+  <E id='Part^DK76eo-1b'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1b</r>
+   <r p='version'>Version^DN8CVx-13</r>
+  </E>
+  <E id='Version^DN8CVx-13'>
+   <s p='originalVersionString'>2.0.4</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-33</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-20</r>
+    <r>NumericVersionPart^D9duCn-34</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-21</r>
+    <r>NumericVersionPart^D9duCn-35</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-14'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-36</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-22</r>
+    <r>NumericVersionPart^D9duCn-37</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-15'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-38</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-23</r>
+    <r>NumericVersionPart^D9duCn-39</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-1c'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1c</r>
+   <r p='version'>Version^DN8CVx-16</r>
+  </E>
+  <E id='Part^DK76eo-1d'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1d</r>
+   <r p='version'>Version^DN8CVx-16</r>
+  </E>
+  <E id='Version^DN8CVx-16'>
+   <s p='originalVersionString'>2.0.4</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-3a</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-24</r>
+    <r>NumericVersionPart^D9duCn-3b</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-25</r>
+    <r>NumericVersionPart^D9duCn-3c</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-17'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-3d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-26</r>
+    <r>NumericVersionPart^D9duCn-3e</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-18'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-3f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-27</r>
+    <r>NumericVersionPart^D9duCn-40</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-1e'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1e</r>
+   <r p='version'>Version^DN8CVx-19</r>
+  </E>
+  <E id='Part^DK76eo-1f'>
+   <s p='artifactId'>jsinterop-base</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\jsinterop-base\2.0.4\jsinterop-base-2.0.4.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-1f</r>
+   <r p='version'>Version^DN8CVx-19</r>
+  </E>
+  <E id='Version^DN8CVx-19'>
+   <s p='originalVersionString'>2.0.4</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-41</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-28</r>
+    <r>NumericVersionPart^D9duCn-42</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-29</r>
+    <r>NumericVersionPart^D9duCn-43</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-1a'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-44</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2a</r>
+    <r>NumericVersionPart^D9duCn-45</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-1b'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-46</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2b</r>
+    <r>NumericVersionPart^D9duCn-47</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-20'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-20</r>
+   <r p='version'>Version^DN8CVx-1c</r>
+  </E>
+  <E id='Part^DK76eo-21'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-21</r>
+   <r p='version'>Version^DN8CVx-1c</r>
+  </E>
+  <E id='Version^DN8CVx-1c'>
+   <s p='originalVersionString'>2.0.6</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-48</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2c</r>
+    <r>NumericVersionPart^D9duCn-49</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2d</r>
+    <r>NumericVersionPart^D9duCn-4a</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-1d'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-4b</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2e</r>
+    <r>NumericVersionPart^D9duCn-4c</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-1e'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-4d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-2f</r>
+    <r>NumericVersionPart^D9duCn-4e</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-22'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-22</r>
+   <r p='version'>Version^DN8CVx-1f</r>
+  </E>
+  <E id='Part^DK76eo-23'>
+   <s p='artifactId'>logging</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging\2.0.6\logging-2.0.6.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-23</r>
+   <r p='version'>Version^DN8CVx-1f</r>
+  </E>
+  <E id='Version^DN8CVx-1f'>
+   <s p='originalVersionString'>2.0.6</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-4f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-30</r>
+    <r>NumericVersionPart^D9duCn-50</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-31</r>
+    <r>NumericVersionPart^D9duCn-51</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-20'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-52</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-32</r>
+    <r>NumericVersionPart^D9duCn-53</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-21'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-54</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-33</r>
+    <r>NumericVersionPart^D9duCn-55</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-24'>
+   <s p='artifactId'>logging-ndc</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging-ndc\2.0.2\logging-ndc-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-24</r>
+   <r p='version'>Version^DN8CVx-22</r>
+  </E>
+  <E id='Part^DK76eo-25'>
+   <s p='artifactId'>logging-ndc</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\logging-ndc\2.0.2\logging-ndc-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-25</r>
+   <r p='version'>Version^DN8CVx-22</r>
+  </E>
+  <E id='Version^DN8CVx-22'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-56</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-34</r>
+    <r>NumericVersionPart^D9duCn-57</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-35</r>
+    <r>NumericVersionPart^D9duCn-58</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-23'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-59</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-36</r>
+    <r>NumericVersionPart^D9duCn-5a</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-24'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-5b</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-37</r>
+    <r>NumericVersionPart^D9duCn-5c</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-26'>
+   <s p='artifactId'>platform-exceptions</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\platform-exceptions\2.0.2\platform-exceptions-2.0.2.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-26</r>
+   <r p='version'>Version^DN8CVx-25</r>
+  </E>
+  <E id='Part^DK76eo-27'>
+   <s p='artifactId'>platform-exceptions</s>
+   <s p='groupId'>com.braintribe.common</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\common\platform-exceptions\2.0.2\platform-exceptions-2.0.2.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-27</r>
+   <r p='version'>Version^DN8CVx-25</r>
+  </E>
+  <E id='Version^DN8CVx-25'>
+   <s p='originalVersionString'>2.0.2</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-5d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-38</r>
+    <r>NumericVersionPart^D9duCn-5e</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-39</r>
+    <r>NumericVersionPart^D9duCn-5f</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-26'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-60</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3a</r>
+    <r>NumericVersionPart^D9duCn-61</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-27'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-62</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3b</r>
+    <r>NumericVersionPart^D9duCn-63</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-28'>
+   <s p='artifactId'>reason-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\reason-model\2.0.3-pc\reason-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-28</r>
+   <r p='version'>Version^DN8CVx-28</r>
+  </E>
+  <E id='Part^DK76eo-29'>
+   <s p='artifactId'>reason-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\reason-model\2.0.3-pc\reason-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-29</r>
+   <r p='version'>Version^DN8CVx-28</r>
+  </E>
+  <E id='Version^DN8CVx-28'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-64</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3c</r>
+    <r>NumericVersionPart^D9duCn-65</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3d</r>
+    <r>NumericVersionPart^D9duCn-66</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-5</r>
+    <r>AlphaNumericVersionPart^z$hNV-5</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-29'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-67</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3e</r>
+    <r>NumericVersionPart^D9duCn-68</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-2a'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-69</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-3f</r>
+    <r>NumericVersionPart^D9duCn-6a</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-2a'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2a</r>
+   <r p='version'>Version^DN8CVx-2b</r>
+  </E>
+  <E id='Part^DK76eo-2b'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2b</r>
+   <r p='version'>Version^DN8CVx-2b</r>
+  </E>
+  <E id='Version^DN8CVx-2b'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-6b</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-40</r>
+    <r>NumericVersionPart^D9duCn-6c</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-41</r>
+    <r>NumericVersionPart^D9duCn-6d</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-6</r>
+    <r>AlphaNumericVersionPart^z$hNV-6</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-2c'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-6e</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-42</r>
+    <r>NumericVersionPart^D9duCn-6f</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-2d'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-70</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-43</r>
+    <r>NumericVersionPart^D9duCn-71</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-2c'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2c</r>
+   <r p='version'>Version^DN8CVx-2e</r>
+  </E>
+  <E id='Part^DK76eo-2d'>
+   <s p='artifactId'>root-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\root-model\2.0.3-pc\root-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2d</r>
+   <r p='version'>Version^DN8CVx-2e</r>
+  </E>
+  <E id='Version^DN8CVx-2e'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-72</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-44</r>
+    <r>NumericVersionPart^D9duCn-73</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-45</r>
+    <r>NumericVersionPart^D9duCn-74</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-7</r>
+    <r>AlphaNumericVersionPart^z$hNV-7</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-2f'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-75</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-46</r>
+    <r>NumericVersionPart^D9duCn-76</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-30'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-77</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-47</r>
+    <r>NumericVersionPart^D9duCn-78</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-31'>
+   <s p='originalVersionString'>3.0.5-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-79</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-48</r>
+    <r>NumericVersionPart^D9duCn-7a</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-49</r>
+    <r>NumericVersionPart^D9duCn-7b</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-8</r>
+    <r>AlphaNumericVersionPart^z$hNV-8</r>
+   </L>
+  </E>
+  <E id='Part^DK76eo-2e'>
+   <s p='artifactId'>service-api-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\service-api-model\2.0.3-pc\service-api-model-2.0.3-pc.pom</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2e</r>
+   <r p='version'>Version^DN8CVx-32</r>
+  </E>
+  <E id='Part^DK76eo-2f'>
+   <s p='artifactId'>service-api-model</s>
+   <s p='groupId'>com.braintribe.gm</s>
+   <s p='location'>C:\dev\env\vulns\artifacts\..\..\artifacts-local-repository\com\braintribe\gm\service-api-model\2.0.3-pc\service-api-model-2.0.3-pc.jar</s>
+   <b p='resolved'>false</b>
+   <b p='terminal'>false</b>
+   <r p='type'>PartTuple^CUaZb$-2f</r>
+   <r p='version'>Version^DN8CVx-32</r>
+  </E>
+  <E id='Version^DN8CVx-32'>
+   <s p='originalVersionString'>2.0.3-pc</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-7c</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-4a</r>
+    <r>NumericVersionPart^D9duCn-7d</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-4b</r>
+    <r>NumericVersionPart^D9duCn-7e</r>
+    <r>DashedDelimiterVersionPart^BMWxfc-9</r>
+    <r>AlphaNumericVersionPart^z$hNV-9</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-33'>
+   <s p='originalVersionString'>2.1</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-7f</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-4c</r>
+    <r>NumericVersionPart^D9duCn-80</r>
+   </L>
+  </E>
+  <E id='Version^DN8CVx-34'>
+   <s p='originalVersionString'>2.0</s>
+   <b p='snapshot'>false</b>
+   <b p='undefined'>false</b>
+   <L p='versionData'>
+    <r>NumericVersionPart^D9duCn-81</r>
+    <r>DottedDelimiterVersionPart^BgCiFh-4d</r>
+    <r>NumericVersionPart^D9duCn-82</r>
+   </L>
+  </E>
+  <E id='PartTuple^CUaZb$-14'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-15'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-1e'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-14'/>
+  <E id='NumericVersionPart^D9duCn-1f'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-15'/>
+  <E id='NumericVersionPart^D9duCn-20'>
+   <i p='value'>2</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-21'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-16'/>
+  <E id='NumericVersionPart^D9duCn-22'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-23'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-17'/>
+  <E id='NumericVersionPart^D9duCn-24'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-16'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-17'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-25'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-18'/>
+  <E id='NumericVersionPart^D9duCn-26'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-19'/>
+  <E id='NumericVersionPart^D9duCn-27'>
+   <i p='value'>6</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-28'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1a'/>
+  <E id='NumericVersionPart^D9duCn-29'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-2a'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1b'/>
+  <E id='NumericVersionPart^D9duCn-2b'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-18'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-19'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-2c'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1c'/>
+  <E id='NumericVersionPart^D9duCn-2d'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1d'/>
+  <E id='NumericVersionPart^D9duCn-2e'>
+   <i p='value'>36</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-4'/>
+  <E id='AlphaNumericVersionPart^z$hNV-4'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-2f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1e'/>
+  <E id='NumericVersionPart^D9duCn-30'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-31'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-1f'/>
+  <E id='NumericVersionPart^D9duCn-32'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-1a'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-1b'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-33'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-20'/>
+  <E id='NumericVersionPart^D9duCn-34'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-21'/>
+  <E id='NumericVersionPart^D9duCn-35'>
+   <i p='value'>4</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-36'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-22'/>
+  <E id='NumericVersionPart^D9duCn-37'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-38'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-23'/>
+  <E id='NumericVersionPart^D9duCn-39'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-1c'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-1d'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-3a'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-24'/>
+  <E id='NumericVersionPart^D9duCn-3b'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-25'/>
+  <E id='NumericVersionPart^D9duCn-3c'>
+   <i p='value'>4</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-3d'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-26'/>
+  <E id='NumericVersionPart^D9duCn-3e'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-3f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-27'/>
+  <E id='NumericVersionPart^D9duCn-40'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-1e'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-1f'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-41'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-28'/>
+  <E id='NumericVersionPart^D9duCn-42'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-29'/>
+  <E id='NumericVersionPart^D9duCn-43'>
+   <i p='value'>4</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-44'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2a'/>
+  <E id='NumericVersionPart^D9duCn-45'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-46'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2b'/>
+  <E id='NumericVersionPart^D9duCn-47'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-20'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-21'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-48'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2c'/>
+  <E id='NumericVersionPart^D9duCn-49'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2d'/>
+  <E id='NumericVersionPart^D9duCn-4a'>
+   <i p='value'>6</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-4b'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2e'/>
+  <E id='NumericVersionPart^D9duCn-4c'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-4d'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-2f'/>
+  <E id='NumericVersionPart^D9duCn-4e'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-22'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-23'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-4f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-30'/>
+  <E id='NumericVersionPart^D9duCn-50'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-31'/>
+  <E id='NumericVersionPart^D9duCn-51'>
+   <i p='value'>6</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-52'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-32'/>
+  <E id='NumericVersionPart^D9duCn-53'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-54'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-33'/>
+  <E id='NumericVersionPart^D9duCn-55'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-24'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-25'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-56'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-34'/>
+  <E id='NumericVersionPart^D9duCn-57'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-35'/>
+  <E id='NumericVersionPart^D9duCn-58'>
+   <i p='value'>2</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-59'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-36'/>
+  <E id='NumericVersionPart^D9duCn-5a'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-5b'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-37'/>
+  <E id='NumericVersionPart^D9duCn-5c'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-26'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-27'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-5d'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-38'/>
+  <E id='NumericVersionPart^D9duCn-5e'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-39'/>
+  <E id='NumericVersionPart^D9duCn-5f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-60'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3a'/>
+  <E id='NumericVersionPart^D9duCn-61'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-62'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3b'/>
+  <E id='NumericVersionPart^D9duCn-63'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-28'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-29'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-64'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3c'/>
+  <E id='NumericVersionPart^D9duCn-65'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3d'/>
+  <E id='NumericVersionPart^D9duCn-66'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-5'/>
+  <E id='AlphaNumericVersionPart^z$hNV-5'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-67'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3e'/>
+  <E id='NumericVersionPart^D9duCn-68'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-69'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-3f'/>
+  <E id='NumericVersionPart^D9duCn-6a'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-2a'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-2b'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-6b'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-40'/>
+  <E id='NumericVersionPart^D9duCn-6c'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-41'/>
+  <E id='NumericVersionPart^D9duCn-6d'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-6'/>
+  <E id='AlphaNumericVersionPart^z$hNV-6'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-6e'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-42'/>
+  <E id='NumericVersionPart^D9duCn-6f'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-70'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-43'/>
+  <E id='NumericVersionPart^D9duCn-71'>
+   <i p='value'>0</i>
+  </E>
+  <E id='PartTuple^CUaZb$-2c'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-2d'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-72'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-44'/>
+  <E id='NumericVersionPart^D9duCn-73'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-45'/>
+  <E id='NumericVersionPart^D9duCn-74'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-7'/>
+  <E id='AlphaNumericVersionPart^z$hNV-7'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-75'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-46'/>
+  <E id='NumericVersionPart^D9duCn-76'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-77'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-47'/>
+  <E id='NumericVersionPart^D9duCn-78'>
+   <i p='value'>0</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-79'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-48'/>
+  <E id='NumericVersionPart^D9duCn-7a'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-49'/>
+  <E id='NumericVersionPart^D9duCn-7b'>
+   <i p='value'>5</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-8'/>
+  <E id='AlphaNumericVersionPart^z$hNV-8'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='PartTuple^CUaZb$-2e'>
+   <s p='type'>pom</s>
+  </E>
+  <E id='PartTuple^CUaZb$-2f'>
+   <s p='type'>jar</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-7c'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-4a'/>
+  <E id='NumericVersionPart^D9duCn-7d'>
+   <i p='value'>0</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-4b'/>
+  <E id='NumericVersionPart^D9duCn-7e'>
+   <i p='value'>3</i>
+  </E>
+  <E id='DashedDelimiterVersionPart^BMWxfc-9'/>
+  <E id='AlphaNumericVersionPart^z$hNV-9'>
+   <s p='value'>pc</s>
+  </E>
+  <E id='NumericVersionPart^D9duCn-7f'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-4c'/>
+  <E id='NumericVersionPart^D9duCn-80'>
+   <i p='value'>1</i>
+  </E>
+  <E id='NumericVersionPart^D9duCn-81'>
+   <i p='value'>2</i>
+  </E>
+  <E id='DottedDelimiterVersionPart^BgCiFh-4d'/>
+  <E id='NumericVersionPart^D9duCn-82'>
+   <i p='value'>0</i>
+  </E>
+ </pool>
+</gm-data>

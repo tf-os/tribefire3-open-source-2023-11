@@ -1,0 +1,191 @@
+
+<html lang=en>
+<head>
+	<title>Documentation - Running an analysis via java</title>
+	
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   	<link href="https://fonts.googleapis.com/css?family=News+Cycle:400,700|Roboto:300,300i,400,400i,500,500i&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="stylesheet" href="../../../.mdoc/res/jquery.navgoco.css" type="text/css" media="screen" />
+	<link rel='stylesheet' href='../../../.mdoc/res/navigation.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/general.css'/>
+	<link rel='stylesheet' href='../../../.mdoc/res/custom.css'/>
+	<link rel="icon" href="../../../.mdoc/res/favicon.png">
+  
+	<script type="text/javascript" src="../../../.mdoc/res/jquery-latest.min.js"></script>
+	<!-- Load jquery.cookie plugin (optional) -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.cookie.min.js"></script>
+	<!-- Load jquery.navgoco plugin js and css files -->
+	<script type="text/javascript" src="../../../.mdoc/res/jquery.navgoco.min.js"></script>	
+	<link rel='stylesheet' href='../../../.mdoc/res/content.css'/>
+	
+   	<script src="../../../.mdoc/res/lunr.js"></script>
+    <script src="../../../.mdoc/res/lunr-index.js"></script>
+    
+    <link rel="stylesheet" href="../../../.mdoc/res/highlight-custom.css">
+	<script src="../../../.mdoc/res/highlight.pack.js"></script>
+	<script>hljs.highlightAll();</script>
+    
+    <script src="../../../.mdoc/res/content.js"></script>
+ 
+</head>
+<body>
+	<div class='container'>
+  <a id="skipnav" href="#main-content-start" class="non-visual-only">Skip to content</a>
+  <header class='header'>
+    <span class='home-button'><a href=../../../index.html><img src='../../../.mdoc/res/tribefire-logo-orange.svg' alt='logo'/><span class='non-visual-only'>Back to home screen</span></a></span>
+    <nav>
+	    <ul id=header-menu class=tile>
+		    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+	    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+	    </ul>
+	    
+	    <ul class='nav dark tile tiny-screen-only'>
+	    	<li class='tile'>
+	    		<a href=# class='tile'>MENU</a>
+		    	<ul>
+				    <li><a href=../../../../javadoc/index.html class='outsidelink api-link' target='_blank'>API</a></li>
+			    	<li class='ownAsset'><a href="../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html">Zarathud Documentation</a></li>
+			    </ul>
+		    </li>
+	    </ul>
+    </nav>
+	<form id=search-bar action="../../../search.html" method="get" class='tile' role='search'>
+		<div class='tile' id='search-icon'>
+			<input type=image src="../../../.mdoc/res/search.svg" value="search" alt='search icon' />
+			<label id="toggleIcon" class="switch" title="Toggle Highlighting">
+				<span class="non-visual-only">Toggle Highlighting (this takes immediate effect)</span>
+				<input type=checkbox id="toggleHighlightingCheckbox" />
+				<div class="slider"></div>
+			</label>
+		</div>
+		<label>
+			<span class="non-visual-only">Search in all documentation</span>
+	        <input class='search-input tile' placeholder="Search in documentation..." name="searchText" />
+        </label>            
+    </form>
+  </header>	  <div class='below-header'>
+	  	<a name='main-content-start' id='main-content-start'></a> 
+	  	<div class='inner-container' id='main-content-wrapper'>
+    <main id='full-content' class='content-container'>
+    	<article>
+			<h1 id="running-an-analysis-via-java"><a href="#running-an-analysis-via-java" name="running-an-analysis-via-java" class="anchor-auto-link"></a>Running an analysis via java</h1>
+<p>In order to run an analysis with Zed from Java code, all you need is to import Zed's wiring artifact and then get the runner from Wire:</p>
+<p>the wiring artifact is</p>
+<pre><code>com.braintribe.devrock.zarathud:zarathud-wrirings#[1.0,1.1)
+</code></pre>
+<pre><code class="language-java">public Pair&lt;ForensicsRating, Map&lt;FingerPrint, ForensicsRating&gt;&gt; test(String terminal) {
+	WireContext&lt;ZedRunnerContract&gt; wireContext = Wire.context( ZedRunnerWireTerminalModule.INSTANCE);
+
+	ResolvingRunnerContext rrc = ResolvingRunnerContext.T.create();
+	rrc.setTerminal( terminal);
+	rrc.setConsoleOutputVerbosity( com.braintribe.devrock.zarathud.model.context.ConsoleOutputVerbosity.verbose);
+
+	ZedWireRunner zedWireRunner = wireContext.contract().resolvingRunner( rrc);
+
+	return zedWireRunner.run();
+}
+
+</code></pre>
+<p>The pair returned contains the overall rating (the worst rating of all <a href="../forensics/forensics.html">forensics</a>) as first value and a Map of the fingerprint (see <a href="../forensics/forensics.html">forensics</a>)) with its associated rating.</p>
+
+		</article>
+		
+		<div id='tags'>
+		</div>
+	</main>
+	  
+	<div class='menu'>
+	<nav class='nav'>
+    	<input id="navFilter" class="navFilter" placeholder="Filter..." name="menuFilter" oninput="onNavFilterTextChanged()" />
+		<ul>
+			<li><a href=#>Zarathud Documentation</a>
+  <ul>
+    <li>		<a href='#' class='folder'>forensics</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/fingerprint.html' class='file'>Finger prints</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' class='file'>Forensics</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>integrations</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/ant-runner.html' class='file'>Running an analysis via ant target</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/eclipse-runner.html' class='file'>running an analysis in Eclipse</a>
+
+</li>
+    <li>		<a href='#' class='selflink file'>Running an analysis via java</a>
+
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/integrations/jinni-runner.html' class='file'>Running an analysis via Jinni</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='#' class='folder'>rationale</a>
+
+  <ul>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/rationale/rationale.html' class='file'>Rationale (mgmt redux)</a>
+
+</li>
+  </ul>
+</li>
+    <li>		<a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' class='file'>com.braintribe.devrock.zarathud:zarathud</a>
+
+</li>
+  </ul>
+			</li>
+		</ul>
+	</nav>
+	
+	<aside class='nav' id='technicalLinks'>
+	  <ul>
+		<li><a href=#>See also...</a>
+		  <ul>
+		    <li><a href=#>Incoming Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/zarathud-documentation.html' title='com.braintribe.devrock.zarathud:zarathud - Zarathud Documentation' class="file">
+					com.braintribe.devrock.zarathud:zarathud <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		    <li><a href=#>Outgoing Links</a>
+		      <ul>
+				<li><a href='../../../com.braintribe.devrock.zarathud/zarathud-documentation/forensics/forensics.html' title='Forensics - Zarathud Documentation' class="file">
+					Forensics <i> - Zarathud Documentation</i>
+				</a></li>
+			  </ul>
+			</li>
+		  </ul>
+		</li>
+	  </ul>
+	</aside>
+	</div>
+	
+	<!-- The Modal -->
+	<div id="imageModal" class="modal">
+	
+	  <!-- The Close Button -->
+	  <span class="close">&times;</span>
+	
+	  <!-- Modal Content (The Image) -->
+	  <img class="modal-content" id="modalImage">
+	
+	</div>
+	  	</div>
+	<footer>
+		<div class="buildInfo"> 
+			<span class='builtwith'>Built with jinni#2.1.568 at 30. Mai 2023 um 14:23:23 MESZ</span>
+		</div>
+	</footer>	  </div>
+	</div>
+</body>
+</html>

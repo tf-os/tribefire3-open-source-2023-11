@@ -1,0 +1,21 @@
+apiVersion: "tribefire.cloud/v1alpha1"
+kind: "TribefireRuntime"
+metadata:
+  name: minimal-demo
+  labels:
+    stage: staging
+spec:
+  domain: tribefire.local
+  databaseType: local
+  backend:
+    type: etcd
+  components:
+    - name: tribefire-services
+      type: services
+      image: docker.artifactory.server/tribefire-cloud/internal/test/operator-demo-staging-cluster-tfdemo-dev/tribefire-services
+      imageTag: 2.0-latest
+      env:
+        - name: TRIBEFIRE_CHECK_HEALTH_LEADERSHIP
+          value: "false"
+        - name: TRIBEFIRE_CHECK_HEALTH_LOCK
+          value: "false"

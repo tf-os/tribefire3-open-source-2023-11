@@ -1,0 +1,30 @@
+/* Style for Button */
+.menuBtn {
+  font-family: verdana,helvetica,arial !important;
+  font-size: 9px !important;
+  color: #111 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  opacity: 0.7;
+}
+
+.menuBtnCursor {
+  cursor: pointer !important;
+}
+
+.menuBtnHover {
+  font-family: verdana,helvetica,arial !important;
+  font-size: 9px !important;
+  color: #369 !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  opacity: 1;
+}
+
+.menuImage {
+  opacity: 0.5;
+}
+
+.menuImageHover {
+  opacity: 1;
+}

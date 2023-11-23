@@ -1,0 +1,12 @@
+com.braintribe.doc.meta.CustomDocMetaData
+title: "Zed documentation"
+
+assets: 
+  "com.braintribe.devrock.zarathud:zarathud-documentation": &1
+    displayTitle: Zed (zarathud)
+    startingPoint: zarathud-documentation.html
+  
+entrypoints:  
+  - assetId: com.braintribe.devrock.zarathud:zarathud-documentation
+    displayInfo: *1
+

@@ -1,0 +1,166 @@
+#!/bin/sh
+#set($dollar='$')
+#set($installationPath="${dollar}{CATALINA_BASE}/../..")
+
+#if(${request.tomcatServiceDescriptor})
+	#set($execname=${request.tomcatServiceDescriptor.name})
+	#set($execdisplayname=${request.tomcatServiceDescriptor.displayName})
+	#set($execuser=${request.tomcatServiceDescriptor.user})
+#end
+#if(!${execname})
+	#set($execname='tribefire')
+#end
+#if(!${execdisplayname})
+	#set($execdisplayname='Tribefire')
+#end
+#if(!${execuser})
+	#set($execuser='cortex')
+#end
+
+# chkconfig: 123 69 68
+
+### BEGIN INIT INFO
+# Provides:          ${execname}
+# Required-Start:    ${dollar}remote_fs ${dollar}syslog
+# Required-Stop:     ${dollar}remote_fs ${dollar}syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start and stop ${execdisplayname}
+# Description:       Enable ${execdisplayname} service provided by daemon.
+### END INIT INFO
+
+INSTALLATION_ROOT=.
+ECHO=/bin/echo
+TEST=`which test`
+TOMCAT_USER=${execuser}
+CURRENT_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+if [ "x${dollar}{INSTALLATION_ROOT}" == "x." ]; then
+	TOMCAT_HOME="${dollar}{CURRENT_SCRIPT_DIR}/.."
+else
+	TOMCAT_HOME="${dollar}{INSTALLATION_ROOT}/runtime/host"
+fi
+
+TOMCAT_START_SCRIPT=${dollar}TOMCAT_HOME/bin/startup.sh
+TOMCAT_STOP_SCRIPT=${dollar}TOMCAT_HOME/bin/shutdown.sh
+EXEC_BIN=${dollar}{TOMCAT_HOME}/bin/tribefire-service.sh
+SVC_NAME=${execname}
+CHK_CONFIG=/usr/sbin/chkconfig
+UPD_RC=/usr/sbin/update-rc.d
+
+if [ ! -f "${ECHO}" ]; then
+	echo "Could not find the executable '/bin/echo'"
+    exit 100
+fi
+if [ ! -f "${TEST}" ]; then
+	${dollar}ECHO "Could not find the executable 'test'"
+    exit 100
+fi
+
+${dollar}TEST -x ${dollar}TOMCAT_START_SCRIPT || exit 0
+${dollar}TEST -x ${dollar}TOMCAT_STOP_SCRIPT || exit 0
+
+start() {
+    ${dollar}ECHO -n "Starting ${dollar}{SVC_NAME}"
+    su - ${dollar}TOMCAT_USER -c "${dollar}TOMCAT_START_SCRIPT &"
+    ${dollar}ECHO "."
+}
+
+stop() {
+    ${dollar}ECHO -n "Stopping ${dollar}{SVC_NAME}"
+    su - ${dollar}TOMCAT_USER -c "${dollar}TOMCAT_STOP_SCRIPT 60 -force &"
+    while [ "${dollar}(ps -fu ${dollar}TOMCAT_USER | grep java | grep tomcat | wc -l)" -gt "0" ]; do
+        sleep 5; ${dollar}ECHO -n "."
+    done
+    ${dollar}ECHO "."
+}
+
+install() {
+    ${dollar}ECHO "Assigning execution rights to start/stop script"
+
+    if [ ! -f "${dollar}{EXEC_BIN}" ]; then
+        ${dollar}ECHO "Could not find the executable ${dollar}{EXEC_BIN}."
+        exit 1
+    fi
+
+    chmod 755 "${dollar}{EXEC_BIN}"
+
+    ${dollar}ECHO "Creating a copy of the start/stop script in /etc/init.d"
+
+    rm -f "/etc/init.d/${dollar}{SVC_NAME}"
+
+    TMP_INSTALLATION_ROOT="${dollar}{CURRENT_SCRIPT_DIR}/../../.."
+    IFS=''
+    while read line; do
+    	if [ "x${dollar}{line}" == "xINSTALLATION_ROOT=." ]; then
+    		${dollar}ECHO "INSTALLATION_ROOT=${dollar}{TMP_INSTALLATION_ROOT}" >> /etc/init.d/${dollar}{SVC_NAME}
+    	else
+    		${dollar}ECHO "${dollar}{line}" >> /etc/init.d/${dollar}{SVC_NAME}
+    	fi
+    done < "${dollar}{EXEC_BIN}"
+    chmod 755 "/etc/init.d/${dollar}{SVC_NAME}"
+
+    ${dollar}ECHO "Registering ${dollar}{SVC_NAME} as a service"
+
+    if [ -f ${dollar}{CHK_CONFIG} ]; then
+        ${dollar}ECHO "Registering ${dollar}{SVC_NAME} using ${dollar}{CHK_CONFIG}"
+        ${dollar}{CHK_CONFIG} ${dollar}{SVC_NAME} on
+    else
+        if [ -f ${dollar}{UPD_RC} ]; then
+            ${dollar}ECHO "Registering ${dollar}{SVC_NAME} using ${dollar}{UPD_RC}"
+            ${dollar}{UPD_RC} ${dollar}{SVC_NAME} defaults
+        else
+        	${dollar}ECHO "Could not register ${dollar}{SVC_NAME} as a service"
+        	exit 2
+        fi
+    fi
+
+    ${dollar}ECHO "Done with registering service ${dollar}{SVC_NAME}"
+}
+
+uninstall() {
+    ${dollar}ECHO "Unregistering ${dollar}{SVC_NAME} as a service"
+
+    if [ -f ${dollar}{CHK_CONFIG} ]; then
+        ${dollar}ECHO "Unregistering ${dollar}{SVC_NAME} using ${dollar}{CHK_CONFIG}"
+        ${dollar}{CHK_CONFIG} --del ${dollar}{SVC_NAME}
+    else
+        if [ -f ${dollar}{UPD_RC} ]; then
+            ${dollar}ECHO "Registering ${dollar}{SVC_NAME} using ${dollar}{UPD_RC}"
+            ${dollar}{UPD_RC} -f ${dollar}{SVC_NAME} remove
+        else
+        	${dollar}ECHO "Could not unregister ${dollar}{SVC_NAME} as a service"
+        	exit 2
+        fi
+    fi
+
+    ${dollar}ECHO "Removing reference in /etc/init.d"
+
+    rm -f /etc/init.d/${dollar}{SVC_NAME}
+
+    ${dollar}ECHO "Done with unregistering service ${dollar}{SVC_NAME}"
+}
+
+case "${dollar}1" in
+    install)
+        install
+        ;;
+    uninstall)
+        uninstall
+        ;;
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        stop
+        sleep 30
+        start
+        ;;
+    *)
+        ${dollar}ECHO "Usage: ${dollar}{SVC_NAME} {start|stop|restart|install|uninstall}"
+        exit 1
+esac
+exit 0
